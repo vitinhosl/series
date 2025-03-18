@@ -69,7 +69,7 @@ const seriesData = [
 // localStorage.clear();
 
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-const continues = JSON.parse(localStorage.getItem('continues')) || {};
+let continues = JSON.parse(localStorage.getItem('continues')) || {};
 let currentEpisodeIndex = 0;
 let currentSeasonIndex = 0;
 let currentSerie = null;
@@ -99,39 +99,9 @@ function renderCurrentSeries(serie) {
 
     const hasSeasons = serie.season.length > 0;
     const showDropdown = hasSeasons && (serie.season.length > 1);
-    let continueSeriesHTML = '';
-
-    const continues = JSON.parse(localStorage.getItem('continues'));
-    if (continues && continues.serieName === serie.name) {
-        let episodeText = '';
-
-        if (continues.movies) {
-            episodeText = `Filme: ${continues.episodeTitle}`;
-        } else {
-            const seasonNumber = continues.seasonIndex + 1;
-            const episodeNumber = continues.episodeIndex + 1;
-            episodeText = `T${seasonNumber} - Episódio ${episodeNumber}`;
-        }
-
-        continueSeriesHTML = `
-            <div id="continue-series">
-                <div id="continue-series-header">
-                    <p id="available-text">Continuar assistindo</p>
-                </div>
-
-                <div id="continue-series-episodes">
-                    <div id="continue-episode-button" style="background-image: url('${continues.thumb}');" onclick="openVideoOverlay('${continues.url}')">
-                        <p>${episodeText}</p>
-                        <div class="remove-button" onclick="event.stopPropagation(); removeContinueSeries()">✕</div>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
 
     const currentSeriesHTML = `
         <div id="current-series">
-            ${continueSeriesHTML}
             <div id="current-series-header">
                 <p id="available-text">${serie.season[0].movies ? 'Filmes disponíveis' : 'Episódios disponíveis'}: ${serie.season[0].episodes.length}</p>
                 ${showDropdown ? `
@@ -154,6 +124,8 @@ function renderCurrentSeries(serie) {
 
     seriesContainer.innerHTML = currentSeriesHTML;
 
+    renderContinueWatchingSection();
+
     if (showDropdown) {
         const seasonDropdown = document.getElementById('season-dropdown');
         seasonDropdown.addEventListener('change', function() {
@@ -167,18 +139,32 @@ function renderCurrentSeries(serie) {
 
             addEpisodeButtonListeners();
             updateButtonVisibility();
+            renderContinueWatchingSection();
+
+            // Aplica .active ao episódio salvo da temporada selecionada
+            const serieKey = serie.name.replace(/\s+/g, '_');
+            const seasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
+            const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
+            if (seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
+                const episodeButtons = document.querySelectorAll('#episode-button');
+                if (episodeButtons[seasonProgress.activeEpisodeIndex]) {
+                    episodeButtons[seasonProgress.activeEpisodeIndex].classList.add('active');
+                }
+            }
         });
     }
 
     addEpisodeButtonListeners();
     updateButtonVisibility();
 
-    // Verifica se há um episódio ativo salvo e aplica a classe 'active'
-    if (continues && continues.activeEpisodeIndex !== undefined) {
-        const activeEpisodeIndex = continues.activeEpisodeIndex;
+    // Aplica .active ao episódio salvo da temporada inicial
+    const serieKey = serie.name.replace(/\s+/g, '_');
+    const seasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
+    const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
+    if (seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
         const episodeButtons = document.querySelectorAll('#episode-button');
-        if (episodeButtons[activeEpisodeIndex]) {
-            episodeButtons[activeEpisodeIndex].classList.add('active');
+        if (episodeButtons[seasonProgress.activeEpisodeIndex]) {
+            episodeButtons[seasonProgress.activeEpisodeIndex].classList.add('active');
         }
     }
 }
@@ -217,27 +203,77 @@ function addEpisodeButtonListeners() {
             const seasonName = currentSerie.season[currentSeasonIndex].name;
             const episodeTitle = currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex].title;
 
-            const continues = {
-                serieName,
-                seasonName,
-                episodeTitle,
+            const progress = {
+                serieName: serieName,
+                seasonName: seasonName,
+                episodeTitle: episodeTitle,
                 episodeIndex: currentEpisodeIndex,
                 seasonIndex: currentSeasonIndex,
                 thumb: currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex].thumb || currentSerie.season[currentSeasonIndex].thumb_season,
                 url: currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex].url,
                 movies: currentSerie.season[currentSeasonIndex].movies,
-                activeEpisodeIndex: index
+                activeEpisodeIndex: index // Já está sendo salvo
             };
 
-            localStorage.setItem('continues', JSON.stringify(continues));
-
-            // Atualiza a seção "Continuar assistindo"
-            updateContinueWatchingSection(continues);
+            saveContinueProgress(progress);
+            renderContinueWatchingSection();
         });
     });
 }
 
-function openVideoOverlay(videoUrl) {
+function renderContinueWatchingSection() {
+    const seriesContainer = document.getElementById('current-series');
+    let continueSeriesElement = document.getElementById('continue-series');
+
+    if (!continueSeriesElement) {
+        continueSeriesElement = document.createElement('div');
+        continueSeriesElement.id = 'continue-series';
+        seriesContainer.insertBefore(continueSeriesElement, seriesContainer.firstChild);
+    }
+
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    const savedProgress = continues[serieKey] || {};
+
+    let episodesHTML = '';
+    Object.keys(savedProgress).forEach(seasonKey => {
+        const seasonProgress = savedProgress[seasonKey];
+        let episodeText = '';
+
+        if (seasonProgress.movies) {
+            episodeText = `Filme: ${seasonProgress.episodeTitle}`;
+        } else {
+            const seasonNumber = seasonProgress.seasonIndex + 1;
+            episodeText = `T${seasonNumber} - Episódio ${seasonProgress.episodeTitle}`;
+        }
+
+        episodesHTML += `
+            <div id="continue-episode-button" 
+                 style="background-image: url('${seasonProgress.thumb}');" 
+                 data-season-index="${seasonProgress.seasonIndex}" 
+                 data-episode-index="${seasonProgress.episodeIndex}" 
+                 onclick="openVideoOverlay('${seasonProgress.url}', ${seasonProgress.seasonIndex}, ${seasonProgress.episodeIndex})">
+                <p>${episodeText}</p>
+                <div class="remove-button" onclick="event.stopPropagation(); removeContinueSeriesSeason('${seasonKey}')">✕</div>
+            </div>
+        `;
+    });
+
+    if (!episodesHTML) {
+        continueSeriesElement.remove();
+        return;
+    }
+
+    continueSeriesElement.innerHTML = `
+        <div id="continue-series-header">
+            <p id="available-text">Continuar assistindo</p>
+        </div>
+        <div id="continue-series-episodes">
+            ${episodesHTML}
+        </div>
+    `;
+}
+
+function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeIndex = currentEpisodeIndex) {
     const videoOverlay = document.getElementById('video-overlay');
     const videoIframe = document.getElementById('video-iframe');
     const videoOverlayDropdown = document.getElementById('video-overlay-dropdown');
@@ -246,115 +282,113 @@ function openVideoOverlay(videoUrl) {
     videoOverlay.classList.remove('hidden');
     videoOverlay.classList.add('show');
 
-    // Limpa dropdowns antigos
-    const oldSeasonDropdown = document.getElementById('overlay-season-dropdown');
-    const oldEpisodesDropdown = document.getElementById('overlay-episodes-dropdown');
-    if (oldSeasonDropdown) oldSeasonDropdown.remove();
-    if (oldEpisodesDropdown) oldEpisodesDropdown.remove();
+    let overlaySeasonDropdown = document.getElementById('overlay-season-dropdown');
+    let overlayEpisodesDropdown = document.getElementById('overlay-episodes-dropdown');
 
-    // Cria novos dropdowns
-    const overlaySeasonDropdown = document.createElement('select');
-    overlaySeasonDropdown.id = 'overlay-season-dropdown';
+    // Cria os dropdowns apenas se ainda não existirem
+    if (!overlaySeasonDropdown || !overlayEpisodesDropdown) {
+        overlaySeasonDropdown = document.createElement('select');
+        overlaySeasonDropdown.id = 'overlay-season-dropdown';
 
-    const overlayEpisodesDropdown = document.createElement('select');
-    overlayEpisodesDropdown.id = 'overlay-episodes-dropdown';
+        overlayEpisodesDropdown = document.createElement('select');
+        overlayEpisodesDropdown.id = 'overlay-episodes-dropdown';
 
-    if (currentSerie && currentSerie.season.length > 1) {
-        // Preenche o dropdown de temporadas
-        currentSerie.season.forEach((season, index) => {
-            const option = document.createElement('option');
-            option.value = index;
-            option.textContent = season.name ? season.name : `Temporada ${index + 1}`;
-            overlaySeasonDropdown.appendChild(option);
-        });
-
-        // Define a temporada atual como selecionada
-        overlaySeasonDropdown.value = currentSeasonIndex;
-        videoOverlayDropdown.appendChild(overlaySeasonDropdown);
-
-        // Atualiza o dropdown de episódios com base na temporada selecionada
-        updateEpisodesDropdown(currentSeasonIndex, overlayEpisodesDropdown);
-        videoOverlayDropdown.appendChild(overlayEpisodesDropdown);
-
-        // Define o episódio atual como selecionado
-        overlayEpisodesDropdown.value = currentEpisodeIndex;
-
-        // Adiciona eventos para os dropdowns
-        overlaySeasonDropdown.addEventListener('change', function() {
-            currentSeasonIndex = parseInt(this.value, 10);
-            updateEpisodesDropdown(currentSeasonIndex, overlayEpisodesDropdown);
-            currentEpisodeIndex = 0; // Reseta para o primeiro episódio da temporada
-
-            const selectedSeason = currentSerie.season[currentSeasonIndex];
-            const firstItem = selectedSeason.episodes[currentEpisodeIndex];
-            openVideoOverlay(firstItem.url);
-
-            // Atualiza a interface
-            document.querySelectorAll('#episode-button').forEach(btn => {
-                btn.classList.remove('active');
+        if (currentSerie && currentSerie.season.length > 1) {
+            currentSerie.season.forEach((season, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = season.name ? season.name : `Temporada ${index + 1}`;
+                overlaySeasonDropdown.appendChild(option);
             });
 
-            const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${firstItem.url}"]`);
-            if (currentEpisodeButton) {
-                currentEpisodeButton.classList.add('active');
-            }
+            overlaySeasonDropdown.value = seasonIndex;
+            videoOverlayDropdown.appendChild(overlaySeasonDropdown);
 
-            renderToggleButtons(currentEpisodeButton || document.createElement('div'));
-            updateButtonVisibility();
+            updateEpisodesDropdown(seasonIndex, overlayEpisodesDropdown);
+            overlayEpisodesDropdown.value = episodeIndex;
+            videoOverlayDropdown.appendChild(overlayEpisodesDropdown);
 
-            // Atualiza a seção "Continuar assistindo"
-            const continues = {
-                serieName: currentSerie.name,
-                seasonName: selectedSeason.name,
-                episodeTitle: firstItem.title,
-                episodeIndex: currentEpisodeIndex,
-                seasonIndex: currentSeasonIndex,
-                thumb: firstItem.thumb || selectedSeason.thumb_season,
-                url: firstItem.url,
-                movies: selectedSeason.movies,
-                activeEpisodeIndex: currentEpisodeIndex
-            };
+            overlaySeasonDropdown.addEventListener('change', function() {
+                currentSeasonIndex = parseInt(this.value, 10);
+                updateEpisodesDropdown(currentSeasonIndex, overlayEpisodesDropdown);
+                currentEpisodeIndex = 0;
 
-            localStorage.setItem('continues', JSON.stringify(continues));
-            updateContinueWatchingSection(continues);
-        });
+                const selectedSeason = currentSerie.season[currentSeasonIndex];
+                const firstItem = selectedSeason.episodes[currentEpisodeIndex];
+                videoIframe.src = firstItem.url;
 
-        overlayEpisodesDropdown.addEventListener('change', function() {
-            currentEpisodeIndex = parseInt(this.value, 10);
-            const selectedSeason = currentSerie.season[currentSeasonIndex];
-            const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
+                document.querySelectorAll('#episode-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
 
-            openVideoOverlay(selectedItem.url);
+                const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${firstItem.url}"]`);
+                if (currentEpisodeButton) {
+                    currentEpisodeButton.classList.add('active');
+                }
 
-            // Atualiza a interface
-            document.querySelectorAll('#episode-button').forEach(btn => {
-                btn.classList.remove('active');
+                renderToggleButtons(currentEpisodeButton || document.createElement('div'));
+                updateButtonVisibility();
+
+                const progress = {
+                    serieName: currentSerie.name,
+                    seasonName: selectedSeason.name,
+                    episodeTitle: firstItem.title,
+                    episodeIndex: currentEpisodeIndex,
+                    seasonIndex: currentSeasonIndex,
+                    thumb: firstItem.thumb || selectedSeason.thumb_season,
+                    url: firstItem.url,
+                    movies: selectedSeason.movies,
+                    activeEpisodeIndex: currentEpisodeIndex
+                };
+
+                saveContinueProgress(progress);
+                renderContinueWatchingSection();
             });
 
-            const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${selectedItem.url}"]`);
-            if (currentEpisodeButton) {
-                currentEpisodeButton.classList.add('active');
-            }
+            overlayEpisodesDropdown.addEventListener('change', function() {
+                currentEpisodeIndex = parseInt(this.value, 10); // Atualiza o índice global
+                const selectedSeason = currentSerie.season[seasonIndex];
+                const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
 
-            renderToggleButtons(currentEpisodeButton || document.createElement('div'));
-            updateButtonVisibility();
+                videoIframe.src = selectedItem.url; // Atualiza o vídeo
+                overlayEpisodesDropdown.value = currentEpisodeIndex; // Garante que o dropdown reflita o novo episódio
 
-            // Atualiza a seção "Continuar assistindo"
-            const continues = {
-                serieName: currentSerie.name,
-                seasonName: selectedSeason.name,
-                episodeTitle: selectedItem.title,
-                episodeIndex: currentEpisodeIndex,
-                seasonIndex: currentSeasonIndex,
-                thumb: selectedItem.thumb || selectedSeason.thumb_season,
-                url: selectedItem.url,
-                movies: selectedSeason.movies,
-                activeEpisodeIndex: currentEpisodeIndex
-            };
+                // Só atualiza .active se a temporada no overlay for a mesma do #season-dropdown
+                if (seasonIndex === currentSeasonIndex) {
+                    document.querySelectorAll('#episode-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
 
-            localStorage.setItem('continues', JSON.stringify(continues));
-            updateContinueWatchingSection(continues);
-        });
+                    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${selectedItem.url}"]`);
+                    if (currentEpisodeButton) {
+                        currentEpisodeButton.classList.add('active');
+                    }
+
+                    renderToggleButtons(currentEpisodeButton || document.createElement('div'));
+                    updateButtonVisibility();
+                }
+
+                const progress = {
+                    serieName: currentSerie.name,
+                    seasonName: selectedSeason.name,
+                    episodeTitle: selectedItem.title,
+                    episodeIndex: currentEpisodeIndex,
+                    seasonIndex: seasonIndex,
+                    thumb: selectedItem.thumb || selectedSeason.thumb_season,
+                    url: selectedItem.url,
+                    movies: selectedSeason.movies,
+                    activeEpisodeIndex: currentEpisodeIndex
+                };
+
+                saveContinueProgress(progress);
+                renderContinueWatchingSection();
+            });
+        }
+    } else {
+        // Se os dropdowns já existem, apenas atualiza o vídeo, sem mexer no valor do episodes dropdown
+        overlaySeasonDropdown.value = seasonIndex;
+        updateEpisodesDropdown(seasonIndex, overlayEpisodesDropdown);
+        // Não redefine overlayEpisodesDropdown.value aqui, deixa o evento change controlar
     }
 }
 
@@ -365,11 +399,11 @@ function updateEpisodesDropdown(seasonIndex, episodesDropdown) {
     selectedSeason.episodes.forEach((item, index) => {
         const option = document.createElement('option');
         option.value = index;
-        option.textContent = item.title ? item.title : `Episódio ${index + 1}`;
+        option.textContent = item.title || `Episódio ${index + 1}`;
         episodesDropdown.appendChild(option);
     });
 
-    // Define o episódio atual como selecionado
+    // Define o valor do dropdown com base no currentEpisodeIndex
     episodesDropdown.value = currentEpisodeIndex;
 }
 
@@ -447,17 +481,21 @@ function navigateDirection(direction) {
     const seasonName = currentSerie.season[currentSeasonIndex].name;
     const episodeTitle = episode.title;
 
-    const continues = {
+    const progress = {
         serieName,
         seasonName,
         episodeTitle,
         episodeIndex: currentEpisodeIndex,
         seasonIndex: currentSeasonIndex,
         thumb: episode.thumb || currentSerie.season[currentSeasonIndex].thumb_season,
-        url: episode.url
+        url: episode.url,
+        movies: currentSeason.movies,
+        activeEpisodeIndex: currentEpisodeIndex
     };
 
-    localStorage.setItem('continues', JSON.stringify(continues));
+    saveContinueProgress(progress);
+    renderContinueWatchingSection();
+
     document.querySelectorAll('#episode-button').forEach(btn => {
         btn.classList.remove('active');
     });
@@ -481,84 +519,43 @@ function updateButtonVisibility() {
     nextButton.style.display = currentEpisodeIndex === totalItems - 1 ? 'none' : 'block';
 }
 
-function removeContinueSeries() {
-    if (currentSerie) {
-      const serieKey = currentSerie.name.replace(/\s+/g, '_');
-      const key = `continue_${serieKey}_season_${currentSeasonIndex}`;
-      localStorage.removeItem(key);
-    }
-    const continueSeriesElement = document.getElementById('continue-series');
-    if (continueSeriesElement) {
-      continueSeriesElement.remove();
-    }
-}
-
-function removeContinueSeriesItem(url) {
-    const serieKey = currentSerie.name.replace(/\s+/g, '_');
-    const key = `continue_${serieKey}_movies`;
-    let moviesArray = JSON.parse(localStorage.getItem(key)) || [];
-    moviesArray = moviesArray.filter(item => item.url !== url);
-    localStorage.setItem(key, JSON.stringify(moviesArray));
-    updateContinueWatchingSection({ movies: true });
-}
-
-function updateContinueWatchingSection(progress) {
-    const continueSeriesElement = document.getElementById('continue-series');
-    if (!continueSeriesElement) return;
-  
-    // Se for filme e quiser exibir todos os filmes salvos:
-    if (progress.movies) {
-      // Buscando o array de filmes para a série atual
-      const serieKey = currentSerie.name.replace(/\s+/g, '_');
-      const key = `continue_${serieKey}_movies`;
-      const moviesArray = JSON.parse(localStorage.getItem(key)) || [];
-  
-      let moviesHTML = moviesArray.map(item => {
-        const episodeText = `Filme: ${item.episodeTitle}`;
-        return `
-          <div id="continue-episode-button" style="background-image: url('${item.thumb}');" onclick="openVideoOverlay('${item.url}')">
-            <p>${episodeText}</p>
-            <div class="remove-button" onclick="event.stopPropagation(); removeContinueSeriesItem('${item.url}')">✕</div>
-          </div>
-        `;
-      }).join('');
-  
-      continueSeriesElement.innerHTML = `
-        <div id="continue-series-header">
-          <p id="available-text">Continuar assistindo</p>
-        </div>
-        <div id="continue-series-episodes">${moviesHTML}</div>
-      `;
-    } else {
-      // Para séries (não filmes), mostra o progresso da temporada atual
-      const episodeText = `T${progress.seasonIndex + 1} - Episódio ${parseInt(progress.episodeTitle) || progress.episodeIndex + 1}`;
-      continueSeriesElement.innerHTML = `
-        <div id="continue-series-header">
-          <p id="available-text">Continuar assistindo</p>
-        </div>
-        <div id="continue-series-episodes">
-          <div id="continue-episode-button" style="background-image: url('${progress.thumb}');" onclick="openVideoOverlay('${progress.url}')">
-            <p>${episodeText}</p>
-            <div class="remove-button" onclick="event.stopPropagation(); removeContinueSeries()">✕</div>
-          </div>
-        </div>
-      `;
-    }
-}
-
 function saveContinueProgress(progress) {
-    // Substitui espaços por underline para a chave
+    let currentContinues = JSON.parse(localStorage.getItem('continues')) || {};
     const serieKey = progress.serieName.replace(/\s+/g, '_');
-    if (progress.movies) {
-      // Para filmes, vamos salvar em um array para acumular todos os cliques
-      const key = `continue_${serieKey}_movies`;
-      let moviesArray = JSON.parse(localStorage.getItem(key)) || [];
-      moviesArray.push(progress);
-      localStorage.setItem(key, JSON.stringify(moviesArray));
-    } else {
-      // Para episódios, a chave é específica para cada temporada
-      const key = `continue_${serieKey}_season_${progress.seasonIndex}`;
-      localStorage.setItem(key, JSON.stringify(progress));
+    const seasonKey = progress.seasonName || `Temporada_${progress.seasonIndex + 1}`;
+
+    if (!currentContinues[serieKey]) {
+        currentContinues[serieKey] = {};
+    }
+
+    currentContinues[serieKey][seasonKey] = {
+        serieName: progress.serieName,
+        seasonName: progress.seasonName,
+        episodeTitle: progress.episodeTitle,
+        episodeIndex: progress.episodeIndex,
+        seasonIndex: progress.seasonIndex,
+        thumb: progress.thumb,
+        url: progress.url,
+        movies: progress.movies,
+        activeEpisodeIndex: progress.activeEpisodeIndex
+    };
+
+    continues = currentContinues; // Atualiza a variável global
+    localStorage.setItem('continues', JSON.stringify(continues));
+    console.log('Progresso salvo:', continues); // Para depuração
+}
+
+function removeContinueSeriesSeason(seasonKey) {
+    if (currentSerie) {
+        const serieKey = currentSerie.name.replace(/\s+/g, '_');
+        if (continues[serieKey] && continues[serieKey][seasonKey]) {
+            delete continues[serieKey][seasonKey];
+            if (Object.keys(continues[serieKey]).length === 0) {
+                delete continues[serieKey];
+            }
+            localStorage.setItem('continues', JSON.stringify(continues));
+            renderContinueWatchingSection(); // Re-renderiza a seção após a remoção
+        }
     }
 }
 
@@ -745,6 +742,11 @@ document.addEventListener('DOMContentLoaded', function() {
         videoOverlay.classList.remove('show');
         videoOverlay.classList.add('hidden');
         videoIframe.src = '';
+        // Remove os dropdowns para que sejam recriados na próxima abertura
+        const overlaySeasonDropdown = document.getElementById('overlay-season-dropdown');
+        const overlayEpisodesDropdown = document.getElementById('overlay-episodes-dropdown');
+        if (overlaySeasonDropdown) overlaySeasonDropdown.remove();
+        if (overlayEpisodesDropdown) overlayEpisodesDropdown.remove();
     });
 
     document.querySelectorAll('#back-button').forEach(button => {
