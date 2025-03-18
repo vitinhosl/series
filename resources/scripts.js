@@ -309,32 +309,35 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
             videoOverlayDropdown.appendChild(overlayEpisodesDropdown);
 
             overlaySeasonDropdown.addEventListener('change', function() {
-                currentSeasonIndex = parseInt(this.value, 10);
-                updateEpisodesDropdown(currentSeasonIndex, overlayEpisodesDropdown);
+                const newSeasonIndex = parseInt(this.value, 10);
+                updateEpisodesDropdown(newSeasonIndex, overlayEpisodesDropdown);
                 currentEpisodeIndex = 0;
 
-                const selectedSeason = currentSerie.season[currentSeasonIndex];
+                const selectedSeason = currentSerie.season[newSeasonIndex];
                 const firstItem = selectedSeason.episodes[currentEpisodeIndex];
                 videoIframe.src = firstItem.url;
 
-                document.querySelectorAll('#episode-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
+                // Só atualiza .active se a temporada no overlay for a mesma do #season-dropdown
+                if (newSeasonIndex === currentSeasonIndex) {
+                    document.querySelectorAll('#episode-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
 
-                const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${firstItem.url}"]`);
-                if (currentEpisodeButton) {
-                    currentEpisodeButton.classList.add('active');
+                    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${firstItem.url}"]`);
+                    if (currentEpisodeButton) {
+                        currentEpisodeButton.classList.add('active');
+                    }
+
+                    renderToggleButtons(currentEpisodeButton || document.createElement('div'));
+                    updateButtonVisibility();
                 }
-
-                renderToggleButtons(currentEpisodeButton || document.createElement('div'));
-                updateButtonVisibility();
 
                 const progress = {
                     serieName: currentSerie.name,
                     seasonName: selectedSeason.name,
                     episodeTitle: firstItem.title,
                     episodeIndex: currentEpisodeIndex,
-                    seasonIndex: currentSeasonIndex,
+                    seasonIndex: newSeasonIndex,
                     thumb: firstItem.thumb || selectedSeason.thumb_season,
                     url: firstItem.url,
                     movies: selectedSeason.movies,
@@ -346,12 +349,12 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
             });
 
             overlayEpisodesDropdown.addEventListener('change', function() {
-                currentEpisodeIndex = parseInt(this.value, 10); // Atualiza o índice global
+                currentEpisodeIndex = parseInt(this.value, 10);
                 const selectedSeason = currentSerie.season[seasonIndex];
                 const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
 
-                videoIframe.src = selectedItem.url; // Atualiza o vídeo
-                overlayEpisodesDropdown.value = currentEpisodeIndex; // Garante que o dropdown reflita o novo episódio
+                videoIframe.src = selectedItem.url;
+                overlayEpisodesDropdown.value = currentEpisodeIndex;
 
                 // Só atualiza .active se a temporada no overlay for a mesma do #season-dropdown
                 if (seasonIndex === currentSeasonIndex) {
@@ -385,7 +388,7 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
             });
         }
     } else {
-        // Se os dropdowns já existem, apenas atualiza o vídeo, sem mexer no valor do episodes dropdown
+        // Se os dropdowns já existem, apenas atualiza os valores iniciais
         overlaySeasonDropdown.value = seasonIndex;
         updateEpisodesDropdown(seasonIndex, overlayEpisodesDropdown);
         // Não redefine overlayEpisodesDropdown.value aqui, deixa o evento change controlar
