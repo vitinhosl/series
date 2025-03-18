@@ -350,14 +350,15 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 
             overlayEpisodesDropdown.addEventListener('change', function() {
                 currentEpisodeIndex = parseInt(this.value, 10);
-                const selectedSeason = currentSerie.season[seasonIndex];
+                const currentOverlaySeasonIndex = parseInt(overlaySeasonDropdown.value, 10); // Usa o valor atual do #overlay-season-dropdown
+                const selectedSeason = currentSerie.season[currentOverlaySeasonIndex];
                 const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
 
                 videoIframe.src = selectedItem.url;
                 overlayEpisodesDropdown.value = currentEpisodeIndex;
 
                 // Só atualiza .active se a temporada no overlay for a mesma do #season-dropdown
-                if (seasonIndex === currentSeasonIndex) {
+                if (currentOverlaySeasonIndex === currentSeasonIndex) {
                     document.querySelectorAll('#episode-button').forEach(btn => {
                         btn.classList.remove('active');
                     });
@@ -376,7 +377,7 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
                     seasonName: selectedSeason.name,
                     episodeTitle: selectedItem.title,
                     episodeIndex: currentEpisodeIndex,
-                    seasonIndex: seasonIndex,
+                    seasonIndex: currentOverlaySeasonIndex, // Usa o valor atual do #overlay-season-dropdown
                     thumb: selectedItem.thumb || selectedSeason.thumb_season,
                     url: selectedItem.url,
                     movies: selectedSeason.movies,
