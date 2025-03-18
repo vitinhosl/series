@@ -482,42 +482,84 @@ function updateButtonVisibility() {
 }
 
 function removeContinueSeries() {
-    localStorage.removeItem('continues');
+    if (currentSerie) {
+      const serieKey = currentSerie.name.replace(/\s+/g, '_');
+      const key = `continue_${serieKey}_season_${currentSeasonIndex}`;
+      localStorage.removeItem(key);
+    }
     const continueSeriesElement = document.getElementById('continue-series');
     if (continueSeriesElement) {
-        continueSeriesElement.remove();
+      continueSeriesElement.remove();
     }
-
-    document.querySelectorAll('#episode-button').forEach(button => {
-        //button.classList.remove('active');
-    });
 }
 
-function updateContinueWatchingSection(continues) {
+function removeContinueSeriesItem(url) {
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    const key = `continue_${serieKey}_movies`;
+    let moviesArray = JSON.parse(localStorage.getItem(key)) || [];
+    moviesArray = moviesArray.filter(item => item.url !== url);
+    localStorage.setItem(key, JSON.stringify(moviesArray));
+    updateContinueWatchingSection({ movies: true });
+}
+
+function updateContinueWatchingSection(progress) {
     const continueSeriesElement = document.getElementById('continue-series');
     if (!continueSeriesElement) return;
-
-    let episodeText = '';
-
-    if (continues.movies) {
-        episodeText = `Filme: ${continues.episodeTitle}`;
-    } else {
-        const seasonNumber = continues.seasonIndex + 1;
-        const episodeNumber = continues.episodeIndex + 1;
-        episodeText = `T${seasonNumber} - Episódio ${episodeNumber}`;
-    }
-
-    continueSeriesElement.innerHTML = `
+  
+    // Se for filme e quiser exibir todos os filmes salvos:
+    if (progress.movies) {
+      // Buscando o array de filmes para a série atual
+      const serieKey = currentSerie.name.replace(/\s+/g, '_');
+      const key = `continue_${serieKey}_movies`;
+      const moviesArray = JSON.parse(localStorage.getItem(key)) || [];
+  
+      let moviesHTML = moviesArray.map(item => {
+        const episodeText = `Filme: ${item.episodeTitle}`;
+        return `
+          <div id="continue-episode-button" style="background-image: url('${item.thumb}');" onclick="openVideoOverlay('${item.url}')">
+            <p>${episodeText}</p>
+            <div class="remove-button" onclick="event.stopPropagation(); removeContinueSeriesItem('${item.url}')">✕</div>
+          </div>
+        `;
+      }).join('');
+  
+      continueSeriesElement.innerHTML = `
         <div id="continue-series-header">
-            <p id="available-text">Continuar assistindo</p>
+          <p id="available-text">Continuar assistindo</p>
+        </div>
+        <div id="continue-series-episodes">${moviesHTML}</div>
+      `;
+    } else {
+      // Para séries (não filmes), mostra o progresso da temporada atual
+      const episodeText = `T${progress.seasonIndex + 1} - Episódio ${parseInt(progress.episodeTitle) || progress.episodeIndex + 1}`;
+      continueSeriesElement.innerHTML = `
+        <div id="continue-series-header">
+          <p id="available-text">Continuar assistindo</p>
         </div>
         <div id="continue-series-episodes">
-            <div id="continue-episode-button" style="background-image: url('${continues.thumb}');" onclick="openVideoOverlay('${continues.url}')">
-                <p>${episodeText}</p>
-                <div class="remove-button" onclick="event.stopPropagation(); removeContinueSeries()">✕</div>
-            </div>
+          <div id="continue-episode-button" style="background-image: url('${progress.thumb}');" onclick="openVideoOverlay('${progress.url}')">
+            <p>${episodeText}</p>
+            <div class="remove-button" onclick="event.stopPropagation(); removeContinueSeries()">✕</div>
+          </div>
         </div>
-    `;
+      `;
+    }
+}
+
+function saveContinueProgress(progress) {
+    // Substitui espaços por underline para a chave
+    const serieKey = progress.serieName.replace(/\s+/g, '_');
+    if (progress.movies) {
+      // Para filmes, vamos salvar em um array para acumular todos os cliques
+      const key = `continue_${serieKey}_movies`;
+      let moviesArray = JSON.parse(localStorage.getItem(key)) || [];
+      moviesArray.push(progress);
+      localStorage.setItem(key, JSON.stringify(moviesArray));
+    } else {
+      // Para episódios, a chave é específica para cada temporada
+      const key = `continue_${serieKey}_season_${progress.seasonIndex}`;
+      localStorage.setItem(key, JSON.stringify(progress));
+    }
 }
 
 //INICIO
