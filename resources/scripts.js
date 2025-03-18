@@ -278,7 +278,19 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
     const videoIframe = document.getElementById('video-iframe');
     const videoOverlayDropdown = document.getElementById('video-overlay-dropdown');
 
-    videoIframe.src = videoUrl;
+    // Verifica o localStorage para a temporada inicial
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    const seasonKey = `continue_${serieKey}_season_${seasonIndex}`;
+    const savedProgress = JSON.parse(localStorage.getItem(seasonKey));
+    let initialEpisodeIndex = episodeIndex;
+
+    if (savedProgress && savedProgress.episodeIndex !== undefined) {
+        initialEpisodeIndex = savedProgress.episodeIndex; // Usa o episódio salvo, se existir
+    }
+
+    const initialSeason = currentSerie.season[seasonIndex];
+    const initialItem = initialSeason.episodes[initialEpisodeIndex];
+    videoIframe.src = initialItem.url; // Carrega o vídeo inicial com base no progresso salvo
     videoOverlay.classList.remove('hidden');
     videoOverlay.classList.add('show');
 
@@ -305,17 +317,30 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
             videoOverlayDropdown.appendChild(overlaySeasonDropdown);
 
             updateEpisodesDropdown(seasonIndex, overlayEpisodesDropdown);
-            overlayEpisodesDropdown.value = episodeIndex;
+            overlayEpisodesDropdown.value = initialEpisodeIndex;
             videoOverlayDropdown.appendChild(overlayEpisodesDropdown);
 
             overlaySeasonDropdown.addEventListener('change', function() {
                 const newSeasonIndex = parseInt(this.value, 10);
-                updateEpisodesDropdown(newSeasonIndex, overlayEpisodesDropdown);
-                currentEpisodeIndex = 0;
+                const serieKey = currentSerie.name.replace(/\s+/g, '_');
+                // Usa o nome da temporada salvo ou cria um nome padrão
+                const seasonKey = currentSerie.season[newSeasonIndex].name || `Temporada_${newSeasonIndex + 1}`;
+                // Busca o progresso salvo usando o objeto continues
+                const newSavedProgress = continues[serieKey] && continues[serieKey][seasonKey];
+                
+                if (newSavedProgress && newSavedProgress.episodeIndex !== undefined) {
+                    currentEpisodeIndex = newSavedProgress.episodeIndex; // Usa o episódio salvo
+                } else {
+                    currentEpisodeIndex = 0; // Se não houver progresso, inicia no primeiro episódio
+                }
 
+                // Atualiza o dropdown de episódios com o episódio salvo
+                updateEpisodesDropdown(newSeasonIndex, overlayEpisodesDropdown);
+                overlayEpisodesDropdown.value = currentEpisodeIndex;
+                
                 const selectedSeason = currentSerie.season[newSeasonIndex];
-                const firstItem = selectedSeason.episodes[currentEpisodeIndex];
-                videoIframe.src = firstItem.url;
+                const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
+                videoIframe.src = selectedItem.url;
 
                 // Só atualiza .active se a temporada no overlay for a mesma do #season-dropdown
                 if (newSeasonIndex === currentSeasonIndex) {
@@ -323,7 +348,7 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
                         btn.classList.remove('active');
                     });
 
-                    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${firstItem.url}"]`);
+                    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${selectedItem.url}"]`);
                     if (currentEpisodeButton) {
                         currentEpisodeButton.classList.add('active');
                     }
@@ -335,11 +360,11 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
                 const progress = {
                     serieName: currentSerie.name,
                     seasonName: selectedSeason.name,
-                    episodeTitle: firstItem.title,
+                    episodeTitle: selectedItem.title,
                     episodeIndex: currentEpisodeIndex,
                     seasonIndex: newSeasonIndex,
-                    thumb: firstItem.thumb || selectedSeason.thumb_season,
-                    url: firstItem.url,
+                    thumb: selectedItem.thumb || selectedSeason.thumb_season,
+                    url: selectedItem.url,
                     movies: selectedSeason.movies,
                     activeEpisodeIndex: currentEpisodeIndex
                 };
@@ -350,7 +375,7 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 
             overlayEpisodesDropdown.addEventListener('change', function() {
                 currentEpisodeIndex = parseInt(this.value, 10);
-                const currentOverlaySeasonIndex = parseInt(overlaySeasonDropdown.value, 10); // Usa o valor atual do #overlay-season-dropdown
+                const currentOverlaySeasonIndex = parseInt(overlaySeasonDropdown.value, 10);
                 const selectedSeason = currentSerie.season[currentOverlaySeasonIndex];
                 const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
 
@@ -377,7 +402,7 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
                     seasonName: selectedSeason.name,
                     episodeTitle: selectedItem.title,
                     episodeIndex: currentEpisodeIndex,
-                    seasonIndex: currentOverlaySeasonIndex, // Usa o valor atual do #overlay-season-dropdown
+                    seasonIndex: currentOverlaySeasonIndex,
                     thumb: selectedItem.thumb || selectedSeason.thumb_season,
                     url: selectedItem.url,
                     movies: selectedSeason.movies,
