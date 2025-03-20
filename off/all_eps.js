@@ -8,6 +8,7 @@ const seriesData = [
                 thumb_buttons: ["https://i.imgur.com/qvvefLV.png"],
                 season: [
                     {
+                        name: "",
                         thumb_cards: ["https://i.imgur.com/NbtbzDU.jpeg"],
                         episodes: [
                             { number: "001", url: "https://ok.ru/videoembed/3999010458199", alternative: ["https://novelasflix.vip/storage7/ATP/ATP-001.mp4"] },
