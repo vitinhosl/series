@@ -2076,3 +2076,24 @@ const seriesData = [
         ]
     },
 ];
+
+{
+    group_name: "",
+    group: [
+        {
+            name: "",
+            thumb_page: "",
+            thumb_buttons: "",
+            season: [
+                {
+                    name: "",
+                    thumb_season: "",
+                    movies: false,
+                    episodes: [
+                        { title: "", thumb: "", url: "", alternative: [""] },
+                    ]
+                }
+            ]
+        }
+    ]
+}
