@@ -1542,7 +1542,7 @@ const ids = videos.map(v => v.href.match(/\/video\/(\d+)/)?.[1]).filter(Boolean)
 const reversedIds = ids.reverse();  // Reverte a ordem dos IDs
 reversedIds.forEach(id => console.log(`{ number: "001", url: "https://ok.ru/videoembed/${id}", alternative: [] },`));
 
-
+VITORIA MIRANDA https://ok.ru/video/9370563381993
 
 //NOVO
 const videos = [...document.querySelectorAll('a[href*="/video/"]')];
@@ -1565,9 +1565,11 @@ videos.forEach(v => {
     }
 });
 
-const reversedIdsAndTitles = Array.from(idsAndTitles.entries()).reverse(); // Reverte a ordem
+const idsAndTitlesArray = Array.from(idsAndTitles.entries());
+// const idsAndTitlesArray = Array.from(idsAndTitles.entries().reverse()); // Ordem reversa
 
-reversedIdsAndTitles.forEach(([id, title], index) => {
+idsAndTitlesArray.forEach(([id, title], index) => {
     const number = String(index + 1).padStart(3, '0');
-    console.log(`{ number: "${number}", url: "https://ok.ru/videoembed/${id}", alternative: [] }, title: "${title}",`);
+    // console.log(`{ title: "${number}", thumb: "", url: "https://ok.ru/videoembed/${id}", alternative: [] }, title: "${title}",`);
+    console.log(`url: "https://ok.ru/videoembed/${id}", title: "${title}",`);
 });

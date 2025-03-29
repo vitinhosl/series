@@ -2007,6 +2007,22 @@ const seriesData = [
                         ]
                     },
                 ]
+            },
+
+            {
+                name: "RAINHA ESTER",
+                thumb_page: "",
+                thumb_buttons: "",
+                season: [
+                    {
+                        name: "",
+                        thumb_season: "",
+                        movies: false,
+                        episodes: [
+                            { title: "", thumb: "", url: "", alternative: [""] },
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -2090,7 +2106,7 @@ const seriesData = [
                     thumb_season: "",
                     movies: false,
                     episodes: [
-                        { title: "", thumb: "", url: "", alternative: [""] },
+                        { title: "", thumb: "", url: "", alternative: [] },
                     ]
                 }
             ]
