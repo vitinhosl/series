@@ -5,7 +5,8 @@ const seriesData = [
             {
                 name: "A TERRA PROMETIDA",
                 thumb_page: "https://i.imgur.com/zXnAXED.png",
-                thumb_buttons: "https://i.imgur.com/qvvefLV.png",
+                thumb_buttons: ["https://i.imgur.com/qvvefLV.png"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -31,7 +32,8 @@ const seriesData = [
             {
                 name: "JEZABEL",
                 thumb_page: "https://i.imgur.com/fjZzqlg.pn",
-                thumb_buttons: "https://i.imgur.com/Z3WUXd9.jpeg",
+                thumb_buttons: ["https://i.imgur.com/Z3WUXd9.jpeg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -53,12 +55,13 @@ const seriesData = [
             },
 
              //O APÓSTOLO PAULO
-             {
+            {
                 name: "O APÓSTOLO PAULO",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/nlzyqHl1qBQxIwVi4pLUOAoAwhp.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/nlzyqHl1qBQxIwVi4pLUOAoAwhp.jpg", "https://pp-vod-img-aws.akamaized.net/0256021/0256021_200.jpg"],
+                badge: "EM BREVE",
                 enabled: false,
-                title: "EM BREVE",
+                title: "INDISPONÍVEL",
 
                 season: [
                     {
@@ -665,8 +668,13 @@ function renderSeriesButtons() {
             <div id="group-series-cards">
                 ${group.group.map(serie => {
                     const isFavorite = favorites.some(fav => fav.name === serie.name);
+                    const disabledClass = serie.enabled ? '' : 'disabled';
+                    const backgroundStyle = `--bg-image: url(${serie.thumb_buttons});`;
                     return `
-                    <div id="group-series-button" style="background-image: url(${serie.thumb_buttons});">
+                    <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}">
+                        ${serie.badge ? `
+                            <span class="badge">${serie.badge}</span>
+                        ` : ''}
                         <div class="info">
                             <h1>${serie.name}</h1>
                             ${serie.enabled ? (
@@ -722,7 +730,12 @@ function renderSeriesButtons() {
         button.addEventListener('click', function() {
             const serieName = this.querySelector('h1').innerText;
             const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
-    
+            
+            // Verifica se enabled é false e retorna imediatamente
+            if (!serie.enabled) {
+                return;
+            }
+
             document.getElementById('home').classList.remove('show');
             document.getElementById('home').classList.add('hidden');
             document.getElementById('series').classList.add('show');
@@ -751,8 +764,13 @@ function updateFavorites() {
             </div>
             <div id="group-series-cards">
                 ${favorites.map(serie => {
+                    const disabledClass = serie.enabled ? '' : 'disabled';
+                    const backgroundStyle = `--bg-image: url(${serie.thumb_buttons});`;
                     return `
-                    <div id="group-series-button" style="background-image: url(${serie.thumb_buttons});">
+                    <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}">
+                        ${serie.badge ? `
+                            <span class="badge">${serie.badge}</span>
+                        ` : ''}
                         <div class="info">
                             <h1>${serie.name}</h1>
                             ${serie.enabled ? (
@@ -799,7 +817,12 @@ function updateFavorites() {
             button.addEventListener('click', function() {
                 const serieName = this.querySelector('h1').innerText;
                 const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
-        
+                
+                // Verifica se enabled é false e retorna imediatamente
+                if (!serie.enabled) {
+                    return;
+                }
+
                 document.getElementById('home').classList.remove('show');
                 document.getElementById('home').classList.add('hidden');
                 document.getElementById('series').classList.add('show');
