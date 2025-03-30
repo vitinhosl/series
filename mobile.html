@@ -1,4 +1,52 @@
-//TODOS EP
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Séries</title>
+    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+
+</head>
+<body>
+
+    <div id="main" class="show">
+        <header>
+            <div id="title">
+                <h1 id="series-title" class="show">Séries</h1>
+                <h1 id="series-name" class="hidden"></h1>
+                <button id="back-button" class="hidden">&#10094;</button>
+            </div>
+        </header>
+
+        <div id="home" class="show">
+            <div id="group-continues"></div>
+            <div id="group-favorites"></div>
+            <div id="group-home"></div>
+        </div>
+
+        <div id="series" class="hidden"></div>
+
+        <div id="video-overlay" class="hidden">
+            <div id="video-container">
+              <div id="video-overlay-header">
+                  <div id="toggle-buttons-container"></div>
+                  <div id="video-overlay-dropdown"></div>
+              </div>
+              <button id="close-overlay-button"><span>✕</span></button>
+              <iframe id="video-iframe" src="" frameborder="0" allowfullscreen></iframe>
+              <button id="prev-video-button">
+                &#10094;
+                <span class="tooltip-text tooltip-top">Anterior</span>
+              </button>
+              <button id="next-video-button">
+                &#10095;
+                <span class="tooltip-text tooltip-top">Próximo</span>
+              </button>
+            </div>
+        </div>
+    </div>
+    
+<script>
 const seriesData = [
     {
         group_name: "SÉRIES BIBLÍCAS",
@@ -2171,89 +2219,1972 @@ const seriesData = [
     },
 ];
 
-//TEST
-const seriesData = [
-    {
-        group_name: "SÉRIES BIBLÍCAS",
-        group: [
-            {
-                name: "A TERRA PROMETIDA",
-                thumb_page: "https://i.imgur.com/zXnAXED.png",
-                thumb_buttons: "https://i.imgur.com/qvvefLV.png",
-                enabled: false,
-                season: [
-                    {
-                        name: "",
-                        thumb_season: "https://i.imgur.com/NbtbzDU.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "001", thumb: "", url: "https://ok.ru/videoembed/3999010458199", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-001.mp4"] },
-                            { title: "002", thumb: "", url: "https://ok.ru/videoembed/4002059586135", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-002.mp4"] },
-                            { title: "003", thumb: "", url: "https://ok.ru/videoembed/4002103364183", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-003.mp4"] },
-                            { title: "004", thumb: "", url: "https://ok.ru/videoembed/4002428291671", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-004.mp4"] },
-                            { title: "005", thumb: "", url: "https://ok.ru/videoembed/4005645257303", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-005.mp4"] },
-                            { title: "006", thumb: "", url: "https://ok.ru/videoembed/4005870111319", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-006.mp4"] },
-                            { title: "007", thumb: "", url: "https://ok.ru/videoembed/4010298575447", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-007.mp4"] },
-                            { title: "008", thumb: "", url: "https://ok.ru/videoembed/4010324462167", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-008.mp4"] },
-                            { title: "009", thumb: "", url: "https://ok.ru/videoembed/4010347989591", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-009.mp4"] },
-                            { title: "010", thumb: "", url: "https://ok.ru/videoembed/4010407037527", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-010.mp4"] },
-                        ]
-                    },
-                ],
-            },
+// localStorage.clear();
 
-            {
-                name: "JEZABEL",
-                thumb_page: "https://i.imgur.com/fjZzqlg.pn",
-                thumb_buttons: "https://i.imgur.com/Z3WUXd9.jpeg",
-                enabled: false,
-                season: [
-                    {
-                        name: "",
-                        thumb_season: "https://i.imgur.com/FWhYOfF.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "001", thumb: "", url: "https://ok.ru/videoembed/1396816284247", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-001.mp4"] },
-                            { title: "002", thumb: "", url: "https://ok.ru/videoembed/1395261246039", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-002.mp4"] },
-                            { title: "003", thumb: "", url: "https://ok.ru/videoembed/1395991382615", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-003.mp4"] },
-                            { title: "004", thumb: "", url: "https://ok.ru/videoembed/1400989289047", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-004.mp4"] },
-                            { title: "005", thumb: "", url: "https://ok.ru/videoembed/1400989289047", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-005.mp4"] },
-                            { title: "006", thumb: "", url: "https://ok.ru/videoembed/1405562128983", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-006.mp4"] },
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+let continues = JSON.parse(localStorage.getItem('continues')) || {};
+let currentEpisodeIndex = 0;
+let currentSeasonIndex = 0;
+let currentSerie = null;
 
-                        ]
-                    },
-                ],
-                
-            },
-        ]
-    },
-];
+//SERIE ATUAL
+function renderCurrentSeries(serie) {
+    const seriesContainer = document.getElementById('series');
+    const seriesNameContainer = document.getElementById('series-name');
 
-//VAZIA
-{
-    group_name: "",
-    group: [
-        {
-            name: "",
-            thumb_page: "",
-            thumb_buttons: "",
-            season: [
-                {
-                    name: "",
-                    thumb_season: "",
-                    movies: false,
-                    episodes: [
-                        { title: "", thumb: "", url: "", alternative: [] },
-                    ]
+    seriesContainer.innerHTML = '';
+    seriesNameContainer.innerHTML = '';
+
+    seriesNameContainer.innerHTML = `<h1>${serie.name}</h1>`;
+    if (serie.season.length === 0 && (!serie.movies || serie.movies.length === 0)) {
+        seriesContainer.innerHTML = `
+        <div id="current-series">
+            <div id="current-series-header">
+                <p>Nenhum episódio ou filme disponível.</p>
+            </div>
+        </div>
+        `;
+        return;
+    }
+
+    currentSerie = serie;
+    currentSeasonIndex = 0;
+
+    // Restaura o currentEpisodeIndex com base no progresso salvo
+    const serieKey = serie.name.replace(/\s+/g, '_');
+    const seasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
+    const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
+    if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
+        currentEpisodeIndex = seasonProgress.episodeIndex;
+    } else {
+        currentEpisodeIndex = 0;
+    }
+
+    const hasSeasons = serie.season.length > 0;
+    const showDropdown = hasSeasons && (serie.season.length > 1);
+
+    // Ajuste no texto do available-text para incluir o número da temporada
+    let availableText = serie.season[0].movies ? 'Filmes disponíveis' : 'Episódios disponíveis';
+    if (showDropdown) {
+        availableText = `T${currentSeasonIndex + 1} - ${availableText}`;
+    }
+    availableText += `: ${serie.season[0].episodes.length}`;
+
+    const currentSeriesHTML = `
+        <div id="current-series">
+            <div id="current-series-header">
+                <p id="available-text">${availableText}</p>
+                ${showDropdown ? `
+                    <select id="season-dropdown">
+                        ${hasSeasons ? serie.season.map((season, index) => `
+                            ${serie.season[index].name ? `
+                                <option value="season-${index}">${serie.season[index].name}</option>` 
+                            : `
+                                <option value="season-${index}">Temporada ${index + 1}</option>`
+                            }
+                        `).join('') : ''}
+                    </select>
+                ` : ''}
+            </div>
+            <div id="current-series-episodes">
+                ${renderEpisodes(serie.season[0])}
+            </div>
+        </div>
+    `;
+
+    seriesContainer.innerHTML = currentSeriesHTML;
+
+    renderContinueWatchingSection();
+
+    if (showDropdown) {
+        const seasonDropdown = document.getElementById('season-dropdown');
+        seasonDropdown.addEventListener('change', function() {
+            currentSeasonIndex = parseInt(this.value.split('-')[1], 10);
+            const selectedSeason = serie.season[currentSeasonIndex];
+
+            // Atualiza o currentEpisodeIndex com base no progresso salvo da temporada selecionada
+            const seasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
+            const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
+            if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
+                currentEpisodeIndex = seasonProgress.episodeIndex;
+            } else {
+                currentEpisodeIndex = 0;
+            }
+
+            // Ajuste no texto do available-text ao mudar de temporada
+            let updatedAvailableText = selectedSeason.movies ? 'Filmes disponíveis' : 'Episódios disponíveis';
+            updatedAvailableText = `T${currentSeasonIndex + 1} - ${updatedAvailableText}`;
+            updatedAvailableText += `: ${selectedSeason.episodes.length}`;
+            document.getElementById('available-text').innerText = updatedAvailableText;
+
+            document.getElementById('current-series-episodes').innerHTML = renderEpisodes(selectedSeason);
+
+            addEpisodeButtonListeners();
+            updateButtonVisibility();
+            renderContinueWatchingSection();
+
+            // Aplica .active ao episódio salvo da temporada selecionada
+            const episodeButtons = document.querySelectorAll('#episode-button');
+            if (seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
+                if (episodeButtons[seasonProgress.activeEpisodeIndex]) {
+                    episodeButtons[seasonProgress.activeEpisodeIndex].classList.add('active');
                 }
-            ]
+            } else if (episodeButtons[currentEpisodeIndex]) {
+                episodeButtons[currentEpisodeIndex].classList.add('active');
+            }
+        });
+    }
+
+    addEpisodeButtonListeners();
+    updateButtonVisibility();
+
+    // Aplica .active ao episódio salvo da temporada inicial
+    const episodeButtons = document.querySelectorAll('#episode-button');
+    if (seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
+        if (episodeButtons[seasonProgress.activeEpisodeIndex]) {
+            episodeButtons[seasonProgress.activeEpisodeIndex].classList.add('active');
         }
-    ]
+    } else if (episodeButtons[currentEpisodeIndex]) {
+        episodeButtons[currentEpisodeIndex].classList.add('active');
+    }
 }
 
+function renderEpisodes(season) {
+    const episodesHTML = season.episodes.map((episode, index) => `
+        <div id="episode-button" data-url="${episode.url}" data-alternative='${JSON.stringify(episode.alternative || [])}'
+            style="background-image: url('${episode.thumb ? episode.thumb : season.thumb_season}');">
+            ${!episode.title ? `
+                <p>Episódio ${index + 1}</p>` 
+            : /^\d{1,3}$/.test(episode.title.trim()) ? `
+                <p>Episódio ${parseInt(episode.title, 10)}</p>` 
+            : `
+                <p>${episode.title}</p>`
+            }
+        </div>
+    `).join('');
 
-//RESOLUÇÃO
-function updateScreenSize() {
+    return episodesHTML;
+}
+
+function addEpisodeButtonListeners() {
+    document.querySelectorAll('#episode-button').forEach((button, index) => {
+        button.addEventListener('click', function() {
+            document.querySelectorAll('#episode-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+
+            currentEpisodeIndex = index;
+
+            // Verifica se há progresso salvo para esta série e temporada
+            const serieKey = currentSerie.name.replace(/\s+/g, '_');
+            const seasonKey = currentSerie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
+            const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
+
+            // Se houver progresso salvo e for o mesmo episódio clicado, usa o índice salvo
+            if (seasonProgress && seasonProgress.episodeIndex === index) {
+                currentEpisodeIndex = seasonProgress.episodeIndex;
+            }
+
+            openVideoOverlay(this.getAttribute('data-url'));
+            renderToggleButtons(this);
+            updateButtonVisibility();
+
+            const serieName = currentSerie.name;
+            const seasonName = currentSerie.season[currentSeasonIndex].name;
+            const episodeTitle = currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex].title;
+
+            const progress = {
+                serieName: serieName,
+                seasonName: seasonName,
+                episodeTitle: episodeTitle,
+                episodeIndex: currentEpisodeIndex,
+                seasonIndex: currentSeasonIndex,
+                thumb: currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex].thumb || currentSerie.season[currentSeasonIndex].thumb_season,
+                url: currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex].url,
+                movies: currentSerie.season[currentSeasonIndex].movies,
+                activeEpisodeIndex: index
+            };
+
+            saveContinueProgress(progress);
+            renderContinueWatchingSection();
+        });
+    });
+}
+
+function renderContinueWatchingSection() {
+    const seriesContainer = document.getElementById('current-series');
+    let continueSeriesElement = document.getElementById('continue-series');
+
+    if (!continueSeriesElement) {
+        continueSeriesElement = document.createElement('div');
+        continueSeriesElement.id = 'continue-series';
+        seriesContainer.insertBefore(continueSeriesElement, seriesContainer.firstChild);
+    }
+
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    const savedProgress = continues[serieKey] || {};
+
+    let episodesHTML = '';
+    Object.keys(savedProgress).forEach(seasonKey => {
+        const seasonProgress = savedProgress[seasonKey];
+        let episodeText = '';
+
+        if (seasonProgress.movies) {
+            episodeText = `Filme: ${seasonProgress.episodeTitle}`;
+        } else {
+            const seasonNumber = seasonProgress.seasonIndex + 1;
+            episodeText = `T${seasonNumber} - Episódio ${seasonProgress.episodeTitle}`;
+        }
+
+        episodesHTML += `
+            <div id="continue-episode-button" 
+                 style="background-image: url('${seasonProgress.thumb}');" 
+                 data-season-index="${seasonProgress.seasonIndex}" 
+                 data-episode-index="${seasonProgress.episodeIndex}" 
+                 onclick="openVideoOverlay('${seasonProgress.url}', ${seasonProgress.seasonIndex}, ${seasonProgress.episodeIndex})">
+                <p>${episodeText}</p>
+                <div class="remove-button" onclick="event.stopPropagation(); removeContinueSeriesSeason('${seasonKey}')">✕</div>
+            </div>
+        `;
+    });
+
+    if (!episodesHTML) {
+        continueSeriesElement.remove();
+        return;
+    }
+
+    continueSeriesElement.innerHTML = `
+        <div id="continue-series-header">
+            <p id="available-text">Continuar assistindo</p>
+        </div>
+        <div id="continue-series-episodes">
+            ${episodesHTML}
+        </div>
+    `;
+}
+
+function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeIndex = currentEpisodeIndex) {
+    const videoOverlay = document.getElementById('video-overlay');
+    const videoIframe = document.getElementById('video-iframe');
+    const videoOverlayDropdown = document.getElementById('video-overlay-dropdown');
+
+    // Verifica o localStorage para a temporada inicial
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    const seasonKey = `continue_${serieKey}_season_${seasonIndex}`;
+    const savedProgress = JSON.parse(localStorage.getItem(seasonKey));
+    let initialEpisodeIndex = episodeIndex;
+
+    if (savedProgress && savedProgress.episodeIndex !== undefined) {
+        initialEpisodeIndex = savedProgress.episodeIndex; // Usa o episódio salvo, se existir
+    }
+
+    const initialSeason = currentSerie.season[seasonIndex];
+    const initialItem = initialSeason.episodes[initialEpisodeIndex];
+    videoIframe.src = initialItem.url; // Carrega o vídeo inicial com base no progresso salvo
+    videoOverlay.classList.remove('hidden');
+    videoOverlay.classList.add('show');
+
+    let overlaySeasonDropdown = document.getElementById('overlay-season-dropdown');
+    let overlayEpisodesDropdown = document.getElementById('overlay-episodes-dropdown');
+
+    // Cria os dropdowns apenas se ainda não existirem
+    if (!overlaySeasonDropdown || !overlayEpisodesDropdown) {
+        overlaySeasonDropdown = document.createElement('select');
+        overlaySeasonDropdown.id = 'overlay-season-dropdown';
+
+        overlayEpisodesDropdown = document.createElement('select');
+        overlayEpisodesDropdown.id = 'overlay-episodes-dropdown';
+
+        if (currentSerie && currentSerie.season.length > 1) {
+            currentSerie.season.forEach((season, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = season.name ? season.name : `Temporada ${index + 1}`;
+                overlaySeasonDropdown.appendChild(option);
+            });
+
+            overlaySeasonDropdown.value = seasonIndex;
+            videoOverlayDropdown.appendChild(overlaySeasonDropdown);
+
+            updateEpisodesDropdown(seasonIndex, overlayEpisodesDropdown);
+            overlayEpisodesDropdown.value = initialEpisodeIndex;
+            videoOverlayDropdown.appendChild(overlayEpisodesDropdown);
+
+            overlaySeasonDropdown.addEventListener('change', function() {
+                const newSeasonIndex = parseInt(this.value, 10);
+                const serieKey = currentSerie.name.replace(/\s+/g, '_');
+                // Usa o nome da temporada salvo ou cria um nome padrão
+                const seasonKey = currentSerie.season[newSeasonIndex].name || `Temporada_${newSeasonIndex + 1}`;
+                // Busca o progresso salvo usando o objeto continues
+                const newSavedProgress = continues[serieKey] && continues[serieKey][seasonKey];
+                
+                if (newSavedProgress && newSavedProgress.episodeIndex !== undefined) {
+                    currentEpisodeIndex = newSavedProgress.episodeIndex; // Usa o episódio salvo
+                } else {
+                    currentEpisodeIndex = 0; // Se não houver progresso, inicia no primeiro episódio
+                }
+
+                // Atualiza o dropdown de episódios com o episódio salvo
+                updateEpisodesDropdown(newSeasonIndex, overlayEpisodesDropdown);
+                overlayEpisodesDropdown.value = currentEpisodeIndex;
+                
+                const selectedSeason = currentSerie.season[newSeasonIndex];
+                const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
+                videoIframe.src = selectedItem.url;
+
+                // Só atualiza .active se a temporada no overlay for a mesma do #season-dropdown
+                if (newSeasonIndex === currentSeasonIndex) {
+                    document.querySelectorAll('#episode-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+
+                    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${selectedItem.url}"]`);
+                    if (currentEpisodeButton) {
+                        currentEpisodeButton.classList.add('active');
+                    }
+
+                    renderToggleButtons(currentEpisodeButton || document.createElement('div'));
+                    updateButtonVisibility();
+                }
+
+                const progress = {
+                    serieName: currentSerie.name,
+                    seasonName: selectedSeason.name,
+                    episodeTitle: selectedItem.title,
+                    episodeIndex: currentEpisodeIndex,
+                    seasonIndex: newSeasonIndex,
+                    thumb: selectedItem.thumb || selectedSeason.thumb_season,
+                    url: selectedItem.url,
+                    movies: selectedSeason.movies,
+                    activeEpisodeIndex: currentEpisodeIndex
+                };
+
+                saveContinueProgress(progress);
+                renderContinueWatchingSection();
+            });
+
+            overlayEpisodesDropdown.addEventListener('change', function() {
+                currentEpisodeIndex = parseInt(this.value, 10);
+                const currentOverlaySeasonIndex = parseInt(overlaySeasonDropdown.value, 10);
+                const selectedSeason = currentSerie.season[currentOverlaySeasonIndex];
+                const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
+
+                videoIframe.src = selectedItem.url;
+                overlayEpisodesDropdown.value = currentEpisodeIndex;
+
+                // Só atualiza .active se a temporada no overlay for a mesma do #season-dropdown
+                if (currentOverlaySeasonIndex === currentSeasonIndex) {
+                    document.querySelectorAll('#episode-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+
+                    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${selectedItem.url}"]`);
+                    if (currentEpisodeButton) {
+                        currentEpisodeButton.classList.add('active');
+                    }
+
+                    renderToggleButtons(currentEpisodeButton || document.createElement('div'));
+                    updateButtonVisibility();
+                }
+
+                const progress = {
+                    serieName: currentSerie.name,
+                    seasonName: selectedSeason.name,
+                    episodeTitle: selectedItem.title,
+                    episodeIndex: currentEpisodeIndex,
+                    seasonIndex: currentOverlaySeasonIndex,
+                    thumb: selectedItem.thumb || selectedSeason.thumb_season,
+                    url: selectedItem.url,
+                    movies: selectedSeason.movies,
+                    activeEpisodeIndex: currentEpisodeIndex
+                };
+
+                saveContinueProgress(progress);
+                renderContinueWatchingSection();
+            });
+        }
+    } else {
+        // Se os dropdowns já existem, apenas atualiza os valores iniciais
+        overlaySeasonDropdown.value = seasonIndex;
+        updateEpisodesDropdown(seasonIndex, overlayEpisodesDropdown);
+        // Não redefine overlayEpisodesDropdown.value aqui, deixa o evento change controlar
+    }
+}
+
+function updateEpisodesDropdown(seasonIndex, episodesDropdown) {
+    episodesDropdown.innerHTML = '';
+
+    const selectedSeason = currentSerie.season[seasonIndex];
+    selectedSeason.episodes.forEach((item, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = item.title || `Episódio ${index + 1}`;
+        episodesDropdown.appendChild(option);
+    });
+
+    // Define o valor do dropdown com base no currentEpisodeIndex
+    episodesDropdown.value = currentEpisodeIndex;
+}
+
+function renderToggleButtons(button) {
+    const toggleButtonsContainer = document.getElementById('toggle-buttons-container');
+    toggleButtonsContainer.innerHTML = '';
+
+    let mainUrl = button.getAttribute('data-url');
+    let alternatives = JSON.parse(button.getAttribute('data-alternative'));
+
+    // Se o mainUrl estiver vazio e houver alternativas, usa a primeira alternativa como principal
+    if ((!mainUrl || mainUrl.trim() === "") && alternatives.length > 0) {
+        mainUrl = alternatives.shift();
+    }
+
+    // Função para atualizar o botão ativo e o overlay
+    const updateActiveButton = (activeUrl) => {
+        document.querySelectorAll('.toggle-button').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-url') === activeUrl);
+        });
+        const videoIframe = document.getElementById('video-iframe');
+        videoIframe.src = activeUrl; // Atualiza o overlay com o URL ativo
+    };
+
+    // Botão principal
+    let mainButton = null;
+    if (mainUrl) {
+        mainButton = document.createElement('button');
+        mainButton.innerText = 'PRINCIPAL';
+        mainButton.classList.add('toggle-button', 'active');
+        mainButton.setAttribute('data-url', mainUrl);
+        mainButton.addEventListener('click', () => {
+            updateActiveButton(mainUrl);
+        });
+        toggleButtonsContainer.appendChild(mainButton);
+    }
+
+    // Botões alternativos
+    alternatives.forEach((altUrl, index) => {
+        const altButton = document.createElement('button');
+        altButton.innerText = `OPÇÃO ${index + 2}`;
+        altButton.setAttribute('data-url', altUrl);
+        altButton.classList.add('toggle-button');
+        altButton.addEventListener('click', () => {
+            updateActiveButton(altUrl);
+        });
+        toggleButtonsContainer.appendChild(altButton);
+    });
+
+    // Se houver apenas o botão principal sem alternativas, oculta-o
+    if (mainButton && alternatives.length === 0) {
+        mainButton.style.display = 'none';
+    }
+
+    // Inicializa o overlay com o URL principal (ou o primeiro disponível)
+    const initialUrl = mainUrl || (alternatives.length > 0 ? alternatives[0] : '');
+    if (initialUrl) {
+        updateActiveButton(initialUrl);
+    }
+}
+
+function navigateDirection(direction) {
+    const currentSeason = currentSerie.season[currentSeasonIndex];
+    const totalItems = currentSeason.episodes.length;
+
+    // Antes de navegar, verifica o progresso salvo para garantir que currentEpisodeIndex está correto
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    const seasonKey = currentSerie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
+    const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
+    if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
+        currentEpisodeIndex = seasonProgress.episodeIndex; // Restaura o índice salvo
+    }
+
+    if (direction === 'prev' && currentEpisodeIndex > 0) {
+        currentEpisodeIndex--;
+    } else if (direction === 'next' && currentEpisodeIndex < totalItems - 1) {
+        currentEpisodeIndex++;
+    } else {
+        return;
+    }
+
+    const episodesDropdown = document.getElementById('overlay-episodes-dropdown');
+    if (episodesDropdown) {
+        episodesDropdown.value = currentEpisodeIndex;
+    }
+
+    const episode = currentSeason.episodes[currentEpisodeIndex];
+    openVideoOverlay(episode.url);
+
+    const serieName = currentSerie.name;
+    const seasonName = currentSerie.season[currentSeasonIndex].name;
+    const episodeTitle = episode.title;
+
+    const progress = {
+        serieName,
+        seasonName,
+        episodeTitle,
+        episodeIndex: currentEpisodeIndex,
+        seasonIndex: currentSeasonIndex,
+        thumb: episode.thumb || currentSerie.season[currentSeasonIndex].thumb_season,
+        url: episode.url,
+        movies: currentSeason.movies,
+        activeEpisodeIndex: currentEpisodeIndex
+    };
+
+    saveContinueProgress(progress);
+    renderContinueWatchingSection();
+
+    document.querySelectorAll('#episode-button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${episode.url}"]`);
+    if (currentEpisodeButton) {
+        currentEpisodeButton.classList.add('active');
+    }
+
+    renderToggleButtons(currentEpisodeButton || document.querySelector(`#episode-button[data-url="${episode.url}"]`));
+    updateButtonVisibility();
+}
+
+function updateButtonVisibility() {
+    const prevButton = document.getElementById('prev-video-button');
+    const nextButton = document.getElementById('next-video-button');
+    const currentSeason = currentSerie.season[currentSeasonIndex];
+    const totalItems = currentSeason.episodes.length;
+
+    prevButton.style.display = currentEpisodeIndex === 0 ? 'none' : 'block';
+    nextButton.style.display = currentEpisodeIndex === totalItems - 1 ? 'none' : 'block';
+}
+
+function saveContinueProgress(progress) {
+    let currentContinues = JSON.parse(localStorage.getItem('continues')) || {};
+    const serieKey = progress.serieName.replace(/\s+/g, '_');
+    const seasonKey = progress.seasonName || `Temporada_${progress.seasonIndex + 1}`;
+
+    if (!currentContinues[serieKey]) {
+        currentContinues[serieKey] = {};
+    }
+
+    currentContinues[serieKey][seasonKey] = {
+        serieName: progress.serieName,
+        seasonName: progress.seasonName,
+        episodeTitle: progress.episodeTitle,
+        episodeIndex: progress.episodeIndex,
+        seasonIndex: progress.seasonIndex,
+        thumb: progress.thumb,
+        url: progress.url,
+        movies: progress.movies,
+        activeEpisodeIndex: progress.activeEpisodeIndex
+    };
+
+    continues = currentContinues; // Atualiza a variável global
+    localStorage.setItem('continues', JSON.stringify(continues));
+    console.log('Progresso salvo:', continues); // Para depuração
+}
+
+function removeContinueSeriesSeason(seasonKey) {
+    if (currentSerie) {
+        const serieKey = currentSerie.name.replace(/\s+/g, '_');
+        if (continues[serieKey] && continues[serieKey][seasonKey]) {
+            delete continues[serieKey][seasonKey];
+            if (Object.keys(continues[serieKey]).length === 0) {
+                delete continues[serieKey];
+            }
+            localStorage.setItem('continues', JSON.stringify(continues));
+            renderContinueWatchingSection(); // Re-renderiza a seção após a remoção
+        }
+    }
+}
+
+//INICIO
+function renderSeriesButtons() {
+    const groupHome = document.getElementById('group-home');
+    groupHome.innerHTML = '';
+
+    seriesData.forEach(group => {
+        const groupSeriesHTML = `
+        <div id="group-series">
+            <div id="group-series-header">
+                <h2>${group.group_name}</h2>
+            </div>
+            <div id="group-series-cards">
+                ${group.group.map(serie => {
+                    const isFavorite = favorites.some(fav => fav.name === serie.name);
+                    return `
+                    <div id="group-series-button" style="background-image: url(${serie.thumb_buttons});">
+                        <div class="info">
+                            <h1>${serie.name}</h1>
+                            ${serie.enabled ? (
+                                serie.season.length > 0 ? `
+                                    ${serie.season.some(season => season.movies) ? `
+                                        <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
+                                        <p>Temporadas: ${serie.season.filter(season => !season.movies).length}</p>
+                                    ` : `
+                                        <p>Temporadas: ${serie.season.length}</p>
+                                    `}
+                                    <p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
+                                ` : `
+                                    <p>Nenhum conteúdo disponível</p>
+                                `
+                            ) : ``}
+                            ${serie.enabled ? `
+                                <button class="watch-button">ASSISTIR</button>
+                            ` : `
+                                <button class="watch-button">${serie.title || 'EM BREVE'}</button>
+                            `}
+                        </div>
+                        <button class="favorite-button ${isFavorite ? 'active' : ''}" data-serie='${JSON.stringify(serie)}'>
+                            ${isFavorite ? '★' : '☆'}
+                            <span class="tooltip-text black tooltip-top">${isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}</span>
+                        </button>
+                    </div>
+                    `;
+                }).join('')}
+            </div>
+        </div>`;
+        groupHome.innerHTML += groupSeriesHTML;
+    });
+
+    document.querySelectorAll('.favorite-button').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const serie = JSON.parse(this.getAttribute('data-serie'));
+            const isFavorite = this.classList.contains('active');
+
+            if (isFavorite) {
+                removeFavorite(serie);
+            } else {
+                saveFavorite(serie);
+            }
+
+            this.classList.toggle('active');
+            this.innerHTML = this.classList.contains('active') ? '★ <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>' : '☆ <span class="tooltip-text black tooltip-top">Adicionar aos favoritos</span>';
+            updateFavorites();
+        });
+    });
+
+    document.querySelectorAll('#group-series-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const serieName = this.querySelector('h1').innerText;
+            const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
+    
+            document.getElementById('home').classList.remove('show');
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('series').classList.add('show');
+            document.getElementById('series').classList.remove('hidden');
+            document.getElementById('series-title').classList.remove('show');
+            document.getElementById('series-title').classList.add('hidden');
+            document.getElementById('series-name').classList.remove('hidden');
+            document.getElementById('series-name').classList.add('show');
+            document.getElementById('back-button').classList.remove('hidden');
+            document.getElementById('back-button').classList.add('show');
+
+            renderCurrentSeries(serie);
+        });
+    });
+}
+
+function updateFavorites() {
+    const groupFavorites = document.getElementById('group-favorites');
+    groupFavorites.innerHTML = '';
+
+    if (favorites.length > 0) {
+        const favoritesHTML = `
+        <div id="group-series">
+            <div id="group-series-header">
+                <h3>FAVORITOS ★☆</h3>
+            </div>
+            <div id="group-series-cards">
+                ${favorites.map(serie => {
+                    return `
+                    <div id="group-series-button" style="background-image: url(${serie.thumb_buttons});">
+                        <div class="info">
+                            <h1>${serie.name}</h1>
+                            ${serie.enabled ? (
+                                serie.season.length > 0 ? `
+                                    ${serie.season.some(season => season.movies) ? `
+                                        <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
+                                        <p>Temporadas: ${serie.season.filter(season => !season.movies).length}</p>
+                                    ` : `
+                                        <p>Temporadas: ${serie.season.length}</p>
+                                    `}
+                                    <p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
+                                ` : `
+                                    <p>Nenhum conteúdo disponível</p>
+                                `
+                            ) : ``}
+                            ${serie.enabled ? `
+                                <button class="watch-button">ASSISTIR</button>
+                            ` : `
+                                <button class="watch-button">${serie.title || 'EM BREVE'}</button>
+                            `}
+                        </div>
+                        <button class="favorite-button active" data-serie='${JSON.stringify(serie)}'>
+                            ★
+                            <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>
+                        </button>
+                    </div>
+                    `;
+                }).join('')}
+            </div>
+        </div>`;
+        groupFavorites.innerHTML = favoritesHTML;
+
+        document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.stopPropagation();
+                const serie = JSON.parse(this.getAttribute('data-serie'));
+                removeFavorite(serie);
+                updateFavorites();
+                renderSeriesButtons();
+            });
+        });
+
+        document.querySelectorAll('#group-series-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const serieName = this.querySelector('h1').innerText;
+                const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
+        
+                document.getElementById('home').classList.remove('show');
+                document.getElementById('home').classList.add('hidden');
+                document.getElementById('series').classList.add('show');
+                document.getElementById('series').classList.remove('hidden');
+                document.getElementById('series-title').classList.remove('show');
+                document.getElementById('series-title').classList.add('hidden');
+                document.getElementById('series-name').classList.remove('hidden');
+                document.getElementById('series-name').classList.add('show');
+                document.getElementById('back-button').classList.remove('hidden');
+                document.getElementById('back-button').classList.add('show');
+
+                renderCurrentSeries(serie);
+            });
+        });
+    }
+}
+
+function saveFavorite(serie) {
+    if (!favorites.some(fav => fav.name === serie.name)) {
+        favorites.push(serie);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+}
+
+function removeFavorite(serie) {
+    favorites = favorites.filter(fav => fav.name !== serie.name);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderSeriesButtons();
+    updateFavorites();
+
+    document.getElementById('prev-video-button').addEventListener('click', function() {
+        navigateDirection('prev');
+    });
+    
+    document.getElementById('next-video-button').addEventListener('click', function() {
+        navigateDirection('next');
+    });
+
+    document.getElementById('close-overlay-button').addEventListener('click', function() {
+        const videoOverlay = document.getElementById('video-overlay');
+        const videoIframe = document.getElementById('video-iframe');
+        videoOverlay.classList.remove('show');
+        videoOverlay.classList.add('hidden');
+        videoIframe.src = '';
+        // Remove os dropdowns para que sejam recriados na próxima abertura
+        const overlaySeasonDropdown = document.getElementById('overlay-season-dropdown');
+        const overlayEpisodesDropdown = document.getElementById('overlay-episodes-dropdown');
+        if (overlaySeasonDropdown) overlaySeasonDropdown.remove();
+        if (overlayEpisodesDropdown) overlayEpisodesDropdown.remove();
+    });
+
+    document.querySelectorAll('#back-button').forEach(button => {
+        button.addEventListener('click', function() {
+            document.getElementById('home').classList.remove('hidden');
+            document.getElementById('home').classList.add('show');
+            document.getElementById('series').classList.add('hidden');
+            document.getElementById('series').classList.remove('show');
+            document.getElementById('series-title').classList.remove('hidden');
+            document.getElementById('series-title').classList.add('show');
+            document.getElementById('series-title').classList.remove('hidden');
+            document.getElementById('series-name').classList.remove('show');
+            document.getElementById('series-name').classList.add('hidden');
+            document.getElementById('back-button').classList.remove('show');
+            document.getElementById('back-button').classList.add('hidden');
+        });
+    });
+});
+
+</script>
+
+<style>
+   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+html, body {
+    overflow-x: hidden;
+    width: 100vw;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-color: rgb(18, 22, 29);
+    color: white;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+#intro {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: flex-end;
+    background-image: 
+        radial-gradient(circle, rgba(18, 22, 29, 0.8), rgba(1, 10, 15, 1.0) 100%), 
+        url('https://i.imgur.com/jnB508u.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+#intro h2 {
+
+}
+
+#intro button {
+    width: 250px;
+    height: 80px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+    /* padding: 20px; */
+    font-size: 25px;
+    outline: none;
+    border: solid 2px rgb(255, 2, 102);;
+    background: rgb(187, 0, 73, 0.7);
+    color: rgb(233, 244, 251);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#intro button:hover {
+    background: rgb(255, 2, 102);
+    color: rgb(250, 244, 237);
+}
+
+header {
+    background-color: rgb(237, 0, 73);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+header h1 {
+    font-size: 36px;
+    color: rgb(233, 244, 251);
+    transition: all 0.3s ease;
+}
+
+#main {
+    /* width: 100%; */
+    /* height: 100vh; */
+    /* display: flex; */
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.show2 {
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.show {
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: all 0.3s;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+#title {
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#back-button {
+    background-color: rgb(18, 22, 29, 0.9);
+    color: rgb(233, 244, 251);
+    border: none;
+    padding-right: 2px;
+    font-size: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    line-height: 50px;
+    transform: translateY(-50%);
+    /* display: none; */
+    width: 50px; 
+    height: 50px; 
+    text-align: center;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+#back-button.visible {
+    display: inline-block;
+}
+
+#back-button:hover {
+    background-color: rgba(80, 88, 100, 0.8);
+}
+
+#series,
+#home {
+    opacity: 1;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+    visibility: visible;
+    transition: all 0.3s;
+}
+
+#series.hidden,
+#home.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0s;
+    transition: all 0.3s;
+}
+
+/* #carousel::before, #carousel::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+} */
+
+#carousel-effect-left, #carousel-effect-right {
+    position: absolute;
+    top: 0;
+    /* width: 400px; */
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 6px;
+}
+
+#carousel-effect-left {
+    left: 0;
+    /* background: linear-gradient(to left, rgb(1, 10, 15, 0.0) 0%, rgba(1, 10, 15, 0.5) 100%); */
+}
+
+#carousel-effect-right {
+    right: 0;
+    /* background: linear-gradient(to right, rgb(1, 10, 15, 0.0) 0%, rgba(1, 10, 15, 0.5) 100%); */
+}
+
+#carousel::before, #carousel::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+}
+
+#carousel::before {
+    /* background: linear-gradient(to right, rgba(1, 10, 15, 1) 0%, rgba(1, 10, 15, 0) 30%); */
+    left: 0;
+}
+
+#carousel::after {
+    /* background: linear-gradient(to left, rgba(1, 10, 15, 1) 0%, rgba(1, 10, 15, 0) 30%); */
+    right: 0;
+}
+
+#carousel-base {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+#carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#carousel-images {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://i.imgur.com/zXnAXED.png");
+}
+
+#carousel-images img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#prev-button, #next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    line-height: 33px;
+    transition: all 0.3s ease;
+}
+
+#prev-button:hover, #next-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#prev-button {
+    left: 20px;
+    padding-left: 7px;
+}
+
+#next-button {
+    right: 20px;
+    padding-right: 7px;
+}
+
+#carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+#group-favorites {
+    background-color: rgb(18, 22, 29);
+    border-radius: 8px;
+    /* padding: 10px; */
+    /* padding-top: 10px; */
+    display: flex;
+    flex-direction: column;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* margin-bottom: -10px; */
+    transition: all 0.3s ease;
+}
+
+#group-series {
+    background-color: rgb(18, 22, 29);
+    border-radius: 8px;
+    /* padding: 10px; */
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin-bottom: -10px;
+    transition: all 0.3s ease;
+}
+
+#group-series-header {
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  color: rgb(233, 244, 251);
+}
+
+#group-series-header h2 {
+    font-size: 28px;
+    color: rgb(233, 244, 251);
+}
+
+#group-series-header h3 {
+    font-size: 28px;
+    color: gold;
+}
+
+#group-series-cards {
+  background-color: rgb(34, 34, 36);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+#group-series-button {
+    display: flex;
+    align-items: flex-end;
+    transition: 0.4s ease-out;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 220px;
+    height: 320px;
+    background-color: rgba(9, 13, 20, 0.5);
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease, background 1.3s ease;
+    overflow: hidden;
+    transition: all 0.3s ease, background-size 0.3 ease;
+    overflow: visible;
+}
+
+#group-series-button:hover {
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+#group-series-button:hover:before {
+    opacity: 1;
+}
+
+#group-series-button:hover .info {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+#group-series-button:hover::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-image: url('https://i.imgur.com/Uj4TeJR.png'); */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    pointer-events: none;
+    width: 100px;
+    height: 100px;
+    transition: opacity 0.3s ease;
+}
+
+#group-series-button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* border-radius: 2px; */
+    z-index: 2;
+    transition: 0.5s;
+    opacity: 0;
+    background: rgba(9, 13, 20, 0.6);
+    background: linear-gradient(to bottom, transparent 0%, rgb(18, 22, 29, 0.9) 70%);
+}
+
+#group-series-button img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+}
+
+#group-series-button .info {
+    position: relative;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s;
+    color: rgb(233, 244, 251);
+}
+
+#group-series-button .info h1 {
+    font-size: 18px;
+    font-size: 15px;
+    color: rgb(233, 244, 251);
+}
+
+#group-series-button .info p {
+    font-size: 14px;
+    color: rgb(250, 244, 237);
+}
+
+#group-series-button .info button {
+    margin-top: 10px;
+    padding: 0.6rem;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background: rgb(187, 0, 73);
+    color: rgb(233, 244, 251);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+#group-series-button .info button:hover {
+    background: rgb(255, 2, 102);
+    color: rgb(250, 244, 237);
+}
+
+#group-series-button .favorite-button {
+    transition: all 0.3s ease;
+    display: none;
+}
+
+#group-series-button .favorite-button.active {
+    transition: all 0.3s ease;
+    display: flex; 
+}
+
+#group-series-button:hover .favorite-button {
+    display: flex;
+}
+
+.favorite-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 1.0);
+    color: rgba(255, 255, 255, 1.0);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    line-height: 0;
+    opacity: 0.2;
+    z-index: 12;
+    transition: all 0.3s ease;
+}
+
+.favorite-button.active {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgb(255, 215, 0);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));
+    /* text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); */
+}
+
+.favorite-button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: gold;
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));
+}
+
+.favorite-button:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+#continue-series,
+#current-series {
+    background-color: rgb(18, 22, 29);
+    border-radius: 8px;
+    /* padding: 10px; */
+
+    display: flex;
+    flex-direction: column;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin-bottom: -10px;
+    transition: all 0.3s ease;
+}
+
+#continue-series {
+    padding: 0px 0px 10px 0px;
+}
+
+#current-series {
+    padding-top: 10px;
+}
+
+#continue-series-header,
+#current-series-header {
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 8px;
+    background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+    margin-bottom: 10px;
+    color: rgb(233, 244, 251);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+#continue-series-episodes,
+#current-series-episodes {
+    background-color: rgb(34, 34, 36);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    /* padding: 10px; */
+    padding-left: 10px;
+    border-radius: 8px;
+    background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+#season-dropdown, #overlay-season-dropdown, #overlay-episodes-dropdown {
+    padding: 5px;
+    background: rgb(102, 1, 39);
+    color: white;
+    border: 1px solid rgb(152, 1, 39);
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#overlay-season-dropdown, #overlay-episodes-dropdown {
+    display: flex;
+    /* margin-top: 10px; */
+    align-items: center;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    height: 35px;
+}
+
+#overlay-season-dropdown option,
+#overlay-episodes-dropdown option,
+#season-dropdown option {
+    background-color: rgb(102, 1, 39);
+    background-color: rgb(56, 56, 56);
+    color: white;
+}
+
+#overlay-season-dropdown:hover, 
+#overlay-episodes-dropdown:hover,
+#season-dropdown:hover {
+    background: rgb(187, 0, 73);
+}
+
+#overlay-season-dropdown option:hover, 
+#overlay-episodes-dropdown option:hover,
+#season-dropdown option:hover {
+    /* background-color: rgb(102, 1, 39); */
+}
+ 
+#overlay-season-dropdown:focus, 
+#overlay-episodes-dropdown:focus,
+#season-dropdown:focus {
+     border-color: rgb(255, 2, 102);
+}
+
+#overlay-season-dropdown option:checked, 
+#overlay-episodes-dropdown option:checked,
+#season-dropdown option:checked {
+    background-color: rgb(102, 1, 39);
+}
+
+#continue-episode-button,
+#episode-button {
+    position: relative;
+    width: 250px;
+    height: 150px;
+    background-color: rgb(10, 14, 20);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px 10px 10px 0px;
+    transition: all 0.3s;
+}
+
+#continue-episode-button:hover,
+#episode-button:hover {
+    /* width: 270px;
+    height: 150px; */
+
+    transform: scale(1.05);
+}
+
+#continue-episode-button p,
+#episode-button p {
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    background: linear-gradient(to bottom, rgb(250, 247, 228), rgb(226, 179, 127));
+    text-shadow: 2px 2px 5px rgba(145, 87, 33, 0.7);
+    -webkit-background-clip: text;
+    color: transparent;
+    
+    /* FIX MANUAL */
+    position: relative;
+    top: 90%;
+
+}
+
+#continue-episode-button:hover p,
+#episode-button:hover p {
+    background: linear-gradient(to bottom, rgb(200, 209, 214), rgb(255, 255, 255));
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#continue-episode-button:hover::after,
+#episode-button:hover::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('https://i.imgur.com/Uj4TeJR.png');
+    background-image: url('https://i.imgur.com/J9tWuW3.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    pointer-events: none;
+    top: 45%;
+    width: 80px;
+    height: 80px;
+
+}
+
+#continue-episode-button::after,
+#episode-button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-image: url('https://i.imgur.com/J9tWuW3.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    pointer-events: none;
+    top: 45%;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#continue-episode-button:hover::before,
+#episode-button:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#continue-episode-button::before,
+#episode-button::before {
+    border: 1px solid rgb(1, 10, 15);
+    background-color: rgba(1, 10, 15, 0.9);
+    box-shadow: 0 0px 20px rgba(14, 18, 24, 0.4), 0 0px 20px rgba(14, 18, 24, 0.1);
+}
+
+#continue-episode-button:has(.remove-button:hover)::before,
+#episode-button:has(.remove-button:hover)::before {
+    border: 1px solid rgb(226, 127, 127);
+    box-shadow: 0 4px 10px rgba(226, 127, 127, 0.4), 0 8px 20px rgba(226, 127, 127, 0.1);
+    background-color: rgba(128, 28, 28, 0.8);
+
+    border: 1px solid rgb(237, 0, 73);
+    box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
+    background-color: rgba(102, 1, 39, 0.8);
+}
+
+#continue-episode-button.active::before,
+#episode-button.active::before {
+    border: 1px solid rgb(237, 0, 73);
+    box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
+    background-color: rgba(102, 1, 39, 0.8);
+}
+
+#continue-series-episodes #episode-button.active::before,
+#current-series-episodes #episode-button.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#continue-series-episodes #episode-button.active::after,
+#current-series-episodes #episode-button.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('https://i.imgur.com/Uj4TeJR.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    pointer-events: none;
+    top: 45%;
+    width: 80px;
+    height: 80px;
+}
+
+#continue-series-episodes #episode-button.active:hover::before,
+#current-series-episodes #episode-button.active:hover::before {
+    border: 1px solid rgb(255, 2, 102);
+    box-shadow: 0 2px 5px rgba(255, 2, 102, 0.7), 0 6px 15px rgba(255, 2, 102, 0.3);
+    background-color: rgba(255, 2, 102, 0.4);
+}
+
+#continue-episode-button.active p,
+#episode-button.active p {
+    background: linear-gradient(to bottom, rgb(200, 209, 214), rgb(255, 255, 255));
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.remove-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease;
+}
+
+.remove-button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.episode-item {
+    margin-bottom: 5px;
+}
+
+.episode-item a {
+
+}
+
+.episode-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.episode-item li {
+    margin-bottom: 5px;
+}
+
+#video-overlay {
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    background: rgba(9, 13, 20, 0.8);
+}
+
+#video-overlay.hidden {
+    display: none;
+}
+
+#video-overlay-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+#video-overlay-dropdown{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-right: 45px;
+}
+
+#video-container {
+    position: relative;
+    width: 80%;
+    height: 85%;
+    background: black;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#video-iframe {
+    width: 100%;
+    height: 95%;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(1, 10, 15);
+    background-color: rgb(0, 0, 0);
+}
+
+@keyframes initial-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#toggle-buttons-container {
+    display: flex;
+    gap: 10px;
+    /* margin-top: 10px; */
+    align-items: center;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    height: 35px;
+}
+
+#toggle-buttons-container button {
+    padding: 10px;
+    background: rgb(102, 1, 39);
+    /* background: rgb(255, 2, 102); */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggle-buttons-container button:hover {
+    background: rgb(187, 0, 73);
+}
+
+#toggle-buttons-container button.active {
+    background: rgb(255, 2, 102);
+    /* font-weight: bold; */
+}
+
+#close-overlay-button {
+    border: none;
+    color: rgb(205, 205, 205);
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.6s ease;
+    animation: initial-rotate 0.6s ease;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(222, 222, 222, 0.2);
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgb(29, 34, 41, 0.8);
+}
+
+#close-overlay-button span {
+    display: inline-block;
+    transition: transform 0.6s ease;
+    line-height: 2px;
+    margin-left: 1.5px;
+}
+
+#close-overlay-button:hover {
+    background: rgb(129, 134, 141, 0.5);
+}
+
+#close-overlay-button:hover span {
+    transform: rotate(360deg);
+}
+
+@keyframes initial-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#prev-video-button,
+#next-video-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(222, 222, 222, 0.2);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 52px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgb(29, 34, 41, 0.8);
+}
+
+#prev-video-button:hover,
+#next-video-button:hover {
+    background-color: rgba(222, 222, 222, 0.5);
+    background: rgb(129, 134, 141, 0.5);
+}
+
+#prev-video-button {
+    left: -80px;
+}
+
+#next-video-button {
+    right: -80px;
+}
+
+#prev-video-button:hover .tooltip-text,
+#next-video-button:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 10001;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 17px;
+    /* max-width: 100px;
+    max-height: 40px; */
+    background: rgb(129, 134, 141, 0.5);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    visibility: hidden;
+}
+
+.tooltip-text.black {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.tooltip-top.black::after {
+    border-top: 5px solid rgba(0, 0, 0, 0.8);
+}
+.tooltip-left.black::after{
+    border-right: 5px solid rgba(0, 0, 0, 0.8);
+}
+.tooltip-right.black::after{
+    border-left: 5px solid rgba(0, 0, 0, 0.8);
+}
+.tooltip-bottom.black::after{
+    border-bottom: 5px solid rgba(0, 0, 0, 0.8);
+}
+
+.tooltip-top {
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1.5;
+}
+
+.tooltip-top::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(255, 255, 255, 0.5);
+    border-top: 5px solid rgb(129, 134, 141, 0.5);
+}
+
+.tooltip-left {
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+}
+
+.tooltip-left::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid rgba(255, 255, 255, 0.5);
+    border-right: 5px solid rgb(129, 134, 141, 0.5);
+}
+
+.tooltip-right {
+    top: 50%;
+    right: 150%;
+    transform: translateY(-50%);
+}
+
+.tooltip-right::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid rgba(255, 255, 255, 0.5);
+    border-left: 5px solid rgb(129, 134, 141, 0.5);
+}
+
+.tooltip-bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip-bottom::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 5px solid rgb(129, 134, 141, 0.5);
+}
+
+@media (max-width: 768px) {
+    #group-series-button {
+        width: 160px;
+        height: 250px;
+    }
+
+    #group-series-button .info h1 {
+        font-size: 11px;
+    }
+
+    #group-series-button .info p {
+        font-size: 10px;
+    }
+
+    #group-series-button .info button {
+        padding: 0.4rem;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    #back-button {
+        font-size: 20px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    #continue-episode-button, #episode-button {
+        width: 100%; /* Usa largura total do container em mobile */
+        height: 200px;
+    }
+
+    #continue-episode-button:hover, #episode-button:hover {
+        transform: scale(1.03);
+    }
+}
+</style>
+
+<script>
+    function updateScreenSize() {
     const seriesTitle = document.getElementById('series-title');
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -2264,3 +4195,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateScreenSize(); // Chama ao carregar
     window.addEventListener('resize', updateScreenSize);
 });
+</script>
+
+</body>
+</html>

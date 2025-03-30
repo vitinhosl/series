@@ -1122,3 +1122,42 @@ header h1 {
     border-bottom: 5px solid rgba(255, 255, 255, 0.5);
     border-bottom: 5px solid rgb(129, 134, 141, 0.5);
 }
+
+@media (max-width: 768px) {
+    #group-series-button {
+        width: 160px;
+        height: 250px;
+    }
+
+    #group-series-button .info h1 {
+        font-size: 11px;
+    }
+
+    #group-series-button .info p {
+        font-size: 10px;
+    }
+
+    #group-series-button .info button {
+        padding: 0.4rem;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    #back-button {
+        font-size: 20px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    #continue-episode-button, #episode-button {
+        width: 100%; /* Usa largura total do container em mobile */
+        height: 200px;
+    }
+
+    #continue-episode-button:hover, #episode-button:hover {
+        transform: scale(1.03);
+    }
+}
