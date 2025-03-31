@@ -909,7 +909,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Define o botão padrão ("TODOS") como marcado
+    // Define o botão padrão ("TODAS") como marcado
     const defaultButton = document.querySelector('#keys button:first-child');
     defaultButton.classList.add('checked');
 
@@ -932,7 +932,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const checkedButton = document.querySelector('#keys button.checked');
             if (checkedButton) {
                 const letter = checkedButton.innerText;
-                if (letter === "TODOS") {
+                if (letter === "TODAS") {
                     renderSeriesButtons();
                 } else {
                     const filteredGroups = seriesData.map(group => {
@@ -952,7 +952,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ao clicar em um botão de letra, atualiza o filtro
     document.querySelectorAll('#keys button').forEach(button => {
         button.addEventListener('click', function() {
-            // Remove a classe "checked" de todos e marca o botão clicado
+            // Remove a classe "checked" de TODAS e marca o botão clicado
             document.querySelectorAll('#keys button').forEach(btn => btn.classList.remove('checked'));
             this.classList.add('checked');
             filterSeries();
