@@ -7,7 +7,8 @@ const seriesData = [
             {
                 name: "A TERRA PROMETIDA",
                 thumb_page: "https://i.imgur.com/zXnAXED.png",
-                thumb_buttons: "https://i.imgur.com/qvvefLV.png",
+                thumb_buttons: ["https://i.imgur.com/qvvefLV.png"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -203,7 +204,8 @@ const seriesData = [
             {
                 name: "OS DEZ MANDAMENTOS",
                 thumb_page: "https://i.imgur.com/OlDZyig.png",
-                thumb_buttons: "https://i.imgur.com/qUETt6r.jpeg",
+                thumb_buttons: ["https://i.imgur.com/qUETt6r.jpeg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -470,7 +472,8 @@ const seriesData = [
             {
                 name: "JEZABEL",
                 thumb_page: "https://i.imgur.com/fjZzqlg.pn",
-                thumb_buttons: "https://i.imgur.com/Z3WUXd9.jpeg",
+                thumb_buttons: ["https://i.imgur.com/Z3WUXd9.jpeg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -568,7 +571,8 @@ const seriesData = [
             {
                 name: "REI DAVI",
                 thumb_page: "https://i.imgur.com/04hNYzg.png",
-                thumb_buttons: "https://i.imgur.com/sSJVhSO.jpeg",
+                thumb_buttons: ["https://i.imgur.com/sSJVhSO.jpeg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -625,7 +629,8 @@ const seriesData = [
             {
                 name: "JOSÉ DO EGITO",
                 thumb_page: "https://i.imgur.com/5LWWh4N.png",
-                thumb_buttons: "https://i.imgur.com/Oxrdzg6.jpeg",
+                thumb_buttons: ["https://i.imgur.com/Oxrdzg6.jpeg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -689,7 +694,8 @@ const seriesData = [
             {
                 name: "JESUS",
                 thumb_page: "https://i.imgur.com/QaVteHN.png",
-                thumb_buttons: "https://i.imgur.com/JX2Coo5.png",
+                thumb_buttons: ["https://i.imgur.com/JX2Coo5.png"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -900,7 +906,8 @@ const seriesData = [
             {
                 name: "GÊNESIS",
                 thumb_page: "https://i.imgur.com/4AnJnyd.jpeg",
-                thumb_buttons: "https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg",
+                thumb_buttons: ["https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1138,7 +1145,8 @@ const seriesData = [
             {
                 name: "O RICO EO LÁZARO",
                 thumb_page: "https://i.imgur.com/jqVNq9O.jpeg",
-                thumb_buttons: "https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg",
+                thumb_buttons: ["https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1337,7 +1345,8 @@ const seriesData = [
             {
                 name: "A RAINHA DA PÉRSIA",
                 thumb_page: "https://i.imgur.com/xYtBPqJ.png",
-                thumb_buttons: "https://i.imgur.com/tKjng2c.png",
+                thumb_buttons: ["https://i.imgur.com/tKjng2c.png"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1385,7 +1394,8 @@ const seriesData = [
             {
                 name: "A HISTÓRIA DE ESTER",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/mLAXUbqTzk6lZz7kIiWf90Zk510.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/mLAXUbqTzk6lZz7kIiWf90Zk510.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1412,7 +1422,8 @@ const seriesData = [
             {
                 name: "APOCALIPSE",
                 thumb_page: "",
-                thumb_buttons: "https://noveflix.net/wp-content/uploads/2023/03/apocalipse-1-185x278-1.jpg",
+                thumb_buttons: ["https://noveflix.net/wp-content/uploads/2023/03/apocalipse-1-185x278-1.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1586,8 +1597,11 @@ const seriesData = [
             {
                 name: "RÉIS",
                 thumb_page: "",
-                // thumb_buttons: "https://noveflix.net/wp-content/uploads/2024/08/991x1484-thumb-POR-nova-temporada-oMOnW-1-200x300.webp",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7cqUTHh40bi0fx4cg5cPEX9Wbtu.jpg",
+                thumb_buttons: [
+                    "https://noveflix.net/wp-content/uploads/2024/08/991x1484-thumb-POR-nova-temporada-oMOnW-1-200x300.webp",
+                    "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7cqUTHh40bi0fx4cg5cPEX9Wbtu.jpg"
+                ],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -2064,7 +2078,8 @@ const seriesData = [
             {
                 name: "SANSÃO E DALILA",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/3bdxncan9iyCtQkgy1NwILR6h9A.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/3bdxncan9iyCtQkgy1NwILR6h9A.jpg"],
+                badge: "NOVIDADE",
                 enabled: true,
                 season: [
                     {
@@ -2100,7 +2115,8 @@ const seriesData = [
             {
                 name: "LIA",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/tLTpZoZFTXllDwbDhCAT5jEQHOy.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/tLTpZoZFTXllDwbDhCAT5jEQHOy.jpg"],
+                badge: "NOVIDADE",
                 enabled: true,
                 season: [
                     {
@@ -2127,7 +2143,8 @@ const seriesData = [
             {
                 name: "NEEMIAS",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/pCICUzNpZwqU8ZHk7UGZX8WlpPj.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/pCICUzNpZwqU8ZHk7UGZX8WlpPj.jpg"],
+                badge: "NOVIDADE",
                 enabled: true,
                 season: [
                     {
@@ -2151,9 +2168,10 @@ const seriesData = [
             {
                 name: "O APÓSTOLO PAULO",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/nlzyqHl1qBQxIwVi4pLUOAoAwhp.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/nlzyqHl1qBQxIwVi4pLUOAoAwhp.jpg"],
+                badge: "EMBREVE",
                 enabled: false,
-                title: "EM BREVE",
+                title: "INDISPONÍVEL",
 
                 season: [
                     {
@@ -2171,6 +2189,7 @@ const seriesData = [
     },
 ];
 
+
 //TEST
 const seriesData = [
     {
@@ -2179,8 +2198,9 @@ const seriesData = [
             {
                 name: "A TERRA PROMETIDA",
                 thumb_page: "https://i.imgur.com/zXnAXED.png",
-                thumb_buttons: "https://i.imgur.com/qvvefLV.png",
-                enabled: false,
+                thumb_buttons: ["https://i.imgur.com/qvvefLV.png"],
+                badge: "",
+                enabled: true,
                 season: [
                     {
                         name: "",
@@ -2205,8 +2225,9 @@ const seriesData = [
             {
                 name: "JEZABEL",
                 thumb_page: "https://i.imgur.com/fjZzqlg.pn",
-                thumb_buttons: "https://i.imgur.com/Z3WUXd9.jpeg",
-                enabled: false,
+                thumb_buttons: ["https://i.imgur.com/Z3WUXd9.jpeg"],
+                badge: "",
+                enabled: true,
                 season: [
                     {
                         name: "",
@@ -2224,6 +2245,27 @@ const seriesData = [
                     },
                 ],
                 
+            },
+
+             //O APÓSTOLO PAULO
+            {
+                name: "O APÓSTOLO PAULO",
+                thumb_page: "",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/nlzyqHl1qBQxIwVi4pLUOAoAwhp.jpg", "https://pp-vod-img-aws.akamaized.net/0256021/0256021_200.jpg"],
+                badge: "EM BREVE",
+                enabled: false,
+                title: "INDISPONÍVEL",
+
+                season: [
+                    {
+                        name: "",
+                        thumb_season: "https://upload.wikimedia.org/wikipedia/pt/e/ed/Lia_miniss%C3%A9rie.jpeg",
+                        movies: false,
+                        episodes: [
+                            // { title: "", thumb: "", url: "", alternative: [""] },
+                        ]
+                    }
+                ]
             },
         ]
     },
