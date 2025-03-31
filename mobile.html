@@ -21,7 +21,7 @@
         <div id="home" class="show">
             <div id="group-search">
                 <div id="keys">
-                    <button>TODOS</button> 
+                    <button>TODAS</button> 
                     <button>A</button>
                     <button>B</button> 
                     <button>C</button> 
@@ -49,15 +49,14 @@
                     <button>Y</button> 
                     <button>Z</button>
                 </div>
-            <div id="search">
-                <div class="container-input">
-                    <input type="text" placeholder="Procurar" name="text" class="input">
-                    <svg fill="#000000" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z" fill-rule="evenodd"></path>
-                  </svg>
+                <div id="search">
+                    <div class="container-input">
+                        <input type="text" placeholder="Procurar" name="text" class="input", autocomplete="off">
+                        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z" fill-rule="evenodd"></path>
+                    </svg>
+                    </div>
                 </div>
-            </div>
-
             </div>
             <div id="group-continues"></div>
             <div id="group-favorites"></div>
@@ -87,7 +86,7 @@
     </div>
     
 <script>
-const seriesData = [
+    const seriesData = [
     {
         group_name: "SÉRIES BIBLÍCAS",
         group: [
@@ -3108,7 +3107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Define o botão padrão ("TODOS") como marcado
+    // Define o botão padrão ("TODAS") como marcado
     const defaultButton = document.querySelector('#keys button:first-child');
     defaultButton.classList.add('checked');
 
@@ -3131,7 +3130,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const checkedButton = document.querySelector('#keys button.checked');
             if (checkedButton) {
                 const letter = checkedButton.innerText;
-                if (letter === "TODOS") {
+                if (letter === "TODAS") {
                     renderSeriesButtons();
                 } else {
                     const filteredGroups = seriesData.map(group => {
@@ -3151,7 +3150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ao clicar em um botão de letra, atualiza o filtro
     document.querySelectorAll('#keys button').forEach(button => {
         button.addEventListener('click', function() {
-            // Remove a classe "checked" de todos e marca o botão clicado
+            // Remove a classe "checked" de TODAS e marca o botão clicado
             document.querySelectorAll('#keys button').forEach(btn => btn.classList.remove('checked'));
             this.classList.add('checked');
             filterSeries();
@@ -3586,7 +3585,7 @@ header h1 {
     border: none;
     padding: 10px 20px;
     font-size: 16px;
-    border-radius: 4px;
+    border-radius: 8px;
     width: 220px;
     height: 320px;
     background-color: rgba(9, 13, 20, 0.5);
@@ -3603,6 +3602,7 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 8px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -3635,6 +3635,7 @@ header h1 {
     width: 100%;
     height: 100%;
     z-index: 2;
+    border-radius: 8px;
     transition: opacity 0.5s ease;
     opacity: 0;
     background: linear-gradient(to bottom, transparent 0%, rgba(18, 22, 29, 0.9) 70%);
@@ -3728,8 +3729,23 @@ header h1 {
     gap: 10px;
     /* flex-wrap: wrap; */
     overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
 }
 
+#group-search::-webkit-scrollbar {
+    width: 8px; 
+}
+
+#group-search::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#group-search::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transform: translateY(10px);
+}
 
 #keys {
     display: flex;
@@ -3742,8 +3758,9 @@ header h1 {
     padding: 8px 12px;
     cursor: pointer;
     font-size: 14px;
-    color: #f0f0f0;
+    color: rgb(233, 244, 251);
     background-color: transparent;
+    outline: none;
 }
 
 #keys button:hover {
@@ -3765,24 +3782,42 @@ header h1 {
     width: auto;
     max-width: 400px;
     min-width: 150px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(99, 7, 38);
     padding: 5px 10px;
     border-radius: 4px;
-    background-color: #fff;
-    direction: rtl;
+    background-color: rgb(65, 2, 23);
+
 }
 
 .container-input .input {
-    width: 100%; 
+    width: 100%;
     border: none;
     outline: none;
     font-size: 14px;
     background: transparent;
-    direction: ltr;
+    color: rgb(233, 244, 251);
 }
 
 .container-input svg {
-    margin-left: 0px;
+    margin-left: auto;
+    fill: rgb(233, 244, 251);
+}
+
+.container-input .input::placeholder {
+    color: #999;
+}
+
+.container-input .input::-webkit-input-placeholder { /* Chrome, Safari */
+    color: #999;
+}
+.container-input .input:-moz-placeholder { /* Firefox 18- */
+    color: #999;
+}
+.container-input .input::-moz-placeholder { /* Firefox 19+ */
+    color: #999;
+}
+.container-input .input:-ms-input-placeholder { /* IE 10+ */
+    color: #999;
 }
 
 .favorite-button {
@@ -4415,27 +4450,40 @@ header h1 {
 }
 
 @media (max-width: 768px) {
+    #group-search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
     #keys {
-        gap: 2px;
-        overflow: auto;
+        /* order: 2; */
+        gap: 5px;
+        z-index: 2;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #search {
+        /* order: 1; */
+        width: 100%;
+        justify-content: center;
+    }
+
+    .container-input {
+        width: 30px;
+    }
+
+    .container-input {
+        width: 100%;
+    }
+    .container-input:hover,
+    .container-input:focus-within {
+        width: 100%;
     }
 
     #keys button {
         padding: 4px;
         font-size: 10px;
-    }
-
-    .container-input {
-        display: flex;
-        align-items: center;
-        width: auto;
-        max-width: 400px;
-        min-width: 150px;
-        border: 1px solid #ccc;
-        padding: 5px 10px;
-        border-radius: 4px;
-        background-color: #fff;
-        direction: rtl;
     }
 
     #group-series-button {
