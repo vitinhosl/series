@@ -2221,48 +2221,45 @@ function renderCurrentSeries(serie) {
 
     // Restaura o currentEpisodeIndex com base no progresso salvo
     const serieKey = serie.name.replace(/\s+/g, '_');
-    const seasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
-    const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
-    if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
-        currentEpisodeIndex = seasonProgress.episodeIndex;
-    } else {
-        currentEpisodeIndex = 0;
-    }
+    const initialSeasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
+    const seasonProgress = continues[serieKey] && continues[serieKey][initialSeasonKey];
+    currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
 
     const hasSeasons = serie.season.length > 0;
     const showDropdown = hasSeasons && (serie.season.length > 1);
 
-    // Ajuste no texto do available-text para incluir o número da temporada
-    let availableText = serie.season[0].movies ? 'Filmes disponíveis' : 'Episódios disponíveis';
-    if (showDropdown) {
-        availableText = `T${currentSeasonIndex + 1} - ${availableText}`;
+    // Para a temporada inicial (índice 0)
+    const currentSeason = serie.season[0];
+    const isMovie = currentSeason.movies;
+    // Filtra todas as temporadas do mesmo tipo (filmes ou episódios)
+    const seasonsOfSameType = serie.season.filter(s => !!s.movies === !!isMovie);
+    // Calcula o índice relativo entre as temporadas do mesmo tipo
+    const relativeIndex = serie.season.slice(0, 0).filter(s => !!s.movies === !!isMovie).length; // Sempre 0 para a 1ª
+    let availableText = isMovie ? 'Filmes disponíveis' : 'Episódios disponíveis';
+    if (seasonsOfSameType.length > 1) {
+        availableText = `T${relativeIndex + 1} - ${availableText}`;
     }
-    availableText += `: ${serie.season[0].episodes.length}`;
+    availableText += `: ${currentSeason.episodes.length}`;
 
     const currentSeriesHTML = `
         <div id="current-series">
             <div id="current-series-header">
-                <p id="available-text">${availableText}</p>
+                <p id="series-available-text">${availableText}</p>
                 ${showDropdown ? `
                     <select id="season-dropdown">
-                        ${hasSeasons ? serie.season.map((season, index) => `
-                            ${serie.season[index].name ? `
-                                <option value="season-${index}">${serie.season[index].name}</option>` 
-                            : `
-                                <option value="season-${index}">Temporada ${index + 1}</option>`
-                            }
-                        `).join('') : ''}
+                        ${serie.season.map((season, index) => {
+                            const seasonDisplay = season.name ? season.name : `Temporada ${index + 1}`;
+                            return `<option value="season-${index}">${seasonDisplay}</option>`;
+                        }).join('')}
                     </select>
                 ` : ''}
             </div>
             <div id="current-series-episodes">
-                ${renderEpisodes(serie.season[0])}
+                ${renderEpisodes(currentSeason)}
             </div>
         </div>
     `;
-
     seriesContainer.innerHTML = currentSeriesHTML;
-
     renderContinueWatchingSection();
 
     if (showDropdown) {
@@ -2272,19 +2269,20 @@ function renderCurrentSeries(serie) {
             const selectedSeason = serie.season[currentSeasonIndex];
 
             // Atualiza o currentEpisodeIndex com base no progresso salvo da temporada selecionada
-            const seasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
-            const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
-            if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
-                currentEpisodeIndex = seasonProgress.episodeIndex;
-            } else {
-                currentEpisodeIndex = 0;
-            }
+            const selectedSeasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
+            const seasonProgress = continues[serieKey] && continues[serieKey][selectedSeasonKey];
+            currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
 
-            // Ajuste no texto do available-text ao mudar de temporada
-            let updatedAvailableText = selectedSeason.movies ? 'Filmes disponíveis' : 'Episódios disponíveis';
-            updatedAvailableText = `T${currentSeasonIndex + 1} - ${updatedAvailableText}`;
+            // Define o texto disponível conforme o tipo e quantas temporadas daquele tipo existem
+            const isMovieSelected = selectedSeason.movies;
+            const seasonsOfSameTypeSelected = serie.season.filter(s => !!s.movies === !!isMovieSelected);
+            const relativeIndexSelected = serie.season.slice(0, currentSeasonIndex).filter(s => !!s.movies === !!isMovieSelected).length;
+            let updatedAvailableText = isMovieSelected ? 'Filmes disponíveis' : 'Episódios disponíveis';
+            if (seasonsOfSameTypeSelected.length > 1) {
+                updatedAvailableText = `T${relativeIndexSelected + 1} - ${updatedAvailableText}`;
+            }
             updatedAvailableText += `: ${selectedSeason.episodes.length}`;
-            document.getElementById('available-text').innerText = updatedAvailableText;
+            document.getElementById('series-available-text').innerText = updatedAvailableText;
 
             document.getElementById('current-series-episodes').innerHTML = renderEpisodes(selectedSeason);
 
@@ -2307,7 +2305,6 @@ function renderCurrentSeries(serie) {
     addEpisodeButtonListeners();
     updateButtonVisibility();
 
-    // Aplica .active ao episódio salvo da temporada inicial
     const episodeButtons = document.querySelectorAll('#episode-button');
     if (seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
         if (episodeButtons[seasonProgress.activeEpisodeIndex]) {
