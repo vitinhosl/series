@@ -550,13 +550,17 @@ header h1 {
 
 #keys {
     display: flex;
-    gap: 5px;
+    gap: 4px;
     transition: all 0.3s ease;
+}
+
+#group-home, #group-favorites, #group-continues {
+    transition: display 0s;
 }
 
 #keys button {
     border: none;
-    padding: 8px 12px;
+    padding: 8px 11px;
     cursor: pointer;
     font-size: 14px;
     color: rgb(233, 244, 251);

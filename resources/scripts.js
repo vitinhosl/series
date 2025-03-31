@@ -656,16 +656,14 @@ function renderSeriesButtons(filteredGroups) {
     const groupHome = document.getElementById('group-home');
     groupHome.innerHTML = '';
     
-    // Se nenhum grupo filtrado for passado, usa o seriesData original.
     const groups = filteredGroups || seriesData;
 
     groups.forEach(group => {
-        // Ordena as séries dentro do grupo, mantendo a lógica original
         const sortedGroup = [...group.group].sort((a, b) => {
             const aHasBadge = a.badge && a.badge !== "";
             const bHasBadge = b.badge && b.badge !== "";
             if (aHasBadge !== bHasBadge) {
-                return bHasBadge - aHasBadge; // Prioriza séries com badge
+                return bHasBadge - aHasBadge;
             }
             if (aHasBadge && bHasBadge) {
                 const badgeComparison = a.badge.localeCompare(b.badge);
@@ -719,6 +717,12 @@ function renderSeriesButtons(filteredGroups) {
         groupHome.innerHTML += groupSeriesHTML;
     });
 
+    // Remove eventos de clique anteriores para evitar duplicatas
+    document.querySelectorAll('.favorite-button').forEach(button => {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+    });
+
     // Reaplica os event listeners para os botões
     document.querySelectorAll('.favorite-button').forEach(button => {
         button.addEventListener('click', function(event) {
@@ -736,7 +740,38 @@ function renderSeriesButtons(filteredGroups) {
             this.innerHTML = this.classList.contains('active') 
                 ? '★ <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>' 
                 : '☆ <span class="tooltip-text black tooltip-top">Adicionar aos favoritos</span>';
+
+            // Atualiza os favoritos
             updateFavorites();
+
+            // Reaplica o filtro atual
+            if (currentFilter) {
+                if (currentFilter.type === 'search') {
+                    const filteredGroups = seriesData.map(group => {
+                        const filteredGroup = group.group.filter(serie =>
+                            serie.name.toUpperCase().includes(currentFilter.value.toUpperCase())
+                        );
+                        return { ...group, group: filteredGroup };
+                    }).filter(group => group.group.length > 0);
+                    renderSeriesButtons(filteredGroups);
+                } else if (currentFilter.type === 'letter') {
+                    const filteredGroups = seriesData.map(group => {
+                        const filteredGroup = group.group.filter(serie =>
+                            serie.name.toUpperCase().startsWith(currentFilter.value)
+                        );
+                        return { ...group, group: filteredGroup };
+                    }).filter(group => group.group.length > 0);
+                    renderSeriesButtons(filteredGroups);
+                } else if (currentFilter.type === 'favorites') {
+                    // Se o filtro atual for de favoritos, mantém a visibilidade
+                    document.getElementById('group-home').style.display = 'none';
+                    document.getElementById('group-favorites').style.display = 'block';
+                    document.getElementById('group-continues').style.display = 'none';
+                }
+            } else {
+                // Se não houver filtro (TODAS), renderiza tudo
+                renderSeriesButtons();
+            }
         });
     });
 
@@ -748,12 +783,11 @@ function renderSeriesButtons(filteredGroups) {
             if (!serie.enabled) return;
 
             window.history.pushState(
-                { page: 'series', serieName: serieName }, // Estado da navegação
-                serieName, // Título (opcional, pode ser vazio ou o nome da série)
-                `#${serieName.replace(/\s+/g, '-')}` // URL amigável (opcional)
+                { page: 'series', serieName: serieName },
+                serieName,
+                `#${serieName.replace(/\s+/g, '-')}`
             );
 
-            // Lógica para navegar para a página da série
             document.getElementById('home').classList.remove('show');
             document.getElementById('home').classList.add('hidden');
             document.getElementById('series').classList.add('show');
@@ -775,7 +809,6 @@ function updateFavorites() {
     groupFavorites.innerHTML = '';
 
     if (favorites.length > 0) {
-        // Ordena os favoritos conforme a lógica original
         const sortedFavorites = [...favorites].sort((a, b) => {
             const aHasBadge = a.badge && a.badge !== "";
             const bHasBadge = b.badge && b.badge !== "";
@@ -832,17 +865,50 @@ function updateFavorites() {
         </div>`;
         groupFavorites.innerHTML = favoritesHTML;
 
+        // Remove eventos de clique anteriores para evitar duplicatas
+        document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+        });
+
+        // Adiciona os novos eventos de clique
         document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
             button.addEventListener('click', function(event) {
                 event.stopPropagation();
                 const serie = JSON.parse(this.getAttribute('data-serie'));
                 removeFavorite(serie);
                 updateFavorites();
-                renderSeriesButtons();
+
+                // Reaplica o filtro atual
+                if (currentFilter) {
+                    if (currentFilter.type === 'search') {
+                        const filteredGroups = seriesData.map(group => {
+                            const filteredGroup = group.group.filter(serie =>
+                                serie.name.toUpperCase().includes(currentFilter.value.toUpperCase())
+                            );
+                            return { ...group, group: filteredGroup };
+                        }).filter(group => group.group.length > 0);
+                        renderSeriesButtons(filteredGroups);
+                    } else if (currentFilter.type === 'letter') {
+                        const filteredGroups = seriesData.map(group => {
+                            const filteredGroup = group.group.filter(serie =>
+                                serie.name.toUpperCase().startsWith(currentFilter.value)
+                            );
+                            return { ...group, group: filteredGroup };
+                        }).filter(group => group.group.length > 0);
+                        renderSeriesButtons(filteredGroups);
+                    } else if (currentFilter.type === 'favorites') {
+                        document.getElementById('group-home').style.display = 'none';
+                        document.getElementById('group-favorites').style.display = 'block';
+                        document.getElementById('group-continues').style.display = 'none';
+                    }
+                } else {
+                    renderSeriesButtons();
+                }
             });
         });
 
-        document.querySelectorAll('#group-series-button').forEach(button => {
+        document.querySelectorAll('#group-favorites #group-series-button').forEach(button => {
             button.addEventListener('click', function() {
                 const serieName = this.querySelector('h1').innerText;
                 const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
@@ -918,43 +984,90 @@ document.addEventListener('DOMContentLoaded', function() {
     // Função que filtra as séries com base no input ou na letra marcada
     function filterSeries() {
         const query = searchInput.value.trim();
+        const favoritesButton = document.querySelector('#keys button:nth-child(2)');
+        const isFavoritesChecked = favoritesButton && favoritesButton.innerText === '★';
+        const groupHome = document.getElementById('group-home');
+        const groupFavorites = document.getElementById('group-favorites');
+        const groupContinues = document.getElementById('group-continues');
+        const checkedButton = document.querySelector('#keys button.checked');
+    
+        // Prioridade 1: Busca por texto
         if (query.length > 0) {
-            // Se há texto no input, esse filtro tem prioridade
             const filteredGroups = seriesData.map(group => {
                 const filteredGroup = group.group.filter(serie =>
                     serie.name.toUpperCase().includes(query.toUpperCase())
                 );
                 return { ...group, group: filteredGroup };
             }).filter(group => group.group.length > 0);
+            groupHome.style.display = 'block';
+            groupFavorites.style.display = 'none';
+            groupContinues.style.display = 'none';
+            currentFilter = { type: 'search', value: query }; // Armazena o filtro de busca
             renderSeriesButtons(filteredGroups);
-        } else {
-            // Se o input estiver vazio, usa a letra marcada
-            const checkedButton = document.querySelector('#keys button.checked');
-            if (checkedButton) {
-                const letter = checkedButton.innerText;
-                if (letter === "TODAS") {
-                    renderSeriesButtons();
-                } else {
-                    const filteredGroups = seriesData.map(group => {
-                        const filteredGroup = group.group.filter(serie =>
-                            serie.name.toUpperCase().startsWith(letter)
-                        );
-                        return { ...group, group: filteredGroup };
-                    }).filter(group => group.group.length > 0);
-                    renderSeriesButtons(filteredGroups);
-                }
-            } else {
+        }
+        // Prioridade 2: Botão de favoritos como ★
+        else if (isFavoritesChecked) {
+            groupHome.style.display = 'none';
+            groupFavorites.style.display = 'block';
+            groupContinues.style.display = 'none';
+            currentFilter = { type: 'favorites' }; // Armazena o filtro de favoritos
+        }
+        // Prioridade 3: Filtro por letra ou "TODAS"
+        else if (checkedButton) {
+            const letter = checkedButton.innerText;
+            if (letter === 'TODAS') {
+                groupHome.style.display = 'block';
+                groupFavorites.style.display = 'block';
+                groupContinues.style.display = 'block';
+                currentFilter = null; // Sem filtro (mostra todas)
                 renderSeriesButtons();
+            } else if (letter !== '☆' && letter !== '★') {
+                const filteredGroups = seriesData.map(group => {
+                    const filteredGroup = group.group.filter(serie =>
+                        serie.name.toUpperCase().startsWith(letter)
+                    );
+                    return { ...group, group: filteredGroup };
+                }).filter(group => group.group.length > 0);
+                groupHome.style.display = 'block';
+                groupFavorites.style.display = 'none';
+                groupContinues.style.display = 'none';
+                currentFilter = { type: 'letter', value: letter }; // Armazena o filtro por letra
+                renderSeriesButtons(filteredGroups);
             }
+        }
+        // Estado padrão: mostra tudo
+        else {
+            groupHome.style.display = 'block';
+            groupFavorites.style.display = 'block';
+            groupContinues.style.display = 'block';
+            currentFilter = null;
+            renderSeriesButtons();
         }
     }
 
     // Ao clicar em um botão de letra, atualiza o filtro
     document.querySelectorAll('#keys button').forEach(button => {
         button.addEventListener('click', function() {
-            // Remove a classe "checked" de TODAS e marca o botão clicado
+            const isFavoritesButton = this.innerText === '☆' || this.innerText === '★';
+            const favoritesButton = document.querySelector('#keys button:nth-child(2)');
+    
+            // Remove a classe "checked" de todos os botões
             document.querySelectorAll('#keys button').forEach(btn => btn.classList.remove('checked'));
+    
+            // Marca o botão clicado como "checked"
             this.classList.add('checked');
+    
+            if (isFavoritesButton) {
+                // Alterna entre ☆ e ★
+                this.innerText = this.innerText === '☆' ? '★' : '☆';
+            } else {
+                // Se outro botão (como "TODAS" ou "A") for clicado, redefine o botão de favoritos para ☆
+                if (favoritesButton && favoritesButton.innerText === '★') {
+                    favoritesButton.innerText = '☆';
+                }
+            }
+    
+            // Aplica o filtro imediatamente
             filterSeries();
         });
     });
