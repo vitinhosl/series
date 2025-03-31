@@ -747,6 +747,12 @@ function renderSeriesButtons(filteredGroups) {
             
             if (!serie.enabled) return;
 
+            window.history.pushState(
+                { page: 'series', serieName: serieName }, // Estado da navegação
+                serieName, // Título (opcional, pode ser vazio ou o nome da série)
+                `#${serieName.replace(/\s+/g, '-')}` // URL amigável (opcional)
+            );
+
             // Lógica para navegar para a página da série
             document.getElementById('home').classList.remove('show');
             document.getElementById('home').classList.add('hidden');
