@@ -1600,7 +1600,7 @@ const seriesData = [
                     "https://noveflix.net/wp-content/uploads/2024/08/991x1484-thumb-POR-nova-temporada-oMOnW-1-200x300.webp",
                     "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7cqUTHh40bi0fx4cg5cPEX9Wbtu.jpg"
                 ],
-                badge: "",
+                badge: "NOVA TEMPORADA",
                 enabled: true,
                 season: [
                     {
@@ -2078,7 +2078,7 @@ const seriesData = [
                 name: "SANSÃO E DALILA",
                 thumb_page: "",
                 thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/3bdxncan9iyCtQkgy1NwILR6h9A.jpg"],
-                badge: "NOVIDADE",
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -2115,7 +2115,7 @@ const seriesData = [
                 name: "LIA",
                 thumb_page: "",
                 thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/tLTpZoZFTXllDwbDhCAT5jEQHOy.jpg"],
-                badge: "NOVIDADE",
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -2143,7 +2143,7 @@ const seriesData = [
                 name: "NEEMIAS",
                 thumb_page: "",
                 thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/pCICUzNpZwqU8ZHk7UGZX8WlpPj.jpg"],
-                badge: "NOVIDADE",
+                badge: "",
                 enabled: true,
                 season: [
                     {
