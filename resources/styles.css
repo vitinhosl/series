@@ -542,8 +542,9 @@ header h1 {
     padding: 8px 12px;
     cursor: pointer;
     font-size: 14px;
-    color: #f0f0f0;
+    color: rgb(233, 244, 251);
     background-color: transparent;
+    outline: none;
 }
 
 #keys button:hover {
@@ -565,25 +566,44 @@ header h1 {
     width: auto;
     max-width: 400px;
     min-width: 150px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(99, 7, 38);
     padding: 5px 10px;
     border-radius: 4px;
-    background-color: #fff;
-    direction: rtl;
+    background-color: rgb(65, 2, 23);
+
 }
 
 .container-input .input {
-    width: 100%; 
+    width: 100%;
     border: none;
     outline: none;
     font-size: 14px;
     background: transparent;
-    direction: ltr;
+    color: rgb(233, 244, 251);
 }
 
 .container-input svg {
-    margin-left: 0px;
+    margin-left: auto;
+    fill: rgb(233, 244, 251);
 }
+
+.container-input .input::placeholder {
+    color: #999;
+}
+
+.container-input .input::-webkit-input-placeholder { /* Chrome, Safari */
+    color: #999;
+}
+.container-input .input:-moz-placeholder { /* Firefox 18- */
+    color: #999;
+}
+.container-input .input::-moz-placeholder { /* Firefox 19+ */
+    color: #999;
+}
+.container-input .input:-ms-input-placeholder { /* IE 10+ */
+    color: #999;
+}
+
 
 .favorite-button {
     position: absolute;
