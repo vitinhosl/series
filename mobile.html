@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Séries</title>
     <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
-
+    <link rel="stylesheet" href="resources/styles.css">
 </head>
 <body>
 
@@ -19,6 +19,46 @@
         </header>
 
         <div id="home" class="show">
+            <div id="group-search">
+                <div id="keys">
+                    <button>TODOS</button> 
+                    <button>A</button>
+                    <button>B</button> 
+                    <button>C</button> 
+                    <button>D</button> 
+                    <button>E</button> 
+                    <button>F</button> 
+                    <button>G</button> 
+                    <button>H</button> 
+                    <button>I</button> 
+                    <button>J</button> 
+                    <button>K</button> 
+                    <button>L</button> 
+                    <button>M</button>
+                    <button>N</button> 
+                    <button>O</button> 
+                    <button>P</button> 
+                    <button>Q</button> 
+                    <button>R</button> 
+                    <button>S</button> 
+                    <button>T</button> 
+                    <button>U</button> 
+                    <button>V</button> 
+                    <button>W</button> 
+                    <button>X</button> 
+                    <button>Y</button> 
+                    <button>Z</button>
+                </div>
+            <div id="search">
+                <div class="container-input">
+                    <input type="text" placeholder="Procurar" name="text" class="input">
+                    <svg fill="#000000" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+            </div>
+
+            </div>
             <div id="group-continues"></div>
             <div id="group-favorites"></div>
             <div id="group-home"></div>
@@ -55,7 +95,8 @@ const seriesData = [
             {
                 name: "A TERRA PROMETIDA",
                 thumb_page: "https://i.imgur.com/zXnAXED.png",
-                thumb_buttons: "https://i.imgur.com/qvvefLV.png",
+                thumb_buttons: ["https://i.imgur.com/qvvefLV.png"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -251,7 +292,8 @@ const seriesData = [
             {
                 name: "OS DEZ MANDAMENTOS",
                 thumb_page: "https://i.imgur.com/OlDZyig.png",
-                thumb_buttons: "https://i.imgur.com/qUETt6r.jpeg",
+                thumb_buttons: ["https://i.imgur.com/qUETt6r.jpeg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -518,7 +560,8 @@ const seriesData = [
             {
                 name: "JEZABEL",
                 thumb_page: "https://i.imgur.com/fjZzqlg.pn",
-                thumb_buttons: "https://i.imgur.com/Z3WUXd9.jpeg",
+                thumb_buttons: ["https://i.imgur.com/Z3WUXd9.jpeg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -616,7 +659,8 @@ const seriesData = [
             {
                 name: "REI DAVI",
                 thumb_page: "https://i.imgur.com/04hNYzg.png",
-                thumb_buttons: "https://i.imgur.com/sSJVhSO.jpeg",
+                thumb_buttons: ["https://i.imgur.com/sSJVhSO.jpeg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -673,7 +717,8 @@ const seriesData = [
             {
                 name: "JOSÉ DO EGITO",
                 thumb_page: "https://i.imgur.com/5LWWh4N.png",
-                thumb_buttons: "https://i.imgur.com/Oxrdzg6.jpeg",
+                thumb_buttons: ["https://i.imgur.com/Oxrdzg6.jpeg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -737,7 +782,8 @@ const seriesData = [
             {
                 name: "JESUS",
                 thumb_page: "https://i.imgur.com/QaVteHN.png",
-                thumb_buttons: "https://i.imgur.com/JX2Coo5.png",
+                thumb_buttons: ["https://i.imgur.com/JX2Coo5.png"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -948,7 +994,8 @@ const seriesData = [
             {
                 name: "GÊNESIS",
                 thumb_page: "https://i.imgur.com/4AnJnyd.jpeg",
-                thumb_buttons: "https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg",
+                thumb_buttons: ["https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1186,7 +1233,8 @@ const seriesData = [
             {
                 name: "O RICO EO LÁZARO",
                 thumb_page: "https://i.imgur.com/jqVNq9O.jpeg",
-                thumb_buttons: "https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg",
+                thumb_buttons: ["https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1385,7 +1433,8 @@ const seriesData = [
             {
                 name: "A RAINHA DA PÉRSIA",
                 thumb_page: "https://i.imgur.com/xYtBPqJ.png",
-                thumb_buttons: "https://i.imgur.com/tKjng2c.png",
+                thumb_buttons: ["https://i.imgur.com/tKjng2c.png"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1433,7 +1482,8 @@ const seriesData = [
             {
                 name: "A HISTÓRIA DE ESTER",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/mLAXUbqTzk6lZz7kIiWf90Zk510.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/mLAXUbqTzk6lZz7kIiWf90Zk510.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1460,7 +1510,8 @@ const seriesData = [
             {
                 name: "APOCALIPSE",
                 thumb_page: "",
-                thumb_buttons: "https://noveflix.net/wp-content/uploads/2023/03/apocalipse-1-185x278-1.jpg",
+                thumb_buttons: ["https://noveflix.net/wp-content/uploads/2023/03/apocalipse-1-185x278-1.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -1634,8 +1685,11 @@ const seriesData = [
             {
                 name: "RÉIS",
                 thumb_page: "",
-                // thumb_buttons: "https://noveflix.net/wp-content/uploads/2024/08/991x1484-thumb-POR-nova-temporada-oMOnW-1-200x300.webp",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7cqUTHh40bi0fx4cg5cPEX9Wbtu.jpg",
+                thumb_buttons: [
+                    "https://noveflix.net/wp-content/uploads/2024/08/991x1484-thumb-POR-nova-temporada-oMOnW-1-200x300.webp",
+                    "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7cqUTHh40bi0fx4cg5cPEX9Wbtu.jpg"
+                ],
+                badge: "NOVA TEMPORADA",
                 enabled: true,
                 season: [
                     {
@@ -2112,7 +2166,8 @@ const seriesData = [
             {
                 name: "SANSÃO E DALILA",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/3bdxncan9iyCtQkgy1NwILR6h9A.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/3bdxncan9iyCtQkgy1NwILR6h9A.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -2148,7 +2203,8 @@ const seriesData = [
             {
                 name: "LIA",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/tLTpZoZFTXllDwbDhCAT5jEQHOy.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/tLTpZoZFTXllDwbDhCAT5jEQHOy.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -2175,7 +2231,8 @@ const seriesData = [
             {
                 name: "NEEMIAS",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/pCICUzNpZwqU8ZHk7UGZX8WlpPj.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/pCICUzNpZwqU8ZHk7UGZX8WlpPj.jpg"],
+                badge: "",
                 enabled: true,
                 season: [
                     {
@@ -2199,9 +2256,10 @@ const seriesData = [
             {
                 name: "O APÓSTOLO PAULO",
                 thumb_page: "",
-                thumb_buttons: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/nlzyqHl1qBQxIwVi4pLUOAoAwhp.jpg",
+                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/nlzyqHl1qBQxIwVi4pLUOAoAwhp.jpg"],
+                badge: "EMBREVE",
                 enabled: false,
-                title: "EM BREVE",
+                title: "INDISPONÍVEL",
 
                 season: [
                     {
@@ -2252,48 +2310,45 @@ function renderCurrentSeries(serie) {
 
     // Restaura o currentEpisodeIndex com base no progresso salvo
     const serieKey = serie.name.replace(/\s+/g, '_');
-    const seasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
-    const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
-    if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
-        currentEpisodeIndex = seasonProgress.episodeIndex;
-    } else {
-        currentEpisodeIndex = 0;
-    }
+    const initialSeasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
+    const seasonProgress = continues[serieKey] && continues[serieKey][initialSeasonKey];
+    currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
 
     const hasSeasons = serie.season.length > 0;
     const showDropdown = hasSeasons && (serie.season.length > 1);
 
-    // Ajuste no texto do available-text para incluir o número da temporada
-    let availableText = serie.season[0].movies ? 'Filmes disponíveis' : 'Episódios disponíveis';
-    if (showDropdown) {
-        availableText = `T${currentSeasonIndex + 1} - ${availableText}`;
+    // Para a temporada inicial (índice 0)
+    const currentSeason = serie.season[0];
+    const isMovie = currentSeason.movies;
+    // Filtra todas as temporadas do mesmo tipo (filmes ou episódios)
+    const seasonsOfSameType = serie.season.filter(s => !!s.movies === !!isMovie);
+    // Calcula o índice relativo entre as temporadas do mesmo tipo
+    const relativeIndex = serie.season.slice(0, 0).filter(s => !!s.movies === !!isMovie).length; // Sempre 0 para a 1ª
+    let availableText = isMovie ? 'Filmes disponíveis' : 'Episódios disponíveis';
+    if (seasonsOfSameType.length > 1) {
+        availableText = `T${relativeIndex + 1} - ${availableText}`;
     }
-    availableText += `: ${serie.season[0].episodes.length}`;
+    availableText += `: ${currentSeason.episodes.length}`;
 
     const currentSeriesHTML = `
         <div id="current-series">
             <div id="current-series-header">
-                <p id="available-text">${availableText}</p>
+                <p id="series-available-text">${availableText}</p>
                 ${showDropdown ? `
                     <select id="season-dropdown">
-                        ${hasSeasons ? serie.season.map((season, index) => `
-                            ${serie.season[index].name ? `
-                                <option value="season-${index}">${serie.season[index].name}</option>` 
-                            : `
-                                <option value="season-${index}">Temporada ${index + 1}</option>`
-                            }
-                        `).join('') : ''}
+                        ${serie.season.map((season, index) => {
+                            const seasonDisplay = season.name ? season.name : `Temporada ${index + 1}`;
+                            return `<option value="season-${index}">${seasonDisplay}</option>`;
+                        }).join('')}
                     </select>
                 ` : ''}
             </div>
             <div id="current-series-episodes">
-                ${renderEpisodes(serie.season[0])}
+                ${renderEpisodes(currentSeason)}
             </div>
         </div>
     `;
-
     seriesContainer.innerHTML = currentSeriesHTML;
-
     renderContinueWatchingSection();
 
     if (showDropdown) {
@@ -2303,19 +2358,20 @@ function renderCurrentSeries(serie) {
             const selectedSeason = serie.season[currentSeasonIndex];
 
             // Atualiza o currentEpisodeIndex com base no progresso salvo da temporada selecionada
-            const seasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
-            const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
-            if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
-                currentEpisodeIndex = seasonProgress.episodeIndex;
-            } else {
-                currentEpisodeIndex = 0;
-            }
+            const selectedSeasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
+            const seasonProgress = continues[serieKey] && continues[serieKey][selectedSeasonKey];
+            currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
 
-            // Ajuste no texto do available-text ao mudar de temporada
-            let updatedAvailableText = selectedSeason.movies ? 'Filmes disponíveis' : 'Episódios disponíveis';
-            updatedAvailableText = `T${currentSeasonIndex + 1} - ${updatedAvailableText}`;
+            // Define o texto disponível conforme o tipo e quantas temporadas daquele tipo existem
+            const isMovieSelected = selectedSeason.movies;
+            const seasonsOfSameTypeSelected = serie.season.filter(s => !!s.movies === !!isMovieSelected);
+            const relativeIndexSelected = serie.season.slice(0, currentSeasonIndex).filter(s => !!s.movies === !!isMovieSelected).length;
+            let updatedAvailableText = isMovieSelected ? 'Filmes disponíveis' : 'Episódios disponíveis';
+            if (seasonsOfSameTypeSelected.length > 1) {
+                updatedAvailableText = `T${relativeIndexSelected + 1} - ${updatedAvailableText}`;
+            }
             updatedAvailableText += `: ${selectedSeason.episodes.length}`;
-            document.getElementById('available-text').innerText = updatedAvailableText;
+            document.getElementById('series-available-text').innerText = updatedAvailableText;
 
             document.getElementById('current-series-episodes').innerHTML = renderEpisodes(selectedSeason);
 
@@ -2338,7 +2394,6 @@ function renderCurrentSeries(serie) {
     addEpisodeButtonListeners();
     updateButtonVisibility();
 
-    // Aplica .active ao episódio salvo da temporada inicial
     const episodeButtons = document.querySelectorAll('#episode-button');
     if (seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
         if (episodeButtons[seasonProgress.activeEpisodeIndex]) {
@@ -2796,28 +2851,51 @@ function removeContinueSeriesSeason(seasonKey) {
 }
 
 //INICIO
-function renderSeriesButtons() {
+function renderSeriesButtons(filteredGroups) {
     const groupHome = document.getElementById('group-home');
     groupHome.innerHTML = '';
+    
+    // Se nenhum grupo filtrado for passado, usa o seriesData original.
+    const groups = filteredGroups || seriesData;
 
-    seriesData.forEach(group => {
+    groups.forEach(group => {
+        // Ordena as séries dentro do grupo, mantendo a lógica original
+        const sortedGroup = [...group.group].sort((a, b) => {
+            const aHasBadge = a.badge && a.badge !== "";
+            const bHasBadge = b.badge && b.badge !== "";
+            if (aHasBadge !== bHasBadge) {
+                return bHasBadge - aHasBadge; // Prioriza séries com badge
+            }
+            if (aHasBadge && bHasBadge) {
+                const badgeComparison = a.badge.localeCompare(b.badge);
+                if (badgeComparison !== 0) {
+                    return badgeComparison;
+                }
+            }
+            return a.name.localeCompare(b.name);
+        });
+
         const groupSeriesHTML = `
         <div id="group-series">
             <div id="group-series-header">
                 <h2>${group.group_name}</h2>
             </div>
             <div id="group-series-cards">
-                ${group.group.map(serie => {
+                ${sortedGroup.map(serie => {
                     const isFavorite = favorites.some(fav => fav.name === serie.name);
+                    const disabledClass = serie.enabled ? '' : 'disabled';
+                    const randomThumbIndex = Math.floor(Math.random() * serie.thumb_buttons.length);
+                    const backgroundStyle = `--bg-image: url(${serie.thumb_buttons[randomThumbIndex]});`;
                     return `
-                    <div id="group-series-button" style="background-image: url(${serie.thumb_buttons});">
+                    <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}">
+                        ${serie.badge ? `<span class="badge">${serie.badge}</span>` : ''}
                         <div class="info">
                             <h1>${serie.name}</h1>
                             ${serie.enabled ? (
                                 serie.season.length > 0 ? `
                                     ${serie.season.some(season => season.movies) ? `
-                                        <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
                                         <p>Temporadas: ${serie.season.filter(season => !season.movies).length}</p>
+                                        <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
                                     ` : `
                                         <p>Temporadas: ${serie.season.length}</p>
                                     `}
@@ -2826,11 +2904,7 @@ function renderSeriesButtons() {
                                     <p>Nenhum conteúdo disponível</p>
                                 `
                             ) : ``}
-                            ${serie.enabled ? `
-                                <button class="watch-button">ASSISTIR</button>
-                            ` : `
-                                <button class="watch-button">${serie.title || 'EM BREVE'}</button>
-                            `}
+                            ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'EM BREVE'}</button>`}
                         </div>
                         <button class="favorite-button ${isFavorite ? 'active' : ''}" data-serie='${JSON.stringify(serie)}'>
                             ${isFavorite ? '★' : '☆'}
@@ -2844,6 +2918,7 @@ function renderSeriesButtons() {
         groupHome.innerHTML += groupSeriesHTML;
     });
 
+    // Reaplica os event listeners para os botões
     document.querySelectorAll('.favorite-button').forEach(button => {
         button.addEventListener('click', function(event) {
             event.stopPropagation();
@@ -2857,7 +2932,9 @@ function renderSeriesButtons() {
             }
 
             this.classList.toggle('active');
-            this.innerHTML = this.classList.contains('active') ? '★ <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>' : '☆ <span class="tooltip-text black tooltip-top">Adicionar aos favoritos</span>';
+            this.innerHTML = this.classList.contains('active') 
+                ? '★ <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>' 
+                : '☆ <span class="tooltip-text black tooltip-top">Adicionar aos favoritos</span>';
             updateFavorites();
         });
     });
@@ -2866,7 +2943,16 @@ function renderSeriesButtons() {
         button.addEventListener('click', function() {
             const serieName = this.querySelector('h1').innerText;
             const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
-    
+            
+            if (!serie.enabled) return;
+
+            window.history.pushState(
+                { page: 'series', serieName: serieName }, // Estado da navegação
+                serieName, // Título (opcional, pode ser vazio ou o nome da série)
+                `#${serieName.replace(/\s+/g, '-')}` // URL amigável (opcional)
+            );
+
+            // Lógica para navegar para a página da série
             document.getElementById('home').classList.remove('show');
             document.getElementById('home').classList.add('hidden');
             document.getElementById('series').classList.add('show');
@@ -2888,15 +2974,35 @@ function updateFavorites() {
     groupFavorites.innerHTML = '';
 
     if (favorites.length > 0) {
+        // Ordena os favoritos conforme a lógica original
+        const sortedFavorites = [...favorites].sort((a, b) => {
+            const aHasBadge = a.badge && a.badge !== "";
+            const bHasBadge = b.badge && b.badge !== "";
+            if (aHasBadge !== bHasBadge) {
+                return bHasBadge - aHasBadge;
+            }
+            if (aHasBadge && bHasBadge) {
+                const badgeComparison = a.badge.localeCompare(b.badge);
+                if (badgeComparison !== 0) {
+                    return badgeComparison;
+                }
+            }
+            return a.name.localeCompare(b.name);
+        });
+
         const favoritesHTML = `
         <div id="group-series">
             <div id="group-series-header">
                 <h3>FAVORITOS ★☆</h3>
             </div>
             <div id="group-series-cards">
-                ${favorites.map(serie => {
+                ${sortedFavorites.map(serie => {
+                    const disabledClass = serie.enabled ? '' : 'disabled';
+                    const randomThumbIndex = Math.floor(Math.random() * serie.thumb_buttons.length);
+                    const backgroundStyle = `--bg-image: url(${serie.thumb_buttons[randomThumbIndex]});`;
                     return `
-                    <div id="group-series-button" style="background-image: url(${serie.thumb_buttons});">
+                    <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}">
+                        ${serie.badge ? `<span class="badge">${serie.badge}</span>` : ''}
                         <div class="info">
                             <h1>${serie.name}</h1>
                             ${serie.enabled ? (
@@ -2912,11 +3018,7 @@ function updateFavorites() {
                                     <p>Nenhum conteúdo disponível</p>
                                 `
                             ) : ``}
-                            ${serie.enabled ? `
-                                <button class="watch-button">ASSISTIR</button>
-                            ` : `
-                                <button class="watch-button">${serie.title || 'EM BREVE'}</button>
-                            `}
+                            ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'EM BREVE'}</button>`}
                         </div>
                         <button class="favorite-button active" data-serie='${JSON.stringify(serie)}'>
                             ★
@@ -2943,7 +3045,9 @@ function updateFavorites() {
             button.addEventListener('click', function() {
                 const serieName = this.querySelector('h1').innerText;
                 const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
-        
+                
+                if (!serie.enabled) return;
+
                 document.getElementById('home').classList.remove('show');
                 document.getElementById('home').classList.add('hidden');
                 document.getElementById('series').classList.add('show');
@@ -2991,7 +3095,7 @@ document.addEventListener('DOMContentLoaded', function() {
         videoOverlay.classList.remove('show');
         videoOverlay.classList.add('hidden');
         videoIframe.src = '';
-        // Remove os dropdowns para que sejam recriados na próxima abertura
+        // Remove os dropdowns para recriação na próxima abertura
         const overlaySeasonDropdown = document.getElementById('overlay-season-dropdown');
         const overlayEpisodesDropdown = document.getElementById('overlay-episodes-dropdown');
         if (overlaySeasonDropdown) overlaySeasonDropdown.remove();
@@ -3000,25 +3104,101 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('#back-button').forEach(button => {
         button.addEventListener('click', function() {
+            window.history.back();
+        });
+    });
+
+    // Define o botão padrão ("TODOS") como marcado
+    const defaultButton = document.querySelector('#keys button:first-child');
+    defaultButton.classList.add('checked');
+
+    const searchInput = document.querySelector('#search .input');
+
+    // Função que filtra as séries com base no input ou na letra marcada
+    function filterSeries() {
+        const query = searchInput.value.trim();
+        if (query.length > 0) {
+            // Se há texto no input, esse filtro tem prioridade
+            const filteredGroups = seriesData.map(group => {
+                const filteredGroup = group.group.filter(serie =>
+                    serie.name.toUpperCase().includes(query.toUpperCase())
+                );
+                return { ...group, group: filteredGroup };
+            }).filter(group => group.group.length > 0);
+            renderSeriesButtons(filteredGroups);
+        } else {
+            // Se o input estiver vazio, usa a letra marcada
+            const checkedButton = document.querySelector('#keys button.checked');
+            if (checkedButton) {
+                const letter = checkedButton.innerText;
+                if (letter === "TODOS") {
+                    renderSeriesButtons();
+                } else {
+                    const filteredGroups = seriesData.map(group => {
+                        const filteredGroup = group.group.filter(serie =>
+                            serie.name.toUpperCase().startsWith(letter)
+                        );
+                        return { ...group, group: filteredGroup };
+                    }).filter(group => group.group.length > 0);
+                    renderSeriesButtons(filteredGroups);
+                }
+            } else {
+                renderSeriesButtons();
+            }
+        }
+    }
+
+    // Ao clicar em um botão de letra, atualiza o filtro
+    document.querySelectorAll('#keys button').forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove a classe "checked" de todos e marca o botão clicado
+            document.querySelectorAll('#keys button').forEach(btn => btn.classList.remove('checked'));
+            this.classList.add('checked');
+            filterSeries();
+        });
+    });
+
+    // Ao digitar, a busca tem prioridade
+    searchInput.addEventListener('input', filterSeries);
+
+    window.addEventListener('popstate', function(event) {
+        // Se não houver estado ou não for uma página de série, volta para a tela inicial
+        if (!event.state || event.state.page !== 'series') {
             document.getElementById('home').classList.remove('hidden');
             document.getElementById('home').classList.add('show');
             document.getElementById('series').classList.add('hidden');
             document.getElementById('series').classList.remove('show');
             document.getElementById('series-title').classList.remove('hidden');
             document.getElementById('series-title').classList.add('show');
-            document.getElementById('series-title').classList.remove('hidden');
             document.getElementById('series-name').classList.remove('show');
             document.getElementById('series-name').classList.add('hidden');
             document.getElementById('back-button').classList.remove('show');
             document.getElementById('back-button').classList.add('hidden');
-        });
+        } else if (event.state.page === 'series') {
+            // Se o estado for de uma página de série, reexibe a tela da série
+            const serieName = event.state.serieName;
+            const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
+            if (serie) {
+                document.getElementById('home').classList.remove('show');
+                document.getElementById('home').classList.add('hidden');
+                document.getElementById('series').classList.add('show');
+                document.getElementById('series').classList.remove('hidden');
+                document.getElementById('series-title').classList.remove('show');
+                document.getElementById('series-title').classList.add('hidden');
+                document.getElementById('series-name').classList.remove('hidden');
+                document.getElementById('series-name').classList.add('show');
+                document.getElementById('back-button').classList.remove('hidden');
+                document.getElementById('back-button').classList.add('show');
+                renderCurrentSeries(serie);
+            }
+        }
     });
 });
 
 </script>
 
 <style>
-   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
 
@@ -3370,21 +3550,36 @@ header h1 {
 }
 
 #group-series-cards {
-  background-color: rgb(34, 34, 36);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 10px;
-  border-radius: 8px;
-  background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
-  margin-bottom: 10px;
-  transition: all 0.3s ease;
+    background-color: rgb(34, 34, 36);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(to right, rgb(255, 2, 102) 0%, rgb(187, 0, 73) 80%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 15px;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease, background 1.3s ease;
 }
 
 #group-series-button {
     display: flex;
     align-items: flex-end;
-    transition: 0.4s ease-out;
     gap: 20px;
     flex-wrap: wrap;
     color: white;
@@ -3396,59 +3591,62 @@ header h1 {
     height: 320px;
     background-color: rgba(9, 13, 20, 0.5);
     cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease, background-size 0.3s ease;
+    overflow: visible;
+}
+
+#group-series-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
-    background-size: cover;
-    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease, background 1.3s ease;
-    overflow: hidden;
-    transition: all 0.3s ease, background-size 0.3 ease;
-    overflow: visible;
+    background-image: var(--bg-image);
+    z-index: 1;
+    transition: filter 0.3s ease;
+}
+
+#group-series-button.disabled{
+    /* pointer-events: none; */
+}
+
+#group-series-button.disabled::before {
+    filter: grayscale(1);
+}
+
+#group-series-button:hover::before {
+    filter: none;
 }
 
 #group-series-button:hover {
     box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
 
-#group-series-button:hover:before {
-    opacity: 1;
+#group-series-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(18, 22, 29, 0.9) 70%);
+}
+
+#group-series-button:hover::after {
+    opacity: 0.8;
 }
 
 #group-series-button:hover .info {
     opacity: 1;
     transform: translateY(0px);
-}
-
-#group-series-button:hover::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* background-image: url('https://i.imgur.com/Uj4TeJR.png'); */
-    background-size: cover;
-    background-position: center;
-    opacity: 0.8;
-    pointer-events: none;
-    width: 100px;
-    height: 100px;
-    transition: opacity 0.3s ease;
-}
-
-#group-series-button:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    /* border-radius: 2px; */
-    z-index: 2;
-    transition: 0.5s;
-    opacity: 0;
-    background: rgba(9, 13, 20, 0.6);
-    background: linear-gradient(to bottom, transparent 0%, rgb(18, 22, 29, 0.9) 70%);
 }
 
 #group-series-button img {
@@ -3478,7 +3676,7 @@ header h1 {
 }
 
 #group-series-button .info p {
-    font-size: 14px;
+    font-size: 13px;
     color: rgb(250, 244, 237);
 }
 
@@ -3512,6 +3710,79 @@ header h1 {
 
 #group-series-button:hover .favorite-button {
     display: flex;
+}
+
+#group-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgb(105, 19, 47);
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgb(233, 244, 251);
+    transition: all 0.3s ease;
+    gap: 10px;
+    /* flex-wrap: wrap; */
+    overflow: auto;
+}
+
+
+#keys {
+    display: flex;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+#keys button {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #f0f0f0;
+    background-color: transparent;
+}
+
+#keys button:hover {
+    background: rgb(65, 2, 23);
+}
+
+#keys button.checked {
+    background: rgb(161, 27, 72);
+}
+
+#search {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container-input {
+    display: flex;
+    align-items: center;
+    width: auto;
+    max-width: 400px;
+    min-width: 150px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    direction: rtl;
+}
+
+.container-input .input {
+    width: 100%; 
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+    direction: ltr;
+}
+
+.container-input svg {
+    margin-left: 0px;
 }
 
 .favorite-button {
@@ -4144,6 +4415,29 @@ header h1 {
 }
 
 @media (max-width: 768px) {
+    #keys {
+        gap: 2px;
+        overflow: auto;
+    }
+
+    #keys button {
+        padding: 4px;
+        font-size: 10px;
+    }
+
+    .container-input {
+        display: flex;
+        align-items: center;
+        width: auto;
+        max-width: 400px;
+        min-width: 150px;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        border-radius: 4px;
+        background-color: #fff;
+        direction: rtl;
+    }
+
     #group-series-button {
         width: 160px;
         height: 250px;
@@ -4173,7 +4467,7 @@ header h1 {
     }
 
     #continue-episode-button, #episode-button {
-        width: 100%; /* Usa largura total do container em mobile */
+        width: 100%;
         height: 200px;
     }
 
@@ -4182,20 +4476,5 @@ header h1 {
     }
 }
 </style>
-
-<script>
-    function updateScreenSize() {
-    const seriesTitle = document.getElementById('series-title');
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    seriesTitle.innerHTML = `Séries (${width}x${height})`;
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    updateScreenSize(); // Chama ao carregar
-    window.addEventListener('resize', updateScreenSize);
-});
-</script>
-
 </body>
 </html>
