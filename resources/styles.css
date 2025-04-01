@@ -1288,11 +1288,19 @@ header h1 {
     #group-series-button{
         width: 227px;
     }
+
+    #continue-episode-button, #episode-button {
+        width: 257px;
+    }
 }
 
 @media (max-width: 1366px) {
     #group-series-button {
         width: 230px;
+    }
+
+    #continue-episode-button, #episode-button {
+        width: 237px;
     }
 }
 
