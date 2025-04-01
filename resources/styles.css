@@ -141,6 +141,7 @@ header h1 {
     text-align: center;
     left: 0;
     transition: all 0.3s ease;
+    outline: none;
 }
 
 #back-button.visible {
