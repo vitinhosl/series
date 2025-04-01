@@ -710,7 +710,7 @@ header h1 {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    /* padding: 10px; */
+    padding: 10px;
     padding-left: 10px;
     border-radius: 8px;
     background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
@@ -1284,7 +1284,17 @@ header h1 {
     border-bottom: 5px solid rgb(129, 134, 141, 0.5);
 }
 
+@media (max-width: 2560px) {
+    #group-series-button{
+        width: 227px;
+    }
+}
 
+@media (max-width: 1366px) {
+    #group-series-button {
+        width: 230px;
+    }
+}
 
 @media (max-width: 768px) {
     #group-search {
@@ -1358,5 +1368,18 @@ header h1 {
 
     #continue-episode-button:hover, #episode-button:hover {
         transform: scale(1.03);
+    }
+
+    #current-series-episodes,
+    #current-series-header {
+        display: block;
+    }
+
+    #current-series-header #series-available-text {
+        font-size: 22px;
+    }
+
+    #season-dropdown {
+        width: 100%;
     }
 }
