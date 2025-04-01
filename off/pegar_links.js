@@ -72,7 +72,7 @@ button.addEventListener('click', () => {
     });
 
     const idsAndTitlesArray = Array.from(idsAndTitles.entries());
-    // const idsAndTitlesArray = Array.from(idsAndTitles.entries().reverse());
+    // const idsAndTitlesArray = Array.from(idsAndTitles.entries()).reverse();
 
     // Acumular todas as saídas em uma única string
     let output = "";
@@ -95,7 +95,6 @@ button.addEventListener('click', () => {
     });
 });
 //#endregion
-
 
 
 

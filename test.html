@@ -1,142 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obter Thumbnail do OK.ru</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
-        #container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 600px;
-        }
-        input, button {
-            margin: 10px 0;
-            padding: 8px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        #thumbnail {
-            max-width: 100%;
-            margin-top: 20px;
-            display: none;
-        }
-        #error {
-            color: red;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <div id="container">
-        <h2>Obter Thumbnail do OK.ru</h2>
-        <input type="text" id="videoUrl" placeholder="Digite a URL do vídeo (ex: https://ok.ru/video/3999010458199)" value="https://ok.ru/video/3999010458199">
-        <button onclick="getThumbnail()">Buscar Thumbnail</button>
-        <img id="thumbnail" alt="Thumbnail do vídeo">
-        <p id="error"></p>
-    </div>
+  
+  <iframe frameborder="0" width="480" height="270"
+  src="https://www.dailymotion.com/embed/video/x82sw6n?queue-enable=0&endscreen-enable=1"
+  allowfullscreen allow="autoplay">
+</iframe>
 
-    <script>
-        async function getThumbnail() {
-            const urlInput = document.getElementById("videoUrl").value;
-            const thumbnailImg = document.getElementById("thumbnail");
-            const errorMsg = document.getElementById("error");
 
-            // Limpar exibições anteriores
-            thumbnailImg.style.display = "none";
-            errorMsg.style.display = "none";
-            errorMsg.textContent = "";
 
-            // Converter URL de embed para URL original, se necessário
-            let videoUrl = urlInput.replace("videoembed", "video");
-            if (!videoUrl.includes("ok.ru/video")) {
-                errorMsg.textContent = "Por favor, insira uma URL válida do OK.ru";
-                errorMsg.style.display = "block";
-                return;
-            }
-
-            try {
-                // Usar um proxy para evitar problemas de CORS
-                const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-                const response = await fetch(proxyUrl + videoUrl, {
-                    headers: {
-                        'Origin': window.location.origin
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Erro na requisição: ${response.status} ${response.statusText}`);
-                }
-
-                const htmlText = await response.text();
-
-                // Criar um DOM parser para analisar o HTML
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(htmlText, "text/html");
-
-                // Procurar pelo atributo 'poster' no elemento <video>
-                let thumbUrl = null;
-                const videoElement = doc.querySelector("video");
-                if (videoElement && videoElement.hasAttribute("poster")) {
-                    thumbUrl = videoElement.getAttribute("poster");
-                }
-
-                // Se não encontrar o poster, tentar o og:image
-                if (!thumbUrl) {
-                    const ogImage = doc.querySelector("meta[property='og:image']");
-                    if (ogImage && ogImage.hasAttribute("content")) {
-                        thumbUrl = ogImage.getAttribute("content");
-                    }
-                }
-
-                // Tentar encontrar a thumbnail em outras tags de imagem, se necessário
-                if (!thumbUrl) {
-                    const images = doc.querySelectorAll("img");
-                    for (let img of images) {
-                        const src = img.getAttribute("src");
-                        if (src && (src.includes("thumb") || src.includes("preview"))) {
-                            thumbUrl = src;
-                            break;
-                        }
-                    }
-                }
-
-                // Verificar se a thumbnail foi encontrada
-                if (thumbUrl) {
-                    // Garantir que a URL da thumbnail seja absoluta
-                    if (!thumbUrl.startsWith("http")) {
-                        thumbUrl = new URL(thumbUrl, videoUrl).href;
-                    }
-                    thumbnailImg.src = thumbUrl;
-                    thumbnailImg.style.display = "block";
-                } else {
-                    throw new Error("Thumbnail não encontrada no código da página. O vídeo pode ser privado ou a estrutura do HTML mudou.");
-                }
-            } catch (error) {
-                errorMsg.textContent = "Erro ao buscar a thumbnail: " + error.message;
-                errorMsg.style.display = "block";
-            }
-        }
-    </script>
 </body>
 </html>
