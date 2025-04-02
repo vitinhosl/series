@@ -908,7 +908,7 @@ const seriesData = [
             {
                 name: "Gênesis",
                 thumb_page: "https://i.imgur.com/4AnJnyd.jpeg",
-                thumb_buttons: ["https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg"],
+                thumb_buttons: ["https://i.imgur.com/JFlXEBA.jpeg"],
                 badge: "",
                 enabled: true,
                 season: [
@@ -1147,7 +1147,7 @@ const seriesData = [
             {
                 name: "O Rico e Lázaro",
                 thumb_page: "https://i.imgur.com/jqVNq9O.jpeg",
-                thumb_buttons: ["https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg"],
+                thumb_buttons: ["https://i.imgur.com/io3Xbpv.jpeg"],
                 badge: "",
                 enabled: true,
                 season: [
@@ -1396,25 +1396,25 @@ const seriesData = [
             {
                 name: "A História de Ester",
                 thumb_page: "",
-                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/mLAXUbqTzk6lZz7kIiWf90Zk510.jpg"],
+                thumb_buttons: ["https://i.imgur.com/YqgmJBA.jpeg"],
                 badge: "",
                 enabled: true,
                 season: [
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://upload.wikimedia.org/wikipedia/pt/8/81/A_Hist%C3%B3ria_de_Ester_%282010%29.jpg",
+                        thumb_season: "https://i.imgur.com/ULXdQ8Y.jpeg",
                         movies: false,
                         episodes: [
-                            { title: "Episódio 001", duration: "1:01:05", thumb: "https://i.okcdn.ru/videoPreview?id=2129690757691&type=32&idx=5&tkn=mFkbfjzQIyzCvq6vJ3b1cprBqB8&fn" , url: "https://ok.ru/videoembed/233118960140", alternative: ["https://ok.ru/videoembed/3318027323963"] },
-                            { title: "Episódio 002", duration: "53:06"  , thumb: "https://i.okcdn.ru/videoPreview?id=2129707469371&type=32&idx=5&tkn=T7g7TfAgNPWbTkcfPri_CVYbHKc&fn" , url: "https://ok.ru/videoembed/236010211852", alternative: ["https://ok.ru/videoembed/3318027848251"] },
-                            { title: "Episódio 003", duration: "50:57"  , thumb: "https://i.okcdn.ru/videoPreview?id=7092616563209&type=32&idx=13&tkn=sXjcV9pPvyskNqcCTqJ2JbqyPfo&fn", url: "https://ok.ru/videoembed/233119025676", alternative: ["https://ok.ru/videoembed/3316095912507"] },
-                            { title: "Episódio 004", duration: "51:11"  , thumb: "https://i.okcdn.ru/videoPreview?id=2129743055419&type=32&idx=0&tkn=cKatkUyoCBDuaPrZKer5bJIOGDk&fn" , url: "https://ok.ru/videoembed/237530712588", alternative: ["https://ok.ru/videoembed/3318028307003"] },
-                            { title: "Episódio 005", duration: "53:01"  , thumb: "https://i.okcdn.ru/videoPreview?id=2129760422459&type=32&idx=12&tkn=dcHqyNlX7327T1fNXUY_UUm92YE&fn", url: "https://ok.ru/videoembed/238416955916", alternative: ["https://ok.ru/videoembed/3318028831291"] },
-                            { title: "Episódio 006", duration: "50:54"  , thumb: "https://i.okcdn.ru/videoPreview?id=2129777527355&type=32&idx=2&tkn=vj5L1Fei-ZhTaACsEczzWZJqTno&fn" , url: "https://ok.ru/videoembed/237428607500", alternative: ["https://ok.ru/videoembed/3318029093435"] },
-                            { title: "Episódio 007", duration: "53:44"  , thumb: "https://i.okcdn.ru/videoPreview?id=899362195993&type=32&idx=1&tkn=arASJX0GZ8TV3v-CBaIUbv_mXCM&fn"  , url: "https://ok.ru/videoembed/237428738572", alternative: ["https://ok.ru/videoembed/3318029224507"] },
-                            { title: "Episódio 008", duration: "50:20"  , thumb: "https://i.okcdn.ru/videoPreview?id=2129826220603&type=32&idx=0&tkn=splfjNzuhxIeEo97ZPXoA8G7Ln0&fn" , url: "https://ok.ru/videoembed/237428804108", alternative: ["https://ok.ru/videoembed/3318029421115"] },
-                            { title: "Episódio 009", duration: "49:12"  , thumb: "https://i.okcdn.ru/videoPreview?id=2129842670139&type=32&idx=6&tkn=sYiTKQjDno8jTWyMHO0iSdKu4Og&fn" , url: "https://ok.ru/videoembed/237428869644", alternative: ["https://ok.ru/videoembed/3318029617723"] },
-                            { title: "Episódio 010", duration: "1:03:41", thumb: "https://i.okcdn.ru/videoPreview?id=2129859250747&type=32&idx=5&tkn=_oUPy9y7scUPQ9k12XaaTAKKJlI&fn" , url: "https://ok.ru/videoembed/237428935180", alternative: ["https://ok.ru/videoembed/3318029814331"] },
+                            { title: "Episódio 001", duration: "1:01:05", thumb: "https://i.imgur.com/hNx1TxC.jpeg", url: "https://ok.ru/videoembed/233118960140", alternative: ["https://ok.ru/videoembed/3318027323963"] },
+                            { title: "Episódio 002", duration: "53:06"  , thumb: "https://i.imgur.com/ibfmdsB.jpeg", url: "https://ok.ru/videoembed/236010211852", alternative: ["https://ok.ru/videoembed/3318027848251"] },
+                            { title: "Episódio 003", duration: "50:57"  , thumb: "https://i.imgur.com/bi6HJBh.jpeg", url: "https://ok.ru/videoembed/233119025676", alternative: ["https://ok.ru/videoembed/3316095912507"] },
+                            { title: "Episódio 004", duration: "51:11"  , thumb: "https://i.imgur.com/PXVJC8i.jpeg", url: "https://ok.ru/videoembed/237530712588", alternative: ["https://ok.ru/videoembed/3318028307003"] },
+                            { title: "Episódio 005", duration: "53:01"  , thumb: "https://i.imgur.com/0CdU9gK.jpeg", url: "https://ok.ru/videoembed/238416955916", alternative: ["https://ok.ru/videoembed/3318028831291"] },
+                            { title: "Episódio 006", duration: "50:54"  , thumb: "https://i.imgur.com/tXoqnMh.jpeg", url: "https://ok.ru/videoembed/237428607500", alternative: ["https://ok.ru/videoembed/3318029093435"] },
+                            { title: "Episódio 007", duration: "53:44"  , thumb: "https://i.imgur.com/rVYV1v9.jpeg", url: "https://ok.ru/videoembed/237428738572", alternative: ["https://ok.ru/videoembed/3318029224507"] },
+                            { title: "Episódio 008", duration: "50:20"  , thumb: "https://i.imgur.com/aHxgeYU.jpeg", url: "https://ok.ru/videoembed/237428804108", alternative: ["https://ok.ru/videoembed/3318029421115"] },
+                            { title: "Episódio 009", duration: "49:12"  , thumb: "https://i.imgur.com/WQBgjKz.jpeg", url: "https://ok.ru/videoembed/237428869644", alternative: ["https://ok.ru/videoembed/3318029617723"] },
+                            { title: "Episódio 010", duration: "1:03:41", thumb: "https://i.imgur.com/i4s76sf.jpeg", url: "https://ok.ru/videoembed/237428935180", alternative: ["https://ok.ru/videoembed/3318029814331"] },
                         ]
                     }
                 ]
@@ -1424,14 +1424,14 @@ const seriesData = [
             {
                 name: "Apocalipse",
                 thumb_page: "",
-                thumb_buttons: ["https://noveflix.net/wp-content/uploads/2023/03/apocalipse-1-185x278-1.jpg"],
+                thumb_buttons: ["https://i.imgur.com/gEPrg5k.jpeg"],
                 badge: "",
                 enabled: true,
                 season: [
                     {
                         name: "Temporada 01",
-                        // thumb_season: "https://www.guiadasemana.com.br/contentFiles/image/opt_w768h480/2017/11/FEA/55979_apocalipse.jpg",
-                        thumb_season: "https://www.guiadasemana.com.br/contentFiles/image/opt_w320h0/2017/11/FEA/55979_apocalipse.jpg",
+                        // thumb_season: "https://i.imgur.com/OyIsqqk.jpeg",
+                        thumb_season: "https://i.imgur.com/Bk1iARb.jpeg",
                         movies: false,
                         episodes: [
                             { title: "Episódio 001", duration: "53:28"  , thumb: "https://i.okcdn.ru/videoPreview?id=2713812994619&type=32&idx=3&tkn=BhDDthUQR9Ck6NQYnd2iGV5WpT4&fn="  , url: "https://ok.ru/videoembed/394515581527", alternative: ["https://cdn-novflix.com/storage2/APO/APOzJ8ZbkUekz24eeeVxdBUi001.mp4", "https://ok.ru/videoembed/3788446829115"]},
@@ -1601,7 +1601,7 @@ const seriesData = [
                 thumb_page: "",
                 thumb_buttons: [
                     "https://i.imgur.com/47Vjveh.jpeg",
-                    // "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7cqUTHh40bi0fx4cg5cPEX9Wbtu.jpg"
+                    // "https://i.imgur.com/HxmEXcN.jpeg"
                 ],
                 badge: "NOVA TEMPORADA",
                 enabled: true,
@@ -1609,7 +1609,7 @@ const seriesData = [
                     //TEMPORADA 01 - A DECEPÇÃO
                     {
                         name: "Temporada 01 - A Decepção",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/m2VwgJJ.jpeg",
                         movies: false,
                         episodes: [
                             { title: "Episódio 001", duration: "52:47", thumb: "https://i.okcdn.ru/videoPreview?id=5624904813115&type=37&idx=13&tkn=KALBKypyOZbVDiiV-2g5ht_JwN0&fn=" , url: "https://ok.ru/videoembed/6662135679547" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-001.mp4"] },
@@ -2095,14 +2095,14 @@ const seriesData = [
             {
                 name: "Sansão e Dalila",
                 thumb_page: "",
-                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/3bdxncan9iyCtQkgy1NwILR6h9A.jpg"],
+                thumb_buttons: ["https://i.imgur.com/AUF8QiG.jpeg"],
                 badge: "",
                 enabled: true,
                 season: [
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitB89xRHQczEqHmeO8yxavsM0WCayk3dE0NlO6_zt4rFyABmzd_uYz_VfW-6urjwlq16aUJq2SOO6tLn_fWrZwtaEJ14jbEVaYbgWWmDwSgm87PV2sG-sE_UodPQClrCkKqDsHsNunyxc/s1600/VELHO+CHICOOO.jpg",
-                        // thumb_season: "https://upload.wikimedia.org/wikipedia/pt/a/a0/Record_Sans%C3%A3o_e_Dalila.jpg",
+                        thumb_season: "https://i.imgur.com/rD7oRk7.png",
+                        // thumb_season: "https://i.imgur.com/zpiPp6J.jpeg",
                         movies: false,
                         episodes: [
                             { title: "Episódio 001", duration: "50:58", thumb: "https://i.okcdn.ru/videoPreview?id=1126442076889&type=32&idx=3&tkn=SWyPI6WQ9yyVrfY37dAnS1jwzdg&fn" , url: "https://ok.ru/videoembed/3318075099707", alternative: ["https://ok.ru/videoembed/395205806806"] },
@@ -2135,25 +2135,25 @@ const seriesData = [
             {
                 name: "Lia",
                 thumb_page: "",
-                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/tLTpZoZFTXllDwbDhCAT5jEQHOy.jpg"],
+                thumb_buttons: ["https://i.imgur.com/h8a6jYP.jpeg"],
                 badge: "",
                 enabled: true,
                 season: [
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://upload.wikimedia.org/wikipedia/pt/e/ed/Lia_miniss%C3%A9rie.jpeg",
+                        thumb_season: "https://i.imgur.com/qIMqIbU.jpeg",
                         movies: false,
                         episodes: [
-                            { title: "Episódio 001", duration: "39:58", thumb: "https://i.okcdn.ru/videoPreview?id=2140943026747&type=37&idx=6&tkn=kbzqmwsIAc_Ith6R14CP0W6vxFk&fn" , url: "https://ok.ru/videoembed/3324731722299", alternative: ["https://ok.ru/videoembed/3646828448435"]},
-                            { title: "Episódio 002", duration: "40:05", thumb: "https://i.okcdn.ru/videoPreview?id=2140950497851&type=37&idx=5&tkn=FcUp42niZU0ZCSE7ZmtCM_GSguA&fn" , url: "https://ok.ru/videoembed/3324731918907", alternative: ["https://ok.ru/videoembed/3646835002035"]},
-                            { title: "Episódio 003", duration: "41:38", thumb: "https://i.okcdn.ru/videoPreview?id=2140955740731&type=37&idx=9&tkn=Tm50zUlWHH0G4fik3XIGVnqRuyA&fn" , url: "https://ok.ru/videoembed/3324732049979", alternative: ["https://ok.ru/videoembed/3646835133107"]},
-                            { title: "Episódio 004", duration: "41:20", thumb: "https://i.okcdn.ru/videoPreview?id=2140967209531&type=37&idx=11&tkn=1IuPdmLib48JHIYkqrkPVmZ79vQ&fn", url: "https://ok.ru/videoembed/3324732115515", alternative: ["https://ok.ru/videoembed/3646835264179"]},
-                            { title: "Episódio 005", duration: "42:30", thumb: "https://i.okcdn.ru/videoPreview?id=2141027240507&type=37&idx=1&tkn=J7ua-P4-Gp2R4P5N9jF8NPkJcXI&fn" , url: "https://ok.ru/videoembed/3324732246587", alternative: ["https://ok.ru/videoembed/3646835919539"]},
-                            { title: "Episódio 006", duration: "40:26", thumb: "https://i.okcdn.ru/videoPreview?id=2142872144443&type=37&idx=7&tkn=VQyme4dtejIhCFUSeP06ffsqHUU&fn" , url: "https://ok.ru/videoembed/3326274570811", alternative: ["https://ok.ru/videoembed/3646836050611"]},
-                            { title: "Episódio 007", duration: "42:10", thumb: "https://i.okcdn.ru/videoPreview?id=2142910679611&type=37&idx=8&tkn=Y4kaCzXt9V9ORKpnbMztiQh6cBo&fn" , url: "https://ok.ru/videoembed/3324732574267", alternative: ["https://ok.ru/videoembed/3646836116147"]},
-                            { title: "Episódio 008", duration: "40:06", thumb: "https://i.okcdn.ru/videoPreview?id=2142948035131&type=37&idx=2&tkn=9q4b1AIeXVOfmc8PGuUcVjLngrg&fn" , url: "https://ok.ru/videoembed/3324732639803", alternative: ["https://ok.ru/videoembed/3646837361331"]},
-                            { title: "Episódio 009", duration: "40:41", thumb: "https://i.okcdn.ru/videoPreview?id=2142999022139&type=37&idx=12&tkn=tOMp2y2baOZSRAZ5rOA3LG5YXO8&fn", url: "https://ok.ru/videoembed/3324732836411", alternative: ["https://ok.ru/videoembed/3646878124723"]},
-                            { title: "Episódio 010", duration: "40:06", thumb: "https://i.okcdn.ru/videoPreview?id=2143040178747&type=37&idx=14&tkn=k-8dnwWpKzaUE947f0mNQpduerk&fn", url: "https://ok.ru/videoembed/3324732901947", alternative: ["https://ok.ru/videoembed/3646837492403"]},
+                            { title: "Episódio 001", duration: "39:58", thumb: "https://i.imgur.com/NMtOHN0.jpeg", url: "https://ok.ru/videoembed/3324731722299", alternative: ["https://ok.ru/videoembed/3646828448435"]},
+                            { title: "Episódio 002", duration: "40:05", thumb: "https://i.imgur.com/n5WMlOm.jpeg", url: "https://ok.ru/videoembed/3324731918907", alternative: ["https://ok.ru/videoembed/3646835002035"]},
+                            { title: "Episódio 003", duration: "41:38", thumb: "https://i.imgur.com/S0txppK.jpeg", url: "https://ok.ru/videoembed/3324732049979", alternative: ["https://ok.ru/videoembed/3646835133107"]},
+                            { title: "Episódio 004", duration: "41:20", thumb: "https://i.imgur.com/C9UlIW6.jpeg", url: "https://ok.ru/videoembed/3324732115515", alternative: ["https://ok.ru/videoembed/3646835264179"]},
+                            { title: "Episódio 005", duration: "42:30", thumb: "https://i.imgur.com/LVyP2o6.jpeg", url: "https://ok.ru/videoembed/3324732246587", alternative: ["https://ok.ru/videoembed/3646835919539"]},
+                            { title: "Episódio 006", duration: "40:26", thumb: "https://i.imgur.com/AJsFKzh.jpeg", url: "https://ok.ru/videoembed/3326274570811", alternative: ["https://ok.ru/videoembed/3646836050611"]},
+                            { title: "Episódio 007", duration: "42:10", thumb: "https://i.imgur.com/GEpTcNi.jpeg", url: "https://ok.ru/videoembed/3324732574267", alternative: ["https://ok.ru/videoembed/3646836116147"]},
+                            { title: "Episódio 008", duration: "40:06", thumb: "https://i.imgur.com/B8QfV00.jpeg", url: "https://ok.ru/videoembed/3324732639803", alternative: ["https://ok.ru/videoembed/3646837361331"]},
+                            { title: "Episódio 009", duration: "40:41", thumb: "https://i.imgur.com/agumgOT.jpeg", url: "https://ok.ru/videoembed/3324732836411", alternative: ["https://ok.ru/videoembed/3646878124723"]},
+                            { title: "Episódio 010", duration: "40:06", thumb: "https://i.imgur.com/y8jltSe.jpeg", url: "https://ok.ru/videoembed/3324732901947", alternative: ["https://ok.ru/videoembed/3646837492403"]},
                         ]
                     }
                 ]
@@ -2163,22 +2163,22 @@ const seriesData = [
             {
                 name: "Neemias",
                 thumb_page: "",
-                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/pCICUzNpZwqU8ZHk7UGZX8WlpPj.jpg"],
+                thumb_buttons: ["https://i.imgur.com/tzBW2PF.jpeg"],
                 badge: "",
                 enabled: true,
                 season: [
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://tf-univervideo-blog.s3-accelerate.amazonaws.com/capa_horizontal_neemias_0eb146235b.jpg",
+                        thumb_season: "https://i.imgur.com/88NCyGX.jpeg",
                         movies: false,
                         episodes: [
-                            { title: "Episódio 001", duration: "56:12", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY1KGxDSNilS3DsE5WY9BoglHDehkIcQPm2gUHF7v9sWg&fn", url: "https://ok.ru/videoembed/8300071160431", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-001.mp4"] },
-                            { title: "Episódio 002", duration: "53:07", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYFy2zG1AYG_4PLeri-4-Vn9s4-D69Id7dzmlGAEVyABY&fn", url: "https://ok.ru/videoembed/8300107991663", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-002.mp4"] },
-                            { title: "Episódio 003", duration: "46:14", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYFgCmxEnqfUyiC1klb7cNShZC6sppQduvZHgISE6w2fo&fn", url: "https://ok.ru/videoembed/8353846921839", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-003.mp4"] },
-                            { title: "Episódio 004", duration: "42:21", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYtwD3T_pBQ1a73_ElPsEzUrJCvMg4x9yqR80lVRVYVgE&fn", url: "https://ok.ru/videoembed/8382263265903", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-004.mp4"] },
-                            { title: "Episódio 005", duration: "49:52", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYyhQxPfTdlvZ8AfODaM5BhFkRcVerLK4Yf550bI8vALA&fn", url: "https://ok.ru/videoembed/8455925860975", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-005.mp4"] },
-                            { title: "Episódio 006", duration: "43:44", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY8YRD3dwYoE0SY7QSBNnoVMxLMpExx8mfnJnzncH1wNc&fn", url: "https://ok.ru/videoembed/8644669934191", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-006.mp4"] },
-                            { title: "Episódio 007", duration: "57:55", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYa_L7hB2CCm6oB8mYVc1LNCw8X7DdTk9EKs8dJNefMkw&fn", url: "https://ok.ru/videoembed/8873746434671", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-007.mp4"] },
+                            { title: "Episódio 001", duration: "56:12", thumb: "https://i.imgur.com/qCDfzlM.png", url: "https://ok.ru/videoembed/8300071160431", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-001.mp4"] },
+                            { title: "Episódio 002", duration: "53:07", thumb: "https://i.imgur.com/9JaWVrq.png", url: "https://ok.ru/videoembed/8300107991663", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-002.mp4"] },
+                            { title: "Episódio 003", duration: "46:14", thumb: "https://i.imgur.com/iPwlVFb.png", url: "https://ok.ru/videoembed/8353846921839", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-003.mp4"] },
+                            { title: "Episódio 004", duration: "42:21", thumb: "https://i.imgur.com/juAsBhP.png", url: "https://ok.ru/videoembed/8382263265903", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-004.mp4"] },
+                            { title: "Episódio 005", duration: "49:52", thumb: "https://i.imgur.com/YCl8Glj.png", url: "https://ok.ru/videoembed/8455925860975", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-005.mp4"] },
+                            { title: "Episódio 006", duration: "43:44", thumb: "https://i.imgur.com/Ha0BzAP.png", url: "https://ok.ru/videoembed/8644669934191", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-006.mp4"] },
+                            { title: "Episódio 007", duration: "57:55", thumb: "https://i.imgur.com/k25ftzZ.png", url: "https://ok.ru/videoembed/8873746434671", alternative: ["https://cdn-novflix.com/storage2/NEEMIAS/NEEMIAS-007.mp4"] },
                         ]
                     }
                 ]
@@ -2188,7 +2188,7 @@ const seriesData = [
             {
                 name: "O Apóstolo Paulo",
                 thumb_page: "",
-                thumb_buttons: ["https://image.tmdb.org/t/p/w600_and_h900_bestv2/nlzyqHl1qBQxIwVi4pLUOAoAwhp.jpg"],
+                thumb_buttons: ["https://i.imgur.com/kcwpdNz.png"],
                 badge: "EMBREVE",
                 enabled: false,
                 title: "INDISPONÍVEL",
