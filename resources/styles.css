@@ -520,7 +520,6 @@ header h1 {
 }
 
 #group-series-button .favorite-button {
-    transition: all 0.3s ease;
     display: none;
 }
 
@@ -1304,6 +1303,40 @@ header h1 {
     border-bottom: 5px solid rgb(129, 134, 141, 0.5);
 }
 
+.shake {
+    transition: transform 0.1s ease-in-out;
+}
+
+.shake-left {
+    transform: translateX(-5px);
+}
+
+.shake-right {
+    transform: translateX(5px);
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.3s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* @keyframes scaleIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.fade-in-up { animation: scaleIn 0.5s ease-out forwards; } */
+
 @media (max-width: 2560px) {
     #group-series-button{
         width: 227px;
@@ -1413,5 +1446,16 @@ header h1 {
 
     #video-overlay-header {
         display: block;
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
