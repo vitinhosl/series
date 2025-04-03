@@ -732,7 +732,8 @@ header h1 {
     border-radius: 8px;
     background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
     margin-bottom: 10px;
-    transition: all 0.3s ease;
+    transition: width 0.5s ease-out;
+    /* overflow: hidden */
 }
 
 #season-dropdown, #overlay-season-dropdown, #overlay-episodes-dropdown {
@@ -1329,6 +1330,27 @@ header h1 {
         transform: translateX(0);
     }
 }
+
+
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.slide-out-right {
+    animation: slideOutRight 0.5s ease-out forwards;
+}
+
+@keyframes slideOutRight {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(20px); }
+}
+
 
 /* @keyframes scaleIn {
     0% { opacity: 0; transform: scale(0.8); }

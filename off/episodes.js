@@ -2243,7 +2243,10 @@ const seriesData = [
             {
                 name: "JEZABEL",
                 thumb_page: "https://i.imgur.com/fjZzqlg.pn",
-                thumb_buttons: ["https://i.imgur.com/Z3WUXd9.jpeg"],
+                thumb_buttons: [
+                    "https://i.imgur.com/47Vjveh.jpeg",
+                    "https://i.imgur.com/HxmEXcN.jpeg"
+                ],
                 badge: "",
                 enabled: true,
                 season: [
@@ -2261,7 +2264,39 @@ const seriesData = [
 
                         ]
                     },
-                ],
+
+                    {
+                        name: "",
+                        thumb_season: "https://i.imgur.com/FWhYOfF.jpeg",
+                        movies: false,
+                        episodes: [
+                            { title: "001", thumb: "", url: "https://ok.ru/videoembed/1396816284247", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-001.mp4"] },
+                            { title: "002", thumb: "", url: "https://ok.ru/videoembed/1395261246039", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-002.mp4"] },
+                            { title: "003", thumb: "", url: "https://ok.ru/videoembed/1395991382615", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-003.mp4"] },
+                            { title: "004", thumb: "", url: "https://ok.ru/videoembed/1400989289047", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-004.mp4"] },
+                            { title: "005", thumb: "", url: "https://ok.ru/videoembed/1400989289047", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-005.mp4"] },
+                            { title: "006", thumb: "", url: "https://ok.ru/videoembed/1405562128983", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-006.mp4"] },
+                            { title: "007", thumb: "", url: "https://ok.ru/videoembed/1405562128983", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-006.mp4"] },
+                            { title: "008", thumb: "", url: "https://ok.ru/videoembed/1405562128983", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-006.mp4"] },
+                            { title: "009", thumb: "", url: "https://ok.ru/videoembed/1405562128983", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-006.mp4"] },
+                            { title: "010", thumb: "", url: "https://ok.ru/videoembed/1405562128983", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-006.mp4"] },
+    
+                        ]
+                    },
+
+                    {
+                        name: "",
+                        thumb_season: "https://i.imgur.com/FWhYOfF.jpeg",
+                        movies: false,
+                        episodes: [
+                            { title: "001", thumb: "", url: "https://ok.ru/videoembed/1396816284247", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-001.mp4"] },
+                            { title: "002", thumb: "", url: "https://ok.ru/videoembed/1395261246039", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-002.mp4"] },
+                            { title: "003", thumb: "", url: "https://ok.ru/videoembed/1395991382615", alternative: ["https://cdn-novflix.com/storage7/JEZA/JEZA-003.mp4"] },
+    
+                        ]
+                    },
+
+                ]   
                 
             },
 
