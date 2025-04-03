@@ -121,6 +121,7 @@ let currentEpisodeIndex = 0;
 let currentSeasonIndex = 0;
 let currentSerie = null;
 const selectedThumbs = {};
+const thumbnailCache = {};
 
 // Variáveis para animação cumulativa
 let cumulativeAnimationIndex = 0;
@@ -338,16 +339,44 @@ function setupThumbnailLoading() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.src = img.dataset.src;
-                img.onload = () => img.closest('#episode-button').style.backgroundImage = `url('${img.src}')`;
-                img.onerror = () => img.closest('#episode-button').style.backgroundImage = `url('${img.dataset.fallback}')`;
+                const src = img.dataset.src;
+                const fallback = img.dataset.fallback;
+
+                // Se a imagem já está no cache, usa diretamente
+                if (thumbnailCache[src]) {
+                    img.src = thumbnailCache[src];
+                    img.closest('#episode-button').style.backgroundImage = `url('${thumbnailCache[src]}')`;
+                    img.style.opacity = '1'; // Garante que apareça imediatamente
+                } else {
+                    // Carrega a imagem com transição
+                    img.style.opacity = '0'; // Começa invisível
+                    img.src = src;
+                    img.onload = () => {
+                        thumbnailCache[src] = src; // Armazena no cache
+                        img.closest('#episode-button').style.backgroundImage = `url('${src}')`;
+                        img.style.transition = 'opacity 0.3s ease-in'; // Transição suave
+                        img.style.opacity = '1'; // Fade-in
+                    };
+                    img.onerror = () => {
+                        img.src = fallback;
+                        thumbnailCache[src] = fallback; // Cache do fallback
+                        img.closest('#episode-button').style.backgroundImage = `url('${fallback}')`;
+                        img.style.transition = 'opacity 0.3s ease-in';
+                        img.style.opacity = '1';
+                    };
+                }
                 observer.unobserve(img);
             }
         });
     }, { rootMargin: '200px' });
 
     document.querySelectorAll('.episode-thumb').forEach(img => {
-        if (!img.src) observer.observe(img); // Só observa se ainda não foi carregado
+        if (!img.src || img.src === '') {
+            observer.observe(img); // Só observa se ainda não foi carregado
+        } else if (thumbnailCache[img.dataset.src]) {
+            img.src = thumbnailCache[img.dataset.src]; // Usa o cache se já carregado
+            img.style.opacity = '1';
+        }
     });
 }
 
