@@ -519,19 +519,6 @@ header h1 {
     color: rgb(250, 244, 237);
 }
 
-#group-series-button .favorite-button {
-    display: none;
-}
-
-#group-series-button .favorite-button.active {
-    transition: all 0.3s ease;
-    display: flex; 
-}
-
-#group-series-button:hover .favorite-button {
-    display: flex;
-}
-
 #group-search {
     display: flex;
     justify-content: space-between;
@@ -647,8 +634,8 @@ header h1 {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: rgba(0, 0, 0, 1.0);
-    color: rgba(255, 255, 255, 1.0);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgb(255, 255, 255, 0.5);
     border: none;
     border-radius: 50%;
     width: 30px;
@@ -658,31 +645,41 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
     line-height: 0;
-    opacity: 0.2;
     z-index: 12;
-    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
+    pointer-events: none;
 }
 
 .favorite-button.active {
     background-color: rgba(0, 0, 0, 0.3);
     color: rgb(255, 215, 0);
     opacity: 1;
+    transform: scale(1);
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));
-    /* text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); */
+    pointer-events: auto; 
 }
 
 .favorite-button:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: gold;
     opacity: 1;
+    transform: scale(1);
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));
+    pointer-events: auto;
 }
 
 .favorite-button:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
+}
+
+#group-series-button:hover .favorite-button {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
 }
 
 #continue-series,
@@ -800,12 +797,11 @@ header h1 {
     text-align: center;
     color: white;
     cursor: pointer;
-    transition: transform 0.3s ease;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 10px 10px 10px 0px;
-    transition: background-image 0.3s ease-in-out, all 0.3s;
+    transition: background-image 0.3s ease-in-out, transform 0.3s ease, all 0.3s;
 }
 
 .episode-thumb {
@@ -1349,19 +1345,6 @@ header h1 {
     0% { opacity: 1; transform: translateX(0); }
     100% { opacity: 0; transform: translateX(20px); }
 }
-
-#episode-button {
-    background-size: cover;
-    transition: background-image 0.3s ease-in;
-}
-
-
-/* @keyframes scaleIn {
-    0% { opacity: 0; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
-}
-
-.fade-in-up { animation: scaleIn 0.5s ease-out forwards; } */
 
 @media (max-width: 2560px) {
     #group-series-button{
