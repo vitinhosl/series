@@ -802,6 +802,7 @@ header h1 {
     background-size: cover;
     margin: 10px 10px 10px 0px;
     transition: background-image 0.3s ease-in-out, transform 0.3s ease, all 0.3s;
+    user-select: none;
 }
 
 .episode-thumb {
@@ -813,6 +814,7 @@ header h1 {
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.3s ease-in;
+    user-select: none;
 }
 
 #continue-episode-button:hover,
@@ -1466,5 +1468,15 @@ header h1 {
             opacity: 1;
             transform: translateY(0);
         }
+    }
+
+    @keyframes slideInRight {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideOutRight {
+        0% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(20px); }
     }
 }
