@@ -2208,21 +2208,26 @@ const seriesData = [
 ];
 
 // localStorage.clear();
-const selectedThumbs = {};
-const thumbnailCache = {};
-let autoPlay = true;
-let animationReverse = false;
-let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-let continues = JSON.parse(localStorage.getItem('continues')) || {};
-let currentSerie = null;
-let currentEpisodeIndex = 0;
-let currentSeasonIndex = 0;
-let cumulativeAnimationIndex = 0;
-let previousEpisodeCount = 0;
+let autoPlay                    = true;
+let animationReverseEpisodes    = false;
+let animationReverseFavorites   = false;
+let animationReverseContinues   = false;
+let animationSpeedEpisodes      = 3;
+let animationSpeedFavorites     = 10;
+let animationSpeedButtons       = 30;
+let animationSpeedSearchsKeys   = 2;
 
-let animationSpeedEpisodes = 3;
-let animationSpeedButtons  = 30;
-let animationSpeedSearchs  = 2;
+const selectedThumbs            = {};
+const thumbnailCache            = {};
+let   favorites                 = JSON.parse(localStorage.getItem('favorites')) || [];
+let   continues                 = JSON.parse(localStorage.getItem('continues')) || {};
+let   currentSerie              = null;
+let   currentEpisodeIndex       = 0;
+let   currentSeasonIndex        = 0;
+let   cumulativeAnimationIndex  = 0;
+let   previousEpisodeCount      = 0;
+
+
 
 //SERIE ATUAL
 function renderCurrentSeries(serie) {
@@ -2350,8 +2355,8 @@ function animateEpisodes(currentCount, previousCount, callback) {
     const episodeContainer = document.getElementById('current-series-episodes');
     const episodeContainers = episodeContainer.querySelectorAll('.episode-container');
 
-    if (animationReverse) {
-        // Comportamento original quando animationReverse é true
+    if (animationReverseEpisodes) {
+        // Comportamento original quando animationReverseEpisodes é true
         if (currentCount > previousCount) {
             // Mais episódios: anima os novos após renderizar
             if (callback) callback(); // Renderiza os novos episódios primeiro
@@ -2393,7 +2398,7 @@ function animateEpisodes(currentCount, previousCount, callback) {
             });
         }
     } else {
-        // Quando animationReverse é false: recarrega tudo do início para a direita
+        // Quando animationReverseEpisodes é false: recarrega tudo do início para a direita
         if (callback) callback(); // Renderiza os novos episódios primeiro
         const newEpisodeContainers = episodeContainer.querySelectorAll('.episode-container');
         newEpisodeContainers.forEach((episode, index) => {
@@ -2874,9 +2879,8 @@ function saveContinueProgress(progress) {
         activeEpisodeIndex: progress.activeEpisodeIndex
     };
 
-    continues = currentContinues; // Atualiza a variável global
+    continues = currentContinues;
     localStorage.setItem('continues', JSON.stringify(continues));
-    console.log('Progresso salvo:', continues); // Para depuração
 }
 
 function removeContinueSeriesSeason(seasonKey) {
@@ -2899,6 +2903,62 @@ function removeContinueSeriesSeason(seasonKey) {
 }
 
 //INICIO
+function filterSeries() {
+    const query = searchInput.value.trim();
+    const favoritesButton = document.querySelector('#keys button:nth-child(2)');
+    const isFavoritesChecked = favoritesButton && favoritesButton.innerText === '★';
+    const groupHome = document.getElementById('group-home');
+    const groupFavorites = document.getElementById('group-favorites');
+    const groupContinues = document.getElementById('group-continues');
+    const checkedButton = document.querySelector('#keys button.checked');
+
+    if (query.length > 0) {
+        const filteredGroups = seriesData.map(group => {
+            const filteredGroup = group.group.filter(serie =>
+                serie.name.toUpperCase().includes(query.toUpperCase())
+            );
+            return { ...group, group: filteredGroup };
+        }).filter(group => group.group.length > 0);
+        groupHome.style.display = 'block';
+        groupFavorites.style.display = 'none';
+        groupContinues.style.display = 'none';
+        currentFilter = { type: 'search', value: query };
+        renderSeriesButtons(filteredGroups);
+    } else if (isFavoritesChecked) {
+        groupHome.style.display = 'none';
+        groupFavorites.style.display = 'block';
+        groupContinues.style.display = 'none';
+        currentFilter = { type: 'favorites' };
+    } else if (checkedButton) {
+        const letter = checkedButton.innerText;
+        if (letter === 'TODAS') {
+            groupHome.style.display = 'block';
+            groupFavorites.style.display = 'block';
+            groupContinues.style.display = 'block';
+            currentFilter = null;
+            renderSeriesButtons();
+        } else if (letter !== '☆' && letter !== '★') {
+            const filteredGroups = seriesData.map(group => {
+                const filteredGroup = group.group.filter(serie =>
+                    serie.name.toUpperCase().startsWith(letter)
+                );
+                return { ...group, group: filteredGroup };
+            }).filter(group => group.group.length > 0);
+            groupHome.style.display = 'block';
+            groupFavorites.style.display = 'none';
+            groupContinues.style.display = 'none';
+            currentFilter = { type: 'letter', value: letter };
+            renderSeriesButtons(filteredGroups);
+        }
+    } else {
+        groupHome.style.display = 'block';
+        groupFavorites.style.display = 'block';
+        groupContinues.style.display = 'block';
+        currentFilter = null;
+        renderSeriesButtons();
+    }
+}
+
 function renderSeriesButtons(filteredGroups) {
     const groupHome = document.getElementById('group-home');
     groupHome.innerHTML = '';
@@ -3124,32 +3184,32 @@ function updateFavorites() {
 
                 updateFavorites();
 
-                if (currentFilter) {
-                    if (currentFilter.type === 'search') {
-                        const filteredGroups = seriesData.map(group => {
-                            const filteredGroup = group.group.filter(serie =>
-                                serie.name.toUpperCase().includes(currentFilter.value.toUpperCase())
-                            );
-                            return { ...group, group: filteredGroup };
-                        }).filter(group => group.group.length > 0);
-                        renderSeriesButtons(filteredGroups);
-                    } else if (currentFilter.type === 'letter') {
-                        const filteredGroups = seriesData.map(group => {
-                            const filteredGroup = group.group.filter(serie =>
-                                serie.name.toUpperCase().startsWith(currentFilter.value)
-                            );
-                            return { ...group, group: filteredGroup };
-                        }).filter(group => group.group.length > 0);
-                        renderSeriesButtons(filteredGroups);
-                    } else if (currentFilter.type === 'favorites') {
-                        document.getElementById('group-home').style.display = 'none';
-                        document.getElementById('group-favorites').style.display = 'block';
-                        document.getElementById('group-continues').style.display = 'none';
-                        renderSeriesButtons();
-                    }
-                } else {
-                    renderSeriesButtons();
-                }
+                //if (currentFilter) {
+                //    if (currentFilter.type === 'search') {
+                //        const filteredGroups = seriesData.map(group => {
+                //            const filteredGroup = group.group.filter(serie =>
+                //                serie.name.toUpperCase().includes(currentFilter.value.toUpperCase())
+                //            );
+                //            return { ...group, group: filteredGroup };
+                //        }).filter(group => group.group.length > 0);
+                //        renderSeriesButtons(filteredGroups);
+                //    } else if (currentFilter.type === 'letter') {
+                //        const filteredGroups = seriesData.map(group => {
+                //            const filteredGroup = group.group.filter(serie =>
+                //                serie.name.toUpperCase().startsWith(currentFilter.value)
+                //            );
+                //            return { ...group, group: filteredGroup };
+                //        }).filter(group => group.group.length > 0);
+                //        renderSeriesButtons(filteredGroups);
+                //    } else if (currentFilter.type === 'favorites') {
+                //        document.getElementById('group-home').style.display = 'none';
+                //        document.getElementById('group-favorites').style.display = 'block';
+                //        document.getElementById('group-continues').style.display = 'none';
+                //        renderSeriesButtons();
+                //    }
+                //} else {
+                //    renderSeriesButtons();
+                //}
             });
         });
 
@@ -3195,9 +3255,7 @@ function saveFavorite(serie) {
 function removeFavorite(serie) {
     favorites = favorites.filter(fav => fav.name !== serie.name);
     localStorage.setItem('favorites', JSON.stringify(favorites));
-    // Força a recarga da lista favorites do localStorage para garantir sincronização
     favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    console.log('Após remover favorito, favorites:', favorites); // Log para depuração
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -3238,67 +3296,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const searchInput = document.querySelector('#search .input');
-
-    function filterSeries() {
-        const query = searchInput.value.trim();
-        const favoritesButton = document.querySelector('#keys button:nth-child(2)');
-        const isFavoritesChecked = favoritesButton && favoritesButton.innerText === '★';
-        const groupHome = document.getElementById('group-home');
-        const groupFavorites = document.getElementById('group-favorites');
-        const groupContinues = document.getElementById('group-continues');
-        const checkedButton = document.querySelector('#keys button.checked');
-    
-        if (query.length > 0) {
-            const filteredGroups = seriesData.map(group => {
-                const filteredGroup = group.group.filter(serie =>
-                    serie.name.toUpperCase().includes(query.toUpperCase())
-                );
-                return { ...group, group: filteredGroup };
-            }).filter(group => group.group.length > 0);
-            groupHome.style.display = 'block';
-            groupFavorites.style.display = 'none';
-            groupContinues.style.display = 'none';
-            currentFilter = { type: 'search', value: query };
-            renderSeriesButtons(filteredGroups);
-        } else if (isFavoritesChecked) {
-            groupHome.style.display = 'none';
-            groupFavorites.style.display = 'block';
-            groupContinues.style.display = 'none';
-            currentFilter = { type: 'favorites' };
-        } else if (checkedButton) {
-            const letter = checkedButton.innerText;
-            if (letter === 'TODAS') {
-                groupHome.style.display = 'block';
-                groupFavorites.style.display = 'block';
-                groupContinues.style.display = 'block';
-                currentFilter = null;
-                renderSeriesButtons();
-            } else if (letter !== '☆' && letter !== '★') {
-                const filteredGroups = seriesData.map(group => {
-                    const filteredGroup = group.group.filter(serie =>
-                        serie.name.toUpperCase().startsWith(letter)
-                    );
-                    return { ...group, group: filteredGroup };
-                }).filter(group => group.group.length > 0);
-                groupHome.style.display = 'block';
-                groupFavorites.style.display = 'none';
-                groupContinues.style.display = 'none';
-                currentFilter = { type: 'letter', value: letter };
-                renderSeriesButtons(filteredGroups);
-            }
-        } else {
-            groupHome.style.display = 'block';
-            groupFavorites.style.display = 'block';
-            groupContinues.style.display = 'block';
-            currentFilter = null;
-            renderSeriesButtons();
-        }
-    }
-
     const buttons = document.querySelectorAll('#keys button');
 
     buttons.forEach((button, index) => {
-        const delay = animationSpeedSearchs / 100;
+        const delay = animationSpeedSearchsKeys / 100;
         button.style.animationDelay = `${index * delay}s`;
         button.classList.add('slide-in-right');
         button.style.animationFillMode = 'backwards';
