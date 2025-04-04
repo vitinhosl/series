@@ -347,6 +347,10 @@ header h1 {
     transition: all 0.3s ease;
 }
 
+.group-series-enter {
+    animation: fadeInUp 0.3s ease-in forwards;
+}
+
 #group-series-header {
   padding: 10px;
   font-size: 1.5rem;
@@ -682,6 +686,7 @@ header h1 {
     pointer-events: auto;
 }
 
+#episodes-series,
 #continue-series,
 #current-series {
     background-color: rgb(18, 22, 29);
