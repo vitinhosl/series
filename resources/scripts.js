@@ -2208,12 +2208,12 @@ const seriesData = [
 ];
 
 // localStorage.clear();
+const selectedThumbs = {};
+const thumbnailCache = {};
 let autoPlay = true;
 let animationReverse = false;
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 let continues = JSON.parse(localStorage.getItem('continues')) || {};
-const selectedThumbs = {};
-const thumbnailCache = {};
 let currentSerie = null;
 let currentEpisodeIndex = 0;
 let currentSeasonIndex = 0;
@@ -2903,6 +2903,10 @@ function renderSeriesButtons(filteredGroups) {
     const groupHome = document.getElementById('group-home');
     groupHome.innerHTML = '';
     
+    // Força a recarga da lista favorites do localStorage antes de renderizar
+    favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    console.log('Renderizando group-home com favorites:', favorites); // Log para depuração
+
     const groups = filteredGroups || seriesData;
 
     groups.forEach(group => {
@@ -2929,6 +2933,7 @@ function renderSeriesButtons(filteredGroups) {
             <div id="group-series-cards">
                 ${sortedGroup.map(serie => {
                     const isFavorite = favorites.some(fav => fav.name === serie.name);
+                    console.log(`Série: ${serie.name}, isFavorite: ${isFavorite}`); // Log para depuração
                     const disabledClass = serie.enabled ? '' : 'disabled';
                     if (!selectedThumbs[serie.name]) {
                         const randomThumbIndex = Math.floor(Math.random() * serie.thumb_buttons.length);
@@ -2970,17 +2975,21 @@ function renderSeriesButtons(filteredGroups) {
 
     // Adiciona a animação após renderizar
     document.querySelectorAll('#group-series-button').forEach((button, index) => {
-        button.style.opacity = '0'; // Começa invisível
+        button.style.opacity = '0';
         setTimeout(() => {
             button.classList.add('fade-in-up');
-        }, index * animationSpeedButtons); // Atraso de 100ms por botão
+        }, index * animationSpeedButtons);
     });
 
-    // Reaplica os event listeners
+    // Remove eventos de clique anteriores para evitar duplicatas
     document.querySelectorAll('.favorite-button').forEach(button => {
         const newButton = button.cloneNode(true);
         button.parentNode.replaceChild(newButton, button);
-        newButton.addEventListener('click', function(event) {
+    });
+
+    // Adiciona os novos eventos de clique
+    document.querySelectorAll('.favorite-button').forEach(button => {
+        button.addEventListener('click', function(event) {
             event.stopPropagation();
             const serie = JSON.parse(this.getAttribute('data-serie'));
             const isFavorite = this.classList.contains('active');
@@ -2989,6 +2998,7 @@ function renderSeriesButtons(filteredGroups) {
             } else {
                 saveFavorite(serie);
             }
+            // Atualiza o estado visual do botão imediatamente
             this.classList.toggle('active');
             this.innerHTML = this.classList.contains('active') 
                 ? '★ <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>' 
@@ -3024,6 +3034,10 @@ function renderSeriesButtons(filteredGroups) {
 function updateFavorites() {
     const groupFavorites = document.getElementById('group-favorites');
     groupFavorites.innerHTML = '';
+
+    // Força a recarga da lista favorites do localStorage
+    favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    console.log('Atualizando group-favorites com favorites:', favorites); // Log para depuração
 
     if (favorites.length > 0) {
         const sortedFavorites = [...favorites].sort((a, b) => {
@@ -3102,6 +3116,17 @@ function updateFavorites() {
                 event.stopPropagation();
                 const serie = JSON.parse(this.getAttribute('data-serie'));
                 removeFavorite(serie);
+
+                // Atualiza manualmente o botão correspondente no group-home
+                const groupHomeButtons = document.querySelectorAll('#group-home .favorite-button');
+                groupHomeButtons.forEach(btn => {
+                    const btnSerie = JSON.parse(btn.getAttribute('data-serie'));
+                    if (btnSerie.name === serie.name) {
+                        btn.classList.remove('active');
+                        btn.innerHTML = '☆ <span class="tooltip-text black tooltip-top">Adicionar aos favoritos</span>';
+                    }
+                });
+
                 updateFavorites();
 
                 // Reaplica o filtro atual para atualizar o group-home
@@ -3123,15 +3148,12 @@ function updateFavorites() {
                         }).filter(group => group.group.length > 0);
                         renderSeriesButtons(filteredGroups);
                     } else if (currentFilter.type === 'favorites') {
-                        // Se o filtro for de favoritos, mostra apenas o group-favorites
                         document.getElementById('group-home').style.display = 'none';
                         document.getElementById('group-favorites').style.display = 'block';
                         document.getElementById('group-continues').style.display = 'none';
-                        // Força a atualização do group-home para refletir a mudança no favorito
-                        renderSeriesButtons(); // Renderiza todas as séries no group-home
+                        renderSeriesButtons();
                     }
                 } else {
-                    // Se não houver filtro (TODAS), renderiza tudo
                     renderSeriesButtons();
                 }
             });
@@ -3161,7 +3183,6 @@ function updateFavorites() {
             });
         });
     } else {
-        // Se não houver favoritos, remove a seção
         groupFavorites.innerHTML = '';
     }
 }
@@ -3176,6 +3197,9 @@ function saveFavorite(serie) {
 function removeFavorite(serie) {
     favorites = favorites.filter(fav => fav.name !== serie.name);
     localStorage.setItem('favorites', JSON.stringify(favorites));
+    // Força a recarga da lista favorites do localStorage para garantir sincronização
+    favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    console.log('Após remover favorito, favorites:', favorites); // Log para depuração
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -3225,6 +3249,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const groupContinues = document.getElementById('group-continues');
         const checkedButton = document.querySelector('#keys button.checked');
     
+        // Força a recarga da lista favorites do localStorage antes de aplicar o filtro
+        favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        console.log('Filtrando séries com favorites:', favorites); // Log para depuração
+    
         // Prioridade 1: Busca por texto
         if (query.length > 0) {
             const filteredGroups = seriesData.map(group => {
@@ -3236,15 +3264,15 @@ document.addEventListener('DOMContentLoaded', function() {
             groupHome.style.display = 'block';
             groupFavorites.style.display = 'none';
             groupContinues.style.display = 'none';
-            currentFilter = { type: 'search', value: query }; // Armazena o filtro de busca
+            currentFilter = { type: 'search', value: query };
             renderSeriesButtons(filteredGroups);
         }
         // Prioridade 2: Botão de favoritos como ★
         else if (isFavoritesChecked) {
-            groupHome.style.display = 'none';
+            groupHome.style.display = 'none-removed';
             groupFavorites.style.display = 'block';
             groupContinues.style.display = 'none';
-            currentFilter = { type: 'favorites' }; // Armazena o filtro de favoritos
+            currentFilter = { type: 'favorites' };
         }
         // Prioridade 3: Filtro por letra ou "TODAS"
         else if (checkedButton) {
@@ -3253,7 +3281,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 groupHome.style.display = 'block';
                 groupFavorites.style.display = 'block';
                 groupContinues.style.display = 'block';
-                currentFilter = null; // Sem filtro (mostra todas)
+                currentFilter = null;
                 renderSeriesButtons();
             } else if (letter !== '☆' && letter !== '★') {
                 const filteredGroups = seriesData.map(group => {
@@ -3265,7 +3293,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 groupHome.style.display = 'block';
                 groupFavorites.style.display = 'none';
                 groupContinues.style.display = 'none';
-                currentFilter = { type: 'letter', value: letter }; // Armazena o filtro por letra
+                currentFilter = { type: 'letter', value: letter };
                 renderSeriesButtons(filteredGroups);
             }
         }
