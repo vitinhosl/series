@@ -3105,7 +3105,7 @@ function updateFavorites() {
             button.parentNode.replaceChild(newButton, button);
         });
 
-        // Adiciona os novos eventos de clique
+        // Adiciona os novos eventos de clique para os botões de favorito
         document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
             button.addEventListener('click', function(event) {
                 event.stopPropagation();
@@ -3153,12 +3153,16 @@ function updateFavorites() {
             });
         });
 
+        // Adiciona os eventos de clique para os botões de série
         document.querySelectorAll('#group-favorites #group-series-button').forEach(button => {
             button.addEventListener('click', function() {
                 const serieName = this.querySelector('h1').innerText;
                 const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
                 
                 if (!serie.enabled) return;
+
+                // Adiciona o # ao URL, assim como no renderSeriesButtons
+                window.history.pushState({ page: 'series', serieName: serieName }, serieName, `#${serieName.replace(/\s+/g, '-')}`);
 
                 document.getElementById('home').classList.remove('show');
                 document.getElementById('home').classList.add('hidden');
@@ -3218,7 +3222,6 @@ document.addEventListener('DOMContentLoaded', function() {
         videoOverlay.classList.remove('show');
         videoOverlay.classList.add('hidden');
         videoIframe.src = '';
-        // Remove os dropdowns para recriação na próxima abertura
         const overlaySeasonDropdown = document.getElementById('overlay-season-dropdown');
         const overlayEpisodesDropdown = document.getElementById('overlay-episodes-dropdown');
         if (overlaySeasonDropdown) overlaySeasonDropdown.remove();
@@ -3227,9 +3230,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('#back-button').forEach(button => {
         button.addEventListener('click', function() {
-            window.history.back();
-            window.history.back();
-            window.history.back();
+            // Adiciona uma entrada "limpa" ao histórico para a página inicial
+            window.history.pushState({ page: 'home' }, '', window.location.pathname);
+            // Dispara o evento popstate manualmente para atualizar a UI
+            window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
         });
     });
 
@@ -3244,7 +3248,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const groupContinues = document.getElementById('group-continues');
         const checkedButton = document.querySelector('#keys button.checked');
     
-        // Prioridade 1: Busca por texto
         if (query.length > 0) {
             const filteredGroups = seriesData.map(group => {
                 const filteredGroup = group.group.filter(serie =>
@@ -3255,24 +3258,20 @@ document.addEventListener('DOMContentLoaded', function() {
             groupHome.style.display = 'block';
             groupFavorites.style.display = 'none';
             groupContinues.style.display = 'none';
-            currentFilter = { type: 'search', value: query }; // Armazena o filtro de busca
+            currentFilter = { type: 'search', value: query };
             renderSeriesButtons(filteredGroups);
-        }
-        // Prioridade 2: Botão de favoritos como ★
-        else if (isFavoritesChecked) {
+        } else if (isFavoritesChecked) {
             groupHome.style.display = 'none';
             groupFavorites.style.display = 'block';
             groupContinues.style.display = 'none';
-            currentFilter = { type: 'favorites' }; // Armazena o filtro de favoritos
-        }
-        // Prioridade 3: Filtro por letra ou "TODAS"
-        else if (checkedButton) {
+            currentFilter = { type: 'favorites' };
+        } else if (checkedButton) {
             const letter = checkedButton.innerText;
             if (letter === 'TODAS') {
                 groupHome.style.display = 'block';
                 groupFavorites.style.display = 'block';
                 groupContinues.style.display = 'block';
-                currentFilter = null; // Sem filtro (mostra todas)
+                currentFilter = null;
                 renderSeriesButtons();
             } else if (letter !== '☆' && letter !== '★') {
                 const filteredGroups = seriesData.map(group => {
@@ -3284,12 +3283,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 groupHome.style.display = 'block';
                 groupFavorites.style.display = 'none';
                 groupContinues.style.display = 'none';
-                currentFilter = { type: 'letter', value: letter }; // Armazena o filtro por letra
+                currentFilter = { type: 'letter', value: letter };
                 renderSeriesButtons(filteredGroups);
             }
-        }
-        // Estado padrão: mostra tudo
-        else {
+        } else {
             groupHome.style.display = 'block';
             groupFavorites.style.display = 'block';
             groupContinues.style.display = 'block';
@@ -3309,51 +3306,40 @@ document.addEventListener('DOMContentLoaded', function() {
     
     buttons.forEach(button => {
         button.addEventListener('click', function() {
-            // Se o botão já estiver marcado, aplica a animação de shake
             if (this.classList.contains('checked')) {
                 this.classList.add('shake', 'shake-left');
-            
                 setTimeout(() => {
                     this.classList.remove('shake-left');
                     this.classList.add('shake-right');
                 }, 100);
-            
                 setTimeout(() => {
                     this.classList.remove('shake-right', 'shake');
                 }, 200);
-            
                 return;
             }
 
             const isFavoritesButton = this.innerText === '☆' || this.innerText === '★';
             const favoritesButton = document.querySelector('#keys button:nth-child(2)');
     
-            // Remove a classe "checked" de todos os botões
             buttons.forEach(btn => btn.classList.remove('checked'));
-    
-            // Marca o botão clicado como "checked"
             this.classList.add('checked');
     
             if (isFavoritesButton) {
-                // Alterna entre ☆ e ★
                 this.innerText = this.innerText === '☆' ? '★' : '☆';
             } else {
-                // Se outro botão for clicado, redefine o botão de favoritos para ☆
                 if (favoritesButton && favoritesButton.innerText === '★') {
                     favoritesButton.innerText = '☆';
                 }
             }
     
-            // Aplica o filtro imediatamente
             filterSeries();
         });
     });
 
-    // Ao digitar, a busca tem prioridade
     searchInput.addEventListener('input', filterSeries);
 
     window.addEventListener('popstate', function(event) {
-        if (!event.state || event.state.page !== 'series') {
+        if (!event.state || event.state.page === 'home') {
             document.getElementById('home').classList.remove('hidden');
             document.getElementById('home').classList.add('show');
             document.getElementById('series').classList.add('hidden');
@@ -3367,8 +3353,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('back-button').classList.remove('show');
             document.getElementById('back-button').classList.add('hidden');
 
-            // Reaplica o renderSeriesButtons com o filtro atual
-            filterSeries(); // Isso chama renderSeriesButtons com o filtro correto
+            filterSeries();
         } else if (event.state.page === 'series') {
             const serieName = event.state.serieName;
             const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
