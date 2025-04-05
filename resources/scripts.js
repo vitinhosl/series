@@ -2227,8 +2227,6 @@ let   currentSeasonIndex        = 0;
 let   cumulativeAnimationIndex  = 0;
 let   previousEpisodeCount      = 0;
 
-
-
 //SERIE ATUAL
 function renderCurrentSeries(serie) {
     const seriesContainer = document.getElementById('series');
@@ -2879,7 +2877,7 @@ function saveContinueProgress(progress) {
         activeEpisodeIndex: progress.activeEpisodeIndex
     };
 
-    continues = currentContinues;
+    continues = currentContinues; // Atualiza a variável global
     localStorage.setItem('continues', JSON.stringify(continues));
 }
 
@@ -2903,6 +2901,8 @@ function removeContinueSeriesSeason(seasonKey) {
 }
 
 //INICIO
+let searchInput;
+
 function filterSeries() {
     const query = searchInput.value.trim();
     const favoritesButton = document.querySelector('#keys button:nth-child(2)');
@@ -3171,7 +3171,7 @@ function updateFavorites() {
                 event.stopPropagation();
                 const serie = JSON.parse(this.getAttribute('data-serie'));
                 removeFavorite(serie);
-
+        
                 // Atualiza manualmente o botão correspondente no group-home
                 const groupHomeButtons = document.querySelectorAll('#group-home .favorite-button');
                 groupHomeButtons.forEach(btn => {
@@ -3181,35 +3181,9 @@ function updateFavorites() {
                         btn.innerHTML = '☆ <span class="tooltip-text black tooltip-top">Adicionar aos favoritos</span>';
                     }
                 });
-
+        
                 updateFavorites();
-
-                //if (currentFilter) {
-                //    if (currentFilter.type === 'search') {
-                //        const filteredGroups = seriesData.map(group => {
-                //            const filteredGroup = group.group.filter(serie =>
-                //                serie.name.toUpperCase().includes(currentFilter.value.toUpperCase())
-                //            );
-                //            return { ...group, group: filteredGroup };
-                //        }).filter(group => group.group.length > 0);
-                //        renderSeriesButtons(filteredGroups);
-                //    } else if (currentFilter.type === 'letter') {
-                //        const filteredGroups = seriesData.map(group => {
-                //            const filteredGroup = group.group.filter(serie =>
-                //                serie.name.toUpperCase().startsWith(currentFilter.value)
-                //            );
-                //            return { ...group, group: filteredGroup };
-                //        }).filter(group => group.group.length > 0);
-                //        renderSeriesButtons(filteredGroups);
-                //    } else if (currentFilter.type === 'favorites') {
-                //        document.getElementById('group-home').style.display = 'none';
-                //        document.getElementById('group-favorites').style.display = 'block';
-                //        document.getElementById('group-continues').style.display = 'none';
-                //        renderSeriesButtons();
-                //    }
-                //} else {
-                //    renderSeriesButtons();
-                //}
+                filterSeries(); 
             });
         });
 
@@ -3263,6 +3237,8 @@ document.addEventListener('DOMContentLoaded', function() {
         history.replaceState(null, document.title, window.location.pathname);
     }
 
+    searchInput = document.querySelector('#search .input'); // Inicializa a variável global
+
     renderSeriesButtons();
     updateFavorites();
 
@@ -3288,16 +3264,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('#back-button').forEach(button => {
         button.addEventListener('click', function() {
-            // Adiciona uma entrada "limpa" ao histórico para a página inicial
             window.history.pushState({ page: 'home' }, '', window.location.pathname);
-            // Dispara o evento popstate manualmente para atualizar a UI
             window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
         });
     });
 
-    const searchInput = document.querySelector('#search .input');
-    const buttons = document.querySelectorAll('#keys button');
+    searchInput.addEventListener('input', filterSeries);
 
+    const buttons = document.querySelectorAll('#keys button');
     buttons.forEach((button, index) => {
         const delay = animationSpeedSearchsKeys / 100;
         button.style.animationDelay = `${index * delay}s`;
@@ -3336,8 +3310,6 @@ document.addEventListener('DOMContentLoaded', function() {
             filterSeries();
         });
     });
-
-    searchInput.addEventListener('input', filterSeries);
 
     window.addEventListener('popstate', function(event) {
         if (!event.state || event.state.page === 'home') {

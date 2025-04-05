@@ -18,10 +18,82 @@ html, body {
 }
 
 body {
-    background-color: rgb(18, 22, 29);
     color: rgb(233, 244, 251);
     padding: 10px;
     transition: all 0.3s ease;
+    background-color: rgb(18, 22, 29);
+}
+
+.myCarousel {
+    width: 100%;
+    max-height: 500px;
+    /* overflow: hidden; */
+}
+
+.carousel-inner .item {
+    background: rgb(94, 21, 33);
+    background: -moz-linear-gradient(top,  rgb(94, 21, 45) 0%, rgb(138, 35, 66) 100%); 
+    background: -webkit-linear-gradient(top,  rgb(94, 21, 45) 0%, rgb(138, 35, 66) 100%); 
+    background: linear-gradient(to bottom,  rgb(94, 21, 45) 0%, rgb(138, 35, 66) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 );
+    text-align: center;
+    height: 500px;
+}
+
+.transition-timer-carousel-progress-bar {
+    height: 3px;
+    background-color: rgb(237, 0, 73);
+    width: 0;
+    margin: 0;
+    border: none;
+    z-index: 12;
+    position: relative;
+    /* transition: width 0.5s linear; */
+}
+
+.control-buttons{
+    text-align:center;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-caption h3 {
+    font-size: 2em;
+    margin-top: 350px;
+    padding: 20px;
+    /* background: rgba(0, 0, 0, 0.5); */
+    border-radius: 5px;
+}
+
+.carousel-indicators li {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-indicators .active {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
 }
 
 #intro {
@@ -383,6 +455,38 @@ header h1 {
     margin-bottom: 10px;
     transition: all 0.3s ease;
 }
+
+#group-series-cards.wrap {
+    flex-wrap: wrap;
+}
+
+#group-series-cards.no-wrap {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    cursor: grab;
+    overflow: hidden;
+    user-select: none;
+}
+
+#group-series-button {
+    flex: 0 0 auto;
+    min-width: 200px;
+    position: relative;
+}
+
+#group-series-cards.no-wrap::-webkit-scrollbar {
+    height: 8px;
+}
+#group-series-cards.no-wrap::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+#group-series-cards.no-wrap::-webkit-scrollbar-track {
+    background: #222;
+}
+
+
+
 
 .badge {
     position: absolute;
@@ -1374,6 +1478,14 @@ header h1 {
 }
 
 @media (max-width: 768px) {
+    .myCarousel {
+        max-height: 200px;
+    }
+    
+    .carousel-inner .item  {
+        height: 200px;
+    }
+
     #group-search {
         flex-direction: column;
         align-items: stretch;
