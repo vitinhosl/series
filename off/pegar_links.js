@@ -96,5 +96,107 @@ button.addEventListener('click', () => {
 });
 //#endregion
 
-
+//region ANIMESBR.TV
+(function() {
+    //#region CRIA CONTAINER COM BOTÃO E ÁREA DE TEXTO
+    const container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.top = '10px';
+    container.style.right = '10px';
+    container.style.zIndex = '9999';
+    container.style.background = 'white';
+    container.style.padding = '10px';
+    container.style.border = '1px solid #ccc';
+    container.style.borderRadius = '5px';
+  
+    // Botão para gerar a lista
+    const button = document.createElement('button');
+    button.textContent = 'Gerar e Copiar Lista de Episódios';
+    button.style.padding = '5px 10px';
+    button.style.marginBottom = '10px';
+  
+    // Área de texto para fallback (caso a cópia falhe)
+    const textarea = document.createElement('textarea');
+    textarea.style.width = '300px';
+    textarea.style.height = '200px';
+    textarea.style.display = 'none';
+  
+    // Adiciona os elementos no container
+    container.appendChild(button);
+    container.appendChild(textarea);
+    document.body.appendChild(container);
+    //#endregion
+  
+    button.addEventListener('click', () => {
+      //#region EXTRAÇÃO DE DADOS
+      // Nome da série: pega o conteúdo do <h1> dentro do elemento com a classe "data"
+      const seriesName = document.querySelector(".data h1")?.innerText.trim() || "";
+  
+      // Array de thumbs para os botões (pode ser alterado conforme necessário)
+      const thumbButtons = ["https://animesbr.tv/wp-content/uploads/2025/01/vTCjCkwHn3bfqVLdQjZke3c8w7l-200x300.jpg"];
+  
+      // Seleciona os episódios da lista (.episodios li)
+      const episodeElements = document.querySelectorAll(".episodios li");
+      const episodes = [];
+  
+      episodeElements.forEach((li, index) => {
+        // Obtém o link e título do episódio
+        const titleAnchor = li.querySelector(".episodiotitle a");
+        const titleText = titleAnchor?.innerText.trim() || `Episódio ${index + 1}`;
+        const url = titleAnchor?.href || "";
+        
+        // Obtém a thumbnail do episódio (a imagem presente no <img>)
+        const img = li.querySelector("img");
+        const thumb = img?.src || "";
+  
+        // Como a duração não consta na página, define um valor padrão
+        const duration = "Duração não encontrada";
+  
+        // Formata o título para o padrão "Episódio 001"
+        const formattedTitle = `Episódio ${String(index + 1).padStart(3, '0')}`;
+  
+        episodes.push({
+          title: formattedTitle,
+          duration: duration,
+          thumb: thumb,
+          url: url,
+          alternative: [""]
+        });
+      });
+      //#endregion
+  
+      //#region CONSTRUÇÃO DO OBJETO JSON
+      const outputObject = {
+        name: seriesName,
+        thumb_page: "",
+        thumb_buttons: thumbButtons,
+        badge: "",
+        enabled: true,
+        season: [
+          {
+            name: "",
+            thumb_season: "",
+            movies: false,
+            episodes: episodes
+          }
+        ]
+      };
+  
+      const output = JSON.stringify(outputObject, null, 2);
+      //#endregion
+  
+      //#region CÓPIA PARA ÁREA DE TRANSFERÊNCIA E FEEDBACK
+      navigator.clipboard.writeText(output).then(() => {
+        textarea.style.display = 'block';
+        textarea.value = output;
+      }).catch(err => {
+        console.error("Erro ao copiar para a área de transferência:", err);
+        textarea.style.display = 'block';
+        textarea.value = output;
+        alert("Erro ao copiar. A lista foi exibida na área de texto abaixo do botão.");
+      });
+      //#endregion
+    });
+  })();
+//#endregion  
 

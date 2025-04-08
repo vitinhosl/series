@@ -1412,6 +1412,10 @@ header h1 {
     border-bottom: 5px solid rgb(129, 134, 141, 0.5);
 }
 
+p {
+    margin: 0;
+}
+
 .shake {
     transition: transform 0.1s ease-in-out;
 }

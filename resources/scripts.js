@@ -5,7 +5,7 @@ const seriesData = [
             //A TERRA PROMETIDA
             {
                 name: "A Terra Prometida",
-                thumb_page: "https://i.imgur.com/zXnAXED.png",
+                thumb_page: "https://i.imgur.com/H7LkieU.png",
                 thumb_buttons: ["https://i.imgur.com/qvvefLV.png"],
                 badge: "",
                 enabled: true,
@@ -202,7 +202,7 @@ const seriesData = [
             //OS DEZ MANDAMENTOS - 2 TEMPORADAS
             {
                 name: "Os Dez Mandamentos",
-                thumb_page: "https://i.imgur.com/OlDZyig.png",
+                thumb_page: "https://i.imgur.com/v0uF3s6.png",
                 thumb_buttons: ["https://i.imgur.com/qUETt6r.jpeg"],
                 badge: "",
                 enabled: true,
@@ -472,7 +472,7 @@ const seriesData = [
             //JEZABEL
             {
                 name: "Jezabel",
-                thumb_page: "https://i.imgur.com/fjZzqlg.png",
+                thumb_page: "https://i.imgur.com/3NP8B3D.png",
                 thumb_buttons: ["https://i.imgur.com/Z3WUXd9.jpeg"],
                 badge: "",
                 enabled: true,
@@ -571,7 +571,7 @@ const seriesData = [
             //REI DAVI
             {
                 name: "Rei Davi",
-                thumb_page: "https://i.imgur.com/04hNYzg.png",
+                thumb_page: "https://i.imgur.com/vNpBaWD.png",
                 thumb_buttons: ["https://i.imgur.com/sSJVhSO.jpeg"],
                 badge: "",
                 enabled: true,
@@ -629,7 +629,7 @@ const seriesData = [
             //JOSÉ DO EGITO
             {
                 name: "José do Egito",
-                thumb_page: "https://i.imgur.com/5LWWh4N.png",
+                thumb_page: "https://i.imgur.com/V2ikT7R.png",
                 thumb_buttons: ["https://i.imgur.com/Oxrdzg6.jpeg"],
                 badge: "",
                 enabled: true,
@@ -694,7 +694,7 @@ const seriesData = [
             //JESUS
             {
                 name: "Jesus",
-                thumb_page: "https://i.imgur.com/QaVteHN.png",
+                thumb_page: "https://i.imgur.com/gnZ9oJ0.png",
                 thumb_buttons: ["https://i.imgur.com/JX2Coo5.png"],
                 badge: "",
                 enabled: true,
@@ -906,7 +906,7 @@ const seriesData = [
             //GÊNESIS
             {
                 name: "Gênesis",
-                thumb_page: "https://i.imgur.com/4AnJnyd.jpeg",
+                thumb_page: "https://i.imgur.com/qHQejKs.png",
                 thumb_buttons: ["https://i.imgur.com/JFlXEBA.jpeg"],
                 badge: "",
                 enabled: true,
@@ -1145,7 +1145,7 @@ const seriesData = [
             //O RICO E LÁZARO
             {
                 name: "O Rico e Lázaro",
-                thumb_page: "https://i.imgur.com/jqVNq9O.jpeg",
+                thumb_page: "https://i.imgur.com/sz0LCJC.png",
                 thumb_buttons: ["https://i.imgur.com/io3Xbpv.jpeg"],
                 badge: "",
                 enabled: true,
@@ -1345,7 +1345,7 @@ const seriesData = [
             //A RAINHA DA PÉRSIA
             {
                 name: "A Rainha da Pérsia",
-                thumb_page: "https://i.imgur.com/xYtBPqJ.png",
+                thumb_page: "https://i.imgur.com/5x7Rmg9.png",
                 thumb_buttons: ["https://i.imgur.com/tKjng2c.png"],
                 badge: "",
                 enabled: true,
@@ -2205,10 +2205,74 @@ const seriesData = [
             },
         ]
     },
+
+    {
+        group_name: "ANIMES",
+        group: [
+            //SOLO LEVELING
+            {
+                name: "Solo Leveling",
+                thumb_page: "",
+                thumb_buttons: [
+                    // "https://animesbr.tv/wp-content/uploads/2025/01/vTCjCkwHn3bfqVLdQjZke3c8w7l-200x300.jpg",
+                    "https://i.imgur.com/x3j8fU5.jpeg",
+                    "https://i.imgur.com/seZ30fi.jpeg",
+                ],
+                badge: "NOVIDADE",
+                enabled: true,
+                season: [
+                    {
+                        name: "Temporada 01",
+                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
+                        movies: false,
+                        episodes: [
+                            { title: "Episódio 001", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/wyjphDUt1vrlckpvfPd0TekuqMm-300x170.jpg", url: "https://secvideo1.online/embed/852574/", alternative: ["https://secvideo1.online/embed/852573/"] },
+                            { title: "Episódio 002", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/ch5o2NnATbswomEiCugOgjX8IwY-300x170.jpg", url: "https://secvideo1.online/embed/852576/", alternative: ["https://secvideo1.online/embed/852575/"] },
+                            { title: "Episódio 003", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/3h4QyKMODJiOQKqfuL4NrehcV43-300x170.jpg", url: "https://secvideo1.online/embed/852578/", alternative: ["https://secvideo1.online/embed/852577/"] },
+                            { title: "Episódio 004", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/2zbHJNbyuGEdyGVOyJpv24qgf2w-300x170.jpg", url: "https://secvideo1.online/embed/852580/", alternative: ["https://secvideo1.online/embed/852579/"] },
+                            { title: "Episódio 005", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/vPpiI1sKgiJgWykydYzOf2XfCcR-300x170.jpg", url: "https://secvideo1.online/embed/852582/", alternative: ["https://secvideo1.online/embed/852581/"] },
+                            { title: "Episódio 006", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/jeyh5o40BjSmkYxv1FV7OMqJn9m-300x170.jpg", url: "https://secvideo1.online/embed/852584/", alternative: ["https://secvideo1.online/embed/852583/"] },
+                            { title: "Episódio 007", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/3UGTVLFHcAIQgjolx6rQpCottRj-300x170.jpg", url: "https://secvideo1.online/embed/852586/", alternative: ["https://secvideo1.online/embed/852585/"] },
+                            { title: "Episódio 008", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/mYoah2DtfKVqGMtuCBmgeZYCQoM-300x170.jpg", url: "https://secvideo1.online/embed/852588/", alternative: ["https://secvideo1.online/embed/852587/"] },
+                            { title: "Episódio 009", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/7qqZfujgsWgLWY3KtefvfH7pHb0-300x170.jpg", url: "https://secvideo1.online/embed/852590/", alternative: ["https://secvideo1.online/embed/852589/"] },
+                            { title: "Episódio 010", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/anFjSYbyhwOntz31Qr0Egl9qnGz-300x170.jpg", url: "https://secvideo1.online/embed/852592/", alternative: ["https://secvideo1.online/embed/852591/"] },
+                            { title: "Episódio 011", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/xzpmAZTcFO5hTFopn8Idu7BRsl3-300x170.jpg", url: "https://secvideo1.online/embed/852594/", alternative: ["https://secvideo1.online/embed/852593/"] },
+                            { title: "Episódio 012", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/6kjROrp76VDJyfImdqUzmL7zdJM-300x170.jpg", url: "https://secvideo1.online/embed/852596/", alternative: ["https://secvideo1.online/embed/852595/"] },
+                            { title: "Episódio 001X", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/wyjphDUt1vrlckpvfPd0TekuqMm-300x170.jpg", url: "http://38.46.143.11:8080/vauth/189118.mp4?token=c__GZiiXKZkIkVXfTmuQIF_k54aKeTdkIfJ25CalcW5txO4rgretpJuHVl1pnIf0EpRdEEwC1os6kSJnhHvhuGfwlNlKoJazyZTdwtsCcdLmBu6EFBFtPK76Suh75L3eu66Wgc8dSK1z5Spt5GiLSr7zQ6t5E86HwinZ_4VKXm4QiT3eqpalY-Z7OGwh7Y81gNGbCoqVQdQJcaVV01YsQuS_gi8Hp8WeZwRFASHs-kTPdhH0pS-uLMNSMjy3PoFaYiFBQOJ2QfUb-g0wd4IzLfxvyFHj6oiy2704OpSy_QhWj2ToWhRTvb6HjHA7xjldX8Ipa_RVGu410WTRN9eoNdCJZhaabbFRXsbG8G2o1h0WcogZK2SB7v10yz2C5U1VBlY6K1F48XRAcHFc1JAQRfwtBReV0Pop5g56u4Q6iqsluSDro96MVdEdKUxaAvi_7WfjcciIfM9QrLQ8GUgbmoEk2OpAJajvbwPr_NF7FQyUcz3wmQyt8KA2ZoM5ORUB5gR5d7XnenbKPRwu1k-wn7PQ_q48z2VHF5HJtSt9KQhcOljfOtJ8Qj472TSG2vB_-TAH9xZ3AwptFG-FLE0sTg", alternative: [] },
+                        ]
+                    },
+
+                    {
+                        name: "Temporada 02",
+                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
+                        movies: false,
+                        episodes: [
+                            { title: "Episódio 001 - (13)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/6J8Ps6ma4TMsGtbjRsRM18myueQ-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E01_LEGENDADO/2x1.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E01_DUBLADO/2x1.html" ] },
+                            { title: "Episódio 002 - (14)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/mUa5CdHS3IBbYPlXNqSATKZY5gV-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E02_LEGENDADO/2x2.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E02_DUBLADO/2x2.html" ] },
+                            { title: "Episódio 003 - (15)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/ksoMkIBX9HxzvShzOxUvi4WhlFj-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E03_LEGENDADO/2x3.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E03_DUBLADO/2x3.html" ] },
+                            { title: "Episódio 004 - (16)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/yaaTlWhfJOJjKDbZZRTabnb6Mxm-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E04_LEGENDADO/2x4.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E04_DUBLADO/2x4.html" ] },
+                            { title: "Episódio 005 - (17)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/mfztqiGjHPmHBUNok763a1rDsVn-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E05_LEGENDADO/2x5.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E05_DUBLADO/2x5.html" ] },
+                            { title: "Episódio 006 - (18)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/2i5MVDxqDS9pfb1MIT8mWUXuNlL-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E06_LEGENDADO/2x6.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E06_DUBLADO/2x6.html" ] },
+                            { title: "Episódio 007 - (19)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/uMbOgKFOmN9dykVizBYG9atln7c-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E07_LEGENDADO/2x7.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E07_DUBLADO/2x7.html" ] },
+                            { title: "Episódio 008 - (20)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/unMSFOjTEsQ0rNfqkvQSfE4ar6S-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E08_LEGENDADO/2x8.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E08_DUBLADO/2x8.html" ] },
+                            { title: "Episódio 009 - (21)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/03/eQYTEGlP7TXLkbagw5rMlTOgvTZ-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E09_LEGENDADO/2x9.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E09_DUBLADO/2x9.html" ] },
+                            { title: "Episódio 010 - (22)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/03/iTx8x2eH79xFGRQAs1Q7nIzbQK4-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E10_LEGENDADO/2x10.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E10_DUBLADO/2x10.html"] },
+                            { title: "Episódio 011 - (23)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/03/7GtWwrxlrQAyipgbKm6XO6daROu-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E11_LEGENDADO/2x11.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E11_DUBLADO/2x11.html"] },
+                            { title: "Episódio 012 - (24)", duration: "", thumb: "https://image.tmdb.org/t/p/w154/pZJ7QB0QA3hDlBR1KBdSzQcG8hi.jpg",                        url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E12_LEGENDADO/2x12.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E12_DUBLADO/2x12.html"] },
+                            { title: "Episódio 013 - (25)", duration: "", thumb: "https://image.tmdb.org/t/p/w154/dsXC84kGPEbHWkSKSWOIYodjMVv.jpg",                        url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E13_LEGENDADO/2x13.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E13_DUBLADO/2x13.html"] },
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+
 ];
+
 
 // localStorage.clear();
 let autoPlay                    = true;
+let fullEpisodesList            = true;
 let animationReverseEpisodes    = false;
 let animationReverseFavorites   = false;
 let animationReverseContinues   = false;
@@ -2216,6 +2280,7 @@ let animationSpeedEpisodes      = 3;
 let animationSpeedFavorites     = 10;
 let animationSpeedButtons       = 30;
 let animationSpeedSearchsKeys   = 2;
+let animationSpeedCarrouselBar  = 8;
 
 const selectedThumbs            = {};
 const thumbnailCache            = {};
@@ -2551,7 +2616,7 @@ function renderContinueWatchingSection() {
         const seasonProgress = savedProgress[seasonKey];
         let episodeText = seasonProgress.movies 
             ? `Filme: ${seasonProgress.episodeTitle}`
-            : `T${seasonProgress.seasonIndex + 1} - Episódio ${seasonProgress.episodeTitle}`;
+            : `T${seasonProgress.seasonIndex + 1} - ${seasonProgress.episodeTitle}`;
 
         episodesHTML += `
             <div id="continue-episode-button" 
@@ -2959,6 +3024,124 @@ function filterSeries() {
     }
 }
 
+function renderCarousel() {
+    const carouselIndicators = document.getElementById('carousel-indicators');
+    const carouselInner = document.getElementById('carousel-inner');
+    const $carousel = jQuery('#myCarousel');
+    const $bar = jQuery('.transition-timer-carousel-progress-bar');
+
+    const seriesWithThumbPage = seriesData
+        .flatMap(group => group.group)
+        .filter(serie => serie.thumb_page && serie.thumb_page.trim() !== "");
+
+    if (seriesWithThumbPage.length === 0) {
+        $carousel.hide();
+        return;
+    } else {
+        $carousel.show();
+    }
+
+    carouselIndicators.innerHTML = '';
+    carouselInner.innerHTML = '';
+
+    seriesWithThumbPage.forEach((serie, index) => {
+        const indicator = document.createElement('li');
+        indicator.setAttribute('data-target', '#myCarousel');
+        indicator.setAttribute('data-slide-to', index);
+        if (index === 0) indicator.classList.add('active');
+        carouselIndicators.appendChild(indicator);
+
+        const item = document.createElement('div');
+        item.classList.add('item');
+        if (index === 0) item.classList.add('active');
+        item.innerHTML = `
+            <div class="container">
+                <div class="carousel-caption" style="background-image: url('${serie.thumb_page}'); background-size: cover; background-position: center;">
+                    <h3>${serie.name}</h3>
+                </div>
+            </div>
+        `;
+        carouselInner.appendChild(item);
+    });
+
+    const slideDuration = 4000; // Tempo total de cada slide em ms
+    let startTime; // Timestamp de início do slide
+    let pausedPercent = 0; // Percentual quando pausado
+    let barInterval;
+
+    $carousel.carousel({
+        interval: false, // Desativa o avanço automático do Bootstrap
+        pause: true
+    });
+
+    // Função para animar a barra de progresso baseada no tempo real
+    function progressBarCarousel() {
+        const elapsedTime = Date.now() - startTime; // Tempo decorrido desde o início
+        let percent = (elapsedTime / slideDuration) * 100; // Percentual baseado no tempo real
+
+        // Limita o percentual a 100%
+        if (percent >= 100) {
+            percent = 100;
+            $bar.css({ width: '100%' });
+            $carousel.carousel('next');
+            return; // Evita continuar o intervalo após o avanço
+        }
+
+        $bar.css({ width: percent + '%' });
+        pausedPercent = percent; // Atualiza o valor pausado
+    }
+
+    // Inicia ou reinicia a animação
+    function startProgressBar() {
+        clearInterval(barInterval);
+        if (pausedPercent === 0) {
+            // Início completo (novo slide)
+            startTime = Date.now();
+            $bar.css({ width: '0%' });
+        } else {
+            // Retoma de onde parou
+            const elapsedTime = (pausedPercent / 100) * slideDuration; // Tempo já decorrido
+            startTime = Date.now() - elapsedTime; // Ajusta o startTime para continuar
+            $bar.css({ width: pausedPercent + '%' }); // Mantém o progresso atual
+        }
+        barInterval = setInterval(progressBarCarousel, 30); // Atualiza a cada 30ms
+    }
+
+    startProgressBar();
+
+    // Reset ao clicar nos indicadores ou controles
+    jQuery('.carousel-indicators li, .carousel-control').click(function () {
+        pausedPercent = 0; // Reseta para o início
+        clearInterval(barInterval);
+        startProgressBar();
+    });
+
+    // Reset ao iniciar a transição de slide
+    $carousel.on('slide.bs.carousel', function () {
+        pausedPercent = 0; // Reseta para o início
+        clearInterval(barInterval);
+        $bar.css({ width: '0%' });
+    });
+
+    // Reinicia após a transição
+    $carousel.on('slid.bs.carousel', function () {
+        startProgressBar();
+    });
+
+    // Pausa e retomada ao passar o mouse (se não for mobile)
+    if (!(/Mobi/.test(navigator.userAgent))) {
+        $carousel.hover(
+            function () {
+                clearInterval(barInterval); // Pausa a animação
+                // `pausedPercent` já foi atualizado em progressBarCarousel
+            },
+            function () {
+                startProgressBar(); // Retoma de onde parou
+            }
+        );
+    }
+}
+
 function renderSeriesButtons(filteredGroups) {
     const groupHome = document.getElementById('group-home');
     groupHome.innerHTML = '';
@@ -3237,8 +3420,9 @@ document.addEventListener('DOMContentLoaded', function() {
         history.replaceState(null, document.title, window.location.pathname);
     }
 
-    searchInput = document.querySelector('#search .input'); // Inicializa a variável global
+    searchInput = document.querySelector('#search .input');
 
+    renderCarousel();
     renderSeriesButtons();
     updateFavorites();
 

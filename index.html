@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Séries</title>
     <link rel="icon" type="image/png" href="https://i.imgur.com/dSX7Wic.png">
-    <!-- <link rel="icon" type="image/png" href="https://i.imgur.com/omrKbqO.png"> -->
-    <!-- <link rel="icon" type="image/png" href="https://i.imgur.com/fqUVnMo.png"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="resources/bootstrap.css">
     <link rel="stylesheet" href="resources/styles.css">
 </head>
 <body>
-
     <div id="main" class="show">
         <header>
             <div id="title">
-                <!-- <img src="https://i.imgur.com/dSX7Wic.png" alt="Logo" id="logo"> -->
                 <svg width="50" height="50" viewBox="0 0 297 297" id="logo" class="show">
                     <defs>
                         <style>
@@ -34,7 +34,7 @@
                         <circle cx="148.5" cy="148.5" r="148.5" fill="var(--primary-circle)" opacity="1"></circle>
                         <path d="M297 148.5c0-2.326-.061-4.638-.167-6.938l-53.499-53.9L53.299 224.778l69.91 70.067a149.386 149.386 0 0 0 25.291 2.154C230.514 297 297 230.514 297 148.5z" fill="var(--shadow-circle)" opacity="1"></path>
                         <path d="M142.273 92.027a5.5 5.5 0 0 1-7.66-1.351l-25.237-36.043a5.5 5.5 0 1 1 9.011-6.309l25.237 36.043a5.5 5.5 0 0 1-1.351 7.66z" fill="var(--rewind-lines)" opacity="1"></path>
-                        <path d="M147.607 92.027a5.5 5.5 0 0 0 7.66-1.351l25.237-36.043a5.5 5.5 0 1 0-9.011-6.309l-25.237 36.043a5.502 5.502 0 0 0 1.351 7.66z" fill="var(--rewind-lines)" opacity="1"></path>
+                        <path d="M147.607 92.027a5.5 5.5 0 0 0 7.66-1.351l25.237-36.043a5.5 5.5 0 0 0-9.011-6.309l-25.237 36.043a5.502 5.502 0 0 0 1.351 7.66z" fill="var(--rewind-lines)" opacity="1"></path>
                         <path d="M66.131 230.318h164.738c9.737 0 17.631-7.894 17.631-17.631V100.131c0-9.737-7.894-17.631-17.631-17.631H66.131c-9.737 0-17.631 7.894-17.631 17.631v112.556c0 9.737 7.894 17.631 17.631 17.631z" fill="var(--player-bg-left)" opacity="1"></path>
                         <path d="M230.869 82.5h-85.702v147.818h85.702c9.737 0 17.631-7.894 17.631-17.631V100.131c0-9.737-7.894-17.631-17.631-17.631z" fill="var(--player-bg-right)" opacity="1"></path>
                         <circle cx="222.5" cy="119.5" r="13.5" fill="var(--buttons)" opacity="1"></circle>
@@ -43,13 +43,30 @@
                         <path d="M182.583 98.318h-37.416V214.5h37.416c8.514 0 15.417-6.902 15.417-15.417v-85.348c0-8.515-6.902-15.417-15.417-15.417z" fill="var(--screen-right)" opacity="1"></path>
                     </g>
                 </svg>
+                <button id="back-button" class="hidden">❮</button>
                 <h1 id="series-title" class="show">Séries</h1>
                 <h1 id="series-name" class="hidden"></h1>
-                <button id="back-button" class="hidden">❮</button>
             </div>
         </header>
 
         <div id="home" class="show">
+            <div id="myCarousel" class="carousel slide myCarousel" data-interval="false" data-ride="carousel">
+                <ol class="carousel-indicators" id="carousel-indicators"></ol>
+                <div class="carousel-inner" id="carousel-inner"></div>
+                
+                <hr class="transition-timer-carousel-progress-bar" />
+
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </div>
+
             <div id="group-search">
                 <div id="keys">
                     <button>TODAS</button> 
@@ -83,10 +100,10 @@
                 </div>
                 <div id="search">
                     <div class="container-input">
-                        <input type="text" placeholder="Procurar" name="text" class="input", autocomplete="off">
+                        <input type="text" placeholder="Procurar" name="text" class="input" autocomplete="off">
                         <svg fill="#000000" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z" fill-rule="evenodd"></path>
-                    </svg>
+                            <path d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z" fill-rule="evenodd"></path>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -99,20 +116,20 @@
 
         <div id="video-overlay" class="hidden">
             <div id="video-container">
-              <div id="video-overlay-header">
-                  <div id="toggle-buttons-container"></div>
-                  <div id="video-overlay-dropdown"></div>
-              </div>
-              <button id="close-overlay-button"><span>✕</span></button>
-              <iframe id="video-iframe" src="" frameborder="0" allowfullscreen allow="autoplay"></iframe>
-              <button id="prev-video-button">
-                &#10094;
-                <span class="tooltip-text tooltip-top">Anterior</span>
-              </button>
-              <button id="next-video-button">
-                &#10095;
-                <span class="tooltip-text tooltip-top">Próximo</span>
-              </button>
+                <div id="video-overlay-header">
+                    <div id="toggle-buttons-container"></div>
+                    <div id="video-overlay-dropdown"></div>
+                </div>
+                <button id="close-overlay-button"><span>✕</span></button>
+                <iframe id="video-iframe" src="" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+                <button id="prev-video-button">
+                    ❮
+                    <span class="tooltip-text tooltip-top">Anterior</span>
+                </button>
+                <button id="next-video-button">
+                    ❯
+                    <span class="tooltip-text tooltip-top">Próximo</span>
+                </button>
             </div>
         </div>
     </div>
