@@ -1,5 +1,85 @@
 const seriesData = [
     {
+        group_name: "Canais Ao Vivo",
+        group: [
+            //ESPN
+            {
+                name: "ESPN",
+                badge: "",
+                type: "Canais",
+                enabled: true,
+                canais: true,
+                thumb_page: "",
+                thumb_buttons: ["https://i.imgur.com/53B8dup.jpeg"],
+                season: [
+                    {
+                        name: "",
+                        thumb_season: "https://i.imgur.com/I8OUTvv.jpeg",
+                        movies: false,
+                        episodes: [
+                            { title: "ESPN"  , duration: "", thumb: "https://i.imgur.com/I8OUTvv.jpeg", url: "https://embedtv-0.icu/espn" , alternative: [ "https://nossoplayeronlinehd.com/tv/espn" , "https://reidoscanais.tv/embed/?id=espn" , "https://embedcanaistv.com/espn" , "https://meuplayeronlinehd.com/myplay/watch.html?id=espn" ] },
+                            { title: "ESPN 2", duration: "", thumb: "https://i.imgur.com/vRCgGl5.jpeg", url: "https://embedtv-0.icu/espn2", alternative: [ "https://nossoplayeronlinehd.com/tv/espn2", "https://reidoscanais.tv/embed/?id=espn2", "https://embedcanaistv.com/espn2", "https://meuplayeronlinehd.com/myplay/watch.html?id=espn2"] },
+                            { title: "ESPN 3", duration: "", thumb: "https://i.imgur.com/27Tm9mL.jpeg", url: "https://embedtv-0.icu/espn3", alternative: [ "https://nossoplayeronlinehd.com/tv/espn3", "https://reidoscanais.tv/embed/?id=espn3", "https://embedcanaistv.com/espn3", "https://meuplayeronlinehd.com/myplay/watch.html?id=espn3"] },
+                            { title: "ESPN 4", duration: "", thumb: "https://i.imgur.com/Edy8ne7.jpeg", url: "https://embedtv-0.icu/espn4", alternative: [ "https://nossoplayeronlinehd.com/tv/espn4", "https://reidoscanais.tv/embed/?id=espn4", "https://embedcanaistv.com/espn4", "https://meuplayeronlinehd.com/myplay/watch.html?id=espn4"] },
+                            { title: "ESPN 5", duration: "", thumb: "https://i.imgur.com/wDNvEok.jpeg", url: "https://embedtv-0.icu/espn5", alternative: [ "https://nossoplayeronlinehd.com/tv/espn5", "https://reidoscanais.tv/embed/?id=espn5", "https://embedcanaistv.com/espn5", "https://meuplayeronlinehd.com/myplay/watch.html?id=espn5"] },
+                        ]
+                    },
+                ]
+            },
+
+            //SPORTV
+            {
+                name: "SPORTV",
+                badge: "",
+                type: "Canais",
+                enabled: true,
+                canais: true,
+                thumb_page: "",
+                thumb_buttons: ["https://i.imgur.com/m8tPb5P.jpeg"],
+                season: [
+                    {
+                        name: "",
+                        thumb_season: "https://i.imgur.com/DEwKECu.jpeg",
+                        movies: false,
+                        episodes: [
+                            { title: "SPORTV"   , duration: "", thumb: "https://i.imgur.com/DEwKECu.jpeg", url: "https://embedtv-0.icu/sportv"  , alternative: [ "https://nossoplayeronlinehd.com/tv/sportv"  , "https://reidoscanais.tv/embed/?id=sportv"  , "https://embedcanaistv.com/sportv"  , "https://meuplayeronlinehd.com/myplay/watch.html?id=sportv"  ] },
+                            { title: "SPORTV 2" , duration: "", thumb: "https://i.imgur.com/OMx7ocU.jpeg", url: "https://embedtv-0.icu/sportv2" , alternative: [ "https://nossoplayeronlinehd.com/tv/sportv2" , "https://reidoscanais.tv/embed/?id=sportv2" , "https://embedcanaistv.com/sportv2" , "https://meuplayeronlinehd.com/myplay/watch.html?id=sportv2" ] },
+                            { title: "SPORTV 3" , duration: "", thumb: "https://i.imgur.com/gli9wCu.jpeg", url: "https://embedtv-0.icu/sportv3" , alternative: [ "https://nossoplayeronlinehd.com/tv/sportv3" , "https://reidoscanais.tv/embed/?id=sportv3" , "https://embedcanaistv.com/sportv3" , "https://meuplayeronlinehd.com/myplay/watch.html?id=sportv3" ] },
+                            { title: "SPORTV 4" , duration: "", thumb: "https://i.imgur.com/Gbc7eDS.jpeg", url: "https://embedtv-0.icu/sportv4" , alternative: [ "https://nossoplayeronlinehd.com/tv/sportv4" , "https://reidoscanais.tv/embed/?id=sportv4" , "https://embedcanaistv.com/sportv4" , "https://meuplayeronlinehd.com/myplay/watch.html?id=sportv4" ] },                        
+                        ]
+                    },
+                ]
+            },
+
+            //PREMIERE
+            {
+                name: "PREMIERE",
+                badge: "",
+                type: "Canais",
+                enabled: true,
+                canais: true,
+                thumb_page: "",
+                thumb_buttons: ["https://i.imgur.com/NLvBCb3.jpeg"],
+                season: [
+                    {
+                        name: "",
+                        thumb_season: "https://i.imgur.com/wkdeLZf.jpeg",
+                        movies: false,
+                        episodes: [
+                            { title: "PREMIERE"   , duration: "", thumb: "https://i.imgur.com/wkdeLZf.jpeg", url: "https://embedtv-0.icu/premiere"  , alternative: [ "https://nossoplayeronlinehd.com/tv/premiere"  , "https://reidoscanais.tv/embed/?id=premiere"  , "https://embedcanaistv.com/premiere"  , "https://meuplayeronlinehd.com/myplay/watch.html?id=premiere"  ] },
+                            { title: "PREMIERE 2" , duration: "", thumb: "https://i.imgur.com/f2C904C.jpeg", url: "https://embedtv-0.icu/premiere2" , alternative: [ "https://nossoplayeronlinehd.com/tv/premiere2" , "https://reidoscanais.tv/embed/?id=premiere2" , "https://embedcanaistv.com/premiere2" , "https://meuplayeronlinehd.com/myplay/watch.html?id=premiere2" ] },
+                            { title: "PREMIERE 3" , duration: "", thumb: "https://i.imgur.com/IPnjvsx.jpeg", url: "https://embedtv-0.icu/premiere3" , alternative: [ "https://nossoplayeronlinehd.com/tv/premiere3" , "https://reidoscanais.tv/embed/?id=premiere3" , "https://embedcanaistv.com/premiere3" , "https://meuplayeronlinehd.com/myplay/watch.html?id=premiere3" ] },
+                            { title: "PREMIERE 4" , duration: "", thumb: "https://i.imgur.com/oB4V038.jpeg", url: "https://embedtv-0.icu/premiere4" , alternative: [ "https://nossoplayeronlinehd.com/tv/premiere4" , "https://reidoscanais.tv/embed/?id=premiere4" , "https://embedcanaistv.com/premiere4" , "https://meuplayeronlinehd.com/myplay/watch.html?id=premiere4" ] },                        
+                            { title: "PREMIERE 5" , duration: "", thumb: "https://i.imgur.com/PlPh3Zx.jpeg", url: "https://embedtv-0.icu/premiere5" , alternative: [ "https://nossoplayeronlinehd.com/tv/premiere5" , "https://reidoscanais.tv/embed/?id=premiere5" , "https://embedcanaistv.com/premiere5" , "https://meuplayeronlinehd.com/myplay/watch.html?id=premiere5" ] },                        
+                            { title: "PREMIERE 6" , duration: "", thumb: "https://i.imgur.com/pNwZ8Kh.jpeg", url: "https://embedtv-0.icu/premiere6" , alternative: [ "https://nossoplayeronlinehd.com/tv/premiere6" , "https://reidoscanais.tv/embed/?id=premiere6" , "https://embedcanaistv.com/premiere6" , "https://meuplayeronlinehd.com/myplay/watch.html?id=premiere6" ] },                        
+                            { title: "PREMIERE 7" , duration: "", thumb: "https://i.imgur.com/SzWRFTY.jpeg", url: "https://embedtv-0.icu/premiere7" , alternative: [ "https://nossoplayeronlinehd.com/tv/premiere7" , "https://reidoscanais.tv/embed/?id=premiere7" , "https://embedcanaistv.com/premiere7" , "https://meuplayeronlinehd.com/myplay/watch.html?id=premiere7" ] },                        
+                        ]
+                    },
+                ]
+            },
+        ]
+    },
+    {
         group_name: "SÉRIES BIBLÍCAS",
         group: [
             //A TERRA PROMETIDA
@@ -8,6 +88,8 @@ const seriesData = [
                 thumb_page: "https://i.imgur.com/H7LkieU.png",
                 thumb_buttons: ["https://i.imgur.com/qvvefLV.png"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -204,7 +286,9 @@ const seriesData = [
                 name: "Os Dez Mandamentos",
                 thumb_page: "https://i.imgur.com/v0uF3s6.png",
                 thumb_buttons: ["https://i.imgur.com/qUETt6r.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     //TEMPORADA 01 - EPISÓDIOS 176
@@ -474,7 +558,9 @@ const seriesData = [
                 name: "Jezabel",
                 thumb_page: "https://i.imgur.com/3NP8B3D.png",
                 thumb_buttons: ["https://i.imgur.com/Z3WUXd9.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -573,7 +659,9 @@ const seriesData = [
                 name: "Rei Davi",
                 thumb_page: "https://i.imgur.com/vNpBaWD.png",
                 thumb_buttons: ["https://i.imgur.com/sSJVhSO.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -631,7 +719,9 @@ const seriesData = [
                 name: "José do Egito",
                 thumb_page: "https://i.imgur.com/V2ikT7R.png",
                 thumb_buttons: ["https://i.imgur.com/Oxrdzg6.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -696,7 +786,9 @@ const seriesData = [
                 name: "Jesus",
                 thumb_page: "https://i.imgur.com/gnZ9oJ0.png",
                 thumb_buttons: ["https://i.imgur.com/JX2Coo5.png"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -908,7 +1000,9 @@ const seriesData = [
                 name: "Gênesis",
                 thumb_page: "https://i.imgur.com/qHQejKs.png",
                 thumb_buttons: ["https://i.imgur.com/JFlXEBA.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1147,7 +1241,9 @@ const seriesData = [
                 name: "O Rico e Lázaro",
                 thumb_page: "https://i.imgur.com/sz0LCJC.png",
                 thumb_buttons: ["https://i.imgur.com/io3Xbpv.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1347,7 +1443,9 @@ const seriesData = [
                 name: "A Rainha da Pérsia",
                 thumb_page: "https://i.imgur.com/5x7Rmg9.png",
                 thumb_buttons: ["https://i.imgur.com/tKjng2c.png"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1396,7 +1494,9 @@ const seriesData = [
                 name: "A História de Ester",
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/YqgmJBA.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1424,7 +1524,9 @@ const seriesData = [
                 name: "Apocalipse",
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/gEPrg5k.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1602,7 +1704,9 @@ const seriesData = [
                     "https://i.imgur.com/47Vjveh.jpeg",
                     "https://i.imgur.com/HxmEXcN.jpeg"
                 ],
-                badge: "NOVA TEMPORADA",
+                badge: "NOVA TEMPORADA",          
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     //TEMPORADA 01 - A DECEPÇÃO
@@ -2095,7 +2199,9 @@ const seriesData = [
                 name: "Sansão e Dalila",
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/AUF8QiG.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -2135,7 +2241,9 @@ const seriesData = [
                 name: "Lia",
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/h8a6jYP.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -2163,7 +2271,9 @@ const seriesData = [
                 name: "Neemias",
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/tzBW2PF.jpeg"],
-                badge: "",
+                badge: "",                
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -2188,7 +2298,9 @@ const seriesData = [
                 name: "O Apóstolo Paulo",
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/kcwpdNz.png"],
-                badge: "EMBREVE",
+                badge: "EMBREVE",           
+                type: "Temporadas",
+                canais: false,
                 enabled: false,
                 title: "INDISPONÍVEL",
             
@@ -2205,70 +2317,7 @@ const seriesData = [
             },
         ]
     },
-
-    {
-        group_name: "ANIMES",
-        group: [
-            //SOLO LEVELING
-            {
-                name: "Solo Leveling",
-                thumb_page: "",
-                thumb_buttons: [
-                    // "https://animesbr.tv/wp-content/uploads/2025/01/vTCjCkwHn3bfqVLdQjZke3c8w7l-200x300.jpg",
-                    "https://i.imgur.com/x3j8fU5.jpeg",
-                    "https://i.imgur.com/seZ30fi.jpeg",
-                ],
-                badge: "NOVIDADE",
-                enabled: true,
-                season: [
-                    {
-                        name: "Temporada 01",
-                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "Episódio 001", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/wyjphDUt1vrlckpvfPd0TekuqMm-300x170.jpg", url: "https://secvideo1.online/embed/852574/", alternative: ["https://secvideo1.online/embed/852573/"] },
-                            { title: "Episódio 002", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/ch5o2NnATbswomEiCugOgjX8IwY-300x170.jpg", url: "https://secvideo1.online/embed/852576/", alternative: ["https://secvideo1.online/embed/852575/"] },
-                            { title: "Episódio 003", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/3h4QyKMODJiOQKqfuL4NrehcV43-300x170.jpg", url: "https://secvideo1.online/embed/852578/", alternative: ["https://secvideo1.online/embed/852577/"] },
-                            { title: "Episódio 004", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/2zbHJNbyuGEdyGVOyJpv24qgf2w-300x170.jpg", url: "https://secvideo1.online/embed/852580/", alternative: ["https://secvideo1.online/embed/852579/"] },
-                            { title: "Episódio 005", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/vPpiI1sKgiJgWykydYzOf2XfCcR-300x170.jpg", url: "https://secvideo1.online/embed/852582/", alternative: ["https://secvideo1.online/embed/852581/"] },
-                            { title: "Episódio 006", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/jeyh5o40BjSmkYxv1FV7OMqJn9m-300x170.jpg", url: "https://secvideo1.online/embed/852584/", alternative: ["https://secvideo1.online/embed/852583/"] },
-                            { title: "Episódio 007", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/3UGTVLFHcAIQgjolx6rQpCottRj-300x170.jpg", url: "https://secvideo1.online/embed/852586/", alternative: ["https://secvideo1.online/embed/852585/"] },
-                            { title: "Episódio 008", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/mYoah2DtfKVqGMtuCBmgeZYCQoM-300x170.jpg", url: "https://secvideo1.online/embed/852588/", alternative: ["https://secvideo1.online/embed/852587/"] },
-                            { title: "Episódio 009", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/7qqZfujgsWgLWY3KtefvfH7pHb0-300x170.jpg", url: "https://secvideo1.online/embed/852590/", alternative: ["https://secvideo1.online/embed/852589/"] },
-                            { title: "Episódio 010", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/anFjSYbyhwOntz31Qr0Egl9qnGz-300x170.jpg", url: "https://secvideo1.online/embed/852592/", alternative: ["https://secvideo1.online/embed/852591/"] },
-                            { title: "Episódio 011", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/xzpmAZTcFO5hTFopn8Idu7BRsl3-300x170.jpg", url: "https://secvideo1.online/embed/852594/", alternative: ["https://secvideo1.online/embed/852593/"] },
-                            { title: "Episódio 012", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/6kjROrp76VDJyfImdqUzmL7zdJM-300x170.jpg", url: "https://secvideo1.online/embed/852596/", alternative: ["https://secvideo1.online/embed/852595/"] },
-                            { title: "Episódio 001X", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/wyjphDUt1vrlckpvfPd0TekuqMm-300x170.jpg", url: "http://38.46.143.11:8080/vauth/189118.mp4?token=c__GZiiXKZkIkVXfTmuQIF_k54aKeTdkIfJ25CalcW5txO4rgretpJuHVl1pnIf0EpRdEEwC1os6kSJnhHvhuGfwlNlKoJazyZTdwtsCcdLmBu6EFBFtPK76Suh75L3eu66Wgc8dSK1z5Spt5GiLSr7zQ6t5E86HwinZ_4VKXm4QiT3eqpalY-Z7OGwh7Y81gNGbCoqVQdQJcaVV01YsQuS_gi8Hp8WeZwRFASHs-kTPdhH0pS-uLMNSMjy3PoFaYiFBQOJ2QfUb-g0wd4IzLfxvyFHj6oiy2704OpSy_QhWj2ToWhRTvb6HjHA7xjldX8Ipa_RVGu410WTRN9eoNdCJZhaabbFRXsbG8G2o1h0WcogZK2SB7v10yz2C5U1VBlY6K1F48XRAcHFc1JAQRfwtBReV0Pop5g56u4Q6iqsluSDro96MVdEdKUxaAvi_7WfjcciIfM9QrLQ8GUgbmoEk2OpAJajvbwPr_NF7FQyUcz3wmQyt8KA2ZoM5ORUB5gR5d7XnenbKPRwu1k-wn7PQ_q48z2VHF5HJtSt9KQhcOljfOtJ8Qj472TSG2vB_-TAH9xZ3AwptFG-FLE0sTg", alternative: [] },
-                        ]
-                    },
-
-                    {
-                        name: "Temporada 02",
-                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "Episódio 001 - (13)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/6J8Ps6ma4TMsGtbjRsRM18myueQ-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E01_LEGENDADO/2x1.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E01_DUBLADO/2x1.html" ] },
-                            { title: "Episódio 002 - (14)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/mUa5CdHS3IBbYPlXNqSATKZY5gV-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E02_LEGENDADO/2x2.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E02_DUBLADO/2x2.html" ] },
-                            { title: "Episódio 003 - (15)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/ksoMkIBX9HxzvShzOxUvi4WhlFj-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E03_LEGENDADO/2x3.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E03_DUBLADO/2x3.html" ] },
-                            { title: "Episódio 004 - (16)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/yaaTlWhfJOJjKDbZZRTabnb6Mxm-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E04_LEGENDADO/2x4.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E04_DUBLADO/2x4.html" ] },
-                            { title: "Episódio 005 - (17)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/mfztqiGjHPmHBUNok763a1rDsVn-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E05_LEGENDADO/2x5.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E05_DUBLADO/2x5.html" ] },
-                            { title: "Episódio 006 - (18)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/2i5MVDxqDS9pfb1MIT8mWUXuNlL-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E06_LEGENDADO/2x6.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E06_DUBLADO/2x6.html" ] },
-                            { title: "Episódio 007 - (19)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/uMbOgKFOmN9dykVizBYG9atln7c-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E07_LEGENDADO/2x7.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E07_DUBLADO/2x7.html" ] },
-                            { title: "Episódio 008 - (20)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/unMSFOjTEsQ0rNfqkvQSfE4ar6S-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E08_LEGENDADO/2x8.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E08_DUBLADO/2x8.html" ] },
-                            { title: "Episódio 009 - (21)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/03/eQYTEGlP7TXLkbagw5rMlTOgvTZ-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E09_LEGENDADO/2x9.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E09_DUBLADO/2x9.html" ] },
-                            { title: "Episódio 010 - (22)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/03/iTx8x2eH79xFGRQAs1Q7nIzbQK4-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E10_LEGENDADO/2x10.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E10_DUBLADO/2x10.html"] },
-                            { title: "Episódio 011 - (23)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/03/7GtWwrxlrQAyipgbKm6XO6daROu-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E11_LEGENDADO/2x11.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E11_DUBLADO/2x11.html"] },
-                            { title: "Episódio 012 - (24)", duration: "", thumb: "https://image.tmdb.org/t/p/w154/pZJ7QB0QA3hDlBR1KBdSzQcG8hi.jpg",                        url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E12_LEGENDADO/2x12.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E12_DUBLADO/2x12.html"] },
-                            { title: "Episódio 013 - (25)", duration: "", thumb: "https://image.tmdb.org/t/p/w154/dsXC84kGPEbHWkSKSWOIYodjMVv.jpg",                        url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E13_LEGENDADO/2x13.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E13_DUBLADO/2x13.html"] },
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-
 ];
-
 
 // localStorage.clear();
 let autoPlay                    = true;
@@ -3146,7 +3195,6 @@ function renderSeriesButtons(filteredGroups) {
     const groupHome = document.getElementById('group-home');
     groupHome.innerHTML = '';
     
-    // Força a recarga da lista favorites do localStorage antes de renderizar
     favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     const groups = filteredGroups || seriesData;
@@ -3189,13 +3237,17 @@ function renderSeriesButtons(filteredGroups) {
                             <h1>${serie.name}</h1>
                             ${serie.enabled ? (
                                 serie.season.length > 0 ? `
-                                    ${serie.season.some(season => season.movies) ? `
-                                        <p>Temporadas: ${serie.season.filter(season => !season.movies).length}</p>
-                                        <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
+                                    ${serie.canais ? `
+                                        <p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>
                                     ` : `
-                                        <p>Temporadas: ${serie.season.length}</p>
+                                        ${serie.season.some(season => season.movies) ? `
+                                            <p>${serie.info}: ${serie.season.filter(season => !season.movies).length}</p>
+                                            <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
+                                        ` : `
+                                            <p>${serie.info}: ${serie.season.length}</p>
+                                        `}
+                                        <p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
                                     `}
-                                    <p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
                                 ` : `
                                     <p>Nenhum conteúdo disponível</p>
                                 `
@@ -3310,13 +3362,17 @@ function updateFavorites() {
                             <h1>${serie.name}</h1>
                             ${serie.enabled ? (
                                 serie.season.length > 0 ? `
-                                    ${serie.season.some(season => season.movies) ? `
-                                        <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
-                                        <p>Temporadas: ${serie.season.filter(season => !season.movies).length}</p>
+                                    ${serie.canais ? `
+                                        <p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>
                                     ` : `
-                                        <p>Temporadas: ${serie.season.length}</p>
+                                        ${serie.season.some(season => season.movies) ? `
+                                            <p>${serie.info}: ${serie.season.filter(season => !season.movies).length}</p>
+                                            <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
+                                        ` : `
+                                            <p>${serie.info}: ${serie.season.length}</p>
+                                        `}
+                                        <p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
                                     `}
-                                    <p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
                                 ` : `
                                     <p>Nenhum conteúdo disponível</p>
                                 `
@@ -3378,7 +3434,6 @@ function updateFavorites() {
                 
                 if (!serie.enabled) return;
 
-                // Adiciona o # ao URL, assim como no renderSeriesButtons
                 window.history.pushState({ page: 'series', serieName: serieName }, serieName, `#${serieName.replace(/\s+/g, '-')}`);
 
                 document.getElementById('home').classList.remove('show');

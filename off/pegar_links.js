@@ -5,7 +5,7 @@
 
 //DIGITAR ALLOW PARA PODER COPIAR
 
-//#region GERA EMBEDS PRONTAS PRA VIDEOS + THUMBS + CAIXA DE SELEÇÃO
+//#region OK.RU
 const container = document.createElement('div');
 container.style.position = 'fixed';
 container.style.top = '10px';
@@ -96,7 +96,7 @@ button.addEventListener('click', () => {
 });
 //#endregion
 
-//region ANIMESBR.TV
+//#region ANIMESBR.TV
 (function() {
     //#region CRIA CONTAINER COM BOTÃO E ÁREA DE TEXTO
     const container = document.createElement('div');
