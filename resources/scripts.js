@@ -1,5 +1,5 @@
 const seriesData = [
-     {
+    {
         group_name: "SÉRIES BIBLÍCAS",
         group: [
             //A TERRA PROMETIDA
@@ -3173,27 +3173,29 @@ function renderSeriesButtons(filteredGroups) {
                     return `
                     <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
                         ${serie.badge ? `<span class="badge">${serie.badge}</span>` : ''}
-                        <div class="info">
-                            <h1>${serie.name}</h1>
-                            ${serie.enabled ? (
-                                serie.season.length > 0 ? `
-                                    ${serie.canais ? `
-                                        <p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>
-                                    ` : `
-                                        ${serie.season.some(season => season.movies) ? `
-                                            <p>${serie.info}: ${serie.season.filter(season => !season.movies).length}</p>
-                                            <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
-                                        ` : `
-                                            <p>${serie.info}: ${serie.season.length}</p>
-                                        `}
-                                        <p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
-                                    `}
-                                ` : `
-                                    <p>Nenhum conteúdo disponível</p>
-                                `
-                            ) : ``}
-                            ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'EM BREVE'}</button>`}
-                        </div>
+                       <div class="info">
+                        <h1>${serie.name}</h1>
+                        ${serie.enabled ? (
+                            serie.season.length > 0 ? 
+                                serie.canais ? 
+                                    `<p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>`
+                                : 
+                                    `
+                                    ${serie.season.filter(season => !season.movies).length > 1 ? 
+                                        `<p>Temporadas: ${serie.season.filter(season => !season.movies).length}</p>` 
+                                    : ``}
+                                    ${serie.season.some(season => season.movies) ? 
+                                        `<p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>` 
+                                    : ``}
+                                    ${serie.season.some(season => !season.movies) ? 
+                                        `<p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>` 
+                                    : ``}
+                                    `
+                            : 
+                                `<p>Nenhum conteúdo disponível</p>`
+                        ) : ``}
+                        ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'EM BREVE'}</button>`}
+                    </div>
                         <button class="favorite-button ${isFavorite ? 'active' : ''}" data-serie='${JSON.stringify(serie)}'>
                             ${isFavorite ? '★' : '☆'}
                             <span class="tooltip-text black tooltip-top">${isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}</span>
@@ -3298,27 +3300,28 @@ function updateFavorites() {
                     return `
                     <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
                         ${serie.badge ? `<span class="badge">${serie.badge}</span>` : ''}
-                        <div class="info">
-                            <h1>${serie.name}</h1>
-                            ${serie.enabled ? (
-                                serie.season.length > 0 ? `
-                                    ${serie.canais ? `
-                                        <p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>
-                                    ` : `
-                                        ${serie.season.some(season => season.movies) ? `
-                                            <p>${serie.info}: ${serie.season.filter(season => !season.movies).length}</p>
-                                            <p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
-                                        ` : `
-                                            <p>${serie.info}: ${serie.season.length}</p>
-                                        `}
-                                        <p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>
-                                    `}
-                                ` : `
-                                    <p>Nenhum conteúdo disponível</p>
-                                `
-                            ) : ``}
-                            ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'EM BREVE'}</button>`}
-                        </div>
+                        <h1>${serie.name}</h1>
+                        ${serie.enabled ? (
+                            serie.season.length > 0 ? 
+                                serie.canais ? 
+                                    `<p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>`
+                                : 
+                                    `
+                                    ${serie.season.filter(season => !season.movies).length > 1 ? 
+                                        `<p>Temporadas: ${serie.season.filter(season => !season.movies).length}</p>` 
+                                    : ``}
+                                    ${serie.season.some(season => season.movies) ? 
+                                        `<p>Filmes: ${serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>` 
+                                    : ``}
+                                    ${serie.season.some(season => !season.movies) ? 
+                                        `<p>Episódios disponíveis: ${serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0)}</p>` 
+                                    : ``}
+                                    `
+                            : 
+                                `<p>Nenhum conteúdo disponível</p>`
+                        ) : ``}
+                        ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'EM BREVE'}</button>`}
+                    </div>
                         <button class="favorite-button active" data-serie='${JSON.stringify(serie)}'>
                             ★
                             <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>
