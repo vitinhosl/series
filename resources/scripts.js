@@ -2231,7 +2231,7 @@ const seriesData = [
 
             //PAULO, O APÓSTOLO
             {
-                name: "Paulo, o Apóstolo",
+                name: "Paulo o Apóstolo",
                 thumb_page: "https://i.imgur.com/SMOITBf.jpeg",
                 thumb_buttons: ["https://i.imgur.com/kcwpdNz.png"],
                 badge: "NOVO",
