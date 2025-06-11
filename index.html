@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="https://i.imgur.com/dSX7Wic.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="resources/bootstrap.css">
     <link rel="stylesheet" href="resources/styles.css">
 </head>
@@ -19,14 +18,14 @@
                     <defs>
                         <style>
                             :root {
-                                --primary-circle: #c00c42;      /* Círculo principal */
-                                --shadow-circle: #69132f;       /* Sombra do círculo */
-                                --rewind-lines: #39424e;        /* Linhas das Antenas */
-                                --player-bg-left: #12161d;      /* Fundo do player (esquerda e direita) */
-                                --player-bg-right: #12161d;     /* Mesmo tom para consistência */
-                                --buttons: #2d343f;             /* Botões circulares */
-                                --screen-left: #444d5b;         /* Tela esquerda */
-                                --screen-right: #2d343f;        /* Tela direita */
+                                --primary-circle: #c00c42;
+                                --shadow-circle: #69132f;
+                                --rewind-lines: #39424e;
+                                --player-bg-left: #12161d;
+                                --player-bg-right: #12161d;
+                                --buttons: #2d343f;
+                                --screen-left: #444d5b;
+                                --screen-right: #2d343f;
                             }
                         </style>
                     </defs>
@@ -46,8 +45,24 @@
                 <button id="back-button" class="hidden">❮</button>
                 <h1 id="series-title" class="show">Séries</h1>
                 <h1 id="series-name" class="hidden"></h1>
+                <label class="menu">
+                    <input class="inp" type="checkbox" />
+                    <div class="bar">
+                        <span class="top bar-list"></span>
+                        <span class="middle bar-list"></span>
+                        <span class="bottom bar-list"></span>
+                    </div>
+                    <section class="menu-container">
+                        <div class="menu-list">Início</div>
+                        <div class="menu-list">Logs</div>
+                    </section>
+                </label>
             </div>
         </header>
+
+        <div id="logs-section" class="hidden">
+           
+        </div>
 
         <div id="home" class="show">
             <div id="myCarousel" class="carousel slide myCarousel" data-interval="false" data-ride="carousel">

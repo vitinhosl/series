@@ -2564,17 +2564,15 @@ function addEpisodeButtonListeners() {
 
             // 3) Monta o slug da série e do episódio para o hash
             const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
-            // Se quiser usar o título puro quando for numérico, pode dessa forma:
             const rawTitle = currentSerie.season[currentSeasonIndex].episodes[index].title;
             const epNumber = /^\d+$/.test(rawTitle) ? rawTitle : (index + 1).toString();
-            // Atualiza só o hash da URL (sem recarregar a página)
             location.hash = `${serieSlug}-${epNumber}`;
 
             // 4) Abre o overlay de vídeo com autoplay
             const url = this.getAttribute('data-url');
             openVideoOverlay(appendAutoplay(url));
 
-            // 5) Renderiza botões de troca de fonte (PRINCIPAL / OPÇÃO X)
+            // 5) Renderiza botões de troca de fonte
             renderToggleButtons(this);
 
             // 6) Mostra/esconde os botões de navegação Prev/Next
@@ -2599,6 +2597,9 @@ function addEpisodeButtonListeners() {
 
             saveContinueProgress(progress);
             renderContinueWatchingSection();
+
+            // 8) Registra o log do episódio clicado (evitando duplicatas)
+            logEpisodeClick(episode, currentSeasonIndex, index);
         });
     });
 }
@@ -2896,7 +2897,7 @@ function navigateDirection(direction) {
     }
 
     const episode = currentSeason.episodes[currentEpisodeIndex];
-    openVideoOverlay(appendAutoplay(episode.url)); // Aplica autoplay aqui
+    openVideoOverlay(appendAutoplay(episode.url));
 
     const serieName = currentSerie.name;
     const seasonName = currentSeason.name;
@@ -2923,6 +2924,9 @@ function navigateDirection(direction) {
 
     renderToggleButtons(currentEpisodeButton || document.querySelector(`#episode-button[data-url="${episode.url}"]`));
     updateButtonVisibility();
+
+    // Registra o log do novo episódio
+    logEpisodeClick(episode, currentSeasonIndex, currentEpisodeIndex);
 }
 
 function updateButtonVisibility() {
@@ -3503,12 +3507,146 @@ function handleHashChange() {
     }
 }
 
+//FUNÇÕES DE LOG
+function createLogsSection() {
+    let logsSection = document.getElementById('logs-section');
+    if (!logsSection) {
+        logsSection = document.createElement('div');
+        logsSection.id = 'logs-section';
+        logsSection.classList.add('hidden');
+        document.getElementById('main').appendChild(logsSection);
+    }
+
+    // Recupera os logs salvos do localStorage
+    let logs = JSON.parse(localStorage.getItem('logs')) || [];
+    // Inverte a ordem dos logs
+    logs = logs.reverse();
+    let logsHTML = `
+        <div id="logs-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>Logs</h2>
+            <button id="clear-all-logs-button">Limpar logs</button>
+        </div>
+        <div id="logs-content">
+            <ul id="logs-list">
+    `;
+    logs.forEach((log, index) => {
+        logsHTML += `
+            <li class="log-entry" data-index="${logs.length - 1 - index}" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center;">
+                    <img src="${log.thumb}" alt="${log.serieName} - Episódio ${log.episodeTitle}" class="log-thumb" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                    <span>${log.serieName} - Dia: ${log.date} - ${log.time} - Temporada ${log.seasonIndex + 1}, Episódio ${log.episodeTitle}</span>
+                </div>
+                <button class="remove-log-button" data-index="${logs.length - 1 - index}"><span>✕</span></button>
+            </li>
+        `;
+    });
+    logsHTML += `</ul></div>`;
+    logsSection.innerHTML = logsHTML;
+    logsSection.classList.remove('hidden');
+    logsSection.classList.add('show');
+
+    // Adiciona evento ao botão "Limpar logs"
+    const clearAllButton = document.getElementById('clear-all-logs-button');
+    if (clearAllButton) {
+        clearAllButton.addEventListener('click', function() {
+            localStorage.removeItem('logs');
+            logsSection.innerHTML = `
+                <div id="logs-header" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2>Logs</h2>
+                    <button id="clear-all-logs-button">Limpar logs</button>
+                </div>
+                <div id="logs-content">
+                    <ul id="logs-list"></ul>
+                </div>
+            `;
+            logsSection.classList.add('show');
+        });
+    }
+
+    // Adiciona eventos aos botões de remoção individual
+    document.querySelectorAll('.remove-log-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            let logs = JSON.parse(localStorage.getItem('logs')) || [];
+            logs.splice(index, 1); // Remove o log específico
+            localStorage.setItem('logs', JSON.stringify(logs));
+            createLogsSection(); // Re-renderiza a seção de logs
+        });
+    });
+
+    // Esconde outras seções
+    document.getElementById('home').classList.add('hidden');
+    document.getElementById('series').classList.add('hidden');
+    document.getElementById('series-title').classList.add('hidden');
+    document.getElementById('logo').classList.add('hidden');
+    document.getElementById('series-name').classList.add('hidden');
+    document.getElementById('back-button').classList.add('show');
+}
+
+function logEpisodeClick(episode, seasonIndex, episodeIndex) {
+    const now = new Date();
+    const date = now.toLocaleDateString('pt-BR'); // Ex.: 11/06/2025
+    const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }); // Ex.: 19:52
+    const serieName = currentSerie.name;
+    const thumb = episode.thumb || currentSerie.season[seasonIndex].thumb_season;
+
+    const logEntry = {
+        serieName: serieName,
+        episodeTitle: episode.title,
+        seasonIndex: seasonIndex,
+        thumb: thumb,
+        date: date,
+        time: time
+    };
+
+    // Verifica se o log já existe para evitar duplicatas
+    let logs = JSON.parse(localStorage.getItem('logs')) || [];
+    const isDuplicate = logs.some(log => 
+        log.serieName === logEntry.serieName &&
+        log.seasonIndex === logEntry.seasonIndex &&
+        log.episodeTitle === logEntry.episodeTitle &&
+        log.date === logEntry.date &&
+        log.time === logEntry.time
+    );
+    if (!isDuplicate) {
+        logs.push(logEntry);
+        localStorage.setItem('logs', JSON.stringify(logs));
+    }
+
+    // Atualiza a seção de logs (se estiver visível)
+    const logsSection = document.getElementById('logs-section');
+    if (logsSection && logsSection.classList.contains('show')) {
+        createLogsSection();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     searchInput = document.querySelector('#search .input');
     
     renderCarousel();
     renderSeriesButtons();
     updateFavorites();
+
+    document.querySelectorAll('.menu-list').forEach(item => {
+        item.addEventListener('click', function() {
+            const text = this.innerText.toLowerCase();
+            const checkbox = document.querySelector('.menu .inp');
+
+            if (text === 'início') {
+                window.history.pushState({ page: 'home' }, '', window.location.pathname);
+                window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
+            } else if (text === 'logs') {
+                createLogsSection();
+                window.history.pushState({ page: 'logs' }, '', '#logs');
+                window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'logs' } }));
+            }
+
+            // Força o fechamento do menu desmarcando o checkbox
+            if (checkbox) {
+                checkbox.checked = false;
+            }
+        });
+    });
 
     document.getElementById('prev-video-button').addEventListener('click', function() {
         navigateDirection('prev');
@@ -3585,6 +3723,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('popstate', function(event) {
         if (!event.state || event.state.page === 'home') {
+            // ... (código existente para 'home')
             document.getElementById('home').classList.remove('hidden');
             document.getElementById('home').classList.add('show');
             document.getElementById('series').classList.add('hidden');
@@ -3597,9 +3736,10 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('series-name').classList.add('hidden');
             document.getElementById('back-button').classList.remove('show');
             document.getElementById('back-button').classList.add('hidden');
-
+            document.getElementById('logs-section')?.classList.add('hidden');
             filterSeries();
         } else if (event.state.page === 'series') {
+            // ... (código existente para 'series')
             const serieName = event.state.serieName;
             const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
             if (serie) {
@@ -3615,8 +3755,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('series-name').classList.add('show');
                 document.getElementById('back-button').classList.remove('hidden');
                 document.getElementById('back-button').classList.add('show');
+                document.getElementById('logs-section')?.classList.add('hidden');
                 renderCurrentSeries(serie);
             }
+        } else if (event.state.page === 'logs') {
+            createLogsSection();
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('series').classList.add('hidden');
+            document.getElementById('series-title').classList.add('hidden');
+            document.getElementById('logo').classList.add('hidden');
+            document.getElementById('series-name').classList.add('hidden');
+            document.getElementById('back-button').classList.add('show');
         }
     });
     
