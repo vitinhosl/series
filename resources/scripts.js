@@ -2232,7 +2232,7 @@ const seriesData = [
             //PAULO, O APÓSTOLO
             {
                 name: "Paulo, o Apóstolo",
-                thumb_page: "",
+                thumb_page: "https://i.imgur.com/SMOITBf.jpeg",
                 thumb_buttons: ["https://i.imgur.com/kcwpdNz.png"],
                 badge: "NOVO",
                 type: "Temporadas",
@@ -2555,16 +2555,32 @@ function setupThumbnailLoading() {
 function addEpisodeButtonListeners() {
     document.querySelectorAll('#episode-button').forEach((button, index) => {
         button.addEventListener('click', function() {
+            // 1) Remove marcação anterior e marca o atual
             document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
+            // 2) Atualiza índice atual
             currentEpisodeIndex = index;
-            const url = this.getAttribute('data-url');
 
-            openVideoOverlay(appendAutoplay(url)); // Aplica autoplay aqui
+            // 3) Monta o slug da série e do episódio para o hash
+            const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
+            // Se quiser usar o título puro quando for numérico, pode dessa forma:
+            const rawTitle = currentSerie.season[currentSeasonIndex].episodes[index].title;
+            const epNumber = /^\d+$/.test(rawTitle) ? rawTitle : (index + 1).toString();
+            // Atualiza só o hash da URL (sem recarregar a página)
+            location.hash = `${serieSlug}-${epNumber}`;
+
+            // 4) Abre o overlay de vídeo com autoplay
+            const url = this.getAttribute('data-url');
+            openVideoOverlay(appendAutoplay(url));
+
+            // 5) Renderiza botões de troca de fonte (PRINCIPAL / OPÇÃO X)
             renderToggleButtons(this);
+
+            // 6) Mostra/esconde os botões de navegação Prev/Next
             updateButtonVisibility();
 
+            // 7) Salva progresso no continues e atualiza a seção “Continuar Assistindo”
             const serieKey = currentSerie.name.replace(/\s+/g, '_');
             const seasonKey = currentSerie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
             const episode = currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex];
@@ -2597,22 +2613,33 @@ function renderContinueWatchingSection() {
         seriesContainer.insertBefore(continueSeriesElement, seriesContainer.firstChild);
     }
 
-    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    // cria o slug da série para o hash
+    const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
+    const serieKey  = currentSerie.name.replace(/\s+/g, '_');
     const savedProgress = continues[serieKey] || {};
 
     let episodesHTML = '';
     Object.keys(savedProgress).forEach(seasonKey => {
         const seasonProgress = savedProgress[seasonKey];
+
+        // determina o número do episódio (1-based)
+        const epIndex = seasonProgress.episodeIndex;
+        const epNumber = (epIndex + 1).toString();
+
         let episodeText = seasonProgress.movies 
             ? `Filme: ${seasonProgress.episodeTitle}`
             : `T${seasonProgress.seasonIndex + 1} - ${seasonProgress.episodeTitle}`;
-
+        
         episodesHTML += `
-            <div id="continue-episode-button" 
-                 style="background-image: url('${seasonProgress.thumb}');" 
-                 data-season-index="${seasonProgress.seasonIndex}" 
-                 data-episode-index="${seasonProgress.episodeIndex}" 
-                 onclick="openVideoOverlay('${appendAutoplay(seasonProgress.url)}', ${seasonProgress.seasonIndex}, ${seasonProgress.episodeIndex})">
+            <div id="continue-episode-button"
+                 style="background-image: url('${seasonProgress.thumb}');"
+                 data-season-index="${seasonProgress.seasonIndex}"
+                 data-episode-index="${epIndex}"
+                 onclick="
+                    // atualiza o hash antes de abrir o overlay
+                    location.hash='${serieSlug}-${epNumber}';
+                    openVideoOverlay('${appendAutoplay(seasonProgress.url)}', ${seasonProgress.seasonIndex}, ${epIndex});
+                 ">
                 <p>${episodeText}</p>
                 <div class="remove-button" data-season-key="${seasonKey}">✕</div>
             </div>
@@ -2633,21 +2660,19 @@ function renderContinueWatchingSection() {
         </div>
     `;
 
-    // Adiciona a animação aos botões de "Continuar Assistindo" após renderizar
+    // animação
     document.querySelectorAll('#continue-series-episodes #continue-episode-button').forEach((button, index) => {
-        button.style.opacity = '0'; // Começa invisível
-        setTimeout(() => {
-            button.classList.add('fade-in-up');
-        }, index * 100); // Atraso de 100ms por botão
+        button.style.opacity = '0';
+        setTimeout(() => button.classList.add('fade-in-up'), index * 100);
     });
 
-    // Adiciona eventos de clique aos botões de remoção
+    // botão de remover
     document.querySelectorAll('#continue-series .remove-button').forEach(button => {
-        const newButton = button.cloneNode(true);
-        button.parentNode.replaceChild(newButton, button);
-        newButton.addEventListener('click', function(event) {
+        const newBtn = button.cloneNode(true);
+        button.parentNode.replaceChild(newBtn, button);
+        newBtn.addEventListener('click', event => {
             event.stopPropagation();
-            const seasonKey = this.getAttribute('data-season-key');
+            const seasonKey = newBtn.getAttribute('data-season-key');
             removeContinueSeriesSeason(seasonKey);
         });
     });
@@ -3414,13 +3439,73 @@ function removeFavorite(serie) {
     favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.hash) {
-        history.replaceState(null, document.title, window.location.pathname);
+function handleHashChange() {
+    const rawHash = window.location.hash.substring(1);
+    const decodedHash = decodeURIComponent(rawHash);
+
+    if (!decodedHash) {
+        // Sem hash: exibe a página inicial
+        document.getElementById('home').classList.replace('hidden', 'show');
+        document.getElementById('series').classList.replace('show', 'hidden');
+        document.getElementById('series-title').classList.replace('hidden', 'show');
+        document.getElementById('logo').classList.replace('hidden', 'show');
+        document.getElementById('series-name').classList.replace('show', 'hidden');
+        document.getElementById('back-button').classList.replace('show', 'hidden');
+        filterSeries();
+        return;
     }
 
-    searchInput = document.querySelector('#search .input');
+    // Tenta extrair [serie-slug] e [número do ep] (opcional)
+    const match = decodedHash.match(/^(.*?)(?:-(\d+))?$/);
+    if (!match) {
+        console.warn(`Hash inválido: ${decodedHash}`);
+        history.replaceState(null, '', window.location.pathname);
+        return;
+    }
 
+    const serieSlug = match[1]; // ex: "A-História-de-Ester"
+    const epNumber = match[2] ? parseInt(match[2], 10) : null; // ex: 3 ou null
+
+    // Encontra a série no array seriesData
+    const allSeries = seriesData.flatMap(g => g.group);
+    const serie = allSeries.find(s =>
+        s.name.trim().replace(/\s+/g, '-') === serieSlug
+    );
+
+    if (!serie) {
+        console.warn(`Série com slug ${serieSlug} não encontrada`);
+        history.replaceState(null, '', window.location.pathname);
+        return;
+    }
+
+    // Exibe a tela da série
+    document.getElementById('home').classList.replace('show', 'hidden');
+    document.getElementById('series').classList.replace('hidden', 'show');
+    document.getElementById('series-title').classList.replace('show', 'hidden');
+    document.getElementById('logo').classList.replace('show', 'hidden');
+    document.getElementById('series-name').classList.replace('hidden', 'show');
+    document.getElementById('back-button').classList.replace('hidden', 'show');
+
+    // Renderiza a série
+    renderCurrentSeries(serie);
+
+    if (epNumber !== null) {
+        // Se há um número de episódio, seleciona e abre o episódio
+        setTimeout(() => {
+            const idx = epNumber - 1; // Índice do episódio (0-based)
+            const buttons = document.querySelectorAll('#episode-button');
+            if (buttons[idx]) {
+                buttons[idx].click(); // Simula o clique no botão do episódio
+            } else {
+                console.warn(`Episódio ${epNumber} não encontrado para a série ${serie.name}`);
+            }
+        }, 0);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    searchInput = document.querySelector('#search .input');
+    
     renderCarousel();
     renderSeriesButtons();
     updateFavorites();
@@ -3493,6 +3578,10 @@ document.addEventListener('DOMContentLoaded', function() {
             filterSeries();
         });
     });
+
+    handleHashChange();
+
+    window.addEventListener('hashchange', handleHashChange);
 
     window.addEventListener('popstate', function(event) {
         if (!event.state || event.state.page === 'home') {
