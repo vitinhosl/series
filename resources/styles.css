@@ -215,6 +215,7 @@ header.scrolled {
     /* margin-left: 10px; */
 }
 
+#series-logs,
 #series-name,
 #series-title {
     flex-grow: 1;

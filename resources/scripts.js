@@ -3274,6 +3274,8 @@ function renderSeriesButtons(filteredGroups) {
             document.getElementById('logo').classList.add('hidden');
             document.getElementById('series-name').classList.remove('hidden');
             document.getElementById('series-name').classList.add('show');
+            document.getElementById('series-logs').classList.remove('show');
+            document.getElementById('series-logs').classList.add('hidden');
             document.getElementById('back-button').classList.remove('hidden');
             document.getElementById('back-button').classList.add('show');
             renderCurrentSeries(serie);
@@ -3406,6 +3408,8 @@ function updateFavorites() {
                 document.getElementById('logo').classList.add('hidden');
                 document.getElementById('series-name').classList.remove('hidden');
                 document.getElementById('series-name').classList.add('show');
+                document.getElementById('series-logs').classList.remove('show');
+                document.getElementById('series-logs').classList.add('hidden');
                 document.getElementById('back-button').classList.remove('hidden');
                 document.getElementById('back-button').classList.add('show');
 
@@ -3443,8 +3447,9 @@ function handleHashChange() {
         document.getElementById('home').classList.replace('hidden', 'show');
         document.getElementById('series').classList.replace('show', 'hidden');
         document.getElementById('series-title').classList.replace('hidden', 'show');
-        document.getElementById('logo').classList.replace('hidden', 'show');
         document.getElementById('series-name').classList.replace('show', 'hidden');
+        document.getElementById('series-logs').classList.replace('show', 'hidden');
+        document.getElementById('logo').classList.replace('hidden', 'show');
         document.getElementById('back-button').classList.replace('show', 'hidden');
         document.getElementById('logs-section').classList.add('hidden');
 
@@ -3462,12 +3467,13 @@ function handleHashChange() {
     if (decodedHash === 'logs') {
         window.history.replaceState({ page: 'logs' }, '', '#logs');
         createLogsSection();
-        document.getElementById('home').classList.add('hidden');
-        document.getElementById('series').classList.add('hidden');
-        document.getElementById('series-title').classList.add('hidden');
-        document.getElementById('logo').classList.add('hidden');
-        document.getElementById('series-name').classList.add('hidden');
-        document.getElementById('back-button').classList.add('show');
+        document.getElementById('home').classList.replace('show', 'hidden');
+        document.getElementById('series').classList.replace('show', 'hidden');
+        document.getElementById('logo').classList.replace('show', 'hidden');
+        document.getElementById('series-title').classList.replace('show', 'hidden');
+        document.getElementById('series-name').classList.replace('show', 'hidden');
+        document.getElementById('series-logs').classList.replace('hidden', 'show');
+        document.getElementById('back-button').classList.replace('hidden', 'show');
         return;
     }
 
@@ -3496,8 +3502,9 @@ function handleHashChange() {
     document.getElementById('home').classList.replace('show', 'hidden');
     document.getElementById('series').classList.replace('hidden', 'show');
     document.getElementById('series-title').classList.replace('show', 'hidden');
-    document.getElementById('logo').classList.replace('show', 'hidden');
     document.getElementById('series-name').classList.replace('hidden', 'show');
+    document.getElementById('series-logs').classList.replace('show', 'hidden');
+    document.getElementById('logo').classList.replace('show', 'hidden');
     document.getElementById('back-button').classList.replace('hidden', 'show');
     document.getElementById('logs-section').classList.add('hidden');
 
@@ -3541,7 +3548,7 @@ function createLogsSection() {
         let logsHTML = `
             <div id="logs-header">
                 <h3>Logs</h3>
-                <button id="clear-all-logs-button">Limpar todos 🗑️</button>
+                <button id="clear-all-logs-button">Limpar logs 🗑️</button>
             </div>
             <div id="logs-content">
                 <ul id="logs-list">
@@ -3665,20 +3672,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('close-overlay-button').addEventListener('click', function() {
         const videoOverlay = document.getElementById('video-overlay');
         const videoIframe = document.getElementById('video-iframe');
-        videoOverlay.classList.remove('show');
-        videoOverlay.classList.add('hidden');
+        videoOverlay.classList.replace('show', 'hidden');
         videoIframe.src = '';
         document.getElementById('overlay-season-dropdown')?.remove();
         document.getElementById('overlay-episodes-dropdown')?.remove();
 
-        // Esconde a seção de logs, caso esteja aberta
         const logsSection = document.getElementById('logs-section');
         if (logsSection) {
-            logsSection.classList.remove('show');
-            logsSection.classList.add('hidden');
+            logsSection.classList.replace('show', 'hidden');
         }
 
-        // Substitui o estado atual para a série (ou home, se não houver série)
         if (currentSerie) {
             const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
             window.history.replaceState(
@@ -3690,7 +3693,6 @@ document.addEventListener('DOMContentLoaded', function() {
             window.history.replaceState({ page: 'home' }, '', window.location.pathname);
         }
 
-        // Dispara o evento popstate para atualizar a interface
         window.dispatchEvent(new PopStateEvent('popstate', { 
             state: currentSerie 
                 ? { page: 'series', serieName: currentSerie.name } 
@@ -3767,16 +3769,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const home = document.getElementById('home');
         const series = document.getElementById('series');
         const title = document.getElementById('series-title');
-        const logo = document.getElementById('logo');
         const name = document.getElementById('series-name');
+        const namelog = document.getElementById('series-logs');
+        const logo = document.getElementById('logo');
         const backBtn = document.getElementById('back-button');
         const logsSection = document.getElementById('logs-section');
         const videoOverlay = document.getElementById('video-overlay');
 
-        // Fecha o overlay de vídeo, se estiver aberto
         if (videoOverlay.classList.contains('show')) {
-            videoOverlay.classList.remove('show');
-            videoOverlay.classList.add('hidden');
+            videoOverlay.classList.replace('show', 'hidden');
             document.getElementById('video-iframe').src = '';
             document.getElementById('overlay-season-dropdown')?.remove();
             document.getElementById('overlay-episodes-dropdown')?.remove();
@@ -3788,17 +3789,9 @@ document.addEventListener('DOMContentLoaded', function() {
             title.classList.replace('hidden', 'show');
             logo.classList.replace('hidden', 'show');
             name.classList.replace('show', 'hidden');
+            namelog.classList.replace('show', 'hidden');
             backBtn.classList.replace('show', 'hidden');
-            logsSection.classList.add('hidden');
-
-            const keyButtons = document.querySelectorAll('#keys button');
-            keyButtons.forEach(btn => btn.classList.remove('checked'));
-            keyButtons[0].classList.add('checked');
-            keyButtons[1].innerText = '☆';
-            currentFilter = null;
-            searchInput.value = '';
-            renderSeriesButtons();
-            updateFavorites();
+            logsSection.classList.replace('show', 'hidden');
         } else if (state.page === 'series') {
             const serieName = state.serieName;
             const serie = seriesData.flatMap(g => g.group).find(s => s.name === serieName);
@@ -3812,17 +3805,20 @@ document.addEventListener('DOMContentLoaded', function() {
             title.classList.replace('show', 'hidden');
             logo.classList.replace('show', 'hidden');
             name.classList.replace('hidden', 'show');
+            namelog.classList.replace('show', 'hidden');
             backBtn.classList.replace('hidden', 'show');
-            logsSection.classList.add('hidden');
+            logsSection.classList.replace('show', 'hidden');
             renderCurrentSeries(serie);
         } else if (state.page === 'logs') {
             createLogsSection();
-            home.classList.add('hidden');
-            series.classList.add('hidden');
-            title.classList.add('hidden');
-            logo.classList.add('hidden');
-            name.classList.add('hidden');
-            backBtn.classList.add('show');
+            home.classList.replace('show', 'hidden');
+            series.classList.replace('show', 'hidden');
+            title.classList.replace('show', 'hidden');
+            name.classList.replace('show', 'hidden');
+            logo.classList.replace('show', 'hidden');
+            namelog.classList.replace('hidden', 'show');
+            backBtn.classList.replace('hidden', 'show');
+            logsSection.classList.replace('hidden', 'show');
         }
     });
 
