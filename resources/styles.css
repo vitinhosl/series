@@ -136,13 +136,25 @@ body {
     color: rgb(250, 244, 237);
 }
 
+#main {
+    padding-top: 70px;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
 header {
-    background-color: rgb(237, 0, 73);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(237, 0, 73, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: #fff;
     text-align: center;
     padding: 10px;
     border-radius: 10px 10px 0px 0px;
-    position: relative;
     transition: all 0.3s ease;
 }
 
@@ -152,12 +164,9 @@ header h1 {
     transition: all 0.3s ease;
 }
 
-#main {
-    /* width: 100%; */
-    /* height: 100vh; */
-    /* display: flex; */
-    flex-direction: column;
-    transition: all 0.3s ease;
+header.scrolled {
+    padding: 5px;
+    background-color: rgba(237, 0, 73, 0.5);
 }
 
 .hidden {
@@ -229,7 +238,7 @@ header h1 {
     width: 50px; 
     height: 50px; 
     text-align: center;
-    left: 0;
+    /* left: 0; */
     transition: all 0.3s ease;
     outline: none;
 }
@@ -1497,14 +1506,24 @@ p {
     display: none;
 }
 
-.menu .menu-container {
-    display: none;
+.menu-container {
+    background-color: rgb(39, 44, 51);
+    color: rgb(233, 244, 251);
+    border-radius: 8px;
+    position: absolute;
+    width: 150px;
+    right: 0;
+    top: 100%; /* Já está correto, mantém o menu logo abaixo do botão */
+    overflow: hidden;
+    clip-path: inset(10% 50% 90% 50% round 8px);
+    transition: all 0.4s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 .menu .inp:checked ~ .menu-container {
     display: block;
 }
-
 
 .bar {
     display: flex;
@@ -1614,8 +1633,8 @@ p {
 }
 
 #logs-section {
-    padding: 20px;
-    background-color: #1a1d29;
+    padding: 5px 20px 0px 0px;
+    /* background-color: #1a1d29; */
     color: #e9f4fb;
     display: none;
 }
@@ -1633,26 +1652,16 @@ p {
     padding: 0;
 }
 
-.log-entry {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(233, 244, 251, 0.1);
-}
-
-.log-thumb {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-right: 10px;
-    border-radius: 4px;
-}
-
 #logs-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 8px;
+    background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+    margin-bottom: 10px;
 }
 
 #clear-all-logs-button {
@@ -1662,6 +1671,7 @@ p {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 #clear-all-logs-button:hover {
@@ -1669,24 +1679,63 @@ p {
 }
 
 .log-entry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(233, 244, 251, 0.1);
+  display: flex;
+  align-items: center;
+  background-color: rgb(29, 34, 41);
+  background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: all .3s;
+  cursor: pointer;
 }
 
-.log-entry div {
-    display: flex;
-    align-items: center;
+.log-entry:hover {
+  background-color: rgb(39, 44, 51);
+  background: rgb(39, 44, 51);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  transform: translateY(-2px);
 }
 
 .log-thumb {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-right: 10px;
-    border-radius: 4px;
+  flex-shrink: 0;
+  width: 130px;
+  height: 70px;
+  /* object-fit: cover; */
+  object-fit: fill;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+.log-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.log-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.log-meta {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.log-episodes {
+
+}
+
+.log-date {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .remove-log-button {
@@ -1748,6 +1797,18 @@ p {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 5px; /* Reduz padding em telas menores */
+    }
+
+    header h1 {
+        font-size: 20px; /* Já definido no seu CSS */
+    }
+
+    #main {
+        padding-top: 50px; /* Ajuste para altura menor do header */
+    }
+
     .myCarousel {
         max-height: 200px;
     }
@@ -1809,10 +1870,7 @@ p {
         padding: 0.4rem;
     }
 
-    header h1 {
-        font-size: 20px;
-    }
-
+    #logo,
     #back-button {
         font-size: 20px;
         width: 35px;

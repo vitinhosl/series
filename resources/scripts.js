@@ -2232,7 +2232,7 @@ const seriesData = [
             //PAULO, O APÓSTOLO
             {
                 name: "Paulo o Apóstolo",
-                thumb_page: "https://i.imgur.com/SMOITBf.jpeg",
+                thumb_page: "https://i.imgur.com/G7Q8SZ7.jpeg", //https://i.imgur.com/G7Q8SZ7.jpeg https://i.imgur.com/beK4a7A.jpeg
                 thumb_buttons: ["https://i.imgur.com/kcwpdNz.png"],
                 badge: "NOVO",
                 type: "Temporadas",
@@ -2555,34 +2555,24 @@ function setupThumbnailLoading() {
 function addEpisodeButtonListeners() {
     document.querySelectorAll('#episode-button').forEach((button, index) => {
         button.addEventListener('click', function() {
-            // 1) Remove marcação anterior e marca o atual
             document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
-
-            // 2) Atualiza índice atual
             currentEpisodeIndex = index;
-
-            // 3) Monta o slug da série e do episódio para o hash
             const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
             const rawTitle = currentSerie.season[currentSeasonIndex].episodes[index].title;
             const epNumber = /^\d+$/.test(rawTitle) ? rawTitle : (index + 1).toString();
-            location.hash = `${serieSlug}-${epNumber}`;
-
-            // 4) Abre o overlay de vídeo com autoplay
+            window.history.replaceState( // Alterado de pushState para replaceState
+                { page: 'series', serieName: currentSerie.name, episodeIndex: index },
+                '',
+                `#${serieSlug}-${epNumber}`
+            );
             const url = this.getAttribute('data-url');
             openVideoOverlay(appendAutoplay(url));
-
-            // 5) Renderiza botões de troca de fonte
             renderToggleButtons(this);
-
-            // 6) Mostra/esconde os botões de navegação Prev/Next
             updateButtonVisibility();
-
-            // 7) Salva progresso no continues e atualiza a seção “Continuar Assistindo”
             const serieKey = currentSerie.name.replace(/\s+/g, '_');
             const seasonKey = currentSerie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
             const episode = currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex];
-
             const progress = {
                 serieName: currentSerie.name,
                 seasonName: currentSerie.season[currentSeasonIndex].name,
@@ -2594,11 +2584,8 @@ function addEpisodeButtonListeners() {
                 movies: currentSerie.season[currentSeasonIndex].movies,
                 activeEpisodeIndex: index
             };
-
             saveContinueProgress(progress);
             renderContinueWatchingSection();
-
-            // 8) Registra o log do episódio clicado (evitando duplicatas)
             logEpisodeClick(episode, currentSeasonIndex, index);
         });
     });
@@ -3447,59 +3434,81 @@ function handleHashChange() {
     const rawHash = window.location.hash.substring(1);
     const decodedHash = decodeURIComponent(rawHash);
 
+    if (history.state && history.state.page === 'home' && !decodedHash) {
+        return;
+    }
+
     if (!decodedHash) {
-        // Sem hash: exibe a página inicial
+        window.history.replaceState({ page: 'home' }, '', window.location.pathname);
         document.getElementById('home').classList.replace('hidden', 'show');
         document.getElementById('series').classList.replace('show', 'hidden');
         document.getElementById('series-title').classList.replace('hidden', 'show');
         document.getElementById('logo').classList.replace('hidden', 'show');
         document.getElementById('series-name').classList.replace('show', 'hidden');
         document.getElementById('back-button').classList.replace('show', 'hidden');
-        filterSeries();
+        document.getElementById('logs-section').classList.add('hidden');
+
+        const keyButtons = document.querySelectorAll('#keys button');
+        keyButtons.forEach(btn => btn.classList.remove('checked'));
+        keyButtons[0].classList.add('checked');
+        keyButtons[1].innerText = '☆';
+        searchInput.value = '';
+        currentFilter = null;
+        renderSeriesButtons();
+        updateFavorites();
         return;
     }
 
-    // Tenta extrair [serie-slug] e [número do ep] (opcional)
+    if (decodedHash === 'logs') {
+        window.history.replaceState({ page: 'logs' }, '', '#logs');
+        createLogsSection();
+        document.getElementById('home').classList.add('hidden');
+        document.getElementById('series').classList.add('hidden');
+        document.getElementById('series-title').classList.add('hidden');
+        document.getElementById('logo').classList.add('hidden');
+        document.getElementById('series-name').classList.add('hidden');
+        document.getElementById('back-button').classList.add('show');
+        return;
+    }
+
     const match = decodedHash.match(/^(.*?)(?:-(\d+))?$/);
     if (!match) {
         console.warn(`Hash inválido: ${decodedHash}`);
-        history.replaceState(null, '', window.location.pathname);
+        window.history.replaceState({ page: 'home' }, '', window.location.pathname);
+        window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
         return;
     }
 
-    const serieSlug = match[1]; // ex: "A-História-de-Ester"
-    const epNumber = match[2] ? parseInt(match[2], 10) : null; // ex: 3 ou null
+    const serieSlug = match[1];
+    const epNumber = match[2] ? parseInt(match[2], 10) : null;
 
-    // Encontra a série no array seriesData
     const allSeries = seriesData.flatMap(g => g.group);
-    const serie = allSeries.find(s =>
-        s.name.trim().replace(/\s+/g, '-') === serieSlug
-    );
+    const serie = allSeries.find(s => s.name.trim().replace(/\s+/g, '-') === serieSlug);
 
     if (!serie) {
         console.warn(`Série com slug ${serieSlug} não encontrada`);
-        history.replaceState(null, '', window.location.pathname);
+        window.history.replaceState({ page: 'home' }, '', window.location.pathname);
+        window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
         return;
     }
 
-    // Exibe a tela da série
+    window.history.replaceState({ page: 'series', serieName: serie.name }, '', `#${serieSlug}`);
     document.getElementById('home').classList.replace('show', 'hidden');
     document.getElementById('series').classList.replace('hidden', 'show');
     document.getElementById('series-title').classList.replace('show', 'hidden');
     document.getElementById('logo').classList.replace('show', 'hidden');
     document.getElementById('series-name').classList.replace('hidden', 'show');
     document.getElementById('back-button').classList.replace('hidden', 'show');
+    document.getElementById('logs-section').classList.add('hidden');
 
-    // Renderiza a série
     renderCurrentSeries(serie);
 
     if (epNumber !== null) {
-        // Se há um número de episódio, seleciona e abre o episódio
         setTimeout(() => {
-            const idx = epNumber - 1; // Índice do episódio (0-based)
+            const idx = epNumber - 1;
             const buttons = document.querySelectorAll('#episode-button');
             if (buttons[idx]) {
-                buttons[idx].click(); // Simula o clique no botão do episódio
+                buttons[idx].click();
             } else {
                 console.warn(`Episódio ${epNumber} não encontrado para a série ${serie.name}`);
             }
@@ -3513,74 +3522,74 @@ function createLogsSection() {
     if (!logsSection) {
         logsSection = document.createElement('div');
         logsSection.id = 'logs-section';
-        logsSection.classList.add('hidden');
         document.getElementById('main').appendChild(logsSection);
     }
 
-    // Recupera os logs salvos do localStorage
     let logs = JSON.parse(localStorage.getItem('logs')) || [];
-    // Inverte a ordem dos logs
     logs = logs.reverse();
-    let logsHTML = `
-        <div id="logs-header" style="display: flex; justify-content: space-between; align-items: center;">
-            <h2>Logs</h2>
-            <button id="clear-all-logs-button">Limpar logs</button>
-        </div>
-        <div id="logs-content">
-            <ul id="logs-list">
-    `;
-    logs.forEach((log, index) => {
-        logsHTML += `
-            <li class="log-entry" data-index="${logs.length - 1 - index}" style="display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; align-items: center;">
-                    <img src="${log.thumb}" alt="${log.serieName} - Episódio ${log.episodeTitle}" class="log-thumb" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
-                    <span>${log.serieName} - Dia: ${log.date} - ${log.time} - Temporada ${log.seasonIndex + 1}, Episódio ${log.episodeTitle}</span>
-                </div>
-                <button class="remove-log-button" data-index="${logs.length - 1 - index}"><span>✕</span></button>
-            </li>
+
+    if (logs.length === 0) {
+        logsSection.innerHTML = `
+            <div id="logs-header">
+                <h3>Logs</h3>
+            </div>
+            <div id="logs-content">
+                <p id="no-logs-message">Nenhum log para exibir.</p>
+            </div>
         `;
-    });
-    logsHTML += `</ul></div>`;
-    logsSection.innerHTML = logsHTML;
+    } else {
+        let logsHTML = `
+            <div id="logs-header">
+                <h3>Logs</h3>
+                <button id="clear-all-logs-button">Limpar todos 🗑️</button>
+            </div>
+            <div id="logs-content">
+                <ul id="logs-list">
+                    ${logs.map((log, index) => `
+                        <li class="log-entry" data-index="${index}">
+                            <img src="${log.thumb}" alt="" class="log-thumb">
+                            <div class="log-details">
+                                <div class="log-title">${log.serieName}</div>
+                                <div class="log-meta">
+                                    <span class="log-episodes">Temporada ${log.seasonIndex + 1} – ${log.episodeTitle.padStart(3, '0')}</span>
+                                    <span class="log-date">Data: ${log.date} – ${log.time}</span>
+                                </div>
+                            </div>
+                            <button class="remove-log-button" data-index="${index}"><span>✕</span></button>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>
+        `;
+        logsSection.innerHTML = logsHTML;
+    }
     logsSection.classList.remove('hidden');
     logsSection.classList.add('show');
+    document.getElementById('logo').classList.remove('show');
+    document.getElementById('logo').classList.add('hidden');
+    document.getElementById('back-button').classList.add('show');
 
     // Adiciona evento ao botão "Limpar logs"
     const clearAllButton = document.getElementById('clear-all-logs-button');
     if (clearAllButton) {
         clearAllButton.addEventListener('click', function() {
             localStorage.removeItem('logs');
-            logsSection.innerHTML = `
-                <div id="logs-header" style="display: flex; justify-content: space-between; align-items: center;">
-                    <h2>Logs</h2>
-                    <button id="clear-all-logs-button">Limpar logs</button>
-                </div>
-                <div id="logs-content">
-                    <ul id="logs-list"></ul>
-                </div>
-            `;
-            logsSection.classList.add('show');
+            createLogsSection();
         });
     }
 
     // Adiciona eventos aos botões de remoção individual
     document.querySelectorAll('.remove-log-button').forEach(button => {
         button.addEventListener('click', function() {
-            const index = parseInt(this.getAttribute('data-index'));
-            let logs = JSON.parse(localStorage.getItem('logs')) || [];
-            logs.splice(index, 1); // Remove o log específico
-            localStorage.setItem('logs', JSON.stringify(logs));
-            createLogsSection(); // Re-renderiza a seção de logs
+            const idx = parseInt(this.getAttribute('data-index'), 10);
+            const currentLogs = JSON.parse(localStorage.getItem('logs')) || [];
+            const removeIndex = currentLogs.length - 1 - idx;
+            currentLogs.splice(removeIndex, 1);
+            localStorage.setItem('logs', JSON.stringify(currentLogs));
+            createLogsSection();
         });
     });
 
-    // Esconde outras seções
-    document.getElementById('home').classList.add('hidden');
-    document.getElementById('series').classList.add('hidden');
-    document.getElementById('series-title').classList.add('hidden');
-    document.getElementById('logo').classList.add('hidden');
-    document.getElementById('series-name').classList.add('hidden');
-    document.getElementById('back-button').classList.add('show');
 }
 
 function logEpisodeClick(episode, seasonIndex, episodeIndex) {
@@ -3628,23 +3637,20 @@ document.addEventListener('DOMContentLoaded', function() {
     updateFavorites();
 
     document.querySelectorAll('.menu-list').forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
             const text = this.innerText.toLowerCase();
             const checkbox = document.querySelector('.menu .inp');
 
             if (text === 'início') {
-                window.history.pushState({ page: 'home' }, '', window.location.pathname);
+                window.history.replaceState({ page: 'home' }, '', window.location.pathname);
                 window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
             } else if (text === 'logs') {
-                createLogsSection();
                 window.history.pushState({ page: 'logs' }, '', '#logs');
                 window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'logs' } }));
             }
 
-            // Força o fechamento do menu desmarcando o checkbox
-            if (checkbox) {
-                checkbox.checked = false;
-            }
+            if (checkbox) checkbox.checked = false;
         });
     });
 
@@ -3662,17 +3668,52 @@ document.addEventListener('DOMContentLoaded', function() {
         videoOverlay.classList.remove('show');
         videoOverlay.classList.add('hidden');
         videoIframe.src = '';
-        const overlaySeasonDropdown = document.getElementById('overlay-season-dropdown');
-        const overlayEpisodesDropdown = document.getElementById('overlay-episodes-dropdown');
-        if (overlaySeasonDropdown) overlaySeasonDropdown.remove();
-        if (overlayEpisodesDropdown) overlayEpisodesDropdown.remove();
+        document.getElementById('overlay-season-dropdown')?.remove();
+        document.getElementById('overlay-episodes-dropdown')?.remove();
+
+        // Esconde a seção de logs, caso esteja aberta
+        const logsSection = document.getElementById('logs-section');
+        if (logsSection) {
+            logsSection.classList.remove('show');
+            logsSection.classList.add('hidden');
+        }
+
+        // Substitui o estado atual para a série (ou home, se não houver série)
+        if (currentSerie) {
+            const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
+            window.history.replaceState(
+                { page: 'series', serieName: currentSerie.name },
+                currentSerie.name,
+                `#${serieSlug}`
+            );
+        } else {
+            window.history.replaceState({ page: 'home' }, '', window.location.pathname);
+        }
+
+        // Dispara o evento popstate para atualizar a interface
+        window.dispatchEvent(new PopStateEvent('popstate', { 
+            state: currentSerie 
+                ? { page: 'series', serieName: currentSerie.name } 
+                : { page: 'home' }
+        }));
     });
 
-    document.querySelectorAll('#back-button').forEach(button => {
-        button.addEventListener('click', function() {
-            window.history.pushState({ page: 'home' }, '', window.location.pathname);
+    document.getElementById('back-button').addEventListener('click', () => {
+        const logsSection = document.getElementById('logs-section');
+        const seriesSection = document.getElementById('series');
+
+        if (logsSection && logsSection.classList.contains('show')) {
+            // Se está na seção de logs, volta para o estado anterior
+            window.history.back();
+        } else if (seriesSection.classList.contains('show') && currentSerie) {
+            // Se está na tela de uma série, vai diretamente para a home
+            window.history.replaceState({ page: 'home' }, '', window.location.pathname);
             window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
-        });
+        } else {
+            // Caso padrão: vai para a home
+            window.history.replaceState({ page: 'home' }, '', window.location.pathname);
+            window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
+        }
     });
 
     searchInput.addEventListener('input', filterSeries);
@@ -3722,50 +3763,75 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('hashchange', handleHashChange);
 
     window.addEventListener('popstate', function(event) {
-        if (!event.state || event.state.page === 'home') {
-            // ... (código existente para 'home')
-            document.getElementById('home').classList.remove('hidden');
-            document.getElementById('home').classList.add('show');
-            document.getElementById('series').classList.add('hidden');
-            document.getElementById('series').classList.remove('show');
-            document.getElementById('series-title').classList.remove('hidden');
-            document.getElementById('series-title').classList.add('show');
-            document.getElementById('logo').classList.remove('hidden');
-            document.getElementById('logo').classList.add('show');
-            document.getElementById('series-name').classList.remove('show');
-            document.getElementById('series-name').classList.add('hidden');
-            document.getElementById('back-button').classList.remove('show');
-            document.getElementById('back-button').classList.add('hidden');
-            document.getElementById('logs-section')?.classList.add('hidden');
-            filterSeries();
-        } else if (event.state.page === 'series') {
-            // ... (código existente para 'series')
-            const serieName = event.state.serieName;
-            const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
-            if (serie) {
-                document.getElementById('home').classList.remove('show');
-                document.getElementById('home').classList.add('hidden');
-                document.getElementById('series').classList.add('show');
-                document.getElementById('series').classList.remove('hidden');
-                document.getElementById('series-title').classList.remove('show');
-                document.getElementById('series-title').classList.add('hidden');
-                document.getElementById('logo').classList.remove('show');
-                document.getElementById('logo').classList.add('hidden');
-                document.getElementById('series-name').classList.remove('hidden');
-                document.getElementById('series-name').classList.add('show');
-                document.getElementById('back-button').classList.remove('hidden');
-                document.getElementById('back-button').classList.add('show');
-                document.getElementById('logs-section')?.classList.add('hidden');
-                renderCurrentSeries(serie);
+        const state = event.state || { page: 'home' };
+        const home = document.getElementById('home');
+        const series = document.getElementById('series');
+        const title = document.getElementById('series-title');
+        const logo = document.getElementById('logo');
+        const name = document.getElementById('series-name');
+        const backBtn = document.getElementById('back-button');
+        const logsSection = document.getElementById('logs-section');
+        const videoOverlay = document.getElementById('video-overlay');
+
+        // Fecha o overlay de vídeo, se estiver aberto
+        if (videoOverlay.classList.contains('show')) {
+            videoOverlay.classList.remove('show');
+            videoOverlay.classList.add('hidden');
+            document.getElementById('video-iframe').src = '';
+            document.getElementById('overlay-season-dropdown')?.remove();
+            document.getElementById('overlay-episodes-dropdown')?.remove();
+        }
+
+        if (state.page === 'home') {
+            home.classList.replace('hidden', 'show');
+            series.classList.replace('show', 'hidden');
+            title.classList.replace('hidden', 'show');
+            logo.classList.replace('hidden', 'show');
+            name.classList.replace('show', 'hidden');
+            backBtn.classList.replace('show', 'hidden');
+            logsSection.classList.add('hidden');
+
+            const keyButtons = document.querySelectorAll('#keys button');
+            keyButtons.forEach(btn => btn.classList.remove('checked'));
+            keyButtons[0].classList.add('checked');
+            keyButtons[1].innerText = '☆';
+            currentFilter = null;
+            searchInput.value = '';
+            renderSeriesButtons();
+            updateFavorites();
+        } else if (state.page === 'series') {
+            const serieName = state.serieName;
+            const serie = seriesData.flatMap(g => g.group).find(s => s.name === serieName);
+            if (!serie) {
+                window.history.replaceState({ page: 'home' }, '', window.location.pathname);
+                window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
+                return;
             }
-        } else if (event.state.page === 'logs') {
+            home.classList.replace('show', 'hidden');
+            series.classList.replace('hidden', 'show');
+            title.classList.replace('show', 'hidden');
+            logo.classList.replace('show', 'hidden');
+            name.classList.replace('hidden', 'show');
+            backBtn.classList.replace('hidden', 'show');
+            logsSection.classList.add('hidden');
+            renderCurrentSeries(serie);
+        } else if (state.page === 'logs') {
             createLogsSection();
-            document.getElementById('home').classList.add('hidden');
-            document.getElementById('series').classList.add('hidden');
-            document.getElementById('series-title').classList.add('hidden');
-            document.getElementById('logo').classList.add('hidden');
-            document.getElementById('series-name').classList.add('hidden');
-            document.getElementById('back-button').classList.add('show');
+            home.classList.add('hidden');
+            series.classList.add('hidden');
+            title.classList.add('hidden');
+            logo.classList.add('hidden');
+            name.classList.add('hidden');
+            backBtn.classList.add('show');
+        }
+    });
+
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
     });
     
