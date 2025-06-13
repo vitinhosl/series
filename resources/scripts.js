@@ -3549,7 +3549,7 @@ function createLogsSection() {
         const logsHTML = `
             <div id="logs-header">
                 <div id="logs-header-top">
-                    <h3>Logs</h3>
+                    <h3>Logs disponíveis:</h3>
                     <button id="clear-all-logs-button">Limpar todos 🗑️</button>
                 </div>
                 <div id="search">
@@ -3565,15 +3565,15 @@ function createLogsSection() {
                 <ul id="logs-list">
                     ${logs.map((log, index) => `
                         <li class="log-entry" data-index="${index}">
-                            <img src="${log.thumb}" class="log-thumb">
+                            <img src="${log.thumb}" alt="" class="log-thumb">
                             <div class="log-details">
                                 <div class="log-title">${log.serieName}</div>
                                 <div class="log-meta">
-                                    <span>Temporada ${log.seasonIndex+1} – ${log.episodeTitle.padStart(3,'0')}</span>
-                                    <span>Data: ${log.date} – ${log.time}</span>
+                                    <span class="log-episodes">Temporada ${log.seasonIndex + 1} – ${log.episodeTitle.padStart(3, '0')}</span>
+                                    <span class="log-date">Data: ${log.date} – ${log.time}</span>
                                 </div>
                             </div>
-                            <button class="remove-log-button" data-index="${index}">✕</button>
+                            <button class="remove-log-button" data-index="${index}"><span>✕</span></button>
                         </li>
                     `).join('')}
                 </ul>
@@ -3581,56 +3581,64 @@ function createLogsSection() {
         `;
         logsSection.innerHTML = logsHTML;
 
-        // ————— Animação “vir de cima” —————
+        // --- Animação "vir de cima" ---
         const entries = logsSection.querySelectorAll('.log-entry');
         entries.forEach((entry, i) => {
             entry.style.opacity = '0';
             entry.style.transform = 'translateY(-20px)';
             setTimeout(() => {
-                entry.style.transition = 'opacity .3s ease, transform .3s ease';
+                entry.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
                 entry.style.opacity = '1';
                 entry.style.transform = 'translateY(0)';
-            }, i * animationSpeedLogs); // atraso incremental (80ms) entre cada item
+                // Limpar propriedades de animação após conclusão para evitar conflitos com hover
+                setTimeout(() => {
+                    entry.style.transition = '';
+                    entry.style.transform = '';
+                }, 300 + i * 80); // Após a animação (300ms + atraso)
+            }, i * 80);
         });
     }
 
-    // exibe a seção de logs
-    logsSection.classList.replace('hidden','show');
-    document.getElementById('logo').classList.replace('show','hidden');
+    // Exibe a seção e ajusta header/back-button
+    logsSection.classList.remove('hidden');
+    logsSection.classList.add('show');
+    document.getElementById('logo').classList.replace('show', 'hidden');
     document.getElementById('back-button').classList.add('show');
 
-    // ————— Filtro de busca —————
-    const searchInput = logsSection.querySelector('#logs-header .input');
+    // --- Filtro de busca ---
+    const searchInput = logsSection.querySelector('#logs-header input.input');
     if (searchInput) {
         searchInput.addEventListener('input', () => {
             const termo = searchInput.value.trim().toLowerCase();
-            logsSection.querySelectorAll('.log-entry').forEach(entry => {
-                const text = (
-                    entry.querySelector('.log-title').textContent +
-                    ' ' +
-                    entry.querySelector('.log-meta').textContent
-                ).toLowerCase();
-                entry.style.display = text.includes(termo) ? '' : 'none';
+            const entradas = logsSection.querySelectorAll('#logs-list .log-entry');
+
+            entradas.forEach(entry => {
+                const title = entry.querySelector('.log-title').textContent.toLowerCase();
+                const meta = entry.querySelector('.log-meta').textContent.toLowerCase();
+                const texto = title + ' ' + meta;
+
+                entry.style.display = texto.includes(termo) ? '' : 'none';
             });
         });
     }
 
-    // ————— Limpar todos —————
-    const clearAll = document.getElementById('clear-all-logs-button');
-    if (clearAll) {
-        clearAll.addEventListener('click', () => {
+    // Botão “Limpar logs”
+    const clearAllButton = document.getElementById('clear-all-logs-button');
+    if (clearAllButton) {
+        clearAllButton.addEventListener('click', () => {
             localStorage.removeItem('logs');
             createLogsSection();
         });
     }
 
-    // ————— Remover individual —————
-    logsSection.querySelectorAll('.remove-log-button').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const idx = parseInt(this.dataset.index, 10);
-            const arr = JSON.parse(localStorage.getItem('logs')) || [];
-            arr.splice(arr.length - 1 - idx, 1);
-            localStorage.setItem('logs', JSON.stringify(arr));
+    // Botões de remover individual
+    document.querySelectorAll('.remove-log-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const idx = parseInt(this.getAttribute('data-index'), 10);
+            const currentLogs = JSON.parse(localStorage.getItem('logs')) || [];
+            const removeIndex = currentLogs.length - 1 - idx;
+            currentLogs.splice(removeIndex, 1);
+            localStorage.setItem('logs', JSON.stringify(currentLogs));
             createLogsSection();
         });
     });

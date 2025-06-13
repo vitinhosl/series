@@ -1639,7 +1639,7 @@ p {
 }
 
 #logs-section {
-    padding: 5px 20px 0px 0px;
+    padding: 5px 0px 0px 0px;
     /* background-color: #1a1d29; */
     color: #e9f4fb;
     display: none;
@@ -1673,7 +1673,7 @@ p {
 #logs-header-top {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 #clear-all-logs-button {
@@ -1706,7 +1706,7 @@ p {
 .log-entry:hover {
   background-color: rgb(39, 44, 51);
   background: rgb(39, 44, 51);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
   transform: translateY(-2px);
 }
 
@@ -1729,7 +1729,7 @@ p {
 .log-title {
   font-weight: bold;
   margin-bottom: 4px;
-  color: #fff;
+  color: rgb(233, 244, 251);
 }
 
 .log-meta {
@@ -1738,6 +1738,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  color: rgba(233, 244, 251, 0.5);
 }
 
 .log-episodes {
