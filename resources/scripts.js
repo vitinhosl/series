@@ -2915,6 +2915,15 @@ function navigateDirection(direction) {
 
     // Registra o log do novo episódio
     logEpisodeClick(episode, currentSeasonIndex, currentEpisodeIndex);
+
+    // Atualiza o hash da URL com o novo número do episódio
+    const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
+    const epNumber = (currentEpisodeIndex + 1).toString(); // 1-based
+    window.history.replaceState(
+        { page: 'series', serieName: currentSerie.name, episodeIndex: currentEpisodeIndex },
+        '',
+        `#${serieSlug}-${epNumber}`
+    );
 }
 
 function updateButtonVisibility() {
