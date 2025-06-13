@@ -3086,7 +3086,7 @@ function renderCarousel() {
 
         // Limita o percentual a 100%
         if (percent >= 100) {
-            percent = 100;
+            percent = 0;
             $bar.css({ width: '100%' });
             $carousel.carousel('next');
             return; // Evita continuar o intervalo após o avanço

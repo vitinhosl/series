@@ -1,0 +1,14 @@
+npm install
+npm init -y
+npm install ytdl-core fluent-ffmpeg ffmpeg-static
+
+npm install ytdl-core@latest
+
+node download.js
+
+yt-dlp -x --audio-format mp3 --cookies cookies.txt -o "musicas/%(title)s.%(ext)s" "https://www.youtube.com/playlist?list=SEU_PLAYLIST_ID"
+
+yt-dlp -x --audio-format mp3 --cookies cookies.txt -o "musicas/%(title)s.%(ext)s" --playlist-items 174- "https://www.youtube.com/playlist?list=SEU_PLAYLIST_ID"
+
+
+yt-dlp -x --audio-format mp3 --cookies cookies.txt -o "musicas/%(title)s.%(ext)s" --playlist-items 174- "https://www.youtube.com/playlist?list=PLzkpCXbN52CisZedDMpC5iI9gKH4NzP1R"
