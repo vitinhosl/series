@@ -3559,7 +3559,7 @@ function createLogsSection() {
             <div id="logs-header">
                 <div id="logs-header-top">
                     <h3>Logs disponíveis:</h3>
-                    <button id="clear-all-logs-button">Limpar todos 🗑️</button>
+                    <button id="clear-all-logs-button">Remover todos 🗑️</button>
                 </div>
                 <div id="search">
                     <div class="container-input">
