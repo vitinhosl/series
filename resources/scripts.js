@@ -2270,6 +2270,7 @@ let animationSpeedFavorites     = 10;
 let animationSpeedButtons       = 30;
 let animationSpeedSearchsKeys   = 2;
 let animationSpeedCarrouselBar  = 8;
+let animationSpeedLogs          = 80;
 
 const selectedThumbs            = {};
 const thumbnailCache            = {};
@@ -3545,58 +3546,94 @@ function createLogsSection() {
             </div>
         `;
     } else {
-        let logsHTML = `
+        const logsHTML = `
             <div id="logs-header">
-                <h3>Logs</h3>
-                <button id="clear-all-logs-button">Limpar logs 🗑️</button>
+                <div id="logs-header-top">
+                    <h3>Logs</h3>
+                    <button id="clear-all-logs-button">Limpar todos 🗑️</button>
+                </div>
+                <div id="search">
+                    <div class="container-input">
+                        <input type="text" placeholder="Procurar" name="text" class="input" autocomplete="off">
+                        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
             </div>
             <div id="logs-content">
                 <ul id="logs-list">
                     ${logs.map((log, index) => `
                         <li class="log-entry" data-index="${index}">
-                            <img src="${log.thumb}" alt="" class="log-thumb">
+                            <img src="${log.thumb}" class="log-thumb">
                             <div class="log-details">
                                 <div class="log-title">${log.serieName}</div>
                                 <div class="log-meta">
-                                    <span class="log-episodes">Temporada ${log.seasonIndex + 1} – ${log.episodeTitle.padStart(3, '0')}</span>
-                                    <span class="log-date">Data: ${log.date} – ${log.time}</span>
+                                    <span>Temporada ${log.seasonIndex+1} – ${log.episodeTitle.padStart(3,'0')}</span>
+                                    <span>Data: ${log.date} – ${log.time}</span>
                                 </div>
                             </div>
-                            <button class="remove-log-button" data-index="${index}"><span>✕</span></button>
+                            <button class="remove-log-button" data-index="${index}">✕</button>
                         </li>
                     `).join('')}
                 </ul>
             </div>
         `;
         logsSection.innerHTML = logsHTML;
+
+        // ————— Animação “vir de cima” —————
+        const entries = logsSection.querySelectorAll('.log-entry');
+        entries.forEach((entry, i) => {
+            entry.style.opacity = '0';
+            entry.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+                entry.style.transition = 'opacity .3s ease, transform .3s ease';
+                entry.style.opacity = '1';
+                entry.style.transform = 'translateY(0)';
+            }, i * animationSpeedLogs); // atraso incremental (80ms) entre cada item
+        });
     }
-    logsSection.classList.remove('hidden');
-    logsSection.classList.add('show');
-    document.getElementById('logo').classList.remove('show');
-    document.getElementById('logo').classList.add('hidden');
+
+    // exibe a seção de logs
+    logsSection.classList.replace('hidden','show');
+    document.getElementById('logo').classList.replace('show','hidden');
     document.getElementById('back-button').classList.add('show');
 
-    // Adiciona evento ao botão "Limpar logs"
-    const clearAllButton = document.getElementById('clear-all-logs-button');
-    if (clearAllButton) {
-        clearAllButton.addEventListener('click', function() {
+    // ————— Filtro de busca —————
+    const searchInput = logsSection.querySelector('#logs-header .input');
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const termo = searchInput.value.trim().toLowerCase();
+            logsSection.querySelectorAll('.log-entry').forEach(entry => {
+                const text = (
+                    entry.querySelector('.log-title').textContent +
+                    ' ' +
+                    entry.querySelector('.log-meta').textContent
+                ).toLowerCase();
+                entry.style.display = text.includes(termo) ? '' : 'none';
+            });
+        });
+    }
+
+    // ————— Limpar todos —————
+    const clearAll = document.getElementById('clear-all-logs-button');
+    if (clearAll) {
+        clearAll.addEventListener('click', () => {
             localStorage.removeItem('logs');
             createLogsSection();
         });
     }
 
-    // Adiciona eventos aos botões de remoção individual
-    document.querySelectorAll('.remove-log-button').forEach(button => {
-        button.addEventListener('click', function() {
-            const idx = parseInt(this.getAttribute('data-index'), 10);
-            const currentLogs = JSON.parse(localStorage.getItem('logs')) || [];
-            const removeIndex = currentLogs.length - 1 - idx;
-            currentLogs.splice(removeIndex, 1);
-            localStorage.setItem('logs', JSON.stringify(currentLogs));
+    // ————— Remover individual —————
+    logsSection.querySelectorAll('.remove-log-button').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const idx = parseInt(this.dataset.index, 10);
+            const arr = JSON.parse(localStorage.getItem('logs')) || [];
+            arr.splice(arr.length - 1 - idx, 1);
+            localStorage.setItem('logs', JSON.stringify(arr));
             createLogsSection();
         });
     });
-
 }
 
 function logEpisodeClick(episode, seasonIndex, episodeIndex) {
@@ -3851,13 +3888,12 @@ window.addEventListener('keydown', (event) => {
                 document.querySelector('#back-button').click();
             }
         break;
-        case 'Backspace':
-            if (!videoOverlay.classList.contains('show')) {
-                document.querySelector('#back-button').click();
-                document.querySelector('#back-button').click();
-                document.querySelector('#back-button').click();
-            }
-
+        // case 'Backspace':
+        //     if (!videoOverlay.classList.contains('show')) {
+        //         document.querySelector('#back-button').click();
+        //         document.querySelector('#back-button').click();
+        //         document.querySelector('#back-button').click();
+        //     }
         break;
         case 'ArrowLeft':
             navigateDirection('prev');

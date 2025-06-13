@@ -714,7 +714,11 @@ header.scrolled {
     padding: 5px 10px;
     border-radius: 4px;
     background-color: rgb(65, 2, 23);
+}
 
+#logs-section .container-input {
+    border: 1px solid rgb(18, 22, 29);
+    background-color: rgb(8, 12, 19);
 }
 
 .container-input .input {
@@ -729,6 +733,7 @@ header.scrolled {
 .container-input svg {
     margin-left: auto;
     fill: rgb(233, 244, 251);
+    margin-left: 10px;
 }
 
 .container-input .input::placeholder {
@@ -1663,6 +1668,12 @@ p {
     border-radius: 8px;
     background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
     margin-bottom: 10px;
+}
+
+#logs-header-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #clear-all-logs-button {
