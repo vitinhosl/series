@@ -2468,30 +2468,41 @@ function animateEpisodes(currentCount, previousCount, callback) {
 }
 
 function renderEpisodes(season) {
+    const logs = JSON.parse(localStorage.getItem('logs')) || [];
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+
     return season.episodes.map((episode, index) => {
         const fallbackThumb = season.thumb_season; // Fallback é a thumb da temporada
         const episodeThumb = episode.thumb || fallbackThumb; // Thumb do episódio, se disponível
 
-        // Define o texto do título (lógica do antigo)
+        // Define o texto do título
         const titleText = !episode.title 
             ? `Episódio ${index + 1}`
             : /^\d{1,3}$/.test(episode.title.trim()) 
                 ? `Episódio ${parseInt(episode.title, 10)}`
                 : episode.title;
 
-        // Retorna o HTML combinando o estilo antigo com a otimização nova
+        // Verifica se o episódio está nos logs
+        const isWatched = logs.some(log => 
+            log.serieName === currentSerie.name &&
+            log.seasonIndex === currentSeasonIndex &&
+            log.episodeTitle === episode.title
+        );
+
+        // Retorna o HTML com o badge "ASSISTIDO" se aplicável
         return `
             <div class="episode-container">
                 <div id="episode-button" 
-                        data-url="${episode.url}" 
-                        data-alternative='${JSON.stringify(episode.alternative || [])}'
-                        style="background-image: url('${fallbackThumb}');">
+                     data-url="${episode.url}" 
+                     data-alternative='${JSON.stringify(episode.alternative || [])}'
+                     style="background-image: url('${fallbackThumb}');">
                     <img class="episode-thumb" 
                          data-src="${episodeThumb}" 
                          data-fallback="${fallbackThumb}" 
                          alt="${titleText}" 
                          loading="lazy">
-                    ${episode.duration ? `<span class="duration">${episode.duration}</span>` : ''}
+                    ${isWatched ? `<span class="badge-watched">▶ ASSISTIDO</span>` : ''}
+                    ${episode.duration ? `<span class="badge-duration">${episode.duration}</span>` : ''}
                 </div>
                 <p class="episode-title">${titleText}</p>
             </div>
