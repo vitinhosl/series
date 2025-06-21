@@ -1,4 +1,4 @@
-const seriesData = [
+const novelsData= [
     {
         group_name: "NOVELAS",
         group: [
@@ -481,3 +481,5 @@ const seriesData = [
         ]
     }
 ]
+
+export { novelsData };

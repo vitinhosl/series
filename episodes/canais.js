@@ -1,4 +1,4 @@
-const seriesData = [
+const channelData = [
     {
         group_name: "Canais Ao Vivo",
         group: [
@@ -80,3 +80,5 @@ const seriesData = [
         ]
     },
 ];
+
+export { channelData };

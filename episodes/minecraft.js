@@ -1,4 +1,4 @@
-const minecraftSeriesData = [
+const minecraftData = [
     {
         group_name: "MINECRAFT",
         group: [
@@ -43,4 +43,4 @@ const minecraftSeriesData = [
     },
 ];
 
-export { minecraftSeriesData };
+export { minecraftData };

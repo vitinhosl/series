@@ -1,5 +1,5 @@
 
-const animeSeriesData = [
+const animesData = [
     {
         group_name: "ANIMES",
         group: [
@@ -84,4 +84,4 @@ const animeSeriesData = [
     },
 ];
 
-export { animeSeriesData };
+export { animesData };

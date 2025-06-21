@@ -1,4 +1,4 @@
-const biblicalseriesData = [
+const biblicalData = [
     {
         group_name: "SÉRIES BIBLÍCAS",
         group: [
@@ -8,6 +8,8 @@ const biblicalseriesData = [
                 thumb_page: "https://i.imgur.com/H7LkieU.png",
                 thumb_buttons: ["https://i.imgur.com/qvvefLV.png"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -205,6 +207,8 @@ const biblicalseriesData = [
                 thumb_page: "https://i.imgur.com/v0uF3s6.png",
                 thumb_buttons: ["https://i.imgur.com/qUETt6r.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     //TEMPORADA 01 - EPISÓDIOS 176
@@ -475,6 +479,8 @@ const biblicalseriesData = [
                 thumb_page: "https://i.imgur.com/3NP8B3D.png",
                 thumb_buttons: ["https://i.imgur.com/Z3WUXd9.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -574,6 +580,8 @@ const biblicalseriesData = [
                 thumb_page: "https://i.imgur.com/vNpBaWD.png",
                 thumb_buttons: ["https://i.imgur.com/sSJVhSO.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -632,6 +640,8 @@ const biblicalseriesData = [
                 thumb_page: "https://i.imgur.com/V2ikT7R.png",
                 thumb_buttons: ["https://i.imgur.com/Oxrdzg6.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -697,6 +707,8 @@ const biblicalseriesData = [
                 thumb_page: "https://i.imgur.com/gnZ9oJ0.png",
                 thumb_buttons: ["https://i.imgur.com/JX2Coo5.png"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -909,6 +921,8 @@ const biblicalseriesData = [
                 thumb_page: "https://i.imgur.com/qHQejKs.png",
                 thumb_buttons: ["https://i.imgur.com/JFlXEBA.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1148,6 +1162,8 @@ const biblicalseriesData = [
                 thumb_page: "https://i.imgur.com/sz0LCJC.png",
                 thumb_buttons: ["https://i.imgur.com/io3Xbpv.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1348,6 +1364,8 @@ const biblicalseriesData = [
                 thumb_page: "https://i.imgur.com/5x7Rmg9.png",
                 thumb_buttons: ["https://i.imgur.com/tKjng2c.png"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1397,6 +1415,8 @@ const biblicalseriesData = [
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/YqgmJBA.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1425,6 +1445,8 @@ const biblicalseriesData = [
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/gEPrg5k.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -1602,7 +1624,9 @@ const biblicalseriesData = [
                     "https://i.imgur.com/47Vjveh.jpeg",
                     "https://i.imgur.com/HxmEXcN.jpeg"
                 ],
-                badge: "NOVA TEMPORADA",
+                badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     //TEMPORADA 01 - A DECEPÇÃO
@@ -2086,22 +2110,22 @@ const biblicalseriesData = [
                             { title: "Episódio 008 - (365)", duration: "39:52", thumb: "https://i.imgur.com/rXYDr7e.jpeg", url: "https://ok.ru/videoembed/9932768938607" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-365.mp4"] },
                             { title: "Episódio 009 - (366)", duration: "37:10", thumb: "https://i.imgur.com/OE0N8lU.jpeg", url: "https://ok.ru/videoembed/9932953684591" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-366.mp4"] },
                             
-                            { title: "Episódio 010 - (367)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-367.mp4"] },
-                            { title: "Episódio 011 - (368)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-368.mp4"] },
-                            { title: "Episódio 012 - (369)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-369.mp4"] },
-                            { title: "Episódio 013 - (370)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-370.mp4"] },
-                            { title: "Episódio 014 - (371)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-371.mp4"] },
-                            { title: "Episódio 015 - (372)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-372.mp4"] },
-                            { title: "Episódio 016 - (373)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-373.mp4"] },
-                            { title: "Episódio 017 - (374)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-374.mp4"] },
-                            { title: "Episódio 018 - (375)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-375.mp4"] },
-                            { title: "Episódio 019 - (376)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-376.mp4"] },
-                            { title: "Episódio 020 - (377)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-377.mp4"] },
-                            { title: "Episódio 021 - (378)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-378.mp4"] },
-                            { title: "Episódio 022 - (379)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-379.mp4"] },
-                            { title: "Episódio 023 - (380)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-380.mp4"] },
-                            { title: "Episódio 024 - (381)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-381.mp4"] },
-                            { title: "Episódio 025 - (382)", duration: " ", thumb: "", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-382.mp4"] },
+                            { title: "Episódio 010 - (367)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-367.mp4"] },
+                            { title: "Episódio 011 - (368)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-368.mp4"] },
+                            { title: "Episódio 012 - (369)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-369.mp4"] },
+                            { title: "Episódio 013 - (370)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-370.mp4"] },
+                            { title: "Episódio 014 - (371)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-371.mp4"] },
+                            { title: "Episódio 015 - (372)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-372.mp4"] },
+                            { title: "Episódio 016 - (373)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-373.mp4"] },
+                            { title: "Episódio 017 - (374)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-374.mp4"] },
+                            { title: "Episódio 018 - (375)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-375.mp4"] },
+                            { title: "Episódio 019 - (376)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-376.mp4"] },
+                            { title: "Episódio 020 - (377)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-377.mp4"] },
+                            { title: "Episódio 021 - (378)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-378.mp4"] },
+                            { title: "Episódio 022 - (379)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-379.mp4"] },
+                            { title: "Episódio 023 - (380)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-380.mp4"] },
+                            { title: "Episódio 024 - (381)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-381.mp4"] },
+                            { title: "Episódio 025 - (382)", duration: "00:00", thumb: "", url: "" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-382.mp4"] },
                         ]
                     },
                 ]
@@ -2113,6 +2137,8 @@ const biblicalseriesData = [
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/AUF8QiG.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -2153,6 +2179,8 @@ const biblicalseriesData = [
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/h8a6jYP.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -2181,6 +2209,8 @@ const biblicalseriesData = [
                 thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/tzBW2PF.jpeg"],
                 badge: "",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
                 season: [
                     {
@@ -2202,8 +2232,8 @@ const biblicalseriesData = [
 
             //PAULO, O APÓSTOLO
             {
-                name: "Paulo, o Apóstolo",
-                thumb_page: "",
+                name: "Paulo o Apóstolo",
+                thumb_page: "https://i.imgur.com/G7Q8SZ7.jpeg", //https://i.imgur.com/G7Q8SZ7.jpeg https://i.imgur.com/beK4a7A.jpeg
                 thumb_buttons: ["https://i.imgur.com/kcwpdNz.png"],
                 badge: "NOVO",
                 type: "Temporadas",
@@ -2222,12 +2252,18 @@ const biblicalseriesData = [
                             { title: "Episódio 004", thumb: "https://i.imgur.com/DeXubnq.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4"] },
                             { title: "Episódio 005", thumb: "https://i.imgur.com/5et4GrD.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4"] },
                             { title: "Episódio 006", thumb: "https://i.imgur.com/b67I1Yl.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 007", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-007.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 008", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-008.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 009", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-009.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 010", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-010.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 011", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 012", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
                         ]
                     }
                 ]
-            },
+            }, 
         ]
     },
 ];
 
-export { biblicalseriesData };
+export { biblicalData };
