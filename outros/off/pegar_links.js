@@ -5,6 +5,83 @@
 
 //DIGITAR ALLOW PARA PODER COPIAR
 
+//#region YOUTUBE PLAYLIST
+(function(){
+    // Cria container flutuante
+    const container = document.createElement('div');
+    Object.assign(container.style, {
+        position: 'fixed',
+        top: '10px',
+        right: '10px',
+        zIndex: '9999',
+        background: 'white',
+        padding: '10px',
+        border: '1px solid #ccc',
+        borderRadius: '5px',
+        maxWidth: '350px',
+        fontFamily: 'sans-serif',
+        fontSize: '14px'
+    });
+
+    // Botão
+    const button = document.createElement('button');
+    button.textContent = 'Gerar e Copiar Lista de Vídeos';
+    Object.assign(button.style, {
+        padding: '5px 10px',
+        marginBottom: '10px',
+        cursor: 'pointer'
+    });
+
+    // Textarea de fallback
+    const textarea = document.createElement('textarea');
+    Object.assign(textarea.style, {
+        width: '100%',
+        height: '200px',
+        display: 'none',
+        marginTop: '5px'
+    });
+
+    container.appendChild(button);
+    container.appendChild(textarea);
+    document.body.appendChild(container);
+
+    button.addEventListener('click', () => {
+        // Seleciona todos os itens de vídeo da playlist
+        const items = Array.from(document.querySelectorAll('ytd-playlist-video-renderer'));
+
+        const list = items.map((item, idx) => {
+            // Título e URL
+            const a = item.querySelector('#video-title');
+            const title = (a?.textContent || 'Sem título').trim();
+            const href = a?.href || '';
+            const videoId = new URL(href).searchParams.get('v') || '';
+
+            // Thumbnail
+            const img = item.querySelector('ytd-thumbnail img');
+            const thumb = img?.src || img?.getAttribute('data-thumb') || '';
+
+            // Duração
+            const durationEl = item.querySelector('span.ytd-thumbnail-overlay-time-status-renderer');
+            const duration = durationEl?.textContent.trim() || '';
+
+            // Monta objeto
+            const number = String(idx + 1).padStart(3, '0');
+            return `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration}", thumb: "${thumb}", url: "${href}", alternative: []},`;
+        }).join('\n');
+
+        // Copia para clipboard
+        navigator.clipboard.writeText(list).then(() => {
+            textarea.style.display = 'block';
+            textarea.value = list;
+        }).catch(() => {
+            textarea.style.display = 'block';
+            textarea.value = list;
+            alert('Erro ao copiar. A lista foi exibida na área de texto.');
+        });
+    });
+})();
+//#endregion
+
 //#region OK.RU
 const container = document.createElement('div');
 container.style.position = 'fixed';
