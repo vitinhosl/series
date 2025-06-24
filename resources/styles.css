@@ -21,7 +21,7 @@ body {
     color: rgb(233, 244, 251);
     padding: 10px;
     transition: all 0.3s ease;
-    background-color: rgb(18, 22, 29);
+    background-color: rgb(10, 10, 10);
 }
 
 .myCarousel {
@@ -104,7 +104,7 @@ body {
     justify-content: center;
     align-items: flex-end;
     background-image: 
-        radial-gradient(circle, rgba(18, 22, 29, 0.8), rgba(1, 10, 15, 1.0) 100%), 
+        radial-gradient(circle, rgba(10, 10, 10, 0.8), rgba(15, 15, 15, 1.0) 100%), 
         url('https://i.imgur.com/jnB508u.jpeg');
     background-size: cover;
     background-position: center;
@@ -224,7 +224,7 @@ header.scrolled {
 }
 
 #back-button {
-    background-color: rgb(18, 22, 29, 0.9);
+    background-color: rgb(10, 10, 10, 0.9);
     color: rgb(233, 244, 251);
     border: none;
     padding-right: 2px;
@@ -289,12 +289,12 @@ header.scrolled {
 
 #carousel-effect-left {
     left: 0;
-    /* background: linear-gradient(to left, rgb(1, 10, 15, 0.0) 0%, rgba(1, 10, 15, 0.5) 100%); */
+    /* background: linear-gradient(to left, rgb(15, 15, 15, 0.0) 0%, rgba(15, 15, 15, 0.5) 100%); */
 }
 
 #carousel-effect-right {
     right: 0;
-    /* background: linear-gradient(to right, rgb(1, 10, 15, 0.0) 0%, rgba(1, 10, 15, 0.5) 100%); */
+    /* background: linear-gradient(to right, rgb(15, 15, 15, 0.0) 0%, rgba(15, 15, 15, 0.5) 100%); */
 }
 
 #carousel::before, #carousel::after {
@@ -307,12 +307,12 @@ header.scrolled {
 }
 
 #carousel::before {
-    /* background: linear-gradient(to right, rgba(1, 10, 15, 1) 0%, rgba(1, 10, 15, 0) 30%); */
+    /* background: linear-gradient(to right, rgba(15, 15, 15, 1) 0%, rgba(15, 15, 15, 0) 30%); */
     left: 0;
 }
 
 #carousel::after {
-    /* background: linear-gradient(to left, rgba(1, 10, 15, 1) 0%, rgba(1, 10, 15, 0) 30%); */
+    /* background: linear-gradient(to left, rgba(15, 15, 15, 1) 0%, rgba(15, 15, 15, 0) 30%); */
     right: 0;
 }
 
@@ -406,7 +406,7 @@ header.scrolled {
 }
 
 #group-favorites {
-    background-color: rgb(18, 22, 29);
+    background-color: rgb(10, 10, 10);
     border-radius: 8px;
     /* padding: 10px; */
     /* padding-top: 10px; */
@@ -418,7 +418,7 @@ header.scrolled {
 }
 
 #group-series {
-    background-color: rgb(18, 22, 29);
+    background-color: rgb(10, 10, 10);
     border-radius: 8px;
     /* padding: 10px; */
     padding-top: 10px;
@@ -438,7 +438,7 @@ header.scrolled {
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 8px;
-  background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+  background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
   margin-bottom: 10px;
   transition: all 0.3s ease;
   color: rgb(233, 244, 251);
@@ -455,13 +455,13 @@ header.scrolled {
 }
 
 #group-series-cards {
-    background-color: rgb(34, 34, 36);
+    background-color: rgb(35, 35, 35);
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     padding: 10px;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
     margin-bottom: 10px;
     transition: all 0.3s ease;
 }
@@ -605,7 +605,7 @@ header.scrolled {
     border-radius: 8px;
     transition: opacity 0.5s ease;
     opacity: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(18, 22, 29, 0.9) 70%);
+    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.9) 70%);
 }
 
 #group-series-button:hover::after {
@@ -746,7 +746,7 @@ header.scrolled {
 }
 
 #logs-section .container-input {
-    border: 1px solid rgb(18, 22, 29);
+    border: 1px solid rgb(10, 10, 10);
     background-color: rgb(8, 12, 19);
 }
 
@@ -837,7 +837,7 @@ header.scrolled {
 #episodes-series,
 #continue-series,
 #current-series {
-    background-color: rgb(18, 22, 29);
+    background-color: rgb(10, 10, 10);
     border-radius: 8px;
     /* padding: 10px; */
 
@@ -854,6 +854,7 @@ header.scrolled {
 
 #current-series {
     padding-top: 10px;
+    padding-top: 5px;
 }
 
 #continue-series-header,
@@ -862,7 +863,7 @@ header.scrolled {
     font-size: 28px;
     font-weight: bold;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
     margin-bottom: 10px;
     color: rgb(233, 244, 251);
     display: flex;
@@ -873,14 +874,14 @@ header.scrolled {
 
 #continue-series-episodes,
 #current-series-episodes {
-    background-color: rgb(34, 34, 36);
+    background-color: rgb(35, 35, 35);
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     padding: 10px;
     padding-left: 10px;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
     margin-bottom: 10px;
     transition: width 0.5s ease-out;
     /* overflow: hidden */
@@ -1056,9 +1057,9 @@ header.scrolled {
 
 #continue-episode-button::before,
 #episode-button::before {
-    border: 1px solid rgb(1, 10, 15);
-    background-color: rgba(1, 10, 15, 0.9);
-    box-shadow: 0 0px 20px rgba(14, 18, 24, 0.4), 0 0px 20px rgba(14, 18, 24, 0.1);
+    border: 1px solid rgb(15, 15, 15);
+    background-color: rgba(15, 15, 15, 0.9);
+    box-shadow: 0 0px 20px rgba(15, 15, 15, 0.4), 0 0px 20px rgba(15, 15, 15, 0.1);
 }
 
 #continue-episode-button:has(.remove-button:hover)::before,
@@ -1218,7 +1219,7 @@ header.scrolled {
     height: 95%;
     border: none;
     border-radius: 5px;
-    background-color: rgb(1, 10, 15);
+    background-color: rgb(15, 15, 15);
     background-color: rgb(0, 0, 0);
 }
 
@@ -1274,7 +1275,7 @@ header.scrolled {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgb(29, 34, 41, 0.8);
+    background: rgb(25, 25, 25, 0.8);
 }
 
 #close-overlay-button span {
@@ -1312,7 +1313,7 @@ header.scrolled {
     line-height: 52px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: rgb(29, 34, 41, 0.8);
+    background: rgb(25, 25, 25, 0.8);
 
     opacity: 0;
     pointer-events: none; 
@@ -1682,7 +1683,7 @@ p {
     font-size: 28px;
     font-weight: bold;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
     margin-bottom: 10px;
 }
 
@@ -1709,8 +1710,8 @@ p {
 .log-entry {
   display: flex;
   align-items: center;
-  background-color: rgb(29, 34, 41);
-  background: linear-gradient(to right, rgb(29, 34, 41) 0%, rgb(18, 22, 29) 80%);
+  background-color: rgb(25, 25, 25);
+  background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 10px;
