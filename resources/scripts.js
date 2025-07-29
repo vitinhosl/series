@@ -2744,7 +2744,10 @@ const seriesData = [
                 ]
             },
         ]
-    }
+    },
+
+    
+    
 ];
 
 // localStorage.clear();
@@ -2799,17 +2802,26 @@ function renderCurrentSeries(serie) {
     currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
 
     const hasSeasons = serie.season.length > 0;
-    const showDropdown = hasSeasons && (serie.season.length > 1);
+    const showDropdown = hasSeasons; // Sempre exibe o dropdown se há temporadas
 
-    const currentSeason = serie.season[0];
-    const isMovie = currentSeason.movies;
-    const seasonsOfSameType = serie.season.filter(s => !!s.movies === !!isMovie);
-    const relativeIndex = serie.season.slice(0, 0).filter(s => !!s.movies === !!isMovie).length;
-    let availableText = isMovie ? 'Filmes disponíveis' : 'Episódios disponíveis';
-    if (seasonsOfSameType.length > 1) {
-        availableText = `T${relativeIndex + 1} - ${availableText}`;
+    // Inicialmente, exibe todos os episódios (opção "Todas")
+    let episodesToRender = [];
+    let availableText = '';
+    if (hasSeasons) {
+        episodesToRender = serie.season.flatMap(season => season.episodes);
+        availableText = `Todos os episódios: ${episodesToRender.length}`;
+    } else {
+        const currentSeason = serie.season[0];
+        const isMovie = currentSeason.movies;
+        episodesToRender = currentSeason.episodes;
+        const seasonsOfSameType = serie.season.filter(s => !!s.movies === !!isMovie);
+        const relativeIndex = serie.season.slice(0, 0).filter(s => !!s.movies === !!isMovie).length;
+        availableText = isMovie ? 'Filmes disponíveis' : 'Episódios disponíveis';
+        if (seasonsOfSameType.length > 1) {
+            availableText = `T${relativeIndex + 1} - ${availableText}`;
+        }
+        availableText += `: ${currentSeason.episodes.length}`;
     }
-    availableText += `: ${currentSeason.episodes.length}`;
 
     const currentSeriesHTML = `
         <div id="current-series">
@@ -2817,6 +2829,7 @@ function renderCurrentSeries(serie) {
                 <p id="series-available-text">${availableText}</p>
                 ${showDropdown ? `
                     <select id="season-dropdown">
+                        <option value="all">Todas</option>
                         ${serie.season.map((season, index) => {
                             const seasonDisplay = season.name ? season.name : `Temporada ${index + 1}`;
                             return `<option value="season-${index}">${seasonDisplay}</option>`;
@@ -2825,7 +2838,7 @@ function renderCurrentSeries(serie) {
                 ` : ''}
             </div>
             <div id="current-series-episodes">
-                ${renderEpisodes(currentSeason)}
+                ${renderEpisodes(serie, 'all')}
             </div>
         </div>
     `;
@@ -2833,39 +2846,54 @@ function renderCurrentSeries(serie) {
     renderContinueWatchingSection();
 
     // Animação inicial
-    animateEpisodes(currentSeason.episodes.length, previousEpisodeCount);
-    previousEpisodeCount = currentSeason.episodes.length; // Atualiza o contador
+    animateEpisodes(episodesToRender.length, previousEpisodeCount);
+    previousEpisodeCount = episodesToRender.length; // Atualiza o contador
 
     if (showDropdown) {
         const seasonDropdown = document.getElementById('season-dropdown');
         seasonDropdown.addEventListener('change', function() {
-            currentSeasonIndex = parseInt(this.value.split('-')[1], 10);
-            const selectedSeason = serie.season[currentSeasonIndex];
-        
-            const selectedSeasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
-            const seasonProgress = continues[serieKey] && continues[serieKey][selectedSeasonKey];
-            currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
-        
-            const isMovieSelected = selectedSeason.movies;
-            const seasonsOfSameTypeSelected = serie.season.filter(s => !!s.movies === !!isMovieSelected);
-            const relativeIndexSelected = serie.season.slice(0, currentSeasonIndex).filter(s => !!s.movies === !!isMovieSelected).length;
-            let updatedAvailableText = isMovieSelected ? 'Filmes disponíveis' : 'Episódios disponíveis';
-            if (seasonsOfSameTypeSelected.length > 1) {
-                updatedAvailableText = `T${relativeIndexSelected + 1} - ${updatedAvailableText}`;
+            const value = this.value;
+            let episodesToRender = [];
+            let updatedAvailableText = '';
+
+            if (value === 'all') {
+                // Exibe todos os episódios de todas as temporadas
+                episodesToRender = serie.season.flatMap(season => season.episodes);
+                updatedAvailableText = `Todos os episódios: ${episodesToRender.length}`;
+                currentSeasonIndex = 0; // Reseta para a primeira temporada para consistência
+                const seasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
+                const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
+                currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
+            } else {
+                // Exibe episódios da temporada selecionada
+                currentSeasonIndex = parseInt(value.split('-')[1], 10);
+                const selectedSeason = serie.season[currentSeasonIndex];
+                const selectedSeasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
+                const seasonProgress = continues[serieKey] && continues[serieKey][selectedSeasonKey];
+                currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
+                
+                const isMovieSelected = selectedSeason.movies;
+                const seasonsOfSameTypeSelected = serie.season.filter(s => !!s.movies === !!isMovieSelected);
+                const relativeIndexSelected = serie.season.slice(0, currentSeasonIndex).filter(s => !!s.movies === !!isMovieSelected).length;
+                episodesToRender = selectedSeason.episodes;
+                updatedAvailableText = isMovieSelected ? 'Filmes disponíveis' : 'Episódios disponíveis';
+                if (seasonsOfSameTypeSelected.length > 1) {
+                    updatedAvailableText = `T${relativeIndexSelected + 1} - ${updatedAvailableText}`;
+                }
+                updatedAvailableText += `: ${selectedSeason.episodes.length}`;
             }
-            updatedAvailableText += `: ${selectedSeason.episodes.length}`;
+
             document.getElementById('series-available-text').innerText = updatedAvailableText;
-        
+
             // Anima e renderiza os episódios
-            animateEpisodes(selectedSeason.episodes.length, previousEpisodeCount, () => {
-                document.getElementById('current-series-episodes').innerHTML = renderEpisodes(selectedSeason);
+            animateEpisodes(episodesToRender.length, previousEpisodeCount, () => {
+                document.getElementById('current-series-episodes').innerHTML = renderEpisodes(serie, value);
                 setupThumbnailLoading();
                 addEpisodeButtonListeners();
                 updateButtonVisibility();
-                // renderContinueWatchingSection();
-        
+
                 const episodeButtons = document.querySelectorAll('#episode-button');
-                if (seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
+                if (value !== 'all' && seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
                     if (episodeButtons[seasonProgress.activeEpisodeIndex]) {
                         episodeButtons[seasonProgress.activeEpisodeIndex].classList.add('active');
                     }
@@ -2873,8 +2901,8 @@ function renderCurrentSeries(serie) {
                     episodeButtons[currentEpisodeIndex].classList.add('active');
                 }
             });
-        
-            previousEpisodeCount = selectedSeason.episodes.length; // Atualiza o contador
+
+            previousEpisodeCount = episodesToRender.length; // Atualiza o contador
         });
     }
 
@@ -2892,15 +2920,84 @@ function renderCurrentSeries(serie) {
     }
 }
 
+function renderEpisodes(serie, seasonValue) {
+    const logs = JSON.parse(localStorage.getItem('logs')) || [];
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+
+    let episodes = [];
+    let seasonIndexMap = []; // Para mapear episódios para suas temporadas
+
+    if (seasonValue === 'all') {
+        // Concatena episódios de todas as temporadas
+        serie.season.forEach((season, seasonIdx) => {
+            season.episodes.forEach(episode => {
+                episodes.push({ ...episode, seasonIndex: seasonIdx });
+                seasonIndexMap.push(seasonIdx);
+            });
+        });
+    } else {
+        // Usa episódios da temporada selecionada
+        const seasonIndex = parseInt(seasonValue.split('-')[1], 10);
+        episodes = serie.season[seasonIndex].episodes.map(episode => ({
+            ...episode,
+            seasonIndex
+        }));
+        seasonIndexMap = episodes.map(() => seasonIndex);
+    }
+
+    return episodes.map((episode, index) => {
+        const season = serie.season[episode.seasonIndex];
+        const fallbackThumb = season.thumb_season; // Fallback é a thumb da temporada
+        const episodeThumb = episode.thumb || fallbackThumb; // Thumb do episódio, se disponível
+
+        // Define o texto do título
+        const titleText = !episode.title 
+            ? `Episódio ${index + 1}`
+            : /^\d{1,3}$/.test(episode.title.trim()) 
+                ? `Episódio ${parseInt(episode.title, 10)}`
+                : episode.title;
+
+        // Inclui informação da temporada no título se for "Todas"
+        const displayTitle = seasonValue === 'all' 
+            ? `T${episode.seasonIndex + 1} - ${titleText}`
+            : titleText;
+
+        // Verifica se o episódio está nos logs
+        const isWatched = logs.some(log => 
+            log.serieName === currentSerie.name &&
+            log.seasonIndex === episode.seasonIndex &&
+            log.episodeTitle === episode.title
+        );
+
+        // Retorna o HTML com o badge "ASSISTIDO" se aplicável
+        return `
+            <div class="episode-container">
+                <div id="episode-button" 
+                     data-url="${episode.url}" 
+                     data-alternative='${JSON.stringify(episode.alternative || [])}'
+                     data-season-index="${episode.seasonIndex}"
+                     style="background-image: url('${fallbackThumb}');">
+                    <img class="episode-thumb" 
+                         data-src="${episodeThumb}" 
+                         data-fallback="${fallbackThumb}" 
+                         alt="${titleText}" 
+                         loading="lazy">
+                    ${isWatched ? `<span class="badge-watched">▶ ASSISTIDO</span>` : ''}
+                    ${episode.duration ? `<span class="badge-duration">${episode.duration}</span>` : ''}
+                </div>
+                <p class="episode-title">${displayTitle}</p>
+            </div>
+        `;
+    }).join('');
+}
+
 function animateEpisodes(currentCount, previousCount, callback) {
     const episodeContainer = document.getElementById('current-series-episodes');
     const episodeContainers = episodeContainer.querySelectorAll('.episode-container');
 
     if (animationReverseEpisodes) {
-        // Comportamento original quando animationReverseEpisodes é true
         if (currentCount > previousCount) {
-            // Mais episódios: anima os novos após renderizar
-            if (callback) callback(); // Renderiza os novos episódios primeiro
+            if (callback) callback();
             const newEpisodeContainers = episodeContainer.querySelectorAll('.episode-container');
             newEpisodeContainers.forEach((episode, index) => {
                 episode.style.opacity = '0';
@@ -2914,11 +3011,10 @@ function animateEpisodes(currentCount, previousCount, callback) {
                 }
             });
         } else if (currentCount < previousCount) {
-            // Menos episódios: anima a remoção dos excedentes de trás para frente
             const episodesToRemove = previousCount - currentCount;
             episodeContainers.forEach((episode, index) => {
                 if (index < currentCount) {
-                    episode.style.opacity = '1'; // Mantém os que ficam
+                    episode.style.opacity = '1';
                 } else {
                     const reverseIndex = episodesToRemove - (index - currentCount) - 1;
                     setTimeout(() => {
@@ -2931,7 +3027,6 @@ function animateEpisodes(currentCount, previousCount, callback) {
                 if (callback) callback();
             }, totalAnimationTime);
         } else {
-            // Mesmo número: renderiza sem animação
             if (callback) callback();
             const newEpisodeContainers = episodeContainer.querySelectorAll('.episode-container');
             newEpisodeContainers.forEach(episode => {
@@ -2939,72 +3034,26 @@ function animateEpisodes(currentCount, previousCount, callback) {
             });
         }
     } else {
-        // Quando animationReverseEpisodes é false: recarrega tudo do início para a direita
-        if (callback) callback(); // Renderiza os novos episódios primeiro
+        if (callback) callback();
         const newEpisodeContainers = episodeContainer.querySelectorAll('.episode-container');
         newEpisodeContainers.forEach((episode, index) => {
-            // Remove qualquer animação anterior
             episode.classList.remove('slide-in-right', 'slide-out-right');
-            episode.style.opacity = '0'; // Começa invisível
-            // Aplica animação de entrada da esquerda para a direita
+            episode.style.opacity = '0';
             setTimeout(() => {
                 episode.classList.add('slide-in-right');
                 episode.style.opacity = '1';
-            }, index * 30); // Atraso incremental para cada episódio
+            }, index * 30);
         });
     }
-}
-
-function renderEpisodes(season) {
-    const logs = JSON.parse(localStorage.getItem('logs')) || [];
-    const serieKey = currentSerie.name.replace(/\s+/g, '_');
-
-    return season.episodes.map((episode, index) => {
-        const fallbackThumb = season.thumb_season; // Fallback é a thumb da temporada
-        const episodeThumb = episode.thumb || fallbackThumb; // Thumb do episódio, se disponível
-
-        // Define o texto do título
-        const titleText = !episode.title 
-            ? `Episódio ${index + 1}`
-            : /^\d{1,3}$/.test(episode.title.trim()) 
-                ? `Episódio ${parseInt(episode.title, 10)}`
-                : episode.title;
-
-        // Verifica se o episódio está nos logs
-        const isWatched = logs.some(log => 
-            log.serieName === currentSerie.name &&
-            log.seasonIndex === currentSeasonIndex &&
-            log.episodeTitle === episode.title
-        );
-
-        // Retorna o HTML com o badge "ASSISTIDO" se aplicável
-        return `
-            <div class="episode-container">
-                <div id="episode-button" 
-                     data-url="${episode.url}" 
-                     data-alternative='${JSON.stringify(episode.alternative || [])}'
-                     style="background-image: url('${fallbackThumb}');">
-                    <img class="episode-thumb" 
-                         data-src="${episodeThumb}" 
-                         data-fallback="${fallbackThumb}" 
-                         alt="${titleText}" 
-                         loading="lazy">
-                    ${isWatched ? `<span class="badge-watched">▶ ASSISTIDO</span>` : ''}
-                    ${episode.duration ? `<span class="badge-duration">${episode.duration}</span>` : ''}
-                </div>
-                <p class="episode-title">${titleText}</p>
-            </div>
-        `;
-    }).join('');
 }
 
 function appendAutoplay(url) {
     if (autoPlay && url && !url.includes('?')) {
         return `${url}?autoplay=1`;
     } else if (autoPlay && url && url.includes('?')) {
-        return `${url}&autoplay=1`; // Se já tiver parâmetros, usa &
+        return `${url}&autoplay=1`;
     }
-    return url; // Retorna sem alteração se autoPlay for false
+    return url;
 }
 
 function setupThumbnailLoading() {
@@ -3015,22 +3064,20 @@ function setupThumbnailLoading() {
                 const src = img.dataset.src;
                 const fallback = img.dataset.fallback;
 
-                // Se a imagem já está no cache, usa diretamente
                 if (thumbnailCache[src]) {
                     img.src = thumbnailCache[src];
                     img.closest('#episode-button').style.backgroundImage = `url('${thumbnailCache[src]}')`;
                 } else {
-                    // Carrega a imagem com transição
-                    img.style.opacity = '0'; // Começa invisível
+                    img.style.opacity = '0';
                     img.src = src;
                     img.onload = () => {
-                        thumbnailCache[src] = src; // Armazena no cache
+                        thumbnailCache[src] = src;
                         img.closest('#episode-button').style.backgroundImage = `url('${src}')`;
-                        img.style.transition = 'opacity 0.3s ease-in'; // Transição suave
+                        img.style.transition = 'opacity 0.3s ease-in';
                     };
                     img.onerror = () => {
                         img.src = fallback;
-                        thumbnailCache[src] = fallback; // Cache do fallback
+                        thumbnailCache[src] = fallback;
                         img.closest('#episode-button').style.backgroundImage = `url('${fallback}')`;
                         img.style.transition = 'opacity 0.3s ease-in';
                     };
@@ -3042,10 +3089,10 @@ function setupThumbnailLoading() {
 
     document.querySelectorAll('.episode-thumb').forEach(img => {
         if (!img.src || img.src === '') {
-            observer.observe(img); // Só observa se ainda não foi carregado
+            observer.observe(img);
         } else if (thumbnailCache[img.dataset.src]) {
             img.style.opacity = '0';
-            img.src = thumbnailCache[img.dataset.src]; // Usa o cache se já carregado
+            img.src = thumbnailCache[img.dataset.src];
             img.style.transition = 'opacity 0.3s ease-in';
             img.style.opacity = '1';
         }
@@ -3058,35 +3105,36 @@ function addEpisodeButtonListeners() {
             document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             currentEpisodeIndex = index;
+            const seasonIndex = parseInt(this.getAttribute('data-season-index'), 10);
             const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
-            const rawTitle = currentSerie.season[currentSeasonIndex].episodes[index].title;
+            const rawTitle = currentSerie.season[seasonIndex].episodes[index].title;
             const epNumber = /^\d+$/.test(rawTitle) ? rawTitle : (index + 1).toString();
-            window.history.replaceState( // Alterado de pushState para replaceState
-                { page: 'series', serieName: currentSerie.name, episodeIndex: index },
+            window.history.replaceState(
+                { page: 'series', serieName: currentSerie.name, episodeIndex: index, seasonIndex },
                 '',
                 `#${serieSlug}-${epNumber}`
             );
             const url = this.getAttribute('data-url');
-            openVideoOverlay(appendAutoplay(url));
+            openVideoOverlay(appendAutoplay(url), seasonIndex, index);
             renderToggleButtons(this);
             updateButtonVisibility();
             const serieKey = currentSerie.name.replace(/\s+/g, '_');
-            const seasonKey = currentSerie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
-            const episode = currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex];
+            const seasonKey = currentSerie.season[seasonIndex].name || `Temporada_${seasonIndex + 1}`;
+            const episode = currentSerie.season[seasonIndex].episodes[index];
             const progress = {
                 serieName: currentSerie.name,
-                seasonName: currentSerie.season[currentSeasonIndex].name,
+                seasonName: currentSerie.season[seasonIndex].name,
                 episodeTitle: episode.title,
-                episodeIndex: currentEpisodeIndex,
-                seasonIndex: currentSeasonIndex,
-                thumb: episode.thumb || currentSerie.season[currentSeasonIndex].thumb_season,
+                episodeIndex: index,
+                seasonIndex: seasonIndex,
+                thumb: episode.thumb || currentSerie.season[seasonIndex].thumb_season,
                 url: episode.url,
-                movies: currentSerie.season[currentSeasonIndex].movies,
+                movies: currentSerie.season[seasonIndex].movies,
                 activeEpisodeIndex: index
             };
             saveContinueProgress(progress);
             renderContinueWatchingSection();
-            logEpisodeClick(episode, currentSeasonIndex, index);
+            logEpisodeClick(episode, seasonIndex, index);
         });
     });
 }
@@ -3101,19 +3149,15 @@ function renderContinueWatchingSection() {
         seriesContainer.insertBefore(continueSeriesElement, seriesContainer.firstChild);
     }
 
-    // cria o slug da série para o hash
     const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
-    const serieKey  = currentSerie.name.replace(/\s+/g, '_');
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
     const savedProgress = continues[serieKey] || {};
 
     let episodesHTML = '';
     Object.keys(savedProgress).forEach(seasonKey => {
         const seasonProgress = savedProgress[seasonKey];
-
-        // determina o número do episódio (1-based)
         const epIndex = seasonProgress.episodeIndex;
         const epNumber = (epIndex + 1).toString();
-
         let episodeText = seasonProgress.movies 
             ? `Filme: ${seasonProgress.episodeTitle}`
             : `T${seasonProgress.seasonIndex + 1} - ${seasonProgress.episodeTitle}`;
@@ -3124,7 +3168,6 @@ function renderContinueWatchingSection() {
                  data-season-index="${seasonProgress.seasonIndex}"
                  data-episode-index="${epIndex}"
                  onclick="
-                    // atualiza o hash antes de abrir o overlay
                     location.hash='${serieSlug}-${epNumber}';
                     openVideoOverlay('${appendAutoplay(seasonProgress.url)}', ${seasonProgress.seasonIndex}, ${epIndex});
                  ">
@@ -3148,13 +3191,11 @@ function renderContinueWatchingSection() {
         </div>
     `;
 
-    // animação
     document.querySelectorAll('#continue-series-episodes #continue-episode-button').forEach((button, index) => {
         button.style.opacity = '0';
         setTimeout(() => button.classList.add('fade-in-up'), index * 100);
     });
 
-    // botão de remover
     document.querySelectorAll('#continue-series .remove-button').forEach(button => {
         const newBtn = button.cloneNode(true);
         button.parentNode.replaceChild(newBtn, button);
@@ -3182,7 +3223,7 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 
     const initialSeason = currentSerie.season[seasonIndex];
     const initialItem = initialSeason.episodes[initialEpisodeIndex];
-    videoIframe.src = appendAutoplay(initialItem.url); // Usa a função auxiliar
+    videoIframe.src = appendAutoplay(initialItem.url);
     videoOverlay.classList.remove('hidden');
     videoOverlay.classList.add('show');
 
@@ -3195,7 +3236,13 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
         overlayEpisodesDropdown = document.createElement('select');
         overlayEpisodesDropdown.id = 'overlay-episodes-dropdown';
 
-        if (currentSerie && currentSerie.season.length > 1) {
+        if (currentSerie && currentSerie.season.length > 0) {
+            // Adiciona a opção "Todas" ao dropdown de temporadas no overlay
+            const allOption = document.createElement('option');
+            allOption.value = 'all';
+            allOption.textContent = 'Todas';
+            overlaySeasonDropdown.appendChild(allOption);
+
             currentSerie.season.forEach((season, index) => {
                 const option = document.createElement('option');
                 option.value = index;
@@ -3211,25 +3258,31 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
             videoOverlayDropdown.appendChild(overlayEpisodesDropdown);
 
             overlaySeasonDropdown.addEventListener('change', function() {
-                const newSeasonIndex = parseInt(this.value, 10);
-                const serieKey = currentSerie.name.replace(/\s+/g, '_');
-                const seasonKey = currentSerie.season[newSeasonIndex].name || `Temporada_${newSeasonIndex + 1}`;
-                const newSavedProgress = continues[serieKey] && continues[serieKey][seasonKey];
-                
-                if (newSavedProgress && newSavedProgress.episodeIndex !== undefined) {
-                    currentEpisodeIndex = newSavedProgress.episodeIndex;
+                const newSeasonIndex = this.value === 'all' ? 'all' : parseInt(this.value, 10);
+                let newEpisodeIndex;
+
+                if (newSeasonIndex === 'all') {
+                    newEpisodeIndex = 0; // Começa do primeiro episódio quando "Todas" é selecionado
                 } else {
-                    currentEpisodeIndex = 0;
+                    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+                    const seasonKey = currentSerie.season[newSeasonIndex].name || `Temporada_${newSeasonIndex + 1}`;
+                    const newSavedProgress = continues[serieKey] && continues[serieKey][seasonKey];
+                    newEpisodeIndex = (newSavedProgress && newSavedProgress.episodeIndex !== undefined) ? newSavedProgress.episodeIndex : 0;
                 }
 
+                currentEpisodeIndex = newEpisodeIndex;
                 updateEpisodesDropdown(newSeasonIndex, overlayEpisodesDropdown);
                 overlayEpisodesDropdown.value = currentEpisodeIndex;
-                
-                const selectedSeason = currentSerie.season[newSeasonIndex];
-                const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
-                videoIframe.src = appendAutoplay(selectedItem.url); // Aplica autoplay aqui
 
-                if (newSeasonIndex === currentSeasonIndex) {
+                const selectedSeason = newSeasonIndex === 'all' ? currentSerie.season[0] : currentSerie.season[newSeasonIndex];
+                const selectedItem = newSeasonIndex === 'all' 
+                    ? currentSerie.season.flatMap(s => s.episodes)[currentEpisodeIndex]
+                    : selectedSeason.episodes[currentEpisodeIndex];
+                const actualSeasonIndex = newSeasonIndex === 'all' ? 0 : newSeasonIndex;
+                
+                videoIframe.src = appendAutoplay(selectedItem.url);
+
+                if (newSeasonIndex !== 'all' && actualSeasonIndex === currentSeasonIndex) {
                     document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
                     const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${selectedItem.url}"]`);
                     if (currentEpisodeButton) currentEpisodeButton.classList.add('active');
@@ -3239,10 +3292,10 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 
                 const progress = {
                     serieName: currentSerie.name,
-                    seasonName: selectedSeason.name,
+                    seasonName: newSeasonIndex === 'all' ? currentSerie.season[0].name : selectedSeason.name,
                     episodeTitle: selectedItem.title,
                     episodeIndex: currentEpisodeIndex,
-                    seasonIndex: newSeasonIndex,
+                    seasonIndex: actualSeasonIndex,
                     thumb: selectedItem.thumb || selectedSeason.thumb_season,
                     url: selectedItem.url,
                     movies: selectedSeason.movies,
@@ -3255,14 +3308,22 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 
             overlayEpisodesDropdown.addEventListener('change', function() {
                 currentEpisodeIndex = parseInt(this.value, 10);
-                const currentOverlaySeasonIndex = parseInt(overlaySeasonDropdown.value, 10);
-                const selectedSeason = currentSerie.season[currentOverlaySeasonIndex];
-                const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
+                const currentOverlaySeasonIndex = overlaySeasonDropdown.value;
+                let selectedSeason, selectedItem;
 
-                videoIframe.src = appendAutoplay(selectedItem.url); // Aplica autoplay aqui
+                if (currentOverlaySeasonIndex === 'all') {
+                    const allEpisodes = currentSerie.season.flatMap(s => s.episodes.map(e => ({ ...e, seasonIndex: s })));
+                    selectedItem = allEpisodes[currentEpisodeIndex];
+                    selectedSeason = selectedItem.seasonIndex;
+                } else {
+                    selectedSeason = currentSerie.season[currentOverlaySeasonIndex];
+                    selectedItem = selectedSeason.episodes[currentEpisodeIndex];
+                }
+
+                videoIframe.src = appendAutoplay(selectedItem.url);
                 overlayEpisodesDropdown.value = currentEpisodeIndex;
 
-                if (currentOverlaySeasonIndex === currentSeasonIndex) {
+                if (currentOverlaySeasonIndex !== 'all' && currentOverlaySeasonIndex == currentSeasonIndex) {
                     document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
                     const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${selectedItem.url}"]`);
                     if (currentEpisodeButton) currentEpisodeButton.classList.add('active');
@@ -3272,10 +3333,10 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 
                 const progress = {
                     serieName: currentSerie.name,
-                    seasonName: selectedSeason.name,
+                    seasonName: selectedSeason.name || `Temporada_${parseInt(currentOverlaySeasonIndex, 10) + 1}`,
                     episodeTitle: selectedItem.title,
                     episodeIndex: currentEpisodeIndex,
-                    seasonIndex: currentOverlaySeasonIndex,
+                    seasonIndex: currentOverlaySeasonIndex === 'all' ? 0 : parseInt(currentOverlaySeasonIndex, 10),
                     thumb: selectedItem.thumb || selectedSeason.thumb_season,
                     url: selectedItem.url,
                     movies: selectedSeason.movies,
@@ -3295,15 +3356,29 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 function updateEpisodesDropdown(seasonIndex, episodesDropdown) {
     episodesDropdown.innerHTML = '';
 
-    const selectedSeason = currentSerie.season[seasonIndex];
-    selectedSeason.episodes.forEach((item, index) => {
+    let episodes = [];
+    if (seasonIndex === 'all') {
+        episodes = currentSerie.season.flatMap(season => 
+            season.episodes.map((item, idx) => ({
+                ...item,
+                displayText: `T${currentSerie.season.indexOf(season) + 1} - ${item.title || `Episódio ${idx + 1}`}`
+            }))
+        );
+    } else {
+        const selectedSeason = currentSerie.season[seasonIndex];
+        episodes = selectedSeason.episodes.map((item, index) => ({
+            ...item,
+            displayText: item.title || `Episódio ${index + 1}`
+        }));
+    }
+
+    episodes.forEach((item, index) => {
         const option = document.createElement('option');
         option.value = index;
-        option.textContent = item.title || `Episódio ${index + 1}`;
+        option.textContent = item.displayText;
         episodesDropdown.appendChild(option);
     });
 
-    // Define o valor do dropdown com base no currentEpisodeIndex
     episodesDropdown.value = currentEpisodeIndex;
 }
 
@@ -3315,7 +3390,7 @@ function renderToggleButtons(button) {
     let alternatives = JSON.parse(button.getAttribute('data-alternative'));
 
     if ((!mainUrl || mainUrl.trim() === "") && alternatives.length > 0) {
-        mainUrl = alternatives[0]; // Pega o primeiro elemento sem modificar o array
+        mainUrl = alternatives[0];
     }
 
     const updateActiveButton = (activeUrl) => {
@@ -3323,7 +3398,7 @@ function renderToggleButtons(button) {
             btn.classList.toggle('active', btn.getAttribute('data-url') === activeUrl);
         });
         const videoIframe = document.getElementById('video-iframe');
-        videoIframe.src = appendAutoplay(activeUrl); // Aplica autoplay aqui
+        videoIframe.src = appendAutoplay(activeUrl);
     };
 
     let mainButton = null;
@@ -3360,11 +3435,20 @@ function renderToggleButtons(button) {
 }
 
 function navigateDirection(direction) {
-    const currentSeason = currentSerie.season[currentSeasonIndex];
-    const totalItems = currentSeason.episodes.length;
+    const seasonDropdown = document.getElementById('season-dropdown');
+    const isAllSeasons = seasonDropdown.value === 'all';
+    let currentSeason, totalItems;
+
+    if (isAllSeasons) {
+        currentSeason = { episodes: currentSerie.season.flatMap(s => s.episodes) };
+        totalItems = currentSeason.episodes.length;
+    } else {
+        currentSeason = currentSerie.season[currentSeasonIndex];
+        totalItems = currentSeason.episodes.length;
+    }
 
     const serieKey = currentSerie.name.replace(/\s+/g, '_');
-    const seasonKey = currentSeason.name || `Temporada_${currentSeasonIndex + 1}`;
+    const seasonKey = isAllSeasons ? currentSerie.season[0].name || `Temporada_1` : currentSeason.name || `Temporada_${currentSeasonIndex + 1}`;
     const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
     if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
         currentEpisodeIndex = seasonProgress.episodeIndex;
@@ -3384,10 +3468,11 @@ function navigateDirection(direction) {
     }
 
     const episode = currentSeason.episodes[currentEpisodeIndex];
-    openVideoOverlay(appendAutoplay(episode.url));
+    const actualSeasonIndex = isAllSeasons ? 0 : currentSeasonIndex;
+    openVideoOverlay(appendAutoplay(episode.url), actualSeasonIndex, currentEpisodeIndex);
 
     const serieName = currentSerie.name;
-    const seasonName = currentSeason.name;
+    const seasonName = isAllSeasons ? currentSerie.season[0].name : currentSeason.name;
     const episodeTitle = episode.title;
 
     const progress = {
@@ -3395,10 +3480,10 @@ function navigateDirection(direction) {
         seasonName,
         episodeTitle,
         episodeIndex: currentEpisodeIndex,
-        seasonIndex: currentSeasonIndex,
-        thumb: episode.thumb || currentSeason.thumb_season,
+        seasonIndex: actualSeasonIndex,
+        thumb: episode.thumb || (isAllSeasons ? currentSerie.season[0].thumb_season : currentSeason.thumb_season),
         url: episode.url,
-        movies: currentSeason.movies,
+        movies: isAllSeasons ? currentSerie.season[0].movies : currentSeason.movies,
         activeEpisodeIndex: currentEpisodeIndex
     };
 
@@ -3412,14 +3497,12 @@ function navigateDirection(direction) {
     renderToggleButtons(currentEpisodeButton || document.querySelector(`#episode-button[data-url="${episode.url}"]`));
     updateButtonVisibility();
 
-    // Registra o log do novo episódio
-    logEpisodeClick(episode, currentSeasonIndex, currentEpisodeIndex);
+    logEpisodeClick(episode, actualSeasonIndex, currentEpisodeIndex);
 
-    // Atualiza o hash da URL com o novo número do episódio
     const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
-    const epNumber = (currentEpisodeIndex + 1).toString(); // 1-based
+    const epNumber = (currentEpisodeIndex + 1).toString();
     window.history.replaceState(
-        { page: 'series', serieName: currentSerie.name, episodeIndex: currentEpisodeIndex },
+        { page: 'series', serieName: currentSerie.name, episodeIndex: currentEpisodeIndex, seasonIndex: actualSeasonIndex },
         '',
         `#${serieSlug}-${epNumber}`
     );
@@ -3428,8 +3511,15 @@ function navigateDirection(direction) {
 function updateButtonVisibility() {
     const prevButton = document.getElementById('prev-video-button');
     const nextButton = document.getElementById('next-video-button');
-    const currentSeason = currentSerie.season[currentSeasonIndex];
-    const totalItems = currentSeason.episodes.length;
+    const seasonDropdown = document.getElementById('season-dropdown');
+    const isAllSeasons = seasonDropdown.value === 'all';
+    let totalItems;
+
+    if (isAllSeasons) {
+        totalItems = currentSerie.season.flatMap(s => s.episodes).length;
+    } else {
+        totalItems = currentSerie.season[currentSeasonIndex].episodes.length;
+    }
 
     prevButton.style.display = currentEpisodeIndex === 0 ? 'none' : 'block';
     nextButton.style.display = currentEpisodeIndex === totalItems - 1 ? 'none' : 'block';
@@ -3456,7 +3546,7 @@ function saveContinueProgress(progress) {
         activeEpisodeIndex: progress.activeEpisodeIndex
     };
 
-    continues = currentContinues; // Atualiza a variável global
+    continues = currentContinues;
     localStorage.setItem('continues', JSON.stringify(continues));
 }
 
@@ -3479,7 +3569,7 @@ function removeContinueSeriesSeason(seasonKey) {
     }
 }
 
-//INICIO
+// INICIO
 let searchInput;
 
 function filterSeries() {
@@ -3578,79 +3668,69 @@ function renderCarousel() {
         carouselInner.appendChild(item);
     });
 
-    const slideDuration = 4000; // Tempo total de cada slide em ms
-    let startTime; // Timestamp de início do slide
-    let pausedPercent = 0; // Percentual quando pausado
+    const slideDuration = 4000;
+    let startTime;
+    let pausedPercent = 0;
     let barInterval;
 
     $carousel.carousel({
-        interval: false, // Desativa o avanço automático do Bootstrap
+        interval: false,
         pause: true
     });
 
-    // Função para animar a barra de progresso baseada no tempo real
     function progressBarCarousel() {
-        const elapsedTime = Date.now() - startTime; // Tempo decorrido desde o início
-        let percent = (elapsedTime / slideDuration) * 100; // Percentual baseado no tempo real
+        const elapsedTime = Date.now() - startTime;
+        let percent = (elapsedTime / slideDuration) * 100;
 
-        // Limita o percentual a 100%
         if (percent >= 100) {
             percent = 0;
             $bar.css({ width: '100%' });
             $carousel.carousel('next');
-            return; // Evita continuar o intervalo após o avanço
+            return;
         }
 
         $bar.css({ width: percent + '%' });
-        pausedPercent = percent; // Atualiza o valor pausado
+        pausedPercent = percent;
     }
 
-    // Inicia ou reinicia a animação
     function startProgressBar() {
         clearInterval(barInterval);
         if (pausedPercent === 0) {
-            // Início completo (novo slide)
             startTime = Date.now();
             $bar.css({ width: '0%' });
         } else {
-            // Retoma de onde parou
-            const elapsedTime = (pausedPercent / 100) * slideDuration; // Tempo já decorrido
-            startTime = Date.now() - elapsedTime; // Ajusta o startTime para continuar
-            $bar.css({ width: pausedPercent + '%' }); // Mantém o progresso atual
+            const elapsedTime = (pausedPercent / 100) * slideDuration;
+            startTime = Date.now() - elapsedTime;
+            $bar.css({ width: pausedPercent + '%' });
         }
-        barInterval = setInterval(progressBarCarousel, 30); // Atualiza a cada 30ms
+        barInterval = setInterval(progressBarCarousel, 30);
     }
 
     startProgressBar();
 
-    // Reset ao clicar nos indicadores ou controles
     jQuery('.carousel-indicators li, .carousel-control').click(function () {
-        pausedPercent = 0; // Reseta para o início
+        pausedPercent = 0;
         clearInterval(barInterval);
         startProgressBar();
     });
 
-    // Reset ao iniciar a transição de slide
     $carousel.on('slide.bs.carousel', function () {
-        pausedPercent = 0; // Reseta para o início
+        pausedPercent = 0;
         clearInterval(barInterval);
         $bar.css({ width: '0%' });
     });
 
-    // Reinicia após a transição
     $carousel.on('slid.bs.carousel', function () {
         startProgressBar();
     });
 
-    // Pausa e retomada ao passar o mouse (se não for mobile)
     if (!(/Mobi/.test(navigator.userAgent))) {
         $carousel.hover(
             function () {
-                clearInterval(barInterval); // Pausa a animação
-                // `pausedPercent` já foi atualizado em progressBarCarousel
+                clearInterval(barInterval);
             },
             function () {
-                startProgressBar(); // Retoma de onde parou
+                startProgressBar();
             }
         );
     }
@@ -3733,7 +3813,6 @@ function renderSeriesButtons(filteredGroups) {
         groupHome.innerHTML += groupSeriesHTML;
     });
 
-    // Adiciona a animação aos botões dentro de group-series-cards
     document.querySelectorAll('#group-series-button').forEach((button, index) => {
         button.style.opacity = '0';
         setTimeout(() => {
@@ -3741,13 +3820,11 @@ function renderSeriesButtons(filteredGroups) {
         }, index * animationSpeedButtons);
     });
 
-    // Remove eventos de clique anteriores para evitar duplicatas
     document.querySelectorAll('.favorite-button').forEach(button => {
         const newButton = button.cloneNode(true);
         button.parentNode.replaceChild(newButton, button);
     });
 
-    // Adiciona os novos eventos de clique
     document.querySelectorAll('.favorite-button').forEach(button => {
         button.addEventListener('click', function(event) {
             event.stopPropagation();
@@ -3861,7 +3938,6 @@ function updateFavorites() {
         </div>`;
         groupFavorites.innerHTML = favoritesHTML;
 
-        // Adiciona a animação aos botões dentro de group-series-cards
         document.querySelectorAll('#group-favorites #group-series-button').forEach((button, index) => {
             button.style.opacity = '0';
             setTimeout(() => {
@@ -3869,20 +3945,17 @@ function updateFavorites() {
             }, index * 100);
         });
 
-        // Remove eventos de clique anteriores para evitar duplicatas
         document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
             const newButton = button.cloneNode(true);
             button.parentNode.replaceChild(newButton, button);
         });
 
-        // Adiciona os novos eventos de clique para os botões de favorito
         document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
             button.addEventListener('click', function(event) {
                 event.stopPropagation();
                 const serie = JSON.parse(this.getAttribute('data-serie'));
                 removeFavorite(serie);
         
-                // Atualiza manualmente o botão correspondente no group-home
                 const groupHomeButtons = document.querySelectorAll('#group-home .favorite-button');
                 groupHomeButtons.forEach(btn => {
                     const btnSerie = JSON.parse(btn.getAttribute('data-serie'));
@@ -3897,7 +3970,6 @@ function updateFavorites() {
             });
         });
 
-        // Adiciona os eventos de clique para os botões de série
         document.querySelectorAll('#group-favorites #group-series-button').forEach(button => {
             button.addEventListener('click', function() {
                 const serieName = this.querySelector('h1').innerText;
@@ -3932,7 +4004,7 @@ function updateFavorites() {
 
 function saveFavorite(serie) {
     if (!favorites.some(fav => fav.name === serie.name)) {
-        favorites.push(serie); // Salva a série sem adicionar selectedThumb
+        favorites.push(serie);
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 }
@@ -4032,7 +4104,6 @@ function handleHashChange() {
     }
 }
 
-//FUNÇÕES DE LOG
 function createLogsSection() {
     let logsSection = document.getElementById('logs-section');
     if (!logsSection) {
@@ -4089,7 +4160,6 @@ function createLogsSection() {
         `;
         logsSection.innerHTML = logsHTML;
 
-        // --- Animação "vir de cima" ---
         const entries = logsSection.querySelectorAll('.log-entry');
         entries.forEach((entry, i) => {
             entry.style.opacity = '0';
@@ -4098,22 +4168,19 @@ function createLogsSection() {
                 entry.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
                 entry.style.opacity = '1';
                 entry.style.transform = 'translateY(0)';
-                // Limpar propriedades de animação após conclusão para evitar conflitos com hover
                 setTimeout(() => {
                     entry.style.transition = '';
                     entry.style.transform = '';
-                }, 300 + i * 80); // Após a animação (300ms + atraso)
+                }, 300 + i * 80);
             }, i * 80);
         });
     }
 
-    // Exibe a seção e ajusta header/back-button
     logsSection.classList.remove('hidden');
     logsSection.classList.add('show');
     document.getElementById('logo').classList.replace('show', 'hidden');
     document.getElementById('back-button').classList.add('show');
 
-    // --- Filtro de busca ---
     const searchInput = logsSection.querySelector('#logs-header input.input');
     if (searchInput) {
         searchInput.addEventListener('input', () => {
@@ -4130,7 +4197,6 @@ function createLogsSection() {
         });
     }
 
-    // Botão “Limpar logs”
     const clearAllButton = document.getElementById('clear-all-logs-button');
     if (clearAllButton) {
         clearAllButton.addEventListener('click', () => {
@@ -4139,7 +4205,6 @@ function createLogsSection() {
         });
     }
 
-    // Botões de remover individual
     document.querySelectorAll('.remove-log-button').forEach(button => {
         button.addEventListener('click', function() {
             const idx = parseInt(this.getAttribute('data-index'), 10);
@@ -4154,8 +4219,8 @@ function createLogsSection() {
 
 function logEpisodeClick(episode, seasonIndex, episodeIndex) {
     const now = new Date();
-    const date = now.toLocaleDateString('pt-BR'); // Ex.: 11/06/2025
-    const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }); // Ex.: 19:52
+    const date = now.toLocaleDateString('pt-BR');
+    const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
     const serieName = currentSerie.name;
     const thumb = episode.thumb || currentSerie.season[seasonIndex].thumb_season;
 
@@ -4168,7 +4233,6 @@ function logEpisodeClick(episode, seasonIndex, episodeIndex) {
         time: time
     };
 
-    // Verifica se o log já existe para evitar duplicatas
     let logs = JSON.parse(localStorage.getItem('logs')) || [];
     const isDuplicate = logs.some(log => 
         log.serieName === logEntry.serieName &&
@@ -4182,7 +4246,6 @@ function logEpisodeClick(episode, seasonIndex, episodeIndex) {
         localStorage.setItem('logs', JSON.stringify(logs));
     }
 
-    // Atualiza a seção de logs (se estiver visível)
     const logsSection = document.getElementById('logs-section');
     if (logsSection && logsSection.classList.contains('show')) {
         createLogsSection();
@@ -4258,14 +4321,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const seriesSection = document.getElementById('series');
 
         if (logsSection && logsSection.classList.contains('show')) {
-            // Se está na seção de logs, volta para o estado anterior
             window.history.back();
         } else if (seriesSection.classList.contains('show') && currentSerie) {
-            // Se está na tela de uma série, vai diretamente para a home
             window.history.replaceState({ page: 'home' }, '', window.location.pathname);
             window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
         } else {
-            // Caso padrão: vai para a home
             window.history.replaceState({ page: 'home' }, '', window.location.pathname);
             window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
         }
@@ -4397,19 +4457,9 @@ window.addEventListener('keydown', (event) => {
         case 'Escape':
             if (videoOverlay.classList.contains('show')) {
                 document.querySelector('#close-overlay-button').click();
-            }
-            else { //if (seriesContainer.classList.contains('hidden')) {
-                document.querySelector('#back-button').click();
-                document.querySelector('#back-button').click();
+            } else {
                 document.querySelector('#back-button').click();
             }
-        break;
-        // case 'Backspace':
-        //     if (!videoOverlay.classList.contains('show')) {
-        //         document.querySelector('#back-button').click();
-        //         document.querySelector('#back-button').click();
-        //         document.querySelector('#back-button').click();
-        //     }
         break;
         case 'ArrowLeft':
             navigateDirection('prev');
