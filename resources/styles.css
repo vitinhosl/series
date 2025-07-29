@@ -875,7 +875,7 @@ header.scrolled {
 #continue-series-episodes,
 #current-series-episodes {
     background-color: rgb(35, 35, 35);
-    /* display: flex; */
+    display: flex;
     flex-wrap: wrap;
     gap: 5px;
     padding: 10px;

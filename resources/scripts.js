@@ -2258,6 +2258,15 @@ const seriesData = [
                             { title: "Episódio 011", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
                             { title: "Episódio 012", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
                         ]
+                    },
+
+                    {
+                        name: "Temporada F",
+                        thumb_season: "https://i.imgur.com/Zuxuw0k.jpeg",
+                        movies: true,
+                        episodes: [
+                            { title: "Episódio 012", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                        ]
                     }
                 ]
             }, 
@@ -2775,13 +2784,12 @@ let   previousEpisodeCount      = 0;
 
 //SERIE ATUAL
 function renderCurrentSeries(serie) {
-    const seriesContainer = document.getElementById('series');
+    const seriesContainer     = document.getElementById('series');
     const seriesNameContainer = document.getElementById('series-name');
 
-    seriesContainer.innerHTML = '';
-    seriesNameContainer.innerHTML = '';
-
+    seriesContainer.innerHTML     = '';
     seriesNameContainer.innerHTML = `<h1>${serie.name}</h1>`;
+
     if (serie.season.length === 0 && (!serie.movies || serie.movies.length === 0)) {
         seriesContainer.innerHTML = `
         <div id="current-series">
@@ -2793,127 +2801,125 @@ function renderCurrentSeries(serie) {
         return;
     }
 
-    currentSerie = serie;
+    currentSerie       = serie;
     currentSeasonIndex = 0;
 
-    const serieKey = serie.name.replace(/\s+/g, '_');
-    const initialSeasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
-    const seasonProgress = continues[serieKey] && continues[serieKey][initialSeasonKey];
-    currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
+    const serieKey        = serie.name.replace(/\s+/g, '_');
+    const initialSeasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex+1}`;
+    const seasonProgress  = (continues[serieKey] || {})[initialSeasonKey];
+    currentEpisodeIndex  = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
 
-    const hasSeasons = serie.season.length > 0;
-    const showDropdown = hasSeasons;
+    const hasSeasons    = serie.season.length > 0;
+    const showDropdown  = hasSeasons && (serie.season.length > 1);;
+    const showAllOption = serie.season.length > 1 ;
 
     let episodesToRender = [];
-    let availableText = '';
+    let availableText    = '';
     if (hasSeasons) {
-        episodesToRender = serie.season.flatMap(season => season.episodes);
-        availableText = `Todos os episódios: ${episodesToRender.length}`;
+        episodesToRender = serie.season.flatMap(s => s.episodes);
+        availableText    = `Todos os episódios: ${episodesToRender.length}`;
     } else {
-        const currentSeason = serie.season[0];
-        const isMovie = currentSeason.movies;
-        episodesToRender = currentSeason.episodes;
-        const seasonsOfSameType = serie.season.filter(s => !!s.movies === !!isMovie);
-        const relativeIndex = serie.season.slice(0, 0).filter(s => !!s.movies === !!isMovie).length;
-        availableText = isMovie ? 'Filmes disponíveis' : 'Episódios disponíveis';
-        if (seasonsOfSameType.length > 1) {
-            availableText = `T${relativeIndex + 1} - ${availableText}`;
+        const currentSeason   = serie.season[0];
+        const isMovie         = !!currentSeason.movies;
+        episodesToRender      = currentSeason.episodes;
+        const seasonsOfType   = serie.season.filter(s => !!s.movies === isMovie);
+        const relativeIndex   = serie.season.slice(0, 0).filter(s => !!s.movies === isMovie).length;
+        availableText         = isMovie ? 'Filmes disponíveis' : 'Episódios disponíveis';
+        if (seasonsOfType.length > 1) {
+            availableText = `T${relativeIndex+1} - ${availableText}`;
         }
         availableText += `: ${currentSeason.episodes.length}`;
     }
 
-    const currentSeriesHTML = `
-        <div id="current-series">
-            <div id="section-season">
-                <div id="current-series-header">
-                    <p id="series-available-text">${availableText}</p>
-                    ${showDropdown ? `
-                        <select id="season-dropdown">
-                            <option value="all">Todas</option>
-                            ${serie.season.map((season, index) => {
-                                const seasonDisplay = season.name ? season.name : `Temporada ${index + 1}`;
-                                return `<option value="season-${index}">${seasonDisplay}</option>`;
-                            }).join('')}
-                        </select>
-                    ` : ''}
-                </div>
-                <div id="current-series-episodes">
-                    ${renderEpisodes(serie, 'all')}
-                </div>
-            </div>
-        </div>
-    `;
-    seriesContainer.innerHTML = currentSeriesHTML;
-    renderContinueWatchingSection();
+    const initialMode = showAllOption ? 'all' : 'season-0';
 
+    const html = `
+    <div id="current-series">
+      <div id="section-season">
+        <div id="current-series-header">
+          <p id="series-available-text">${availableText}</p>
+          ${ showDropdown ? `
+            <select id="season-dropdown">
+              ${ showAllOption ? `<option value="all">Todas</option>` : '' }
+              ${ serie.season.map((season, idx) => {
+                   const label = season.name || `Temporada ${idx+1}`;
+                   return `<option value="season-${idx}">${label}</option>`;
+                 }).join('') }
+            </select>
+          ` : '' }
+        </div>
+        <div id="current-series-episodes">
+          ${ renderEpisodes(serie, initialMode) }
+        </div>
+      </div>
+    </div>
+    `;
+    seriesContainer.innerHTML = html;
+
+    const dropdown = document.getElementById('season-dropdown');
+    const episodesContainer = document.getElementById('current-series-episodes');
+
+    if (dropdown) {
+        dropdown.value = showAllOption ? 'all' : 'season-0';
+        episodesContainer.style.display = dropdown.value === 'all' ? 'block' : 'flex';
+    }
+
+    renderContinueWatchingSection();
     animateEpisodes(episodesToRender.length, previousEpisodeCount);
     previousEpisodeCount = episodesToRender.length;
 
-    if (showDropdown) {
-        const seasonDropdown = document.getElementById('season-dropdown');
-        seasonDropdown.addEventListener('change', function() {
+    if (showDropdown && dropdown) {
+        dropdown.addEventListener('change', function() {
             const value = this.value;
-            let episodesToRender = [];
-            let updatedAvailableText = '';
+            episodesContainer.style.display = (value === 'all') ? 'block' : 'flex';
 
+            let newEpisodes  = [];
+            let newText      = '';
             if (value === 'all') {
-                episodesToRender = serie.season.flatMap(season => season.episodes);
-                updatedAvailableText = `Todos os episódios: ${episodesToRender.length}`;
+                newEpisodes = serie.season.flatMap(s => s.episodes);
+                newText     = `Todos os episódios: ${newEpisodes.length}`;
                 currentSeasonIndex = 0;
-                const seasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
-                const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
-                currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
             } else {
                 currentSeasonIndex = parseInt(value.split('-')[1], 10);
-                const selectedSeason = serie.season[currentSeasonIndex];
-                const selectedSeasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
-                const seasonProgress = continues[serieKey] && continues[serieKey][selectedSeasonKey];
-                currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
-                
-                const isMovieSelected = selectedSeason.movies;
-                const seasonsOfSameTypeSelected = serie.season.filter(s => !!s.movies === !!isMovieSelected);
-                const relativeIndexSelected = serie.season.slice(0, currentSeasonIndex).filter(s => !!s.movies === !!isMovieSelected).length;
-                episodesToRender = selectedSeason.episodes;
-                updatedAvailableText = isMovieSelected ? 'Filmes disponíveis' : 'Episódios disponíveis';
-                if (seasonsOfSameTypeSelected.length > 1) {
-                    updatedAvailableText = `T${relativeIndexSelected + 1} - ${updatedAvailableText}`;
+                const selSeason     = serie.season[currentSeasonIndex];
+                const isMovieSel    = !!selSeason.movies;
+                newEpisodes         = selSeason.episodes;
+                const seasonsOfType = serie.season.filter(s => !!s.movies === isMovieSel);
+                const relIndexSel   = serie.season.slice(0, currentSeasonIndex).filter(s => !!s.movies === isMovieSel).length;
+                newText = isMovieSel ? 'Filmes disponíveis' : 'Episódios disponíveis';
+                if (seasonsOfType.length > 1) {
+                    newText = `T${relIndexSel+1} - ${newText}`;
                 }
-                updatedAvailableText += `: ${selectedSeason.episodes.length}`;
+                newText += `: ${selSeason.episodes.length}`;
             }
 
-            document.getElementById('series-available-text').innerText = updatedAvailableText;
+            document.getElementById('series-available-text').innerText = newText;
 
-            animateEpisodes(episodesToRender.length, previousEpisodeCount, () => {
+            animateEpisodes(newEpisodes.length, previousEpisodeCount, () => {
                 document.getElementById('current-series-episodes').innerHTML = renderEpisodes(serie, value);
                 setupThumbnailLoading();
                 addEpisodeButtonListeners();
                 updateButtonVisibility();
-
-                const episodeButtons = document.querySelectorAll('#episode-button');
+                const btns = document.querySelectorAll('#episode-button');
                 if (value !== 'all' && seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
-                    if (episodeButtons[seasonProgress.activeEpisodeIndex]) {
-                        episodeButtons[seasonProgress.activeEpisodeIndex].classList.add('active');
-                    }
-                } else if (episodeButtons[currentEpisodeIndex]) {
-                    episodeButtons[currentEpisodeIndex].classList.add('active');
+                    btns[seasonProgress.activeEpisodeIndex]?.classList.add('active');
+                } else {
+                    btns[currentEpisodeIndex]?.classList.add('active');
                 }
             });
 
-            previousEpisodeCount = episodesToRender.length;
+            previousEpisodeCount = newEpisodes.length;
         });
     }
 
     addEpisodeButtonListeners();
     updateButtonVisibility();
     setupThumbnailLoading();
-
     const episodeButtons = document.querySelectorAll('#episode-button');
     if (seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
-        if (episodeButtons[seasonProgress.activeEpisodeIndex]) {
-            episodeButtons[seasonProgress.activeEpisodeIndex].classList.add('active');
-        }
-    } else if (episodeButtons[currentEpisodeIndex]) {
-        episodeButtons[currentEpisodeIndex].classList.add('active');
+        episodeButtons[seasonProgress.activeEpisodeIndex]?.classList.add('active');
+    } else {
+        episodeButtons[currentEpisodeIndex]?.classList.add('active');
     }
 }
 
@@ -3095,37 +3101,39 @@ function setupThumbnailLoading() {
                 const src = img.dataset.src;
                 const fallback = img.dataset.fallback;
 
-                if (thumbnailCache[src]) {
+                if (thumbnailCache[src]) { // Se a thumb já está em cache
                     img.src = thumbnailCache[src];
                     img.closest('#episode-button').style.backgroundImage = `url('${thumbnailCache[src]}')`;
-                } else {
-                    img.style.opacity = '0';
-                    img.src = src;
-                    img.onload = () => {
+                } else { // Se não está em cache, tenta carregar
+                    img.style.opacity = '0'; // Esconde a imagem temporariamente
+                    img.src = src; // Define o src para iniciar o carregamento
+                    img.onload = () => { // Ao carregar com sucesso
                         thumbnailCache[src] = src;
-                        img.closest('#episode-button').style.backgroundImage = `url('${src}')`;
+                        img.closest('#episode-button').style.backgroundImage = `url('${src}')`; // Atualiza background
                         img.style.transition = 'opacity 0.3s ease-in';
+                        //img.style.opacity = '1'; // FALTA ESTA LINHA AQUI!
                     };
-                    img.onerror = () => {
+                    img.onerror = () => { // Em caso de erro ao carregar
                         img.src = fallback;
                         thumbnailCache[src] = fallback;
-                        img.closest('#episode-button').style.backgroundImage = `url('${fallback}')`;
+                        img.closest('#episode-button').style.backgroundImage = `url('${fallback}')`; // Atualiza background com fallback
                         img.style.transition = 'opacity 0.3s ease-in';
+                        //img.style.opacity = '1'; // FALTA ESTA LINHA AQUI!
                     };
                 }
-                observer.unobserve(img);
+                observer.unobserve(img); // Para de observar a imagem uma vez carregada
             }
         });
     }, { rootMargin: '200px' });
 
     document.querySelectorAll('.episode-thumb').forEach(img => {
-        if (!img.src || img.src === '') {
+        if (!img.src || img.src === '') { // Se a imagem não tem src, comece a observá-la
             observer.observe(img);
-        } else if (thumbnailCache[img.dataset.src]) {
-            img.style.opacity = '0';
-            img.src = thumbnailCache[img.dataset.src];
+        } else if (thumbnailCache[img.dataset.src]) { // Se já está em cache (para imagens já carregadas)
+            img.style.opacity = '0'; // Esconde
+            img.src = thumbnailCache[img.dataset.src]; // Define src do cache
             img.style.transition = 'opacity 0.3s ease-in';
-            img.style.opacity = '1';
+            img.style.opacity = '1'; // Mostra
         }
     });
 }
@@ -3543,13 +3551,19 @@ function updateButtonVisibility() {
     const prevButton = document.getElementById('prev-video-button');
     const nextButton = document.getElementById('next-video-button');
     const seasonDropdown = document.getElementById('season-dropdown');
-    const isAllSeasons = seasonDropdown.value === 'all';
     let totalItems;
 
-    if (isAllSeasons) {
+    if (seasonDropdown && seasonDropdown.value === 'all') {
         totalItems = currentSerie.season.flatMap(s => s.episodes).length;
+        if (currentSerie.movies?.length > 0) {
+            totalItems += currentSerie.movies.length;
+        }
     } else {
-        totalItems = currentSerie.season[currentSeasonIndex].episodes.length;
+        if (seasonDropdown && seasonDropdown.value === 'movies') {
+            totalItems = currentSerie.movies?.length || 0;
+        } else {
+            totalItems = currentSerie.season[currentSeasonIndex]?.episodes.length || 0;
+        }
     }
 
     prevButton.style.display = currentEpisodeIndex === 0 ? 'none' : 'block';
