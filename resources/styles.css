@@ -906,7 +906,7 @@ header.scrolled {
     margin-bottom: 10px;
 }
 
-.toggle-button {
+.toggle-button-cards {
     background: none;
     border: none;
     width: 16px;
@@ -917,7 +917,7 @@ header.scrolled {
     margin: 0;
 }
 
-.toggle-button::before {
+.toggle-button-cards::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -931,8 +931,7 @@ header.scrolled {
     transition: transform 0.3s ease;
 }
 
-/* Estado colapsado (▶) */
-.toggle-button:not(.expanded)::before {
+.toggle-button-cards:not(.expanded)::before {
     transform: translate(-50%, -50%) rotate(-90deg);
 }
 

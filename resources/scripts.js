@@ -2939,24 +2939,21 @@ function renderEpisodes(serie, seasonValue) {
                 )
             ).length;
 
-            const isExpanded = true; // Começa expandido por padrão
+            const isExpanded = true;
             const layoutClass = isExpanded ? 'vertical-layout' : 'horizontal-layout';
+            const headerText = season.movies ? `Filmes disponíveis: ${totalEpisodes}` : `T${seasonIdx + 1} - Episódios disponíveis: ${totalEpisodes}`;
 
             return `
                 <div class="season-section">
                     <div class="season-header" data-season-index="${seasonIdx}">
-                        <button class="toggle-button ${isExpanded ? 'expanded' : ''}" data-season-index="${seasonIdx}"></button>
-                        <p>T${seasonIdx + 1} - Episódios disponíveis: ${totalEpisodes}</p>
+                        <button class="toggle-button-cards ${isExpanded ? 'expanded' : ''}" data-season-index="${seasonIdx}"></button>
+                        <p>${headerText}</p>
                     </div>
                     <div class="episode-list" data-season-index="${seasonIdx}" class="${layoutClass}" style="${!isExpanded ? 'display: none;' : 'display: flex;'}">
                         ${episodes.map((episode, index) => {
                             const fallbackThumb = season.thumb_season;
                             const episodeThumb = episode.thumb || fallbackThumb;
-                            const titleText = !episode.title 
-                                ? `Episódio ${index + 1}`
-                                : /^\d{1,3}$/.test(episode.title.trim()) 
-                                    ? `Episódio ${parseInt(episode.title, 10)}`
-                                    : episode.title;
+                            const titleText = !episode.title ? `Episódio ${index + 1}` : /^\d{1,3}$/.test(episode.title.trim())  ? `Episódio ${parseInt(episode.title, 10)}` : episode.title;
                             const isWatched = logs.some(log =>
                                 log.serieName === currentSerie.name &&
                                 log.seasonIndex === seasonIdx &&
@@ -2987,6 +2984,7 @@ function renderEpisodes(serie, seasonValue) {
             `;
         }).join('');
     } else {
+        // O código para o caso seasonValue !== 'all' permanece inalterado
         const seasonIndex = parseInt(seasonValue.split('-')[1], 10);
         const season = serie.season[seasonIndex];
         const episodes = season.episodes.map(episode => ({ ...episode, seasonIndex }));
@@ -2994,12 +2992,7 @@ function renderEpisodes(serie, seasonValue) {
         return episodes.map((episode, index) => {
             const fallbackThumb = season.thumb_season;
             const episodeThumb = episode.thumb || fallbackThumb;
-            const titleText = !episode.title 
-                ? `Episódio ${index + 1}`
-                : /^\d{1,3}$/.test(episode.title.trim()) 
-                    ? `Episódio ${parseInt(episode.title, 10)}`
-                    : episode.title;
-
+            const titleText = !episode.title ? `Episódio ${index + 1}` : /^\d{1,3}$/.test(episode.title.trim())  ? `Episódio ${parseInt(episode.title, 10)}` : episode.title;
             const isWatched = logs.some(log =>
                 log.serieName === currentSerie.name &&
                 log.seasonIndex === seasonIndex &&
@@ -3012,7 +3005,7 @@ function renderEpisodes(serie, seasonValue) {
                          data-url="${episode.url}" 
                          data-alternative='${JSON.stringify(episode.alternative || [])}'
                          data-season-index="${seasonIndex}"
-                         style="background-image: url('${fallbackThumb}');">
+                         style="background-image: url距離://(fallbackThumb}');">
                         <img class="episode-thumb" 
                              data-src="${episodeThumb}" 
                              data-fallback="${fallbackThumb}" 
@@ -4377,7 +4370,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('toggle-button')) {
+        if (e.target.classList.contains('toggle-button-cards')) {
             const seasonIdx = parseInt(e.target.getAttribute('data-season-index'), 10);
             const button = e.target;
             const isExpanded = button.classList.contains('expanded');
