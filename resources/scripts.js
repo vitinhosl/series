@@ -2933,12 +2933,16 @@ function renderEpisodes(serie, seasonValue) {
                 )
             ).length;
 
+            const isExpanded = true; // Começa expandido por padrão
+            const layoutClass = isExpanded ? 'vertical-layout' : 'horizontal-layout';
+
             return `
                 <div class="season-section">
-                    <div class="season-header">
+                    <div class="season-header" data-season-index="${seasonIdx}">
+                        <button class="toggle-button ${isExpanded ? 'expanded' : ''}" data-season-index="${seasonIdx}"></button>
                         <p>T${seasonIdx + 1} - Episódios disponíveis: ${totalEpisodes}</p>
                     </div>
-                    <div class="episode-list">
+                    <div class="episode-list" data-season-index="${seasonIdx}" class="${layoutClass}" style="${!isExpanded ? 'display: none;' : 'display: flex;'}">
                         ${episodes.map((episode, index) => {
                             const fallbackThumb = season.thumb_season;
                             const episodeThumb = episode.thumb || fallbackThumb;
@@ -4284,7 +4288,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     renderCarousel();
     renderSeriesButtons();
-    updateFavorites();
+    updateFavorites()
 
     document.querySelectorAll('.menu-list').forEach(item => {
         item.addEventListener('click', function(e) {
@@ -4355,6 +4359,24 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             window.history.replaceState({ page: 'home' }, '', window.location.pathname);
             window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('toggle-button')) {
+            const seasonIdx = parseInt(e.target.getAttribute('data-season-index'), 10);
+            const button = e.target;
+            const isExpanded = button.classList.contains('expanded');
+
+            const newExpanded = !isExpanded;
+            button.classList.toggle('expanded', newExpanded);
+
+            const episodeList = document.querySelector(`.episode-list[data-season-index="${seasonIdx}"]`);
+            if (episodeList) {
+                episodeList.classList.remove('horizontal-layout', 'vertical-layout');
+                episodeList.classList.add(newExpanded ? 'vertical-layout' : 'horizontal-layout');
+                episodeList.style.display = newExpanded ? 'flex' : 'none';
+            }
         }
     });
 
@@ -4474,6 +4496,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const defaultButton = document.querySelector('#keys button:first-child');
     defaultButton.classList.add('checked');
     defaultButton.click();
+
+
+    
 });
 
 window.addEventListener('keydown', (event) => {

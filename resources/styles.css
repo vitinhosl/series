@@ -875,7 +875,7 @@ header.scrolled {
 #continue-series-episodes,
 #current-series-episodes {
     background-color: rgb(35, 35, 35);
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
     gap: 5px;
     padding: 10px;
@@ -891,16 +891,55 @@ header.scrolled {
     background: linear-gradient(to right, rgb(35, 35, 35) 0%, rgb(10, 10, 10) 80%);
     border-radius: 10px;
     padding: 10px 15px;
-    margin: 3px 0px 3px 0px;
+    margin: 5px 0px 5px 0px;
     color: white;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .episode-list {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 10px;
 }
+
+.toggle-button {
+    background: none;
+    border: none;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.toggle-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 13px solid white;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+/* Estado colapsado (▶) */
+.toggle-button:not(.expanded)::before {
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.episode-list {
+    transition: all 0.3s ease;
+}
+
 
 #season-dropdown, #overlay-season-dropdown, #overlay-episodes-dropdown {
     padding: 5px;
@@ -1823,6 +1862,10 @@ p {
 .remove-log-button:hover span {
     transform: rotate(360deg);
 }
+
+
+
+
 
 @media (max-width: 2560px) {
     #group-series-button{
