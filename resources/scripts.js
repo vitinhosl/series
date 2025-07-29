@@ -2802,9 +2802,8 @@ function renderCurrentSeries(serie) {
     currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
 
     const hasSeasons = serie.season.length > 0;
-    const showDropdown = hasSeasons; // Sempre exibe o dropdown se há temporadas
+    const showDropdown = hasSeasons;
 
-    // Inicialmente, exibe todos os episódios (opção "Todas")
     let episodesToRender = [];
     let availableText = '';
     if (hasSeasons) {
@@ -2825,29 +2824,30 @@ function renderCurrentSeries(serie) {
 
     const currentSeriesHTML = `
         <div id="current-series">
-            <div id="current-series-header">
-                <p id="series-available-text">${availableText}</p>
-                ${showDropdown ? `
-                    <select id="season-dropdown">
-                        <option value="all">Todas</option>
-                        ${serie.season.map((season, index) => {
-                            const seasonDisplay = season.name ? season.name : `Temporada ${index + 1}`;
-                            return `<option value="season-${index}">${seasonDisplay}</option>`;
-                        }).join('')}
-                    </select>
-                ` : ''}
-            </div>
-            <div id="current-series-episodes">
-                ${renderEpisodes(serie, 'all')}
+            <div id="section-season">
+                <div id="current-series-header">
+                    <p id="series-available-text">${availableText}</p>
+                    ${showDropdown ? `
+                        <select id="season-dropdown">
+                            <option value="all">Todas</option>
+                            ${serie.season.map((season, index) => {
+                                const seasonDisplay = season.name ? season.name : `Temporada ${index + 1}`;
+                                return `<option value="season-${index}">${seasonDisplay}</option>`;
+                            }).join('')}
+                        </select>
+                    ` : ''}
+                </div>
+                <div id="current-series-episodes">
+                    ${renderEpisodes(serie, 'all')}
+                </div>
             </div>
         </div>
     `;
     seriesContainer.innerHTML = currentSeriesHTML;
     renderContinueWatchingSection();
 
-    // Animação inicial
     animateEpisodes(episodesToRender.length, previousEpisodeCount);
-    previousEpisodeCount = episodesToRender.length; // Atualiza o contador
+    previousEpisodeCount = episodesToRender.length;
 
     if (showDropdown) {
         const seasonDropdown = document.getElementById('season-dropdown');
@@ -2857,15 +2857,13 @@ function renderCurrentSeries(serie) {
             let updatedAvailableText = '';
 
             if (value === 'all') {
-                // Exibe todos os episódios de todas as temporadas
                 episodesToRender = serie.season.flatMap(season => season.episodes);
                 updatedAvailableText = `Todos os episódios: ${episodesToRender.length}`;
-                currentSeasonIndex = 0; // Reseta para a primeira temporada para consistência
+                currentSeasonIndex = 0;
                 const seasonKey = serie.season[currentSeasonIndex].name || `Temporada_${currentSeasonIndex + 1}`;
                 const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
                 currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
             } else {
-                // Exibe episódios da temporada selecionada
                 currentSeasonIndex = parseInt(value.split('-')[1], 10);
                 const selectedSeason = serie.season[currentSeasonIndex];
                 const selectedSeasonKey = selectedSeason.name || `Temporada_${currentSeasonIndex + 1}`;
@@ -2885,7 +2883,6 @@ function renderCurrentSeries(serie) {
 
             document.getElementById('series-available-text').innerText = updatedAvailableText;
 
-            // Anima e renderiza os episódios
             animateEpisodes(episodesToRender.length, previousEpisodeCount, () => {
                 document.getElementById('current-series-episodes').innerHTML = renderEpisodes(serie, value);
                 setupThumbnailLoading();
@@ -2902,7 +2899,7 @@ function renderCurrentSeries(serie) {
                 }
             });
 
-            previousEpisodeCount = episodesToRender.length; // Atualiza o contador
+            previousEpisodeCount = episodesToRender.length;
         });
     }
 
@@ -2924,71 +2921,101 @@ function renderEpisodes(serie, seasonValue) {
     const logs = JSON.parse(localStorage.getItem('logs')) || [];
     const serieKey = currentSerie.name.replace(/\s+/g, '_');
 
-    let episodes = [];
-    let seasonIndexMap = []; // Para mapear episódios para suas temporadas
-
     if (seasonValue === 'all') {
-        // Concatena episódios de todas as temporadas
-        serie.season.forEach((season, seasonIdx) => {
-            season.episodes.forEach(episode => {
-                episodes.push({ ...episode, seasonIndex: seasonIdx });
-                seasonIndexMap.push(seasonIdx);
-            });
-        });
-    } else {
-        // Usa episódios da temporada selecionada
-        const seasonIndex = parseInt(seasonValue.split('-')[1], 10);
-        episodes = serie.season[seasonIndex].episodes.map(episode => ({
-            ...episode,
-            seasonIndex
-        }));
-        seasonIndexMap = episodes.map(() => seasonIndex);
-    }
+        return serie.season.map((season, seasonIdx) => {
+            const episodes = season.episodes;
+            const totalEpisodes = episodes.length;
+            const isWatchedCount = episodes.filter(episode =>
+                logs.some(log =>
+                    log.serieName === currentSerie.name &&
+                    log.seasonIndex === seasonIdx &&
+                    log.episodeTitle === episode.title
+                )
+            ).length;
 
-    return episodes.map((episode, index) => {
-        const season = serie.season[episode.seasonIndex];
-        const fallbackThumb = season.thumb_season; // Fallback é a thumb da temporada
-        const episodeThumb = episode.thumb || fallbackThumb; // Thumb do episódio, se disponível
+            return `
+                <div class="season-section">
+                    <div class="season-header">
+                        <p>T${seasonIdx + 1} - Episódios disponíveis: ${totalEpisodes}</p>
+                    </div>
+                    <div class="episode-list">
+                        ${episodes.map((episode, index) => {
+                            const fallbackThumb = season.thumb_season;
+                            const episodeThumb = episode.thumb || fallbackThumb;
+                            const titleText = !episode.title 
+                                ? `Episódio ${index + 1}`
+                                : /^\d{1,3}$/.test(episode.title.trim()) 
+                                    ? `Episódio ${parseInt(episode.title, 10)}`
+                                    : episode.title;
+                            const isWatched = logs.some(log =>
+                                log.serieName === currentSerie.name &&
+                                log.seasonIndex === seasonIdx &&
+                                log.episodeTitle === episode.title
+                            );
 
-        // Define o texto do título
-        const titleText = !episode.title 
-            ? `Episódio ${index + 1}`
-            : /^\d{1,3}$/.test(episode.title.trim()) 
-                ? `Episódio ${parseInt(episode.title, 10)}`
-                : episode.title;
-
-        // Inclui informação da temporada no título se for "Todas"
-        const displayTitle = seasonValue === 'all' 
-            ? `T${episode.seasonIndex + 1} - ${titleText}`
-            : titleText;
-
-        // Verifica se o episódio está nos logs
-        const isWatched = logs.some(log => 
-            log.serieName === currentSerie.name &&
-            log.seasonIndex === episode.seasonIndex &&
-            log.episodeTitle === episode.title
-        );
-
-        // Retorna o HTML com o badge "ASSISTIDO" se aplicável
-        return `
-            <div class="episode-container">
-                <div id="episode-button" 
-                     data-url="${episode.url}" 
-                     data-alternative='${JSON.stringify(episode.alternative || [])}'
-                     data-season-index="${episode.seasonIndex}"
-                     style="background-image: url('${fallbackThumb}');">
-                    <img class="episode-thumb" 
-                         data-src="${episodeThumb}" 
-                         data-fallback="${fallbackThumb}" 
-                         alt="${titleText}" 
-                         loading="lazy">
-                    ${isWatched ? `<span class="badge-watched">▶ ASSISTIDO</span>` : ''}
-                    ${episode.duration ? `<span class="badge-duration">${episode.duration}</span>` : ''}
+                            return `
+                                <div class="episode-container">
+                                    <div id="episode-button" 
+                                         data-url="${episode.url}" 
+                                         data-alternative='${JSON.stringify(episode.alternative || [])}'
+                                         data-season-index="${seasonIdx}"
+                                         style="background-image: url('${fallbackThumb}');">
+                                        <img class="episode-thumb" 
+                                             data-src="${episodeThumb}" 
+                                             data-fallback="${fallbackThumb}" 
+                                             alt="${titleText}" 
+                                             loading="lazy">
+                                        ${isWatched ? `<span class="badge-watched">▶ ASSISTIDO</span>` : ''}
+                                        ${episode.duration ? `<span class="badge-duration">${episode.duration}</span>` : ''}
+                                    </div>
+                                    <p class="episode-title">${titleText}</p>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
                 </div>
-                <p class="episode-title">${displayTitle}</p>
-            </div>
-        `;
-    }).join('');
+            `;
+        }).join('');
+    } else {
+        const seasonIndex = parseInt(seasonValue.split('-')[1], 10);
+        const season = serie.season[seasonIndex];
+        const episodes = season.episodes.map(episode => ({ ...episode, seasonIndex }));
+
+        return episodes.map((episode, index) => {
+            const fallbackThumb = season.thumb_season;
+            const episodeThumb = episode.thumb || fallbackThumb;
+            const titleText = !episode.title 
+                ? `Episódio ${index + 1}`
+                : /^\d{1,3}$/.test(episode.title.trim()) 
+                    ? `Episódio ${parseInt(episode.title, 10)}`
+                    : episode.title;
+
+            const isWatched = logs.some(log =>
+                log.serieName === currentSerie.name &&
+                log.seasonIndex === seasonIndex &&
+                log.episodeTitle === episode.title
+            );
+
+            return `
+                <div class="episode-container">
+                    <div id="episode-button" 
+                         data-url="${episode.url}" 
+                         data-alternative='${JSON.stringify(episode.alternative || [])}'
+                         data-season-index="${seasonIndex}"
+                         style="background-image: url('${fallbackThumb}');">
+                        <img class="episode-thumb" 
+                             data-src="${episodeThumb}" 
+                             data-fallback="${fallbackThumb}" 
+                             alt="${titleText}" 
+                             loading="lazy">
+                        ${isWatched ? `<span class="badge-watched">▶ ASSISTIDO</span>` : ''}
+                        ${episode.duration ? `<span class="badge-duration">${episode.duration}</span>` : ''}
+                    </div>
+                    <p class="episode-title">${titleText}</p>
+                </div>
+            `;
+        }).join('');
+    }
 }
 
 function animateEpisodes(currentCount, previousCount, callback) {

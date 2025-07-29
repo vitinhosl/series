@@ -887,6 +887,21 @@ header.scrolled {
     /* overflow: hidden */
 }
 
+.season-header {
+    background: linear-gradient(to right, rgb(35, 35, 35) 0%, rgb(10, 10, 10) 80%);
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 3px 0px 3px 0px;
+    color: white;
+    font-weight: bold;
+}
+
+.episode-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 #season-dropdown, #overlay-season-dropdown, #overlay-episodes-dropdown {
     padding: 5px;
     background: rgb(102, 1, 39);
