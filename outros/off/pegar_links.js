@@ -277,3 +277,193 @@ button.addEventListener('click', () => {
   })();
 //#endregion  
 
+//#region YOUTUBE PLAYLIST
+(function(){
+    // Cria container flutuante
+    const container = document.createElement('div');
+    Object.assign(container.style, {
+        position: 'fixed',
+        top: '10px',
+        right: '10px',
+        zIndex: '9999',
+        background: 'white',
+        padding: '10px',
+        border: '1px solid #ccc',
+        borderRadius: '5px',
+        maxWidth: '350px',
+        fontFamily: 'sans-serif',
+        fontSize: '14px'
+    });
+
+    // Botão
+    const button = document.createElement('button');
+    button.textContent = 'Gerar e Copiar Lista de Vídeos';
+    Object.assign(button.style, {
+        padding: '5px 10px',
+        marginBottom: '10px',
+        cursor: 'pointer'
+    });
+
+    // Textarea de fallback
+    const textarea = document.createElement('textarea');
+    Object.assign(textarea.style, {
+        width: '100%',
+        height: '200px',
+        display: 'none',
+        marginTop: '5px'
+    });
+
+    container.appendChild(button);
+    container.appendChild(textarea);
+    document.body.appendChild(container);
+
+    button.addEventListener('click', () => {
+        // Seleciona todos os itens de vídeo da playlist
+        const items = Array.from(document.querySelectorAll('ytd-playlist-video-renderer'));
+
+        const list = items.map((item, idx) => {
+            // Título e URL
+            const a = item.querySelector('#video-title');
+            const title = (a?.textContent || 'Sem título').trim();
+            const href = a?.href || '';
+            const videoId = new URL(href).searchParams.get('v') || '';
+
+            // Thumbnail
+            const img = item.querySelector('ytd-thumbnail img');
+            const thumb = img?.src || img?.getAttribute('data-thumb') || '';
+
+            // Duração
+            const durationEl = item.querySelector('span.ytd-thumbnail-overlay-time-status-renderer');
+            const duration = durationEl?.textContent.trim() || '';
+
+            // Monta objeto
+            const number = String(idx + 1).padStart(3, '0');
+            return `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration}", thumb: "${thumb}", url: "${href}", alternative: []},`;
+        }).join('\n');
+
+        // Copia para clipboard
+        navigator.clipboard.writeText(list).then(() => {
+            textarea.style.display = 'block';
+            textarea.value = list;
+        }).catch(() => {
+            textarea.style.display = 'block';
+            textarea.value = list;
+            alert('Erro ao copiar. A lista foi exibida na área de texto.');
+        });
+    });
+})();
+//#endregion
+
+//#region GLOBOPLAY
+(function(){
+    // Cria container flutuante
+    const container = document.createElement('div');
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
+    Object.assign(container.style, {
+        position: 'fixed',
+        top: '10px',
+        right: '10px',
+        zIndex: '9999',
+        background: isDarkMode ? '#1f1f1f' : 'white',
+        color: isDarkMode ? 'white' : 'black',
+        padding: '10px',
+        border: '1px solid ' + (isDarkMode ? '#444' : '#ccc'),
+        borderRadius: '5px',
+        maxWidth: '350px',
+        fontFamily: 'sans-serif',
+        fontSize: '14px'
+    });
+
+    // Botão principal
+    const button = document.createElement('button');
+    button.textContent = 'Gerar e Copiar Lista de Episódios';
+    Object.assign(button.style, {
+        padding: '5px 10px',
+        marginBottom: '10px',
+        cursor: 'pointer'
+    });
+
+    // Botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    Object.assign(closeButton.style, {
+        position: 'absolute',
+        top: '5px',
+        right: '5px',
+        padding: '2px 6px',
+        cursor: 'pointer'
+    });
+    closeButton.addEventListener('click', () => container.remove());
+
+    // Textarea de fallback
+    const textarea = document.createElement('textarea');
+    Object.assign(textarea.style, {
+        width: '100%',
+        height: '200px',
+        display: 'none',
+        marginTop: '5px',
+        background: isDarkMode ? '#333' : 'white',
+        color: isDarkMode ? 'white' : 'black'
+    });
+
+    container.appendChild(closeButton);
+    container.appendChild(button);
+    container.appendChild(textarea);
+    document.body.appendChild(container);
+
+    // Função para rolar até o final da página
+    async function scrollToBottom() {
+        let lastHeight = document.body.scrollHeight;
+        while (true) {
+            window.scrollTo(0, document.body.scrollHeight);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const newHeight = document.body.scrollHeight;
+            if (newHeight === lastHeight) break;
+            lastHeight = newHeight;
+        }
+    }
+
+    // Evento de clique no botão
+    button.addEventListener('click', async () => {
+        await scrollToBottom();
+        const items = Array.from(document.querySelectorAll('.title-episode'));
+
+        const list = items.map((item, idx) => {
+            // Título
+            const titleEl = item.querySelector('.title-episode__title');
+            const title = titleEl ? titleEl.textContent.trim() : 'Sem título';
+
+            // URL
+            const a = item.querySelector('.video-widget a');
+            const href = a ? a.href : '';
+            const videoId = href ? new URL(href).pathname.split('/v/')[1]?.split('/')[0] || '' : '';
+
+            // Thumbnail
+            const img = item.querySelector('.thumb');
+            const thumb = img ? img.src : '';
+
+            // Duração
+            const durationEl = item.querySelector('.video-widget__duration');
+            const duration = durationEl ? durationEl.textContent.trim() : '';
+
+            // Monta objeto
+            const number = String(idx + 1).padStart(3, '0');
+            return `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration}", thumb: "${thumb}", url: "${href}", alternative: []},`;
+        }).join('\n');
+
+        // Copia para clipboard
+        navigator.clipboard.writeText(list).then(() => {
+            button.textContent = 'Copiado!';
+            setTimeout(() => button.textContent = 'Gerar e Copiar Lista de Episódios', 2000);
+            textarea.style.display = 'block';
+            textarea.value = list;
+        }).catch(() => {
+            textarea.style.display = 'block';
+            textarea.value = list;
+            textarea.select();
+            alert('Erro ao copiar. A lista foi exibida na área de texto. Pressione Ctrl+C para copiar.');
+        });
+    });
+})();
+//#endregion
+
