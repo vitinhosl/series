@@ -891,12 +891,36 @@ header.scrolled {
     background: linear-gradient(to right, rgb(35, 35, 35) 0%, rgb(10, 10, 10) 80%);
     border-radius: 10px;
     padding: 10px 15px;
-    margin: 5px 0px 5px 0px;
+    margin: 5px 0px 7px 0px;
     color: white;
     font-weight: bold;
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}
+
+.season-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background: linear-gradient(to right, rgb(60, 60, 60) 0%, rgb(10, 10, 10) 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    z-index: -1;
+}
+
+.season-header:hover::before {
+    opacity: 1;
+}
+
+.season-header:hover {
+    transform: translateY(-1px);
 }
 
 .episode-list {
@@ -924,9 +948,9 @@ header.scrolled {
     left: 50%;
     width: 0;
     height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 13px solid white;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid white;
     transform: translate(-50%, -50%) rotate(0deg);
     transition: transform 0.3s ease;
 }

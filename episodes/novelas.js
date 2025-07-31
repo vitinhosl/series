@@ -490,7 +490,7 @@ const novelsData= [
             {
                 name: "Rebelde",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/SEnkwUw.jpeg"],
+                thumb_buttons: ["https://i.imgur.com/SEnkwUw.jpeg", "https://s2.glbimg.com/ZL5vyy2AgnF4hB9zaOpsfIbnttA=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2024/2/v/xY2nXpT1elFw5Zg5ChbQ/2024-4284-rebelde-t3-poster.jpg"],
                 badge: "NOVO",
                 type: "Temporadas",
                 canais: false,
