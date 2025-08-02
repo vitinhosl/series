@@ -2760,30 +2760,29 @@ const seriesData = [
 ];
 
 // localStorage.clear();
-let autoPlay                    = true;
-let fullEpisodesList            = true;
-let animationReverseEpisodes    = false;
-let animationReverseFavorites   = false;
-let animationReverseContinues   = false;
-let animationSpeedEpisodes      = 3;
-let animationSpeedFavorites     = 10;
-let animationSpeedButtons       = 30;
-let animationSpeedSearchsKeys   = 2;
-let animationSpeedCarrouselBar  = 8;
-let animationSpeedLogs          = 80;
-
-const selectedThumbs            = {};
-const thumbnailCache            = {};
-let   favorites                 = JSON.parse(localStorage.getItem('favorites')) || [];
-let   continues                 = JSON.parse(localStorage.getItem('continues')) || {};
-let   currentSerie              = null;
-let   currentEpisodeIndex       = 0;
-let   currentSeasonIndex        = 0;
-let   cumulativeAnimationIndex  = 0;
-let   previousEpisodeCount      = 0;
+let autoPlay                   = true;
+let fullEpisodesList           = true;
+let animationReverseEpisodes   = false;
+let animationReverseFavorites  = false;
+let animationReverseContinues  = false;
+let animationSpeedEpisodes     = 3;
+let animationSpeedFavorites    = 10;
+let animationSpeedButtons      = 30;
+let animationSpeedSearchsKeys  = 2;
+let animationSpeedCarrouselBar = 8;
+let animationSpeedLogs         = 80;
+let currentSerie               = null;
+let currentEpisodeIndex        = 0;
+let currentSeasonIndex         = 0;
+let cumulativeAnimationIndex   = 0;
+let previousEpisodeCount       = 0;
+let favorites                  = JSON.parse(localStorage.getItem('favorites')) || [];
+let continues                  = JSON.parse(localStorage.getItem('continues')) || {};
+let currentSeasonDropdownValue = 'all';
+const selectedThumbs           = {};
+const thumbnailCache           = {};
 
 //SERIE ATUAL
-let currentSeasonDropdownValue = 'all';
 
 function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) {
     const seriesContainer = document.getElementById('series');
