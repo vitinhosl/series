@@ -3104,22 +3104,20 @@ function addEpisodeButtonListeners() {
 function animateEpisodes(currentCount, previousCount, callback) {
     const episodeContainer = document.getElementById('current-series-episodes');
     const episodeContainers = episodeContainer.querySelectorAll('.episode-container');
-    const seasonSections = episodeContainer.querySelectorAll('.season-section');
 
     if (animationReverseEpisodes) {
         if (currentCount > previousCount) {
             if (callback) callback();
             const newEpisodeContainers = episodeContainer.querySelectorAll('.episode-container');
             newEpisodeContainers.forEach((episode, index) => {
-                const seasonIdx = parseInt(episode.closest('.season-section')?.querySelector('.season-header').getAttribute('data-season-index'), 10);
-                // Animar apenas se a temporada não estava expandida antes
-                const wasExpanded = seasonExpandedState[seasonIdx] !== undefined ? seasonExpandedState[seasonIdx] : true;
-                episode.style.opacity = wasExpanded ? '1' : '0';
-                if (!wasExpanded && index >= previousCount) {
+                episode.style.opacity = '0';
+                if (index >= previousCount) {
                     setTimeout(() => {
                         episode.classList.add('slide-in-right');
                         episode.style.opacity = '1';
                     }, (index - previousCount) * (animationSpeedEpisodes * 10));
+                } else {
+                    episode.style.opacity = '1';
                 }
             });
         } else if (currentCount < previousCount) {
@@ -3149,17 +3147,12 @@ function animateEpisodes(currentCount, previousCount, callback) {
         if (callback) callback();
         const newEpisodeContainers = episodeContainer.querySelectorAll('.episode-container');
         newEpisodeContainers.forEach((episode, index) => {
-            const seasonIdx = parseInt(episode.closest('.season-section')?.querySelector('.season-header').getAttribute('data-season-index'), 10);
-            // Animar apenas se a temporada não estava expandida antes
-            const wasExpanded = seasonExpandedState[seasonIdx] !== undefined ? seasonExpandedState[seasonIdx] : true;
             episode.classList.remove('slide-in-right', 'slide-out-right');
-            episode.style.opacity = wasExpanded ? '1' : '0';
-            if (!wasExpanded) {
-                setTimeout(() => {
-                    episode.classList.add('slide-in-right');
-                    episode.style.opacity = '1';
-                }, index * 30);
-            }
+            episode.style.opacity = '0';
+            setTimeout(() => {
+                episode.classList.add('slide-in-right');
+                episode.style.opacity = '1';
+            }, index * 30);
         });
     }
 }
