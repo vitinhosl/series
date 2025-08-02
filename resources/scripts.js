@@ -2805,10 +2805,6 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
     currentSerie = serie;
 
     const serieKey = serie.name.replace(/\s+/g, '_');
-    const initialSeasonKey = serie.season[currentSeasonIndex]?.name || `Temporada_${currentSeasonIndex + 1}`;
-    const seasonProgress = (continues[serieKey] || {})[initialSeasonKey];
-    currentEpisodeIndex = (seasonProgress && seasonProgress.episodeIndex !== undefined) ? seasonProgress.episodeIndex : 0;
-
     const hasSeasons = serie.season.length > 0;
     const showDropdown = hasSeasons && (serie.season.length > 1);
     const showAllOption = serie.season.length > 1;
@@ -2819,7 +2815,8 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
         if (dropdownValue === 'all') {
             episodesToRender = serie.season.flatMap(s => s.episodes);
             availableText = `Todos os episódios: ${episodesToRender.length}`;
-            currentSeasonIndex = 0;
+            // Remover definição de currentSeasonIndex como 0 por padrão
+            // currentSeasonIndex = 0;
         } else {
             currentSeasonIndex = parseInt(dropdownValue.split('-')[1], 10);
             const currentSeason = serie.season[currentSeasonIndex];
@@ -2885,7 +2882,8 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
             if (value === 'all') {
                 newEpisodes = serie.season.flatMap(s => s.episodes);
                 newText = `Todos os episódios: ${newEpisodes.length}`;
-                currentSeasonIndex = 0;
+                // Remover definição de currentSeasonIndex como 0
+                // currentSeasonIndex = 0;
             } else {
                 currentSeasonIndex = parseInt(value.split('-')[1], 10);
                 const selSeason = serie.season[currentSeasonIndex];
@@ -2907,12 +2905,6 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
                 setupThumbnailLoading();
                 addEpisodeButtonListeners();
                 updateButtonVisibility();
-                const btns = document.querySelectorAll('#episode-button');
-                if (value !== 'all' && seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
-                    btns[seasonProgress.activeEpisodeIndex]?.classList.add('active');
-                } else {
-                    btns[currentEpisodeIndex]?.classList.add('active');
-                }
             });
 
             previousEpisodeCount = newEpisodes.length;
@@ -2922,17 +2914,12 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
     addEpisodeButtonListeners();
     updateButtonVisibility();
     setupThumbnailLoading();
-    const episodeButtons = document.querySelectorAll('#episode-button');
-    if (seasonProgress && seasonProgress.activeEpisodeIndex !== undefined) {
-        episodeButtons[seasonProgress.activeEpisodeIndex]?.classList.add('active');
-    } else {
-        episodeButtons[currentEpisodeIndex]?.classList.add('active');
-    }
 }
 
 function renderEpisodes(serie, seasonValue) {
     const logs = JSON.parse(localStorage.getItem('logs')) || [];
     const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    const continues = JSON.parse(localStorage.getItem('continues')) || {};
 
     if (seasonValue === 'all') {
         return serie.season.map((season, seasonIdx) => {
@@ -2946,7 +2933,10 @@ function renderEpisodes(serie, seasonValue) {
                 )
             ).length;
 
-            // Usar seasonExpandedState, default true se não definido
+            const seasonKey = season.name || `Temporada_${seasonIdx + 1}`;
+            const seasonProgress = continues[serieKey]?.[seasonKey];
+            const activeEpisodeIndex = seasonProgress?.activeEpisodeIndex;
+
             const isExpanded = seasonExpandedState[seasonIdx] !== undefined ? seasonExpandedState[seasonIdx] : true;
             const layoutClass = isExpanded ? 'vertical-layout' : 'horizontal-layout';
             const headerText = season.movies ? `Filmes disponíveis: ${totalEpisodes}` : `T${seasonIdx + 1} - Episódios disponíveis: ${totalEpisodes}`;
@@ -2961,12 +2951,14 @@ function renderEpisodes(serie, seasonValue) {
                         ${episodes.map((episode, index) => {
                             const fallbackThumb = season.thumb_season;
                             const episodeThumb = episode.thumb || fallbackThumb;
-                            const titleText = !episode.title ? `Episódio ${index + 1}` : /^\d{1,3}$/.test(episode.title.trim())  ? `Episódio ${parseInt(episode.title, 10)}` : episode.title;
+                            const titleText = !episode.title ? `Episódio ${index + 1}` : /^\d{1,3}$/.test(episode.title.trim()) ? `Episódio ${parseInt(episode.title, 10)}` : episode.title;
                             const isWatched = logs.some(log =>
                                 log.serieName === currentSerie.name &&
                                 log.seasonIndex === seasonIdx &&
                                 log.episodeTitle === episode.title
                             );
+                            // Aplicar 'active' apenas se activeEpisodeIndex estiver definido
+                            const isActive = activeEpisodeIndex !== undefined && index === activeEpisodeIndex ? 'active' : '';
 
                             return `
                                 <div class="episode-container">
@@ -2974,6 +2966,7 @@ function renderEpisodes(serie, seasonValue) {
                                          data-url="${episode.url}" 
                                          data-alternative='${JSON.stringify(episode.alternative || [])}'
                                          data-season-index="${seasonIdx}"
+                                         class="${isActive}"
                                          style="background-image: url('${fallbackThumb}');">
                                         <img class="episode-thumb" 
                                              data-src="${episodeThumb}" 
@@ -2994,17 +2987,21 @@ function renderEpisodes(serie, seasonValue) {
     } else {
         const seasonIndex = parseInt(seasonValue.split('-')[1], 10);
         const season = serie.season[seasonIndex];
-        const episodes = season.episodes.map(episode => ({ ...episode, seasonIndex }));
+        const seasonKey = season.name || `Temporada_${seasonIndex + 1}`;
+        const seasonProgress = continues[serieKey]?.[seasonKey];
+        const activeEpisodeIndex = seasonProgress?.activeEpisodeIndex;
 
-        return episodes.map((episode, index) => {
+        return season.episodes.map((episode, index) => {
             const fallbackThumb = season.thumb_season;
             const episodeThumb = episode.thumb || fallbackThumb;
-            const titleText = !episode.title ? `Episódio ${index + 1}` : /^\d{1,3}$/.test(episode.title.trim())  ? `Episódio ${parseInt(episode.title, 10)}` : episode.title;
+            const titleText = !episode.title ? `Episódio ${index + 1}` : /^\d{1,3}$/.test(episode.title.trim()) ? `Episódio ${parseInt(episode.title, 10)}` : episode.title;
             const isWatched = logs.some(log =>
                 log.serieName === currentSerie.name &&
                 log.seasonIndex === seasonIndex &&
                 log.episodeTitle === episode.title
             );
+            // Aplicar 'active' apenas se activeEpisodeIndex estiver definido
+            const isActive = activeEpisodeIndex !== undefined && index === activeEpisodeIndex ? 'active' : '';
 
             return `
                 <div class="episode-container">
@@ -3012,6 +3009,7 @@ function renderEpisodes(serie, seasonValue) {
                          data-url="${episode.url}" 
                          data-alternative='${JSON.stringify(episode.alternative || [])}'
                          data-season-index="${seasonIndex}"
+                         class="${isActive}"
                          style="background-image: url('${fallbackThumb}');">
                         <img class="episode-thumb" 
                              data-src="${episodeThumb}" 
@@ -3031,44 +3029,74 @@ function renderEpisodes(serie, seasonValue) {
 function addEpisodeButtonListeners() {
     document.querySelectorAll('#episode-button').forEach((button, index) => {
         button.addEventListener('click', function() {
-            document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            currentEpisodeIndex = index;
-            const seasonIndex = parseInt(this.getAttribute('data-season-index'), 10);
+            const seasonDropdown = document.getElementById('season-dropdown');
+            const isAllSeasons = seasonDropdown && seasonDropdown.value === 'all';
+
+            let seasonIndex, episodeIndex;
+
+            if (isAllSeasons) {
+                // Encontrar a season-section mais próxima para determinar a temporada
+                const seasonSection = this.closest('.season-section');
+                seasonIndex = parseInt(seasonSection.querySelector('.season-header').getAttribute('data-season-index'), 10);
+                
+                // Calcular o episodeIndex dentro da temporada
+                const episodeButtonsInSeason = seasonSection.querySelectorAll('.episode-container #episode-button');
+                episodeIndex = Array.from(episodeButtonsInSeason).indexOf(this);
+            } else {
+                // Comportamento para temporadas específicas
+                seasonIndex = parseInt(this.getAttribute('data-season-index'), 10);
+                episodeIndex = index;
+            }
+
+            // Atualizar índices globais
             currentSeasonIndex = seasonIndex;
+            currentEpisodeIndex = episodeIndex;
+
+            // Remover classe active apenas dos botões da mesma temporada
+            const seasonSection = document.querySelector(`.season-section .season-header[data-season-index="${seasonIndex}"]`);
+            if (seasonSection) {
+                seasonSection.closest('.season-section').querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
+            } else {
+                document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
+            }
+            this.classList.add('active');
+
             // Só atualizar currentSeasonDropdownValue se não estiver em "all"
-            if (currentSeasonDropdownValue !== 'all') {
+            if (!isAllSeasons) {
                 currentSeasonDropdownValue = `season-${seasonIndex}`;
             }
+
             const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
-            const rawTitle = currentSerie.season[seasonIndex].episodes[index].title;
-            const epNumber = /^\d+$/.test(rawTitle) ? rawTitle : (index + 1).toString();
+            const rawTitle = currentSerie.season[seasonIndex].episodes[episodeIndex].title;
+            const epNumber = /^\d+$/.test(rawTitle) ? rawTitle : (episodeIndex + 1).toString();
             window.history.replaceState(
-                { page: 'series', serieName: currentSerie.name, episodeIndex: index, seasonIndex },
+                { page: 'series', serieName: currentSerie.name, episodeIndex: episodeIndex, seasonIndex },
                 '',
                 `#${serieSlug}-${epNumber}`
             );
+
             const url = this.getAttribute('data-url');
-            openVideoOverlay(appendAutoplay(url), seasonIndex, index);
+            openVideoOverlay(appendAutoplay(url), seasonIndex, episodeIndex);
             renderToggleButtons(this);
             updateButtonVisibility();
+
             const serieKey = currentSerie.name.replace(/\s+/g, '_');
             const seasonKey = currentSerie.season[seasonIndex].name || `Temporada_${seasonIndex + 1}`;
-            const episode = currentSerie.season[seasonIndex].episodes[index];
+            const episode = currentSerie.season[seasonIndex].episodes[episodeIndex];
             const progress = {
                 serieName: currentSerie.name,
                 seasonName: currentSerie.season[seasonIndex].name,
                 episodeTitle: episode.title,
-                episodeIndex: index,
+                episodeIndex: episodeIndex,
                 seasonIndex: seasonIndex,
                 thumb: episode.thumb || currentSerie.season[seasonIndex].thumb_season,
                 url: episode.url,
                 movies: currentSerie.season[seasonIndex].movies,
-                activeEpisodeIndex: index
+                activeEpisodeIndex: episodeIndex
             };
             saveContinueProgress(progress);
             renderContinueWatchingSection();
-            logEpisodeClick(episode, seasonIndex, index);
+            logEpisodeClick(episode, seasonIndex, episodeIndex);
         });
     });
 }
@@ -3076,20 +3104,22 @@ function addEpisodeButtonListeners() {
 function animateEpisodes(currentCount, previousCount, callback) {
     const episodeContainer = document.getElementById('current-series-episodes');
     const episodeContainers = episodeContainer.querySelectorAll('.episode-container');
+    const seasonSections = episodeContainer.querySelectorAll('.season-section');
 
     if (animationReverseEpisodes) {
         if (currentCount > previousCount) {
             if (callback) callback();
             const newEpisodeContainers = episodeContainer.querySelectorAll('.episode-container');
             newEpisodeContainers.forEach((episode, index) => {
-                episode.style.opacity = '0';
-                if (index >= previousCount) {
+                const seasonIdx = parseInt(episode.closest('.season-section')?.querySelector('.season-header').getAttribute('data-season-index'), 10);
+                // Animar apenas se a temporada não estava expandida antes
+                const wasExpanded = seasonExpandedState[seasonIdx] !== undefined ? seasonExpandedState[seasonIdx] : true;
+                episode.style.opacity = wasExpanded ? '1' : '0';
+                if (!wasExpanded && index >= previousCount) {
                     setTimeout(() => {
                         episode.classList.add('slide-in-right');
                         episode.style.opacity = '1';
                     }, (index - previousCount) * (animationSpeedEpisodes * 10));
-                } else {
-                    episode.style.opacity = '1';
                 }
             });
         } else if (currentCount < previousCount) {
@@ -3119,12 +3149,17 @@ function animateEpisodes(currentCount, previousCount, callback) {
         if (callback) callback();
         const newEpisodeContainers = episodeContainer.querySelectorAll('.episode-container');
         newEpisodeContainers.forEach((episode, index) => {
+            const seasonIdx = parseInt(episode.closest('.season-section')?.querySelector('.season-header').getAttribute('data-season-index'), 10);
+            // Animar apenas se a temporada não estava expandida antes
+            const wasExpanded = seasonExpandedState[seasonIdx] !== undefined ? seasonExpandedState[seasonIdx] : true;
             episode.classList.remove('slide-in-right', 'slide-out-right');
-            episode.style.opacity = '0';
-            setTimeout(() => {
-                episode.classList.add('slide-in-right');
-                episode.style.opacity = '1';
-            }, index * 30);
+            episode.style.opacity = wasExpanded ? '1' : '0';
+            if (!wasExpanded) {
+                setTimeout(() => {
+                    episode.classList.add('slide-in-right');
+                    episode.style.opacity = '1';
+                }, index * 30);
+            }
         });
     }
 }
