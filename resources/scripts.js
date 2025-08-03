@@ -2959,6 +2959,8 @@ function renderEpisodes(serie, seasonValue) {
                             );
                             // Aplicar 'active' apenas se activeEpisodeIndex estiver definido
                             const isActive = activeEpisodeIndex !== undefined && index === activeEpisodeIndex ? 'active' : '';
+                            // Adicionar classe 'watched' se o episódio foi assistido
+                            const watchedClass = isWatched ? 'watched' : '';
 
                             return `
                                 <div class="episode-container">
@@ -2966,7 +2968,7 @@ function renderEpisodes(serie, seasonValue) {
                                          data-url="${episode.url}" 
                                          data-alternative='${JSON.stringify(episode.alternative || [])}'
                                          data-season-index="${seasonIdx}"
-                                         class="${isActive}"
+                                         class="${isActive} ${watchedClass}"
                                          style="background-image: url('${fallbackThumb}');">
                                         <img class="episode-thumb" 
                                              data-src="${episodeThumb}" 
@@ -3002,6 +3004,8 @@ function renderEpisodes(serie, seasonValue) {
             );
             // Aplicar 'active' apenas se activeEpisodeIndex estiver definido
             const isActive = activeEpisodeIndex !== undefined && index === activeEpisodeIndex ? 'active' : '';
+            // Adicionar classe 'watched' se o episódio foi assistido
+            const watchedClass = isWatched ? 'watched' : '';
 
             return `
                 <div class="episode-container">
@@ -3009,7 +3013,7 @@ function renderEpisodes(serie, seasonValue) {
                          data-url="${episode.url}" 
                          data-alternative='${JSON.stringify(episode.alternative || [])}'
                          data-season-index="${seasonIndex}"
-                         class="${isActive}"
+                         class="${isActive} ${watchedClass}"
                          style="background-image: url('${fallbackThumb}');">
                         <img class="episode-thumb" 
                              data-src="${episodeThumb}" 
@@ -3046,6 +3050,20 @@ function addEpisodeButtonListeners() {
                 // Comportamento para temporadas específicas
                 seasonIndex = parseInt(this.getAttribute('data-season-index'), 10);
                 episodeIndex = index;
+            }
+
+            // Registrar o episódio anterior como assistido, se houver
+            if (currentSeasonIndex !== undefined && currentEpisodeIndex !== undefined && 
+                (currentSeasonIndex !== seasonIndex || currentEpisodeIndex !== episodeIndex)) {
+                const logs = JSON.parse(localStorage.getItem('logs')) || [];
+                const previousEpisode = currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex];
+                logs.push({
+                    serieName: currentSerie.name,
+                    seasonIndex: currentSeasonIndex,
+                    episodeTitle: previousEpisode.title,
+                    timestamp: new Date().toISOString()
+                });
+                localStorage.setItem('logs', JSON.stringify(logs));
             }
 
             // Atualizar índices globais

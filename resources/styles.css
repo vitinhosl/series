@@ -1141,22 +1141,33 @@ header.scrolled {
 
 #continue-episode-button:has(.remove-button:hover)::before,
 #episode-button:has(.remove-button:hover)::before {
-    border: 1px solid rgb(226, 127, 127);
-    box-shadow: 0 4px 10px rgba(226, 127, 127, 0.4), 0 8px 20px rgba(226, 127, 127, 0.1);
-    background-color: rgba(128, 28, 28, 0.8);
+    border: 1px solid rgb(255, 0, 0);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4), 0 8px 20px rgba(253, 0, 0, 0.1);
+    background-color: rgba(94, 0, 0, 0.9);
 
-    border: 1px solid rgb(237, 0, 73);
+    /* border: 1px solid rgb(237, 0, 73);
     box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
-    background-color: rgba(102, 1, 39, 0.8);
+    background-color: rgba(102, 1, 39, 0.8); */
 }
 
+#episode-button.active.watched::before,
 #continue-episode-button.active::before,
 #episode-button.active::before {
-    border: 1px solid rgb(237, 0, 73);
-    box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
-    background-color: rgba(102, 1, 39, 0.8);
+    border: 1px solid rgb(8, 237, 0);
+    box-shadow: 0 4px 10px rgba(14, 152, 1, 0.4), 0 8px 20px rgba(1, 152, 1, 0.1);
+    background-color: rgba(4, 102, 1, 0.8);
 }
 
+#episode-button.watched::before {
+    border: 1px solid rgb(237, 0, 73);
+    background-color: rgba(102, 1, 39, 0.8);
+    /* box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1); */
+
+    border: 1px solid rgb(237, 0, 73, 0.5);
+    background-color: rgba(63, 2, 25, 0.8);
+}
+
+#current-series-episodes #episode-button.watched::before,
 #continue-series-episodes #episode-button.active::before,
 #current-series-episodes #episode-button.active::before {
     content: "";
@@ -1169,6 +1180,7 @@ header.scrolled {
     pointer-events: none;
 }
 
+#current-series-episodes #episode-button.watched::after,
 #continue-series-episodes #episode-button.active::after,
 #current-series-episodes #episode-button.active::after {
     content: "";
@@ -1185,13 +1197,22 @@ header.scrolled {
     height: 80px;
 }
 
+#continue-series-episodes #episode-button.active.watched::before,
 #continue-series-episodes #episode-button.active:hover::before,
+#current-series-episodes #episode-button.active.watched:hover::before,
 #current-series-episodes #episode-button.active:hover::before {
+    border: 1px solid rgb(10, 255, 2);
+    box-shadow: 0 2px 5px rgba(23, 255, 2, 0.7), 0 6px 15px rgba(23, 255, 2, 0.3);
+    background-color: rgba(32, 255, 2, 0.4);
+}
+
+#current-series-episodes #episode-button.watched:hover::before {
     border: 1px solid rgb(255, 2, 102);
     box-shadow: 0 2px 5px rgba(255, 2, 102, 0.7), 0 6px 15px rgba(255, 2, 102, 0.3);
     background-color: rgba(255, 2, 102, 0.4);
 }
 
+#episode-button.watched p,
 #continue-episode-button.active p,
 #episode-button.active p {
     background: linear-gradient(to bottom, rgb(200, 209, 214), rgb(255, 255, 255));
