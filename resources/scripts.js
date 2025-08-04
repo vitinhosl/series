@@ -2965,16 +2965,13 @@ function renderEpisodes(serie, seasonValue) {
                             return `
                                 <div class="episode-container">
                                     <div id="episode-button" 
-                                         data-url="${episode.url}" 
-                                         data-alternative='${JSON.stringify(episode.alternative || [])}'
-                                         data-season-index="${seasonIdx}"
-                                         class="${isActive} ${watchedClass}"
-                                         style="background-image: url('${fallbackThumb}');">
-                                        <img class="episode-thumb" 
-                                             data-src="${episodeThumb}" 
-                                             data-fallback="${fallbackThumb}" 
-                                             alt="${titleText}" 
-                                             loading="lazy">
+                                        data-url="${episode.url}" 
+                                        data-alternative='${JSON.stringify(episode.alternative || [])}'
+                                        data-season-index="${seasonIdx}"
+                                        class="${isActive} ${watchedClass}"
+                                        style="background-image: url('${fallbackThumb}');">
+                                        <img class="episode-thumb" data-src="${episodeThumb}" data-fallback="${fallbackThumb}" alt="${titleText}" loading="lazy">
+                                        <span class="icon-btn"></span>
                                         ${isWatched ? `<span class="badge-watched">▶ ASSISTIDO</span>` : ''}
                                         ${episode.duration ? `<span class="badge-duration">${episode.duration}</span>` : ''}
                                     </div>
@@ -3020,8 +3017,16 @@ function renderEpisodes(serie, seasonValue) {
                              data-fallback="${fallbackThumb}" 
                              alt="${titleText}" 
                              loading="lazy">
+                        <span class="icon-btn">
+                            <span class="trash-lid"></span>
+                            <span class="trash-handle"></span>
+                            <span class="trash-bar bar1"></span>
+                            <span class="trash-bar bar2"></span>
+                            <span class="trash-bar bar3"></span>
+                        </span>
                         ${isWatched ? `<span class="badge-watched">▶ ASSISTIDO</span>` : ''}
                         ${episode.duration ? `<span class="badge-duration">${episode.duration}</span>` : ''}
+                        <button class="remove-button">X</button>
                     </div>
                     <p class="episode-title">${titleText}</p>
                 </div>
@@ -3258,6 +3263,13 @@ function renderContinueWatchingSection() {
                     location.hash='${serieSlug}-${epNumber}';
                     openVideoOverlay('${appendAutoplay(seasonProgress.url)}', ${seasonProgress.seasonIndex}, ${epIndex});
                  ">
+                <span class="icon-btn">
+                    <span class="trash-lid"></span>
+                    <span class="trash-handle"></span>
+                    <span class="trash-bar bar1"></span>
+                    <span class="trash-bar bar2"></span>
+                    <span class="trash-bar bar3"></span>
+                </span>
                 <p>${episodeText}</p>
                 <div class="remove-button" data-season-key="${seasonKey}">✕</div>
             </div>
@@ -4342,12 +4354,11 @@ function logEpisodeClick(episode, seasonIndex, episodeIndex) {
     };
 
     let logs = JSON.parse(localStorage.getItem('logs')) || [];
+    // Verifica duplicatas apenas pelos campos essenciais
     const isDuplicate = logs.some(log => 
         log.serieName === logEntry.serieName &&
         log.seasonIndex === logEntry.seasonIndex &&
-        log.episodeTitle === logEntry.episodeTitle &&
-        log.date === logEntry.date &&
-        log.time === logEntry.time
+        log.episodeTitle === logEntry.episodeTitle
     );
     if (!isDuplicate) {
         logs.push(logEntry);

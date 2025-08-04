@@ -103,8 +103,7 @@ body {
     position: relative;
     justify-content: center;
     align-items: flex-end;
-    background-image: 
-        radial-gradient(circle, rgba(10, 10, 10, 0.8), rgba(15, 15, 15, 1.0) 100%), 
+    background-image: radial-gradient(circle, rgba(10, 10, 10, 0.8), rgba(15, 15, 15, 1.0) 100%), 
         url('https://i.imgur.com/jnB508u.jpeg');
     background-size: cover;
     background-position: center;
@@ -334,7 +333,7 @@ header.scrolled {
     display: flex;
     width: 100%;
     height: 100%;
-    background-image: url("https://i.imgur.com/zXnAXED.png");
+    /* background-image: url("https://i.imgur.com/zXnAXED.png"); */
 }
 
 #carousel-images img {
@@ -487,16 +486,15 @@ header.scrolled {
 #group-series-cards.no-wrap::-webkit-scrollbar {
     height: 8px;
 }
+
 #group-series-cards.no-wrap::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 4px;
 }
+
 #group-series-cards.no-wrap::-webkit-scrollbar-track {
     background: #222;
 }
-
-
-
 
 .badge {
     position: absolute;
@@ -769,16 +767,19 @@ header.scrolled {
     color: #999;
 }
 
-.container-input .input::-webkit-input-placeholder { /* Chrome, Safari */
+.container-input .input::-webkit-input-placeholder {
     color: #999;
 }
-.container-input .input:-moz-placeholder { /* Firefox 18- */
+
+.container-input .input:-moz-placeholder {
     color: #999;
 }
-.container-input .input::-moz-placeholder { /* Firefox 19+ */
+
+.container-input .input::-moz-placeholder {
     color: #999;
 }
-.container-input .input:-ms-input-placeholder { /* IE 10+ */
+
+.container-input .input:-ms-input-placeholder {
     color: #999;
 }
 
@@ -963,7 +964,6 @@ header.scrolled {
     transition: all 0.3s ease;
 }
 
-
 #season-dropdown, #overlay-season-dropdown, #overlay-episodes-dropdown {
     padding: 5px;
     background: rgb(102, 1, 39);
@@ -1090,8 +1090,6 @@ header.scrolled {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url('https://i.imgur.com/Uj4TeJR.png');
-    background-image: url('https://i.imgur.com/J9tWuW3.png');
     background-size: cover;
     background-position: center;
     opacity: 0.6;
@@ -1102,9 +1100,192 @@ header.scrolled {
     transition: background-image 0.3s ease-in-out, transform 0.3s ease, all 0.3s ease-out;
 }
 
-#continue-episode-button:has(.remove-button:hover)::after,
-#episode-button:has(.remove-button:hover)::after {
-    background-image: url('https://i.imgur.com/txA8oYd.png');
+/* #episode-button:hover::after, */
+#continue-episode-button:hover::after {
+    /* background-image: url('https://i.imgur.com/Uj4TeJR.png'); */
+    /* background-image: url('https://i.imgur.com/J9tWuW3.png'); */
+}
+
+/* #episode-button:has(.remove-button:hover)::after, */
+    #continue-episode-button:has(.remove-button:hover)::after {
+    /* background-image: url('https://i.imgur.com/txA8oYd.png'); */
+}
+
+/* Estilo para o botão de ícone */
+.icon-btn {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#continue-episode-button:hover .icon-btn,
+#episode-button:hover .icon-btn {
+    opacity: 0.6;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#continue-episode-button:has(.remove-button:hover) .icon-btn,
+#episode-button:has(.remove-button:hover) .icon-btn {
+    opacity: 0.6;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.icon-btn:active {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* Ícone "play" */
+.icon-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 25px solid rgb(35, 35, 35);
+    transform: translate(-40%, -50%) scale(1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+/* Corpo do cesto da lixeira */
+.icon-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 15px;
+    height: 18px;
+    border: 3px solid rgb(35, 35, 35);
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    transform: translate(-50%, 20%) scaleY(0);
+    transform-origin: bottom center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* Tampa da lixeira */
+.icon-btn .trash-lid {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    width: 26px;
+    height: 4px;
+    background: rgb(35, 35, 35);
+    border-radius: 3px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* Puxador da tampa */
+.icon-btn .trash-handle {
+    position: absolute;
+    top: 19px;
+    left: 50%;
+    width: 10px;
+    height: 5px;
+    background: rgb(35, 35, 35);
+    border-radius: 2px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center center;
+    transition: transform 0.3s ease 0.05s, opacity 0.3s ease 0.05s;
+    opacity: 0;
+}
+
+/* Linhas internas do cesto */
+.icon-btn .trash-bar {
+    position: absolute;
+    bottom: 27px;
+    width: 2px;
+    height: 12px;
+    background: rgb(35, 35, 35);
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    transition: transform 0.3s ease 0.1s, opacity 0.3s ease 0.1s;
+    opacity: 0;
+}
+
+.icon-btn .trash-bar.bar2 {
+    height: 14px;
+    bottom: 26px;
+}
+
+.icon-btn .trash-bar.bar1 {
+    left: calc(49% - 4px);
+}
+
+.icon-btn .trash-bar.bar2 {
+    left: 49%;
+}
+
+.icon-btn .trash-bar.bar3 {
+    left: calc(49% + 4px);
+}
+
+#continue-episode-button:hover .icon-btn::before,
+#episode-button:hover .icon-btn::before {
+    transform: translate(-40%, -50%) scale(1);
+    opacity: 1;
+}
+
+#continue-episode-button:hover .icon-btn::after,
+#episode-button:hover .icon-btn::after,
+#continue-episode-button:hover .icon-btn .trash-lid,
+#episode-button:hover .icon-btn .trash-lid,
+#continue-episode-button:hover .icon-btn .trash-handle,
+#episode-button:hover .icon-btn .trash-handle,
+#continue-episode-button:hover .icon-btn .trash-bar,
+#episode-button:hover .icon-btn .trash-bar {
+    transform: translate(-50%, 20%) scaleY(0); 
+    opacity: 0;
+}
+
+#continue-episode-button:has(.remove-button:hover) .icon-btn::before,
+#episode-button:has(.remove-button:hover) .icon-btn::before {
+    transform: translate(-40%, -50%) scale(0);
+    opacity: 0;
+}
+
+#continue-episode-button:has(.remove-button:hover) .icon-btn::after,
+#episode-button:has(.remove-button:hover) .icon-btn::after {
+    transform: translate(-50%, 0) scaleY(1);
+    opacity: 1;
+}
+
+#continue-episode-button:has(.remove-button:hover) .icon-btn .trash-lid,
+#episode-button:has(.remove-button:hover) .icon-btn .trash-lid {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+}
+
+#continue-episode-button:has(.remove-button:hover) .icon-btn .trash-handle,
+#episode-button:has(.remove-button:hover) .icon-btn .trash-handle {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+}
+
+#continue-episode-button:has(.remove-button:hover) .icon-btn .trash-bar,
+#episode-button:has(.remove-button:hover) .icon-btn .trash-bar {
+    transform: scaleY(1);
+    opacity: 1;
 }
 
 #continue-episode-button::after,
@@ -1113,8 +1294,8 @@ header.scrolled {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
-    background-image: url('https://i.imgur.com/Uj4TeJR.png');
-    background-image: url('https://i.imgur.com/J9tWuW3.png');
+    /* background-image: url('https://i.imgur.com/Uj4TeJR.png'); */
+    /* background-image: url('https://i.imgur.com/J9tWuW3.png'); */
     background-size: cover;
     background-position: center;
     opacity: 0;
@@ -1139,13 +1320,13 @@ header.scrolled {
 
 #continue-episode-button::before,
 #episode-button::before {
-    border: 1px solid rgb(15, 15, 15);
-    background-color: rgba(15, 15, 15, 0.9);
-    box-shadow: 0 0px 20px rgba(15, 15, 15, 0.4), 0 0px 20px rgba(15, 15, 15, 0.1);
+    /* border: 1px solid rgb(15, 15, 15); */
+    /* background-color: rgba(15, 15, 15, 0.9); */
+    /* box-shadow: 0 0px 20px rgba(15, 15, 15, 0.4), 0 0px 20px rgba(15, 15, 15, 0.1); */
 
-    border: 1px solid rgb(237, 0, 73);
-    box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
-    background-color: rgba(102, 1, 39, 0.8);
+    /* border: 1px solid rgb(237, 0, 73); */
+    /* box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1); */
+    /* background-color: rgba(102, 1, 39, 0.8); */
 
     border: 1px solid rgb(100, 100, 100);
     box-shadow: 0 4px 10px rgba(100, 100, 100, 0.4), 0 8px 20px rgba(60, 60, 60, 0.1);
@@ -1201,8 +1382,8 @@ header.scrolled {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url('https://i.imgur.com/J9tWuW3.png');
-    background-image: url('https://i.imgur.com/Uj4TeJR.png');
+    /* background-image: url('https://i.imgur.com/J9tWuW3.png'); */
+    /* background-image: url('https://i.imgur.com/Uj4TeJR.png'); */
     background-size: cover;
     background-position: center;
     opacity: 0.6;
@@ -1825,7 +2006,7 @@ p {
     align-items: center;
     background-color: rgb(25, 25, 25);
     background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px;
     margin-bottom: 10px;
@@ -1854,14 +2035,14 @@ p {
 }
 
 .log-entry:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 .log-entry:has(.remove-log-button:hover) {
     opacity: 1;
-    border: 1px solid rgba(237, 0, 73, 0.4);
-    box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
-    background: linear-gradient(to right, rgba(102, 1, 39, 0.8) 0%, rgba(10, 10, 10, 0.8) 80%);
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    /* box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4), 0 8px 20px rgba(253, 0, 0, 0.1); */
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.4) 0%, rgba(10, 10, 10, 0.8) 80%);
     transition: border 0.3s ease-out, box-shadow 0.3s ease-out, background 0.3s ease-out;
 }
 
@@ -1943,16 +2124,6 @@ p {
 .remove-log-button:hover span {
     transform: rotate(360deg);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 @media (max-width: 2560px) {
