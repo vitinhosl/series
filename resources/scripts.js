@@ -3017,16 +3017,9 @@ function renderEpisodes(serie, seasonValue) {
                              data-fallback="${fallbackThumb}" 
                              alt="${titleText}" 
                              loading="lazy">
-                        <span class="icon-btn">
-                            <span class="trash-lid"></span>
-                            <span class="trash-handle"></span>
-                            <span class="trash-bar bar1"></span>
-                            <span class="trash-bar bar2"></span>
-                            <span class="trash-bar bar3"></span>
-                        </span>
+                        <span class="icon-btn"></span>
                         ${isWatched ? `<span class="badge-watched">▶ ASSISTIDO</span>` : ''}
                         ${episode.duration ? `<span class="badge-duration">${episode.duration}</span>` : ''}
-                        <button class="remove-button">X</button>
                     </div>
                     <p class="episode-title">${titleText}</p>
                 </div>
@@ -3047,26 +3040,30 @@ function addEpisodeButtonListeners() {
                 // Encontrar a season-section mais próxima para determinar a temporada
                 const seasonSection = this.closest('.season-section');
                 seasonIndex = parseInt(seasonSection.querySelector('.season-header').getAttribute('data-season-index'), 10);
-                
                 // Calcular o episodeIndex dentro da temporada
                 const episodeButtonsInSeason = seasonSection.querySelectorAll('.episode-container #episode-button');
                 episodeIndex = Array.from(episodeButtonsInSeason).indexOf(this);
             } else {
                 // Comportamento para temporadas específicas
-                seasonIndex = parseInt(this.getAttribute('data-season-index'), 10);
+                seasonIndex = currentSeasonIndex;
                 episodeIndex = index;
             }
 
             // Registrar o episódio anterior como assistido, se houver
             if (currentSeasonIndex !== undefined && currentEpisodeIndex !== undefined && 
                 (currentSeasonIndex !== seasonIndex || currentEpisodeIndex !== episodeIndex)) {
-                const logs = JSON.parse(localStorage.getItem('logs')) || [];
                 const previousEpisode = currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex];
+                const now = new Date();
+                const date = now.toLocaleDateString('pt-BR');
+                const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+                const logs = JSON.parse(localStorage.getItem('logs')) || [];
                 logs.push({
                     serieName: currentSerie.name,
                     seasonIndex: currentSeasonIndex,
                     episodeTitle: previousEpisode.title,
-                    timestamp: new Date().toISOString()
+                    thumb: previousEpisode.thumb || currentSerie.season[currentSeasonIndex].thumb_season,
+                    date: date,
+                    time: time
                 });
                 localStorage.setItem('logs', JSON.stringify(logs));
             }
@@ -4261,8 +4258,8 @@ function createLogsSection() {
                 setTimeout(() => {
                     entry.style.transition = '';
                     entry.style.transform = '';
-                }, 300 + i * 80);
-            }, i * 80);
+                }, 300 + i * animationSpeedLogs);
+            }, i * animationSpeedLogs);
         });
     }
 
@@ -4370,7 +4367,6 @@ function logEpisodeClick(episode, seasonIndex, episodeIndex) {
         createLogsSection();
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
     searchInput = document.querySelector('#search .input');
