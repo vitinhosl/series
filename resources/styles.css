@@ -21,7 +21,7 @@ body {
     color: rgb(233, 244, 251);
     padding: 10px;
     transition: all 0.3s ease;
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(14, 16, 21);
 }
 
 .myCarousel {
@@ -223,7 +223,7 @@ header.scrolled {
 }
 
 #back-button {
-    background-color: rgb(10, 10, 10, 0.9);
+    background-color: rgb(27, 29, 34, 0.9);
     color: rgb(233, 244, 251);
     border: none;
     padding-right: 2px;
@@ -248,7 +248,7 @@ header.scrolled {
 }
 
 #back-button:hover {
-    background-color: rgba(80, 88, 100, 0.8);
+    background-color: rgb(59, 60, 65, 0.9);
 }
 
 #series,
@@ -405,7 +405,7 @@ header.scrolled {
 }
 
 #group-favorites {
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(14, 16, 21);
     border-radius: 8px;
     /* padding: 10px; */
     /* padding-top: 10px; */
@@ -417,7 +417,7 @@ header.scrolled {
 }
 
 #group-series {
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(14, 16, 21);
     border-radius: 8px;
     /* padding: 10px; */
     padding-top: 10px;
@@ -437,7 +437,7 @@ header.scrolled {
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 8px;
-  background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
+  background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
   margin-bottom: 10px;
   transition: all 0.3s ease;
   color: rgb(233, 244, 251);
@@ -460,7 +460,7 @@ header.scrolled {
     gap: 20px;
     padding: 10px;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
     margin-bottom: 10px;
     transition: all 0.3s ease;
 }
@@ -744,8 +744,9 @@ header.scrolled {
 }
 
 #logs-section .container-input {
-    border: 1px solid rgb(10, 10, 10);
-    background-color: rgb(8, 12, 19);
+    border: 1px solid rgb(39, 40, 45);
+    background-color: rgb(39, 40, 45);
+    margin-right: 5px;
 }
 
 .container-input .input {
@@ -838,7 +839,7 @@ header.scrolled {
 #episodes-series,
 #continue-series,
 #current-series {
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(14, 16, 21);
     border-radius: 8px;
     /* padding: 10px; */
 
@@ -864,7 +865,7 @@ header.scrolled {
     font-size: 28px;
     font-weight: bold;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
     margin-bottom: 10px;
     color: rgb(233, 244, 251);
     display: flex;
@@ -882,14 +883,14 @@ header.scrolled {
     padding: 10px;
     padding-left: 10px;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
     margin-bottom: 10px;
     transition: width 0.5s ease-out;
     /* overflow: hidden */
 }
 
 .season-header {
-    background: linear-gradient(to right, rgb(35, 35, 35) 0%, rgb(10, 10, 10) 80%);
+    background: linear-gradient(to right, rgb(19, 21, 27) 0%, rgb(14, 16, 21) 80%);
     border-radius: 10px;
     padding: 10px 15px;
     margin: 5px 0px 7px 0px;
@@ -910,7 +911,7 @@ header.scrolled {
     right: 0;
     bottom: 0;
     border-radius: 10px;
-    background: linear-gradient(to right, rgb(60, 60, 60) 0%, rgb(10, 10, 10) 80%);
+    background: linear-gradient(to right, rgb(9, 11, 17) 0%, rgb(14, 16, 21) 80%);
     opacity: 0;
     transition: opacity 0.3s ease-out;
     z-index: -1;
@@ -1107,7 +1108,7 @@ header.scrolled {
 }
 
 /* #episode-button:has(.remove-button:hover)::after, */
-    #continue-episode-button:has(.remove-button:hover)::after {
+#continue-episode-button:has(.remove-button:hover)::after {
     /* background-image: url('https://i.imgur.com/txA8oYd.png'); */
 }
 
@@ -1328,9 +1329,10 @@ header.scrolled {
     /* box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1); */
     /* background-color: rgba(102, 1, 39, 0.8); */
 
-    border: 1px solid rgb(100, 100, 100);
-    box-shadow: 0 4px 10px rgba(100, 100, 100, 0.4), 0 8px 20px rgba(60, 60, 60, 0.1);
-    background-color: rgba(35, 35, 35, 0.9);
+    border: 1px solid rgb(126, 128, 133);
+    box-shadow: 0 4px 10px rgba(14, 16, 21, 0.4), 0 8px 20px rgba(19, 21, 27, 0.1);
+    background-color: rgba(26, 28, 33, 0.9);
+
 }
 
 #continue-episode-button:has(.remove-button:hover)::before,
@@ -1977,7 +1979,7 @@ p {
     font-size: 28px;
     font-weight: bold;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
     margin-bottom: 10px;
 }
 
@@ -2004,8 +2006,8 @@ p {
 .log-entry {
     display: flex;
     align-items: center;
-    background-color: rgb(25, 25, 25);
-    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
+    background-color: rgb(27, 29, 34);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -2024,7 +2026,7 @@ p {
     right: 0;
     bottom: 0;
     border-radius: 10px;
-    background: linear-gradient(to right, rgb(60, 60, 60) 0%, rgb(10, 10, 10) 80%);
+    background: linear-gradient(to right, rgb(49, 50, 55) 0%, rgb(14, 16, 21) 80%);
     opacity: 0;
     transition: opacity 0.3s ease-out;
     z-index: -1;
@@ -2035,7 +2037,8 @@ p {
 }
 
 .log-entry:hover {
-    transform: translateY(-2px);
+    /* transform: translateY(-1.5px); */
+    transform: scale(1.005);
 }
 
 .log-entry:has(.remove-log-button:hover) {
@@ -2096,7 +2099,7 @@ p {
     color: rgb(205, 205, 205);
     font-size: 20px;
     cursor: pointer;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s ease, all 0.3 ease-out;
     animation: initial-rotate 0.6s ease;
     border-radius: 5px;
     width: 35px;
@@ -2104,21 +2107,21 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(222, 222, 222, 0.2);
     transition: all 0.3s ease;
     top: 10px;
-    right: 10px;
-    background: rgb(8, 12, 19, 0.8);
+    /* right: 10px; */
+    margin-right: 5px;
+    background: transparent;
 }
 
 .remove-log-buttonn span {
     display: inline-block;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s ease, all 0.3 ease-out;
     line-height: 2px;
 }
 
 .remove-log-button:hover {
-    background: rgb(129, 134, 141, 0.5);
+    background: rgb(39, 40, 45, 0.9);
 }
 
 .remove-log-button:hover span {
