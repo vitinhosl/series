@@ -11,6 +11,16 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "A TERRA PROMETIDA",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0068571/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Após a morte de Moisés, Josué é o novo líder dos hebreus 
+                        e terá que cumprir uma difícil missão ordenada por Deus: 
+                        Comandar as 12 tribos de Israel na conquista de Canaã, 
+                        a Terra Prometida. Continuação da saga Os Dez Mandamentos.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -198,6 +208,15 @@ const seriesData = [
                             { title: "Episódio 179", duration: "20:28"  , thumb: "https://i.imgur.com/6WO1Phm.jpeg", url: "https://ok.ru/videoembed/4100679731799?autoplay=1", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-179.mp4"] }
                         ]
                     },
+                    {
+                        name: "Temporada 02",
+                        thumb_season: "https://i.imgur.com/NbtbzDU.jpeg",
+                        movies: false,
+                        episodes: [
+                            { title: "Episódio 001", duration: "1:12:04", thumb: "https://i.imgur.com/hCdFVV4.jpeg", url: "https://ok.ru/videoembed/3999010458199?autoplay=1", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-001.mp4", "https://ok.ru/videoembed/3715047098939" ] },
+ 
+                        ]
+                    }
                 ],
             },
 
@@ -2274,7 +2293,9 @@ const seriesData = [
                         ]
                     },
                 ]
-            }, 
+            },
+
+
         ]
     },
 
@@ -2860,25 +2881,67 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
         currentSeasonDropdownValue = dropdownValue;
     }
 
+    // Criar o container de descrição, se existir
+    let descriptionHTML = '';
+    if (serie.description && typeof serie.description === 'object') {
+    const desc = serie.description;
+
+    // 1) calcular totais
+    const numSeasons = serie.season.length;
+    const totalEpisodes = serie.season
+        .reduce((sum, s) => sum + (s.episodes?.length || 0), 0);
+    // filmes podem vir em top‐level ou dentro de cada season.movies
+    const topMovies = serie.movies?.length || 0;
+    const inSeasonMovies = serie.season
+        .reduce((sum, s) => sum + (s.movies?.length || 0), 0);
+    const totalMovies = topMovies + inSeasonMovies;
+
+    // montar array com as partes que existem
+    const parts = [];
+    if (numSeasons)  parts.push(`Temporada${numSeasons > 1 ? 's' : ''} ${numSeasons} `);
+    if (totalEpisodes) parts.push(`Episódio${totalEpisodes > 1 ? 's' : ''} ${totalEpisodes} `);
+    if (totalMovies)   parts.push(`Filme${totalMovies > 1 ? 's' : ''} ${totalMovies}` );
+
+    const summaryText = parts.join(' - ');
+    const sinopseHTML = desc.sinopse.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
+    descriptionHTML = `
+        <div id="series-description">
+        <div class="description-thumb"
+            style="background-image: url('${desc.thumb}');">
+        </div>
+        <div class="description-content">
+            <h2>${desc.title}</h2>
+            <h3>${summaryText}</h3>
+            <p>${sinopseHTML}</p>
+            <button class="favorite-button-s2" aria-label="Favoritar">♥</button>
+            <p2>Seleciona uma opção:</p2>
+            <select id="season-dropdown"></select>
+        </div>
+        </div>
+    `;
+    }
+
     const html = `
     <div id="current-series">
-      <div id="section-season">
-        <div id="current-series-header">
-          <p id="series-available-text">${availableText}</p>
-          ${showDropdown ? `
-            <select id="season-dropdown">
-              ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Todas</option>` : ''}
-              ${serie.season.map((season, idx) => {
-                   const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
-                   return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
-                 }).join('')}
-            </select>
-          ` : ''}
+        ${descriptionHTML}
+        <div id="section-season">
+            <div id="current-series-header">
+                <p id="series-available-text">${availableText}</p>
+                ${showDropdown ? `
+                    <select id="season-dropdown">
+                        ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Todas</option>` : ''}
+                        ${serie.season.map((season, idx) => {
+                            const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
+                            return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
+                        }).join('')}
+                    </select>
+                ` : ''}
+            </div>
+            <div id="current-series-episodes">
+                ${renderEpisodes(serie, dropdownValue)}
+            </div>
         </div>
-        <div id="current-series-episodes">
-          ${renderEpisodes(serie, dropdownValue)}
-        </div>
-      </div>
     </div>
     `;
     seriesContainer.innerHTML = html;
@@ -2891,6 +2954,7 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
         episodesContainer.style.display = newDropdown.value === 'all' ? 'block' : 'flex';
     }
 
+    // Chamar renderContinueWatchingSection antes de renderizar os episódios
     renderContinueWatchingSection();
     animateEpisodes(episodesToRender.length, previousEpisodeCount);
     previousEpisodeCount = episodesToRender.length;
@@ -2927,6 +2991,8 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
                 setupThumbnailLoading();
                 addEpisodeButtonListeners();
                 updateButtonVisibility();
+                // Re-renderizar continue-series após atualizar episódios
+                renderContinueWatchingSection();
             });
 
             previousEpisodeCount = newEpisodes.length;
@@ -3048,6 +3114,80 @@ function renderEpisodes(serie, seasonValue) {
             `;
         }).join('');
     }
+}
+
+function renderContinueWatchingSection() {
+    const seriesContainer = document.getElementById('current-series');
+    let continueSeriesElement = document.getElementById('continue-series');
+
+    if (!continueSeriesElement) {
+        continueSeriesElement = document.createElement('div');
+        continueSeriesElement.id = 'continue-series';
+        const descriptionEl = document.getElementById('series-description');
+        if (descriptionEl && descriptionEl.parentNode === seriesContainer) {
+        // insere logo após a descrição
+        seriesContainer.insertBefore(continueSeriesElement, descriptionEl.nextSibling);
+        } else {
+        // fallback, no topo
+        seriesContainer.insertBefore(continueSeriesElement, seriesContainer.firstChild);
+        }
+    }
+
+    const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
+    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    const savedProgress = continues[serieKey] || {};
+
+    let episodesHTML = '';
+    Object.keys(savedProgress).forEach(seasonKey => {
+        const seasonProgress = savedProgress[seasonKey];
+        const epIndex = seasonProgress.episodeIndex;
+        const epNumber = (epIndex + 1).toString();
+        let episodeText = seasonProgress.movies ? `Filme: ${seasonProgress.episodeTitle}` : `T${seasonProgress.seasonIndex + 1} - ${seasonProgress.episodeTitle}`;
+        episodesHTML += `
+            <div id="continue-episode-button"
+                 style="background-image: url('${seasonProgress.thumb}');"
+                 data-season-index="${seasonProgress.seasonIndex}"
+                 data-episode-index="${epIndex}"
+                 onclick="
+                    location.hash='${serieSlug}-${epNumber}';
+                    openVideoOverlay('${appendAutoplay(seasonProgress.url)}', ${seasonProgress.seasonIndex}, ${epIndex});
+                 ">
+                <span class="icon-btn">
+                    <span class="trash-lid"></span>
+                    <span class="trash-handle"></span>
+                    <span class="trash-bar bar1"></span>
+                    <span class="trash-bar bar2"></span>
+                    <span class="trash-bar bar3"></span>
+                </span>
+                <p>${episodeText}</p>
+                <div class="remove-button" data-season-key="${seasonKey}">✕</div>
+            </div>
+        `;
+    });
+
+    if (!episodesHTML) {
+        continueSeriesElement.remove();
+        return;
+    }
+
+    continueSeriesElement.innerHTML = `
+        <div id="continue-series-header">
+            <p id="available-text">Continuar assistindo</p>
+        </div>
+        <div id="continue-series-episodes">
+            ${episodesHTML}
+        </div>
+    `;
+
+    document.querySelectorAll('#continue-series .remove-button').forEach(button => {
+        const newBtn = button.cloneNode(true);
+        button.parentNode.replaceChild(newBtn, button);
+        newBtn.addEventListener('click', event => {
+            event.stopPropagation();
+            const seasonKey = newBtn.getAttribute('data-season-key');
+            removeContinueSeriesSeason(seasonKey);
+        });
+    });
 }
 
 function addEpisodeButtonListeners() {
@@ -3250,73 +3390,6 @@ function setupThumbnailLoading() {
             img.style.transition = 'opacity 0.3s ease-in';
             img.style.opacity = '1'; // Mostra
         }
-    });
-}
-
-function renderContinueWatchingSection() {
-    const seriesContainer = document.getElementById('current-series');
-    let continueSeriesElement = document.getElementById('continue-series');
-
-    if (!continueSeriesElement) {
-        continueSeriesElement = document.createElement('div');
-        continueSeriesElement.id = 'continue-series';
-        seriesContainer.insertBefore(continueSeriesElement, seriesContainer.firstChild);
-    }
-
-    const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
-    const serieKey = currentSerie.name.replace(/\s+/g, '_');
-    const savedProgress = continues[serieKey] || {};
-
-    let episodesHTML = '';
-    Object.keys(savedProgress).forEach(seasonKey => {
-        const seasonProgress = savedProgress[seasonKey];
-        const epIndex = seasonProgress.episodeIndex;
-        const epNumber = (epIndex + 1).toString();
-        let episodeText = seasonProgress.movies ? `Filme: ${seasonProgress.episodeTitle}` : `T${seasonProgress.seasonIndex + 1} - ${seasonProgress.episodeTitle}`;
-        episodesHTML += `
-            <div id="continue-episode-button"
-                 style="background-image: url('${seasonProgress.thumb}');"
-                 data-season-index="${seasonProgress.seasonIndex}"
-                 data-episode-index="${epIndex}"
-                 onclick="
-                    location.hash='${serieSlug}-${epNumber}';
-                    openVideoOverlay('${appendAutoplay(seasonProgress.url)}', ${seasonProgress.seasonIndex}, ${epIndex});
-                 ">
-                <span class="icon-btn">
-                    <span class="trash-lid"></span>
-                    <span class="trash-handle"></span>
-                    <span class="trash-bar bar1"></span>
-                    <span class="trash-bar bar2"></span>
-                    <span class="trash-bar bar3"></span>
-                </span>
-                <p>${episodeText}</p>
-                <div class="remove-button" data-season-key="${seasonKey}">✕</div>
-            </div>
-        `;
-    });
-
-    if (!episodesHTML) {
-        continueSeriesElement.remove();
-        return;
-    }
-
-    continueSeriesElement.innerHTML = `
-        <div id="continue-series-header">
-            <p id="available-text">Continuar assistindo</p>
-        </div>
-        <div id="continue-series-episodes">
-            ${episodesHTML}
-        </div>
-    `;
-
-    document.querySelectorAll('#continue-series .remove-button').forEach(button => {
-        const newBtn = button.cloneNode(true);
-        button.parentNode.replaceChild(newBtn, button);
-        newBtn.addEventListener('click', event => {
-            event.stopPropagation();
-            const seasonKey = newBtn.getAttribute('data-season-key');
-            removeContinueSeriesSeason(seasonKey);
-        });
     });
 }
 
