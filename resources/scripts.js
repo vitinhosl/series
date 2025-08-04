@@ -1622,7 +1622,21 @@ const seriesData = [
                 thumb_page: "",
                 thumb_buttons: [
                     "https://i.imgur.com/47Vjveh.jpeg",
-                    "https://i.imgur.com/HxmEXcN.jpeg"
+                    "https://i.imgur.com/HxmEXcN.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0256021/0256021_200.jpg", //01 A DECEPÇÃO
+                    "https://pp-vod-img-aws.akamaized.net/0260819/0260819_200.jpg", //02 A INGRATIDÃO
+                    "https://pp-vod-img-aws.akamaized.net/0276558/0276558_200.jpg", //03 A REJEIÇÃO
+                    "https://pp-vod-img-aws.akamaized.net/0283103/0283103_200.jpg", //04 A ESCOLHA
+                    "https://pp-vod-img-aws.akamaized.net/0337855/0337855_200.jpg", //05 A PERSEGUIÇÃO
+                    "https://pp-vod-img-aws.akamaized.net/0366700/0366700_200.jpg", //06 A CONQUISTA
+                    "https://pp-vod-img-aws.akamaized.net/0373820/0373820_200.jpg", //07 O PECADO
+                    "https://pp-vod-img-aws.akamaized.net/0384653/0384653_200.jpg", //08 A CONSEQUÊNCIA
+                    "https://pp-vod-img-aws.akamaized.net/0396070/0396070_200.jpg", //09 A SUCESSÃO
+                    "https://pp-vod-img-aws.akamaized.net/0424348/0424348_200.jpg", //10 A DECADÊNCIA
+                    "https://pp-vod-img-aws.akamaized.net/0429062/0429062_200.jpg", //11 A DIVISÃO
+                    // "https://images.justwatch.com/poster/329514848/s166/temporada-12", //12 A EMBOSCADA
+                    // "https://images.justwatch.com/poster/327292507/s166/", //13 A ESPERANÇA
+
                 ],
                 badge: "",
                 type: "Temporadas",
@@ -2259,15 +2273,6 @@ const seriesData = [
                             { title: "Episódio 012", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
                         ]
                     },
-
-                    {
-                        name: "Temporada F",
-                        thumb_season: "https://i.imgur.com/Zuxuw0k.jpeg",
-                        movies: true,
-                        episodes: [
-                            { title: "Episódio 012", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                        ]
-                    }
                 ]
             }, 
         ]
@@ -2770,7 +2775,7 @@ let animationSpeedFavorites    = 10;
 let animationSpeedButtons      = 30;
 let animationSpeedSearchsKeys  = 2;
 let animationSpeedCarrouselBar = 8;
-let animationSpeedLogs         = 80;
+let animationSpeedLogs         = 20;
 let currentSerie               = null;
 let currentEpisodeIndex        = 0;
 let currentSeasonIndex         = 0;
@@ -2802,21 +2807,37 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
         return;
     }
 
+    // Verificar se a série mudou ou se é a primeira renderização
+    const isNewSeries = !currentSerie || currentSerie.name !== serie.name;
     currentSerie = serie;
 
     const serieKey = serie.name.replace(/\s+/g, '_');
     const hasSeasons = serie.season.length > 0;
-    const showDropdown = hasSeasons && (serie.season.length > 1);
-    const showAllOption = serie.season.length > 1;
+    // Mostrar dropdown se houver mais de uma temporada ou temporada(s) + filmes
+    const showDropdown = hasSeasons && (serie.season.length > 1 || (serie.season.length === 1 && serie.season.some(s => s.movies)));
+    // Mostrar opção "Todas" se houver mais de uma temporada ou temporada(s) + filmes
+    const showAllOption = serie.season.length > 1 || (serie.season.length === 1 && serie.season.some(s => s.movies));
 
     let episodesToRender = [];
     let availableText = '';
+    // Definir o valor inicial do dropdown
+    if (isNewSeries || !dropdownValue || (dropdownValue === 'all' && !showAllOption)) {
+        if (showAllOption) {
+            // Se houver > 1 temporada ou temporada + filmes, selecionar "all" por padrão
+            dropdownValue = 'all';
+            currentSeasonDropdownValue = 'all';
+        } else {
+            // Se houver apenas uma temporada ou apenas filmes, selecionar a única temporada
+            currentSeasonIndex = 0;
+            dropdownValue = `season-${currentSeasonIndex}`;
+            currentSeasonDropdownValue = dropdownValue;
+        }
+    }
+
     if (hasSeasons) {
-        if (dropdownValue === 'all') {
+        if (dropdownValue === 'all' && showAllOption) {
             episodesToRender = serie.season.flatMap(s => s.episodes);
             availableText = `Todos os episódios: ${episodesToRender.length}`;
-            // Remover definição de currentSeasonIndex como 0 por padrão
-            // currentSeasonIndex = 0;
         } else {
             currentSeasonIndex = parseInt(dropdownValue.split('-')[1], 10);
             const currentSeason = serie.season[currentSeasonIndex];
@@ -2834,6 +2855,9 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
         const currentSeason = serie.season[0];
         episodesToRender = currentSeason.episodes;
         availableText = `Episódios disponíveis: ${currentSeason.episodes.length}`;
+        currentSeasonIndex = 0;
+        dropdownValue = `season-0`;
+        currentSeasonDropdownValue = dropdownValue;
     }
 
     const html = `
@@ -2843,9 +2867,9 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
           <p id="series-available-text">${availableText}</p>
           ${showDropdown ? `
             <select id="season-dropdown">
-              ${showAllOption ? `<option value="all">Todas</option>` : ''}
+              ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Todas</option>` : ''}
               ${serie.season.map((season, idx) => {
-                   const label = season.name || `Temporada ${idx + 1}`;
+                   const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
                    return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
                  }).join('')}
             </select>
@@ -2879,11 +2903,9 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
 
             let newEpisodes = [];
             let newText = '';
-            if (value === 'all') {
+            if (value === 'all' && showAllOption) {
                 newEpisodes = serie.season.flatMap(s => s.episodes);
                 newText = `Todos os episódios: ${newEpisodes.length}`;
-                // Remover definição de currentSeasonIndex como 0
-                // currentSeasonIndex = 0;
             } else {
                 currentSeasonIndex = parseInt(value.split('-')[1], 10);
                 const selSeason = serie.season[currentSeasonIndex];
@@ -4199,7 +4221,7 @@ function createLogsSection() {
     }
 
     let logs = JSON.parse(localStorage.getItem('logs')) || [];
-    logs = logs.reverse(); // Mantém a ordem reversa
+    logs = logs.reverse();
 
     if (logs.length === 0) {
         logsSection.innerHTML = `
@@ -4210,7 +4232,7 @@ function createLogsSection() {
                 <p id="no-logs-message">Nenhum log para exibir.</p>
             </div>
         `;
-    } else if (logsSection.innerHTML === '') { // Renderiza apenas na inicialização
+    } else {
         const logsHTML = `
             <div id="logs-header">
                 <div id="logs-header-top">
@@ -4246,7 +4268,7 @@ function createLogsSection() {
         `;
         logsSection.innerHTML = logsHTML;
 
-        // Animação inicial
+        // --- Animação "vir de cima" ---
         const entries = logsSection.querySelectorAll('.log-entry');
         entries.forEach((entry, i) => {
             entry.style.opacity = '0';
@@ -4255,35 +4277,39 @@ function createLogsSection() {
                 entry.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
                 entry.style.opacity = '1';
                 entry.style.transform = 'translateY(0)';
+                // Limpar propriedades de animação após conclusão para evitar conflitos com hover
                 setTimeout(() => {
                     entry.style.transition = '';
                     entry.style.transform = '';
-                }, 300 + i * animationSpeedLogs);
+                }, 300 + i * animationSpeedLogs); // Após a animação (300ms + atraso)
             }, i * animationSpeedLogs);
         });
     }
 
+    // Exibe a seção e ajusta header/back-button
     logsSection.classList.remove('hidden');
     logsSection.classList.add('show');
     document.getElementById('logo').classList.replace('show', 'hidden');
     document.getElementById('back-button').classList.add('show');
 
-    // Evento de busca
+    // --- Filtro de busca ---
     const searchInput = logsSection.querySelector('#logs-header input.input');
     if (searchInput) {
         searchInput.addEventListener('input', () => {
             const termo = searchInput.value.trim().toLowerCase();
             const entradas = logsSection.querySelectorAll('#logs-list .log-entry');
+
             entradas.forEach(entry => {
                 const title = entry.querySelector('.log-title').textContent.toLowerCase();
                 const meta = entry.querySelector('.log-meta').textContent.toLowerCase();
                 const texto = title + ' ' + meta;
+
                 entry.style.display = texto.includes(termo) ? '' : 'none';
             });
         });
     }
 
-    // Evento de limpar todos os logs
+    // Botão “Limpar logs”
     const clearAllButton = document.getElementById('clear-all-logs-button');
     if (clearAllButton) {
         clearAllButton.addEventListener('click', () => {
@@ -4292,52 +4318,23 @@ function createLogsSection() {
         });
     }
 
-    // Evento de remoção individual com animação local
+    // Botões de remover individual
     document.querySelectorAll('.remove-log-button').forEach(button => {
         button.addEventListener('click', function() {
-            const logIndex = parseInt(this.getAttribute('data-index'), 10);
-            const logItem = this.parentElement;
+            const idx = parseInt(this.getAttribute('data-index'), 10);
             const currentLogs = JSON.parse(localStorage.getItem('logs')) || [];
-            const removeIndex = currentLogs.length - 1 - logIndex; // Ajuste para ordem reversa
-
-            // Inicia animação de remoção
-            logItem.classList.add('removing');
-
-            // Remove após a animação
-            setTimeout(() => {
-                currentLogs.splice(removeIndex, 1);
-                localStorage.setItem('logs', JSON.stringify(currentLogs));
-
-                // Atualiza índices dos itens restantes
-                const logEntries = logsSection.querySelectorAll('.log-entry');
-                logEntries.forEach((entry, newIndex) => {
-                    const originalIndex = currentLogs.length - 1 - newIndex;
-                    entry.setAttribute('data-index', newIndex);
-                    entry.querySelector('.remove-log-button').setAttribute('data-index', newIndex);
-                });
-
-                logItem.remove();
-
-                // Verifica se a lista ficou vazia
-                if (logsSection.querySelectorAll('.log-entry').length === 0) {
-                    logsSection.innerHTML = `
-                        <div id="logs-header">
-                            <h3>Logs</h3>
-                        </div>
-                        <div id="logs-content">
-                            <p id="no-logs-message">Nenhum log para exibir.</p>
-                        </div>
-                    `;
-                }
-            }, 300); // Duração da animação
+            const removeIndex = currentLogs.length - 1 - idx;
+            currentLogs.splice(removeIndex, 1);
+            localStorage.setItem('logs', JSON.stringify(currentLogs));
+            createLogsSection();
         });
     });
 }
 
 function logEpisodeClick(episode, seasonIndex, episodeIndex) {
     const now = new Date();
-    const date = now.toLocaleDateString('pt-BR');
-    const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    const date = now.toLocaleDateString('pt-BR'); // Ex.: 11/06/2025
+    const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }); // Ex.: 19:52
     const serieName = currentSerie.name;
     const thumb = episode.thumb || currentSerie.season[seasonIndex].thumb_season;
 
@@ -4350,18 +4347,21 @@ function logEpisodeClick(episode, seasonIndex, episodeIndex) {
         time: time
     };
 
+    // Verifica se o log já existe para evitar duplicatas
     let logs = JSON.parse(localStorage.getItem('logs')) || [];
-    // Verifica duplicatas apenas pelos campos essenciais
     const isDuplicate = logs.some(log => 
         log.serieName === logEntry.serieName &&
         log.seasonIndex === logEntry.seasonIndex &&
-        log.episodeTitle === logEntry.episodeTitle
+        log.episodeTitle === logEntry.episodeTitle &&
+        log.date === logEntry.date &&
+        log.time === logEntry.time
     );
     if (!isDuplicate) {
         logs.push(logEntry);
         localStorage.setItem('logs', JSON.stringify(logs));
     }
 
+    // Atualiza a seção de logs (se estiver visível)
     const logsSection = document.getElementById('logs-section');
     if (logsSection && logsSection.classList.contains('show')) {
         createLogsSection();

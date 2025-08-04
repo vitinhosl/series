@@ -1,0 +1,149 @@
+@media (max-width: 2560px) {
+    #group-series-button{
+        width: 227px;
+    }
+
+    #continue-episode-button, #episode-button {
+        width: 257px;
+    }
+}
+
+@media (max-width: 1366px) {
+    #group-series-button {
+        width: 230px;
+    }
+
+    #continue-episode-button, #episode-button {
+        width: 237px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 5px; /* Reduz padding em telas menores */
+    }
+
+    header h1 {
+        font-size: 20px; /* Já definido no seu CSS */
+    }
+
+    #main {
+        padding-top: 50px; /* Ajuste para altura menor do header */
+    }
+
+    .myCarousel {
+        max-height: 200px;
+    }
+    
+    .carousel-inner .item  {
+        height: 200px;
+    }
+
+    #group-search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #keys {
+        /* order: 2; */
+        gap: 5px;
+        z-index: 2;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #search {
+        /* order: 1; */
+        width: 100%;
+        justify-content: center;
+    }
+
+    .container-input {
+        width: 30px;
+    }
+
+    .container-input {
+        width: 100%;
+    }
+    .container-input:hover,
+    .container-input:focus-within {
+        width: 100%;
+    }
+
+    #keys button {
+        padding: 4px;
+        font-size: 10px;
+    }
+
+    #group-series-button {
+        width: 160px;
+        height: 250px;
+    }
+
+    #group-series-button .info h1 {
+        font-size: 11px;
+    }
+
+    #group-series-button .info p {
+        font-size: 10px;
+    }
+
+    #group-series-button .info button {
+        padding: 0.4rem;
+    }
+
+    #logo,
+    #back-button {
+        font-size: 20px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    #continue-episode-button, #episode-button {
+        width: 100%;
+        height: 200px;
+    }
+
+    #continue-episode-button:hover, #episode-button:hover {
+        transform: scale(1.03);
+    }
+
+    #current-series-episodes,
+    #current-series-header {
+        display: block;
+    }
+
+    #current-series-header #series-available-text {
+        font-size: 22px;
+    }
+
+    #season-dropdown {
+        width: 100%;
+    }
+
+    #video-overlay-header {
+        display: block;
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideOutRight {
+        0% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(20px); }
+    }
+}
