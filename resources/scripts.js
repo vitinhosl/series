@@ -3248,10 +3248,7 @@ function renderContinueWatchingSection() {
         const seasonProgress = savedProgress[seasonKey];
         const epIndex = seasonProgress.episodeIndex;
         const epNumber = (epIndex + 1).toString();
-        let episodeText = seasonProgress.movies 
-            ? `Filme: ${seasonProgress.episodeTitle}`
-            : `T${seasonProgress.seasonIndex + 1} - ${seasonProgress.episodeTitle}`;
-        
+        let episodeText = seasonProgress.movies ? `Filme: ${seasonProgress.episodeTitle}` : `T${seasonProgress.seasonIndex + 1} - ${seasonProgress.episodeTitle}`;
         episodesHTML += `
             <div id="continue-episode-button"
                  style="background-image: url('${seasonProgress.thumb}');"
@@ -3280,11 +3277,6 @@ function renderContinueWatchingSection() {
             ${episodesHTML}
         </div>
     `;
-
-    document.querySelectorAll('#continue-series-episodes #continue-episode-button').forEach((button, index) => {
-        button.style.opacity = '0';
-        setTimeout(() => button.classList.add('fade-in-up'), index * 100);
-    });
 
     document.querySelectorAll('#continue-series .remove-button').forEach(button => {
         const newBtn = button.cloneNode(true);
@@ -4188,6 +4180,7 @@ function handleHashChange() {
     }
 }
 
+// LOGS
 function createLogsSection() {
     let logsSection = document.getElementById('logs-section');
     if (!logsSection) {
@@ -4197,7 +4190,7 @@ function createLogsSection() {
     }
 
     let logs = JSON.parse(localStorage.getItem('logs')) || [];
-    logs = logs.reverse();
+    logs = logs.reverse(); // Mantém a ordem reversa
 
     if (logs.length === 0) {
         logsSection.innerHTML = `
@@ -4208,7 +4201,7 @@ function createLogsSection() {
                 <p id="no-logs-message">Nenhum log para exibir.</p>
             </div>
         `;
-    } else {
+    } else if (logsSection.innerHTML === '') { // Renderiza apenas na inicialização
         const logsHTML = `
             <div id="logs-header">
                 <div id="logs-header-top">
@@ -4244,6 +4237,7 @@ function createLogsSection() {
         `;
         logsSection.innerHTML = logsHTML;
 
+        // Animação inicial
         const entries = logsSection.querySelectorAll('.log-entry');
         entries.forEach((entry, i) => {
             entry.style.opacity = '0';
@@ -4265,22 +4259,22 @@ function createLogsSection() {
     document.getElementById('logo').classList.replace('show', 'hidden');
     document.getElementById('back-button').classList.add('show');
 
+    // Evento de busca
     const searchInput = logsSection.querySelector('#logs-header input.input');
     if (searchInput) {
         searchInput.addEventListener('input', () => {
             const termo = searchInput.value.trim().toLowerCase();
             const entradas = logsSection.querySelectorAll('#logs-list .log-entry');
-
             entradas.forEach(entry => {
                 const title = entry.querySelector('.log-title').textContent.toLowerCase();
                 const meta = entry.querySelector('.log-meta').textContent.toLowerCase();
                 const texto = title + ' ' + meta;
-
                 entry.style.display = texto.includes(termo) ? '' : 'none';
             });
         });
     }
 
+    // Evento de limpar todos os logs
     const clearAllButton = document.getElementById('clear-all-logs-button');
     if (clearAllButton) {
         clearAllButton.addEventListener('click', () => {
@@ -4289,14 +4283,44 @@ function createLogsSection() {
         });
     }
 
+    // Evento de remoção individual com animação local
     document.querySelectorAll('.remove-log-button').forEach(button => {
         button.addEventListener('click', function() {
-            const idx = parseInt(this.getAttribute('data-index'), 10);
+            const logIndex = parseInt(this.getAttribute('data-index'), 10);
+            const logItem = this.parentElement;
             const currentLogs = JSON.parse(localStorage.getItem('logs')) || [];
-            const removeIndex = currentLogs.length - 1 - idx;
-            currentLogs.splice(removeIndex, 1);
-            localStorage.setItem('logs', JSON.stringify(currentLogs));
-            createLogsSection();
+            const removeIndex = currentLogs.length - 1 - logIndex; // Ajuste para ordem reversa
+
+            // Inicia animação de remoção
+            logItem.classList.add('removing');
+
+            // Remove após a animação
+            setTimeout(() => {
+                currentLogs.splice(removeIndex, 1);
+                localStorage.setItem('logs', JSON.stringify(currentLogs));
+
+                // Atualiza índices dos itens restantes
+                const logEntries = logsSection.querySelectorAll('.log-entry');
+                logEntries.forEach((entry, newIndex) => {
+                    const originalIndex = currentLogs.length - 1 - newIndex;
+                    entry.setAttribute('data-index', newIndex);
+                    entry.querySelector('.remove-log-button').setAttribute('data-index', newIndex);
+                });
+
+                logItem.remove();
+
+                // Verifica se a lista ficou vazia
+                if (logsSection.querySelectorAll('.log-entry').length === 0) {
+                    logsSection.innerHTML = `
+                        <div id="logs-header">
+                            <h3>Logs</h3>
+                        </div>
+                        <div id="logs-content">
+                            <p id="no-logs-message">Nenhum log para exibir.</p>
+                        </div>
+                    `;
+                }
+            }, 300); // Duração da animação
         });
     });
 }
@@ -4335,6 +4359,7 @@ function logEpisodeClick(episode, seasonIndex, episodeIndex) {
         createLogsSection();
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     searchInput = document.querySelector('#search .input');

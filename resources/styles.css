@@ -1032,7 +1032,7 @@ header.scrolled {
     background-repeat: no-repeat;
     background-size: cover;
     margin: 10px 10px 10px 0px;
-    transition: background-image 0.3s ease-in-out, transform 0.3s ease, all 0.3s;
+    transition: background-image 0.3s ease-in-out, transform 0.3s ease, all 0.3s ease-out;
     user-select: none;
 }
 
@@ -1050,10 +1050,9 @@ header.scrolled {
 
 #continue-episode-button:hover,
 #episode-button:hover {
-    /* width: 270px;
-    height: 150px; */
-
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
+    transform: translateY(-5px);
+    
 }
 
 #continue-episode-button p,
@@ -1100,7 +1099,12 @@ header.scrolled {
     top: 45%;
     width: 80px;
     height: 80px;
+    transition: background-image 0.3s ease-in-out, transform 0.3s ease, all 0.3s ease-out;
+}
 
+#continue-episode-button:has(.remove-button:hover)::after,
+#episode-button:has(.remove-button:hover)::after {
+    background-image: url('https://i.imgur.com/txA8oYd.png');
 }
 
 #continue-episode-button::after,
@@ -1109,6 +1113,7 @@ header.scrolled {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
+    background-image: url('https://i.imgur.com/Uj4TeJR.png');
     background-image: url('https://i.imgur.com/J9tWuW3.png');
     background-size: cover;
     background-position: center;
@@ -1137,6 +1142,14 @@ header.scrolled {
     border: 1px solid rgb(15, 15, 15);
     background-color: rgba(15, 15, 15, 0.9);
     box-shadow: 0 0px 20px rgba(15, 15, 15, 0.4), 0 0px 20px rgba(15, 15, 15, 0.1);
+
+    border: 1px solid rgb(237, 0, 73);
+    box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
+    background-color: rgba(102, 1, 39, 0.8);
+
+    border: 1px solid rgb(100, 100, 100);
+    box-shadow: 0 4px 10px rgba(100, 100, 100, 0.4), 0 8px 20px rgba(60, 60, 60, 0.1);
+    background-color: rgba(35, 35, 35, 0.9);
 }
 
 #continue-episode-button:has(.remove-button:hover)::before,
@@ -1144,6 +1157,7 @@ header.scrolled {
     border: 1px solid rgb(255, 0, 0);
     box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4), 0 8px 20px rgba(253, 0, 0, 0.1);
     background-color: rgba(94, 0, 0, 0.9);
+    transition: background-image 0.3s ease-in-out, transform 0.3s ease, all 0.3s ease-out;
 
     /* border: 1px solid rgb(237, 0, 73);
     box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
@@ -1161,7 +1175,7 @@ header.scrolled {
 #episode-button.watched::before {
     border: 1px solid rgb(237, 0, 73);
     background-color: rgba(102, 1, 39, 0.8);
-    /* box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1); */
+    box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
 
     border: 1px solid rgb(237, 0, 73, 0.5);
     background-color: rgba(63, 2, 25, 0.8);
@@ -1187,6 +1201,7 @@ header.scrolled {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-image: url('https://i.imgur.com/J9tWuW3.png');
     background-image: url('https://i.imgur.com/Uj4TeJR.png');
     background-size: cover;
     background-position: center;
@@ -1806,30 +1821,52 @@ p {
 }
 
 .log-entry {
-  display: flex;
-  align-items: center;
-  background-color: rgb(25, 25, 25);
-  background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  padding: 10px;
-  margin-bottom: 10px;
-  transition: all .3s;
-  cursor: pointer;
-  border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    background-color: rgb(25, 25, 25);
+    background: linear-gradient(to right, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 80%);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    border: 1px solid transparent;
+    position: relative;
+}
+
+.log-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background: linear-gradient(to right, rgb(60, 60, 60) 0%, rgb(10, 10, 10) 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    z-index: -1;
+}
+
+.log-entry:hover::before {
+    opacity: 1;
 }
 
 .log-entry:hover {
-  background-color: rgb(39, 44, 51);
-  background: rgb(39, 44, 51);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
-  transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .log-entry:has(.remove-log-button:hover) {
+    opacity: 1;
     border: 1px solid rgba(237, 0, 73, 0.4);
     box-shadow: 0 4px 10px rgba(152, 1, 39, 0.4), 0 8px 20px rgba(152, 1, 39, 0.1);
-    background-color: rgba(102, 1, 39, 0.8);
+    background: linear-gradient(to right, rgba(102, 1, 39, 0.8) 0%, rgba(10, 10, 10, 0.8) 80%);
+    transition: border 0.3s ease-out, box-shadow 0.3s ease-out, background 0.3s ease-out;
+}
+
+.log-entry:has(.remove-log-button:hover)::before {
+    opacity: 0;
 }
 
 .log-thumb {
@@ -1906,6 +1943,13 @@ p {
 .remove-log-button:hover span {
     transform: rotate(360deg);
 }
+
+
+
+
+
+
+
 
 
 
