@@ -1,3 +1,5 @@
+
+/* MMONITOR ULTRA WIDE */
 @media (max-width: 2560px) {
     #group-series-button{
         width: 227px;
@@ -6,8 +8,23 @@
     #continue-episode-button, #episode-button {
         width: 250px;
     }
+
+    .carousel-inner .item,
+    .myCarousel {
+        max-height: 800px;
+    }
+
+    .carousel-caption h3 {
+        margin-top: 650px;
+    }
 }
 
+/* MONITOR FULL HD - 1080P */
+@media (max-width: 1920px) {
+
+}
+
+/* MONITOR MEDIANO  - 720P */
 @media (max-width: 1366px) {
     #group-series-button {
         width: 230px;
@@ -16,8 +33,18 @@
     #continue-episode-button, #episode-button {
         width: 230px;
     }
+
+    .carousel-inner .item,
+    .myCarousel {
+        max-height: 500px;
+    }
+
+    .carousel-caption h3 {
+        margin-top: 350px;
+    }
 }
 
+/* MONITOR PEQUENO - MOBILE */
 @media (max-width: 768px) {
     header {
         padding: 5px; /* Reduz padding em telas menores */
