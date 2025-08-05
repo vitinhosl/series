@@ -17,6 +17,11 @@
     .carousel-caption h3 {
         margin-top: 650px;
     }
+    
+    .description-thumb,
+    #series-description{
+        /* min-height: 80vh; */
+    }
 }
 
 /* MONITOR FULL HD - 1080P */
@@ -41,6 +46,11 @@
 
     .carousel-caption h3 {
         margin-top: 350px;
+    }
+
+    .description-thumb,
+    #series-description{
+        /* min-height: 80vh; */
     }
 }
 

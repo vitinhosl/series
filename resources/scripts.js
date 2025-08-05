@@ -229,6 +229,16 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "OS DEZ MANDAMENTOS",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Grande sucesso da televisão brasileira, este épico bíblico 
+                        narra a saga de Moisés, o hebreu que escapou da morte ainda 
+                        bebê, virou príncipe do Egito eacabou se transformando no 
+                        líder escolhido por Deus para libertar seu povo da escravidão.
+                    `
+                },
                 season: [
                     //TEMPORADA 01 - EPISÓDIOS 176
                     {
@@ -501,6 +511,16 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "JEZABEL",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0069716/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        A trama contará a história da princesa fenícia Jezabel, 
+                        uma princesa idólatra que se casa com o rei Acabe e usa 
+                        sua beleza e maldade para tentar impor ao povo israelita 
+                        aceitar a adoração ao seus deuses pagãos. 
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -602,6 +622,16 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "REI DAVI",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0088301/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Rei Davi é uma mini série bíblica brasileira que 
+                        conta a história de Davi, o pastor de ovelhas que
+                        derrotou o gigante Golias e que foi escolhido 
+                        por Deus para governar seu povo.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -642,14 +672,14 @@ const seriesData = [
                         ]
                     },
 
-                    {
-                        name: "Filmes",
-                        thumb_season: "https://i.imgur.com/I0brMS9.png",
-                        movies: true,
-                        episodes: [
-                            { title: "REI DAVI", thumb: "", url: "https://ok.ru/videoembed/301566855767", alternative: [] },          
-                        ]
-                    },
+                    // {
+                    //     name: "Filmes",
+                    //     thumb_season: "https://i.imgur.com/I0brMS9.png",
+                    //     movies: true,
+                    //     episodes: [
+                    //         { title: "REI DAVI", thumb: "", url: "https://ok.ru/videoembed/301566855767", alternative: [] },          
+                    //     ]
+                    // },
                 ]
             },
 
@@ -662,6 +692,16 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "JEZABEL",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0068517/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Após ser vendido como escravo pelos irmãos e 
+                        levado para o Egito, José é injustiçado, caluniado, 
+                        preso e humilhado. A vida de José é um exemplo 
+                        de pureza e perdão.
+                    `
+                },
                 season: [
                     {
                         name: "",
@@ -709,14 +749,14 @@ const seriesData = [
                         ]
                     },
 
-                    {
-                        name: "Filmes",
-                        thumb_season: "https://i.imgur.com/Ayybjrq.jpeg",
-                        movies: true,
-                        episodes: [
-                            { title: "JOSÉ DO EGITO", thumb: "", url: "https://ok.ru/videoembed/225197624005", alternative: [] },
-                        ]
-                    },
+                    // {
+                    //     name: "Filmes",
+                    //     thumb_season: "https://i.imgur.com/Ayybjrq.jpeg",
+                    //     movies: true,
+                    //     episodes: [
+                    //         { title: "JOSÉ DO EGITO", thumb: "", url: "https://ok.ru/videoembed/225197624005", alternative: [] },
+                    //     ]
+                    // },
                 ]
             },
 
@@ -729,6 +769,17 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "JESUS",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0347485/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Quando a história dos homens estava perto de cair em desgraça, 
+                        a história domundo muda para sempre após a chegada do Salvador. 
+                        Jesus, a novela, contapela primeira vez na íntegra a trajetória 
+                        do homem que revolucionou a humanidade com sua palavra e suas 
+                        ações e dividiu a história em dois: antes e depois de Cristo.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -943,6 +994,17 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "GÊNESIS",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0191984/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        A superprodução bíblica Gênesis vai lhe ajudar a entender aquilo 
+                        que você sempre quis, mas nunca teve coragem de questionar. Sim, 
+                        ela é cheia de histórias fascinantes, com muita emoção, talentosos 
+                        profissionais, uma belíssima fotografia e faixa musical inovadora, 
+                        mas acima de tudo, ela conta a nossa história.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1184,6 +1246,17 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "O RICO E LÁZARO",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0068614/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Após o governo de vários reis que se afastaram de Deus, Jerusalém 
+                        encontra-se mergulhada na idolatria. A grande amizade de Zac e Asher 
+                        é abalada pelo amor que ambos sentem pela companheira de infância, 
+                        Joana. Ao contrário deles, ela acredita nas profecias de Jeremias 
+                        e empenha-se para que o povo hebreu se volte novamente para Deus.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1386,6 +1459,16 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "A RAINHA DA PÉRSIA",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0433417/playplus_thumb_852.jpg",
+                      sinopse:  `
+                        A Rainha da Pérsia é uma série que nos transporta para 
+                        os tempos antigos da Bíblia, onde a vida de uma jovem 
+                        judia, Hadassah, também conhecida como Ester, se entrelaça 
+                        com o futuro de uma nação inteira.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1437,6 +1520,16 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "A HISTÓRIA DE ESTER",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0068508/playplus_thumb_852.jpg",
+                    sinopse:  `
+                        A minissérie A História de Ester se passa por volta 
+                        de 400 anos a.C., na antiga Pérsia, onde hoje é o Irã. 
+                        A trama principal traz uma linda história de amor
+                        entre uma mulher do povo, Ester e o rei Assuero.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1462,11 +1555,24 @@ const seriesData = [
             {
                 name: "Apocalipse",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/gEPrg5k.jpeg"],
+                thumb_buttons: [
+                    // "https://i.imgur.com/gEPrg5k.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0070604/0070604_200.jpg"
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "APOCALIPSE",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0070604/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        Baseada nas interpretações de um dos capítulos da bíblia, 
+                        a novela retrata as catástrofes dos fins dos tempos. 
+                        Dividida em três fases a trama traz crimes misteriosos, 
+                        amores proibidos, intrigas e muita ação.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1661,6 +1767,16 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "REIS",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0256021/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        Reis conta a história da nação de Israel, do momento em 
+                        que o último juiz, o profeta Samuel, é usado por Deus para 
+                        guiar o Seu povo, até a lamentável queda de Jerusalém, 
+                        causada pelos exércitos da Babilônia.
+                    `
+                },
                 season: [
                     //TEMPORADA 01 - A DECEPÇÃO
                     {
@@ -2172,6 +2288,18 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "SANSÃO E DALILA",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0069029/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        A obra Sansão e Dalila retrata uma época em que hebreus fortemente
+                        oprimidos e perseguidos pelos filisteus clamavam por libertação. Neste
+                        contexto, Zilá, uma mulher que sempre sofreu por ser estéril, recebe a visita de
+                        um mensageiro de Deus. O porta-voz anuncia que ela daria à luz a um menino,
+                        Sansão, cuja navalha jamais deveria ser passada em seus cabelos, 
+                        como um voto de consagração divina.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -2209,11 +2337,21 @@ const seriesData = [
             {
                 name: "Lia",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/h8a6jYP.jpeg"],
+                thumb_buttons: ["https://i.imgur.com/h8a6jYP.jpeg"], //https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "LIA",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0072028/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        A minissérie é baseada na história de Lia, uma das esposas de Jacó, 
+                        o progenitor da Nação Judaica. Jacó teve doze filhos, que deram nomes 
+                        às doze Tribos de Israel. Esses filhos nasceram de suas esposas: 
+                        as irmãs, Lia e Raquel;e de suas concubinas: Bila e Zilpa.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -2244,6 +2382,14 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                description: {
+                    title: "NEEMIAS",
+                    thumb: "https://i.imgur.com/6xJGpt0.jpeg",
+                    sinopse:  `
+                        A minissérie Neemias, que narra a história da reconstrução dos muros de
+                        Jerusalém liderada por Neemias após o exílio babilônico
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -2270,8 +2416,17 @@ const seriesData = [
                 badge: "NOVO",
                 type: "Temporadas",
                 canais: false,
-                enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                enabled: true,
+                description: {
+                    title: "PAULO O APÓSTOLO",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0503079/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        Paulo, O Apóstolo narra a fascinante e profunda jornada 
+                        de Saulo de Tarso, um jovem fariseu fervoroso que, após um 
+                        encontro inesperado, tem sua vida transformada para sempre.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",

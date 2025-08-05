@@ -309,9 +309,9 @@ header.scrolled {
 .description-content {
   position: relative;
   z-index: 3;
-    padding: 11vw 7vw 10vw 6vw;
-    width: calc(700px + 10vw);
-    text-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.8);
+  padding: 11vw 7vw 10vw 6vw;
+  width: calc(700px + 10vw);
+  text-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.8);
 }
 
 .description-content h2 { margin: 0 0 8px; font-size: 2em; }
@@ -409,9 +409,6 @@ header.scrolled {
 #continue-series,
 #section-season {
     margin-bottom: 20px;
-}
-
-#continue-series {
     margin-top: 10px;
 }
 
@@ -999,7 +996,7 @@ header.scrolled {
 }
 
 #continue-series {
-    padding: 0px 0px 10px 0px;
+    /* padding: 0px 0px 10px 0px; */
 }
 
 #current-series {
