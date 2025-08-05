@@ -2828,27 +2828,21 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
         return;
     }
 
-    // Verificar se a série mudou ou se é a primeira renderização
     const isNewSeries = !currentSerie || currentSerie.name !== serie.name;
     currentSerie = serie;
 
     const serieKey = serie.name.replace(/\s+/g, '_');
     const hasSeasons = serie.season.length > 0;
-    // Mostrar dropdown se houver mais de uma temporada ou temporada(s) + filmes
     const showDropdown = hasSeasons && (serie.season.length > 1 || (serie.season.length === 1 && serie.season.some(s => s.movies)));
-    // Mostrar opção "Todas" se houver mais de uma temporada ou temporada(s) + filmes
     const showAllOption = serie.season.length > 1 || (serie.season.length === 1 && serie.season.some(s => s.movies));
 
     let episodesToRender = [];
     let availableText = '';
-    // Definir o valor inicial do dropdown
     if (isNewSeries || !dropdownValue || (dropdownValue === 'all' && !showAllOption)) {
         if (showAllOption) {
-            // Se houver > 1 temporada ou temporada + filmes, selecionar "all" por padrão
             dropdownValue = 'all';
             currentSeasonDropdownValue = 'all';
         } else {
-            // Se houver apenas uma temporada ou apenas filmes, selecionar a única temporada
             currentSeasonIndex = 0;
             dropdownValue = `season-${currentSeasonIndex}`;
             currentSeasonDropdownValue = dropdownValue;
@@ -2881,68 +2875,68 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
         currentSeasonDropdownValue = dropdownValue;
     }
 
-    // Criar o container de descrição, se existir
     let descriptionHTML = '';
     if (serie.description && typeof serie.description === 'object') {
-    const desc = serie.description;
+        const desc = serie.description;
+        const numSeasons = serie.season.length;
+        const totalEpisodes = serie.season.reduce((sum, s) => sum + (s.episodes?.length || 0), 0);
+        const topMovies = serie.movies?.length || 0;
+        const inSeasonMovies = serie.season.reduce((sum, s) => sum + (s.movies?.length || 0), 0);
+        const totalMovies = topMovies + inSeasonMovies;
 
-    // 1) calcular totais
-    const numSeasons = serie.season.length;
-    const totalEpisodes = serie.season
-        .reduce((sum, s) => sum + (s.episodes?.length || 0), 0);
-    // filmes podem vir em top‐level ou dentro de cada season.movies
-    const topMovies = serie.movies?.length || 0;
-    const inSeasonMovies = serie.season
-        .reduce((sum, s) => sum + (s.movies?.length || 0), 0);
-    const totalMovies = topMovies + inSeasonMovies;
+        const parts = [];
+        if (numSeasons) parts.push(`Temporada${numSeasons > 1 ? 's' : ''} ${numSeasons} `);
+        if (totalEpisodes) parts.push(`Episódio${totalEpisodes > 1 ? 's' : ''} ${totalEpisodes} `);
+        if (totalMovies) parts.push(`Filme${totalMovies > 1 ? 's' : ''} ${totalMovies}`);
 
-    // montar array com as partes que existem
-    const parts = [];
-    if (numSeasons)  parts.push(`Temporada${numSeasons > 1 ? 's' : ''} ${numSeasons} `);
-    if (totalEpisodes) parts.push(`Episódio${totalEpisodes > 1 ? 's' : ''} ${totalEpisodes} `);
-    if (totalMovies)   parts.push(`Filme${totalMovies > 1 ? 's' : ''} ${totalMovies}` );
+        const summaryText = parts.join(' - ');
+        const sinopseHTML = desc.sinopse.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        const isFavorite = favorites.some(fav => fav.name === serie.name);
 
-    const summaryText = parts.join(' - ');
-    const sinopseHTML = desc.sinopse.replace(/(?:\r\n|\r|\n)/g, '<br>');
-
-    descriptionHTML = `
-        <div id="series-description">
-        <div class="description-thumb"
-            style="background-image: url('${desc.thumb}');">
-        </div>
-        <div class="description-content">
-            <h2>${desc.title}</h2>
-            <h3>${summaryText}</h3>
-            <p>${sinopseHTML}</p>
-            <button class="favorite-button-s2" aria-label="Favoritar">♥</button>
-            <p2>Seleciona uma opção:</p2>
-            <select id="season-dropdown"></select>
-        </div>
-        </div>
-    `;
+        descriptionHTML = `
+            <div id="series-description">
+                <div class="description-thumb" style="background-image: url('${desc.thumb}');"></div>
+                <div class="description-content">
+                    <h2>${desc.title}</h2>
+                    <h3>${summaryText}</h3>
+                    <p>${sinopseHTML}</p>
+                    <button class="favorite-button-s2 ${isFavorite ? 'active' : ''}" data-serie='${JSON.stringify(serie)}' aria-label="${isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}"></button>
+                    ${showDropdown ? `
+                        <p2>Seleciona uma opção:</p2>
+                        <select id="season-dropdown">
+                            ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Ver todos os episódios</option>` : ''}
+                            ${serie.season.map((season, idx) => {
+                                const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
+                                return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
+                            }).join('')}
+                        </select>
+                    ` : ''}
+                </div>
+            </div>
+        `;
     }
 
     const html = `
-    <div id="current-series">
-        ${descriptionHTML}
-        <div id="section-season">
-            <div id="current-series-header">
-                <p id="series-available-text">${availableText}</p>
-                ${showDropdown ? `
-                    <select id="season-dropdown">
-                        ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Todas</option>` : ''}
-                        ${serie.season.map((season, idx) => {
-                            const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
-                            return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
-                        }).join('')}
-                    </select>
-                ` : ''}
-            </div>
-            <div id="current-series-episodes">
-                ${renderEpisodes(serie, dropdownValue)}
+        <div id="current-series">
+            ${descriptionHTML}
+            <div id="section-season">
+                <div id="current-series-header">
+                    <p id="series-available-text">${availableText}</p>
+                    ${!serie.description && showDropdown ? `
+                        <select id="season-dropdown">
+                            ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Ver todos os episódios</option>` : ''}
+                            ${serie.season.map((season, idx) => {
+                                const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
+                                return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
+                            }).join('')}
+                        </select>
+                    ` : ''}
+                </div>
+                <div id="current-series-episodes">
+                    ${renderEpisodes(serie, dropdownValue)}
+                </div>
             </div>
         </div>
-    </div>
     `;
     seriesContainer.innerHTML = html;
 
@@ -2954,7 +2948,6 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
         episodesContainer.style.display = newDropdown.value === 'all' ? 'block' : 'flex';
     }
 
-    // Chamar renderContinueWatchingSection antes de renderizar os episódios
     renderContinueWatchingSection();
     animateEpisodes(episodesToRender.length, previousEpisodeCount);
     previousEpisodeCount = episodesToRender.length;
@@ -2991,11 +2984,45 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
                 setupThumbnailLoading();
                 addEpisodeButtonListeners();
                 updateButtonVisibility();
-                // Re-renderizar continue-series após atualizar episódios
                 renderContinueWatchingSection();
             });
 
             previousEpisodeCount = newEpisodes.length;
+        });
+    }
+
+    const favoriteButtonS2 = document.querySelector('.favorite-button-s2');
+    if (favoriteButtonS2) {
+        favoriteButtonS2.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const serie = JSON.parse(this.getAttribute('data-serie'));
+            const isFavorite = this.classList.contains('active');
+
+            this.classList.add('heart-pulse');
+            setTimeout(() => this.classList.remove('heart-pulse'), 300);
+
+            if (isFavorite) {
+                removeFavorite(serie);
+            } else {
+                saveFavorite(serie);
+            }
+            this.classList.toggle('active');
+            this.setAttribute('aria-label', this.classList.contains('active') ? 'Remover dos favoritos' : 'Adicionar aos favoritos');
+            updateFavorites();
+            filterSeries();
+
+            const groupHomeButtons = document.querySelectorAll('#group-home .favorite-button');
+            groupHomeButtons.forEach(btn => {
+                const btnSerie = JSON.parse(btn.getAttribute('data-serie'));
+                if (btnSerie.name === serie.name) {
+                    btn.classList.toggle('active', this.classList.contains('active'));
+                    btn.innerHTML = this.classList.contains('active')
+                        ? '★ <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>'
+                        : '☆ <span class="tooltip-text black tooltip-top">Adicionar aos favoritos</span>';
+                    btn.classList.add('heart-pulse');
+                    setTimeout(() => btn.classList.remove('heart-pulse'), 300);
+                }
+            });
         });
     }
 

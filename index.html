@@ -12,56 +12,57 @@
     <link rel="stylesheet" href="resources/mobile.css">
 </head>
 <body>
-    <div id="main" class="show">
-        <header>
-            <div id="title">
-                <svg width="50" height="50" viewBox="0 0 297 297" id="logo" class="show">
-                    <defs>
-                        <style>
-                            :root {
-                                --primary-circle: #c00c42;
-                                --shadow-circle: #69132f;
-                                --rewind-lines: #39424e;
-                                --player-bg-left: #12161d;
-                                --player-bg-right: #12161d;
-                                --buttons: #2d343f;
-                                --screen-left: #444d5b;
-                                --screen-right: #2d343f;
-                            }
-                        </style>
-                    </defs>
-                    <g>
-                        <circle cx="148.5" cy="148.5" r="148.5" fill="var(--primary-circle)" opacity="1"></circle>
-                        <path d="M297 148.5c0-2.326-.061-4.638-.167-6.938l-53.499-53.9L53.299 224.778l69.91 70.067a149.386 149.386 0 0 0 25.291 2.154C230.514 297 297 230.514 297 148.5z" fill="var(--shadow-circle)" opacity="1"></path>
-                        <path d="M142.273 92.027a5.5 5.5 0 0 1-7.66-1.351l-25.237-36.043a5.5 5.5 0 1 1 9.011-6.309l25.237 36.043a5.5 5.5 0 0 1-1.351 7.66z" fill="var(--rewind-lines)" opacity="1"></path>
-                        <path d="M147.607 92.027a5.5 5.5 0 0 0 7.66-1.351l25.237-36.043a5.5 5.5 0 0 0-9.011-6.309l-25.237 36.043a5.502 5.502 0 0 0 1.351 7.66z" fill="var(--rewind-lines)" opacity="1"></path>
-                        <path d="M66.131 230.318h164.738c9.737 0 17.631-7.894 17.631-17.631V100.131c0-9.737-7.894-17.631-17.631-17.631H66.131c-9.737 0-17.631 7.894-17.631 17.631v112.556c0 9.737 7.894 17.631 17.631 17.631z" fill="var(--player-bg-left)" opacity="1"></path>
-                        <path d="M230.869 82.5h-85.702v147.818h85.702c9.737 0 17.631-7.894 17.631-17.631V100.131c0-9.737-7.894-17.631-17.631-17.631z" fill="var(--player-bg-right)" opacity="1"></path>
-                        <circle cx="222.5" cy="119.5" r="13.5" fill="var(--buttons)" opacity="1"></circle>
-                        <circle cx="222.5" cy="162" r="13.5" fill="var(--buttons)" opacity="1"></circle>
-                        <path d="M81.417 214.5h101.166c8.514 0 15.417-6.902 15.417-15.417v-85.348c0-8.514-6.902-15.417-15.417-15.417H81.417C72.903 98.318 66 105.22 66 113.735v85.348c0 8.515 6.902 15.417 15.417 15.417z" fill="var(--screen-left)" opacity="1"></path>
-                        <path d="M182.583 98.318h-37.416V214.5h37.416c8.514 0 15.417-6.902 15.417-15.417v-85.348c0-8.515-6.902-15.417-15.417-15.417z" fill="var(--screen-right)" opacity="1"></path>
-                    </g>
-                </svg>
-                <button id="back-button" class="hidden">❮</button>
-                <h1 id="series-title" class="show">Séries</h1>
-                <h1 id="series-name" class="hidden"></h1>
-                <h1 id="series-logs" class="hidden">Lista de Logs</h1>
-                <label class="menu">
-                    <input class="inp" type="checkbox" />
-                    <div class="bar">
-                        <span class="top bar-list"></span>
-                        <span class="middle bar-list"></span>
-                        <span class="bottom bar-list"></span>
-                    </div>
-                    <section class="menu-container">
-                        <div class="menu-list">Início</div>
-                        <div class="menu-list">Logs</div>
-                    </section>
-                </label>
-            </div>
-        </header>
+    
+    <header>
+        <div id="title">
+            <svg width="50" height="50" viewBox="0 0 297 297" id="logo" class="show">
+                <defs>
+                    <style>
+                        :root {
+                            --primary-circle: #c00c42;
+                            --shadow-circle: #69132f;
+                            --rewind-lines: #39424e;
+                            --player-bg-left: #12161d;
+                            --player-bg-right: #12161d;
+                            --buttons: #2d343f;
+                            --screen-left: #444d5b;
+                            --screen-right: #2d343f;
+                        }
+                    </style>
+                </defs>
+                <g>
+                    <circle cx="148.5" cy="148.5" r="148.5" fill="var(--primary-circle)" opacity="1"></circle>
+                    <path d="M297 148.5c0-2.326-.061-4.638-.167-6.938l-53.499-53.9L53.299 224.778l69.91 70.067a149.386 149.386 0 0 0 25.291 2.154C230.514 297 297 230.514 297 148.5z" fill="var(--shadow-circle)" opacity="1"></path>
+                    <path d="M142.273 92.027a5.5 5.5 0 0 1-7.66-1.351l-25.237-36.043a5.5 5.5 0 1 1 9.011-6.309l25.237 36.043a5.5 5.5 0 0 1-1.351 7.66z" fill="var(--rewind-lines)" opacity="1"></path>
+                    <path d="M147.607 92.027a5.5 5.5 0 0 0 7.66-1.351l25.237-36.043a5.5 5.5 0 0 0-9.011-6.309l-25.237 36.043a5.502 5.502 0 0 0 1.351 7.66z" fill="var(--rewind-lines)" opacity="1"></path>
+                    <path d="M66.131 230.318h164.738c9.737 0 17.631-7.894 17.631-17.631V100.131c0-9.737-7.894-17.631-17.631-17.631H66.131c-9.737 0-17.631 7.894-17.631 17.631v112.556c0 9.737 7.894 17.631 17.631 17.631z" fill="var(--player-bg-left)" opacity="1"></path>
+                    <path d="M230.869 82.5h-85.702v147.818h85.702c9.737 0 17.631-7.894 17.631-17.631V100.131c0-9.737-7.894-17.631-17.631-17.631z" fill="var(--player-bg-right)" opacity="1"></path>
+                    <circle cx="222.5" cy="119.5" r="13.5" fill="var(--buttons)" opacity="1"></circle>
+                    <circle cx="222.5" cy="162" r="13.5" fill="var(--buttons)" opacity="1"></circle>
+                    <path d="M81.417 214.5h101.166c8.514 0 15.417-6.902 15.417-15.417v-85.348c0-8.514-6.902-15.417-15.417-15.417H81.417C72.903 98.318 66 105.22 66 113.735v85.348c0 8.515 6.902 15.417 15.417 15.417z" fill="var(--screen-left)" opacity="1"></path>
+                    <path d="M182.583 98.318h-37.416V214.5h37.416c8.514 0 15.417-6.902 15.417-15.417v-85.348c0-8.515-6.902-15.417-15.417-15.417z" fill="var(--screen-right)" opacity="1"></path>
+                </g>
+            </svg>
+            <button id="back-button" class="hidden">❮</button>
+            <h1 id="series-title" class="show">Séries</h1>
+            <h1 id="series-name" class="hidden"></h1>
+            <h1 id="series-logs" class="hidden">Lista de Logs</h1>
+            <label class="menu">
+                <input class="inp" type="checkbox" />
+                <div class="bar">
+                    <span class="top bar-list"></span>
+                    <span class="middle bar-list"></span>
+                    <span class="bottom bar-list"></span>
+                </div>
+                <section class="menu-container">
+                    <div class="menu-list">Início</div>
+                    <div class="menu-list">Logs</div>
+                </section>
+            </label>
+        </div>
+    </header>
 
+    <div id="main" class="show">
         <div id="logs-section" class="hidden"></div>
 
         <div id="home" class="show">
