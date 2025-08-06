@@ -22,6 +22,10 @@
     #series-description{
         /* min-height: 80vh; */
     }
+
+    .description-content{
+       padding: 180px 100px 100px 100px;
+    }
 }
 
 /* MONITOR FULL HD - 1080P */
@@ -51,6 +55,10 @@
     .description-thumb,
     #series-description{
         /* min-height: 80vh; */
+    }
+
+    .description-content{
+       padding: 100px 100px 100px 100px;
     }
 }
 

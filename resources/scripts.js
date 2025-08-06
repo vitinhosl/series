@@ -672,14 +672,24 @@ const seriesData = [
                         ]
                     },
 
-                    // {
-                    //     name: "Filmes",
-                    //     thumb_season: "https://i.imgur.com/I0brMS9.png",
-                    //     movies: true,
-                    //     episodes: [
-                    //         { title: "REI DAVI", thumb: "", url: "https://ok.ru/videoembed/301566855767", alternative: [] },          
-                    //     ]
-                    // },
+                    {
+                        name: "Filmes",
+                        thumb_season: "https://i.imgur.com/I0brMS9.png",
+                        movies: true,
+                        description: {
+                            title: "REI DAVI - O FILME",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0088301/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Rei Davi é filme bíblico brasileiro que 
+                                conta a história de Davi, o pastor de ovelhas que
+                                derrotou o gigante Golias e que foi escolhido 
+                                por Deus para governar seu povo.
+                            `
+                        },
+                        episodes: [
+                            { title: "REI DAVI", thumb: "", url: "https://ok.ru/videoembed/301566855767", alternative: [] },          
+                        ]
+                    },
                 ]
             },
 
@@ -1769,20 +1779,30 @@ const seriesData = [
                 enabled: true,
                 description: {
                     title: "REIS",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0256021/playplus_thumb_1600.jpg",
+                    thumb: "https://i.imgur.com/yfMLDL9.jpeg",
                     sinopse:  `
-                        Reis conta a história da nação de Israel, do momento em 
-                        que o último juiz, o profeta Samuel, é usado por Deus para 
-                        guiar o Seu povo, até a lamentável queda de Jerusalém, 
-                        causada pelos exércitos da Babilônia.
+                        Nas terras de Canaã, um povo que caminhou décadas pelo deserto 
+                        e enfrentou batalhas épicas com prodígios jamais vistos por 
+                        qualquer outra nação da terra, se estabelece formando a insigne 
+                        Israel, seguindo a liderança apenas do seu Deus — até agora.
                     `
                 },
                 season: [
                     //TEMPORADA 01 - A DECEPÇÃO
                     {
-                        name: "Temporada 01 - A Decepção",
+                        name: "Temporada 01: A Decepção",
                         thumb_season: "https://i.imgur.com/m2VwgJJ.jpeg",
                         movies: false,
+                        description: {
+                            title: "REIS - A DECEPÇÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0256021/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Decepção retrata a história da nação de Israel, 
+                                do momento em que o último juiz, o profeta Samuel, é usado 
+                                por Deus para guiar o Seu povo, até a lamentável queda de 
+                                Jerusalém, causada pelos exércitos da Babilônia.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001", duration: "52:47", thumb: "https://i.imgur.com/W5QVhJE.jpeg", url: "https://ok.ru/videoembed/6662135679547" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-001.mp4"] },
                             { title: "Episódio 002", duration: "41:56", thumb: "https://i.imgur.com/xhGL5zV.jpeg", url: "https://ok.ru/videoembed/6662208752187" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-002.mp4"] },
@@ -1813,9 +1833,19 @@ const seriesData = [
 
                     //TEMPORADA 02 - A INGRATIDÃO
                     {
-                        name: "Temporada 02 - A Ingratidão",
+                        name: "Temporada 02: A Ingratidão",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A INGRATIDÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0260819/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Ingratidão retrata o início do reinado de Saul, o primeiro rei 
+                                de Israel, e na sua relação com o profeta Samuel e com o povo israelita. 
+                                A ingratidão do povo em relação a Deus, que os havia escolhido e guiado, 
+                                e a escolha de um rei terreno como forma de rejeição a essa liderança divina. 
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (25)", duration: "58:47", thumb: "https://i.imgur.com/gJL4xob.jpeg", url: "https://ok.ru/videoembed/6731516938811", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-025.mp4"] },
                             { title: "Episódio 002 - (26)", duration: "40:08", thumb: "https://i.imgur.com/4rj1Pdd.jpeg", url: "https://ok.ru/videoembed/6731517069883", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-026.mp4"] },
@@ -1853,9 +1883,19 @@ const seriesData = [
                     
                     //TEMPORADA 03 - A REJEIÇÃO
                     {
-                        name: "Temporada 03 - A Rejeição",
+                        name: "Temporada 03: A Rejeição",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A REJEIÇÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0276558/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Rejeição retrata a história do primeiro rei de 
+                                Israel. Escolhido por Deus e aclamado pelo povo, Saul 
+                                rapidamente se torna a fonte de esperança de um futuro 
+                                seguro e promissor para aqueles sob a sua liderança. 
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (056)", duration: "1:09:02", thumb: "https://i.imgur.com/f5Xu6Ie.jpeg", url: "https://ok.ru/videoembed/6754259110459", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-056.mp4"] },
                             { title: "Episódio 002 - (057)", duration: "46:33"  , thumb: "https://i.imgur.com/VBI6XJZ.jpeg", url: "https://ok.ru/videoembed/6754259307067", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-057.mp4"] },
@@ -1892,9 +1932,19 @@ const seriesData = [
 
                     //TEMPORADA 04 - A ESCOLHA
                     {
-                        name: "Temporada 04 - A Escolha",
+                        name: "Temporada 04: A Escolha",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A ESCOLHA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0283103/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis – A Escolha retrata o início de uma história de fé, amor e 
+                                superação do mais aclamado rei que a humanidade já ouviu falar. 
+                                Davi foi o escolhido de Deus para governar a nação de Israel no 
+                                lugar de Saul, o primeiro rei e a decepção do Senhor.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (086)", duration: "1:06:45", thumb: "https://i.imgur.com/QJsiGWE.jpeg", url: "https://ok.ru/videoembed/6802650040891", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-086.mp4"] },
                             { title: "Episódio 002 - (087)", duration: "55:23"  , thumb: "https://i.imgur.com/yAbKveX.jpeg", url: "https://ok.ru/videoembed/6802650171963", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-087.mp4"] },
@@ -1917,9 +1967,19 @@ const seriesData = [
 
                     //TEMPORADA 05 - A PERSEGUIÇÃO
                     {
-                        name: "Temporada 05 - A Perseguição",
+                        name: "Temporada 05: A Perseguição",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A PERSEGUIÇÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0337855/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Perseguição retrata à incrível trajetória do temente e 
+                                corajoso Davi, que, através do seu caráter virtuoso e de suas inúmeras 
+                                vitórias, conquistou a admiração e estima de todo o povo Israelita, 
+                                despertando em Saul, rei da nação, uma incontrolável inveja.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (102)", duration: "1:06:57", thumb: "https://i.imgur.com/v11BJIo.jpeg", url: "https://ok.ru/videoembed/6828936202811", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-102.mp4"] },
                             { title: "Episódio 002 - (103)", duration: "46:15"  , thumb: "https://i.imgur.com/hsagVAd.jpeg", url: "https://ok.ru/videoembed/6828936464955", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-103.mp4"] },
@@ -1964,9 +2024,19 @@ const seriesData = [
 
                     //TEMPORADA 06 - A CONQUISTA
                     {
-                        name: "Temporada 06 - A Conquista",
+                        name: "Temporada 06: A Conquista",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A CONQUISTA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0366700/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                               Reis – A Conquista retrata os acontecimentos da vida de Davi após a 
+                               morte do seu maior perseguidor, Saul, bem como a inclinação do aclamado 
+                               rei. E nesse contexto, o telespectador entenderá melhor por que, mais 
+                               tarde, o filho de Jessé comete o erro que muda o rumo da sua história.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (140)", duration: "1:07:39", thumb: "https://i.imgur.com/4qIWSIK.jpeg", url: "https://ok.ru/videoembed/6874679216699", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-140.mp4"] },
                             { title: "Episódio 002 - (141)", duration: "43:57"  , thumb: "https://i.imgur.com/TF2CJfP.jpeg", url: "https://ok.ru/videoembed/6874679478843", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-141.mp4"] },
@@ -1999,9 +2069,19 @@ const seriesData = [
 
                     //TEMPORADA 07 - O PECADO
                     {
-                        name: "Temporada 07 - O Pecado",
+                        name: "Temporada 07: O Pecado",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A CONQUISTA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0373820/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                               Reis - O Pecado retrata o auge do reinado de Davi e mergulha nas suas 
+                               intensas batalhas internas. Aquele aclamado rei de Israel dedicado à 
+                               família, bom amigo e temente a Deus começa a relaxar em sua vigilância, 
+                               cedendo a suas fraquezas e tendo que lidar com as consequências.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (166)", duration: "51:55"  , thumb: "https://i.imgur.com/SHpxdBN.jpeg", url: "https://ok.ru/videoembed/6883946662459", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-166.mp4"] },
                             { title: "Episódio 002 - (167)", duration: "41:56"  , thumb: "https://i.imgur.com/KYaqXr8.jpeg", url: "https://ok.ru/videoembed/6883946793531", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-167.mp4"] },
@@ -2047,9 +2127,20 @@ const seriesData = [
 
                     //TEMPORADA 08 - A CONSEQUÊNCIA
                     {
-                        name: "Temporada 08 - A Consequência",
+                        name: "Temporada 08: A Consequência",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A CONSEQUÊNCIA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0384653/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis – A Consequência retrata à história de Davi anos depois do 
+                                terrível e lamentável pecado cometido. Agora não mais um homem 
+                                atormentado pela culpa e o peso de seus erros, Davi governa a nação 
+                                com a mesma sabedoria e vigor de antes, tendo recebido 
+                                o perdão de Deus e restaurado a sua comunhão com o Altíssimo.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (205)", duration: "1:00:44", thumb: "https://i.imgur.com/eum6bku.jpeg", url: "https://ok.ru/videoembed/6934056274491", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-205.mp4"] },
                             { title: "Episódio 002 - (206)", duration: "44:19"  , thumb: "https://i.imgur.com/AtIoTlJ.jpeg", url: "https://ok.ru/videoembed/6934056471099", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-206.mp4"] },
@@ -2111,9 +2202,19 @@ const seriesData = [
 
                     //TEMPORADA 09 - A SUCESSÃO
                     {
-                        name: "Temporada 09 - A Sucessão",
+                        name: "Temporada 09: A Sucessão",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A SUCESSÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0396070/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis – A Sucessão retrata o início da trajetória de Salomão, 
+                                aquele conhecido como o homem mais sábio que já existiu. 
+                                Jovem e inexperiente, ele assume a responsabilidade de reinar 
+                                no lugar de seu pai, o respeitado e admirado rei Davi.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (260)", duration: "1:04:21", thumb: "https://i.imgur.com/1tiPYAW.jpeg", url: "https://ok.ru/videoembed/6942529686075",  alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-260.mp4"] },
                             { title: "Episódio 002 - (261)", duration: "45:12"  , thumb: "https://i.imgur.com/L3Hn18o.jpeg", url: "https://ok.ru/videoembed/6942530275899",  alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-261.mp4"] },
@@ -2155,9 +2256,19 @@ const seriesData = [
 
                     //TEMPORADA 10 - A DECADÊNCIA
                     {
-                        name: "Temporada 10 - A Decadência",
+                        name: "Temporada 10: A Decadência",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A DECADÊNCIA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0424348/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Decadência retrata o apogeu e o declínio do reinado de Salomão 
+                                em Israel. O homem mais sábio do mundo está rodeado por riquezas, bens e 
+                                honras, como nenhum rei teve antes, e nem terá. No entanto, o herdeiro de 
+                                Davi irá se corromper com a vaidade e o amor por mulheres estrangeiras.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (295)", duration: "47:59"  , thumb: "https://i.imgur.com/10BKdXC.jpeg", url: "https://ok.ru/videoembed/7028474317371", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-295.mp4"] },
                             { title: "Episódio 002 - (296)", duration: "44:52"  , thumb: "https://i.imgur.com/9mg6XeY.jpeg", url: "https://ok.ru/videoembed/7028474513979", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-296.mp4"] },
@@ -2185,9 +2296,19 @@ const seriesData = [
 
                     //TEMPORADA 11 - A DIVISÃO
                     {
-                        name: "Temporada 11 - A Divisão",
+                        name: "Temporada 11: A Divisão",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A DIVISÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0429062/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Divisão retrata a deplorável situação do que se tornou o reino 
+                                de Israel após a morte do rei Salomão. Seu filho e sucessor, Roboão, 
+                                além de herdar um reino completamente instável, terá que arcar com as 
+                                consequências da irrevogável profecia decorrente da idolatria de seu pai.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (316)", duration: "57:37", thumb: "https://i.imgur.com/9LcHZZq.jpeg", url: "https://ok.ru/videoembed/7130747111995", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-316.mp4"] },
                             { title: "Episódio 002 - (317)", duration: "44:11", thumb: "https://i.imgur.com/ysrVQzQ.jpeg", url: "https://ok.ru/videoembed/7130747243067", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-317.mp4"] },
@@ -2213,9 +2334,19 @@ const seriesData = [
 
                     //TEMPORADA 12 - A EMBOSCADA
                     {
-                        name: "Temporada 12 - A Emboscada",
+                        name: "Temporada 12: A Emboscada",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A EMBOSCADA",
+                            thumb: "https://i.imgur.com/M6qjlPq.jpeg",
+                            sinopse:  `
+                                Reis - A Emboscada retrata a divisão de Israel após a morte de Salomão,
+                                sendo reinado por Abias e Jeroboão, mostrando como os erros e acertos 
+                                desses reis influenciam a história de Israel e seus sucessores. 
+                               
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (335)", duration: "53:04"  , thumb: "https://i.imgur.com/HEudcg6.jpeg", url: "https://ok.ru/videoembed/7369085684283", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-335.mp4"] },
                             { title: "Episódio 002 - (336)", duration: "47:02"  , thumb: "https://i.imgur.com/p2MzyPy.jpeg", url: "https://ok.ru/videoembed/7369085749819", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-336.mp4"] },
@@ -2245,9 +2376,18 @@ const seriesData = [
 
                     //TEMPORADA 13 - A ESPERANÇA
                     {
-                        name: "Temporada 13 - A Esperança",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        name: "Temporada 13: A Esperança",
+                        thumb_season: "https://univideo01.akamaized.net/cdn/asset/images/L1_DESKTOP-SEJNM.jpg",
                         movies: false,
+                        description: {
+                            title: "REIS - A ESPERANÇA",
+                            thumb: "https://i.imgur.com/CE7GRzN.jpeg",
+                            sinopse:  `
+                                Reis - A Esperança retrata a história do Rei Asa que governou o 
+                                Reino de Judá e é conhecido por suas reformas religiosas e busca 
+                                por Deus, mostrando um rei que fez o que era reto aos olhos do Senhor.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (358)", duration: "51:04", thumb: "https://i.imgur.com/dgdnQMJ.jpeg", url: "https://ok.ru/videoembed/9833061026415" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-358.mp4"] },
                             { title: "Episódio 002 - (359)", duration: "37:41", thumb: "https://i.imgur.com/ZgS1lsB.jpeg", url: "https://ok.ru/videoembed/9855088331375" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-359.mp4"] },
@@ -3031,20 +3171,43 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
     }
 
     let descriptionHTML = '';
-    if (serie.description && typeof serie.description === 'object') {
-        const desc = serie.description;
-        const numSeasons = serie.season.length;
-        const totalEpisodes = serie.season.reduce((sum, s) => sum + (s.episodes?.length || 0), 0);
-        const topMovies = serie.movies?.length || 0;
-        const inSeasonMovies = serie.season.reduce((sum, s) => sum + (s.movies?.length || 0), 0);
-        const totalMovies = topMovies + inSeasonMovies;
+    let desc = serie.description; // Default to series-level description
+    if (dropdownValue !== 'all' && serie.season[currentSeasonIndex]?.description) {
+        desc = serie.season[currentSeasonIndex].description;
+    }
 
+    if (desc && typeof desc === 'object') {
         const parts = [];
-        if (numSeasons) parts.push(`Temporada${numSeasons > 1 ? 's' : ''} ${numSeasons} `);
-        if (totalEpisodes) parts.push(`Episódio${totalEpisodes > 1 ? 's' : ''} ${totalEpisodes} `);
-        if (totalMovies) parts.push(`Filme${totalMovies > 1 ? 's' : ''} ${totalMovies}`);
+        if (dropdownValue === 'all') {
+            const episodeSeasons = serie.season.filter(s => !s.movies);
+            const movieSeasons = serie.season.filter(s => s.movies);
+            const numEpisodeSeasons = episodeSeasons.length;
+            const numMovieSeasons = movieSeasons.length;
+            const totalEpisodes = episodeSeasons.reduce((sum, s) => sum + (s.episodes?.length || 0), 0);
+            const totalMovies = movieSeasons.reduce((sum, s) => sum + (s.episodes?.length || 0), 0);
 
-        const summaryText = parts.join(' - ');
+            if (numEpisodeSeasons > 0) parts.push(`Temporadas: ${numEpisodeSeasons} - Episódios ${totalEpisodes}`);
+            if (numMovieSeasons > 0) parts.push(`Filmes: ${totalMovies}`);
+        } else {
+            const currentSeason = serie.season[currentSeasonIndex];
+            const isMovieSeason = currentSeason.movies;
+            const seasonLabel = currentSeason.name || (isMovieSeason ? 'Filmes' : `Temporada ${currentSeasonIndex + 1}`);
+            const episodeCount = currentSeason.episodes.length;
+
+            if (isMovieSeason) {
+                parts.push(`Filmes: ${episodeCount}`);
+            } else {
+                parts.push(`${seasonLabel} - Episódios ${episodeCount}`);
+            }
+        }
+
+        let summaryHTML = '';
+        if (parts.length > 0) {
+            summaryHTML = `<h3>${parts[0]}</h3>`;
+            if (parts.length > 1) {
+                summaryHTML += `<h4>${parts[1]}</h4>`;
+            }
+        }
         const sinopseHTML = desc.sinopse.replace(/(?:\r\n|\r|\n)/g, '<br>');
         const isFavorite = favorites.some(fav => fav.name === serie.name);
 
@@ -3053,7 +3216,7 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
                 <div class="description-thumb" style="background-image: url('${desc.thumb}');"></div>
                 <div class="description-content">
                     <h2>${desc.title}</h2>
-                    <h3>${summaryText}</h3>
+                    ${summaryHTML}
                     <p>${sinopseHTML}</p>
                     <button class="favorite-button-s2 ${isFavorite ? 'active' : ''}" data-serie='${JSON.stringify(serie)}' aria-label="${isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}"></button>
                     ${showDropdown ? `
@@ -3135,11 +3298,8 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
             document.getElementById('series-available-text').innerText = newText;
 
             animateEpisodes(newEpisodes.length, previousEpisodeCount, () => {
-                document.getElementById('current-series-episodes').innerHTML = renderEpisodes(serie, value);
-                setupThumbnailLoading();
-                addEpisodeButtonListeners();
-                updateButtonVisibility();
-                renderContinueWatchingSection();
+                // Re-render the entire series with the new dropdown value to update description
+                renderCurrentSeries(serie, value);
             });
 
             previousEpisodeCount = newEpisodes.length;
