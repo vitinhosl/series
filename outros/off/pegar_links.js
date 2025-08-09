@@ -2,11 +2,18 @@
 //https://ok.ru/profile/565366943319/video
 //https://ok.ru/profile/576088845785/video
 //https://ok.ru/profile/589793268027/video VITORIA MIRANDA 
+//https://ok.ru/profile/576088845785/video ESTUDIOS 421
 
-//DIGITAR ALLOW PARA PODER COPIAR
+//DIGITAR ALLOW/{PH1} PARA PODER COPIAR
 
-//#region YOUTUBE PLAYLIST
-(function(){
+//#region OK.RU
+(function() {
+    // Variável para controlar a ordem da lista
+    let reverse = true;
+
+    // Detecta modo claro/escuro
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     // Cria container flutuante
     const container = document.createElement('div');
     Object.assign(container.style, {
@@ -14,16 +21,17 @@
         top: '10px',
         right: '10px',
         zIndex: '9999',
-        background: 'white',
+        background: isDarkMode ? '#1f1f1f' : 'white',
+        color: isDarkMode ? 'white' : 'black',
         padding: '10px',
-        border: '1px solid #ccc',
+        border: '1px solid ' + (isDarkMode ? '#444' : '#ccc'),
         borderRadius: '5px',
         maxWidth: '350px',
         fontFamily: 'sans-serif',
         fontSize: '14px'
     });
 
-    // Botão
+    // Botão principal
     const button = document.createElement('button');
     button.textContent = 'Gerar e Copiar Lista de Vídeos';
     Object.assign(button.style, {
@@ -32,253 +40,114 @@
         cursor: 'pointer'
     });
 
+    // Botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    Object.assign(closeButton.style, {
+        position: 'absolute',
+        top: '5px',
+        right: '5px',
+        padding: '2px 6px',
+        cursor: 'pointer'
+    });
+    closeButton.addEventListener('click', () => container.remove());
+
     // Textarea de fallback
     const textarea = document.createElement('textarea');
     Object.assign(textarea.style, {
         width: '100%',
         height: '200px',
         display: 'none',
-        marginTop: '5px'
+        marginTop: '5px',
+        background: isDarkMode ? '#333' : 'white',
+        color: isDarkMode ? 'white' : 'black'
     });
 
+    container.appendChild(closeButton);
     container.appendChild(button);
     container.appendChild(textarea);
     document.body.appendChild(container);
 
-    button.addEventListener('click', () => {
-        // Seleciona todos os itens de vídeo da playlist
-        const items = Array.from(document.querySelectorAll('ytd-playlist-video-renderer'));
+    // Função para rolar até o final da página
+    async function scrollToBottom() {
+        let lastHeight = document.body.scrollHeight;
+        while (true) {
+            window.scrollTo(0, document.body.scrollHeight);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const newHeight = document.body.scrollHeight;
+            if (newHeight === lastHeight) break;
+            lastHeight = newHeight;
+        }
+    }
 
-        const list = items.map((item, idx) => {
-            // Título e URL
-            const a = item.querySelector('#video-title');
-            const title = (a?.textContent || 'Sem título').trim();
-            const href = a?.href || '';
-            const videoId = new URL(href).searchParams.get('v') || '';
+    // Evento de clique no botão
+    button.addEventListener('click', async () => {
+        await scrollToBottom();
+        const videos = [...document.querySelectorAll('a[href*="/video/"]')];
+        const idsAndTitles = new Map();
 
-            // Thumbnail
-            const img = item.querySelector('ytd-thumbnail img');
-            const thumb = img?.src || img?.getAttribute('data-thumb') || '';
+        videos.forEach(v => {
+            const id = v.href.match(/\/video\/(\d+)/)?.[1];
+            if (!id) return;
 
-            // Duração
-            const durationEl = item.querySelector('span.ytd-thumbnail-overlay-time-status-renderer');
-            const duration = durationEl?.textContent.trim() || '';
+            let title = v.textContent.trim() || v.getAttribute('title') || "Sem título";
+            let thumb = "";
+            let duration = "";
+            const parent = v.closest('.video-card');
+            const img = parent?.querySelector('.video-card_img');
+            if (img && img.src) {
+                thumb = img.src;
+            }
+            const durationElement = parent?.querySelector('.video-card_duration');
+            if (durationElement) {
+                duration = durationElement.textContent.trim();
+            }
 
-            // Monta objeto
-            const number = String(idx + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration}", thumb: "${thumb}", url: "${href}", alternative: []},`;
-        }).join('\n');
+            if (idsAndTitles.has(id)) {
+                const existing = idsAndTitles.get(id);
+                if (existing.title === "Sem título" && title !== "Sem título") {
+                    idsAndTitles.set(id, { title, thumb, duration });
+                }
+            } else {
+                idsAndTitles.set(id, { title, thumb, duration });
+            }
+        });
 
-        // Copia para clipboard
-        navigator.clipboard.writeText(list).then(() => {
+        let idsAndTitlesArray = Array.from(idsAndTitles.entries());
+        if (reverse) {
+            idsAndTitlesArray = idsAndTitlesArray.reverse();
+        }
+
+        let output = "";
+        idsAndTitlesArray.forEach(([id, { title, thumb, duration }], index) => {
+            const number = String(index + 1).padStart(3, '0');
+            output += `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration || 'Duração não encontrada'}", thumb: "${thumb || 'Thumbnail não encontrada'}", url: "https://ok.ru/videoembed/${id}", alternative: []},\n`;
+        });
+
+        navigator.clipboard.writeText(output).then(() => {
+            button.textContent = 'Copiado!';
+            setTimeout(() => button.textContent = 'Gerar e Copiar Lista de Vídeos', 2000);
             textarea.style.display = 'block';
-            textarea.value = list;
-        }).catch(() => {
+            textarea.value = output;
+        }).catch(err => {
+            console.error("Erro ao copiar:", err);
             textarea.style.display = 'block';
-            textarea.value = list;
-            alert('Erro ao copiar. A lista foi exibida na área de texto.');
+            textarea.value = output;
+            textarea.select();
+            alert('Erro ao copiar. A lista foi exibida na área de texto. Pressione Ctrl+C para copiar.');
         });
     });
 })();
 //#endregion
 
-//#region OK.RU
-const container = document.createElement('div');
-container.style.position = 'fixed';
-container.style.top = '10px';
-container.style.right = '10px';
-container.style.zIndex = '9999';
-container.style.background = 'white';
-container.style.padding = '10px';
-container.style.border = '1px solid #ccc';
-container.style.borderRadius = '5px';
-
-// Criar o botão
-const button = document.createElement('button');
-button.textContent = 'Gerar e Copiar Lista de Vídeos';
-button.style.padding = '5px 10px';
-button.style.marginBottom = '10px';
-
-// Criar a área de texto (para fallback)
-const textarea = document.createElement('textarea');
-textarea.style.width = '300px';
-textarea.style.height = '200px';
-textarea.style.display = 'none'; // Esconder inicialmente
-
-// Adicionar elementos ao container
-container.appendChild(button);
-container.appendChild(textarea);
-document.body.appendChild(container);
-
-// Função para gerar a lista e copiar
-button.addEventListener('click', () => {
-    const videos = [...document.querySelectorAll('a[href*="/video/"]')];
-    const idsAndTitles = new Map(); // Usamos um Map para evitar duplicatas
-
-    videos.forEach(v => {
-        const id = v.href.match(/\/video\/(\d+)/)?.[1];
-        if (!id) return;
-
-        // Obter o título
-        let title = v.textContent.trim() || v.getAttribute('title') || "Sem título";
-
-        // Procurar a thumbnail (src da tag <img>) dentro do card
-        let thumb = "";
-        const parent = v.closest('.video-card'); // Encontrar o elemento pai com a classe 'video-card'
-        const img = parent?.querySelector('.video-card_img'); // Selecionar a imagem com a classe 'video-card_img'
-        if (img && img.src) {
-            thumb = img.src; // Pegar o src da imagem (a thumbnail)
-        }
-
-        // Procurar o tempo do vídeo (dentro de .video-card_duration)
-        let duration = "";
-        const durationElement = parent?.querySelector('.video-card_duration');
-        if (durationElement) {
-            duration = durationElement.textContent.trim(); // Pegar o texto, ex.: "59:54"
-        }
-
-        // Se já existe esse ID, verifica se o novo título é mais informativo
-        if (idsAndTitles.has(id)) {
-            const existing = idsAndTitles.get(id);
-            if (existing.title === "Sem título" && title !== "Sem título") {
-                idsAndTitles.set(id, { title, thumb, duration });
-            }
-        } else {
-            idsAndTitles.set(id, { title, thumb, duration });
-        }
-    });
-
-    const idsAndTitlesArray = Array.from(idsAndTitles.entries());
-    // const idsAndTitlesArray = Array.from(idsAndTitles.entries()).reverse();
-
-    // Acumular todas as saídas em uma única string
-    let output = "";
-    idsAndTitlesArray.forEach(([id, { title, thumb, duration }], index) => {
-        const number = String(index + 1).padStart(3, '0');
-        output += `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration || 'Duração não encontrada'}", thumb: "${thumb || 'Thumbnail não encontrada'}", url: "https://ok.ru/videoembed/${id}", alternative: []},\n`;
-    });
-
-    // Tentar copiar para a área de transferência
-    navigator.clipboard.writeText(output).then(() => {
-        // alert("Lista copiada para a área de transferência!");
-        textarea.style.display = 'block';
-        textarea.value = output;
-    }).catch(err => {
-        console.error("Erro ao copiar para a área de transferência:", err);
-        // Fallback: exibir a saída na área de texto
-        textarea.style.display = 'block';
-        textarea.value = output;
-        alert("Erro ao copiar. A lista foi exibida em uma área de texto abaixo do botão.");
-    });
-});
-//#endregion
-
 //#region ANIMESBR.TV
 (function() {
-    //#region CRIA CONTAINER COM BOTÃO E ÁREA DE TEXTO
-    const container = document.createElement('div');
-    container.style.position = 'fixed';
-    container.style.top = '10px';
-    container.style.right = '10px';
-    container.style.zIndex = '9999';
-    container.style.background = 'white';
-    container.style.padding = '10px';
-    container.style.border = '1px solid #ccc';
-    container.style.borderRadius = '5px';
-  
-    // Botão para gerar a lista
-    const button = document.createElement('button');
-    button.textContent = 'Gerar e Copiar Lista de Episódios';
-    button.style.padding = '5px 10px';
-    button.style.marginBottom = '10px';
-  
-    // Área de texto para fallback (caso a cópia falhe)
-    const textarea = document.createElement('textarea');
-    textarea.style.width = '300px';
-    textarea.style.height = '200px';
-    textarea.style.display = 'none';
-  
-    // Adiciona os elementos no container
-    container.appendChild(button);
-    container.appendChild(textarea);
-    document.body.appendChild(container);
-    //#endregion
-  
-    button.addEventListener('click', () => {
-      //#region EXTRAÇÃO DE DADOS
-      // Nome da série: pega o conteúdo do <h1> dentro do elemento com a classe "data"
-      const seriesName = document.querySelector(".data h1")?.innerText.trim() || "";
-  
-      // Array de thumbs para os botões (pode ser alterado conforme necessário)
-      const thumbButtons = ["https://animesbr.tv/wp-content/uploads/2025/01/vTCjCkwHn3bfqVLdQjZke3c8w7l-200x300.jpg"];
-  
-      // Seleciona os episódios da lista (.episodios li)
-      const episodeElements = document.querySelectorAll(".episodios li");
-      const episodes = [];
-  
-      episodeElements.forEach((li, index) => {
-        // Obtém o link e título do episódio
-        const titleAnchor = li.querySelector(".episodiotitle a");
-        const titleText = titleAnchor?.innerText.trim() || `Episódio ${index + 1}`;
-        const url = titleAnchor?.href || "";
-        
-        // Obtém a thumbnail do episódio (a imagem presente no <img>)
-        const img = li.querySelector("img");
-        const thumb = img?.src || "";
-  
-        // Como a duração não consta na página, define um valor padrão
-        const duration = "Duração não encontrada";
-  
-        // Formata o título para o padrão "Episódio 001"
-        const formattedTitle = `Episódio ${String(index + 1).padStart(3, '0')}`;
-  
-        episodes.push({
-          title: formattedTitle,
-          duration: duration,
-          thumb: thumb,
-          url: url,
-          alternative: [""]
-        });
-      });
-      //#endregion
-  
-      //#region CONSTRUÇÃO DO OBJETO JSON
-      const outputObject = {
-        name: seriesName,
-        thumb_page: "",
-        thumb_buttons: thumbButtons,
-        badge: "",
-        enabled: true,
-        season: [
-          {
-            name: "",
-            thumb_season: "",
-            movies: false,
-            episodes: episodes
-          }
-        ]
-      };
-  
-      const output = JSON.stringify(outputObject, null, 2);
-      //#endregion
-  
-      //#region CÓPIA PARA ÁREA DE TRANSFERÊNCIA E FEEDBACK
-      navigator.clipboard.writeText(output).then(() => {
-        textarea.style.display = 'block';
-        textarea.value = output;
-      }).catch(err => {
-        console.error("Erro ao copiar para a área de transferência:", err);
-        textarea.style.display = 'block';
-        textarea.value = output;
-        alert("Erro ao copiar. A lista foi exibida na área de texto abaixo do botão.");
-      });
-      //#endregion
-    });
-  })();
-//#endregion  
+    // Variável para controlar a ordem da lista
+    let reverse = true;
 
-//#region YOUTUBE PLAYLIST
-(function(){
+    // Detecta modo claro/escuro
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     // Cria container flutuante
     const container = document.createElement('div');
     Object.assign(container.style, {
@@ -286,16 +155,152 @@ button.addEventListener('click', () => {
         top: '10px',
         right: '10px',
         zIndex: '9999',
-        background: 'white',
+        background: isDarkMode ? '#1f1f1f' : 'white',
+        color: isDarkMode ? 'white' : 'black',
         padding: '10px',
-        border: '1px solid #ccc',
+        border: '1px solid ' + (isDarkMode ? '#444' : '#ccc'),
         borderRadius: '5px',
         maxWidth: '350px',
         fontFamily: 'sans-serif',
         fontSize: '14px'
     });
 
-    // Botão
+    // Botão principal
+    const button = document.createElement('button');
+    button.textContent = 'Gerar e Copiar Lista de Episódios';
+    Object.assign(button.style, {
+        padding: '5px 10px',
+        marginBottom: '10px',
+        cursor: 'pointer'
+    });
+
+    // Botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    Object.assign(closeButton.style, {
+        position: 'absolute',
+        top: '5px',
+        right: '5px',
+        padding: '2px 6px',
+        cursor: 'pointer'
+    });
+    closeButton.addEventListener('click', () => container.remove());
+
+    // Textarea de fallback
+    const textarea = document.createElement('textarea');
+    Object.assign(textarea.style, {
+        width: '100%',
+        height: '200px',
+        display: 'none',
+        marginTop: '5px',
+        background: isDarkMode ? '#333' : 'white',
+        color: isDarkMode ? 'white' : 'black'
+    });
+
+    container.appendChild(closeButton);
+    container.appendChild(button);
+    container.appendChild(textarea);
+    document.body.appendChild(container);
+
+    // Função para rolar até o final da página
+    async function scrollToBottom() {
+        let lastHeight = document.body.scrollHeight;
+        while (true) {
+            window.scrollTo(0, document.body.scrollHeight);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const newHeight = document.body.scrollHeight;
+            if (newHeight === lastHeight) break;
+            lastHeight = newHeight;
+        }
+    }
+
+    // Evento de clique no botão
+    button.addEventListener('click', async () => {
+        await scrollToBottom();
+
+        // Seleciona os episódios da lista (.episodios li)
+        const episodeElements = document.querySelectorAll(".episodios li");
+        const episodes = [];
+
+        episodeElements.forEach((li, index) => {
+            // Obtém o link e título do episódio
+            const titleAnchor = li.querySelector(".episodiotitle a");
+            const titleText = titleAnchor?.innerText.trim() || `Episódio ${index + 1}`;
+            const url = titleAnchor?.href || "";
+
+            // Obtém a thumbnail do episódio
+            const img = li.querySelector("img");
+            const thumb = img?.src || "";
+
+            // Duração não disponível, mantém padrão
+            const duration = "Duração não encontrada";
+
+            // Formata o título para o padrão "Episódio 001"
+            const formattedTitle = `Episódio ${String(index + 1).padStart(3, '0')}`;
+
+            episodes.push({
+                title: formattedTitle,
+                duration: duration,
+                thumb: thumb,
+                url: url,
+                alternative: []
+            });
+        });
+
+        // Aplica ordenação reversa se necessário
+        if (reverse) {
+            episodes.reverse();
+        }
+
+        // Gera a saída no formato dos outros scripts
+        const output = episodes.map((episode, index) => {
+            const number = String(index + 1).padStart(3, '0');
+            return `[EPISÓDIO: "${episode.title}"] - { title: "${number}", duration: "${episode.duration}", thumb: "${episode.thumb}", url: "${episode.url}", alternative: []},`;
+        }).join('\n');
+
+        // Copia para clipboard
+        navigator.clipboard.writeText(output).then(() => {
+            button.textContent = 'Copiado!';
+            setTimeout(() => button.textContent = 'Gerar e Copiar Lista de Episódios', 2000);
+            textarea.style.display = 'block';
+            textarea.value = output;
+        }).catch(err => {
+            console.error("Erro ao copiar:", err);
+            textarea.style.display = 'block';
+            textarea.value = output;
+            textarea.select();
+            alert('Erro ao copiar. A lista foi exibida na área de texto. Pressione Ctrl+C para copiar.');
+        });
+    });
+})();
+//#endregion  
+
+//#region YOUTUBE PLAYLIST
+(function() {
+    // Variável para controlar a ordem da lista
+    let reverse = true;
+
+    // Detecta modo claro/escuro
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Cria container flutuante
+    const container = document.createElement('div');
+    Object.assign(container.style, {
+        position: 'fixed',
+        top: '10px',
+        right: '10px',
+        zIndex: '9999',
+        background: isDarkMode ? '#1f1f1f' : 'white',
+        color: isDarkMode ? 'white' : 'black',
+        padding: '10px',
+        border: '1px solid ' + (isDarkMode ? '#444' : '#ccc'),
+        borderRadius: '5px',
+        maxWidth: '350px',
+        fontFamily: 'sans-serif',
+        fontSize: '14px'
+    });
+
+    // Botão principal
     const button = document.createElement('button');
     button.textContent = 'Gerar e Copiar Lista de Vídeos';
     Object.assign(button.style, {
@@ -304,21 +309,49 @@ button.addEventListener('click', () => {
         cursor: 'pointer'
     });
 
+    // Botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    Object.assign(closeButton.style, {
+        position: 'absolute',
+        top: '5px',
+        right: '5px',
+        padding: '2px 6px',
+        cursor: 'pointer'
+    });
+    closeButton.addEventListener('click', () => container.remove());
+
     // Textarea de fallback
     const textarea = document.createElement('textarea');
     Object.assign(textarea.style, {
         width: '100%',
         height: '200px',
         display: 'none',
-        marginTop: '5px'
+        marginTop: '5px',
+        background: isDarkMode ? '#333' : 'white',
+        color: isDarkMode ? 'white' : 'black'
     });
 
+    container.appendChild(closeButton);
     container.appendChild(button);
     container.appendChild(textarea);
     document.body.appendChild(container);
 
-    button.addEventListener('click', () => {
-        // Seleciona todos os itens de vídeo da playlist
+    // Função para rolar até o final da página
+    async function scrollToBottom() {
+        let lastHeight = document.body.scrollHeight;
+        while (true) {
+            window.scrollTo(0, document.body.scrollHeight);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const newHeight = document.body.scrollHeight;
+            if (newHeight === lastHeight) break;
+            lastHeight = newHeight;
+        }
+    }
+
+    // Evento de clique no botão
+    button.addEventListener('click', async () => {
+        await scrollToBottom();
         const items = Array.from(document.querySelectorAll('ytd-playlist-video-renderer'));
 
         const list = items.map((item, idx) => {
@@ -339,26 +372,41 @@ button.addEventListener('click', () => {
             // Monta objeto
             const number = String(idx + 1).padStart(3, '0');
             return `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration}", thumb: "${thumb}", url: "${href}", alternative: []},`;
-        }).join('\n');
+        });
+
+        // Aplica ordenação reversa se necessário
+        if (reverse) {
+            list.reverse();
+        }
+
+        const output = list.join('\n');
 
         // Copia para clipboard
-        navigator.clipboard.writeText(list).then(() => {
+        navigator.clipboard.writeText(output).then(() => {
+            button.textContent = 'Copiado!';
+            setTimeout(() => button.textContent = 'Gerar e Copiar Lista de Vídeos', 2000);
             textarea.style.display = 'block';
-            textarea.value = list;
+            textarea.value = output;
         }).catch(() => {
             textarea.style.display = 'block';
-            textarea.value = list;
-            alert('Erro ao copiar. A lista foi exibida na área de texto.');
+            textarea.value = output;
+            textarea.select();
+            alert('Erro ao copiar. A lista foi exibida na área de texto. Pressione Ctrl+C para copiar.');
         });
     });
 })();
 //#endregion
 
 //#region GLOBOPLAY
-(function(){
+(function() {
+    // Variável para controlar a ordem da lista
+    let reverse = true;
+
+    // Detecta modo claro/escuro
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     // Cria container flutuante
     const container = document.createElement('div');
-    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
     Object.assign(container.style, {
         position: 'fixed',
         top: '10px',
@@ -448,22 +496,180 @@ button.addEventListener('click', () => {
 
             // Monta objeto
             const number = String(idx + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration}", thumb: "${thumb}", url: "${href}", alternative: []},`;
+            return {
+                title: title,
+                number: number,
+                duration: duration,
+                thumb: thumb,
+                url: href,
+                alternative: []
+            };
+        });
+
+        // Aplica ordenação reversa se necessário
+        if (reverse) {
+            list.reverse();
+        }
+
+        // Formata a saída
+        const output = list.map((item, idx) => {
+            const number = String(idx + 1).padStart(3, '0');
+            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}", alternative: []},`;
         }).join('\n');
 
         // Copia para clipboard
-        navigator.clipboard.writeText(list).then(() => {
+        navigator.clipboard.writeText(output).then(() => {
             button.textContent = 'Copiado!';
             setTimeout(() => button.textContent = 'Gerar e Copiar Lista de Episódios', 2000);
             textarea.style.display = 'block';
-            textarea.value = list;
+            textarea.value = output;
         }).catch(() => {
             textarea.style.display = 'block';
-            textarea.value = list;
+            textarea.value = output;
             textarea.select();
             alert('Erro ao copiar. A lista foi exibida na área de texto. Pressione Ctrl+C para copiar.');
         });
     });
 })();
 //#endregion
+
+//#region PLAYPLUS
+(function() {
+    // Variável para controlar a ordem da lista
+    let reverse = true;
+
+    // Detecta modo claro/escuro
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Cria container flutuante
+    const container = document.createElement('div');
+    Object.assign(container.style, {
+        position: 'fixed',
+        top: '10px',
+        right: '10px Evil',
+        zIndex: '9999',
+        background: isDarkMode ? '#1f1f1f' : 'white',
+        color: isDarkMode ? 'white' : 'black',
+        padding: '10px',
+        border: '1px solid ' + (isDarkMode ? '#444' : '#ccc'),
+        borderRadius: '5px',
+        maxWidth: '350px',
+        fontFamily: 'sans-serif',
+        fontSize: '14px'
+    });
+
+    // Botão principal
+    const button = document.createElement('button');
+    button.textContent = 'Gerar e Copiar Lista de Episódios';
+    Object.assign(button.style, {
+        padding: '5px 10px',
+        marginBottom: '10px',
+        cursor: 'pointer'
+    });
+
+    // Botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    Object.assign(closeButton.style, {
+        position: 'absolute',
+        top: '5px',
+        right: '5px',
+        padding: '2px 6px',
+        cursor: 'pointer'
+    });
+    closeButton.addEventListener('click', () => container.remove());
+
+    // Textarea de fallback
+    const textarea = document.createElement('textarea');
+    Object.assign(textarea.style, {
+        width: '100%',
+        height: '200px',
+        display: 'none',
+        marginTop: '5px',
+        background: isDarkMode ? '#333' : 'white',
+        color: isDarkMode ? 'white' : 'black'
+    });
+
+    container.appendChild(closeButton);
+    container.appendChild(button);
+    container.appendChild(textarea);
+    document.body.appendChild(container);
+
+    // Função para rolar até o final da página
+    async function scrollToBottom() {
+        let lastHeight = document.body.scrollHeight;
+        while (true) {
+            window.scrollTo(0, document.body.scrollHeight);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const newHeight = document.body.scrollHeight;
+            if (newHeight === lastHeight) break;
+            lastHeight = newHeight;
+        }
+    }
+
+    // Evento de clique no botão
+    button.addEventListener('click', async () => {
+        await scrollToBottom();
+        const items = Array.from(document.querySelectorAll('.chapter-item.item-landscape.slide'));
+
+        const list = items.map((item, idx) => {
+            // Título
+            const img = item.querySelector('.movieItemLandscape img');
+            const title = img?.getAttribute('data-title') || item.querySelector('.titleFallBack')?.textContent.trim() || 'Sem título';
+
+            // URL (derivado do ID no onclick)
+            const figure = item.querySelector('.movieItemLandscape');
+            let videoId = img?.getAttribute('data-id') || '';
+            if (figure && figure.getAttribute('onclick')) {
+                const match = figure.getAttribute('onclick').match(/Helpers\.startSVODAuthorize\((\d+)\)/);
+                videoId = match ? match[1] : videoId;
+            }
+            const url = videoId ? `https://www.playplus.tv/watch/${videoId}` : '';
+
+            // Thumbnail
+            const thumb = img?.src || '';
+
+            // Duração
+            const durationEl = item.querySelector('.chapter-duration') || item.querySelector('.mediaProgressNumber');
+            const duration = durationEl?.textContent.trim() || 'Duração não encontrada';
+
+            // Monta objeto
+            const number = String(idx + 1).padStart(3, '0');
+            return {
+                title: title,
+                number: number,
+                duration: duration,
+                thumb: thumb,
+                url: url,
+                alternative: []
+            };
+        });
+
+        // Aplica ordenação reversa se necessário
+        if (reverse) {
+            list.reverse();
+        }
+
+        // Formata a saída
+        const output = list.map((item, idx) => {
+            const number = String(idx + 1).padStart(3, '0');
+            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}", alternative: []},`;
+        }).join('\n');
+
+        // Copia para clipboard
+        navigator.clipboard.writeText(output).then(() => {
+            button.textContent = 'Copiado!';
+            setTimeout(() => button.textContent = 'Gerar e Copiar Lista de Episódios', 2000);
+            textarea.style.display = 'block';
+            textarea.value = output;
+        }).catch(() => {
+            textarea.style.display = 'block';
+            textarea.value = output;
+            textarea.select();
+            alert('Erro ao copiar. A lista foi exibida na área de texto. Pressione Ctrl+C para copiar.');
+        });
+    });
+})();
+//#endregion
+
 

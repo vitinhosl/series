@@ -11,6 +11,7 @@ const seriesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 description: {
                     title: "A TERRA PROMETIDA",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0068571/playplus_thumb_1600.jpg",
@@ -207,15 +208,6 @@ const seriesData = [
                             { title: "Episódio 178", duration: "49:28"  , thumb: "https://i.imgur.com/q8f78h2.jpeg", url: "https://ok.ru/videoembed/4097073023575?autoplay=1", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-178.mp4"] },
                             { title: "Episódio 179", duration: "20:28"  , thumb: "https://i.imgur.com/6WO1Phm.jpeg", url: "https://ok.ru/videoembed/4100679731799?autoplay=1", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-179.mp4"] }
                         ]
-                    },
-                    {
-                        name: "Temporada 02",
-                        thumb_season: "https://i.imgur.com/NbtbzDU.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "Episódio 001", duration: "1:12:04", thumb: "https://i.imgur.com/hCdFVV4.jpeg", url: "https://ok.ru/videoembed/3999010458199?autoplay=1", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-001.mp4", "https://ok.ru/videoembed/3715047098939" ] },
- 
-                        ]
                     }
                 ],
             },
@@ -232,7 +224,7 @@ const seriesData = [
                 description: {
                     title: "OS DEZ MANDAMENTOS",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
-                      sinopse:  `
+                    sinopse:  `
                         Grande sucesso da televisão brasileira, este épico bíblico 
                         narra a saga de Moisés, o hebreu que escapou da morte ainda 
                         bebê, virou príncipe do Egito eacabou se transformando no 
@@ -430,6 +422,16 @@ const seriesData = [
                         name: "Temporada 02",
                         thumb_season: "https://i.imgur.com/m21M7qL.png",
                         movies: false,
+                        description: {
+                            title: "OS DEZ MANDAMENTOS",
+                            thumb: "https://i.imgur.com/3AvCCKN.jpeg",
+                            sinopse:  `
+                                Grande sucesso da televisão brasileira, este épico bíblico 
+                                narra a saga de Moisés, o hebreu que escapou da morte ainda 
+                                bebê, virou príncipe do Egito eacabou se transformando no 
+                                líder escolhido por Deus para libertar seu povo da escravidão.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (177)", duration: "1:19:56", thumb: "https://i.imgur.com/JvrxA7Y.jpeg", url: "https://ok.ru/videoembed/3679824317015" , alternative: ["https://cdn-novflix.com/storage3/ODM2/ODM2zJ8ZbkUekz24eeeVxdBUi001.mp4", "https://ok.ru/videoembed/3655035980347"] },
                             { title: "Episódio 002 - (178)", duration: "56:34"  , thumb: "https://i.imgur.com/5VF7oiv.jpeg", url: "https://ok.ru/videoembed/3679835523671" , alternative: ["https://cdn-novflix.com/storage3/ODM2/ODM2zJ8ZbkUekz24eeeVxdBUi002.mp4", "https://ok.ru/videoembed/3655037159995"] },
@@ -2477,7 +2479,10 @@ const seriesData = [
             {
                 name: "Lia",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/h8a6jYP.jpeg"], //https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg
+                thumb_buttons: [
+                    //"https://i.imgur.com/h8a6jYP.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg"
+                ], 
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -2556,8 +2561,8 @@ const seriesData = [
                 badge: "NOVO",
                 type: "Temporadas",
                 canais: false,
-                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 description: {
                     title: "PAULO O APÓSTOLO",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0503079/playplus_thumb_1600.jpg",
@@ -2573,508 +2578,50 @@ const seriesData = [
                         thumb_season: "https://i.imgur.com/Zuxuw0k.jpeg",
                         movies: false,
                         episodes: [
-                            { title: "Episódio 001", thumb: "https://i.imgur.com/Zuxuw0k.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4"] },
-                            { title: "Episódio 002", thumb: "https://i.imgur.com/OWco9WC.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4"] },
-                            { title: "Episódio 003", thumb: "https://i.imgur.com/3yMuGyW.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4"] },
-                            { title: "Episódio 004", thumb: "https://i.imgur.com/DeXubnq.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4"] },
-                            { title: "Episódio 005", thumb: "https://i.imgur.com/5et4GrD.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4"] },
-                            { title: "Episódio 006", thumb: "https://i.imgur.com/b67I1Yl.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 007", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-007.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 008", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-008.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 009", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-009.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 010", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-010.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 011", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 012", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 001", duration: "46:38", thumb: "https://pp-vod-img-aws.akamaized.net/0503527/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9623516547801", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4"] },
+                            { title: "Episódio 002", duration: "46:29", thumb: "https://pp-vod-img-aws.akamaized.net/0503850/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9623551412953", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4"] },
+                            { title: "Episódio 003", duration: "45:06", thumb: "https://pp-vod-img-aws.akamaized.net/0504080/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9623569631961", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4"] },
+                            { title: "Episódio 004", duration: "44:47", thumb: "https://pp-vod-img-aws.akamaized.net/0504387/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9633639762649", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4"] },
+                            { title: "Episódio 005", duration: "52:14", thumb: "https://pp-vod-img-aws.akamaized.net/0504764/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9633664404185", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4"] },
+                            { title: "Episódio 006", duration: "49:52", thumb: "https://pp-vod-img-aws.akamaized.net/0505241/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9633679346393", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 007", duration: "36:31", thumb: "https://pp-vod-img-aws.akamaized.net/0505589/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9652631702233", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-007.mp4"] },
+                            { title: "Episódio 008", duration: "40:53", thumb: "https://pp-vod-img-aws.akamaized.net/0505879/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9654593981145", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-008.mp4"] },
+                            { title: "Episódio 009", duration: "43:28", thumb: "https://pp-vod-img-aws.akamaized.net/0506196/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9672930233049", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-009.mp4"] },
+                            { title: "Episódio 010", duration: "41:28", thumb: "https://pp-vod-img-aws.akamaized.net/0506481/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9715972967129", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-010.mp4"] },
+                            { title: "Episódio 011", duration: "44:58", thumb: "https://pp-vod-img-aws.akamaized.net/0506999/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9717906213593", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4"] },
+                            { title: "Episódio 012", duration: "39:23", thumb: "https://pp-vod-img-aws.akamaized.net/0507305/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9718428797657", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4"] },
+                            { title: "Episódio 013", duration: "47:54", thumb: "https://pp-vod-img-aws.akamaized.net/0507591/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9725901212377", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-013.mp4"] },
+                            { title: "Episódio 014", duration: "44:35", thumb: "https://pp-vod-img-aws.akamaized.net/0507892/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9725904947929", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-014.mp4"] },
+                            { title: "Episódio 015", duration: "44:50", thumb: "https://pp-vod-img-aws.akamaized.net/0508273/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9728533662425", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-015.mp4"] },
+                            { title: "Episódio 016", duration: "48:47", thumb: "https://pp-vod-img-aws.akamaized.net/0508657/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9729519717081", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-016.mp4"] },
+                            { title: "Episódio 017", duration: "44:10", thumb: "https://pp-vod-img-aws.akamaized.net/0508959/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9729530923737", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-017.mp4"] },
+                            { title: "Episódio 018", duration: "47:53", thumb: "https://pp-vod-img-aws.akamaized.net/0509268/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9729541016281", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-018.mp4"] },
+                            { title: "Episódio 019", duration: "58:00", thumb: "https://pp-vod-img-aws.akamaized.net/0509579/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9736014727897", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-019.mp4"] },
+                            { title: "Episódio 020", duration: "50:59", thumb: "https://pp-vod-img-aws.akamaized.net/0509983/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9736016825049", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-020.mp4"] },
+                            { title: "Episódio 021", duration: "50:56", thumb: "https://pp-vod-img-aws.akamaized.net/0510430/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9736017939161", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-021.mp4"] },
+                            { title: "Episódio 022", duration: "55:50", thumb: "https://pp-vod-img-aws.akamaized.net/0510775/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9750802598617", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-022.mp4"] },
+                            { title: "Episódio 023", duration: "42:46", thumb: "https://pp-vod-img-aws.akamaized.net/0511126/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9750810069721", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-023.mp4"] },
+                            { title: "Episódio 024", duration: "55:03", thumb: "https://pp-vod-img-aws.akamaized.net/0511398/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9750819834585", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-024.mp4"] },
+                            { title: "Episódio 025", duration: "35:22", thumb: "https://pp-vod-img-aws.akamaized.net/0511756/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9792841452249", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-025.mp4"] },
+                            { title: "Episódio 026", duration: "40:42", thumb: "https://i.imgur.com/q4gmGql.png"                                                                  , url: "https://ok.ru/videoembed/9792881429209", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-026.mp4"] },
+                            { title: "Episódio 027", duration: "46:47", thumb: "https://i.imgur.com/HYhodHB.png"                                                                  , url: "https://ok.ru/videoembed/9792893618905", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-027.mp4"] },
+                            { title: "Episódio 028", duration: "40:52", thumb: "https://i.imgur.com/XqtWvM9.png"                                                                  , url: "https://ok.ru/videoembed/9798894160601", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-028.mp4"] },
+                            { title: "Episódio 029", duration: "38:24", thumb: "https://i.imgur.com/0Ll5Cbq.png"                                                                  , url: "https://ok.ru/videoembed/9798899337945", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-029.mp4"] },
+                            { title: "Episódio 030", duration: "31:39", thumb: "https://i.imgur.com/div4i9x.png"                                                                  , url: "https://ok.ru/videoembed/9819050019545", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-030.mp4"] },
+                            { title: "Episódio 031", duration: "40:42", thumb: "https://i.imgur.com/0b6XIte.jpeg"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-031.mp4"] },
+                            { title: "Episódio 032", duration: "43:47", thumb: "https://i.imgur.com/JDHRzYV.png"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-032.mp4"] },
+                            { title: "Episódio 033", duration: "39:54", thumb: "https://i.imgur.com/in8McsP.png"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-033.mp4"] },
+                            { title: "Episódio 034", duration: "47:31", thumb: "https://i.imgur.com/kYzDLxg.png"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-034.mp4"] },
                         ]
                     },
                 ]
             },
+
 
 
         ]
     },
 
-    {
-        group_name: "NOVELAS",
-        group: [
-            //REBELDE MEXICANO
-            {
-                name: "Rebelde",
-                thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/SEnkwUw.jpeg", "https://s2.glbimg.com/ZL5vyy2AgnF4hB9zaOpsfIbnttA=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2024/2/v/xY2nXpT1elFw5Zg5ChbQ/2024-4284-rebelde-t3-poster.jpg"],
-                badge: "NOVO",
-                type: "Temporadas",
-                canais: false,
-                enabled: true,
-                title: "", //TEXTO DO BOTÃO ENABLED OFF
-                season: [
-                    {
-                        name: "Temporada 01",
-                        thumb_season: "https://i.imgur.com/5ya030J.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "Episódio 001", duration: "44:09", thumb: "https://s02.video.glbimg.com/x216/12053565.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-001.mp4", alternative: ["https://www.youtube.com/embed/YPe1mKU7xQ4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 002", duration: "43:33", thumb: "https://s01.video.glbimg.com/x216/12055476.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-002.mp4", alternative: ["https://www.youtube.com/embed/-j88LFTbCRg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 003", duration: "43:12", thumb: "https://s03.video.glbimg.com/x216/12055514.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-003.mp4", alternative: ["https://www.youtube.com/embed/zSdnuOSrGhk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 004", duration: "43:19", thumb: "https://s04.video.glbimg.com/x216/12055763.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-004.mp4", alternative: ["https://www.youtube.com/embed/TEIrD4X1q8g?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 005", duration: "43:12", thumb: "https://s02.video.glbimg.com/x216/12055625.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-005.mp4", alternative: ["https://www.youtube.com/embed/nqHGdHV71iM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 006", duration: "43:12", thumb: "https://s02.video.glbimg.com/x216/12055565.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-006.mp4", alternative: ["https://www.youtube.com/embed/wTWiiTZcmO4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 007", duration: "43:09", thumb: "https://s04.video.glbimg.com/x216/12055563.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-007.mp4", alternative: ["https://www.youtube.com/embed/ysgwlILHXEc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 008", duration: "43:16", thumb: "https://s02.video.glbimg.com/x216/12055673.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-008.mp4", alternative: ["https://www.youtube.com/embed/pI6ZtWhEjyM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 009", duration: "43:21", thumb: "https://s02.video.glbimg.com/x216/12055721.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-009.mp4", alternative: ["https://www.youtube.com/embed/DTQx5f346wk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 010", duration: "42:58", thumb: "https://s01.video.glbimg.com/x216/12055604.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-010.mp4", alternative: ["https://www.youtube.com/embed/z76yffSg9Cc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 011", duration: "43:00", thumb: "https://s04.video.glbimg.com/x216/12055823.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-011.mp4", alternative: ["https://www.youtube.com/embed/1F0iDNnlw-Q?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 012", duration: "42:53", thumb: "https://s01.video.glbimg.com/x216/12055796.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-012.mp4", alternative: ["https://www.youtube.com/embed/7jnA3Dyw1MI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 013", duration: "43:05", thumb: "https://s03.video.glbimg.com/x216/12055762.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-013.mp4", alternative: ["https://www.youtube.com/embed/Wf6TLndv4O4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 014", duration: "43:18", thumb: "https://s02.video.glbimg.com/x216/12055785.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-014.mp4", alternative: ["https://www.youtube.com/embed/_qwqHtz6IFk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 015", duration: "43:27", thumb: "https://s01.video.glbimg.com/x216/12063208.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-015.mp4", alternative: ["https://www.youtube.com/embed/2w14VsDbWM0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 016", duration: "43:25", thumb: "https://s02.video.glbimg.com/x216/12063185.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-016.mp4", alternative: ["https://www.youtube.com/embed/-pioazTW5kU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 017", duration: "41:59", thumb: "https://s01.video.glbimg.com/x216/12063180.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-017.mp4", alternative: ["https://www.youtube.com/embed/4wj73gMkXrY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 018", duration: "42:32", thumb: "https://s02.video.glbimg.com/x216/12063177.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-018.mp4", alternative: ["https://www.youtube.com/embed/-8NADRXo9Qg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 019", duration: "41:52", thumb: "https://s04.video.glbimg.com/x216/12063195.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-019.mp4", alternative: ["https://www.youtube.com/embed/OZ7CTkuJyFE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 020", duration: "42:49", thumb: "https://s02.video.glbimg.com/x216/12063385.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-020.mp4", alternative: ["https://www.youtube.com/embed/4NPP1IyLn20?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 021", duration: "42:14", thumb: "https://s02.video.glbimg.com/x216/12104445.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-021.mp4", alternative: ["https://www.youtube.com/embed/ZSSB3iIgXgw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 022", duration: "42:12", thumb: "https://s02.video.glbimg.com/x216/12104413.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-022.mp4", alternative: ["https://www.youtube.com/embed/eBLydCOrKPs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 023", duration: "43:10", thumb: "https://s04.video.glbimg.com/x216/12113791.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-023.mp4", alternative: ["https://www.youtube.com/embed/VJd-Zd4FDSI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 024", duration: "43:27", thumb: "https://s01.video.glbimg.com/x216/12119696.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-024.mp4", alternative: ["https://www.youtube.com/embed/4IQ_p_2lTJ8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 025", duration: "42:59", thumb: "https://s01.video.glbimg.com/x216/12104336.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-025.mp4", alternative: ["https://www.youtube.com/embed/nIkFLQSyekQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 026", duration: "43:04", thumb: "https://s02.video.glbimg.com/x216/12104421.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-026.mp4", alternative: ["https://www.youtube.com/embed/KwtwJCGDFDY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 027", duration: "43:24", thumb: "https://s04.video.glbimg.com/x216/12104351.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-027.mp4", alternative: ["https://www.youtube.com/embed/uSAJNKsXxdo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 028", duration: "43:05", thumb: "https://s02.video.glbimg.com/x216/12104385.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-028.mp4", alternative: ["https://www.youtube.com/embed/kIAXrI8SgBw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 029", duration: "43:01", thumb: "https://s02.video.glbimg.com/x216/12104401.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-029.mp4", alternative: ["https://www.youtube.com/embed/AY6yHhL91XE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 030", duration: "43:08", thumb: "https://s04.video.glbimg.com/x216/12104459.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-030.mp4", alternative: ["https://www.youtube.com/embed/_ZFZewL_guM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 031", duration: "43:50", thumb: "https://s04.video.glbimg.com/x216/12104327.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-031.mp4", alternative: ["https://www.youtube.com/embed/_8Pwrcy2oys?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 032", duration: "43:41", thumb: "https://s02.video.glbimg.com/x216/12104469.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-032.mp4", alternative: ["https://www.youtube.com/embed/7CTv9Hjfuvc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 033", duration: "43:46", thumb: "https://s04.video.glbimg.com/x216/12103715.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-033.mp4", alternative: ["https://www.youtube.com/embed/RJOI78wJ8Oo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 034", duration: "43:54", thumb: "https://s04.video.glbimg.com/x216/12103751.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-034.mp4", alternative: ["https://www.youtube.com/embed/7ul-oDTMbN8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 035", duration: "44:03", thumb: "https://s01.video.glbimg.com/x216/12104432.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-035.mp4", alternative: ["https://www.youtube.com/embed/hoRto0yML4k?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 036", duration: "43:07", thumb: "https://s04.video.glbimg.com/x216/12104451.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-036.mp4", alternative: ["https://www.youtube.com/embed/6m4zDcli3AU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 037", duration: "44:15", thumb: "https://s04.video.glbimg.com/x216/12104771.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-037.mp4", alternative: ["https://www.youtube.com/embed/Z9NP7sWR9Uk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 038", duration: "43:35", thumb: "https://s04.video.glbimg.com/x216/12104371.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-038.mp4", alternative: ["https://www.youtube.com/embed/CxsR6D5Zw7c?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 039", duration: "43:17", thumb: "https://s02.video.glbimg.com/x216/12104481.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-039.mp4", alternative: ["https://www.youtube.com/embed/JjB1eS--7Ic?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 040", duration: "43:22", thumb: "https://s04.video.glbimg.com/x216/12104647.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-040.mp4", alternative: ["https://www.youtube.com/embed/Zf289FWjSlQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 041", duration: "43:54", thumb: "https://s03.video.glbimg.com/x216/12128374.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-041.mp4", alternative: ["https://www.youtube.com/embed/DrTCG6IJ-mI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 042", duration: "42:53", thumb: "https://s01.video.glbimg.com/x216/12128412.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-042.mp4", alternative: ["https://www.youtube.com/embed/N5C6G3IbGDQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 043", duration: "43:15", thumb: "https://s03.video.glbimg.com/x216/12128326.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-043.mp4", alternative: ["https://www.youtube.com/embed/jYlawCe_EnA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 044", duration: "43:22", thumb: "https://s02.video.glbimg.com/x216/12128361.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-044.mp4", alternative: ["https://www.youtube.com/embed/VR9lzKFK5jw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 045", duration: "43:33", thumb: "https://s04.video.glbimg.com/x216/12128711.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-045.mp4", alternative: ["https://www.youtube.com/embed/0ZfdKUyZEJU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 046", duration: "42:08", thumb: "https://s02.video.glbimg.com/x216/12128697.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-046.mp4", alternative: ["https://www.youtube.com/embed/FeU30aNNP8E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 047", duration: "42:20", thumb: "https://s03.video.glbimg.com/x216/12128742.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-047.mp4", alternative: ["https://www.youtube.com/embed/vRDNQQ9jIbY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 048", duration: "42:46", thumb: "https://s04.video.glbimg.com/x216/12128663.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-048.mp4", alternative: ["https://www.youtube.com/embed/JaPUPVeWv7Y?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 049", duration: "42:53", thumb: "https://s04.video.glbimg.com/x216/12138931.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-049.mp4", alternative: ["https://www.youtube.com/embed/czqcnKguYaY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 050", duration: "42:57", thumb: "https://s02.video.glbimg.com/x216/12138937.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-050.mp4", alternative: ["https://www.youtube.com/embed/sPruFIsRSzw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 051", duration: "42:36", thumb: "https://s02.video.glbimg.com/x216/12129125.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-051.mp4", alternative: ["https://www.youtube.com/embed/hsBCOu5Q5J8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 052", duration: "43:09", thumb: "https://s03.video.glbimg.com/x216/12129078.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-052.mp4", alternative: ["https://www.youtube.com/embed/HzW-Me6rBPY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 053", duration: "43:49", thumb: "https://s01.video.glbimg.com/x216/12129092.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-053.mp4", alternative: ["https://www.youtube.com/embed/9pDqHMpdBvI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 054", duration: "42:46", thumb: "https://s03.video.glbimg.com/x216/12129030.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-054.mp4", alternative: ["https://www.youtube.com/embed/QP3fce12ln4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 055", duration: "43:18", thumb: "https://s02.video.glbimg.com/x216/12129185.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-055.mp4", alternative: ["https://www.youtube.com/embed/l6l0s31B-zI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 056", duration: "43:35", thumb: "https://s04.video.glbimg.com/x216/12129155.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-056.mp4", alternative: ["https://www.youtube.com/embed/mM9hc_Xg9Hk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 057", duration: "43:00", thumb: "https://s03.video.glbimg.com/x216/12129354.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-057.mp4", alternative: ["https://www.youtube.com/embed/Ckhp8vK_7XQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 058", duration: "42:04", thumb: "https://s01.video.glbimg.com/x216/12129348.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-058.mp4", alternative: ["https://www.youtube.com/embed/7VmV2Ehj2-E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 059", duration: "45:03", thumb: "https://s04.video.glbimg.com/x216/12129367.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-059.mp4", alternative: ["https://www.youtube.com/embed/eyTVWnxBjgo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 060", duration: "44:04", thumb: "https://s04.video.glbimg.com/x216/12129379.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-060.mp4", alternative: ["https://www.youtube.com/embed/c0Mb_HV9dSA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 061", duration: "45:40", thumb: "https://s01.video.glbimg.com/x216/12129384.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-061.mp4", alternative: ["https://www.youtube.com/embed/LCHzlJvqA0U?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 062", duration: "45:09", thumb: "https://s03.video.glbimg.com/x216/12161942.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-062.mp4", alternative: ["https://www.youtube.com/embed/8JuEwypLc0I?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 063", duration: "43:31", thumb: "https://s03.video.glbimg.com/x216/12129434.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-063.mp4", alternative: ["https://www.youtube.com/embed/xEwnkXlZWzw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 064", duration: "42:00", thumb: "https://s02.video.glbimg.com/x216/12129533.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-064.mp4", alternative: ["https://www.youtube.com/embed/kSi2zfr6kuU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 065", duration: "43:01", thumb: "https://s01.video.glbimg.com/x216/12129456.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-065.mp4", alternative: ["https://www.youtube.com/embed/l95s05_vj2M?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 066", duration: "42:51", thumb: "https://s02.video.glbimg.com/x216/12129465.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-066.mp4", alternative: ["https://www.youtube.com/embed/USZoqgkJm74?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 067", duration: "42:57", thumb: "https://s02.video.glbimg.com/x216/12129493.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-067.mp4", alternative: ["https://www.youtube.com/embed/T59ClWYYqKk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 068", duration: "44:20", thumb: "https://s03.video.glbimg.com/x216/12129506.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-068.mp4", alternative: ["https://www.youtube.com/embed/ytSmPtU4ooQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 069", duration: "43:58", thumb: "https://s02.video.glbimg.com/x216/12129541.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-069.mp4", alternative: ["https://www.youtube.com/embed/7JqU1lntCHU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 070", duration: "45:29", thumb: "https://s01.video.glbimg.com/x216/12129552.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-070.mp4", alternative: ["https://www.youtube.com/embed/3tVOVuljF_A?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 071", duration: "44:43", thumb: "https://s02.video.glbimg.com/x216/12129653.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-071.mp4", alternative: ["https://www.youtube.com/embed/uZ4YomO6ZE0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 072", duration: "43:50", thumb: "https://s01.video.glbimg.com/x216/12129576.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-072.mp4", alternative: ["https://www.youtube.com/embed/-QYWczh44Xw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 073", duration: "45:11", thumb: "https://s04.video.glbimg.com/x216/12129583.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-073.mp4", alternative: ["https://www.youtube.com/embed/8pz1oWfPya8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 074", duration: "43:42", thumb: "https://s04.video.glbimg.com/x216/12129563.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-074.mp4", alternative: ["https://www.youtube.com/embed/020xo1-cIUw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 075", duration: "41:59", thumb: "https://s02.video.glbimg.com/x216/12129609.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-075.mp4", alternative: ["https://www.youtube.com/embed/rxoFbrV6apE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 076", duration: "43:15", thumb: "https://s02.video.glbimg.com/x216/12129601.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-076.mp4", alternative: ["https://www.youtube.com/embed/n_x8i7loc2k?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 077", duration: "45:39", thumb: "https://s04.video.glbimg.com/x216/12132415.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-077.mp4", alternative: ["https://www.youtube.com/embed/dCRRhoAn91g?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 078", duration: "43:18", thumb: "https://s01.video.glbimg.com/x216/12131988.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-078.mp4", alternative: ["https://www.youtube.com/embed/rq88c3EaeYo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 079", duration: "39:45", thumb: "https://s01.video.glbimg.com/x216/12129592.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-079.mp4", alternative: ["https://www.youtube.com/embed/5QigfpMkVQU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 080", duration: "41:14", thumb: "https://s04.video.glbimg.com/x216/12129651.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-080.mp4", alternative: ["https://www.youtube.com/embed/T4jptAnEqKU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 081", duration: "42:57", thumb: "https://s04.video.glbimg.com/x216/12132543.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-081.mp4", alternative: ["https://www.youtube.com/embed/hNCs3WUnvis?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 082", duration: "44:32", thumb: "https://s01.video.glbimg.com/x216/12132584.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-082.mp4", alternative: ["https://www.youtube.com/embed/w6dLsIVITNc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 083", duration: "43:13", thumb: "https://s04.video.glbimg.com/x216/12132567.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-083.mp4", alternative: ["https://www.youtube.com/embed/cFU58ME2dsI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 084", duration: "45:38", thumb: "https://s01.video.glbimg.com/x216/12132608.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-084.mp4", alternative: ["https://www.youtube.com/embed/0JR5QC8P6IY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 085", duration: "44:32", thumb: "https://s04.video.glbimg.com/x216/12132575.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-085.mp4", alternative: ["https://www.youtube.com/embed/Aomdc-2achs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 086", duration: "44:41", thumb: "https://s03.video.glbimg.com/x216/12178758.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-086.mp4", alternative: ["https://www.youtube.com/embed/4rKvvCiZ02M?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 087", duration: "43:04", thumb: "https://s04.video.glbimg.com/x216/12178739.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-087.mp4", alternative: ["https://www.youtube.com/embed/T9qlj9Vjq3c?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 088", duration: "43:51", thumb: "https://s04.video.glbimg.com/x216/12178767.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-088.mp4", alternative: ["https://www.youtube.com/embed/v_kHepBHLiw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 089", duration: "43:07", thumb: "https://s01.video.glbimg.com/x216/12178744.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-089.mp4", alternative: ["https://www.youtube.com/embed/Zar1Vi2aYvQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 090", duration: "42:14", thumb: "https://s02.video.glbimg.com/x216/12181989.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-090.mp4", alternative: ["https://www.youtube.com/embed/9xZDbaEYakM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 091", duration: "44:36", thumb: "https://s04.video.glbimg.com/x216/12181987.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-091.mp4", alternative: ["https://www.youtube.com/embed/GJ0xM7uCdC0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 092", duration: "40:30", thumb: "https://s02.video.glbimg.com/x216/12182009.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-092.mp4", alternative: ["https://www.youtube.com/embed/7rYREikRH3Y?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 093", duration: "42:45", thumb: "https://s03.video.glbimg.com/x216/12181986.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-093.mp4", alternative: ["https://www.youtube.com/embed/6XgU-IRpKoU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 094", duration: "41:58", thumb: "https://s02.video.glbimg.com/x216/12181997.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-094.mp4", alternative: ["https://www.youtube.com/embed/sxss34SktvE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 095", duration: "40:38", thumb: "https://s02.video.glbimg.com/x216/12187057.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-095.mp4", alternative: ["https://www.youtube.com/embed/UlLLDvsZxCk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 096", duration: "43:00", thumb: "https://s04.video.glbimg.com/x216/12192615.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-096.mp4", alternative: ["https://www.youtube.com/embed/ytl-5MWzbgk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 097", duration: "43:21", thumb: "https://s04.video.glbimg.com/x216/12187063.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-097.mp4", alternative: ["https://www.youtube.com/embed/Wt3ythpft6E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 098", duration: "46:43", thumb: "https://s01.video.glbimg.com/x216/12187052.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-098.mp4", alternative: ["https://www.youtube.com/embed/0zzHOxDoOd4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 099", duration: "39:20", thumb: "https://s02.video.glbimg.com/x216/12187041.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-099.mp4", alternative: ["https://www.youtube.com/embed/NREgTeDL-Ds?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 100", duration: "42:44", thumb: "https://s02.video.glbimg.com/x216/12187045.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-100.mp4", alternative: ["https://www.youtube.com/embed/98k-5YEMNW0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 101", duration: "42:05", thumb: "https://s01.video.glbimg.com/x216/12186596.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-101.mp4", alternative: ["https://www.youtube.com/embed/sUSeN38prNA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 102", duration: "42:47", thumb: "https://s02.video.glbimg.com/x216/12186985.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-102.mp4", alternative: ["https://www.youtube.com/embed/4GSeZtLu-1M?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 103", duration: "41:43", thumb: "https://s01.video.glbimg.com/x216/12186956.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-103.mp4", alternative: ["https://www.youtube.com/embed/x0ItBwW3NpI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 104", duration: "44:22", thumb: "https://s01.video.glbimg.com/x216/12186528.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-104.mp4", alternative: ["https://www.youtube.com/embed/FT5--9N7Yww?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 105", duration: "43:13", thumb: "https://s04.video.glbimg.com/x216/12186455.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-105.mp4", alternative: ["https://www.youtube.com/embed/Jtsp43aRtGY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 106", duration: "40:12", thumb: "https://s01.video.glbimg.com/x216/12188340.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-106.mp4", alternative: ["https://www.youtube.com/embed/pyBcJNV0t3Y?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 107", duration: "41:46", thumb: "https://s01.video.glbimg.com/x216/12188112.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-107.mp4", alternative: ["https://www.youtube.com/embed/2KHhgSjszkg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 108", duration: "43:32", thumb: "https://s02.video.glbimg.com/x216/12183709.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-108.mp4", alternative: ["https://www.youtube.com/embed/M3DlYGUX-7Q?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 109", duration: "43:01", thumb: "https://s04.video.glbimg.com/x216/12186671.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-109.mp4", alternative: ["https://www.youtube.com/embed/3gjH1DudewY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 110", duration: "40:37", thumb: "https://s02.video.glbimg.com/x216/12186533.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-110.mp4", alternative: ["https://www.youtube.com/embed/QM-ksQxQCYw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 111", duration: "42:38", thumb: "https://s02.video.glbimg.com/x216/12187037.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-111.mp4", alternative: ["https://www.youtube.com/embed/yfqazz4jy-4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 112", duration: "43:27", thumb: "https://s04.video.glbimg.com/x216/12186867.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-112.mp4", alternative: ["https://www.youtube.com/embed/W3SSLcSkO2Y?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 113", duration: "42:37", thumb: "https://s02.video.glbimg.com/x216/12186901.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-113.mp4", alternative: ["https://www.youtube.com/embed/hGFwXVcUPRY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 114", duration: "45:30", thumb: "https://s04.video.glbimg.com/x216/12186791.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-114.mp4", alternative: ["https://www.youtube.com/embed/0sDGQbdDdXE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 115", duration: "41:13", thumb: "https://s01.video.glbimg.com/x216/12186844.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-115.mp4", alternative: ["https://www.youtube.com/embed/EyeOO3nxuSI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 116", duration: "44:24", thumb: "https://s02.video.glbimg.com/x216/12186469.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-116.mp4", alternative: ["https://www.youtube.com/embed/SxtcYglj_Ng?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 117", duration: "43:53", thumb: "https://s04.video.glbimg.com/x216/12186763.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-117.mp4", alternative: ["https://www.youtube.com/embed/bBrUjGS0Xog?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 118", duration: "39:12", thumb: "https://s03.video.glbimg.com/x216/12186470.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-118.mp4", alternative: ["https://www.youtube.com/embed/YQUrVbDoRZI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 119", duration: "41:16", thumb: "https://s04.video.glbimg.com/x216/12186827.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-119.mp4", alternative: ["https://www.youtube.com/embed/kSVoJB81RBM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 120", duration: "43:38", thumb: "https://s02.video.glbimg.com/x216/12186557.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-120.mp4", alternative: ["https://www.youtube.com/embed/hcJq4FY3FvQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 121", duration: "43:57", thumb: "https://s01.video.glbimg.com/x216/12187000.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-121.mp4", alternative: ["https://www.youtube.com/embed/j1bJ1OPwCos?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 122", duration: "42:48", thumb: "https://s01.video.glbimg.com/x216/12186484.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-122.mp4", alternative: ["https://www.youtube.com/embed/wPkfDUx8Cqs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 123", duration: "44:44", thumb: "https://s04.video.glbimg.com/x216/12186491.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-123.mp4", alternative: ["https://www.youtube.com/embed/LR6Vs_ce--4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 124", duration: "42:55", thumb: "https://s02.video.glbimg.com/x216/12186917.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-124.mp4", alternative: ["https://www.youtube.com/embed/pT4AvidyBaU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 125", duration: "46:11", thumb: "https://s01.video.glbimg.com/x216/12186476.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-125.mp4", alternative: ["https://www.youtube.com/embed/YYuQvzmwTA8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 126", duration: "44:32", thumb: "https://s03.video.glbimg.com/x216/12183710.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-126.mp4", alternative: ["https://www.youtube.com/embed/SEg542_364c?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 127", duration: "42:21", thumb: "https://s01.video.glbimg.com/x216/12186712.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-127.mp4", alternative: ["https://www.youtube.com/embed/kKAonFYg5vs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 128", duration: "41:01", thumb: "https://s04.video.glbimg.com/x216/12186483.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-128.mp4", alternative: ["https://www.youtube.com/embed/QgwEAgRuNc4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 129", duration: "46:15", thumb: "https://s02.video.glbimg.com/x216/12186489.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-129.mp4", alternative: ["https://www.youtube.com/embed/MdmRoovplAY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 130", duration: "44:58", thumb: "https://s02.video.glbimg.com/x216/12186529.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-130.mp4", alternative: ["https://www.youtube.com/embed/2vwiS04bUII?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 131", duration: "42:39", thumb: "https://s02.video.glbimg.com/x216/12189729.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-131.mp4", alternative: ["https://www.youtube.com/embed/NPBcUoFkF4k?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 132", duration: "44:57", thumb: "https://s02.video.glbimg.com/x216/12190001.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-132.mp4", alternative: ["https://www.youtube.com/embed/V8Im1cNBOHs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 133", duration: "40:56", thumb: "https://s01.video.glbimg.com/x216/12189864.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-133.mp4", alternative: ["https://www.youtube.com/embed/pZD_3XYT39s?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 134", duration: "43:00", thumb: "https://s02.video.glbimg.com/x216/12189721.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-134.mp4", alternative: ["https://www.youtube.com/embed/RJwkCcvIcxo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 135", duration: "46:02", thumb: "https://s02.video.glbimg.com/x216/12192849.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-135.mp4", alternative: ["https://www.youtube.com/embed/QDo3GOhWDdA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 136", duration: "44:16", thumb: "https://s04.video.glbimg.com/x216/12189975.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-136.mp4", alternative: ["https://www.youtube.com/embed/j5g33JW-w70?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 137", duration: "46:53", thumb: "https://s01.video.glbimg.com/x216/12189944.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-137.mp4", alternative: ["https://www.youtube.com/embed/MNjBway5MkY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 138", duration: "42:05", thumb: "https://s03.video.glbimg.com/x216/12189894.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-138.mp4", alternative: ["https://www.youtube.com/embed/GlZnQTTbwTE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 139", duration: "41:21", thumb: "https://s04.video.glbimg.com/x216/12189735.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-139.mp4", alternative: ["https://www.youtube.com/embed/-habe_KVchE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 140", duration: "44:24", thumb: "https://s01.video.glbimg.com/x216/12189984.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-140.mp4", alternative: ["https://www.youtube.com/embed/rrRs64yqHIM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 141", duration: "45:04", thumb: "https://s03.video.glbimg.com/x216/12189662.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-141.mp4", alternative: ["https://www.youtube.com/embed/7Ji2Khkayl8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 142", duration: "45:44", thumb: "https://s03.video.glbimg.com/x216/12198918.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-142.mp4", alternative: ["https://www.youtube.com/embed/Ap74Jrah-_8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 143", duration: "46:20", thumb: "https://s04.video.glbimg.com/x216/12190515.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-143.mp4", alternative: ["https://www.youtube.com/embed/Z7Y887mqxPg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 144", duration: "45:00", thumb: "https://s02.video.glbimg.com/x216/12189709.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-144.mp4", alternative: ["https://www.youtube.com/embed/Q3MQsbsmLV8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 145", duration: "45:40", thumb: "https://s01.video.glbimg.com/x216/12189696.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-145.mp4", alternative: ["https://www.youtube.com/embed/zf4zkXj_TrY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 146", duration: "45:26", thumb: "https://s02.video.glbimg.com/x216/12189677.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-146.mp4", alternative: ["https://www.youtube.com/embed/v0rwM3rkJ64?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 147", duration: "45:02", thumb: "https://s02.video.glbimg.com/x216/12189673.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-147.mp4", alternative: ["https://www.youtube.com/embed/smEEQ5NUKYA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 148", duration: "46:42", thumb: "https://s04.video.glbimg.com/x216/12189695.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-148.mp4", alternative: ["https://www.youtube.com/embed/G24kIMU0Gvw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 149", duration: "44:29", thumb: "https://s04.video.glbimg.com/x216/12199011.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-149.mp4", alternative: ["https://www.youtube.com/embed/_OyXfIgAxyA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 150", duration: "46:01", thumb: "https://s03.video.glbimg.com/x216/12198826.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-150.mp4", alternative: ["https://www.youtube.com/embed/y31g_YRJ6uw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 151", duration: "42:11", thumb: "https://s01.video.glbimg.com/x216/12199020.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-151.mp4", alternative: ["https://www.youtube.com/embed/idSXnd5QJhE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 152", duration: "43:53", thumb: "https://s03.video.glbimg.com/x216/12199278.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-152.mp4", alternative: ["https://www.youtube.com/embed/nbVVmpD797U?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 153", duration: "39:15", thumb: "https://s01.video.glbimg.com/x216/12199528.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-153.mp4", alternative: ["https://www.youtube.com/embed/JzlbpuCktUE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 154", duration: "44:19", thumb: "https://s03.video.glbimg.com/x216/12199262.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-154.mp4", alternative: ["https://www.youtube.com/embed/UjbEerZCQ2w?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 155", duration: "46:50", thumb: "https://s01.video.glbimg.com/x216/12198956.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-155.mp4", alternative: ["https://www.youtube.com/embed/l9OTjyH__ak?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 156", duration: "44:18", thumb: "https://s01.video.glbimg.com/x216/12199356.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-156.mp4", alternative: ["https://www.youtube.com/embed/XaIGWFKxqVc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 157", duration: "45:32", thumb: "https://s03.video.glbimg.com/x216/12199562.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-157.mp4", alternative: ["https://www.youtube.com/embed/ZqBlgy4UrCE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 158", duration: "45:09", thumb: "https://s01.video.glbimg.com/x216/12199380.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-158.mp4", alternative: ["https://www.youtube.com/embed/EBs6IPqF5fc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 159", duration: "45:40", thumb: "https://s04.video.glbimg.com/x216/12198903.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-159.mp4", alternative: ["https://www.youtube.com/embed/j4Hin6pnG38?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 160", duration: "46:02", thumb: "https://s03.video.glbimg.com/x216/12223202.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-160.mp4", alternative: ["https://www.youtube.com/embed/x7I5XF_t6BQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 161", duration: "44:18", thumb: "https://s02.video.glbimg.com/x216/12198997.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-161.mp4", alternative: ["https://www.youtube.com/embed/I8hpN2h8jW8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 162", duration: "45:43", thumb: "https://s02.video.glbimg.com/x216/12228525.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-162.mp4", alternative: ["https://www.youtube.com/embed/wCX7YZlxyuo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 163", duration: "43:20", thumb: "https://s03.video.glbimg.com/x216/12198970.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-163.mp4", alternative: ["https://www.youtube.com/embed/Vx-EjlVoBmg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 164", duration: "44:16", thumb: "https://s01.video.glbimg.com/x216/12199108.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-164.mp4", alternative: ["https://www.youtube.com/embed/dvPi6I1To4g?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 165", duration: "44:23", thumb: "https://s03.video.glbimg.com/x216/12204374.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-165.mp4", alternative: ["https://www.youtube.com/embed/5jjxN7PlwKY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 166", duration: "44:22", thumb: "https://s03.video.glbimg.com/x216/12223286.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-166.mp4", alternative: ["https://www.youtube.com/embed/iMQDTp4N2eI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 167", duration: "45:44", thumb: "https://s04.video.glbimg.com/x216/12199043.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-167.mp4", alternative: ["https://www.youtube.com/embed/hQD-Oty9mAE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 168", duration: "44:56", thumb: "https://s01.video.glbimg.com/x216/12223236.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-168.mp4", alternative: ["https://www.youtube.com/embed/KL1UqQxg2dw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 169", duration: "45:29", thumb: "https://s04.video.glbimg.com/x216/12204367.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-169.mp4", alternative: ["https://www.youtube.com/embed/Zp-9PaNFCrU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 170", duration: "44:26", thumb: "https://s03.video.glbimg.com/x216/12204366.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-170.mp4", alternative: ["https://www.youtube.com/embed/2hH08ZvYjnA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 171", duration: "44:44", thumb: "https://s01.video.glbimg.com/x216/12199060.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-171.mp4", alternative: ["https://www.youtube.com/embed/4p2qepr44vk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 172", duration: "44:45", thumb: "https://s01.video.glbimg.com/x216/12199104.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-172.mp4", alternative: ["https://www.youtube.com/embed/6vYBK8s-r68?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 173", duration: "43:07", thumb: "https://s04.video.glbimg.com/x216/12199291.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-173.mp4", alternative: ["https://www.youtube.com/embed/1SGT7txs9aQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 174", duration: "46:08", thumb: "https://s01.video.glbimg.com/x216/12199540.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-174.mp4", alternative: ["https://www.youtube.com/embed/p1wx9Dtne9w?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 175", duration: "44:34", thumb: "https://s04.video.glbimg.com/x216/12199051.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-175.mp4", alternative: ["https://www.youtube.com/embed/3hlbnLIRarg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 176", duration: "45:53", thumb: "https://s04.video.glbimg.com/x216/12199591.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-176.mp4", alternative: ["https://www.youtube.com/embed/6h4xTPzCfQI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 177", duration: "47:34", thumb: "https://s04.video.glbimg.com/x216/12199103.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-177.mp4", alternative: ["https://www.youtube.com/embed/r4Wed3Vp7yI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 178", duration: "47:02", thumb: "https://s02.video.glbimg.com/x216/12199497.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-178.mp4", alternative: ["https://www.youtube.com/embed/bRaNFXPHPYM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 179", duration: "47:01", thumb: "https://s03.video.glbimg.com/x216/12199074.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-179.mp4", alternative: ["https://www.youtube.com/embed/PA8dMD53k8M?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 180", duration: "43:40", thumb: "https://s03.video.glbimg.com/x216/12199090.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-180.mp4", alternative: ["https://www.youtube.com/embed/WmfAAPsbkyU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 181", duration: "42:57", thumb: "https://s01.video.glbimg.com/x216/12199128.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-181.mp4", alternative: ["https://www.youtube.com/embed/CTIW8NJWL8E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 182", duration: "44:42", thumb: "https://s01.video.glbimg.com/x216/12199080.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-182.mp4", alternative: ["https://www.youtube.com/embed/KgCh5OiF8po?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 183", duration: "45:48", thumb: "https://s03.video.glbimg.com/x216/12223234.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-183.mp4", alternative: ["https://www.youtube.com/embed/2UyhpWdhvNQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 184", duration: "44:16", thumb: "https://s04.video.glbimg.com/x216/12228515.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-184.mp4", alternative: ["https://www.youtube.com/embed/9678Y305vz8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 185", duration: "45:47", thumb: "https://s02.video.glbimg.com/x216/12204365.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-185.mp4", alternative: ["https://www.youtube.com/embed/-L0MIXqRu78?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 186", duration: "46:25", thumb: "https://s02.video.glbimg.com/x216/12224013.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-186.mp4", alternative: ["https://www.youtube.com/embed/T8mGi1OHeRw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 187", duration: "44:25", thumb: "https://s04.video.glbimg.com/x216/12224019.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-187.mp4", alternative: ["https://www.youtube.com/embed/04S91ufLIig?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 188", duration: "45:50", thumb: "https://s01.video.glbimg.com/x216/12224008.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-188.mp4", alternative: ["https://www.youtube.com/embed/vf7ewuKEOxo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 189", duration: "44:27", thumb: "https://s02.video.glbimg.com/x216/12224005.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-189.mp4", alternative: ["https://www.youtube.com/embed/1bja0Q50nyk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 190", duration: "46:11", thumb: "https://s01.video.glbimg.com/x216/12224072.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-190.mp4", alternative: ["https://www.youtube.com/embed/BKsriihb2yM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 191", duration: "45:35", thumb: "https://s02.video.glbimg.com/x216/12224065.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-191.mp4", alternative: ["https://www.youtube.com/embed/VVlsoKfbFDA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 192", duration: "46:21", thumb: "https://s03.video.glbimg.com/x216/12224058.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-192.mp4", alternative: ["https://www.youtube.com/embed/l6BjAaYIw7E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 193", duration: "46:14", thumb: "https://s01.video.glbimg.com/x216/12224040.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-193.mp4", alternative: ["https://www.youtube.com/embed/mRh71-ms3is?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 194", duration: "46:12", thumb: "https://s02.video.glbimg.com/x216/12224041.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-194.mp4", alternative: ["https://www.youtube.com/embed/MsKzQpGfL74?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 195", duration: "44:08", thumb: "https://s03.video.glbimg.com/x216/12224082.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-195.mp4", alternative: ["https://www.youtube.com/embed/XJUyrAtahnk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 196", duration: "45:48", thumb: "https://s02.video.glbimg.com/x216/12224097.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-196.mp4", alternative: ["https://www.youtube.com/embed/sEIYzIFvbP8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 197", duration: "46:57", thumb: "https://s03.video.glbimg.com/x216/12224138.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-197.mp4", alternative: ["https://www.youtube.com/embed/rF-OuI4uR4M?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 198", duration: "45:15", thumb: "https://s01.video.glbimg.com/x216/12224148.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-198.mp4", alternative: ["https://www.youtube.com/embed/zdAOVIH9px4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 199", duration: "47:14", thumb: "https://s02.video.glbimg.com/x216/12224197.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-199.mp4", alternative: ["https://www.youtube.com/embed/N8i246aofPU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 200", duration: "45:15", thumb: "https://s03.video.glbimg.com/x216/12224174.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-200.mp4", alternative: ["https://www.youtube.com/embed/vhtJnCuR70o?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 201", duration: "43:27", thumb: "https://s02.video.glbimg.com/x216/12224161.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-201.mp4", alternative: ["https://www.youtube.com/embed/dofjO0WmuRo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 202", duration: "42:54", thumb: "https://s04.video.glbimg.com/x216/12224215.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-202.mp4", alternative: ["https://www.youtube.com/embed/zuPrkWEQbe0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 203", duration: "44:28", thumb: "https://s02.video.glbimg.com/x216/12224177.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-203.mp4", alternative: ["https://www.youtube.com/embed/arZDZgTko2c?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 204", duration: "44:14", thumb: "https://s04.video.glbimg.com/x216/12224207.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-204.mp4", alternative: ["https://www.youtube.com/embed/7yDh_b82JUc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 205", duration: "45:08", thumb: "https://s03.video.glbimg.com/x216/12224190.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-205.mp4", alternative: ["https://www.youtube.com/embed/clh-UPtjpko?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 206", duration: "45:49", thumb: "https://s04.video.glbimg.com/x216/12224191.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-206.mp4", alternative: ["https://www.youtube.com/embed/OJsi7XceYk0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 207", duration: "44:37", thumb: "https://s01.video.glbimg.com/x216/12237532.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-207.mp4", alternative: ["https://www.youtube.com/embed/uHVGKGRuTxQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 208", duration: "45:53", thumb: "https://s03.video.glbimg.com/x216/12237554.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-208.mp4", alternative: ["https://www.youtube.com/embed/jJcbXFuJlns?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 209", duration: "43:31", thumb: "https://s04.video.glbimg.com/x216/12237411.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-209.mp4", alternative: ["https://www.youtube.com/embed/nBthnLPodCU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 210", duration: "46:00", thumb: "https://s04.video.glbimg.com/x216/12237451.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-210.mp4", alternative: ["https://www.youtube.com/embed/30Gh_8AsjGY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 211", duration: "47:18", thumb: "https://s02.video.glbimg.com/x216/12237501.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-211.mp4", alternative: ["https://www.youtube.com/embed/TvuP8BgSEbU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 212", duration: "43:44", thumb: "https://s03.video.glbimg.com/x216/12237466.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-212.mp4", alternative: ["https://www.youtube.com/embed/99UBHtBgmqU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 213", duration: "43:56", thumb: "https://s01.video.glbimg.com/x216/12237372.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-213.mp4", alternative: ["https://www.youtube.com/embed/bSYfOqFoudQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 214", duration: "44:08", thumb: "https://s01.video.glbimg.com/x216/12237588.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-214.mp4", alternative: ["https://www.youtube.com/embed/pVPEC3fx2es?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 215", duration: "44:40", thumb: "https://s04.video.glbimg.com/x216/12237439.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-215.mp4", alternative: ["https://www.youtube.com/embed/3PCM1KI2uJM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                        ]
-                    },
-
-                    {
-                        name: "Temporada 02",
-                        thumb_season: "https://i.imgur.com/5ya030J.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "Episódio 001 (216)", duration: "41:11", thumb: "https://s02.video.glbimg.com/x216/12288025.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-216.mp4", alternative: ["https://www.youtube.com/embed/bFcx13H8-TQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 002 (217)", duration: "42:59", thumb: "https://s02.video.glbimg.com/x216/12288081.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-217.mp4", alternative: ["https://www.youtube.com/embed/8Ei1tydIpgU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 003 (218)", duration: "43:20", thumb: "https://s01.video.glbimg.com/x216/12288212.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-218.mp4", alternative: ["https://www.youtube.com/embed/H6RiBLLXis0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 004 (219)", duration: "44:04", thumb: "https://s04.video.glbimg.com/x216/12288223.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-219.mp4", alternative: ["https://www.youtube.com/embed/PqwNbpiSuck?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 005 (220)", duration: "36:35", thumb: "https://s02.video.glbimg.com/x216/12288089.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-220.mp4", alternative: ["https://www.youtube.com/embed/vfv7h2qRgaI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 006 (221)", duration: "43:02", thumb: "https://s04.video.glbimg.com/x216/12288243.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-221.mp4", alternative: ["https://www.youtube.com/embed/u1wl-Lw_-84?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 007 (222)", duration: "42:10", thumb: "https://s01.video.glbimg.com/x216/12288232.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-222.mp4", alternative: ["https://www.youtube.com/embed/UCDNyw-qnY8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 008 (223)", duration: "42:00", thumb: "https://s01.video.glbimg.com/x216/12288056.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-223.mp4", alternative: ["https://www.youtube.com/embed/Fdxytea3oDQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 009 (224)", duration: "42:31", thumb: "https://s01.video.glbimg.com/x216/12288136.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-224.mp4", alternative: ["https://www.youtube.com/embed/ZfW7Cf4lXpI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 010 (225)", duration: "41:52", thumb: "https://s02.video.glbimg.com/x216/12287841.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-225.mp4", alternative: ["https://www.youtube.com/embed/QpXeLZ-j3N0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 011 (226)", duration: "42:05", thumb: "https://s02.video.glbimg.com/x216/12291289.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-226.mp4", alternative: ["https://www.youtube.com/embed/OxUOZiNMg6w?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 012 (227)", duration: "43:35", thumb: "https://s03.video.glbimg.com/x216/12291286.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-227.mp4", alternative: ["https://www.youtube.com/embed/e66Dauh34Hg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 013 (228)", duration: "44:29", thumb: "https://s02.video.glbimg.com/x216/12291561.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-228.mp4", alternative: ["https://www.youtube.com/embed/IHRbfm9jBeA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 014 (229)", duration: "42:35", thumb: "https://s02.video.glbimg.com/x216/12291297.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-229.mp4", alternative: ["https://www.youtube.com/embed/h8w8uq-Xg3w?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 015 (230)", duration: "42:03", thumb: "https://s04.video.glbimg.com/x216/12291315.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-230.mp4", alternative: ["https://www.youtube.com/embed/2TLusfMLx1E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 016 (231)", duration: "42:55", thumb: "https://s04.video.glbimg.com/x216/12291303.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-231.mp4", alternative: ["https://www.youtube.com/embed/OHB1au17nKU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 017 (232)", duration: "41:38", thumb: "https://s01.video.glbimg.com/x216/12291296.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-232.mp4", alternative: ["https://www.youtube.com/embed/65AejIk-K6E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 018 (233)", duration: "42:21", thumb: "https://s03.video.glbimg.com/x216/12291354.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-233.mp4", alternative: ["https://www.youtube.com/embed/yJxOqxuBdnk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 019 (234)", duration: "42:53", thumb: "https://s03.video.glbimg.com/x216/12291470.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-234.mp4", alternative: ["https://www.youtube.com/embed/qA8hidhv9MY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 020 (235)", duration: "40:42", thumb: "https://s02.video.glbimg.com/x216/12291329.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-235.mp4", alternative: ["https://www.youtube.com/embed/L0Q1RpYjTRU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 021 (236)", duration: "43:44", thumb: "https://s03.video.glbimg.com/x216/12291386.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-236.mp4", alternative: ["https://www.youtube.com/embed/eFueLkIkpXU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 022 (237)", duration: "42:26", thumb: "https://s02.video.glbimg.com/x216/12291377.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-237.mp4", alternative: ["https://www.youtube.com/embed/rXwiUgt1ypI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 023 (238)", duration: "42:32", thumb: "https://s02.video.glbimg.com/x216/12291361.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-238.mp4", alternative: ["https://www.youtube.com/embed/3bXplzuj1eM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 024 (239)", duration: "42:10", thumb: "https://s01.video.glbimg.com/x216/12291452.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-239.mp4", alternative: ["https://www.youtube.com/embed/bwhxNzgNfUg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 025 (240)", duration: "43:43", thumb: "https://s02.video.glbimg.com/x216/12291513.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-240.mp4", alternative: ["https://www.youtube.com/embed/UPIy4aw-IwU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 026 (241)", duration: "43:00", thumb: "https://s04.video.glbimg.com/x216/12291427.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-241.mp4", alternative: ["https://www.youtube.com/embed/VvgkE5yoVBA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 027 (242)", duration: "42:16", thumb: "https://s02.video.glbimg.com/x216/12310165.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-242.mp4", alternative: ["https://www.youtube.com/embed/3RMmzgLMMHU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 028 (243)", duration: "43:25", thumb: "https://s01.video.glbimg.com/x216/12293656.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-243.mp4", alternative: ["https://www.youtube.com/embed/UtAowI_vUgg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 029 (244)", duration: "43:16", thumb: "https://s03.video.glbimg.com/x216/12291366.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-244.mp4", alternative: ["https://www.youtube.com/embed/L4dHicbi5uA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 030 (245)", duration: "42:55", thumb: "https://s03.video.glbimg.com/x216/12310358.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-245.mp4", alternative: ["https://www.youtube.com/embed/FJH30rkSoFw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 031 (246)", duration: "42:22", thumb: "https://s04.video.glbimg.com/x216/12291483.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-246.mp4", alternative: ["https://www.youtube.com/embed/EXQG_0VjiHw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 032 (247)", duration: "42:26", thumb: "https://s04.video.glbimg.com/x216/12291455.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-247.mp4", alternative: ["https://www.youtube.com/embed/uiJv_euPnhI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 033 (248)", duration: "42:15", thumb: "https://s04.video.glbimg.com/x216/12310183.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-248.mp4", alternative: ["https://www.youtube.com/embed/4M-ZWdUYyDg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 034 (249)", duration: "41:51", thumb: "https://s01.video.glbimg.com/x216/12291400.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-249.mp4", alternative: ["https://www.youtube.com/embed/bQe7JzA2qSM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 035 (250)", duration: "41:59", thumb: "https://s03.video.glbimg.com/x216/12291550.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-250.mp4", alternative: ["https://www.youtube.com/embed/0QObeGI1kTE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 036 (251)", duration: "42:40", thumb: "https://s04.video.glbimg.com/x216/12291391.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-251.mp4", alternative: ["https://www.youtube.com/embed/ssK5-GqXZ1s?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 037 (252)", duration: "42:08", thumb: "https://s03.video.glbimg.com/x216/12291522.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-252.mp4", alternative: ["https://www.youtube.com/embed/3vlml01Pk0o?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 038 (253)", duration: "42:20", thumb: "https://s02.video.glbimg.com/x216/12291505.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-253.mp4", alternative: ["https://www.youtube.com/embed/AE5kwd6-QNE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 039 (254)", duration: "42:10", thumb: "https://s03.video.glbimg.com/x216/12291406.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-254.mp4", alternative: ["https://www.youtube.com/embed/Yw_TgYb5htE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 040 (255)", duration: "42:24", thumb: "https://s03.video.glbimg.com/x216/12293522.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-255.mp4", alternative: ["https://www.youtube.com/embed/xPoCBjD1yl8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 041 (256)", duration: "41:49", thumb: "https://s02.video.glbimg.com/x216/12291441.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-256.mp4", alternative: ["https://www.youtube.com/embed/0_GVzFn3C_s?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 042 (257)", duration: "42:20", thumb: "https://s02.video.glbimg.com/x216/12293553.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-257.mp4", alternative: ["https://www.youtube.com/embed/56HmMFNgvCg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 043 (258)", duration: "42:35", thumb: "https://s02.video.glbimg.com/x216/12291409.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-258.mp4", alternative: ["https://www.youtube.com/embed/ijfRtqPuhHU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 044 (259)", duration: "43:15", thumb: "https://s03.video.glbimg.com/x216/12310214.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-259.mp4", alternative: ["https://www.youtube.com/embed/CRYJKm3acY8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 045 (260)", duration: "41:53", thumb: "https://s04.video.glbimg.com/x216/12293735.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-260.mp4", alternative: ["https://www.youtube.com/embed/NCIdbbUaoNY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 046 (261)", duration: "42:49", thumb: "https://s01.video.glbimg.com/x216/12291432.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-261.mp4", alternative: ["https://www.youtube.com/embed/9PqmhEUNlDI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 047 (262)", duration: "42:01", thumb: "https://s04.video.glbimg.com/x216/12291415.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-262.mp4", alternative: ["https://www.youtube.com/embed/GSpiX9uD4l8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 048 (263)", duration: "43:29", thumb: "https://s01.video.glbimg.com/x216/12310252.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-263.mp4", alternative: ["https://www.youtube.com/embed/1DO65jWElm0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 049 (264)", duration: "41:28", thumb: "https://s01.video.glbimg.com/x216/12310328.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-264.mp4", alternative: ["https://www.youtube.com/embed/IKkFdaL1Rr0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 050 (265)", duration: "43:17", thumb: "https://s03.video.glbimg.com/x216/12334426.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-265.mp4", alternative: ["https://www.youtube.com/embed/3LCKE-vhntw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 051 (266)", duration: "43:29", thumb: "https://s01.video.glbimg.com/x216/12310944.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-266.mp4", alternative: ["https://www.youtube.com/embed/Pe2MjYrr_dQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 052 (267)", duration: "42:26", thumb: "https://s04.video.glbimg.com/x216/12314643.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-267.mp4", alternative: ["https://www.youtube.com/embed/QeQJlzUX6Zw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 053 (268)", duration: "43:16", thumb: "https://s02.video.glbimg.com/x216/12310957.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-268.mp4", alternative: ["https://www.youtube.com/embed/2I6z4RBZ0O4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 054 (269)", duration: "42:46", thumb: "https://s01.video.glbimg.com/x216/12311184.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-269.mp4", alternative: ["https://www.youtube.com/embed/TWeKn-KXIUk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 055 (270)", duration: "41:59", thumb: "https://s01.video.glbimg.com/x216/12366112.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-270.mp4", alternative: ["https://www.youtube.com/embed/sL2D4ZjVrOM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 056 (271)", duration: "43:54", thumb: "https://s04.video.glbimg.com/x216/12310895.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-271.mp4", alternative: ["https://www.youtube.com/embed/z7aZ68k7e44?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 057 (272)", duration: "43:28", thumb: "https://s01.video.glbimg.com/x216/12334468.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-272.mp4", alternative: ["https://www.youtube.com/embed/HXCIBdiDE5A?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 058 (273)", duration: "43:40", thumb: "https://s04.video.glbimg.com/x216/12310907.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-273.mp4", alternative: ["https://www.youtube.com/embed/WPlhUEpY3PQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 059 (274)", duration: "43:12", thumb: "https://s02.video.glbimg.com/x216/12311209.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-274.mp4", alternative: ["https://www.youtube.com/embed/mqIF9FUtEQ8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 060 (275)", duration: "43:41", thumb: "https://s03.video.glbimg.com/x216/12310926.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-275.mp4", alternative: ["https://www.youtube.com/embed/pdDlAPr-bMs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 061 (276)", duration: "43:45", thumb: "https://s01.video.glbimg.com/x216/12334484.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-276.mp4", alternative: ["https://www.youtube.com/embed/XKH-egmM-88?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 062 (277)", duration: "43:36", thumb: "https://s02.video.glbimg.com/x216/12311113.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-277.mp4", alternative: ["https://www.youtube.com/embed/NrUEUktkcUQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 063 (278)", duration: "43:47", thumb: "https://s02.video.glbimg.com/x216/12311025.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-278.mp4", alternative: ["https://www.youtube.com/embed/4Pbv9PpPIX0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 064 (279)", duration: "43:50", thumb: "https://s02.video.glbimg.com/x216/12311129.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-279.mp4", alternative: ["https://www.youtube.com/embed/QrglgNgQE_E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 065 (280)", duration: "43:45", thumb: "https://s03.video.glbimg.com/x216/12311090.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-280.mp4", alternative: ["https://www.youtube.com/embed/ZXmTs00oX14?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 066 (281)", duration: "43:14", thumb: "https://s04.video.glbimg.com/x216/12310991.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-281.mp4", alternative: ["https://www.youtube.com/embed/hMA_Ob2fYXc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 067 (282)", duration: "43:30", thumb: "https://s02.video.glbimg.com/x216/12311153.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-282.mp4", alternative: ["https://www.youtube.com/embed/iXsa4ZNdPAg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 068 (283)", duration: "43:43", thumb: "https://s03.video.glbimg.com/x216/12311050.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-283.mp4", alternative: ["https://www.youtube.com/embed/amtGQkkbYbw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 069 (284)", duration: "43:20", thumb: "https://s01.video.glbimg.com/x216/12311388.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-284.mp4", alternative: ["https://www.youtube.com/embed/lIFDyy9y-04?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 070 (285)", duration: "43:18", thumb: "https://s04.video.glbimg.com/x216/12334519.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-285.mp4", alternative: ["https://www.youtube.com/embed/6w_3m_bt8Ng?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 071 (286)", duration: "43:43", thumb: "https://s04.video.glbimg.com/x216/12314791.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-286.mp4", alternative: ["https://www.youtube.com/embed/C3PEEY-V52w?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 072 (287)", duration: "43:40", thumb: "https://s01.video.glbimg.com/x216/12314780.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-287.mp4", alternative: ["https://www.youtube.com/embed/aYFw5KwJvDo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 073 (288)", duration: "43:54", thumb: "https://s04.video.glbimg.com/x216/12314807.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-288.mp4", alternative: ["https://www.youtube.com/embed/ctsL5Ng6wjo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 074 (289)", duration: "43:40", thumb: "https://s04.video.glbimg.com/x216/12314815.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-289.mp4", alternative: ["https://www.youtube.com/embed/b9QpNJE-Gdc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 075 (290)", duration: "43:20", thumb: "https://s02.video.glbimg.com/x216/12314833.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-290.mp4", alternative: ["https://www.youtube.com/embed/JaT2mUO9Bj0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 076 (291)", duration: "43:55", thumb: "https://s03.video.glbimg.com/x216/12335106.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-291.mp4", alternative: ["https://www.youtube.com/embed/oOc38CoHKnk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 077 (292)", duration: "43:53", thumb: "https://s03.video.glbimg.com/x216/12335082.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-292.mp4", alternative: ["https://www.youtube.com/embed/aLVxdnaX_AU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 078 (293)", duration: "43:39", thumb: "https://s04.video.glbimg.com/x216/12335503.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-293.mp4", alternative: ["https://www.youtube.com/embed/2Y74_y-TtHQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 079 (294)", duration: "43:40", thumb: "https://s04.video.glbimg.com/x216/12334611.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-294.mp4", alternative: ["https://www.youtube.com/embed/oyDy3paq_64?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 080 (295)", duration: "43:25", thumb: "https://s02.video.glbimg.com/x216/12334689.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-295.mp4", alternative: ["https://www.youtube.com/embed/rvvQy3-Fs4U?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 081 (296)", duration: "43:09", thumb: "https://s01.video.glbimg.com/x216/12366116.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-296.mp4", alternative: ["https://www.youtube.com/embed/063T4mRlBK8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 082 (297)", duration: "43:27", thumb: "https://s02.video.glbimg.com/x216/12334733.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-297.mp4", alternative: ["https://www.youtube.com/embed/lMlsi4hK-6I?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 083 (298)", duration: "43:38", thumb: "https://s02.video.glbimg.com/x216/12334713.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-298.mp4", alternative: ["https://www.youtube.com/embed/z_xfUg8L_ho?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 084 (299)", duration: "38:47", thumb: "https://s01.video.glbimg.com/x216/12334748.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-299.mp4", alternative: ["https://www.youtube.com/embed/LnazeEOjZL4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 085 (300)", duration: "41:26", thumb: "https://s04.video.glbimg.com/x216/12335055.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-300.mp4", alternative: ["https://www.youtube.com/embed/8-DC2RWQ_W4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 086 (301)", duration: "43:15", thumb: "https://s03.video.glbimg.com/x216/12334798.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-301.mp4", alternative: ["https://www.youtube.com/embed/HBvEU83Qt9M?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 087 (302)", duration: "42:59", thumb: "https://s03.video.glbimg.com/x216/12366122.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-302.mp4", alternative: ["https://www.youtube.com/embed/nM1quIqp-C8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 088 (303)", duration: "41:00", thumb: "https://s01.video.glbimg.com/x216/12335120.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-303.mp4", alternative: ["https://www.youtube.com/embed/XooGeMXQp80?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 089 (304)", duration: "42:02", thumb: "https://s01.video.glbimg.com/x216/12334844.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-304.mp4", alternative: ["https://www.youtube.com/embed/8mNjoL2SInc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 090 (305)", duration: "39:56", thumb: "https://s02.video.glbimg.com/x216/12335033.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-305.mp4", alternative: ["https://www.youtube.com/embed/vosJlFOFqWo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 091 (306)", duration: "42:58", thumb: "https://s03.video.glbimg.com/x216/12334958.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-306.mp4", alternative: ["https://www.youtube.com/embed/aH0X6OyVt2Y?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 092 (307)", duration: "43:02", thumb: "https://s03.video.glbimg.com/x216/12334862.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-307.mp4", alternative: ["https://www.youtube.com/embed/X4Sw2pXJBMw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 093 (308)", duration: "41:42", thumb: "https://s03.video.glbimg.com/x216/12334986.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-308.mp4", alternative: ["https://www.youtube.com/embed/D45tbLhvyVY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 094 (309)", duration: "42:31", thumb: "https://s02.video.glbimg.com/x216/12334897.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-309.mp4", alternative: ["https://www.youtube.com/embed/6QxLektCau8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 095 (310)", duration: "42:33", thumb: "https://s01.video.glbimg.com/x216/12334944.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-310.mp4", alternative: ["https://www.youtube.com/embed/kOyjC9l8_YU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 096 (311)", duration: "42:04", thumb: "https://s02.video.glbimg.com/x216/12335181.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-311.mp4", alternative: ["https://www.youtube.com/embed/3sV7biQC_Pc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 097 (312)", duration: "42:54", thumb: "https://s03.video.glbimg.com/x216/12335214.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-312.mp4", alternative: ["https://www.youtube.com/embed/ORVN4Cf90Po?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 098 (313)", duration: "42:36", thumb: "https://s04.video.glbimg.com/x216/12335307.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-313.mp4", alternative: ["https://www.youtube.com/embed/qb74Mil_oqM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 099 (314)", duration: "42:06", thumb: "https://s03.video.glbimg.com/x216/12366130.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-314.mp4", alternative: ["https://www.youtube.com/embed/64z7gpogfEk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 100 (315)", duration: "43:02", thumb: "https://s04.video.glbimg.com/x216/12335295.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-315.mp4", alternative: ["https://www.youtube.com/embed/PXt6OGRNeoQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 101 (316)", duration: "42:34", thumb: "https://s01.video.glbimg.com/x216/12335304.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-316.mp4", alternative: ["https://www.youtube.com/embed/SyN303L7QU0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 102 (317)", duration: "42:58", thumb: "https://s01.video.glbimg.com/x216/12366132.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-317.mp4", alternative: ["https://www.youtube.com/embed/VcOgFK30aVA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 103 (318)", duration: "42:52", thumb: "https://s04.video.glbimg.com/x216/12335227.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-318.mp4", alternative: ["https://www.youtube.com/embed/EoAxwaWQo0M?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 104 (319)", duration: "41:27", thumb: "https://s03.video.glbimg.com/x216/12366138.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-319.mp4", alternative: ["https://www.youtube.com/embed/99x2aS_Z5ko?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 105 (320)", duration: "40:54", thumb: "https://s03.video.glbimg.com/x216/12366142.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-320.mp4", alternative: ["https://www.youtube.com/embed/0j4VL5yIujA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 106 (321)", duration: "41:54", thumb: "https://s04.video.glbimg.com/x216/12339351.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-321.mp4", alternative: ["https://www.youtube.com/embed/o9J6atnq2GY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 107 (322)", duration: "42:24", thumb: "https://s03.video.glbimg.com/x216/12339342.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-322.mp4", alternative: ["https://www.youtube.com/embed/Zrc9c5tu9Gs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 108 (323)", duration: "42:09", thumb: "https://s04.video.glbimg.com/x216/12335259.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-323.mp4", alternative: ["https://www.youtube.com/embed/4whungjZRv8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 109 (324)", duration: "43:37", thumb: "https://s02.video.glbimg.com/x216/12366157.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-324.mp4", alternative: ["https://www.youtube.com/embed/SV3NK5yBW2M?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 110 (325)", duration: "40:41", thumb: "https://s04.video.glbimg.com/x216/12366147.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-325.mp4", alternative: ["https://www.youtube.com/embed/zxOHxvys0WM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 111 (326)", duration: "43:46", thumb: "https://s02.video.glbimg.com/x216/12368085.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-326.mp4", alternative: ["https://www.youtube.com/embed/-DaPZUoEniM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 112 (327)", duration: "44:13", thumb: "https://s02.video.glbimg.com/x216/12366161.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-327.mp4", alternative: ["https://www.youtube.com/embed/U5bNtYPqi08?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 113 (328)", duration: "43:53", thumb: "https://s04.video.glbimg.com/x216/12366151.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-328.mp4", alternative: ["https://www.youtube.com/embed/Yx6Q7jaFxUE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 114 (329)", duration: "42:57", thumb: "https://s01.video.glbimg.com/x216/12366168.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-329.mp4", alternative: ["https://www.youtube.com/embed/I8a8SZQYo6Y?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 115 (330)", duration: "43:12", thumb: "https://s01.video.glbimg.com/x216/12389712.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-330.mp4", alternative: ["https://www.youtube.com/embed/DvIQQUSRoek?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                        ]
-                    },
-
-                    {
-                        name: "Temporada 03",
-                        thumb_season: "https://i.imgur.com/5ya030J.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "Episódio 001 (331)", duration: "42:47", thumb: "https://s04.video.glbimg.com/x216/12398751.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-331.mp4", alternative: ["https://www.youtube.com/embed/AJ89xdfaK30?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 002 (332)", duration: "43:56", thumb: "https://s04.video.glbimg.com/x216/12398707.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-332.mp4", alternative: ["https://www.youtube.com/embed/Sk2-VBd3HZk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 003 (333)", duration: "42:52", thumb: "https://s01.video.glbimg.com/x216/12400932.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-333.mp4", alternative: ["https://www.youtube.com/embed/ir-r7Sgu_lk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 004 (334)", duration: "43:37", thumb: "https://s03.video.glbimg.com/x216/12401750.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-334.mp4", alternative: ["https://www.youtube.com/embed/QYNZ-4xu9DQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 005 (335)", duration: "43:24", thumb: "https://s01.video.glbimg.com/x216/12398812.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-335.mp4", alternative: ["https://www.youtube.com/embed/789npI0Q8kE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 006 (336)", duration: "43:53", thumb: "https://s04.video.glbimg.com/x216/12398955.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-336.mp4", alternative: ["https://www.youtube.com/embed/cXC4H6K6KxM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 007 (337)", duration: "42:15", thumb: "https://s02.video.glbimg.com/x216/12398697.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-337.mp4", alternative: ["https://www.youtube.com/embed/3BBQHIj6N2I?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 008 (338)", duration: "43:58", thumb: "https://s04.video.glbimg.com/x216/12400959.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-338.mp4", alternative: ["https://www.youtube.com/embed/qLDw9J2kGYc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 009 (339)", duration: "43:41", thumb: "https://s04.video.glbimg.com/x216/12399203.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-339.mp4", alternative: ["https://www.youtube.com/embed/0Lau5a5UPF0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 010 (340)", duration: "44:11", thumb: "https://s04.video.glbimg.com/x216/12398663.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-340.mp4", alternative: ["https://www.youtube.com/embed/UwTnmAz83yg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 011 (341)", duration: "43:52", thumb: "https://s01.video.glbimg.com/x216/12398780.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-341.mp4", alternative: ["https://www.youtube.com/embed/RHmHgK1Mcw4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 012 (342)", duration: "43:50", thumb: "https://s03.video.glbimg.com/x216/12398790.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-342.mp4", alternative: ["https://www.youtube.com/embed/xRJ-vZ-2E4o?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 013 (343)", duration: "43:43", thumb: "https://s04.video.glbimg.com/x216/12401739.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-343.mp4", alternative: ["https://www.youtube.com/embed/0ekRsnjKaI8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 014 (344)", duration: "43:08", thumb: "https://s03.video.glbimg.com/x216/12399002.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-344.mp4", alternative: ["https://www.youtube.com/embed/UF_IpxzqTYI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 015 (345)", duration: "43:01", thumb: "https://s01.video.glbimg.com/x216/12398764.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-345.mp4", alternative: ["https://www.youtube.com/embed/6vAHpgnF4h8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 016 (346)", duration: "44:19", thumb: "https://s01.video.glbimg.com/x216/12398720.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-346.mp4", alternative: ["https://www.youtube.com/embed/V55vb3yZHO4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 017 (347)", duration: "43:00", thumb: "https://s04.video.glbimg.com/x216/12399159.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-347.mp4", alternative: ["https://www.youtube.com/embed/4pNO7HZUkt4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 018 (348)", duration: "44:38", thumb: "https://s04.video.glbimg.com/x216/12399119.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-348.mp4", alternative: ["https://www.youtube.com/embed/0prRjv3ZZI8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 019 (349)", duration: "43:26", thumb: "https://s03.video.glbimg.com/x216/12398682.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-349.mp4", alternative: ["https://www.youtube.com/embed/ishXITFSsa8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 020 (350)", duration: "44:07", thumb: "https://s03.video.glbimg.com/x216/12398986.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-350.mp4", alternative: ["https://www.youtube.com/embed/-GvCEOLpJuM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 021 (351)", duration: "42:50", thumb: "https://s02.video.glbimg.com/x216/12402057.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-351.mp4", alternative: ["https://www.youtube.com/embed/7GHDID92L3Q?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 022 (352)", duration: "43:57", thumb: "https://s04.video.glbimg.com/x216/12399095.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-352.mp4", alternative: ["https://www.youtube.com/embed/LjdeYPgOHic?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 023 (353)", duration: "43:40", thumb: "https://s03.video.glbimg.com/x216/12398806.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-353.mp4", alternative: ["https://www.youtube.com/embed/eWNv3XttG1I?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 024 (354)", duration: "43:11", thumb: "https://s03.video.glbimg.com/x216/12398710.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-354.mp4", alternative: ["https://www.youtube.com/embed/Dl_niVL8YC4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 025 (355)", duration: "42:52", thumb: "https://s01.video.glbimg.com/x216/12401436.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-355.mp4", alternative: ["https://www.youtube.com/embed/5KKy6JLMCs8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 026 (356)", duration: "43:48", thumb: "https://s03.video.glbimg.com/x216/12398734.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-356.mp4", alternative: ["https://www.youtube.com/embed/d70QZMuquik?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 027 (357)", duration: "44:05", thumb: "https://s03.video.glbimg.com/x216/12398774.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-357.mp4", alternative: ["https://www.youtube.com/embed/m7Kl2SWO_Mc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 028 (358)", duration: "43:24", thumb: "https://s02.video.glbimg.com/x216/12401733.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-358.mp4", alternative: ["https://www.youtube.com/embed/O3ohu48Cvts?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 029 (359)", duration: "43:22", thumb: "https://s01.video.glbimg.com/x216/12398692.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-359.mp4", alternative: ["https://www.youtube.com/embed/RczjOsRlyrQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 030 (360)", duration: "43:29", thumb: "https://s03.video.glbimg.com/x216/12398666.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-360.mp4", alternative: ["https://www.youtube.com/embed/ZlfNNXCHX6s?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 031 (361)", duration: "42:46", thumb: "https://s02.video.glbimg.com/x216/12398957.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-361.mp4", alternative: ["https://www.youtube.com/embed/8keRNH8O0b8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 032 (362)", duration: "42:44", thumb: "https://s03.video.glbimg.com/x216/12398750.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-362.mp4", alternative: ["https://www.youtube.com/embed/90CkoAxHh2E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 033 (363)", duration: "42:28", thumb: "https://s03.video.glbimg.com/x216/12398842.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-363.mp4", alternative: ["https://www.youtube.com/embed/lz887LRxu1Q?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 034 (364)", duration: "43:23", thumb: "https://s03.video.glbimg.com/x216/12398890.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-364.mp4", alternative: ["https://www.youtube.com/embed/09uhTxzE2Q4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 035 (365)", duration: "44:12", thumb: "https://s03.video.glbimg.com/x216/12398674.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-365.mp4", alternative: ["https://www.youtube.com/embed/bJ3VgdWNQSU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 036 (366)", duration: "43:24", thumb: "https://s03.video.glbimg.com/x216/12401898.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-366.mp4", alternative: ["https://www.youtube.com/embed/oxCt7NUi-hs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 037 (367)", duration: "44:46", thumb: "https://s02.video.glbimg.com/x216/12399049.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-367.mp4", alternative: ["https://www.youtube.com/embed/xNsK9FH2wRE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 038 (368)", duration: "44:15", thumb: "https://s01.video.glbimg.com/x216/12398700.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-368.mp4", alternative: ["https://www.youtube.com/embed/jLaQ4FF6Sfg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 039 (369)", duration: "44:48", thumb: "https://s02.video.glbimg.com/x216/12398757.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-369.mp4", alternative: ["https://www.youtube.com/embed/jGUT3JvmnWc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 040 (370)", duration: "44:28", thumb: "https://s01.video.glbimg.com/x216/12401992.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-370.mp4", alternative: ["https://www.youtube.com/embed/HgaO5bYxfDA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 041 (371)", duration: "43:27", thumb: "https://s04.video.glbimg.com/x216/12398731.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-371.mp4", alternative: ["https://www.youtube.com/embed/jHrFwtkyN6k?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 042 (372)", duration: "44:07", thumb: "https://s02.video.glbimg.com/x216/12398681.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-372.mp4", alternative: ["https://www.youtube.com/embed/Tfzs0BCT7gw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 043 (373)", duration: "44:38", thumb: "https://s04.video.glbimg.com/x216/12403915.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-373.mp4", alternative: ["https://www.youtube.com/embed/rjzKtoyWMB0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 044 (374)", duration: "43:49", thumb: "https://s04.video.glbimg.com/x216/12403519.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-374.mp4", alternative: ["https://www.youtube.com/embed/XENL90kwTCg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 045 (375)", duration: "44:09", thumb: "https://s04.video.glbimg.com/x216/12403195.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-375.mp4", alternative: ["https://www.youtube.com/embed/U7lp54w9XYA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 046 (376)", duration: "44:21", thumb: "https://s04.video.glbimg.com/x216/12403203.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-376.mp4", alternative: ["https://www.youtube.com/embed/Wc314wcT-Zw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 047 (377)", duration: "43:21", thumb: "https://s03.video.glbimg.com/x216/12403426.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-377.mp4", alternative: ["https://www.youtube.com/embed/udJLBcv9RtA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 048 (378)", duration: "43:25", thumb: "https://s01.video.glbimg.com/x216/12403192.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-378.mp4", alternative: ["https://www.youtube.com/embed/bTimbP83kvo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 049 (379)", duration: "44:50", thumb: "https://s03.video.glbimg.com/x216/12403190.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-379.mp4", alternative: ["https://www.youtube.com/embed/eZVrYQOg1JY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 050 (380)", duration: "44:55", thumb: "https://s02.video.glbimg.com/x216/12403361.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-380.mp4", alternative: ["https://www.youtube.com/embed/rMV4HpjO1ks?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 051 (381)", duration: "43:58", thumb: "https://s04.video.glbimg.com/x216/12403451.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-381.mp4", alternative: ["https://www.youtube.com/embed/fqPjKkgigE8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 052 (382)", duration: "44:18", thumb: "https://s03.video.glbimg.com/x216/12403178.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-382.mp4", alternative: ["https://www.youtube.com/embed/G4tBum1-vCk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 053 (383)", duration: "43:41", thumb: "https://s01.video.glbimg.com/x216/12403200.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-383.mp4", alternative: ["https://www.youtube.com/embed/l0N3LY5-STo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 054 (384)", duration: "42:58", thumb: "https://s01.video.glbimg.com/x216/12403204.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-384.mp4", alternative: ["https://www.youtube.com/embed/rRf05E87fAg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 055 (385)", duration: "44:26", thumb: "https://s04.video.glbimg.com/x216/12403323.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-385.mp4", alternative: ["https://www.youtube.com/embed/Seto_b3sSq8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 056 (386)", duration: "44:14", thumb: "https://s02.video.glbimg.com/x216/12403481.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-386.mp4", alternative: ["https://www.youtube.com/embed/l6sM-ZYLsAc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 057 (387)", duration: "43:04", thumb: "https://s03.video.glbimg.com/x216/12403350.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-387.mp4", alternative: ["https://www.youtube.com/embed/g2-XvE_jj8U?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 058 (388)", duration: "42:56", thumb: "https://s04.video.glbimg.com/x216/12403651.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-388.mp4", alternative: ["https://www.youtube.com/embed/t7DKaHPCDo0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 059 (389)", duration: "42:10", thumb: "https://s01.video.glbimg.com/x216/12403932.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-389.mp4", alternative: ["https://www.youtube.com/embed/4AxBOfGBGt0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 060 (390)", duration: "43:54", thumb: "https://s04.video.glbimg.com/x216/12403815.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-390.mp4", alternative: ["https://www.youtube.com/embed/20mePEd295M?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 061 (391)", duration: "42:41", thumb: "https://s01.video.glbimg.com/x216/12403384.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-391.mp4", alternative: ["https://www.youtube.com/embed/KQQNikFS2Fk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 062 (392)", duration: "43:11", thumb: "https://s04.video.glbimg.com/x216/12403571.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-392.mp4", alternative: ["https://www.youtube.com/embed/YlLkHsk4qIY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 063 (393)", duration: "43:43", thumb: "https://s03.video.glbimg.com/x216/12523054.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-393.mp4", alternative: ["https://www.youtube.com/embed/oqkh2GODn48?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 064 (394)", duration: "43:33", thumb: "https://s02.video.glbimg.com/x216/12589277.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-394.mp4", alternative: ["https://www.youtube.com/embed/gT9zXvhxXZQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 065 (395)", duration: "43:46", thumb: "https://s03.video.glbimg.com/x216/12589254.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-395.mp4", alternative: ["https://www.youtube.com/embed/eomNhVRN38Y?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 066 (396)", duration: "43:22", thumb: "https://s03.video.glbimg.com/x216/12523126.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-396.mp4", alternative: ["https://www.youtube.com/embed/m9xbj4kOrDY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 067 (397)", duration: "43:14", thumb: "https://s03.video.glbimg.com/x216/12523186.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-397.mp4", alternative: ["https://www.youtube.com/embed/mRpNWxxll1c?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 068 (398)", duration: "39:28", thumb: "https://s04.video.glbimg.com/x216/12523175.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-398.mp4", alternative: ["https://www.youtube.com/embed/kfOQ_aIiWWA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 069 (399)", duration: "42:44", thumb: "https://s04.video.glbimg.com/x216/12523159.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-399.mp4", alternative: ["https://www.youtube.com/embed/dYrIKXyIybA?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 070 (400)", duration: "42:27", thumb: "https://s02.video.glbimg.com/x216/12523145.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-400.mp4", alternative: ["https://www.youtube.com/embed/4dmsqnRdX4s?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 071 (401)", duration: "43:35", thumb: "https://s02.video.glbimg.com/x216/12523589.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-401.mp4", alternative: ["https://www.youtube.com/embed/HKIqUO-ZTb0?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 072 (402)", duration: "43:05", thumb: "https://s03.video.glbimg.com/x216/12523810.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-402.mp4", alternative: ["https://www.youtube.com/embed/XrA4LjmrQB8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 073 (403)", duration: "42:01", thumb: "https://s02.video.glbimg.com/x216/12523901.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-403.mp4", alternative: ["https://www.youtube.com/embed/16b3ekDYGbE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 074 (404)", duration: "43:08", thumb: "https://s03.video.glbimg.com/x216/12523626.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-404.mp4", alternative: ["https://www.youtube.com/embed/0dM4eb3puYg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 075 (405)", duration: "42:13", thumb: "https://s03.video.glbimg.com/x216/12523642.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-405.mp4", alternative: ["https://www.youtube.com/embed/5YIOvwA0oMI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 076 (406)", duration: "41:47", thumb: "https://s04.video.glbimg.com/x216/12524223.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-406.mp4", alternative: ["https://www.youtube.com/embed/wieW8MLvHAI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 077 (407)", duration: "42:31", thumb: "https://s04.video.glbimg.com/x216/12523651.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-407.mp4", alternative: ["https://www.youtube.com/embed/b70iUZ9WHZU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 078 (408)", duration: "43:36", thumb: "https://s01.video.glbimg.com/x216/12525652.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-408.mp4", alternative: ["https://www.youtube.com/embed/WQAHHJPdVMs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 079 (409)", duration: "42:42", thumb: "https://s03.video.glbimg.com/x216/12523670.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-409.mp4", alternative: ["https://www.youtube.com/embed/3byQs8cL7zs?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 080 (410)", duration: "43:02", thumb: "https://s04.video.glbimg.com/x216/12525691.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-410.mp4", alternative: ["https://www.youtube.com/embed/7bi9BkkJXrM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 081 (411)", duration: "43:07", thumb: "https://s03.video.glbimg.com/x216/12523702.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-411.mp4", alternative: ["https://www.youtube.com/embed/_fs0n38drUg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 082 (412)", duration: "44:04", thumb: "https://s01.video.glbimg.com/x216/12523748.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-412.mp4", alternative: ["https://www.youtube.com/embed/lSYpo8NklMI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 083 (413)", duration: "43:56", thumb: "https://s03.video.glbimg.com/x216/12523790.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-413.mp4", alternative: ["https://www.youtube.com/embed/fAOiyyBl1uk?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 084 (414)", duration: "43:02", thumb: "https://s01.video.glbimg.com/x216/12523908.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-414.mp4", alternative: ["https://www.youtube.com/embed/Uq1GTCNA4-I?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 085 (415)", duration: "42:23", thumb: "https://s04.video.glbimg.com/x216/12620535.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-415.mp4", alternative: ["https://www.youtube.com/embed/W7UttQPZkoE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 086 (416)", duration: "38:09", thumb: "https://s02.video.glbimg.com/x216/12523845.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-416.mp4", alternative: ["https://www.youtube.com/embed/8pCitT1zPhI?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 087 (417)", duration: "42:36", thumb: "https://s03.video.glbimg.com/x216/12523830.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-417.mp4", alternative: ["https://www.youtube.com/embed/ttRFXsoqC3Y?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 088 (418)", duration: "41:45", thumb: "https://s01.video.glbimg.com/x216/12523852.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-418.mp4", alternative: ["https://www.youtube.com/embed/2lLLIMvS6-8?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 089 (419)", duration: "41:19", thumb: "https://s01.video.glbimg.com/x216/12524220.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-419.mp4", alternative: ["https://www.youtube.com/embed/PgWfpltDA1E?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 090 (420)", duration: "43:23", thumb: "https://s01.video.glbimg.com/x216/12523840.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-420.mp4", alternative: ["https://www.youtube.com/embed/BZJbx87fQ5Y?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 091 (421)", duration: "43:33", thumb: "https://s01.video.glbimg.com/x216/12524240.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-421.mp4", alternative: ["https://www.youtube.com/embed/ipzSY-oRSsE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 092 (422)", duration: "43:56", thumb: "https://s02.video.glbimg.com/x216/12523881.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-422.mp4", alternative: ["https://www.youtube.com/embed/84PpMgWsPQw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 093 (423)", duration: "43:22", thumb: "https://s02.video.glbimg.com/x216/12523873.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-423.mp4", alternative: ["https://www.youtube.com/embed/WGbOF-YKHYo?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 094 (424)", duration: "43:42", thumb: "https://s01.video.glbimg.com/x216/12523912.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-424.mp4", alternative: ["https://www.youtube.com/embed/7SBHJ0nn0Vw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 095 (425)", duration: "43:50", thumb: "https://s03.video.glbimg.com/x216/12589262.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-425.mp4", alternative: ["https://www.youtube.com/embed/mAZZMLchx6s?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 096 (426)", duration: "42:53", thumb: "https://s02.video.glbimg.com/x216/12589273.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-426.mp4", alternative: ["https://www.youtube.com/embed/WX6DRMiMcmw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 097 (427)", duration: "43:38", thumb: "https://s01.video.glbimg.com/x216/12589312.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-427.mp4", alternative: ["https://www.youtube.com/embed/cm2acrTIozU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 098 (428)", duration: "43:53", thumb: "https://s04.video.glbimg.com/x216/12589295.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-428.mp4", alternative: ["https://www.youtube.com/embed/gIfotpkc6cc?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 099 (429)", duration: "43:22", thumb: "https://s04.video.glbimg.com/x216/12589415.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-429.mp4", alternative: ["https://www.youtube.com/embed/jmrmv3KrXms?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 100 (430)", duration: "43:04", thumb: "https://s03.video.glbimg.com/x216/12589342.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-430.mp4", alternative: ["https://www.youtube.com/embed/5YVbkuIwDIM?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 101 (431)", duration: "44:06", thumb: "https://s01.video.glbimg.com/x216/12589412.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-431.mp4", alternative: ["https://www.youtube.com/embed/ojpylgC0JWQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 102 (432)", duration: "44:08", thumb: "https://s04.video.glbimg.com/x216/12589411.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-432.mp4", alternative: ["https://www.youtube.com/embed/Wk-zOYLUlro?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 103 (433)", duration: "43:30", thumb: "https://s01.video.glbimg.com/x216/12589320.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-433.mp4", alternative: ["https://www.youtube.com/embed/9rkCW3Mavxg?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 104 (434)", duration: "43:14", thumb: "https://s03.video.glbimg.com/x216/12589406.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-434.mp4", alternative: ["https://www.youtube.com/embed/fFcLZ59Xdiw?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 105 (435)", duration: "42:27", thumb: "https://s04.video.glbimg.com/x216/12589359.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-435.mp4", alternative: ["https://www.youtube.com/embed/8FBzbOmH5sU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 106 (436)", duration: "43:04", thumb: "https://s01.video.glbimg.com/x216/12589392.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-436.mp4", alternative: ["https://www.youtube.com/embed/grLFLL2a1RY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 107 (437)", duration: "43:56", thumb: "https://s03.video.glbimg.com/x216/12589366.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-437.mp4", alternative: ["https://www.youtube.com/embed/4PCvXY68yPQ?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 108 (438)", duration: "45:22", thumb: "https://s03.video.glbimg.com/x216/12589398.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-438.mp4", alternative: ["https://www.youtube.com/embed/dfUZhmBcjZY?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 109 (439)", duration: "44:56", thumb: "https://s03.video.glbimg.com/x216/12620530.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-439.mp4", alternative: ["https://www.youtube.com/embed/FwdyAfQrQUE?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                            { title: "Episódio 110 (440)", duration: "42:30", thumb: "https://s03.video.glbimg.com/x216/12589386.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-440.mp4", alternative: ["https://www.youtube.com/embed/2Zs5OsbicDU?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
-                        ]
-                    }
-                ]
-            },
-        ]
-    }
 
     
     
@@ -3952,10 +3499,15 @@ function renderToggleButtons(button) {
 
 function navigateDirection(direction) {
     const seasonDropdown = document.getElementById('season-dropdown');
-    const isAllSeasons = seasonDropdown.value === 'all';
+    const isAllSeasons = seasonDropdown && seasonDropdown.value === 'all';
     let currentSeason, totalItems;
 
-    if (isAllSeasons) {
+    // If there is only one season or no dropdown, treat it as a single season
+    if (!seasonDropdown || currentSerie.season.length === 1) {
+        currentSeasonIndex = 0; // Ensure single season uses index 0
+        currentSeason = currentSerie.season[0];
+        totalItems = currentSeason.episodes.length;
+    } else if (isAllSeasons) {
         currentSeason = { episodes: currentSerie.season.flatMap(s => s.episodes) };
         totalItems = currentSeason.episodes.length;
     } else {
@@ -3964,7 +3516,7 @@ function navigateDirection(direction) {
     }
 
     const serieKey = currentSerie.name.replace(/\s+/g, '_');
-    const seasonKey = isAllSeasons ? currentSerie.season[0].name || `Temporada_1` : currentSeason.name || `Temporada_${currentSeasonIndex + 1}`;
+    const seasonKey = currentSeason.name || `Temporada_${currentSeasonIndex + 1}`;
     const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
     if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
         currentEpisodeIndex = seasonProgress.episodeIndex;
@@ -3988,7 +3540,7 @@ function navigateDirection(direction) {
     openVideoOverlay(appendAutoplay(episode.url), actualSeasonIndex, currentEpisodeIndex);
 
     const serieName = currentSerie.name;
-    const seasonName = isAllSeasons ? currentSerie.season[0].name : currentSeason.name;
+    const seasonName = currentSeason.name || `Temporada_${currentSeasonIndex + 1}`;
     const episodeTitle = episode.title;
 
     const progress = {
@@ -3997,9 +3549,9 @@ function navigateDirection(direction) {
         episodeTitle,
         episodeIndex: currentEpisodeIndex,
         seasonIndex: actualSeasonIndex,
-        thumb: episode.thumb || (isAllSeasons ? currentSerie.season[0].thumb_season : currentSeason.thumb_season),
+        thumb: episode.thumb || currentSeason.thumb_season,
         url: episode.url,
-        movies: isAllSeasons ? currentSerie.season[0].movies : currentSeason.movies,
+        movies: currentSeason.movies,
         activeEpisodeIndex: currentEpisodeIndex
     };
 
@@ -4638,7 +4190,16 @@ function createLogsSection() {
     let logs = JSON.parse(localStorage.getItem('logs')) || [];
     logs = logs.reverse();
 
-    if (logs.length === 0) {
+    // Agrupar logs por serieName
+    const logsBySerie = logs.reduce((acc, log, index) => {
+        if (!acc[log.serieName]) {
+            acc[log.serieName] = [];
+        }
+        acc[log.serieName].push({ ...log, originalIndex: index });
+        return acc;
+    }, {});
+
+    if (Object.keys(logsBySerie).length === 0) {
         logsSection.innerHTML = `
             <div id="logs-header">
                 <h3>Logs</h3>
@@ -4664,39 +4225,50 @@ function createLogsSection() {
                 </div>
             </div>
             <div id="logs-content">
-                <ul id="logs-list">
-                    ${logs.map((log, index) => `
-                        <li class="log-entry" data-index="${index}">
-                            <img src="${log.thumb}" alt="" class="log-thumb">
-                            <div class="log-details">
-                                <div class="log-title">${log.serieName}</div>
-                                <div class="log-meta">
-                                    <span class="log-episodes">Temporada ${log.seasonIndex + 1} – ${log.episodeTitle.padStart(3, '0')}</span>
-                                    <span class="log-date">Data: ${log.date} – ${log.time}</span>
-                                </div>
+                ${Object.keys(logsBySerie).sort().map((serieName, serieIdx) => {
+                    const serieLogs = logsBySerie[serieName];
+                    const isExpanded = seasonExpandedState[`log-${serieName}`] !== undefined ? seasonExpandedState[`log-${serieName}`] : true;
+                    return `
+                        <div class="logs-section">
+                            <div class="logs-header" data-log-index="log-${serieName}">
+                                <button class="toggle-button-cards ${isExpanded ? 'expanded' : ''}" data-log-index="log-${serieName}"></button>
+                                <p>${serieName}: ${serieLogs.length} logs</p>
                             </div>
-                            <button class="remove-log-button" data-index="${index}"><span>✕</span></button>
-                        </li>
-                    `).join('')}
-                </ul>
+                            <div class="log-list" data-log-index="log-${serieName}" class="${isExpanded ? 'vertical-layout' : 'horizontal-layout'}" style="${!isExpanded ? 'display: none;' : 'display: block;'}">
+                                ${serieLogs.map(log => `
+                                    <li class="log-entry" data-index="${log.originalIndex}">
+                                        <img src="${log.thumb}" alt="" class="log-thumb">
+                                        <div class="log-details">
+                                            <div class="log-title">${log.serieName}</div>
+                                            <div class="log-meta">
+                                                <span class="log-episodes">Temporada ${log.seasonIndex + 1} – ${log.episodeTitle.padStart(3, '0')}</span>
+                                                <span class="log-date">Data: ${log.date} – ${log.time}</span>
+                                            </div>
+                                        </div>
+                                        <button class="remove-log-button" data-index="${log.originalIndex}"><span>✕</span></button>
+                                    </li>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
             </div>
         `;
         logsSection.innerHTML = logsHTML;
 
-        // --- Animação "vir de cima" ---
-        const entries = logsSection.querySelectorAll('.log-entry');
-        entries.forEach((entry, i) => {
-            entry.style.opacity = '0';
-            entry.style.transform = 'translateY(-20px)';
+        // Animação "vir de cima" para cada seção
+        const sections = logsSection.querySelectorAll('.logs-section');
+        sections.forEach((section, i) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(-20px)';
             setTimeout(() => {
-                entry.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                entry.style.opacity = '1';
-                entry.style.transform = 'translateY(0)';
-                // Limpar propriedades de animação após conclusão para evitar conflitos com hover
+                section.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
                 setTimeout(() => {
-                    entry.style.transition = '';
-                    entry.style.transform = '';
-                }, 300 + i * animationSpeedLogs); // Após a animação (300ms + atraso)
+                    section.style.transition = '';
+                    section.style.transform = '';
+                }, 300 + i * animationSpeedLogs);
             }, i * animationSpeedLogs);
         });
     }
@@ -4707,24 +4279,34 @@ function createLogsSection() {
     document.getElementById('logo').classList.replace('show', 'hidden');
     document.getElementById('back-button').classList.add('show');
 
-    // --- Filtro de busca ---
+    // Filtro de busca
     const searchInput = logsSection.querySelector('#logs-header input.input');
     if (searchInput) {
         searchInput.addEventListener('input', () => {
             const termo = searchInput.value.trim().toLowerCase();
-            const entradas = logsSection.querySelectorAll('#logs-list .log-entry');
+            const sections = logsSection.querySelectorAll('.logs-section');
 
-            entradas.forEach(entry => {
-                const title = entry.querySelector('.log-title').textContent.toLowerCase();
-                const meta = entry.querySelector('.log-meta').textContent.toLowerCase();
-                const texto = title + ' ' + meta;
+            sections.forEach(section => {
+                const serieName = section.querySelector('.logs-header p').textContent.split(':')[0].toLowerCase();
+                const entries = section.querySelectorAll('.log-entry');
+                let hasVisibleEntries = false;
 
-                entry.style.display = texto.includes(termo) ? '' : 'none';
+                entries.forEach(entry => {
+                    const title = entry.querySelector('.log-title').textContent.toLowerCase();
+                    const meta = entry.querySelector('.log-meta').textContent.toLowerCase();
+                    const texto = title + ' ' + meta;
+
+                    const isVisible = texto.includes(termo);
+                    entry.style.display = isVisible ? '' : 'none';
+                    if (isVisible) hasVisibleEntries = true;
+                });
+
+                section.style.display = hasVisibleEntries || serieName.includes(termo) ? '' : 'none';
             });
         });
     }
 
-    // Botão “Limpar logs”
+    // Botão "Limpar logs"
     const clearAllButton = document.getElementById('clear-all-logs-button');
     if (clearAllButton) {
         clearAllButton.addEventListener('click', () => {
@@ -4867,24 +4449,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('click', function(e) {
         const seasonHeader = e.target.closest('.season-header');
+        const logsHeader = e.target.closest('.logs-header');
         const toggleButton = e.target.closest('.toggle-button-cards');
         
-        if (seasonHeader || toggleButton) {
-            const targetElement = seasonHeader || toggleButton;
-            const seasonIdx = parseInt(targetElement.getAttribute('data-season-index'), 10);
-            const button = seasonHeader.querySelector('.toggle-button-cards') || toggleButton;
+        if (seasonHeader || logsHeader || toggleButton) {
+            const targetElement = seasonHeader || logsHeader || toggleButton;
+            const indexAttr = seasonHeader ? 'data-season-index' : 'data-log-index';
+            const index = targetElement.getAttribute(indexAttr);
+            const button = targetElement.querySelector('.toggle-button-cards') || toggleButton;
             const isExpanded = button.classList.contains('expanded');
 
             const newExpanded = !isExpanded;
             button.classList.toggle('expanded', newExpanded);
 
-            const episodeList = document.querySelector(`.episode-list[data-season-index="${seasonIdx}"]`);
-            if (episodeList) {
-                episodeList.classList.remove('horizontal-layout', 'vertical-layout');
-                episodeList.classList.add(newExpanded ? 'vertical-layout' : 'horizontal-layout');
-                episodeList.style.display = newExpanded ? 'flex' : 'none';
-                // Atualizar seasonExpandedState
-                seasonExpandedState[seasonIdx] = newExpanded;
+            const listSelector = seasonHeader ? `.episode-list[data-season-index="${index}"]` : `.log-list[data-log-index="${index}"]`;
+            const list = document.querySelector(listSelector);
+            if (list) {
+                list.classList.remove('horizontal-layout', 'vertical-layout');
+                list.classList.add(newExpanded ? 'vertical-layout' : 'horizontal-layout');
+                // Ajustar display com base no tipo de cabeçalho
+                list.style.display = newExpanded ? (seasonHeader ? 'flex' : 'block') : 'none';
+                seasonExpandedState[index] = newExpanded;
             }
         }
     });
