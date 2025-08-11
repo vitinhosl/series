@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hero com Slides</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrapper">
+  <div class="slider" aria-label="Carrossel">
+    <input checked type="radio" name="slider" id="s1">
+    <input type="radio" name="slider" id="s2">
+    <input type="radio" name="slider" id="s3">
+    <input type="radio" name="slider" id="s4">
+    <input type="radio" name="slider" id="s5">
+
+    <div class="slides">
+      <section class="slide" style="--bg: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1600&auto=format&fit=crop')">
+        <div class="content">
+          <h1 class="brand-title">RitAS</h1>
+          <div class="row"><span class="chip new">NOVIDADE</span><span class="chip age">14</span><span class="chip">Filme</span><span class="chip">Documentário</span></div>
+          <p class="desc">Um mergulho na intimidade de Rita Lee, a rainha do rock brasileiro! Documentário exclusivo.</p>
+          <div class="actions"><button class="btn primary">Saiba mais</button><button class="btn">Minha Lista</button></div>
+        </div>
+      </section>
+
+      <section class="slide" style="--bg: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1600&auto=format&fit=crop')">
+        <div class="content">
+          <h1 class="brand-title">Som &amp; Alma</h1>
+          <div class="row"><span class="chip new">Destaque</span><span class="chip age">12</span><span class="chip">Série</span><span class="chip">Música</span></div>
+          <p class="desc">Artistas contam suas histórias entre bastidores, palcos e encontros improváveis.</p>
+          <div class="actions"><button class="btn primary">Assistir</button><button class="btn">Minha Lista</button></div>
+        </div>
+      </section>
+
+      <section class="slide" style="--bg: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop')">
+        <div class="content">
+          <h1 class="brand-title">Inside Tech</h1>
+          <div class="row"><span class="chip new">Novo</span><span class="chip age">10</span><span class="chip">Documentário</span><span class="chip">Tecnologia</span></div>
+          <p class="desc">Os bastidores das inovações que mudaram o mundo.</p>
+          <div class="actions"><button class="btn primary">Saiba mais</button><button class="btn">Minha Lista</button></div>
+        </div>
+      </section>
+
+      <section class="slide" style="--bg: url('https://images.unsplash.com/photo-1543015955-1a4c48f0a0e3?q=80&w=1600&auto=format&fit=crop')">
+        <div class="content">
+          <h1 class="brand-title">Clássicos</h1>
+          <div class="row"><span class="chip new">Coleção</span><span class="chip age">L</span><span class="chip">Filme</span><span class="chip">Remaster</span></div>
+          <p class="desc">Obras que marcaram gerações, agora restauradas e com extras.</p>
+          <div class="actions"><button class="btn primary">Ver agora</button><button class="btn">Minha Lista</button></div>
+        </div>
+      </section>
+
+      <section class="slide clone" style="--bg: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1600&auto=format&fit=crop')">
+        <div class="content">
+          <h1 class="brand-title">RitAS</h1>
+          <div class="row"><span class="chip new">NOVIDADE</span><span class="chip age">14</span><span class="chip">Filme</span><span class="chip">Documentário</span></div>
+          <p class="desc">Um mergulho na intimidade de Rita Lee, a rainha do rock brasileiro! Documentário exclusivo.</p>
+          <div class="actions"><button class="btn primary">Saiba mais</button><button class="btn">Minha Lista</button></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="controls-bottom">
+      <div class="dots-container">
+        <label>
+          <input class="dots-play-btn" type="checkbox" checked>
+          <div class="dots-play-icon"></div>
+          <div class="dots-pause-icon"></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="dots">
+      <label for="s1"></label>
+      <label for="s2"></label>
+      <label for="s3"></label>
+      <label for="s4"></label>
+    </div>
+
+    <div class="controls">
+      <button class="arrow prev" id="prevBtn" aria-label="Anterior" role="button" tabindex="0">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="arrow next" id="nextBtn" aria-label="Próximo" role="button" tabindex="0">
+        <svg viewBox="0 0 24 24"><path d="m8.59 16.59 1.41 1.41 6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+      </button>
+    </div>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

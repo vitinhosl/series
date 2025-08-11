@@ -11,6 +11,17 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "A TERRA PROMETIDA",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0068571/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Após a morte de Moisés, Josué é o novo líder dos hebreus 
+                        e terá que cumprir uma difícil missão ordenada por Deus: 
+                        Comandar as 12 tribos de Israel na conquista de Canaã, 
+                        a Terra Prometida. Continuação da saga Os Dez Mandamentos.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -197,7 +208,7 @@ const biblicalData = [
                             { title: "Episódio 178", duration: "49:28"  , thumb: "https://i.imgur.com/q8f78h2.jpeg", url: "https://ok.ru/videoembed/4097073023575?autoplay=1", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-178.mp4"] },
                             { title: "Episódio 179", duration: "20:28"  , thumb: "https://i.imgur.com/6WO1Phm.jpeg", url: "https://ok.ru/videoembed/4100679731799?autoplay=1", alternative: ["https://cdn-novflix.com/storage7/ATP/ATP-179.mp4"] }
                         ]
-                    },
+                    }
                 ],
             },
 
@@ -205,11 +216,25 @@ const biblicalData = [
             {
                 name: "Os Dez Mandamentos",
                 thumb_page: "https://i.imgur.com/v0uF3s6.png",
-                thumb_buttons: ["https://i.imgur.com/qUETt6r.jpeg"],
+                thumb_buttons: [
+                    "https://i.imgur.com/qUETt6r.jpeg",
+                    // "https://images.justwatch.com/poster/301798516/s166/os-dez-mandamentos.avif"
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "OS DEZ MANDAMENTOS",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        Grande sucesso da televisão brasileira, este épico bíblico 
+                        narra a saga de Moisés, o hebreu que escapou da morte ainda 
+                        bebê, virou príncipe do Egito eacabou se transformando no 
+                        líder escolhido por Deus para libertar seu povo da escravidão.
+                    `
+                },
                 season: [
                     //TEMPORADA 01 - EPISÓDIOS 176
                     {
@@ -401,6 +426,16 @@ const biblicalData = [
                         name: "Temporada 02",
                         thumb_season: "https://i.imgur.com/m21M7qL.png",
                         movies: false,
+                        description: {
+                            title: "OS DEZ MANDAMENTOS",
+                            thumb: "https://i.imgur.com/3AvCCKN.jpeg",
+                            sinopse:  `
+                                A trama explora as dificuldades da travessia 
+                                durante os 40 anos de peregrinação. Entre os 
+                                conflitos internos e externos do povo, e a busca 
+                                pela fé e esperança em meio às adversidades. 
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (177)", duration: "1:19:56", thumb: "https://i.imgur.com/JvrxA7Y.jpeg", url: "https://ok.ru/videoembed/3679824317015" , alternative: ["https://cdn-novflix.com/storage3/ODM2/ODM2zJ8ZbkUekz24eeeVxdBUi001.mp4", "https://ok.ru/videoembed/3655035980347"] },
                             { title: "Episódio 002 - (178)", duration: "56:34"  , thumb: "https://i.imgur.com/5VF7oiv.jpeg", url: "https://ok.ru/videoembed/3679835523671" , alternative: ["https://cdn-novflix.com/storage3/ODM2/ODM2zJ8ZbkUekz24eeeVxdBUi002.mp4", "https://ok.ru/videoembed/3655037159995"] },
@@ -482,6 +517,17 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "JEZABEL",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0069716/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        A trama contará a história da princesa fenícia Jezabel, 
+                        uma princesa idólatra que se casa com o rei Acabe e usa 
+                        sua beleza e maldade para tentar impor ao povo israelita 
+                        aceitar a adoração ao seus deuses pagãos. 
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -583,6 +629,17 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "REI DAVI",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0088301/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Rei Davi é uma mini série bíblica brasileira que 
+                        conta a história de Davi, o pastor de ovelhas que
+                        derrotou o gigante Golias e que foi escolhido 
+                        por Deus para governar seu povo.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -627,6 +684,16 @@ const biblicalData = [
                         name: "Filmes",
                         thumb_season: "https://i.imgur.com/I0brMS9.png",
                         movies: true,
+                        description: {
+                            title: "REI DAVI - O FILME",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0088301/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Rei Davi é filme bíblico brasileiro que 
+                                conta a história de Davi, o pastor de ovelhas que
+                                derrotou o gigante Golias e que foi escolhido 
+                                por Deus para governar seu povo.
+                            `
+                        },
                         episodes: [
                             { title: "REI DAVI", thumb: "", url: "https://ok.ru/videoembed/301566855767", alternative: [] },          
                         ]
@@ -643,6 +710,17 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "JEZABEL",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0068517/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Após ser vendido como escravo pelos irmãos e 
+                        levado para o Egito, José é injustiçado, caluniado, 
+                        preso e humilhado. A vida de José é um exemplo 
+                        de pureza e perdão.
+                    `
+                },
                 season: [
                     {
                         name: "",
@@ -690,14 +768,14 @@ const biblicalData = [
                         ]
                     },
 
-                    {
-                        name: "Filmes",
-                        thumb_season: "https://i.imgur.com/Ayybjrq.jpeg",
-                        movies: true,
-                        episodes: [
-                            { title: "JOSÉ DO EGITO", thumb: "", url: "https://ok.ru/videoembed/225197624005", alternative: [] },
-                        ]
-                    },
+                    // {
+                    //     name: "Filmes",
+                    //     thumb_season: "https://i.imgur.com/Ayybjrq.jpeg",
+                    //     movies: true,
+                    //     episodes: [
+                    //         { title: "JOSÉ DO EGITO", thumb: "", url: "https://ok.ru/videoembed/225197624005", alternative: [] },
+                    //     ]
+                    // },
                 ]
             },
 
@@ -710,6 +788,18 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "JESUS",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0347485/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Quando a história dos homens estava perto de cair em desgraça, 
+                        a história domundo muda para sempre após a chegada do Salvador. 
+                        Jesus, a novela, contapela primeira vez na íntegra a trajetória 
+                        do homem que revolucionou a humanidade com sua palavra e suas 
+                        ações e dividiu a história em dois: antes e depois de Cristo.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -924,6 +1014,18 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "GÊNESIS",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0191984/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        A superprodução bíblica Gênesis vai lhe ajudar a entender aquilo 
+                        que você sempre quis, mas nunca teve coragem de questionar. Sim, 
+                        ela é cheia de histórias fascinantes, com muita emoção, talentosos 
+                        profissionais, uma belíssima fotografia e faixa musical inovadora, 
+                        mas acima de tudo, ela conta a nossa história.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1165,6 +1267,18 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "O RICO E LÁZARO",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0068614/playplus_thumb_1600.jpg",
+                      sinopse:  `
+                        Após o governo de vários reis que se afastaram de Deus, Jerusalém 
+                        encontra-se mergulhada na idolatria. A grande amizade de Zac e Asher 
+                        é abalada pelo amor que ambos sentem pela companheira de infância, 
+                        Joana. Ao contrário deles, ela acredita nas profecias de Jeremias 
+                        e empenha-se para que o povo hebreu se volte novamente para Deus.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1367,6 +1481,17 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "A RAINHA DA PÉRSIA",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0433417/playplus_thumb_852.jpg",
+                      sinopse:  `
+                        A Rainha da Pérsia é uma série que nos transporta para 
+                        os tempos antigos da Bíblia, onde a vida de uma jovem 
+                        judia, Hadassah, também conhecida como Ester, se entrelaça 
+                        com o futuro de uma nação inteira.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1418,6 +1543,17 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "A HISTÓRIA DE ESTER",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0068508/playplus_thumb_852.jpg",
+                    sinopse:  `
+                        A minissérie A História de Ester se passa por volta 
+                        de 400 anos a.C., na antiga Pérsia, onde hoje é o Irã. 
+                        A trama principal traz uma linda história de amor
+                        entre uma mulher do povo, Ester e o rei Assuero.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1443,11 +1579,25 @@ const biblicalData = [
             {
                 name: "Apocalipse",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/gEPrg5k.jpeg"],
+                thumb_buttons: [
+                    // "https://i.imgur.com/gEPrg5k.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0070604/0070604_200.jpg"
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "APOCALIPSE",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0070604/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        Baseada nas interpretações de um dos capítulos da bíblia, 
+                        a novela retrata as catástrofes dos fins dos tempos. 
+                        Dividida em três fases a trama traz crimes misteriosos, 
+                        amores proibidos, intrigas e muita ação.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -1621,19 +1771,54 @@ const biblicalData = [
                 name: "Reis",
                 thumb_page: "",
                 thumb_buttons: [
-                    "https://i.imgur.com/47Vjveh.jpeg",
-                    "https://i.imgur.com/HxmEXcN.jpeg"
+                    "https://i.imgur.com/HxmEXcN.jpeg",
+                    // "https://i.imgur.com/47Vjveh.jpeg",
+                    // "https://pp-vod-img-aws.akamaized.net/0256021/0256021_200.jpg", //01 A DECEPÇÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0260819/0260819_200.jpg", //02 A INGRATIDÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0276558/0276558_200.jpg", //03 A REJEIÇÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0283103/0283103_200.jpg", //04 A ESCOLHA
+                    // "https://pp-vod-img-aws.akamaized.net/0337855/0337855_200.jpg", //05 A PERSEGUIÇÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0366700/0366700_200.jpg", //06 A CONQUISTA
+                    // "https://pp-vod-img-aws.akamaized.net/0373820/0373820_200.jpg", //07 O PECADO
+                    // "https://pp-vod-img-aws.akamaized.net/0384653/0384653_200.jpg", //08 A CONSEQUÊNCIA
+                    // "https://pp-vod-img-aws.akamaized.net/0396070/0396070_200.jpg", //09 A SUCESSÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0424348/0424348_200.jpg", //10 A DECADÊNCIA
+                    // "https://pp-vod-img-aws.akamaized.net/0429062/0429062_200.jpg", //11 A DIVISÃO
+                    // "https://images.justwatch.com/poster/329514848/s166/temporada-12", //12 A EMBOSCADA
+                    // "https://images.justwatch.com/poster/327292507/s166/", //13 A ESPERANÇA
+
                 ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "REIS",
+                    thumb: "https://i.imgur.com/yfMLDL9.jpeg",
+                    sinopse:  `
+                        Nas terras de Canaã, um povo que caminhou décadas pelo deserto 
+                        e enfrentou batalhas épicas com prodígios jamais vistos por 
+                        qualquer outra nação da terra, se estabelece formando a insigne 
+                        Israel, seguindo a liderança apenas do seu Deus — até agora.
+                    `
+                },
                 season: [
                     //TEMPORADA 01 - A DECEPÇÃO
                     {
-                        name: "Temporada 01 - A Decepção",
+                        name: "Temporada 01: A Decepção",
                         thumb_season: "https://i.imgur.com/m2VwgJJ.jpeg",
                         movies: false,
+                        description: {
+                            title: "REIS - A DECEPÇÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0256021/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Decepção retrata a história da nação de Israel, 
+                                do momento em que o último juiz, o profeta Samuel, é usado 
+                                por Deus para guiar o Seu povo, até a lamentável queda de 
+                                Jerusalém, causada pelos exércitos da Babilônia.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001", duration: "52:47", thumb: "https://i.imgur.com/W5QVhJE.jpeg", url: "https://ok.ru/videoembed/6662135679547" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-001.mp4"] },
                             { title: "Episódio 002", duration: "41:56", thumb: "https://i.imgur.com/xhGL5zV.jpeg", url: "https://ok.ru/videoembed/6662208752187" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-002.mp4"] },
@@ -1664,9 +1849,19 @@ const biblicalData = [
 
                     //TEMPORADA 02 - A INGRATIDÃO
                     {
-                        name: "Temporada 02 - A Ingratidão",
+                        name: "Temporada 02: A Ingratidão",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A INGRATIDÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0260819/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Ingratidão retrata o início do reinado de Saul, o primeiro rei 
+                                de Israel, e na sua relação com o profeta Samuel e com o povo israelita. 
+                                A ingratidão do povo em relação a Deus, que os havia escolhido e guiado, 
+                                e a escolha de um rei terreno como forma de rejeição a essa liderança divina. 
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (25)", duration: "58:47", thumb: "https://i.imgur.com/gJL4xob.jpeg", url: "https://ok.ru/videoembed/6731516938811", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-025.mp4"] },
                             { title: "Episódio 002 - (26)", duration: "40:08", thumb: "https://i.imgur.com/4rj1Pdd.jpeg", url: "https://ok.ru/videoembed/6731517069883", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-026.mp4"] },
@@ -1704,9 +1899,19 @@ const biblicalData = [
                     
                     //TEMPORADA 03 - A REJEIÇÃO
                     {
-                        name: "Temporada 03 - A Rejeição",
+                        name: "Temporada 03: A Rejeição",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A REJEIÇÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0276558/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Rejeição retrata a história do primeiro rei de 
+                                Israel. Escolhido por Deus e aclamado pelo povo, Saul 
+                                rapidamente se torna a fonte de esperança de um futuro 
+                                seguro e promissor para aqueles sob a sua liderança. 
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (056)", duration: "1:09:02", thumb: "https://i.imgur.com/f5Xu6Ie.jpeg", url: "https://ok.ru/videoembed/6754259110459", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-056.mp4"] },
                             { title: "Episódio 002 - (057)", duration: "46:33"  , thumb: "https://i.imgur.com/VBI6XJZ.jpeg", url: "https://ok.ru/videoembed/6754259307067", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-057.mp4"] },
@@ -1743,9 +1948,19 @@ const biblicalData = [
 
                     //TEMPORADA 04 - A ESCOLHA
                     {
-                        name: "Temporada 04 - A Escolha",
+                        name: "Temporada 04: A Escolha",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A ESCOLHA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0283103/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis – A Escolha retrata o início de uma história de fé, amor e 
+                                superação do mais aclamado rei que a humanidade já ouviu falar. 
+                                Davi foi o escolhido de Deus para governar a nação de Israel no 
+                                lugar de Saul, o primeiro rei e a decepção do Senhor.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (086)", duration: "1:06:45", thumb: "https://i.imgur.com/QJsiGWE.jpeg", url: "https://ok.ru/videoembed/6802650040891", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-086.mp4"] },
                             { title: "Episódio 002 - (087)", duration: "55:23"  , thumb: "https://i.imgur.com/yAbKveX.jpeg", url: "https://ok.ru/videoembed/6802650171963", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-087.mp4"] },
@@ -1768,9 +1983,19 @@ const biblicalData = [
 
                     //TEMPORADA 05 - A PERSEGUIÇÃO
                     {
-                        name: "Temporada 05 - A Perseguição",
+                        name: "Temporada 05: A Perseguição",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A PERSEGUIÇÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0337855/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Perseguição retrata à incrível trajetória do temente e 
+                                corajoso Davi, que, através do seu caráter virtuoso e de suas inúmeras 
+                                vitórias, conquistou a admiração e estima de todo o povo Israelita, 
+                                despertando em Saul, rei da nação, uma incontrolável inveja.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (102)", duration: "1:06:57", thumb: "https://i.imgur.com/v11BJIo.jpeg", url: "https://ok.ru/videoembed/6828936202811", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-102.mp4"] },
                             { title: "Episódio 002 - (103)", duration: "46:15"  , thumb: "https://i.imgur.com/hsagVAd.jpeg", url: "https://ok.ru/videoembed/6828936464955", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-103.mp4"] },
@@ -1815,9 +2040,19 @@ const biblicalData = [
 
                     //TEMPORADA 06 - A CONQUISTA
                     {
-                        name: "Temporada 06 - A Conquista",
+                        name: "Temporada 06: A Conquista",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A CONQUISTA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0366700/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                               Reis – A Conquista retrata os acontecimentos da vida de Davi após a 
+                               morte do seu maior perseguidor, Saul, bem como a inclinação do aclamado 
+                               rei. E nesse contexto, o telespectador entenderá melhor por que, mais 
+                               tarde, o filho de Jessé comete o erro que muda o rumo da sua história.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (140)", duration: "1:07:39", thumb: "https://i.imgur.com/4qIWSIK.jpeg", url: "https://ok.ru/videoembed/6874679216699", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-140.mp4"] },
                             { title: "Episódio 002 - (141)", duration: "43:57"  , thumb: "https://i.imgur.com/TF2CJfP.jpeg", url: "https://ok.ru/videoembed/6874679478843", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-141.mp4"] },
@@ -1850,9 +2085,19 @@ const biblicalData = [
 
                     //TEMPORADA 07 - O PECADO
                     {
-                        name: "Temporada 07 - O Pecado",
+                        name: "Temporada 07: O Pecado",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A CONQUISTA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0373820/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                               Reis - O Pecado retrata o auge do reinado de Davi e mergulha nas suas 
+                               intensas batalhas internas. Aquele aclamado rei de Israel dedicado à 
+                               família, bom amigo e temente a Deus começa a relaxar em sua vigilância, 
+                               cedendo a suas fraquezas e tendo que lidar com as consequências.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (166)", duration: "51:55"  , thumb: "https://i.imgur.com/SHpxdBN.jpeg", url: "https://ok.ru/videoembed/6883946662459", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-166.mp4"] },
                             { title: "Episódio 002 - (167)", duration: "41:56"  , thumb: "https://i.imgur.com/KYaqXr8.jpeg", url: "https://ok.ru/videoembed/6883946793531", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-167.mp4"] },
@@ -1898,9 +2143,20 @@ const biblicalData = [
 
                     //TEMPORADA 08 - A CONSEQUÊNCIA
                     {
-                        name: "Temporada 08 - A Consequência",
+                        name: "Temporada 08: A Consequência",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A CONSEQUÊNCIA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0384653/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis – A Consequência retrata à história de Davi anos depois do 
+                                terrível e lamentável pecado cometido. Agora não mais um homem 
+                                atormentado pela culpa e o peso de seus erros, Davi governa a nação 
+                                com a mesma sabedoria e vigor de antes, tendo recebido 
+                                o perdão de Deus e restaurado a sua comunhão com o Altíssimo.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (205)", duration: "1:00:44", thumb: "https://i.imgur.com/eum6bku.jpeg", url: "https://ok.ru/videoembed/6934056274491", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-205.mp4"] },
                             { title: "Episódio 002 - (206)", duration: "44:19"  , thumb: "https://i.imgur.com/AtIoTlJ.jpeg", url: "https://ok.ru/videoembed/6934056471099", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-206.mp4"] },
@@ -1962,9 +2218,19 @@ const biblicalData = [
 
                     //TEMPORADA 09 - A SUCESSÃO
                     {
-                        name: "Temporada 09 - A Sucessão",
+                        name: "Temporada 09: A Sucessão",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A SUCESSÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0396070/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis – A Sucessão retrata o início da trajetória de Salomão, 
+                                aquele conhecido como o homem mais sábio que já existiu. 
+                                Jovem e inexperiente, ele assume a responsabilidade de reinar 
+                                no lugar de seu pai, o respeitado e admirado rei Davi.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (260)", duration: "1:04:21", thumb: "https://i.imgur.com/1tiPYAW.jpeg", url: "https://ok.ru/videoembed/6942529686075",  alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-260.mp4"] },
                             { title: "Episódio 002 - (261)", duration: "45:12"  , thumb: "https://i.imgur.com/L3Hn18o.jpeg", url: "https://ok.ru/videoembed/6942530275899",  alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-261.mp4"] },
@@ -2006,9 +2272,19 @@ const biblicalData = [
 
                     //TEMPORADA 10 - A DECADÊNCIA
                     {
-                        name: "Temporada 10 - A Decadência",
+                        name: "Temporada 10: A Decadência",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A DECADÊNCIA",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0424348/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Decadência retrata o apogeu e o declínio do reinado de Salomão 
+                                em Israel. O homem mais sábio do mundo está rodeado por riquezas, bens e 
+                                honras, como nenhum rei teve antes, e nem terá. No entanto, o herdeiro de 
+                                Davi irá se corromper com a vaidade e o amor por mulheres estrangeiras.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (295)", duration: "47:59"  , thumb: "https://i.imgur.com/10BKdXC.jpeg", url: "https://ok.ru/videoembed/7028474317371", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-295.mp4"] },
                             { title: "Episódio 002 - (296)", duration: "44:52"  , thumb: "https://i.imgur.com/9mg6XeY.jpeg", url: "https://ok.ru/videoembed/7028474513979", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-296.mp4"] },
@@ -2036,9 +2312,19 @@ const biblicalData = [
 
                     //TEMPORADA 11 - A DIVISÃO
                     {
-                        name: "Temporada 11 - A Divisão",
+                        name: "Temporada 11: A Divisão",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A DIVISÃO",
+                            thumb: "https://pp-vod-img-aws.akamaized.net/0429062/playplus_thumb_1600.jpg",
+                            sinopse:  `
+                                Reis - A Divisão retrata a deplorável situação do que se tornou o reino 
+                                de Israel após a morte do rei Salomão. Seu filho e sucessor, Roboão, 
+                                além de herdar um reino completamente instável, terá que arcar com as 
+                                consequências da irrevogável profecia decorrente da idolatria de seu pai.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (316)", duration: "57:37", thumb: "https://i.imgur.com/9LcHZZq.jpeg", url: "https://ok.ru/videoembed/7130747111995", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-316.mp4"] },
                             { title: "Episódio 002 - (317)", duration: "44:11", thumb: "https://i.imgur.com/ysrVQzQ.jpeg", url: "https://ok.ru/videoembed/7130747243067", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-317.mp4"] },
@@ -2064,9 +2350,19 @@ const biblicalData = [
 
                     //TEMPORADA 12 - A EMBOSCADA
                     {
-                        name: "Temporada 12 - A Emboscada",
+                        name: "Temporada 12: A Emboscada",
                         thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
                         movies: false,
+                        description: {
+                            title: "REIS - A EMBOSCADA",
+                            thumb: "https://i.imgur.com/M6qjlPq.jpeg",
+                            sinopse:  `
+                                Reis - A Emboscada retrata a divisão de Israel após a morte de Salomão,
+                                sendo reinado por Abias e Jeroboão, mostrando como os erros e acertos 
+                                desses reis influenciam a história de Israel e seus sucessores. 
+                               
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (335)", duration: "53:04"  , thumb: "https://i.imgur.com/HEudcg6.jpeg", url: "https://ok.ru/videoembed/7369085684283", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-335.mp4"] },
                             { title: "Episódio 002 - (336)", duration: "47:02"  , thumb: "https://i.imgur.com/p2MzyPy.jpeg", url: "https://ok.ru/videoembed/7369085749819", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-336.mp4"] },
@@ -2096,9 +2392,18 @@ const biblicalData = [
 
                     //TEMPORADA 13 - A ESPERANÇA
                     {
-                        name: "Temporada 13 - A Esperança",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        name: "Temporada 13: A Esperança",
+                        thumb_season: "https://univideo01.akamaized.net/cdn/asset/images/L1_DESKTOP-SEJNM.jpg",
                         movies: false,
+                        description: {
+                            title: "REIS - A ESPERANÇA",
+                            thumb: "https://i.imgur.com/CE7GRzN.jpeg",
+                            sinopse:  `
+                                Reis - A Esperança retrata a história do Rei Asa que governou o 
+                                Reino de Judá e é conhecido por suas reformas religiosas e busca 
+                                por Deus, mostrando um rei que fez o que era reto aos olhos do Senhor.
+                            `
+                        },
                         episodes: [
                             { title: "Episódio 001 - (358)", duration: "51:04", thumb: "https://i.imgur.com/dgdnQMJ.jpeg", url: "https://ok.ru/videoembed/9833061026415" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-358.mp4"] },
                             { title: "Episódio 002 - (359)", duration: "37:41", thumb: "https://i.imgur.com/ZgS1lsB.jpeg", url: "https://ok.ru/videoembed/9855088331375" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-359.mp4"] },
@@ -2125,7 +2430,6 @@ const biblicalData = [
                             { title: "Episódio 022 - (379)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-379.mp4"] },
                             { title: "Episódio 023 - (380)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-380.mp4"] },
                             { title: "Episódio 024 - (381)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-381.mp4"] },
-                            { title: "Episódio 025 - (382)", duration: "00:00", thumb: "", url: "" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-382.mp4"] },
                         ]
                     },
                 ]
@@ -2140,6 +2444,19 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "SANSÃO E DALILA",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0069029/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        A obra Sansão e Dalila retrata uma época em que hebreus fortemente
+                        oprimidos e perseguidos pelos filisteus clamavam por libertação. Neste
+                        contexto, Zilá, uma mulher que sempre sofreu por ser estéril, recebe a visita de
+                        um mensageiro de Deus. O porta-voz anuncia que ela daria à luz a um menino,
+                        Sansão, cuja navalha jamais deveria ser passada em seus cabelos, 
+                        como um voto de consagração divina.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -2177,11 +2494,25 @@ const biblicalData = [
             {
                 name: "Lia",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/h8a6jYP.jpeg"],
+                thumb_buttons: [
+                    //"https://i.imgur.com/h8a6jYP.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg"
+                ], 
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "LIA",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0072028/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        A minissérie é baseada na história de Lia, uma das esposas de Jacó, 
+                        o progenitor da Nação Judaica. Jacó teve doze filhos, que deram nomes 
+                        às doze Tribos de Israel. Esses filhos nasceram de suas esposas: 
+                        as irmãs, Lia e Raquel;e de suas concubinas: Bila e Zilpa.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -2212,6 +2543,15 @@ const biblicalData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "NEEMIAS",
+                    thumb: "https://i.imgur.com/6xJGpt0.jpeg",
+                    sinopse:  `
+                        A minissérie Neemias, que narra a história da reconstrução dos muros de
+                        Jerusalém liderada por Neemias após o exílio babilônico
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
@@ -2234,34 +2574,193 @@ const biblicalData = [
             {
                 name: "Paulo o Apóstolo",
                 thumb_page: "https://i.imgur.com/G7Q8SZ7.jpeg", //https://i.imgur.com/G7Q8SZ7.jpeg https://i.imgur.com/beK4a7A.jpeg
-                thumb_buttons: ["https://i.imgur.com/kcwpdNz.png"],
+                thumb_buttons: [
+                    "https://i.imgur.com/4g0vsCZ.jpeg",
+                    //"https://i.imgur.com/kcwpdNz.png"
+                ],
                 badge: "NOVO",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "PAULO O APÓSTOLO",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0503079/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        Paulo, O Apóstolo narra a fascinante e profunda jornada 
+                        de Saulo de Tarso, um jovem fariseu fervoroso que, após um 
+                        encontro inesperado, tem sua vida transformada para sempre.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
                         thumb_season: "https://i.imgur.com/Zuxuw0k.jpeg",
                         movies: false,
                         episodes: [
-                            { title: "Episódio 001", thumb: "https://i.imgur.com/Zuxuw0k.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4"] },
-                            { title: "Episódio 002", thumb: "https://i.imgur.com/OWco9WC.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4"] },
-                            { title: "Episódio 003", thumb: "https://i.imgur.com/3yMuGyW.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4"] },
-                            { title: "Episódio 004", thumb: "https://i.imgur.com/DeXubnq.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4"] },
-                            { title: "Episódio 005", thumb: "https://i.imgur.com/5et4GrD.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4"] },
-                            { title: "Episódio 006", thumb: "https://i.imgur.com/b67I1Yl.jpeg", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 007", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-007.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 008", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-008.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 009", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-009.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 010", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-010.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 011", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 012", thumb: "", url: "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 001", duration: "46:38", thumb: "https://pp-vod-img-aws.akamaized.net/0503527/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9623516547801", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4"] },
+                            { title: "Episódio 002", duration: "46:29", thumb: "https://pp-vod-img-aws.akamaized.net/0503850/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9623551412953", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4"] },
+                            { title: "Episódio 003", duration: "45:06", thumb: "https://pp-vod-img-aws.akamaized.net/0504080/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9623569631961", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4"] },
+                            { title: "Episódio 004", duration: "44:47", thumb: "https://pp-vod-img-aws.akamaized.net/0504387/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9633639762649", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4"] },
+                            { title: "Episódio 005", duration: "52:14", thumb: "https://pp-vod-img-aws.akamaized.net/0504764/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9633664404185", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4"] },
+                            { title: "Episódio 006", duration: "49:52", thumb: "https://pp-vod-img-aws.akamaized.net/0505241/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9633679346393", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 007", duration: "36:31", thumb: "https://pp-vod-img-aws.akamaized.net/0505589/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9652631702233", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-007.mp4"] },
+                            { title: "Episódio 008", duration: "40:53", thumb: "https://pp-vod-img-aws.akamaized.net/0505879/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9654593981145", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-008.mp4"] },
+                            { title: "Episódio 009", duration: "43:28", thumb: "https://pp-vod-img-aws.akamaized.net/0506196/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9672930233049", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-009.mp4"] },
+                            { title: "Episódio 010", duration: "41:28", thumb: "https://pp-vod-img-aws.akamaized.net/0506481/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9715972967129", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-010.mp4"] },
+                            { title: "Episódio 011", duration: "44:58", thumb: "https://pp-vod-img-aws.akamaized.net/0506999/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9717906213593", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4"] },
+                            { title: "Episódio 012", duration: "39:23", thumb: "https://pp-vod-img-aws.akamaized.net/0507305/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9718428797657", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4"] },
+                            { title: "Episódio 013", duration: "47:54", thumb: "https://pp-vod-img-aws.akamaized.net/0507591/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9725901212377", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-013.mp4"] },
+                            { title: "Episódio 014", duration: "44:35", thumb: "https://pp-vod-img-aws.akamaized.net/0507892/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9725904947929", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-014.mp4"] },
+                            { title: "Episódio 015", duration: "44:50", thumb: "https://pp-vod-img-aws.akamaized.net/0508273/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9728533662425", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-015.mp4"] },
+                            { title: "Episódio 016", duration: "48:47", thumb: "https://pp-vod-img-aws.akamaized.net/0508657/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9729519717081", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-016.mp4"] },
+                            { title: "Episódio 017", duration: "44:10", thumb: "https://pp-vod-img-aws.akamaized.net/0508959/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9729530923737", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-017.mp4"] },
+                            { title: "Episódio 018", duration: "47:53", thumb: "https://pp-vod-img-aws.akamaized.net/0509268/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9729541016281", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-018.mp4"] },
+                            { title: "Episódio 019", duration: "58:00", thumb: "https://pp-vod-img-aws.akamaized.net/0509579/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9736014727897", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-019.mp4"] },
+                            { title: "Episódio 020", duration: "50:59", thumb: "https://pp-vod-img-aws.akamaized.net/0509983/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9736016825049", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-020.mp4"] },
+                            { title: "Episódio 021", duration: "50:56", thumb: "https://pp-vod-img-aws.akamaized.net/0510430/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9736017939161", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-021.mp4"] },
+                            { title: "Episódio 022", duration: "55:50", thumb: "https://pp-vod-img-aws.akamaized.net/0510775/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9750802598617", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-022.mp4"] },
+                            { title: "Episódio 023", duration: "42:46", thumb: "https://pp-vod-img-aws.akamaized.net/0511126/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9750810069721", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-023.mp4"] },
+                            { title: "Episódio 024", duration: "55:03", thumb: "https://pp-vod-img-aws.akamaized.net/0511398/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9750819834585", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-024.mp4"] },
+                            { title: "Episódio 025", duration: "35:22", thumb: "https://pp-vod-img-aws.akamaized.net/0511756/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9792841452249", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-025.mp4"] },
+                            { title: "Episódio 026", duration: "40:42", thumb: "https://i.imgur.com/q4gmGql.png"                                                                  , url: "https://ok.ru/videoembed/9792881429209", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-026.mp4"] },
+                            { title: "Episódio 027", duration: "46:47", thumb: "https://i.imgur.com/HYhodHB.png"                                                                  , url: "https://ok.ru/videoembed/9792893618905", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-027.mp4"] },
+                            { title: "Episódio 028", duration: "40:52", thumb: "https://i.imgur.com/XqtWvM9.png"                                                                  , url: "https://ok.ru/videoembed/9798894160601", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-028.mp4"] },
+                            { title: "Episódio 029", duration: "38:24", thumb: "https://i.imgur.com/0Ll5Cbq.png"                                                                  , url: "https://ok.ru/videoembed/9798899337945", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-029.mp4"] },
+                            { title: "Episódio 030", duration: "31:39", thumb: "https://i.imgur.com/div4i9x.png"                                                                  , url: "https://ok.ru/videoembed/9819050019545", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-030.mp4"] },
+                            { title: "Episódio 031", duration: "40:42", thumb: "https://i.imgur.com/0b6XIte.jpeg"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-031.mp4"] },
+                            { title: "Episódio 032", duration: "43:47", thumb: "https://i.imgur.com/JDHRzYV.png"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-032.mp4"] },
+                            { title: "Episódio 033", duration: "39:54", thumb: "https://i.imgur.com/in8McsP.png"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-033.mp4"] },
+                            { title: "Episódio 034", duration: "47:31", thumb: "https://i.imgur.com/kYzDLxg.png"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-034.mp4"] },
                         ]
-                    }
+                    },
                 ]
-            }, 
+            },
+
+            //A BÍBLIA
+            {
+                name: "A Bíblia",
+                thumb_page: "",
+                thumb_buttons: ["https://pp-vod-img-aws.akamaized.net/0238038/0238038_200.jpg"],
+                badge: "NOVO",
+                type: "Temporadas",
+                canais: false,
+                enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                description: {
+                    title: "A BÍBLIA",
+                    thumb: "	https://pp-vod-img-aws.akamaized.net/0238038/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        A Bíblia traz um compilado de episódios épicos, exibidos em ordem 
+                        cronológica, dos principais acontecimentos bíblicos retratados nas 
+                        novelas "Gênesis", "Os Dez Mandamentos" e "Terra Prometida".
+                    `
+                },
+                season: [
+                    {
+                        name: "A Bíblia",
+                        thumb_season: "https://pp-vod-img-aws.akamaized.net/0238038/playplus_thumb_852.jpg",
+                        movies: false,
+                        episodes: [
+                            { title: "Episódio 01 - A Criação",                duration: "49:52"  , thumb: "https://pp-vod-img-aws.akamaized.net/0239065/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3080528923353", alternative: []},
+                            { title: "Episódio 02 - Caim e Abel",              duration: "53:45"  , thumb: "https://pp-vod-img-aws.akamaized.net/0239353/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3081418967769", alternative: []},
+                            { title: "Episódio 03 - Arca de Noé",              duration: "53:54"  , thumb: "https://pp-vod-img-aws.akamaized.net/0239577/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3081628551897", alternative: []},
+                            { title: "Episódio 04 - O Dilúvio",                duration: "48:56"  , thumb: "https://pp-vod-img-aws.akamaized.net/0239796/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3085199018713", alternative: []},
+                            { title: "Episódio 05 - Torre de Babel",           duration: "44:44"  , thumb: "https://pp-vod-img-aws.akamaized.net/0240275/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3087790443225", alternative: []},
+                            { title: "Episódio 06 - A Terra de Abrão",         duration: "44:36"  , thumb: "https://pp-vod-img-aws.akamaized.net/0240515/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3091199560409", alternative: []},
+                            { title: "Episódio 07 - A Parentela de Abrão",     duration: "56:10"  , thumb: "https://pp-vod-img-aws.akamaized.net/0240748/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3091874777817", alternative: []},
+                            { title: "Episódio 08 - Abrão e Sarai",            duration: "53:57"  , thumb: "https://pp-vod-img-aws.akamaized.net/0240979/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3128884595417", alternative: []},
+                            { title: "Episódio 09 - O Chamado de Abrão",       duration: "48:52"  , thumb: "https://pp-vod-img-aws.akamaized.net/0241213/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3129057675993", alternative: []},
+                            { title: "Episódio 10 -  Abrão no Egito",          duration: "1:03:36", thumb: "https://pp-vod-img-aws.akamaized.net/0241682/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3160306158297", alternative: []},
+                            { title: "Episódio 11 - Maldição no Egito",        duration: "45:31"  , thumb: "https://pp-vod-img-aws.akamaized.net/0241923/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3161187289817", alternative: []},
+                            { title: "Episódio 12 - Ló Vai Embora",            duration: "46:37"  , thumb: "https://pp-vod-img-aws.akamaized.net/0242237/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3174262442713", alternative: []},
+                            { title: "Episódio 13 - A Guerra dos Nove Reis",   duration: "45:58"  , thumb: "https://pp-vod-img-aws.akamaized.net/0242469/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3187081874137", alternative: []},
+                            { title: "Episódio 14 - Aliança com Deus",         duration: "1:01:51", thumb: "https://pp-vod-img-aws.akamaized.net/0242699/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3211486366425", alternative: []},
+                            { title: "Episódio 15 - Agar e Sarai",             duration: "55:04"  , thumb: "https://pp-vod-img-aws.akamaized.net/0243163/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3244804737753", alternative: []},
+                            { title: "Episódio 16 - A Visita dos Anjos",       duration: "48:01"  , thumb: "https://pp-vod-img-aws.akamaized.net/0243388/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3252547619545", alternative: []},
+                            { title: "Episódio 17 - Sodoma e Gomorra",         duration: "47:44"  , thumb: "https://pp-vod-img-aws.akamaized.net/0243581/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3252701891289", alternative: []},
+                            { title: "Episódio 18 - Sara no Harém",            duration: "54:21"  , thumb: "https://pp-vod-img-aws.akamaized.net/0243812/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3264956861145", alternative: []},
+                            { title: "Episódio 19 - Nascimento de Isaque",     duration: "53:48"  , thumb: "https://pp-vod-img-aws.akamaized.net/0244037/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3289706203865", alternative: []},
+                            { title: "Episódio 20 - O sacrifício de Isaque",   duration: "51:44"  , thumb: "https://pp-vod-img-aws.akamaized.net/0244230/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3292840987353", alternative: []},
+                            { title: "Episódio 21 - Isaque e Receca",          duration: "59:17"  , thumb: "https://pp-vod-img-aws.akamaized.net/0244352/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3298972928729", alternative: []},
+                            { title: "Episódio 22 - Nascimento dos Gêmeos",    duration: "59:17"  , thumb: "https://pp-vod-img-aws.akamaized.net/0244489/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3305003223769", alternative: []},
+                            { title: "Episódio 23 - Esposa para Isaque",       duration: "59:02"  , thumb: "https://pp-vod-img-aws.akamaized.net/0244597/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3322132761305", alternative: []},
+                            { title: "Episódio 24 - A Inveja dos Filisteus",   duration: "1:00:37", thumb: "https://pp-vod-img-aws.akamaized.net/0244707/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3322202163929", alternative: []},
+                            { title: "Episódio 25 - A Primogenitura",          duration: "59:47"  , thumb: "https://pp-vod-img-aws.akamaized.net/0244994/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3331704425177", alternative: []},
+                            { title: "Episódio 26 - A Escada do Céu",          duration: "54:53"  , thumb: "https://pp-vod-img-aws.akamaized.net/0245080/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3347085986521", alternative: []},
+                            { title: "Episódio 27 - Encontro com Raquel",      duration: "58:26"  , thumb: "https://pp-vod-img-aws.akamaized.net/0245209/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3352012655321", alternative: []},
+                            { title: "Episódio 28 - Casamento de Jacó",        duration: "59:32"  , thumb: "https://pp-vod-img-aws.akamaized.net/0245377/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3359531928281", alternative: []},
+                            { title: "Episódio 29 - Esposas de Jacó",          duration: "53:40"  , thumb: "https://pp-vod-img-aws.akamaized.net/0245493/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3363225799385", alternative: []},
+                            { title: "Episódio 30 - Lia Vs Raquel",            duration: "1:20:47", thumb: "https://pp-vod-img-aws.akamaized.net/0245702/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3371514268377", alternative: []},
+                            { title: "Episódio 31 - O Salário de Jacó",        duration: "1:21:19", thumb: "https://pp-vod-img-aws.akamaized.net/0245846/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3372546263769", alternative: []},
+                            { title: "Episódio 32 - Jacó vai Embora",          duration: "1:24:07", thumb: "https://pp-vod-img-aws.akamaized.net/0246012/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3375239858905", alternative: []},
+                            { title: "Episódio 33 - A Luta com Deus",          duration: "1:21:31", thumb: "https://pp-vod-img-aws.akamaized.net/0246164/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3377523395289", alternative: []},
+                            { title: "Episódio 34 - Diná é Desflorada",        duration: "1:21:38", thumb: "https://pp-vod-img-aws.akamaized.net/0246311/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3381346896601", alternative: []},
+                            { title: "Episódio 35 - Filhos de Jacó",           duration: "1:24:17", thumb: "https://pp-vod-img-aws.akamaized.net/0246581/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3386378029785", alternative: []},
+                            { title: "Episódio 36 - A Maldade dos Irmãos",     duration: "1:22:27", thumb: "https://pp-vod-img-aws.akamaized.net/0246744/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3394698939097", alternative: []},
+                            { title: "Episódio 37 - O Luto de Jacó",           duration: "1:23:21", thumb: "https://pp-vod-img-aws.akamaized.net/0246920/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3389595912921", alternative: []},
+                            { title: "Episódio 38 - A Culpa de Judá",          duration: "1:23:28", thumb: "https://pp-vod-img-aws.akamaized.net/0247055/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3394730724057", alternative: []},
+                            { title: "Episódio 39 - A Tentação de José",       duration: "1:21:58", thumb: "https://pp-vod-img-aws.akamaized.net/0247192/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3394916780761", alternative: []},
+                            { title: "Episódio 40 - Governador do Egito",      duration: "1:23:35", thumb: "https://pp-vod-img-aws.akamaized.net/0247472/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3402086091481", alternative: []},
+                            { title: "Episódio 41 - Os Filhos de Judá",        duration: "1:24:42", thumb: "https://pp-vod-img-aws.akamaized.net/0247614/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3405976308441", alternative: []},
+                            { title: "Episódio 42 - Judá e Tamar",             duration: "1:21:45", thumb: "https://pp-vod-img-aws.akamaized.net/0247747/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3406795115225", alternative: []},
+                            { title: "Episódio 43 - José Encontra os Irmãos",  duration: "1:07:09", thumb: "https://pp-vod-img-aws.akamaized.net/0247928/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3409401154265", alternative: []},
+                            { title: "Episódio 44 - José se Revela",           duration: "1:08:48", thumb: "https://pp-vod-img-aws.akamaized.net/0248108/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3416120036057", alternative: []},
+                            { title: "Episódio 45 - O Encontro com Israel",    duration: "1:08:12", thumb: "https://pp-vod-img-aws.akamaized.net/0248328/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3419776813785", alternative: []},
+                            { title: "Episódio 46 - O Nascimento de Moisés",   duration: "1:23:08", thumb: "https://pp-vod-img-aws.akamaized.net/0248476/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3420922645209", alternative: []},
+                            { title: "Episódio 47 - A Educação de Moisés",     duration: "40:12"  , thumb: "https://pp-vod-img-aws.akamaized.net/0248608/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3422590798553", alternative: []},
+                            { title: "Episódio 48 - O Conflito de Moisés",     duration: "1:26:13", thumb: "https://pp-vod-img-aws.akamaized.net/0248759/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3427366931161", alternative: []},
+                            { title: "Episódio 49 - A Família de Sangue",      duration: "1:23:05", thumb: "https://pp-vod-img-aws.akamaized.net/0248868/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3428723788505", alternative: []},
+                            { title: "Episódio 50 - A Fuga de Moisés",         duration: "1:36:17", thumb: "https://pp-vod-img-aws.akamaized.net/0249098/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3439923628761", alternative: []},
+                            { title: "Episódio 51 - Moisés e Zípora",          duration: "1:23:42", thumb: "https://pp-vod-img-aws.akamaized.net/0249232/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3441299753689", alternative: []},
+                            { title: "Episódio 52 - A Situação no Egito",      duration: "43:04"  , thumb: "https://pp-vod-img-aws.akamaized.net/0249362/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3442082777817", alternative: []},
+                            { title: "Episódio 53 - A Sarça Ardente",          duration: "1:21:37", thumb: "https://pp-vod-img-aws.akamaized.net/0249520/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3444327123673", alternative: []},
+                            { title: "Episódio 54 - A Volta ao Egito",         duration: "1:28:20", thumb: "https://pp-vod-img-aws.akamaized.net/0249714/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3444337543897", alternative: []},
+                            { title: "Episódio 55 - Encontro com Faraó",       duration: "1:22:01", thumb: "https://pp-vod-img-aws.akamaized.net/0249986/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3450983418585", alternative: []},
+                            { title: "Episódio 56 - Água em Sangue",           duration: "1:23:58", thumb: "https://pp-vod-img-aws.akamaized.net/0250203/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3455668783833", alternative: []},
+                            { title: "Episódio 57 - Sede no Egito",            duration: "37:19"  , thumb: "https://pp-vod-img-aws.akamaized.net/0250372/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3458119633625", alternative: []},
+                            { title: "Episódio 58 - Rãs e Piolhos",            duration: "1:22:09", thumb: "https://pp-vod-img-aws.akamaized.net/0250564/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3460465035993", alternative: []},
+                            { title: "Episódio 59 - Peste, Dor e Sofrimento",  duration: "1:20:25", thumb: "https://pp-vod-img-aws.akamaized.net/0250798/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3461508696793", alternative: []},
+                            { title: "Episódio 60 - Fogo do Céu",              duration: "1:23:34", thumb: "https://pp-vod-img-aws.akamaized.net/0251053/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3467466902233", alternative: []},
+                            { title: "Episódio 61 - Gafanhotos e a Escuridão", duration: "1:22:21", thumb: "https://pp-vod-img-aws.akamaized.net/0251061/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3469403097817", alternative: []},
+                            { title: "Episódio 62 - A Dureza do Coração",      duration: "41:21"  , thumb: "https://pp-vod-img-aws.akamaized.net/0251269/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3473343580889", alternative: []},
+                            { title: "Episódio 63 - O Anjo da Morte",          duration: "1:25:33", thumb: "https://pp-vod-img-aws.akamaized.net/0251460/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3473787063001", alternative: []},
+                            { title: "Episódio 64 - O Êxodo",                  duration: "1:27:30", thumb: "https://pp-vod-img-aws.akamaized.net/0251657/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3479098362585", alternative: []},
+                            { title: "Episódio 65 - A Abertura do Mar",        duration: "1:23:08", thumb: "https://pp-vod-img-aws.akamaized.net/0251839/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3491602369241", alternative: []},
+                            { title: "Episódio 66 - Fome, Sede E Perigo",      duration: "1:23:32", thumb: "https://pp-vod-img-aws.akamaized.net/0252158/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3491612265177", alternative: []},
+                            { title: "Episódio 67 - O Bezerro de Ouro",        duration: "1:21:07", thumb: "https://pp-vod-img-aws.akamaized.net/0252322/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3491638217433", alternative: []},
+                            { title: "Episódio 68 - Os Dez Mandamentos",       duration: "1:32:05", thumb: "https://pp-vod-img-aws.akamaized.net/0252503/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3492580690649", alternative: []},
+                            { title: "Episódio 69 - O Sacerdócio",             duration: "1:10:31", thumb: "https://pp-vod-img-aws.akamaized.net/0252695/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3499150019289", alternative: []},
+                            { title: "Episódio 70 - Inveja no Arraial",        duration: "1:25:40", thumb: "https://pp-vod-img-aws.akamaized.net/0252871/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3506352360153", alternative: []},
+                            { title: "Episódio 71 - Rebeldia no Arraial",      duration: "1:20:07", thumb: "https://pp-vod-img-aws.akamaized.net/0253130/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3506369530585", alternative: []},
+                            { title: "Episódio 72 - Abertura da Terra",        duration: "1:11:24", thumb: "https://pp-vod-img-aws.akamaized.net/0253299/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3506382965465", alternative: []},
+                            { title: "Episódio 73 - A Morte de Moisés",        duration: "1:11:39", thumb: "https://pp-vod-img-aws.akamaized.net/0253503/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3507403295449", alternative: []},
+                            { title: "Episódio 74 - A Insegurança de Josué",   duration: "1:17:45", thumb: "https://pp-vod-img-aws.akamaized.net/0253669/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3515062094553", alternative: []},
+                            { title: "Episódio 75 - Espias em Jericó",         duration: "1:25:27", thumb: "https://pp-vod-img-aws.akamaized.net/0253854/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3523156576985", alternative: []},
+                            { title: "Episódio 76 - Raabe e os Espias",        duration: "1:27:55", thumb: "https://pp-vod-img-aws.akamaized.net/0254037/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3524236806873", alternative: []},
+                            { title: "Episódio 77 - Abertura do Jordão",       duration: "1:18:45", thumb: "https://pp-vod-img-aws.akamaized.net/0254217/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3525432642265", alternative: []},
+                            { title: "Episódio 78 - Josué é Reconhecido",      duration: "1:13:11", thumb: "https://pp-vod-img-aws.akamaized.net/0254394/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3527661193945", alternative: []},
+                            { title: "Episódio 79 - A Circuncisão",            duration: "1:15:16", thumb: "https://pp-vod-img-aws.akamaized.net/0254554/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3530256878297", alternative: []},
+                            { title: "Episódio 80 - Rumo à Jericó",            duration: "1:04:17", thumb: "https://pp-vod-img-aws.akamaized.net/0254764/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3539750619865", alternative: []},
+                            { title: "Episódio 81 - As Muralhas de Jericó",    duration: "1:12:17", thumb: "https://pp-vod-img-aws.akamaized.net/0254997/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3541621672665", alternative: []},
+                            { title: "Episódio 82 - Amor e Preconceito",       duration: "1:12:51", thumb: "https://pp-vod-img-aws.akamaized.net/0255203/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3543756638937", alternative: []},
+                            { title: "Episódio 83 - Espias em Ai",             duration: "1:09:47", thumb: "https://pp-vod-img-aws.akamaized.net/0255429/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3553503939289", alternative: []},
+                            { title: "Episódio 84 - Uma Nova Raabe",           duration: "1:13:22", thumb: "https://pp-vod-img-aws.akamaized.net/0255594/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3555056487129", alternative: []},
+                            { title: "Episódio 85 - A Derrota em Ai",          duration: "1:10:59", thumb: "https://pp-vod-img-aws.akamaized.net/0255772/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3560115407577", alternative: []},
+                            { title: "Episódio 86 - O Pecado de Acã",          duration: "51:25"  , thumb: "https://pp-vod-img-aws.akamaized.net/0256009/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3561217067737", alternative: []},
+                            { title: "Episódio 87 - Ai é Destruída",           duration: "47:19"  , thumb: "https://pp-vod-img-aws.akamaized.net/0256174/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3564580768473", alternative: []},
+                            { title: "Episódio 88 - Josué é Enganado",         duration: "54:17"  , thumb: "https://pp-vod-img-aws.akamaized.net/0256335/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3566819281625", alternative: []},
+                            { title: "Episódio 89 - A Morte de Josué",         duration: "51:19"  , thumb: "https://pp-vod-img-aws.akamaized.net/0256476/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3567590050521", alternative: []},
+     
+                        ] 
+
+
+
+                    },
+                ]
+            },
+
+
         ]
     },
 ];
