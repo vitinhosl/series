@@ -536,7 +536,7 @@
 //#region PLAYPLUS
 (function() {
     // Variável para controlar a ordem da lista
-    let reverse = true;
+    let reverse = false;
 
     // Detecta modo claro/escuro
     const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -671,5 +671,3 @@
     });
 })();
 //#endregion
-
-
