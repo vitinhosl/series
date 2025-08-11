@@ -1771,19 +1771,19 @@ const seriesData = [
                 name: "Reis",
                 thumb_page: "",
                 thumb_buttons: [
-                    "https://i.imgur.com/47Vjveh.jpeg",
                     "https://i.imgur.com/HxmEXcN.jpeg",
-                    "https://pp-vod-img-aws.akamaized.net/0256021/0256021_200.jpg", //01 A DECEPÇÃO
-                    "https://pp-vod-img-aws.akamaized.net/0260819/0260819_200.jpg", //02 A INGRATIDÃO
-                    "https://pp-vod-img-aws.akamaized.net/0276558/0276558_200.jpg", //03 A REJEIÇÃO
-                    "https://pp-vod-img-aws.akamaized.net/0283103/0283103_200.jpg", //04 A ESCOLHA
-                    "https://pp-vod-img-aws.akamaized.net/0337855/0337855_200.jpg", //05 A PERSEGUIÇÃO
-                    "https://pp-vod-img-aws.akamaized.net/0366700/0366700_200.jpg", //06 A CONQUISTA
-                    "https://pp-vod-img-aws.akamaized.net/0373820/0373820_200.jpg", //07 O PECADO
-                    "https://pp-vod-img-aws.akamaized.net/0384653/0384653_200.jpg", //08 A CONSEQUÊNCIA
-                    "https://pp-vod-img-aws.akamaized.net/0396070/0396070_200.jpg", //09 A SUCESSÃO
-                    "https://pp-vod-img-aws.akamaized.net/0424348/0424348_200.jpg", //10 A DECADÊNCIA
-                    "https://pp-vod-img-aws.akamaized.net/0429062/0429062_200.jpg", //11 A DIVISÃO
+                    // "https://i.imgur.com/47Vjveh.jpeg",
+                    // "https://pp-vod-img-aws.akamaized.net/0256021/0256021_200.jpg", //01 A DECEPÇÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0260819/0260819_200.jpg", //02 A INGRATIDÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0276558/0276558_200.jpg", //03 A REJEIÇÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0283103/0283103_200.jpg", //04 A ESCOLHA
+                    // "https://pp-vod-img-aws.akamaized.net/0337855/0337855_200.jpg", //05 A PERSEGUIÇÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0366700/0366700_200.jpg", //06 A CONQUISTA
+                    // "https://pp-vod-img-aws.akamaized.net/0373820/0373820_200.jpg", //07 O PECADO
+                    // "https://pp-vod-img-aws.akamaized.net/0384653/0384653_200.jpg", //08 A CONSEQUÊNCIA
+                    // "https://pp-vod-img-aws.akamaized.net/0396070/0396070_200.jpg", //09 A SUCESSÃO
+                    // "https://pp-vod-img-aws.akamaized.net/0424348/0424348_200.jpg", //10 A DECADÊNCIA
+                    // "https://pp-vod-img-aws.akamaized.net/0429062/0429062_200.jpg", //11 A DIVISÃO
                     // "https://images.justwatch.com/poster/329514848/s166/temporada-12", //12 A EMBOSCADA
                     // "https://images.justwatch.com/poster/327292507/s166/", //13 A ESPERANÇA
 
