@@ -27,6 +27,7 @@ body {
   display: flex; 
   justify-content: center; 
   padding: 0 clamp(8px, 2vw, 24px); 
+  user-select: none;
 }
 
 .slider {
@@ -83,10 +84,10 @@ body {
   position: relative;
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr auto auto auto 1fr;
+  /* grid-template-rows: 1fr auto auto auto 1fr; */
   align-content: center;
   gap: 14px;
-  padding: clamp(18px, 3vw, 36px);
+  padding: clamp(80px, 3vw, 36px);
   max-width: 780px;
   z-index: 1;
 }
@@ -348,7 +349,7 @@ body {
   width: 74px;
   background: transparent;
   border: none;
-  backdrop-filter: blur(3px);
+  /* backdrop-filter: blur(3px); */
   display: grid;
   place-items: center;
   pointer-events: auto;
@@ -357,7 +358,6 @@ body {
 }
 
 .arrow:hover { 
-  background: rgba(0, 0, 0, 0.45); 
 }
 
 .arrow:active { 
@@ -371,12 +371,23 @@ body {
   pointer-events: none; 
 }
 
-.prev { 
-  left: 0px; 
+.prev { left: 0px; }
+.next { right: 0px; }
+
+.prev:hover { 
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
+  background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
 }
 
-.next { 
-  right: 0px; 
+.next:hover { 
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+  background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
 }
 
 .arrow .goto { 
