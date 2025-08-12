@@ -61,7 +61,6 @@ body {
   position: absolute;
   inset: 0;
   display: flex;
-  width: 500%;
   transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -71,7 +70,6 @@ body {
 
 .slide {
   position: relative;
-  width: 20%;
   background: #000 center/cover no-repeat;
   background-image: var(--bg);
 }
@@ -112,13 +110,15 @@ body {
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  /* gap: 8px; */
   border: 1px solid var(--chip-bd);
   background: var(--chip);
   color: var(--muted);
-  padding: 6px 10px;
+  padding: 4px 8px;
   font-size: 12px;
   border-radius: 999px;
+  /* min-width: 0; */
+  max-width: fit-content;
 }
 
 .chip.new { 
@@ -348,7 +348,7 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 200px;
+  width: 150px;
   font-size: 50px;
   background: transparent;
   border: none;
@@ -398,21 +398,6 @@ body {
   inset: 0; 
   display: none; 
   cursor: pointer; 
-}
-
-#s1:checked ~ .slides { transform: translateX(0%); }
-#s2:checked ~ .slides { transform: translateX(-20%); }
-#s3:checked ~ .slides { transform: translateX(-40%); }
-#s4:checked ~ .slides { transform: translateX(-60%); }
-#s5:checked ~ .slides { transform: translateX(-80%); }
-
-#s1:checked ~ .dots label[for="s1"],
-#s2:checked ~ .dots label[for="s2"],
-#s3:checked ~ .dots label[for="s3"],
-#s4:checked ~ .dots label[for="s4"],
-#s5:checked ~ .dots label[for="s1"] { 
-  background: #fff; 
-  width: 40px; 
 }
 
 .progress-bar-container {

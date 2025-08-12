@@ -486,7 +486,7 @@ const novelsData= [
     {
         group_name: "NOVELAS",
         group: [
-            //REBELDE MEXICANO
+            //REBELDE MEXICANO (RBD)
             {
                 name: "Rebelde",
                 thumb_page: "",
@@ -502,7 +502,7 @@ const novelsData= [
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 movies: false,
                 description: {
-                    title: "REBELDE",
+                    title: "REBELDE - RBD",
                     thumb: "https://t.ctcdn.com.br/dqfZvWitHmOYJINf4NGgYUh9r3w=/768x432/smart/i821197.jpeg",
                     sinopse:  `
                         Rebelde - Numa escola de elite, seis alunos com diferentes
@@ -976,8 +976,48 @@ const novelsData= [
                     }
                 ]
             },
+
+            //REBELDE BRASILEIRO
+            {
+                name: "Rebelde Brasileiro",
+                thumb_page: "",
+                thumb_buttons: [
+                    "https://pp-vod-img-aws.akamaized.net/0069081/0069081_200.jpg",
+                    // "https://i.imgur.com/SEnkwUw.jpeg", 
+                    // "https://s2.glbimg.com/ZL5vyy2AgnF4hB9zaOpsfIbnttA=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2024/2/v/xY2nXpT1elFw5Zg5ChbQ/2024-4284-rebelde-t3-poster.jpg"
+                ],
+                badge: "NOVO",
+                type: "Temporadas",
+                canais: false,
+                enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                movies: false,
+                description: {
+                    title: "REBELDE - BRASILEIRO",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0069081/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        A Elite Way é uma das instituições de ensino mais renomadas 
+                        do país, onde as famílias mais ricas do Rio de Janeiro fazem 
+                        questão de que seus filhos estudem. A escola é o local onde 
+                        seis adolescentes rebeldes e cheios de caprichos, vão descobrir 
+                        na música um objetivo comum.
+                    `
+                },
+
+                season: [
+                    {
+                        name: "Temporada 01",
+                        thumb_season: "https://i.imgur.com/5ya030J.jpeg",
+                        movies: false,
+                        episodes: [
+                            //{ title: "Episódio 001", duration: "44:09", thumb: "https://s02.video.glbimg.com/x216/12053565.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-001.mp4", alternative: ["https://www.youtube.com/embed/YPe1mKU7xQ4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
+                        ]
+                    }
+
+                ]
+            }
         ]
-    }
+    },
 ]
 
 export { novelsData };

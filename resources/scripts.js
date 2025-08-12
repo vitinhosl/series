@@ -6,7 +6,10 @@ const seriesData = [
             {
                 name: "A Terra Prometida",
                 thumb_page: "https://i.imgur.com/H7LkieU.png",
-                thumb_buttons: ["https://i.imgur.com/qvvefLV.png"],
+                thumb_buttons: [
+                    "https://i.imgur.com/HFGzr9d.jpeg",
+                    // "https://i.imgur.com/3FzZHWW.jpeg",
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -518,7 +521,10 @@ const seriesData = [
             {
                 name: "Jezabel",
                 thumb_page: "https://i.imgur.com/3NP8B3D.png",
-                thumb_buttons: ["https://i.imgur.com/Z3WUXd9.jpeg"],
+                thumb_buttons: [
+                    "https://i.imgur.com/Z3WUXd9.jpeg",
+                    // "https://pp-vod-img-aws.akamaized.net/0069716/0069716_200.jpg"
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -711,7 +717,10 @@ const seriesData = [
             {
                 name: "José do Egito",
                 thumb_page: "https://i.imgur.com/V2ikT7R.png",
-                thumb_buttons: ["https://i.imgur.com/Oxrdzg6.jpeg"],
+                thumb_buttons: [
+                    "https://i.imgur.com/Oxrdzg6.jpeg",
+                    // "https://pp-vod-img-aws.akamaized.net/0068517/0068517_200.jpg"
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -2773,7 +2782,7 @@ const seriesData = [
     {
         group_name: "NOVELAS",
         group: [
-            //REBELDE MEXICANO
+            //REBELDE MEXICANO (RBD)
             {
                 name: "Rebelde",
                 thumb_page: "",
@@ -2789,7 +2798,7 @@ const seriesData = [
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 movies: false,
                 description: {
-                    title: "REBELDE",
+                    title: "REBELDE - RBD",
                     thumb: "https://t.ctcdn.com.br/dqfZvWitHmOYJINf4NGgYUh9r3w=/768x432/smart/i821197.jpeg",
                     sinopse:  `
                         Rebelde - Numa escola de elite, seis alunos com diferentes
@@ -3263,89 +3272,46 @@ const seriesData = [
                     }
                 ]
             },
-        ]
-    },
 
-        {
-        group_name: "ANIMES",
-        group: [
-            //SOLO LEVELING
+            //REBELDE BRASILEIRO
             {
-                name: "Solo Leveling",
+                name: "Rebelde Brasileiro",
                 thumb_page: "",
                 thumb_buttons: [
-                    // "https://animesbr.tv/wp-content/uploads/2025/01/vTCjCkwHn3bfqVLdQjZke3c8w7l-200x300.jpg",
-                    "https://i.imgur.com/x3j8fU5.jpeg",
-                    "https://i.imgur.com/seZ30fi.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0069081/0069081_200.jpg",
+                    // "https://i.imgur.com/SEnkwUw.jpeg", 
+                    // "https://s2.glbimg.com/ZL5vyy2AgnF4hB9zaOpsfIbnttA=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2024/2/v/xY2nXpT1elFw5Zg5ChbQ/2024-4284-rebelde-t3-poster.jpg"
                 ],
-                badge: "",
+                badge: "NOVO",
+                type: "Temporadas",
+                canais: false,
                 enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                movies: false,
+                description: {
+                    title: "REBELDE - BRASILEIRO",
+                    thumb: "https://pp-vod-img-aws.akamaized.net/0069081/playplus_thumb_1600.jpg",
+                    sinopse:  `
+                        A Elite Way é uma das instituições de ensino mais renomadas 
+                        do país, onde as famílias mais ricas do Rio de Janeiro fazem 
+                        questão de que seus filhos estudem. A escola é o local onde 
+                        seis adolescentes rebeldes e cheios de caprichos, vão descobrir 
+                        na música um objetivo comum.
+                    `
+                },
+
                 season: [
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
+                        thumb_season: "https://i.imgur.com/5ya030J.jpeg",
                         movies: false,
                         episodes: [
-                            { title: "Episódio 001", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/wyjphDUt1vrlckpvfPd0TekuqMm-300x170.jpg", url: "https://secvideo1.online/embed/852574/", alternative: ["https://secvideo1.online/embed/852573/"] },
-                            { title: "Episódio 002", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/ch5o2NnATbswomEiCugOgjX8IwY-300x170.jpg", url: "https://secvideo1.online/embed/852576/", alternative: ["https://secvideo1.online/embed/852575/"] },
-                            { title: "Episódio 003", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/3h4QyKMODJiOQKqfuL4NrehcV43-300x170.jpg", url: "https://secvideo1.online/embed/852578/", alternative: ["https://secvideo1.online/embed/852577/"] },
-                            { title: "Episódio 004", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/2zbHJNbyuGEdyGVOyJpv24qgf2w-300x170.jpg", url: "https://secvideo1.online/embed/852580/", alternative: ["https://secvideo1.online/embed/852579/"] },
-                            { title: "Episódio 005", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/vPpiI1sKgiJgWykydYzOf2XfCcR-300x170.jpg", url: "https://secvideo1.online/embed/852582/", alternative: ["https://secvideo1.online/embed/852581/"] },
-                            { title: "Episódio 006", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/jeyh5o40BjSmkYxv1FV7OMqJn9m-300x170.jpg", url: "https://secvideo1.online/embed/852584/", alternative: ["https://secvideo1.online/embed/852583/"] },
-                            { title: "Episódio 007", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/3UGTVLFHcAIQgjolx6rQpCottRj-300x170.jpg", url: "https://secvideo1.online/embed/852586/", alternative: ["https://secvideo1.online/embed/852585/"] },
-                            { title: "Episódio 008", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/mYoah2DtfKVqGMtuCBmgeZYCQoM-300x170.jpg", url: "https://secvideo1.online/embed/852588/", alternative: ["https://secvideo1.online/embed/852587/"] },
-                            { title: "Episódio 009", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/7qqZfujgsWgLWY3KtefvfH7pHb0-300x170.jpg", url: "https://secvideo1.online/embed/852590/", alternative: ["https://secvideo1.online/embed/852589/"] },
-                            { title: "Episódio 010", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/anFjSYbyhwOntz31Qr0Egl9qnGz-300x170.jpg", url: "https://secvideo1.online/embed/852592/", alternative: ["https://secvideo1.online/embed/852591/"] },
-                            { title: "Episódio 011", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/xzpmAZTcFO5hTFopn8Idu7BRsl3-300x170.jpg", url: "https://secvideo1.online/embed/852594/", alternative: ["https://secvideo1.online/embed/852593/"] },
-                            { title: "Episódio 012", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/6kjROrp76VDJyfImdqUzmL7zdJM-300x170.jpg", url: "https://secvideo1.online/embed/852596/", alternative: ["https://secvideo1.online/embed/852595/"] },
-                        ]
-                    },
-
-                    {
-                        name: "Temporada 02",
-                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "Episódio 001 - (13)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/6J8Ps6ma4TMsGtbjRsRM18myueQ-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E01_LEGENDADO/2x1.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E01_DUBLADO/2x1.html" ] },
-                            { title: "Episódio 002 - (14)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/mUa5CdHS3IBbYPlXNqSATKZY5gV-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E02_LEGENDADO/2x2.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E02_DUBLADO/2x2.html" ] },
-                            { title: "Episódio 003 - (15)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/ksoMkIBX9HxzvShzOxUvi4WhlFj-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E03_LEGENDADO/2x3.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E03_DUBLADO/2x3.html" ] },
-                            { title: "Episódio 004 - (16)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/01/yaaTlWhfJOJjKDbZZRTabnb6Mxm-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E04_LEGENDADO/2x4.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E04_DUBLADO/2x4.html" ] },
-                            { title: "Episódio 005 - (17)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/mfztqiGjHPmHBUNok763a1rDsVn-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E05_LEGENDADO/2x5.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E05_DUBLADO/2x5.html" ] },
-                            { title: "Episódio 006 - (18)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/2i5MVDxqDS9pfb1MIT8mWUXuNlL-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E06_LEGENDADO/2x6.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E06_DUBLADO/2x6.html" ] },
-                            { title: "Episódio 007 - (19)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/uMbOgKFOmN9dykVizBYG9atln7c-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E07_LEGENDADO/2x7.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E07_DUBLADO/2x7.html" ] },
-                            { title: "Episódio 008 - (20)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/02/unMSFOjTEsQ0rNfqkvQSfE4ar6S-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E08_LEGENDADO/2x8.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E08_DUBLADO/2x8.html" ] },
-                            { title: "Episódio 009 - (21)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/03/eQYTEGlP7TXLkbagw5rMlTOgvTZ-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E09_LEGENDADO/2x9.html" , alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E09_DUBLADO/2x9.html" ] },
-                            { title: "Episódio 010 - (22)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/03/iTx8x2eH79xFGRQAs1Q7nIzbQK4-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E10_LEGENDADO/2x10.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E10_DUBLADO/2x10.html"] },
-                            { title: "Episódio 011 - (23)", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2025/03/7GtWwrxlrQAyipgbKm6XO6daROu-300x170.jpg", url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E11_LEGENDADO/2x11.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E11_DUBLADO/2x11.html"] },
-                            { title: "Episódio 012 - (24)", duration: "", thumb: "https://image.tmdb.org/t/p/w154/pZJ7QB0QA3hDlBR1KBdSzQcG8hi.jpg",                        url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E12_LEGENDADO/2x12.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E12_DUBLADO/2x12.html"] },
-                            { title: "Episódio 013 - (25)", duration: "", thumb: "https://image.tmdb.org/t/p/w154/dsXC84kGPEbHWkSKSWOIYodjMVv.jpg",                        url: "https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E13_LEGENDADO/2x13.html", alternative: ["https://playflix.to/ANIMES/Solo%20Leveling/Solo%20Leveling_S02E13_DUBLADO/2x13.html"] },
+                            //{ title: "Episódio 001", duration: "44:09", thumb: "https://s02.video.glbimg.com/x216/12053565.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-001.mp4", alternative: ["https://www.youtube.com/embed/YPe1mKU7xQ4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
                         ]
                     }
-                ]
-            },
 
-            //HAIKYU
-            {
-                name: "Haikyu",
-                thumb_page: "",
-                thumb_buttons: [
-                    // "https://animesbr.tv/wp-content/uploads/2025/01/vTCjCkwHn3bfqVLdQjZke3c8w7l-200x300.jpg",
-                    "https://animesonlinecc.to/wp-content/uploads/2020/01/6R2GkrQW8ZRlZAhEdVKwJjrANwS-185x278.jpg",
-                    "https://animefire.plus/img/animes/haikyuu-large.webp",
-                ],
-                badge: "",
-                enabled: true,
-                season: [
-                    {
-                        name: "Temporada 01",
-                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
-                        movies: false,
-                        episodes: [
-                            { title: "Episódio 001", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/wyjphDUt1vrlckpvfPd0TekuqMm-300x170.jpg", url: "https://secvideo1.online/embed/852574/", alternative: ["https://secvideo1.online/embed/852573/"] },
-                       ]
-                    }
                 ]
-            }            
+            }
         ]
     },
     

@@ -1,79 +1,184 @@
 const seriesData = [
-    {
-        group_name: "SÉRIES BIBLÍCAS",
-        group: [
-            {
-                carrousel : {
-                    title: "A TERRA PROMETIDA",
-                    thumb: "https://i.imgur.com/H7LkieU.png",
-                    text: "Destaque",
-                    description: `
-                        Após a morte de Moisés, Josué é o novo líder dos hebreus 
-                        e terá que cumprir uma difícil missão ordenada por Deus: 
-                        Comandar as 12 tribos de Israel na conquista de Canaã, 
-                        a Terra Prometida. Continuação da saga Os Dez Mandamentos.
-                    `
-                },
-            },
+  {
+    group_name: "SÉRIES BIBLÍCAS",
+    group: [
+      //A TERRA PROMETIDA
+      {
+        carrousel: {
+          enabled: true,
+          title: "A TERRA PROMETIDA",
+          logo: "", //https://i.imgur.com/J5WkXJP.png
+          thumb: "https://i.imgur.com/H7LkieU.png",
+          text: "Destaque",
+          description: `
+            Após a morte de Moisés, Josué é o novo líder dos hebreus 
+            e terá que cumprir uma difícil missão ordenada por Deus: 
+            Comandar as 12 tribos de Israel na conquista de Canaã, 
+            a Terra Prometida. Continuação da saga Os Dez Mandamentos.
+          `
+        },
+      },
 
-            {
-                carrousel : {
-                    title: "OS DEZ MANDAMENTOS",
-                    thumb: "https://i.imgur.com/v0uF3s6.png",
-                    text: "Destaque",
-                    description: `
-                        Grande sucesso da televisão brasileira, este épico bíblico 
-                        narra a saga de Moisés, o hebreu que escapou da morte ainda 
-                        bebê, virou príncipe do Egito eacabou se transformando no 
-                        líder escolhido por Deus para libertar seu povo da escravidão.
-                    `
-                },
-            },
+      //OS DEZ MANDAMENTOS
+      {
+        carrousel: {
+          enabled: true,
+          title: "OS DEZ MANDAMENTOS",
+          logo: "", //https://i.imgur.com/MJL97ex.png
+          thumb: "https://i.imgur.com/v0uF3s6.png",
+          text: "Destaque",
+          description: `
+            Grande sucesso da televisão brasileira, este épico bíblico 
+            narra a saga de Moisés, o hebreu que escapou da morte ainda 
+            bebê, virou príncipe do Egito e acabou se transformando no 
+            líder escolhido por Deus para libertar seu povo da escravidão.
+          `
+        },
+      },
 
-            {
-                carrousel : {
-                    title: "JESUS",
-                    thumb: "https://i.imgur.com/gnZ9oJ0.png",
-                    text: "Destaque",
-                    description: `
-                        Quando a história dos homens estava perto de cair em desgraça, 
-                        a história domundo muda para sempre após a chegada do Salvador. 
-                        Jesus, a novela, contapela primeira vez na íntegra a trajetória 
-                        do homem que revolucionou a humanidade com sua palavra e suas 
-                        ações e dividiu a história em dois: antes e depois de Cristo.
-                    `
-                },
-            },
+      //JESUS
+      {
+        carrousel: {
+          enabled: true,
+          title: "JESUS",
+          logo: "",
+          thumb: "https://i.imgur.com/gnZ9oJ0.png",
+          text: "Destaque",
+          description: `
+            Quando a história dos homens estava perto de cair em desgraça, 
+            a história do mundo muda para sempre após a chegada do Salvador. 
+            Jesus, a novela, conta pela primeira vez na íntegra a trajetória 
+            do homem que revolucionou a humanidade com sua palavra e suas 
+            ações e dividiu a história em dois: antes e depois de Cristo.
+          `
+        },
+      },
 
-            {
-                carrousel : {
-                    title: "O RICO E LÁZARO",
-                    thumb: "https://i.imgur.com/sz0LCJC.png",
-                    text: "Destaque",
-                    description: `
-                        Após o governo de vários reis que se afastaram de Deus, Jerusalém 
-                        encontra-se mergulhada na idolatria. A grande amizade de Zac e Asher 
-                        é abalada pelo amor que ambos sentem pela companheira de infância, 
-                        Joana. Ao contrário deles, ela acredita nas profecias de Jeremias 
-                        e empenha-se para que o povo hebreu se volte novamente para Deus.
-                    `
-                },
-            }
-        ]
-    }
-]
+      //O RICO E LÁZARO
+      {
+        carrousel: {
+          enabled: true,
+          title: "O RICO E LÁZARO",
+          logo: "",
+          thumb: "https://i.imgur.com/sz0LCJC.png",
+          text: "Destaque",
+          description: `
+            Após o governo de vários reis que se afastaram de Deus, Jerusalém 
+            encontra-se mergulhada na idolatria. A grande amizade de Zac e Asher 
+            é abalada pelo amor que ambos sentem pela companheira de infância, 
+            Joana. Ao contrário deles, ela acredita nas profecias de Jeremias 
+            e empenha-se para que o povo hebreu se volte novamente para Deus.
+          `
+        },
+      },
+
+    ]
+  }
+];
 
 function renderCarousel() {
   const slider = document.querySelector('.slider');
-  const slides = document.querySelector('.slider .slides');
-  const radios = [...document.querySelectorAll('.slider input[type="radio"]')];
-  const s1 = document.getElementById('s1'); // primeiro real
-  const s5 = document.getElementById('s5'); // clone do primeiro (último)
+  const slidesContainer = document.getElementById('slides');
+  const dotsContainer = document.getElementById('dots');
   const progressBar = document.getElementById('progressBar');
-
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const pauseCheckbox = document.querySelector('.dots-play-btn');
+
+  // Check if group exists and is not empty
+  if (!seriesData[0]?.group || seriesData[0].group.length === 0) {
+    slidesContainer.innerHTML = ''; // Clear any existing content
+    dotsContainer.innerHTML = '';
+    return; // Exit if no data
+  }
+
+  // Filter enabled series and generate slides
+  const enabledSeries = seriesData[0].group.filter(item => item.carrousel && item.carrousel.enabled !== false);
+  if (enabledSeries.length === 0) {
+    slidesContainer.innerHTML = ''; // Clear if no enabled slides
+    dotsContainer.innerHTML = '';
+    return; // Exit if no enabled data
+  }
+
+  const totalSlides = enabledSeries.length;
+  const slidesHTML = [];
+  const radios = [];
+  const dotsHTML = [];
+
+  enabledSeries.forEach((item, index) => {
+    const carrousel = item.carrousel;
+    const radioId = `s${index + 1}`;
+    const isFirst = index === 0;
+
+    // Create radio input
+    radios.push(`<input ${isFirst ? 'checked' : ''} type="radio" name="slider" id="${radioId}">`);
+
+    // Create slide
+    let titleContent = '';
+    if (carrousel.logo && carrousel.logo.trim() !== '') {
+      titleContent = `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`;
+    } else {
+      titleContent = carrousel.title;
+    }
+    slidesHTML.push(`
+      <section class="slide" style="--bg: url('${carrousel.thumb}')">
+        <div class="content">
+          <h1 class="brand-title">${titleContent}</h1>
+          <span class="chip new">${carrousel.text}</span>
+          <p class="desc">${carrousel.description.trim()}</p>
+          <div class="actions">
+            <button class="btn primary">ASSISTIR</button>
+            <button class="btn">FAVORITAR</button>
+          </div>
+        </div>
+      </section>
+    `);
+
+    // Create dot for each real slide
+    dotsHTML.push(`<label for="${radioId}"></label>`);
+  });
+
+  // Add clone of first enabled slide at the end
+  const firstEnabledItem = enabledSeries[0];
+  let cloneTitleContent = '';
+  if (firstEnabledItem.carrousel.logo && firstEnabledItem.carrousel.logo.trim() !== '') {
+    cloneTitleContent = `<img src="${firstEnabledItem.carrousel.logo}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo">`;
+  } else {
+    cloneTitleContent = firstEnabledItem.carrousel.title;
+  }
+  slidesHTML.push(`
+    <section class="slide clone" style="--bg: url('${firstEnabledItem.carrousel.thumb}')">
+      <div class="content">
+        <h1 class="brand-title">${cloneTitleContent}</h1>
+        <span class="chip new">${firstEnabledItem.carrousel.text}</span>
+        <p class="desc">${firstEnabledItem.carrousel.description.trim()}</p>
+        <div class="actions">
+          <button class="btn primary">ASSISTIR</button>
+          <button class="btn">FAVORITAR</button>
+        </div>
+      </section>
+  `);
+  radios.push(`<input type="radio" name="slider" id="s${totalSlides + 1}">`);
+
+  // Inject radio inputs and slides
+  slider.insertAdjacentHTML('afterbegin', radios.join(''));
+  slidesContainer.innerHTML = slidesHTML.join('');
+  dotsContainer.innerHTML = dotsHTML.join('');
+
+  // Set dynamic width for slides based on number of enabled slides
+  const slidesElement = document.querySelector('.slides');
+  slidesElement.style.width = `${100 * (totalSlides + 1)}%`; // +1 for clone
+
+  // Set dynamic width for each slide (including clone)
+  const slideElements = document.querySelectorAll('.slide');
+  slideElements.forEach(slide => {
+    slide.style.width = `${100 / (totalSlides + 1)}%`;
+  });
+
+  const slides = document.querySelector('.slider .slides');
+  const radioInputs = [...document.querySelectorAll('.slider input[type="radio"]')];
+  const s1 = document.getElementById('s1'); // primeiro real
+  const sLast = document.getElementById(`s${totalSlides + 1}`); // clone do primeiro (último)
 
   // ===== Config =====
   const slideDuration = 5;             // segundos (auto-play)
@@ -97,7 +202,7 @@ function renderCarousel() {
   let lastX = 0, lastT = 0, velocity = 0;
 
   // ===== Helpers =====
-  const getIndex = () => radios.findIndex(r => r.checked);
+  const getIndex = () => radioInputs.findIndex(r => r.checked);
   const clearInlineTransform = () => { slides.style.transform = ''; };
 
   function measureSlideWidthAndGap() {
@@ -133,11 +238,11 @@ function renderCarousel() {
     isTransitioning = true;
 
     const i = getIndex();
-    const lastRealIndex = radios.length - 2; // penúltimo = último real
+    const lastRealIndex = radioInputs.length - 2; // penúltimo = último real
 
     if (i === lastRealIndex) {
       // vai pro clone final e depois teleporta pro primeiro real
-      radios[i + 1].checked = true;
+      radioInputs[i + 1].checked = true;
       const onEnd = () => {
         slides.removeEventListener('transitionend', onEnd);
         slides.classList.add('no-anim');
@@ -149,8 +254,8 @@ function renderCarousel() {
       };
       slides.addEventListener('transitionend', onEnd);
     } else {
-      const nextIndex = (i + 1) % radios.length;
-      radios[nextIndex].checked = true;
+      const nextIndex = (i + 1) % radioInputs.length;
+      radioInputs[nextIndex].checked = true;
       slides.addEventListener('transitionend', onTransitionEnd);
     }
   }
@@ -160,18 +265,18 @@ function renderCarousel() {
     isTransitioning = true;
 
     const i = getIndex();
-    const lastRealIndex = radios.length - 2; // último real
+    const lastRealIndex = radioInputs.length - 2; // último real
     const firstRealIndex = 0;
 
     if (i === firstRealIndex) {
       // salta pro clone do fim e volta pro último real
       slides.classList.add('no-anim');
-      radios[radios.length - 1].checked = true; // clone final
+      radioInputs[radioInputs.length - 1].checked = true; // clone final
       void slides.offsetWidth;
       slides.classList.remove('no-anim');
-      radios[lastRealIndex].checked = true;
+      radioInputs[lastRealIndex].checked = true;
     } else {
-      radios[i - 1].checked = true;
+      radioInputs[i - 1].checked = true;
     }
     slides.addEventListener('transitionend', onTransitionEnd);
   }
@@ -254,7 +359,7 @@ function renderCarousel() {
 
     // alvo + rubberband nas bordas
     let desired = baseOffset + dragDistance;
-    const maxOffset = -((radios.length - 1) * slideWidth);
+    const maxOffset = -((radioInputs.length - 1) * slideWidth);
 
     if (desired > 0) {
       desired = desired * rubberbandFactor; // borracha na esquerda
@@ -309,8 +414,8 @@ function renderCarousel() {
 
   // Touch (precisa passive:false pra preventDefault)
   slides.addEventListener('touchstart', startDragging, { passive: false });
-  slides.addEventListener('touchmove',  drag,           { passive: false });
-  slides.addEventListener('touchend',   endDragging);
+  slides.addEventListener('touchmove', drag, { passive: false });
+  slides.addEventListener('touchend', endDragging);
 
   // Evita clique em links se houve arrasto
   slides.addEventListener('click', (e) => {
@@ -323,7 +428,7 @@ function renderCarousel() {
     });
   }
 
-  radios.forEach(radio => radio.addEventListener('change', () => {
+  radioInputs.forEach(radio => radio.addEventListener('change', () => {
     if (!paused) restartTimer();
     slides.addEventListener('transitionend', onTransitionEnd);
   }));
@@ -337,6 +442,23 @@ function renderCarousel() {
     e.preventDefault();
     prevSlide();
   });
+
+  // ===== CSS Transform Rules for Slides =====
+  const style = document.createElement('style');
+  document.head.appendChild(style);
+  const cssRules = radioInputs.map((_, index) => {
+    return `#s${index + 1}:checked ~ .slides { transform: translateX(-${index * 100 / (totalSlides + 1)}%); }`;
+  }).join('\n');
+  style.textContent = cssRules;
+
+  // ===== Dot Highlight Rules =====
+  const dotRules = enabledSeries.map((_, index) => {
+    return `#s${index + 1}:checked ~ .dots label[for="s${index + 1}"] { background: #fff; width: 40px; }`;
+  }).join('\n');
+  style.textContent += `\n${dotRules}`;
+
+  // Highlight first dot when on clone
+  style.textContent += `\n#s${totalSlides + 1}:checked ~ .dots label[for="s1"] { background: #fff; width: 40px; }`;
 
   // ===== Init =====
   const initialPlay = pauseCheckbox ? pauseCheckbox.checked : true;

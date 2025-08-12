@@ -1,141 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hero com Slides</title>
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hero com Slides</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrapper">
-  <div class="slider" aria-label="Carrossel">
-    <input checked type="radio" name="slider" id="s1">
-    <input type="radio" name="slider" id="s2">
-    <input type="radio" name="slider" id="s3">
-    <input type="radio" name="slider" id="s4">
-    <input type="radio" name="slider" id="s5">
-
-    <div class="slides">
-      <section class="slide" style="--bg: url('https://i.imgur.com/H7LkieU.png')">
-        <div class="content">
-          <h1 class="brand-title">A TERRA PROMETIDA</h1>
-          <div class="row"><span class="chip new">Destaque</span>
-          <p class="desc">
-            Após a morte de Moisés, Josué é o novo líder dos hebreus 
-            e terá que cumprir uma difícil missão ordenada por Deus: 
-            Comandar as 12 tribos de Israel na conquista de Canaã, 
-            a Terra Prometida. Continuação da saga Os Dez Mandamentos.
-          </p>
-          <div class="actions">
-            <button class="btn primary">ASSISTIR</button>
-            <button class="btn">FAVORITAR</button>
-          </div>
+  <div class="wrapper">
+    <div class="slider" aria-label="Carrossel">
+      <div class="slides" id="slides"></div>
+      <div class="controls-bottom">
+        <div class="dots-container">
+          <label>
+            <input class="dots-play-btn" type="checkbox" checked>
+            <div class="dots-play-icon"></div>
+            <div class="dots-pause-icon"></div>
+          </label>
         </div>
-      </section>
-
-      <section class="slide" style="--bg: url('https://i.imgur.com/v0uF3s6.png')">
-        <div class="content">
-          <h1 class="brand-title">OS DEZ MANDAMENTOS</h1>
-          <div class="row"><span class="chip new">Destaque</span>
-          <p class="desc">
-            Grande sucesso da televisão brasileira, este épico bíblico 
-            narra a saga de Moisés, o hebreu que escapou da morte ainda 
-            bebê, virou príncipe do Egito eacabou se transformando no 
-            líder escolhido por Deus para libertar seu povo da escravidão.
-          </p>
-          <div class="actions">
-            <button class="btn primary">ASSISTIR</button>
-            <button class="btn">FAVORITAR</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide" style="--bg: url('https://i.imgur.com/gnZ9oJ0.png')">
-        <div class="content">
-          <h1 class="brand-title">JESUS</h1>
-          <div class="row"><span class="chip new">Destaque</span>
-          <p class="desc">
-            Quando a história dos homens estava perto de cair em desgraça, 
-            a história domundo muda para sempre após a chegada do Salvador. 
-            Jesus, a novela, contapela primeira vez na íntegra a trajetória 
-            do homem que revolucionou a humanidade com sua palavra e suas 
-            ações e dividiu a história em dois: antes e depois de Cristo.
-          </p>
-          <div class="actions">
-            <button class="btn primary">ASSISTIR</button>
-            <button class="btn">FAVORITAR</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide" style="--bg: url('https://i.imgur.com/sz0LCJC.png')">
-        <div class="content">
-          <h1 class="brand-title">O RICO E LÁZARO</h1>
-          <div class="row"><span class="chip new">Destaque</span>
-          <p class="desc">
-            Após o governo de vários reis que se afastaram de Deus, Jerusalém 
-            encontra-se mergulhada na idolatria. A grande amizade de Zac e Asher 
-            é abalada pelo amor que ambos sentem pela companheira de infância, 
-            Joana. Ao contrário deles, ela acredita nas profecias de Jeremias 
-            e empenha-se para que o povo hebreu se volte novamente para Deus.
-          </p>
-          <div class="actions">
-            <button class="btn primary">ASSISTIR</button>
-            <button class="btn">FAVORITAR</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide clone" style="--bg: url('https://i.imgur.com/H7LkieU.png')">
-        <div class="content">
-          <h1 class="brand-title">A TERRA PROMETIDA</h1>
-          <div class="row"><span class="chip new">Destaque</span>
-          <p class="desc">
-            Após a morte de Moisés, Josué é o novo líder dos hebreus 
-            e terá que cumprir uma difícil missão ordenada por Deus: 
-            Comandar as 12 tribos de Israel na conquista de Canaã, 
-            a Terra Prometida. Continuação da saga Os Dez Mandamentos.
-          </p>
-          <div class="actions">
-            <button class="btn primary">ASSISTIR</button>
-            <button class="btn">FAVORITAR</button>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div class="controls-bottom">
-      <div class="dots-container">
-        <label>
-          <input class="dots-play-btn" type="checkbox" checked>
-          <div class="dots-play-icon"></div>
-          <div class="dots-pause-icon"></div>
-        </label>
+      </div>
+      <div class="dots" id="dots"></div>
+      <div class="controls">
+        <button class="arrow prev" id="prevBtn" aria-label="Anterior" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button class="arrow next" id="nextBtn" aria-label="Próximo" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24"><path d="m8.59 16.59 1.41 1.41 6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+        </button>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
       </div>
     </div>
-
-    <div class="dots">
-      <label for="s1"></label>
-      <label for="s2"></label>
-      <label for="s3"></label>
-      <label for="s4"></label>
-    </div>
-
-    <div class="controls">
-      <button class="arrow prev" id="prevBtn" aria-label="Anterior" role="button" tabindex="0">
-        <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-      </button>
-      <button class="arrow next" id="nextBtn" aria-label="Próximo" role="button" tabindex="0">
-        <svg viewBox="0 0 24 24"><path d="m8.59 16.59 1.41 1.41 6-6-6-6-1.41 1.41L13.17 12z"/></svg>
-      </button>
-    </div>
-
-    <div class="progress-bar-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
   </div>
-</div>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
