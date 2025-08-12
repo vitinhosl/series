@@ -76,6 +76,8 @@ const seriesData = [
   }
 ];
 
+const slideDuration = 5;
+
 function renderCarousel() {
   const slider = document.querySelector('.slider');
   const slidesContainer = document.getElementById('slides');
@@ -83,24 +85,79 @@ function renderCarousel() {
   const progressBar = document.getElementById('progressBar');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
-  const pauseCheckbox = document.querySelector('.dots-play-btn');
 
-  // Check if group exists and is not empty
+  slider.querySelectorAll(':scope > input[type="radio"]').forEach(n => n.remove());
+  if (slidesContainer) slidesContainer.innerHTML = '';
+  if (dotsContainer) dotsContainer.innerHTML = '';
+
   if (!seriesData[0]?.group || seriesData[0].group.length === 0) {
-    slidesContainer.innerHTML = ''; // Clear any existing content
-    dotsContainer.innerHTML = '';
-    return; // Exit if no data
+    removeControlsBottom(slider);
+    if (dotsContainer) dotsContainer.style.display = 'none';
+    if (progressBar) progressBar.style.display = 'none';
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    return;
   }
 
-  // Filter enabled series and generate slides
   const enabledSeries = seriesData[0].group.filter(item => item.carrousel && item.carrousel.enabled !== false);
   if (enabledSeries.length === 0) {
-    slidesContainer.innerHTML = ''; // Clear if no enabled slides
-    dotsContainer.innerHTML = '';
-    return; // Exit if no enabled data
+    removeControlsBottom(slider);
+    if (dotsContainer) dotsContainer.style.display = 'none';
+    if (progressBar) progressBar.style.display = 'none';
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    return;
   }
 
   const totalSlides = enabledSeries.length;
+
+  if (totalSlides === 1) {
+    const carrousel = enabledSeries[0].carrousel;
+
+    const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
+      ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
+      : carrousel.title;
+
+    slidesContainer.innerHTML = `
+      <section class="slide" style="--bg: url('${carrousel.thumb}')">
+        <div class="content">
+          <h1 class="brand-title">${titleContent}</h1>
+          <span class="chip new">${carrousel.text ?? ''}</span>
+          <p class="desc">${(carrousel.description || '').trim()}</p>
+          <div class="actions">
+            <button class="btn primary">ASSISTIR</button>
+            <button class="btn">FAVORITAR</button>
+          </div>
+        </div>
+      </section>
+    `;
+
+    // esconder/limpar tudo que não faz sentido com 1 slide
+    removeControlsBottom(slider);
+    if (dotsContainer) { dotsContainer.innerHTML = ''; dotsContainer.style.display = 'none'; }
+    if (progressBar) progressBar.style.display = 'none';
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+
+    // largura única
+    const slidesElement = document.querySelector('.slides');
+    if (slidesElement) slidesElement.style.width = '100%';
+    document.querySelectorAll('.slide').forEach(s => s.style.width = '100%');
+
+    // limpa regras dinâmicas anteriores (se houver)
+    const dynStyle = getOrCreateStyleTag('carousel-dynamic-rules');
+    dynStyle.textContent = '';
+
+    return;
+  }
+
+  if (dotsContainer) dotsContainer.style.display = '';
+  if (progressBar) { progressBar.style.display = ''; progressBar.style.width = '0%'; }
+  if (prevBtn) prevBtn.style.display = '';
+  if (nextBtn) nextBtn.style.display = '';
+
+  let pauseCheckbox = injectPlayPause(slider);
+
   const slidesHTML = [];
   const radios = [];
   const dotsHTML = [];
@@ -110,22 +167,20 @@ function renderCarousel() {
     const radioId = `s${index + 1}`;
     const isFirst = index === 0;
 
-    // Create radio input
+    // Radio
     radios.push(`<input ${isFirst ? 'checked' : ''} type="radio" name="slider" id="${radioId}">`);
 
-    // Create slide
-    let titleContent = '';
-    if (carrousel.logo && carrousel.logo.trim() !== '') {
-      titleContent = `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`;
-    } else {
-      titleContent = carrousel.title;
-    }
+    // Slide
+    const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
+      ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
+      : carrousel.title;
+
     slidesHTML.push(`
       <section class="slide" style="--bg: url('${carrousel.thumb}')">
         <div class="content">
           <h1 class="brand-title">${titleContent}</h1>
-          <span class="chip new">${carrousel.text}</span>
-          <p class="desc">${carrousel.description.trim()}</p>
+          <span class="chip new">${carrousel.text ?? ''}</span>
+          <p class="desc">${(carrousel.description || '').trim()}</p>
           <div class="actions">
             <button class="btn primary">ASSISTIR</button>
             <button class="btn">FAVORITAR</button>
@@ -134,57 +189,51 @@ function renderCarousel() {
       </section>
     `);
 
-    // Create dot for each real slide
+    // Dot
     dotsHTML.push(`<label for="${radioId}"></label>`);
   });
 
-  // Add clone of first enabled slide at the end
+  // Clone do primeiro no final
   const firstEnabledItem = enabledSeries[0];
-  let cloneTitleContent = '';
-  if (firstEnabledItem.carrousel.logo && firstEnabledItem.carrousel.logo.trim() !== '') {
-    cloneTitleContent = `<img src="${firstEnabledItem.carrousel.logo}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo">`;
-  } else {
-    cloneTitleContent = firstEnabledItem.carrousel.title;
-  }
+  const cloneTitleContent = (firstEnabledItem.carrousel.logo && firstEnabledItem.carrousel.logo.trim() !== '')
+    ? `<img src="${firstEnabledItem.carrousel.logo}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo">`
+    : firstEnabledItem.carrousel.title;
+
   slidesHTML.push(`
     <section class="slide clone" style="--bg: url('${firstEnabledItem.carrousel.thumb}')">
       <div class="content">
         <h1 class="brand-title">${cloneTitleContent}</h1>
-        <span class="chip new">${firstEnabledItem.carrousel.text}</span>
-        <p class="desc">${firstEnabledItem.carrousel.description.trim()}</p>
+        <span class="chip new">${firstEnabledItem.carrousel.text ?? ''}</span>
+        <p class="desc">${(firstEnabledItem.carrousel.description || '').trim()}</p>
         <div class="actions">
           <button class="btn primary">ASSISTIR</button>
           <button class="btn">FAVORITAR</button>
         </div>
-      </section>
+      </div>
+    </section>
   `);
   radios.push(`<input type="radio" name="slider" id="s${totalSlides + 1}">`);
 
-  // Inject radio inputs and slides
+  // Injeta rádios e slides
   slider.insertAdjacentHTML('afterbegin', radios.join(''));
   slidesContainer.innerHTML = slidesHTML.join('');
   dotsContainer.innerHTML = dotsHTML.join('');
 
-  // Set dynamic width for slides based on number of enabled slides
+  // Larguras dinâmicas (incluindo clone)
   const slidesElement = document.querySelector('.slides');
-  slidesElement.style.width = `${100 * (totalSlides + 1)}%`; // +1 for clone
-
-  // Set dynamic width for each slide (including clone)
-  const slideElements = document.querySelectorAll('.slide');
-  slideElements.forEach(slide => {
+  slidesElement.style.width = `${100 * (totalSlides + 1)}%`;
+  document.querySelectorAll('.slide').forEach(slide => {
     slide.style.width = `${100 / (totalSlides + 1)}%`;
   });
 
   const slides = document.querySelector('.slider .slides');
   const radioInputs = [...document.querySelectorAll('.slider input[type="radio"]')];
   const s1 = document.getElementById('s1'); // primeiro real
-  const sLast = document.getElementById(`s${totalSlides + 1}`); // clone do primeiro (último)
 
   // ===== Config =====
-  const slideDuration = 5;             // segundos (auto-play)
-  const dragPercentThreshold = 0.30;   // 30% da largura do slide
-  const flingVelocityThreshold = 0.65; // px/ms: flick rápido
-  const rubberbandFactor = 0.35;       // "borracha" nas pontas
+  const dragPercentThreshold = 0.30;
+  const flingVelocityThreshold = 0.65;
+  const rubberbandFactor = 0.35;
 
   // ===== Estado =====
   let startTime, rafId;
@@ -201,7 +250,49 @@ function renderCarousel() {
   let slideWidth = 0;
   let lastX = 0, lastT = 0, velocity = 0;
 
-  // ===== Helpers =====
+  function injectPlayPause(slider) {
+    // Evita duplicar se já existir (ex: re-render)
+    const existing = slider.querySelector('.dots-play-btn');
+    if (existing) return existing;
+
+    const controlsBottom = document.createElement('div');
+    controlsBottom.className = 'controls-bottom';
+
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'dots-container';
+
+    const label = document.createElement('label');
+    label.className = 'dots-toggle';
+    label.setAttribute('aria-label', 'Reproduzir/Pausar');
+
+    const input = document.createElement('input');
+    input.className = 'dots-play-btn';
+    input.type = 'checkbox';
+    input.checked = true; // começa em PLAY
+
+    label.appendChild(input);
+    dotsWrap.appendChild(label);
+    controlsBottom.appendChild(dotsWrap);
+    slider.appendChild(controlsBottom);
+
+    return input;
+  }
+
+  function removeControlsBottom(slider) {
+    const el = slider.querySelector('.controls-bottom');
+    if (el) el.remove();
+  }
+
+  function getOrCreateStyleTag(id) {
+    let style = document.getElementById(id);
+    if (!style) {
+        style = document.createElement('style');
+        style.id = id;
+        document.head.appendChild(style);
+    }
+    return style;
+  }
+
   const getIndex = () => radioInputs.findIndex(r => r.checked);
   const clearInlineTransform = () => { slides.style.transform = ''; };
 
@@ -213,20 +304,18 @@ function renderCarousel() {
     return rect.width + mr;
   }
 
-  // ===== Play/Pause (checkbox invertido) =====
   function toggleManualPause(isChecked) {
-    if (isChecked) { // marcado = PLAY
+    if (isChecked) { // checked = PLAY
       isManuallyPaused = false;
       if (progressBar) progressBar.style.opacity = '1';
       if (!slider.matches(':hover') && !isDragging) resumeTimer();
-    } else {         // desmarcado = PAUSE
+    } else {         // unchecked = PAUSE
       isManuallyPaused = true;
       pauseTimer();
       if (progressBar) progressBar.style.opacity = '0';
     }
   }
 
-  // ===== Transições =====
   function onTransitionEnd() {
     slides.removeEventListener('transitionend', onTransitionEnd);
     isTransitioning = false;
@@ -281,7 +370,6 @@ function renderCarousel() {
     slides.addEventListener('transitionend', onTransitionEnd);
   }
 
-  // ===== Timer / Progress =====
   function updateProgressBar() {
     if (paused) return;
     const elapsed = Date.now() - startTime;
@@ -319,7 +407,6 @@ function renderCarousel() {
     rafId = requestAnimationFrame(updateProgressBar);
   }
 
-  // ===== Drag =====
   function startDragging(e) {
     if (isTransitioning) return;
     isDragging = true;
@@ -397,7 +484,6 @@ function renderCarousel() {
     }
   }
 
-  // ===== Eventos =====
   slider.addEventListener('mouseenter', () => {
     if (!isManuallyPaused) pauseTimer();
   });
@@ -406,18 +492,15 @@ function renderCarousel() {
     if (!isManuallyPaused && !isDragging) resumeTimer();
   });
 
-  // Mouse
   slides.addEventListener('mousedown', startDragging);
   slides.addEventListener('mousemove', drag);
   slides.addEventListener('mouseup', endDragging);
   slides.addEventListener('mouseleave', endDragging);
 
-  // Touch (precisa passive:false pra preventDefault)
   slides.addEventListener('touchstart', startDragging, { passive: false });
   slides.addEventListener('touchmove', drag, { passive: false });
   slides.addEventListener('touchend', endDragging);
 
-  // Evita clique em links se houve arrasto
   slides.addEventListener('click', (e) => {
     if (Math.abs(dragDistance) > 3) e.preventDefault();
   }, true);
@@ -443,24 +526,19 @@ function renderCarousel() {
     prevSlide();
   });
 
-  // ===== CSS Transform Rules for Slides =====
-  const style = document.createElement('style');
-  document.head.appendChild(style);
+  const style = getOrCreateStyleTag('carousel-dynamic-rules');
   const cssRules = radioInputs.map((_, index) => {
     return `#s${index + 1}:checked ~ .slides { transform: translateX(-${index * 100 / (totalSlides + 1)}%); }`;
   }).join('\n');
-  style.textContent = cssRules;
 
-  // ===== Dot Highlight Rules =====
   const dotRules = enabledSeries.map((_, index) => {
     return `#s${index + 1}:checked ~ .dots label[for="s${index + 1}"] { background: #fff; width: 40px; }`;
   }).join('\n');
-  style.textContent += `\n${dotRules}`;
 
-  // Highlight first dot when on clone
-  style.textContent += `\n#s${totalSlides + 1}:checked ~ .dots label[for="s1"] { background: #fff; width: 40px; }`;
+  const cloneDotRule = `#s${totalSlides + 1}:checked ~ .dots label[for="s1"] { background: #fff; width: 40px; }`;
 
-  // ===== Init =====
+  style.textContent = `${cssRules}\n${dotRules}\n${cloneDotRule}`;
+
   const initialPlay = pauseCheckbox ? pauseCheckbox.checked : true;
   toggleManualPause(initialPlay);
   restartTimer();
