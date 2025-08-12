@@ -24,77 +24,452 @@ body {
     background-color: rgb(14, 16, 21);
 }
 
-.myCarousel {
-    width: 100%;
-    max-height: 800px;
-    /* overflow: hidden; */
-
+.wrapper { 
+  min-height: 800px; 
+  display: flex; 
+  justify-content: center; 
+  /* padding: 0 clamp(8px, 2vw, 24px);  */
+  user-select: none;
 }
 
-.carousel-inner .item {
-    background: rgb(94, 21, 33);
-    background: -moz-linear-gradient(top,  rgb(94, 21, 45) 0%, rgb(138, 35, 66) 100%); 
-    background: -webkit-linear-gradient(top,  rgb(94, 21, 45) 0%, rgb(138, 35, 66) 100%); 
-    background: linear-gradient(to bottom,  rgb(94, 21, 45) 0%, rgb(138, 35, 66) 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 );
-    text-align: center;
-    height: 800px;
+.slider {
+  position: relative;
+  width: 100%;
+  max-height: 800px;
+  margin: 5px auto;
+  /* border-radius: 16px; */
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
 }
 
-.transition-timer-carousel-progress-bar {
-    height: 3px;
-    background-color: rgb(237, 0, 73);
+.slider input[type="radio"] { 
+  position: absolute; 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+.slider .slides {
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider .slides.no-anim {
+  transition: none;
+}
+
+.slides {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.slides.no-anim { 
+  transition: none !important; 
+}
+
+.slide {
+  position: relative;
+  background: #000 center/cover no-repeat;
+  background-image: var(--bg);
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, 
+  rgba(0,0,0,0.75) 0%, 
+  rgba(0,0,0,0.55) 35%, 
+  rgba(0,0,0,0.25) 60%, 
+  rgba(0,0,0,0) 85%), 
+  radial-gradient(60% 80% at 20% 50%, rgba(0,0,0,0.40), transparent 60%);
+}
+
+.slider .slides, .slider .slides * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.content {
+  position: relative;
+  height: 100%;
+  display: grid;
+  /* grid-template-rows: 1fr auto auto auto 1fr; */
+  align-content: center;
+  gap: 14px;
+  padding: clamp(100px, 3vw, 36px);
+  max-width: 780px;
+  z-index: 1;
+}
+
+.brand-title {
+  /* font-family: "UnifrakturMaguntia", Georgia, serif; */
+  /* font-size: clamp(42px, 9vw, 88px); */
+  line-height: 0.95;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.55);
+  font-size: 30px;
+}
+
+.row { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  flex-wrap: wrap; 
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  /* gap: 8px; */
+  border: 1px solid rgb(51, 51, 51);
+  background: rgb(34, 34, 34);
+  color: rgb(207, 207, 207);
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+  /* min-width: 0; */
+  max-width: fit-content;
+}
+
+.chip.new { 
+  text-transform: uppercase; 
+  font-weight: 700; 
+  letter-spacing: 0.06em; 
+}
+
+.chip.age { 
+  background: rgb(243, 156, 18); 
+  color: #111; 
+  border-color: transparent; 
+  font-weight: 700; 
+}
+
+.desc { 
+  color: #eaeaea; 
+  font-size: clamp(14px, 2.2vw, 18px); 
+  max-width: 66ch; 
+  opacity: 0.95; 
+}
+
+.actions { 
+  display: flex; 
+  gap: 12px; 
+  margin-top: 6px; 
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  background: #262626;
+  color: #fff;
+  transition: transform 0.06s, box-shadow 0.2s, background 0.2s;
+}
+
+.btn:active { 
+  transform: translateY(1px) scale(0.995); 
+}
+
+.btn.primary { 
+  background: rgb(255, 45, 85); 
+  box-shadow: 0 6px 18px rgba(255,45,85,0.35); 
+}
+
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.dots label {
+  position: relative;
+  width: 30px;
+  height: 6px;
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.35);
+  transition: width 0.25s, background 0.25s;
+}
+
+.dots label::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  right: 0px;
+  bottom: -20px;
+  background: transparent;
+}
+
+.dots label:focus-visible { 
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.45); 
+}
+
+.controls { 
+  position: absolute; 
+  inset: 0; 
+  z-index: 2; 
+  pointer-events: none; 
+}
+
+.controls-bottom {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.dots-container {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  border-radius: 50%;
+  bottom: 50px;
+  transition: transform 0.3s;
+}
+
+.dots-container:hover {
+  transform: scale(1.1);
+}
+
+.dots-play-btn {
+  position: absolute;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* background: conic-gradient(rgb(255, 45, 85), rgba(255, 45, 85, 0.45)); */
+  cursor: pointer;
+  outline: none;
+  border: solid 2px rgba(255, 255, 255, 0.35);
+}
+
+.dots-play-btn::before {
+  content: "";
+  position: absolute;
+  width: 93%;
+  height: 93%;
+  background-color: rgb(0, 0, 0, 0.45);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dots-play-btn:checked {
+  animation: borderAnimate 700ms ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes borderAnimate {
+  0% {
+    transform: rotate(0);
+    background: conic-gradient(rgba(255, 255, 255, 0.35), transparent 20%);
+  }
+
+  80% {
+    background: conic-gradient(rgba(255, 255, 255, 0.35), transparent 90%);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    background: conic-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35));
+    background: transparent;
+  }
+}
+
+.dots-play-icon {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 67%;
+  top: 52%;
+  background-color: rgb(255, 45, 85);
+  transform: translate(-60%, -50%) rotate(90deg);
+  clip-path: polygon(50% 15%, 0% 100%, 100% 100%);
+  transition: all 400ms ease-in-out;
+  cursor: pointer;
+}
+
+.dots-play-btn:checked + .dots-play-icon {
+  clip-path: polygon(0 100%, 0% 100%, 100% 100%);
+}
+
+.dots-pause-icon {
+  position: absolute;
+  width: 17px;
+  height: 20px;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.dots-pause-icon::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.96);
+  left: 0;
+}
+
+.dots-pause-icon::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.96);
+  right: 0;
+}
+
+.dots-play-btn:checked ~ .dots-pause-icon::before {
+  animation: reveal 300ms ease-in-out 350ms 1;
+  animation-fill-mode: forwards;
+}
+
+.dots-play-btn:checked ~ .dots-pause-icon::after {
+  animation: reveal 300ms ease-in-out 600ms 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes reveal {
+  0% {
     width: 0;
-    margin: 0;
-    border: none;
-    z-index: 12;
-    position: relative;
-    /* transition: width 0.5s linear; */
+  }
+
+  100% {
+    width: 35%;
+  }
 }
 
-.control-buttons{
-    text-align:center;
+.arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  font-size: 50px;
+  background: transparent;
+  border: none;
+  /* backdrop-filter: blur(3px); */
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+  cursor: pointer; 
+  transition: background 0.2s, transform 0.06s, opacity 0.2s;
 }
 
-.carousel-caption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    background-size: cover;
-    background-position: center;
+.arrow svg { 
+  width: 22px; 
+  height: 22px; 
+  fill: rgb(154, 154, 154); 
+  pointer-events: none; 
 }
 
-.carousel-caption h3 {
-    font-size: 2em;
-    /* margin-top: 650px; */
-    padding: 20px;
-    /* background: rgba(0, 0, 0, 0.5); */
-    border-radius: 5px;
+.arrow .goto { 
+  position: absolute; 
+  inset: 0; 
+  display: none; 
+  cursor: pointer; 
 }
 
-.carousel-indicators li {
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+@media (hover: none) {
+  .slider .arrow {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
 }
 
-.carousel-indicators .active {
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+.slider .arrow svg {
+  width: 58px;
+  height: 58px;
+  transition: fill .25s ease, transform .12s ease, filter .25s ease;
+  filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+}
+
+.slider .arrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--arrow-grad, linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,0)));
+  opacity: 0; 
+  transform: scaleX(0.9);
+  transform-origin: left;
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+
+.slider .prev { --arrow-grad: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,0)); }
+.slider .next { --arrow-grad: linear-gradient(to left,  rgba(0,0,0,.5), rgba(0,0,0,0)); }
+.slider .next::before { transform-origin: right; }
+
+.slider .arrow:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.slider .arrow:hover svg {
+  fill: #fff;
+  transform: scale(1.04);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));
+}
+
+.slider .prev:hover svg { transform: translateX(-2px) scale(1.04); }
+.slider .next:hover svg { transform: translateX( 2px) scale(1.04); }
+
+@media (prefers-reduced-motion: reduce) {
+  .slider .arrow::before { transition: opacity .2s ease; transform: none; }
+  .slider .arrow:hover::before { transform: none; }
+  .slider .arrow svg { transition: fill .2s ease; transform: none; }
+}
+
+.slider .arrow {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .06s ease, background .2s ease;
+}
+
+.slider:hover .arrow,
+.slider:focus-within .arrow {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.prev { left: 0px; }
+.next { right: 0px; }
+
+.progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+  overflow: hidden;
+  z-index: 5;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: rgb(255, 45, 85);
+  transition: none;
 }
 
 #intro {

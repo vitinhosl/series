@@ -5,7 +5,6 @@ const seriesData = [
             //A TERRA PROMETIDA
             {
                 name: "A Terra Prometida",
-                thumb_page: "https://i.imgur.com/H7LkieU.png",
                 thumb_buttons: [
                     "https://i.imgur.com/HFGzr9d.jpeg",
                     // "https://i.imgur.com/3FzZHWW.jpeg",
@@ -15,6 +14,19 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: true,
+                    title: "A TERRA PROMETIDA",
+                    logo: "", //https://i.imgur.com/J5WkXJP.png
+                    thumb: "https://i.imgur.com/H7LkieU.png",
+                    text: "Destaque",
+                    description: `
+                        Após a morte de Moisés, Josué é o novo líder dos hebreus 
+                        e terá que cumprir uma difícil missão ordenada por Deus: 
+                        Comandar as 12 tribos de Israel na conquista de Canaã, 
+                        a Terra Prometida. Continuação da saga Os Dez Mandamentos.
+                    `
+                },
                 home_carrousel : {
                     title: "",
                     thumb: "",
@@ -224,7 +236,6 @@ const seriesData = [
             //OS DEZ MANDAMENTOS - 2 TEMPORADAS
             {
                 name: "Os Dez Mandamentos",
-                thumb_page: "https://i.imgur.com/v0uF3s6.png",
                 thumb_buttons: [
                     "https://i.imgur.com/qUETt6r.jpeg",
                     // "https://images.justwatch.com/poster/301798516/s166/os-dez-mandamentos.avif"
@@ -234,6 +245,19 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: true,
+                    title: "OS DEZ MANDAMENTOS",
+                    logo: "", //https://i.imgur.com/MJL97ex.png
+                    thumb: "https://i.imgur.com/v0uF3s6.png",
+                    text: "Destaque",
+                    description: `
+                        Grande sucesso da televisão brasileira, este épico bíblico 
+                        narra a saga de Moisés, o hebreu que escapou da morte ainda 
+                        bebê, virou príncipe do Egito e acabou se transformando no 
+                        líder escolhido por Deus para libertar seu povo da escravidão.
+                    `
+                },
                 description: {
                     title: "OS DEZ MANDAMENTOS",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
@@ -3318,6 +3342,10 @@ const seriesData = [
 ];
 
 // localStorage.clear();
+const selectedThumbs           = {};
+const thumbnailCache           = {};
+const slideDuration            = 5;
+const dragPercentThreshold     = 0.30;
 let autoPlay                   = true;
 let fullEpisodesList           = true;
 let animationReverseEpisodes   = false;
@@ -3338,8 +3366,6 @@ let favorites                  = JSON.parse(localStorage.getItem('favorites')) |
 let continues                  = JSON.parse(localStorage.getItem('continues')) || {};
 let currentSeasonDropdownValue = 'all';
 let seasonExpandedState        = {};
-const selectedThumbs           = {};
-const thumbnailCache           = {};
 
 //SERIE ATUAL
 function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) {
@@ -4393,111 +4419,495 @@ function filterSeries() {
 }
 
 function renderCarousel() {
-    const carouselIndicators = document.getElementById('carousel-indicators');
-    const carouselInner = document.getElementById('carousel-inner');
-    const $carousel = jQuery('#myCarousel');
-    const $bar = jQuery('.transition-timer-carousel-progress-bar');
+  const slider = document.querySelector('.slider');
+  const slidesContainer = document.getElementById('slides');
+  const dotsContainer = document.getElementById('dots');
+  const progressBar = document.getElementById('progressBar');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
-    const seriesWithThumbPage = seriesData
-        .flatMap(group => group.group)
-        .filter(serie => serie.thumb_page && serie.thumb_page.trim() !== "");
+  slider.querySelectorAll(':scope > input[type="radio"]').forEach(n => n.remove());
+  if (slidesContainer) slidesContainer.innerHTML = '';
+  if (dotsContainer) dotsContainer.innerHTML = '';
 
-    if (seriesWithThumbPage.length === 0) {
-        $carousel.hide();
-        return;
+  if (!seriesData[0]?.group || seriesData[0].group.length === 0) {
+    removeControlsBottom(slider);
+    if (dotsContainer) dotsContainer.style.display = 'none';
+    if (progressBar) progressBar.style.display = 'none';
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    return;
+  }
+
+  const enabledSeries = seriesData[0].group.filter(item => item.carrousel && item.carrousel.enabled !== false);
+  if (enabledSeries.length === 0) {
+    removeControlsBottom(slider);
+    if (dotsContainer) dotsContainer.style.display = 'none';
+    if (progressBar) progressBar.style.display = 'none';
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    return;
+  }
+
+  const totalSlides = enabledSeries.length;
+
+  if (totalSlides === 1) {
+    const carrousel = enabledSeries[0].carrousel;
+
+    const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
+      ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
+      : carrousel.title;
+
+    slidesContainer.innerHTML = `
+      <section class="slide" style="--bg: url('${carrousel.thumb}')">
+        <div class="content">
+          <h1 class="brand-title">${titleContent}</h1>
+          <span class="chip new">${carrousel.text ?? ''}</span>
+          <p class="desc">${(carrousel.description || '').trim()}</p>
+          <div class="actions">
+            <button class="btn primary">ASSISTIR</button>
+            <button class="btn">FAVORITAR</button>
+          </div>
+        </div>
+      </section>
+    `;
+
+    // esconder/limpar tudo que não faz sentido com 1 slide
+    removeControlsBottom(slider);
+    if (dotsContainer) { dotsContainer.innerHTML = ''; dotsContainer.style.display = 'none'; }
+    if (progressBar) progressBar.style.display = 'none';
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+
+    // largura única
+    const slidesElement = document.querySelector('.slides');
+    if (slidesElement) slidesElement.style.width = '100%';
+    document.querySelectorAll('.slide').forEach(s => s.style.width = '100%');
+
+    // limpa regras dinâmicas anteriores (se houver)
+    const dynStyle = getOrCreateStyleTag('carousel-dynamic-rules');
+    dynStyle.textContent = '';
+
+    return;
+  }
+
+  if (dotsContainer) dotsContainer.style.display = '';
+  if (progressBar) { progressBar.style.display = ''; progressBar.style.width = '0%'; }
+  if (prevBtn) prevBtn.style.display = '';
+  if (nextBtn) nextBtn.style.display = '';
+
+  let pauseCheckbox = injectPlayPause(slider);
+
+  const slidesHTML = [];
+  const radios = [];
+  const dotsHTML = [];
+
+  enabledSeries.forEach((item, index) => {
+    const carrousel = item.carrousel;
+    const radioId = `s${index + 1}`;
+    const isFirst = index === 0;
+
+    // Radio
+    radios.push(`<input ${isFirst ? 'checked' : ''} type="radio" name="slider" id="${radioId}">`);
+
+    // Slide
+    const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
+      ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
+      : carrousel.title;
+
+    slidesHTML.push(`
+      <section class="slide" style="--bg: url('${carrousel.thumb}')">
+        <div class="content">
+          <h1 class="brand-title">${titleContent}</h1>
+          <span class="chip new">${carrousel.text ?? ''}</span>
+          <p class="desc">${(carrousel.description || '').trim()}</p>
+          <div class="actions">
+            <button class="btn primary">ASSISTIR</button>
+            <button class="btn">FAVORITAR</button>
+          </div>
+        </div>
+      </section>
+    `);
+
+    // Dot
+    dotsHTML.push(`<label for="${radioId}"></label>`);
+  });
+
+  // Clone do primeiro no final
+  const firstEnabledItem = enabledSeries[0];
+  const cloneTitleContent = (firstEnabledItem.carrousel.logo && firstEnabledItem.carrousel.logo.trim() !== '')
+    ? `<img src="${firstEnabledItem.carrousel.logo}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo">`
+    : firstEnabledItem.carrousel.title;
+
+  slidesHTML.push(`
+    <section class="slide clone" style="--bg: url('${firstEnabledItem.carrousel.thumb}')">
+      <div class="content">
+        <h1 class="brand-title">${cloneTitleContent}</h1>
+        <span class="chip new">${firstEnabledItem.carrousel.text ?? ''}</span>
+        <p class="desc">${(firstEnabledItem.carrousel.description || '').trim()}</p>
+        <div class="actions">
+          <button class="btn primary">ASSISTIR</button>
+          <button class="btn">FAVORITAR</button>
+        </div>
+      </div>
+    </section>
+  `);
+  radios.push(`<input type="radio" name="slider" id="s${totalSlides + 1}">`);
+
+  // Injeta rádios e slides
+  slider.insertAdjacentHTML('afterbegin', radios.join(''));
+  slidesContainer.innerHTML = slidesHTML.join('');
+  dotsContainer.innerHTML = dotsHTML.join('');
+
+  // Larguras dinâmicas (incluindo clone)
+  const slidesElement = document.querySelector('.slides');
+  slidesElement.style.width = `${100 * (totalSlides + 1)}%`;
+  document.querySelectorAll('.slide').forEach(slide => {
+    slide.style.width = `${100 / (totalSlides + 1)}%`;
+  });
+
+  const slides = document.querySelector('.slider .slides');
+  const radioInputs = [...document.querySelectorAll('.slider input[type="radio"]')];
+  const s1 = document.getElementById('s1'); // primeiro real
+
+  // ===== Config =====
+  const flingVelocityThreshold = 0.65;
+  const rubberbandFactor = 0.35;
+
+  // ===== Estado =====
+  let startTime, rafId;
+  let paused = false;
+  let isManuallyPaused = false;
+  let elapsedBeforePause = 0;
+  let isTransitioning = false;
+
+  // Drag
+  let isDragging = false;
+  let startX = 0;
+  let dragDistance = 0;
+  let baseOffset = 0;
+  let slideWidth = 0;
+  let lastX = 0, lastT = 0, velocity = 0;
+
+  function injectPlayPause(slider) {
+    // Evita duplicar se já existir (ex: re-render)
+    const existing = slider.querySelector('.dots-play-btn');
+    if (existing) return existing;
+
+    const controlsBottom = document.createElement('div');
+    controlsBottom.className = 'controls-bottom';
+
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'dots-container';
+
+    const label = document.createElement('label');
+    label.className = 'dots-toggle';
+    label.setAttribute('aria-label', 'Reproduzir/Pausar');
+
+    const input = document.createElement('input');
+    input.className = 'dots-play-btn';
+    input.type = 'checkbox';
+    input.checked = true; // começa em PLAY
+
+    label.appendChild(input);
+    dotsWrap.appendChild(label);
+    controlsBottom.appendChild(dotsWrap);
+    slider.appendChild(controlsBottom);
+
+    return input;
+  }
+
+  function removeControlsBottom(slider) {
+    const el = slider.querySelector('.controls-bottom');
+    if (el) el.remove();
+  }
+
+  function getOrCreateStyleTag(id) {
+    let style = document.getElementById(id);
+    if (!style) {
+        style = document.createElement('style');
+        style.id = id;
+        document.head.appendChild(style);
+    }
+    return style;
+  }
+
+  const getIndex = () => radioInputs.findIndex(r => r.checked);
+  const clearInlineTransform = () => { slides.style.transform = ''; };
+
+  function measureSlideWidthAndGap() {
+    const first = slides.firstElementChild;
+    if (!first) return slider.clientWidth;
+    const rect = first.getBoundingClientRect();
+    const mr = parseFloat(getComputedStyle(first).marginRight) || 0;
+    return rect.width + mr;
+  }
+
+  function toggleManualPause(isChecked) {
+    if (isChecked) { // checked = PLAY
+      isManuallyPaused = false;
+      if (progressBar) progressBar.style.opacity = '1';
+      if (!slider.matches(':hover') && !isDragging) resumeTimer();
+    } else {         // unchecked = PAUSE
+      isManuallyPaused = true;
+      pauseTimer();
+      if (progressBar) progressBar.style.opacity = '0';
+    }
+  }
+
+  function onTransitionEnd() {
+    slides.removeEventListener('transitionend', onTransitionEnd);
+    isTransitioning = false;
+    if (!paused) restartTimer();
+  }
+
+  function nextSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    const i = getIndex();
+    const lastRealIndex = radioInputs.length - 2; // penúltimo = último real
+
+    if (i === lastRealIndex) {
+      // vai pro clone final e depois teleporta pro primeiro real
+      radioInputs[i + 1].checked = true;
+      const onEnd = () => {
+        slides.removeEventListener('transitionend', onEnd);
+        slides.classList.add('no-anim');
+        s1 && (s1.checked = true);
+        void slides.offsetWidth; // reflow
+        slides.classList.remove('no-anim');
+        isTransitioning = false;
+        if (!paused) restartTimer();
+      };
+      slides.addEventListener('transitionend', onEnd);
     } else {
-        $carousel.show();
+      const nextIndex = (i + 1) % radioInputs.length;
+      radioInputs[nextIndex].checked = true;
+      slides.addEventListener('transitionend', onTransitionEnd);
+    }
+  }
+
+  function prevSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    const i = getIndex();
+    const lastRealIndex = radioInputs.length - 2; // último real
+    const firstRealIndex = 0;
+
+    if (i === firstRealIndex) {
+      // salta pro clone do fim e volta pro último real
+      slides.classList.add('no-anim');
+      radioInputs[radioInputs.length - 1].checked = true; // clone final
+      void slides.offsetWidth;
+      slides.classList.remove('no-anim');
+      radioInputs[lastRealIndex].checked = true;
+    } else {
+      radioInputs[i - 1].checked = true;
+    }
+    slides.addEventListener('transitionend', onTransitionEnd);
+  }
+
+  function updateProgressBar() {
+    if (paused) return;
+    const elapsed = Date.now() - startTime;
+    const percent = Math.min((elapsed / (slideDuration * 1000)) * 100, 100);
+    if (progressBar) progressBar.style.width = percent + '%';
+    if (percent >= 100) {
+      nextSlide();
+    } else {
+      rafId = requestAnimationFrame(updateProgressBar);
+    }
+  }
+
+  function restartTimer() {
+    cancelAnimationFrame(rafId);
+    startTime = Date.now();
+    if (progressBar) progressBar.style.width = '0%';
+    if (!paused) {
+      rafId = requestAnimationFrame(updateProgressBar);
+    } else {
+      elapsedBeforePause = 0;
+    }
+  }
+
+  function pauseTimer() {
+    if (paused) return;
+    paused = true;
+    cancelAnimationFrame(rafId);
+    elapsedBeforePause = Date.now() - startTime;
+  }
+
+  function resumeTimer() {
+    if (isManuallyPaused || !paused) return;
+    paused = false;
+    startTime = Date.now() - elapsedBeforePause;
+    rafId = requestAnimationFrame(updateProgressBar);
+  }
+
+  function startDragging(e) {
+    if (isTransitioning) return;
+    isDragging = true;
+
+    const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+    startX = lastX = pageX;
+    lastT = performance.now();
+    dragDistance = 0;
+    velocity = 0;
+
+    pauseTimer();
+
+    slideWidth = measureSlideWidthAndGap();
+    const i = getIndex();
+    baseOffset = -(i * slideWidth);
+
+    slides.classList.add('no-anim');
+    slides.style.willChange = 'transform';
+    slides.style.cursor = 'grabbing';
+    slides.style.transform = `translateX(${baseOffset}px)`;
+
+    if (e.cancelable) e.preventDefault();
+  }
+
+  function drag(e) {
+    if (!isDragging) return;
+
+    const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+
+    // velocidade px/ms (pra flick)
+    const now = performance.now();
+    velocity = (pageX - lastX) / Math.max(1, (now - lastT));
+    lastX = pageX;
+    lastT = now;
+
+    dragDistance = pageX - startX;
+
+    // alvo + rubberband nas bordas
+    let desired = baseOffset + dragDistance;
+    const maxOffset = -((radioInputs.length - 1) * slideWidth);
+
+    if (desired > 0) {
+      desired = desired * rubberbandFactor; // borracha na esquerda
+    } else if (desired < maxOffset) {
+      desired = maxOffset + (desired - maxOffset) * rubberbandFactor; // direita
     }
 
-    carouselIndicators.innerHTML = '';
-    carouselInner.innerHTML = '';
+    slides.style.transform = `translateX(${desired}px)`;
+    if (e.cancelable) e.preventDefault();
+  }
 
-    seriesWithThumbPage.forEach((serie, index) => {
-        const indicator = document.createElement('li');
-        indicator.setAttribute('data-target', '#myCarousel');
-        indicator.setAttribute('data-slide-to', index);
-        if (index === 0) indicator.classList.add('active');
-        carouselIndicators.appendChild(indicator);
+  function endDragging() {
+if (!isDragging) return;
+isDragging = false;
 
-        const item = document.createElement('div');
-        item.classList.add('item');
-        if (index === 0) item.classList.add('active');
-        item.innerHTML = `
-            <div class="container">
-                <div class="carousel-caption" style="background-image: url('${serie.thumb_page}'); background-size: cover; background-position: center;">
-                    <h3>${serie.name}</h3>
-                </div>
-            </div>
-        `;
-        carouselInner.appendChild(item);
-    });
+slides.style.cursor = 'grab';
+slides.style.willChange = '';
+slides.classList.remove('no-anim');
 
-    const slideDuration = 4000;
-    let startTime;
-    let pausedPercent = 0;
-    let barInterval;
+const moved = Math.abs(dragDistance);
+const movedFraction = moved / Math.max(1, slideWidth);
+const fastSwipe = Math.abs(velocity) > flingVelocityThreshold;
 
-    $carousel.carousel({
-        interval: false,
-        pause: true
-    });
+// >>> FIX: se praticamente não mexeu (duplo-clique / clique), limpa o transform inline
+if (moved < 2) {
+    clearInlineTransform();
+    dragDistance = 0;           // zera estado pra não poluir próximos cliques
+    velocity = 0;
+    if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
+    return;
+}
 
-    function progressBarCarousel() {
-        const elapsedTime = Date.now() - startTime;
-        let percent = (elapsedTime / slideDuration) * 100;
+if (movedFraction >= dragPercentThreshold || fastSwipe) {
+    clearInlineTransform();
+    if (dragDistance < 0) nextSlide(); else prevSlide();
+} else {
+    // volta pro slide atual com animação
+    slides.style.transform = `translateX(${baseOffset}px)`;
 
-        if (percent >= 100) {
-            percent = 0;
-            $bar.css({ width: '100%' });
-            $carousel.carousel('next');
-            return;
-        }
+    const onBack = () => {
+    slides.removeEventListener('transitionend', onBack);
+    clearInlineTransform();   // garante que css dos radios volta a mandar
+    if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
+    };
+    slides.addEventListener('transitionend', onBack, { once: true });
 
-        $bar.css({ width: percent + '%' });
-        pausedPercent = percent;
+    // Fallback extra: se por algum motivo não houver transição, limpa depois de um tick
+    requestAnimationFrame(() => {
+    // se ainda há transform inline e não está em transição visível, limpa mesmo assim
+    // (evita travar por valores idênticos)
+    if (slides.style.transform) {
+        // dá mais um frame pra chance da transição iniciar
+        requestAnimationFrame(() => {
+        if (slides.style.transform) clearInlineTransform();
+        });
     }
-
-    function startProgressBar() {
-        clearInterval(barInterval);
-        if (pausedPercent === 0) {
-            startTime = Date.now();
-            $bar.css({ width: '0%' });
-        } else {
-            const elapsedTime = (pausedPercent / 100) * slideDuration;
-            startTime = Date.now() - elapsedTime;
-            $bar.css({ width: pausedPercent + '%' });
-        }
-        barInterval = setInterval(progressBarCarousel, 30);
-    }
-
-    startProgressBar();
-
-    jQuery('.carousel-indicators li, .carousel-control').click(function () {
-        pausedPercent = 0;
-        clearInterval(barInterval);
-        startProgressBar();
     });
+}
+  }
 
-    $carousel.on('slide.bs.carousel', function () {
-        pausedPercent = 0;
-        clearInterval(barInterval);
-        $bar.css({ width: '0%' });
+
+  slider.addEventListener('mouseenter', () => {
+    if (!isManuallyPaused) pauseTimer();
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    if (!isManuallyPaused && !isDragging) resumeTimer();
+  });
+
+  slides.addEventListener('mousedown', startDragging);
+  slides.addEventListener('mousemove', drag);
+  slides.addEventListener('mouseup', endDragging);
+  slides.addEventListener('mouseleave', endDragging);
+
+  slides.addEventListener('touchstart', startDragging, { passive: false });
+  slides.addEventListener('touchmove', drag, { passive: false });
+  slides.addEventListener('touchend', endDragging);
+
+  slides.addEventListener('click', (e) => {
+    if (Math.abs(dragDistance) > 3) e.preventDefault();
+  }, true);
+
+  if (pauseCheckbox) {
+    pauseCheckbox.addEventListener('change', (e) => {
+      toggleManualPause(e.target.checked);
     });
+  }
 
-    $carousel.on('slid.bs.carousel', function () {
-        startProgressBar();
-    });
+  radioInputs.forEach(radio => radio.addEventListener('change', () => {
+  clearInlineTransform();                 // <<< garante que CSS dos radios prevaleça
+  if (!paused) restartTimer();
+  slides.addEventListener('transitionend', onTransitionEnd, { once: true });
+  }));
 
-    if (!(/Mobi/.test(navigator.userAgent))) {
-        $carousel.hover(
-            function () {
-                clearInterval(barInterval);
-            },
-            function () {
-                startProgressBar();
-            }
-        );
-    }
+  if (nextBtn) nextBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  clearInlineTransform();
+  nextSlide();
+  });
+  
+  if (prevBtn) prevBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  clearInlineTransform();
+  prevSlide();
+  });
+
+  const style = getOrCreateStyleTag('carousel-dynamic-rules');
+  const cssRules = radioInputs.map((_, index) => {
+    return `#s${index + 1}:checked ~ .slides { transform: translateX(-${index * 100 / (totalSlides + 1)}%); }`;
+  }).join('\n');
+
+  const dotRules = enabledSeries.map((_, index) => {
+    return `#s${index + 1}:checked ~ .dots label[for="s${index + 1}"] { background: #fff; width: 40px; }`;
+  }).join('\n');
+
+  const cloneDotRule = `#s${totalSlides + 1}:checked ~ .dots label[for="s1"] { background: #fff; width: 40px; }`;
+
+  style.textContent = `${cssRules}\n${dotRules}\n${cloneDotRule}`;
+
+  const initialPlay = pauseCheckbox ? pauseCheckbox.checked : true;
+  toggleManualPause(initialPlay);
+  restartTimer();
 }
 
 function renderSeriesButtons(filteredGroups) {

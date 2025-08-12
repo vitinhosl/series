@@ -66,21 +66,31 @@
         <div id="logs-section" class="hidden"></div>
 
         <div id="home" class="show">
-            <div id="myCarousel" class="carousel slide myCarousel" data-interval="false" data-ride="carousel">
-                <ol class="carousel-indicators" id="carousel-indicators"></ol>
-                <div class="carousel-inner" id="carousel-inner"></div>
-                
-                <hr class="transition-timer-carousel-progress-bar" />
-
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Anterior</span>
-                </a>
-                
-                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Próximo</span>
-                </a>
+            <div class="wrapper">
+                <div class="slider" aria-label="Carrossel">
+                <div class="slides" id="slides"></div>
+                <div class="controls-bottom">
+                    <div class="dots-container">
+                    <label>
+                        <input class="dots-play-btn" type="checkbox" checked>
+                        <div class="dots-play-icon"></div>
+                        <div class="dots-pause-icon"></div>
+                    </label>
+                    </div>
+                </div>
+                <div class="dots" id="dots"></div>
+                <div class="controls">
+                    <button class="arrow prev" id="prevBtn" aria-label="Anterior" role="button" tabindex="0">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button class="arrow next" id="nextBtn" aria-label="Próximo" role="button" tabindex="0">
+                    <svg viewBox="0 0 24 24"><path d="m8.59 16.59 1.41 1.41 6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+                    </button>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                </div>
             </div>
 
             <div id="group-search">

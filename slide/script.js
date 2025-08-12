@@ -76,9 +76,6 @@ const seriesData = [
   }
 ];
 
-const slideDuration = 5;            //VELOCIDADE DO TIMER DOS SLIDERS
-const dragPercentThreshold = 0.30;  //PORCENTAGEM DE ARRASTO DO CARROUSEL
-
 function renderCarousel() {
   const slider = document.querySelector('.slider');
   const slidesContainer = document.getElementById('slides');
