@@ -73,6 +73,7 @@ body {
   background: #000 center/cover no-repeat;
   background-image: var(--bg);
 }
+
 .slide::before {
   content: "";
   position: absolute;
@@ -87,13 +88,13 @@ body {
   /* grid-template-rows: 1fr auto auto auto 1fr; */
   align-content: center;
   gap: 14px;
-  padding: clamp(80px, 3vw, 36px);
+  padding: clamp(100px, 3vw, 36px);
   max-width: 780px;
   z-index: 1;
 }
 
 .brand-title {
-  font-family: "UnifrakturMaguntia", Georgia, serif;
+  /* font-family: "UnifrakturMaguntia", Georgia, serif; */
   font-size: clamp(42px, 9vw, 88px);
   line-height: 0.95;
   letter-spacing: 1px;
@@ -344,11 +345,16 @@ body {
   }
 }
 
+.slider .arrow svg {
+  width: 58px;
+  height: 58px;
+}
+
 .arrow {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 150px;
+  width: 100px;
   font-size: 50px;
   background: transparent;
   border: none;
@@ -358,6 +364,28 @@ body {
   pointer-events: auto;
   cursor: pointer; 
   transition: background 0.2s, transform 0.06s, opacity 0.2s;
+}
+
+.slider .arrow {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .06s ease, background .2s ease;
+}
+
+.slider:hover .arrow,
+.slider:focus-within .arrow {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+@media (hover: none) {
+  .slider .arrow {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
 }
 
 .arrow:hover { 
@@ -370,14 +398,19 @@ body {
 .arrow svg { 
   width: 22px; 
   height: 22px; 
-  fill: #fff; 
+  fill: rgb(154, 154, 154); 
   pointer-events: none; 
+}
+
+.arrow:hover svg {
+  fill: rgb(255, 255, 255);
 }
 
 .prev { left: 0px; }
 .next { right: 0px; }
 
-.prev:hover { 
+.prev:hover {
+  /* background: rgba(255, 255, 255, 0.5); */
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
   background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
@@ -386,6 +419,7 @@ body {
 }
 
 .next:hover { 
+  /* background: rgba(255, 255, 255, 0.5); */
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
   background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));

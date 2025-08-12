@@ -76,7 +76,8 @@ const seriesData = [
   }
 ];
 
-const slideDuration = 5;
+const slideDuration = 5;            //VELOCIDADE DO TIMER DOS SLIDERS
+const dragPercentThreshold = 0.30;  //PORCENTAGEM DE ARRASTO DO CARROUSEL
 
 function renderCarousel() {
   const slider = document.querySelector('.slider');
@@ -231,7 +232,6 @@ function renderCarousel() {
   const s1 = document.getElementById('s1'); // primeiro real
 
   // ===== Config =====
-  const dragPercentThreshold = 0.30;
   const flingVelocityThreshold = 0.65;
   const rubberbandFactor = 0.35;
 
