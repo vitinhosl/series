@@ -1,14 +1,3 @@
-:root {
-  --page-bg: rgb(37, 37, 37);
-  --text: #f4f4f4;
-  --muted: #cfcfcf;
-  --brand: rgb(255, 45, 85);
-  --chip: #222;
-  --chip-bd: #333;
-  --age-bg: #f39c12;
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
-}
-
 * { 
   box-sizing: border-box; 
 }
@@ -20,8 +9,8 @@ html, body {
 body { 
   margin: 0; 
   font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; 
-  background: var(--page-bg); 
-  color: var(--text); 
+  background: rgb(37, 37, 37);
+  color: rgb(244, 244, 244); 
 }
 
 .wrapper { 
@@ -35,12 +24,12 @@ body {
 .slider {
   position: relative;
   width: 100%;
-  max-height: 800px;
+  max-height: 600px;
   margin: 24px auto;
   /* border-radius: 16px; */
   overflow: hidden;
   background: #000;
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
 }
 
 .slider input[type="radio"] { 
@@ -78,7 +67,12 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 85%), radial-gradient(60% 80% at 20% 50%, rgba(0,0,0,0.60), transparent 60%);
+  background: linear-gradient(90deg, 
+  rgba(0,0,0,0.75) 0%, 
+  rgba(0,0,0,0.55) 35%, 
+  rgba(0,0,0,0.25) 60%, 
+  rgba(0,0,0,0) 85%), 
+  radial-gradient(60% 80% at 20% 50%, rgba(0,0,0,0.40), transparent 60%);
 }
 
 .slider .slides, .slider .slides * {
@@ -118,9 +112,9 @@ body {
   display: inline-flex;
   align-items: center;
   /* gap: 8px; */
-  border: 1px solid var(--chip-bd);
-  background: var(--chip);
-  color: var(--muted);
+  border: 1px solid rgb(51, 51, 51);
+  background: rgb(34, 34, 34);
+  color: rgb(207, 207, 207);
   padding: 4px 8px;
   font-size: 12px;
   border-radius: 999px;
@@ -135,7 +129,7 @@ body {
 }
 
 .chip.age { 
-  background: var(--age-bg); 
+  background: rgb(243, 156, 18); 
   color: #111; 
   border-color: transparent; 
   font-weight: 700; 
@@ -171,7 +165,7 @@ body {
 }
 
 .btn.primary { 
-  background: var(--brand); 
+  background: rgb(255, 45, 85); 
   box-shadow: 0 6px 18px rgba(255,45,85,0.35); 
 }
 
@@ -246,7 +240,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  /* background: conic-gradient(var(--brand), rgba(255, 45, 85, 0.45)); */
+  /* background: conic-gradient(rgb(255, 45, 85), rgba(255, 45, 85, 0.45)); */
   cursor: pointer;
   outline: none;
   border: solid 2px rgba(255, 255, 255, 0.35);
@@ -292,7 +286,7 @@ body {
   height: 25px;
   left: 72%;
   top: 55%;
-  background-color: var(--brand);
+  background-color: rgb(255, 45, 85);
   transform: translate(-60%, -50%) rotate(90deg);
   clip-path: polygon(50% 15%, 0% 100%, 100% 100%);
   transition: all 400ms ease-in-out;
@@ -351,11 +345,6 @@ body {
   }
 }
 
-.slider .arrow svg {
-  width: 58px;
-  height: 58px;
-}
-
 .arrow {
   position: absolute;
   top: 0;
@@ -372,6 +361,71 @@ body {
   transition: background 0.2s, transform 0.06s, opacity 0.2s;
 }
 
+.arrow svg { 
+  width: 22px; 
+  height: 22px; 
+  fill: rgb(154, 154, 154); 
+  pointer-events: none; 
+}
+
+.arrow .goto { 
+  position: absolute; 
+  inset: 0; 
+  display: none; 
+  cursor: pointer; 
+}
+
+@media (hover: none) {
+  .slider .arrow {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.slider .arrow svg {
+  width: 58px;
+  height: 58px;
+  transition: fill .25s ease, transform .12s ease, filter .25s ease;
+  filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+}
+
+.slider .arrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--arrow-grad, linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,0)));
+  opacity: 0; 
+  transform: scaleX(0.9);
+  transform-origin: left;
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+
+.slider .prev { --arrow-grad: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,0)); }
+.slider .next { --arrow-grad: linear-gradient(to left,  rgba(0,0,0,.5), rgba(0,0,0,0)); }
+.slider .next::before { transform-origin: right; }
+
+.slider .arrow:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.slider .arrow:hover svg {
+  fill: #fff;
+  transform: scale(1.04);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));
+}
+
+.slider .prev:hover svg { transform: translateX(-2px) scale(1.04); }
+.slider .next:hover svg { transform: translateX( 2px) scale(1.04); }
+
+@media (prefers-reduced-motion: reduce) {
+  .slider .arrow::before { transition: opacity .2s ease; transform: none; }
+  .slider .arrow:hover::before { transform: none; }
+  .slider .arrow svg { transition: fill .2s ease; transform: none; }
+}
+
 .slider .arrow {
   opacity: 0;
   visibility: hidden;
@@ -386,59 +440,8 @@ body {
   pointer-events: auto;
 }
 
-@media (hover: none) {
-  .slider .arrow {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-}
-
-.arrow:hover { 
-}
-
-.arrow:active { 
-  /* transform: translateY(-50%) scale(0.97);  */
-}
-
-.arrow svg { 
-  width: 22px; 
-  height: 22px; 
-  fill: rgb(154, 154, 154); 
-  pointer-events: none; 
-}
-
-.arrow:hover svg {
-  fill: rgb(255, 255, 255);
-}
-
 .prev { left: 0px; }
 .next { right: 0px; }
-
-.prev:hover {
-  /* background: rgba(255, 255, 255, 0.5); */
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
-  background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
-}
-
-.next:hover { 
-  /* background: rgba(255, 255, 255, 0.5); */
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
-  background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
-}
-
-.arrow .goto { 
-  position: absolute; 
-  inset: 0; 
-  display: none; 
-  cursor: pointer; 
-}
 
 .progress-bar-container {
   position: absolute;
@@ -454,6 +457,6 @@ body {
 .progress-bar {
   height: 100%;
   width: 0%;
-  background: var(--brand);
+  background: rgb(255, 45, 85);
   transition: none;
 }
