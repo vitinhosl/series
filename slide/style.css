@@ -34,8 +34,8 @@ body {
 
 .slider {
   position: relative;
-    width: 100%;
-    max-height: 800px;
+  width: 100%;
+  max-height: 800px;
   margin: 24px auto;
   /* border-radius: 16px; */
   overflow: hidden;
@@ -81,6 +81,11 @@ body {
   background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 85%), radial-gradient(60% 80% at 20% 50%, rgba(0,0,0,0.60), transparent 60%);
 }
 
+.slider .slides, .slider .slides * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .content {
   position: relative;
   height: 100%;
@@ -95,10 +100,11 @@ body {
 
 .brand-title {
   /* font-family: "UnifrakturMaguntia", Georgia, serif; */
-  font-size: clamp(42px, 9vw, 88px);
+  /* font-size: clamp(42px, 9vw, 88px); */
   line-height: 0.95;
   letter-spacing: 1px;
   text-shadow: 0 3px 10px rgba(0,0,0,0.55);
+  font-size: 30px;
 }
 
 .row { 
@@ -243,7 +249,7 @@ body {
   /* background: conic-gradient(var(--brand), rgba(255, 45, 85, 0.45)); */
   cursor: pointer;
   outline: none;
-  border: solid 2px var(--brand);
+  border: solid 2px rgba(255, 255, 255, 0.35);
 }
 
 .dots-play-btn::before {
@@ -266,16 +272,16 @@ body {
 @keyframes borderAnimate {
   0% {
     transform: rotate(0);
-    background: conic-gradient(var(--brand), transparent 20%);
+    background: conic-gradient(rgba(255, 255, 255, 0.35), transparent 20%);
   }
 
   80% {
-    background: conic-gradient(var(--brand), transparent 90%);
+    background: conic-gradient(rgba(255, 255, 255, 0.35), transparent 90%);
   }
 
   100% {
     transform: rotate(360deg);
-    background: conic-gradient(var(--brand), var(--brand));
+    background: conic-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35));
     background: transparent;
   }
 }
@@ -312,7 +318,7 @@ body {
   position: absolute;
   width: 0%;
   height: 100%;
-  background-color: var(--brand);
+  background-color: rgba(255, 255, 255, 0.96);
   left: 0;
 }
 
@@ -321,7 +327,7 @@ body {
   position: absolute;
   width: 0;
   height: 100%;
-  background-color: var(--brand);
+  background-color: rgba(255, 255, 255, 0.96);
   right: 0;
 }
 

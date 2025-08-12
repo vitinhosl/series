@@ -459,30 +459,54 @@ function renderCarousel() {
   }
 
   function endDragging() {
-    if (!isDragging) return;
-    isDragging = false;
+if (!isDragging) return;
+isDragging = false;
 
-    slides.style.cursor = 'grab';
-    slides.style.willChange = '';
-    slides.classList.remove('no-anim');
+slides.style.cursor = 'grab';
+slides.style.willChange = '';
+slides.classList.remove('no-anim');
 
-    const movedFraction = Math.abs(dragDistance) / Math.max(1, slideWidth);
-    const fastSwipe = Math.abs(velocity) > flingVelocityThreshold;
+const moved = Math.abs(dragDistance);
+const movedFraction = moved / Math.max(1, slideWidth);
+const fastSwipe = Math.abs(velocity) > flingVelocityThreshold;
 
-    if (movedFraction >= dragPercentThreshold || fastSwipe) {
-      clearInlineTransform();
-      if (dragDistance < 0) nextSlide(); else prevSlide();
-    } else {
-      // volta pro slide atual com animação
-      slides.style.transform = `translateX(${baseOffset}px)`;
-      const onBack = () => {
-        slides.removeEventListener('transitionend', onBack);
-        clearInlineTransform();
-        if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
-      };
-      slides.addEventListener('transitionend', onBack);
+// >>> FIX: se praticamente não mexeu (duplo-clique / clique), limpa o transform inline
+if (moved < 2) {
+    clearInlineTransform();
+    dragDistance = 0;           // zera estado pra não poluir próximos cliques
+    velocity = 0;
+    if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
+    return;
+}
+
+if (movedFraction >= dragPercentThreshold || fastSwipe) {
+    clearInlineTransform();
+    if (dragDistance < 0) nextSlide(); else prevSlide();
+} else {
+    // volta pro slide atual com animação
+    slides.style.transform = `translateX(${baseOffset}px)`;
+
+    const onBack = () => {
+    slides.removeEventListener('transitionend', onBack);
+    clearInlineTransform();   // garante que css dos radios volta a mandar
+    if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
+    };
+    slides.addEventListener('transitionend', onBack, { once: true });
+
+    // Fallback extra: se por algum motivo não houver transição, limpa depois de um tick
+    requestAnimationFrame(() => {
+    // se ainda há transform inline e não está em transição visível, limpa mesmo assim
+    // (evita travar por valores idênticos)
+    if (slides.style.transform) {
+        // dá mais um frame pra chance da transição iniciar
+        requestAnimationFrame(() => {
+        if (slides.style.transform) clearInlineTransform();
+        });
     }
+    });
+}
   }
+
 
   slider.addEventListener('mouseenter', () => {
     if (!isManuallyPaused) pauseTimer();
@@ -512,18 +536,21 @@ function renderCarousel() {
   }
 
   radioInputs.forEach(radio => radio.addEventListener('change', () => {
-    if (!paused) restartTimer();
-    slides.addEventListener('transitionend', onTransitionEnd);
+  clearInlineTransform();                 // <<< garante que CSS dos radios prevaleça
+  if (!paused) restartTimer();
+  slides.addEventListener('transitionend', onTransitionEnd, { once: true });
   }));
 
   if (nextBtn) nextBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    nextSlide();
+  e.preventDefault();
+  clearInlineTransform();
+  nextSlide();
   });
-
+  
   if (prevBtn) prevBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    prevSlide();
+  e.preventDefault();
+  clearInlineTransform();
+  prevSlide();
   });
 
   const style = getOrCreateStyleTag('carousel-dynamic-rules');
