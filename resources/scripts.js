@@ -12,10 +12,16 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                home_carrousel : {
+                    title: "",
+                    thumb: "",
+                    button: "",
+                    description: ``
+                },
                 description: {
                     title: "A TERRA PROMETIDA",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0068571/playplus_thumb_1600.jpg",
-                      sinopse:  `
+                    sinopse:  `
                         Após a morte de Moisés, Josué é o novo líder dos hebreus 
                         e terá que cumprir uma difícil missão ordenada por Deus: 
                         Comandar as 12 tribos de Israel na conquista de Canaã, 

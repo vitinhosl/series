@@ -1,172 +1,347 @@
-function renderCarousel() {
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelector('.slider .slides');
-    const radios = [...document.querySelectorAll('.slider input[type="radio"]')];
-    const s1 = document.getElementById('s1');
-    const s5 = document.getElementById('s5');
-    const progressBar = document.getElementById('progressBar');
+const seriesData = [
+    {
+        group_name: "SÉRIES BIBLÍCAS",
+        group: [
+            {
+                carrousel : {
+                    title: "A TERRA PROMETIDA",
+                    thumb: "https://i.imgur.com/H7LkieU.png",
+                    text: "Destaque",
+                    description: `
+                        Após a morte de Moisés, Josué é o novo líder dos hebreus 
+                        e terá que cumprir uma difícil missão ordenada por Deus: 
+                        Comandar as 12 tribos de Israel na conquista de Canaã, 
+                        a Terra Prometida. Continuação da saga Os Dez Mandamentos.
+                    `
+                },
+            },
 
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const pauseCheckbox = document.querySelector('.dots-play-btn');
+            {
+                carrousel : {
+                    title: "OS DEZ MANDAMENTOS",
+                    thumb: "https://i.imgur.com/v0uF3s6.png",
+                    text: "Destaque",
+                    description: `
+                        Grande sucesso da televisão brasileira, este épico bíblico 
+                        narra a saga de Moisés, o hebreu que escapou da morte ainda 
+                        bebê, virou príncipe do Egito eacabou se transformando no 
+                        líder escolhido por Deus para libertar seu povo da escravidão.
+                    `
+                },
+            },
 
-    const slideDuration = 5;
-    let startTime, rafId;
-    let paused = false; // Começa tocando
-    let isManuallyPaused = false; // Começa tocando
-    let elapsedBeforePause = 0;
+            {
+                carrousel : {
+                    title: "JESUS",
+                    thumb: "https://i.imgur.com/gnZ9oJ0.png",
+                    text: "Destaque",
+                    description: `
+                        Quando a história dos homens estava perto de cair em desgraça, 
+                        a história domundo muda para sempre após a chegada do Salvador. 
+                        Jesus, a novela, contapela primeira vez na íntegra a trajetória 
+                        do homem que revolucionou a humanidade com sua palavra e suas 
+                        ações e dividiu a história em dois: antes e depois de Cristo.
+                    `
+                },
+            },
 
-    let isTransitioning = false;
-
-    // --- Lógica invertida para o checkbox ---
-    function toggleManualPause(isChecked) {
-        if (isChecked) { // Checkbox marcado = modo PLAY
-            isManuallyPaused = false;
-            progressBar.style.opacity = '1';
-            // Se o mouse não estiver em cima, retoma o timer
-            if (!slider.matches(':hover')) {
-                resumeTimer();
+            {
+                carrousel : {
+                    title: "O RICO E LÁZARO",
+                    thumb: "https://i.imgur.com/sz0LCJC.png",
+                    text: "Destaque",
+                    description: `
+                        Após o governo de vários reis que se afastaram de Deus, Jerusalém 
+                        encontra-se mergulhada na idolatria. A grande amizade de Zac e Asher 
+                        é abalada pelo amor que ambos sentem pela companheira de infância, 
+                        Joana. Ao contrário deles, ela acredita nas profecias de Jeremias 
+                        e empenha-se para que o povo hebreu se volte novamente para Deus.
+                    `
+                },
             }
-        } else { // Checkbox desmarcado = modo PAUSE
-            isManuallyPaused = true;
-            pauseTimer();
-            progressBar.style.opacity = '0';
-        }
+        ]
     }
+]
 
-    // --- Funções de controle de slide e trava ---
-    function onTransitionEnd() {
-        slides.removeEventListener('transitionend', onTransitionEnd);
+function renderCarousel() {
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelector('.slider .slides');
+  const radios = [...document.querySelectorAll('.slider input[type="radio"]')];
+  const s1 = document.getElementById('s1'); // primeiro real
+  const s5 = document.getElementById('s5'); // clone do primeiro (último)
+  const progressBar = document.getElementById('progressBar');
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const pauseCheckbox = document.querySelector('.dots-play-btn');
+
+  // ===== Config =====
+  const slideDuration = 5;             // segundos (auto-play)
+  const dragPercentThreshold = 0.30;   // 30% da largura do slide
+  const flingVelocityThreshold = 0.65; // px/ms: flick rápido
+  const rubberbandFactor = 0.35;       // "borracha" nas pontas
+
+  // ===== Estado =====
+  let startTime, rafId;
+  let paused = false;
+  let isManuallyPaused = false;
+  let elapsedBeforePause = 0;
+  let isTransitioning = false;
+
+  // Drag
+  let isDragging = false;
+  let startX = 0;
+  let dragDistance = 0;
+  let baseOffset = 0;
+  let slideWidth = 0;
+  let lastX = 0, lastT = 0, velocity = 0;
+
+  // ===== Helpers =====
+  const getIndex = () => radios.findIndex(r => r.checked);
+  const clearInlineTransform = () => { slides.style.transform = ''; };
+
+  function measureSlideWidthAndGap() {
+    const first = slides.firstElementChild;
+    if (!first) return slider.clientWidth;
+    const rect = first.getBoundingClientRect();
+    const mr = parseFloat(getComputedStyle(first).marginRight) || 0;
+    return rect.width + mr;
+  }
+
+  // ===== Play/Pause (checkbox invertido) =====
+  function toggleManualPause(isChecked) {
+    if (isChecked) { // marcado = PLAY
+      isManuallyPaused = false;
+      if (progressBar) progressBar.style.opacity = '1';
+      if (!slider.matches(':hover') && !isDragging) resumeTimer();
+    } else {         // desmarcado = PAUSE
+      isManuallyPaused = true;
+      pauseTimer();
+      if (progressBar) progressBar.style.opacity = '0';
+    }
+  }
+
+  // ===== Transições =====
+  function onTransitionEnd() {
+    slides.removeEventListener('transitionend', onTransitionEnd);
+    isTransitioning = false;
+    if (!paused) restartTimer();
+  }
+
+  function nextSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    const i = getIndex();
+    const lastRealIndex = radios.length - 2; // penúltimo = último real
+
+    if (i === lastRealIndex) {
+      // vai pro clone final e depois teleporta pro primeiro real
+      radios[i + 1].checked = true;
+      const onEnd = () => {
+        slides.removeEventListener('transitionend', onEnd);
+        slides.classList.add('no-anim');
+        s1 && (s1.checked = true);
+        void slides.offsetWidth; // reflow
+        slides.classList.remove('no-anim');
         isTransitioning = false;
-        if (!paused) {
-            restartTimer();
-        }
+        if (!paused) restartTimer();
+      };
+      slides.addEventListener('transitionend', onEnd);
+    } else {
+      const nextIndex = (i + 1) % radios.length;
+      radios[nextIndex].checked = true;
+      slides.addEventListener('transitionend', onTransitionEnd);
+    }
+  }
+
+  function prevSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    const i = getIndex();
+    const lastRealIndex = radios.length - 2; // último real
+    const firstRealIndex = 0;
+
+    if (i === firstRealIndex) {
+      // salta pro clone do fim e volta pro último real
+      slides.classList.add('no-anim');
+      radios[radios.length - 1].checked = true; // clone final
+      void slides.offsetWidth;
+      slides.classList.remove('no-anim');
+      radios[lastRealIndex].checked = true;
+    } else {
+      radios[i - 1].checked = true;
+    }
+    slides.addEventListener('transitionend', onTransitionEnd);
+  }
+
+  // ===== Timer / Progress =====
+  function updateProgressBar() {
+    if (paused) return;
+    const elapsed = Date.now() - startTime;
+    const percent = Math.min((elapsed / (slideDuration * 1000)) * 100, 100);
+    if (progressBar) progressBar.style.width = percent + '%';
+    if (percent >= 100) {
+      nextSlide();
+    } else {
+      rafId = requestAnimationFrame(updateProgressBar);
+    }
+  }
+
+  function restartTimer() {
+    cancelAnimationFrame(rafId);
+    startTime = Date.now();
+    if (progressBar) progressBar.style.width = '0%';
+    if (!paused) {
+      rafId = requestAnimationFrame(updateProgressBar);
+    } else {
+      elapsedBeforePause = 0;
+    }
+  }
+
+  function pauseTimer() {
+    if (paused) return;
+    paused = true;
+    cancelAnimationFrame(rafId);
+    elapsedBeforePause = Date.now() - startTime;
+  }
+
+  function resumeTimer() {
+    if (isManuallyPaused || !paused) return;
+    paused = false;
+    startTime = Date.now() - elapsedBeforePause;
+    rafId = requestAnimationFrame(updateProgressBar);
+  }
+
+  // ===== Drag =====
+  function startDragging(e) {
+    if (isTransitioning) return;
+    isDragging = true;
+
+    const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+    startX = lastX = pageX;
+    lastT = performance.now();
+    dragDistance = 0;
+    velocity = 0;
+
+    pauseTimer();
+
+    slideWidth = measureSlideWidthAndGap();
+    const i = getIndex();
+    baseOffset = -(i * slideWidth);
+
+    slides.classList.add('no-anim');
+    slides.style.willChange = 'transform';
+    slides.style.cursor = 'grabbing';
+    slides.style.transform = `translateX(${baseOffset}px)`;
+
+    if (e.cancelable) e.preventDefault();
+  }
+
+  function drag(e) {
+    if (!isDragging) return;
+
+    const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+
+    // velocidade px/ms (pra flick)
+    const now = performance.now();
+    velocity = (pageX - lastX) / Math.max(1, (now - lastT));
+    lastX = pageX;
+    lastT = now;
+
+    dragDistance = pageX - startX;
+
+    // alvo + rubberband nas bordas
+    let desired = baseOffset + dragDistance;
+    const maxOffset = -((radios.length - 1) * slideWidth);
+
+    if (desired > 0) {
+      desired = desired * rubberbandFactor; // borracha na esquerda
+    } else if (desired < maxOffset) {
+      desired = maxOffset + (desired - maxOffset) * rubberbandFactor; // direita
     }
 
-    function nextSlide() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        const i = radios.findIndex(r => r.checked);
-        const lastRealIndex = radios.length - 2;
-        
-        if (i === lastRealIndex) {
-            radios[i + 1].checked = true;
-            const onEnd = () => {
-                slides.removeEventListener('transitionend', onEnd);
-                slides.classList.add('no-anim');
-                s1.checked = true;
-                void slides.offsetWidth;
-                slides.classList.remove('no-anim');
-                isTransitioning = false;
-                if (!paused) {
-                    restartTimer();
-                }
-            };
-            slides.addEventListener('transitionend', onEnd);
-        } else {
-            const nextIndex = (i + 1) % radios.length;
-            radios[nextIndex].checked = true;
-            slides.addEventListener('transitionend', onTransitionEnd);
-        }
+    slides.style.transform = `translateX(${desired}px)`;
+    if (e.cancelable) e.preventDefault();
+  }
+
+  function endDragging() {
+    if (!isDragging) return;
+    isDragging = false;
+
+    slides.style.cursor = 'grab';
+    slides.style.willChange = '';
+    slides.classList.remove('no-anim');
+
+    const movedFraction = Math.abs(dragDistance) / Math.max(1, slideWidth);
+    const fastSwipe = Math.abs(velocity) > flingVelocityThreshold;
+
+    if (movedFraction >= dragPercentThreshold || fastSwipe) {
+      clearInlineTransform();
+      if (dragDistance < 0) nextSlide(); else prevSlide();
+    } else {
+      // volta pro slide atual com animação
+      slides.style.transform = `translateX(${baseOffset}px)`;
+      const onBack = () => {
+        slides.removeEventListener('transitionend', onBack);
+        clearInlineTransform();
+        if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
+      };
+      slides.addEventListener('transitionend', onBack);
     }
+  }
 
-    function prevSlide() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        const i = radios.findIndex(r => r.checked);
-        const lastRealIndex = radios.length - 2;
-        const firstRealIndex = 0;
+  // ===== Eventos =====
+  slider.addEventListener('mouseenter', () => {
+    if (!isManuallyPaused) pauseTimer();
+  });
 
-        if (i === firstRealIndex) {
-            slides.classList.add('no-anim');
-            radios[radios.length - 1].checked = true;
-            void slides.offsetWidth;
-            slides.classList.remove('no-anim');
-            radios[lastRealIndex].checked = true;
-        } else {
-            radios[i - 1].checked = true;
-        }
-        slides.addEventListener('transitionend', onTransitionEnd);
-    }
+  slider.addEventListener('mouseleave', () => {
+    if (!isManuallyPaused && !isDragging) resumeTimer();
+  });
 
-    // --- Funções de controle do timer ---
-    function updateProgressBar() {
-        if (paused) return;
-        const elapsed = Date.now() - startTime;
-        const percent = Math.min((elapsed / (slideDuration * 1000)) * 100, 100);
-        progressBar.style.width = percent + '%';
-        if (percent >= 100) {
-            nextSlide();
-        } else {
-            rafId = requestAnimationFrame(updateProgressBar);
-        }
-    }
+  // Mouse
+  slides.addEventListener('mousedown', startDragging);
+  slides.addEventListener('mousemove', drag);
+  slides.addEventListener('mouseup', endDragging);
+  slides.addEventListener('mouseleave', endDragging);
 
-    function restartTimer() {
-        cancelAnimationFrame(rafId);
-        startTime = Date.now();
-        progressBar.style.width = '0%';
-        if (!paused) {
-            rafId = requestAnimationFrame(updateProgressBar);
-        } else {
-            elapsedBeforePause = 0;
-        }
-    }
+  // Touch (precisa passive:false pra preventDefault)
+  slides.addEventListener('touchstart', startDragging, { passive: false });
+  slides.addEventListener('touchmove',  drag,           { passive: false });
+  slides.addEventListener('touchend',   endDragging);
 
-    function pauseTimer() {
-        if (paused) return;
-        paused = true;
-        cancelAnimationFrame(rafId);
-        elapsedBeforePause = Date.now() - startTime;
-    }
+  // Evita clique em links se houve arrasto
+  slides.addEventListener('click', (e) => {
+    if (Math.abs(dragDistance) > 3) e.preventDefault();
+  }, true);
 
-    function resumeTimer() {
-        if (isManuallyPaused || !paused) return;
-        paused = false;
-        startTime = Date.now() - elapsedBeforePause;
-        rafId = requestAnimationFrame(updateProgressBar);
-    }
-
-    slider.addEventListener('mouseenter', () => {
-        if (!isManuallyPaused) {
-            pauseTimer();
-        }
+  if (pauseCheckbox) {
+    pauseCheckbox.addEventListener('change', (e) => {
+      toggleManualPause(e.target.checked);
     });
+  }
 
-    slider.addEventListener('mouseleave', () => {
-        if (!isManuallyPaused) {
-            resumeTimer();
-        }
-    });
+  radios.forEach(radio => radio.addEventListener('change', () => {
+    if (!paused) restartTimer();
+    slides.addEventListener('transitionend', onTransitionEnd);
+  }));
 
-    if (pauseCheckbox) {
-        pauseCheckbox.addEventListener('change', (e) => {
-            toggleManualPause(e.target.checked);
-        });
-    }
-    
-    radios.forEach(radio => radio.addEventListener('change', () => {
-        if (!paused) {
-             restartTimer();
-        }
-        slides.addEventListener('transitionend', onTransitionEnd);
-    }));
+  if (nextBtn) nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    nextSlide();
+  });
 
-    if (nextBtn) nextBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        nextSlide();
-    });
+  if (prevBtn) prevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    prevSlide();
+  });
 
-    if (prevBtn) prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        prevSlide();
-    });
-
-    // Inicia o carrossel no estado de "play", com o checkbox marcado
-    toggleManualPause(pauseCheckbox.checked);
-        restartTimer();
+  // ===== Init =====
+  const initialPlay = pauseCheckbox ? pauseCheckbox.checked : true;
+  toggleManualPause(initialPlay);
+  restartTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    renderCarousel();
-});
+document.addEventListener('DOMContentLoaded', renderCarousel);
