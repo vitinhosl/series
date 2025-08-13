@@ -544,7 +544,6 @@ const seriesData = [
             //JEZABEL
             {
                 name: "Jezabel",
-                thumb_page: "https://i.imgur.com/3NP8B3D.png",
                 thumb_buttons: [
                     "https://i.imgur.com/Z3WUXd9.jpeg",
                     // "https://pp-vod-img-aws.akamaized.net/0069716/0069716_200.jpg"
@@ -554,6 +553,19 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: true,
+                    title: "JEZABEL",
+                    logo: "",
+                    thumb: "https://i.imgur.com/3NP8B3D.png",
+                    text: "Destaque",
+                    description: `
+                        A trama contará a história da princesa fenícia Jezabel, 
+                        uma princesa idólatra que se casa com o rei Acabe e usa 
+                        sua beleza e maldade para tentar impor ao povo israelita 
+                        aceitar a adoração ao seus deuses pagãos. 
+                    `
+                },
                 description: {
                     title: "JEZABEL",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0069716/playplus_thumb_1600.jpg",
@@ -659,13 +671,25 @@ const seriesData = [
             //REI DAVI
             {
                 name: "Rei Davi",
-                thumb_page: "https://i.imgur.com/vNpBaWD.png",
                 thumb_buttons: ["https://i.imgur.com/sSJVhSO.jpeg"],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: true,
+                    title: "REI DAVI",
+                    logo: "",
+                    thumb: "https://i.imgur.com/vNpBaWD.png",
+                    text: "Destaque",
+                    description: `
+                        Rei Davi é uma mini série bíblica brasileira que 
+                        conta a história de Davi, o pastor de ovelhas que
+                        derrotou o gigante Golias e que foi escolhido 
+                        por Deus para governar seu povo.
+                    `
+                },
                 description: {
                     title: "REI DAVI",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0088301/playplus_thumb_1600.jpg",
@@ -740,7 +764,6 @@ const seriesData = [
             //JOSÉ DO EGITO
             {
                 name: "José do Egito",
-                thumb_page: "https://i.imgur.com/V2ikT7R.png",
                 thumb_buttons: [
                     "https://i.imgur.com/Oxrdzg6.jpeg",
                     // "https://pp-vod-img-aws.akamaized.net/0068517/0068517_200.jpg"
@@ -750,6 +773,19 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: true,
+                    title: "JOSÉ DO EGITO",
+                    logo: "",
+                    thumb: "https://i.imgur.com/V2ikT7R.png",
+                    text: "Destaque",
+                    description: `
+                        Após ser vendido como escravo pelos irmãos e 
+                        levado para o Egito, José é injustiçado, caluniado, 
+                        preso e humilhado. A vida de José é um exemplo 
+                        de pureza e perdão.
+                    `
+                },
                 description: {
                     title: "JEZABEL",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0068517/playplus_thumb_1600.jpg",
@@ -821,13 +857,26 @@ const seriesData = [
             //JESUS
             {
                 name: "Jesus",
-                thumb_page: "https://i.imgur.com/gnZ9oJ0.png",
                 thumb_buttons: ["https://i.imgur.com/JX2Coo5.png"],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: true,
+                    title: "JESUS",
+                    logo: "",
+                    thumb: "https://i.imgur.com/gnZ9oJ0.png",
+                    text: "Destaque",
+                    description: `
+                        Quando a história dos homens estava perto de cair em desgraça, 
+                        a história do mundo muda para sempre após a chegada do Salvador. 
+                        Jesus, a novela, conta pela primeira vez na íntegra a trajetória 
+                        do homem que revolucionou a humanidade com sua palavra e suas 
+                        ações e dividiu a história em dois: antes e depois de Cristo.
+                    `
+                },
                 description: {
                     title: "JESUS",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0347485/playplus_thumb_1600.jpg",
@@ -1047,13 +1096,26 @@ const seriesData = [
             //GÊNESIS
             {
                 name: "Gênesis",
-                thumb_page: "https://i.imgur.com/qHQejKs.png",
                 thumb_buttons: ["https://i.imgur.com/JFlXEBA.jpeg"],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                 carrousel: {
+                    enabled: true,
+                    title: "GÊNESIS",
+                    logo: "",
+                    thumb: "https://i.imgur.com/qHQejKs.png",
+                    text: "Destaque",
+                    description: `
+                        A superprodução bíblica Gênesis vai lhe ajudar a entender aquilo 
+                        que você sempre quis, mas nunca teve coragem de questionar. Sim, 
+                        ela é cheia de histórias fascinantes, com muita emoção, talentosos 
+                        profissionais, uma belíssima fotografia e faixa musical inovadora, 
+                        mas acima de tudo, ela conta a nossa história.
+                    `
+                },
                 description: {
                     title: "GÊNESIS",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0191984/playplus_thumb_1600.jpg",
@@ -1300,13 +1362,26 @@ const seriesData = [
             //O RICO E LÁZARO
             {
                 name: "O Rico e Lázaro",
-                thumb_page: "https://i.imgur.com/sz0LCJC.png",
                 thumb_buttons: ["https://i.imgur.com/io3Xbpv.jpeg"],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: true,
+                    title: "O RICO E LÁZARO",
+                    logo: "",
+                    thumb: "https://i.imgur.com/sz0LCJC.png",
+                    text: "Destaque",
+                    description: `
+                        Após o governo de vários reis que se afastaram de Deus, Jerusalém 
+                        encontra-se mergulhada na idolatria. A grande amizade de Zac e Asher 
+                        é abalada pelo amor que ambos sentem pela companheira de infância, 
+                        Joana. Ao contrário deles, ela acredita nas profecias de Jeremias 
+                        e empenha-se para que o povo hebreu se volte novamente para Deus.
+                    `
+                },
                 description: {
                     title: "O RICO E LÁZARO",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0068614/playplus_thumb_1600.jpg",
@@ -1514,13 +1589,26 @@ const seriesData = [
             //A RAINHA DA PÉRSIA
             {
                 name: "A Rainha da Pérsia",
-                thumb_page: "https://i.imgur.com/5x7Rmg9.png",
+                thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/tKjng2c.png"],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                 carrousel: {
+                    enabled: true,
+                    title: "A RAINHA DA PÉRSIA",
+                    logo: "",
+                    thumb: "https://i.imgur.com/5x7Rmg9.png",
+                    text: "Destaque",
+                    description: `
+                        A Rainha da Pérsia é uma série que nos transporta para 
+                        os tempos antigos da Bíblia, onde a vida de uma jovem 
+                        judia, Hadassah, também conhecida como Ester, se entrelaça 
+                        com o futuro de uma nação inteira. 
+                    `
+                },
                 description: {
                     title: "A RAINHA DA PÉRSIA",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0433417/playplus_thumb_852.jpg",
@@ -1576,13 +1664,22 @@ const seriesData = [
             //A HISTÓRIA DE ESTER
             {
                 name: "A História de Ester",
-                thumb_page: "",
                 thumb_buttons: ["https://i.imgur.com/YqgmJBA.jpeg"],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "",
+                    logo: "",
+                    thumb: "",
+                    text: "",
+                    description: `
+                        
+                    `
+                },
                 description: {
                     title: "A HISTÓRIA DE ESTER",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0068508/playplus_thumb_852.jpg",
@@ -1627,6 +1724,16 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                 carrousel: {
+                    enabled: false,
+                    title: "",
+                    logo: "",
+                    thumb: "",
+                    text: "",
+                    description: `
+                        
+                    `
+                },
                 description: {
                     title: "APOCALIPSE",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0070604/playplus_thumb_1600.jpg",
@@ -1832,6 +1939,16 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "",
+                    logo: "",
+                    thumb: "",
+                    text: "",
+                    description: `
+                        
+                    `
+                },
                 description: {
                     title: "REIS",
                     thumb: "https://i.imgur.com/yfMLDL9.jpeg",
@@ -2484,6 +2601,16 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "",
+                    logo: "",
+                    thumb: "",
+                    text: "",
+                    description: `
+                        
+                    `
+                },
                 description: {
                     title: "SANSÃO E DALILA",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0069029/playplus_thumb_1600.jpg",
@@ -2622,6 +2749,16 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "",
+                    logo: "",
+                    thumb: "",
+                    text: "",
+                    description: `
+                        
+                    `
+                },
                 description: {
                     title: "PAULO O APÓSTOLO",
                     thumb: "https://pp-vod-img-aws.akamaized.net/0503079/playplus_thumb_1600.jpg",
@@ -2686,6 +2823,16 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "",
+                    logo: "",
+                    thumb: "",
+                    text: "",
+                    description: `
+                        
+                    `
+                },
                 description: {
                     title: "A BÍBLIA",
                     thumb: "	https://pp-vod-img-aws.akamaized.net/0238038/playplus_thumb_1600.jpg",
@@ -3342,30 +3489,24 @@ const seriesData = [
 ];
 
 // localStorage.clear();
-const selectedThumbs           = {};
-const thumbnailCache           = {};
-const slideDuration            = 5;
-const dragPercentThreshold     = 0.30;
-let autoPlay                   = true;
-let fullEpisodesList           = true;
-let animationReverseEpisodes   = false;
-let animationReverseFavorites  = false;
-let animationReverseContinues  = false;
-let animationSpeedEpisodes     = 3;
-let animationSpeedFavorites    = 10;
-let animationSpeedButtons      = 30;
-let animationSpeedSearchsKeys  = 2;
-let animationSpeedCarrouselBar = 8;
-let animationSpeedLogs         = 20;
-let currentSerie               = null;
-let currentEpisodeIndex        = 0;
-let currentSeasonIndex         = 0;
-let cumulativeAnimationIndex   = 0;
-let previousEpisodeCount       = 0;
-let favorites                  = JSON.parse(localStorage.getItem('favorites')) || [];
-let continues                  = JSON.parse(localStorage.getItem('continues')) || {};
-let currentSeasonDropdownValue = 'all';
-let seasonExpandedState        = {};
+const selectedThumbs            = {};
+const thumbnailCache            = {};
+let autoPlay                    = true;
+let animationReverseEpisodes    = false;
+let animationSpeedEpisodes      = 3;
+let animationSpeedButtons       = 30;
+let animationSpeedSearchsKeys   = 2;
+let animationSpeedCarrouselBar  = 5;
+let animationSpeedCarrouselDrag = 0.30;
+let animationSpeedLogs          = 20;
+let currentSerie                = null;
+let currentEpisodeIndex         = 0;
+let currentSeasonIndex          = 0;
+let previousEpisodeCount        = 0;
+let favorites                   = JSON.parse(localStorage.getItem('favorites')) || [];
+let continues                   = JSON.parse(localStorage.getItem('continues')) || {};
+let currentSeasonDropdownValue  = 'all';
+let seasonExpandedState         = {};
 
 //SERIE ATUAL
 function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) {
@@ -4712,7 +4853,7 @@ function renderCarousel() {
   function updateProgressBar() {
     if (paused) return;
     const elapsed = Date.now() - startTime;
-    const percent = Math.min((elapsed / (slideDuration * 1000)) * 100, 100);
+    const percent = Math.min((elapsed / (animationSpeedCarrouselBar * 1000)) * 100, 100);
     if (progressBar) progressBar.style.width = percent + '%';
     if (percent >= 100) {
       nextSlide();
@@ -4818,7 +4959,7 @@ if (moved < 2) {
     return;
 }
 
-if (movedFraction >= dragPercentThreshold || fastSwipe) {
+if (movedFraction >= animationSpeedCarrouselDrag || fastSwipe) {
     clearInlineTransform();
     if (dragDistance < 0) nextSlide(); else prevSlide();
 } else {
@@ -5302,17 +5443,17 @@ function createLogsSection() {
     if (Object.keys(logsBySerie).length === 0) {
         logsSection.innerHTML = `
             <div id="logs-header">
-                <h3>Logs</h3>
+                <h3>Histórico</h3>
             </div>
             <div id="logs-content">
-                <p id="no-logs-message">Nenhum log para exibir.</p>
+                <p id="no-logs-message">Nenhum histórico para exibir.</p>
             </div>
         `;
     } else {
         const logsHTML = `
             <div id="logs-header">
                 <div id="logs-header-top">
-                    <h3>Logs disponíveis:</h3>
+                    <h3>Históricos disponíveis:</h3>
                     <button id="clear-all-logs-button">Remover todos 🗑️</button>
                 </div>
                 <div id="search">
@@ -5332,7 +5473,7 @@ function createLogsSection() {
                         <div class="logs-section">
                             <div class="logs-header" data-log-index="log-${serieName}">
                                 <button class="toggle-button-cards ${isExpanded ? 'expanded' : ''}" data-log-index="log-${serieName}"></button>
-                                <p>${serieName}: ${serieLogs.length} logs</p>
+                                <p>${serieName}: ${serieLogs.length} históricos</p>
                             </div>
                             <div class="log-list" data-log-index="log-${serieName}" class="${isExpanded ? 'vertical-layout' : 'horizontal-layout'}" style="${!isExpanded ? 'display: none;' : 'display: block;'}">
                                 ${serieLogs.map(log => `
@@ -5482,7 +5623,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (text === 'início') {
                 window.history.replaceState({ page: 'home' }, '', window.location.pathname);
                 window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
-            } else if (text === 'logs') {
+            } else if (text === 'histórico') {
                 window.history.pushState({ page: 'logs' }, '', '#logs');
                 window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'logs' } }));
             }
