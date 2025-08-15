@@ -238,10 +238,9 @@ const seriesData = [
             {
                 name: "Os Dez Mandamentos",
                 thumb_buttons: [
-                    "https://i.imgur.com/GsIgZ1y.jpeg",
-                    "https://i.imgur.com/XykOwEC.png",
-                    "https://i.imgur.com/qUETt6r.jpeg",
+                    // "https://i.imgur.com/XykOwEC.png",
                     "https://pp-vod-img-aws.akamaized.net/0090405/0090405_200.jpg",
+                    "https://i.imgur.com/qUETt6r.jpeg",
                     // "https://i.imgur.com/yU7qkUV.jpeg" //MESMA DE CIMA IMGUR
                 ],
                 badge: "",
@@ -4037,32 +4036,62 @@ function renderContinueWatchingSection() {
         continueSeriesElement.id = 'continue-series';
         const descriptionEl = document.getElementById('series-description');
         if (descriptionEl && descriptionEl.parentNode === seriesContainer) {
-        // insere logo após a descrição
-        seriesContainer.insertBefore(continueSeriesElement, descriptionEl.nextSibling);
+            seriesContainer.insertBefore(continueSeriesElement, descriptionEl.nextSibling);
         } else {
-        // fallback, no topo
-        seriesContainer.insertBefore(continueSeriesElement, seriesContainer.firstChild);
+            seriesContainer.insertBefore(continueSeriesElement, seriesContainer.firstChild);
         }
     }
 
     const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
-    const serieKey = currentSerie.name.replace(/\s+/g, '_');
+    const serieKey  = currentSerie.name.replace(/\s+/g, '_');
+
+    // Pega tudo que temos salvo desta série
     const savedProgress = continues[serieKey] || {};
 
+    // === DEDUP: mantém no máximo 1 episódio por temporada (seasonIndex) ===
+    // Se existir mais de uma entrada para a mesma temporada, mantemos a "melhor":
+    // - a de MAIOR episodeIndex (ou a mais recente, na prática)
+    // Também aproveitamos para descobrir quais chaves vamos manter.
+    const bestBySeason = {}; // seasonIndex -> { entry, key }
+    Object.entries(savedProgress).forEach(([key, val]) => {
+        if (!val || typeof val.seasonIndex !== 'number') return;
+        const sIdx = val.seasonIndex;
+        const cur  = bestBySeason[sIdx];
+        if (!cur || (val.episodeIndex ?? -1) >= (cur.entry.episodeIndex ?? -1)) {
+            bestBySeason[sIdx] = { entry: val, key };
+        }
+    });
+
+    // Limpa duplicatas do storage (deixa só a chave escolhida por temporada)
+    const keysToKeep = new Set(Object.values(bestBySeason).map(o => o.key));
+    let changed = false;
+    Object.keys(savedProgress).forEach(k => {
+        if (!keysToKeep.has(k)) {
+            delete continues[serieKey][k];
+            changed = true;
+        }
+    });
+    if (changed) {
+        localStorage.setItem('continues', JSON.stringify(continues));
+    }
+
+    // Monta os cards apenas com 1 por temporada
     let episodesHTML = '';
-    Object.keys(savedProgress).forEach(seasonKey => {
-        const seasonProgress = savedProgress[seasonKey];
-        const epIndex = seasonProgress.episodeIndex;
-        const epNumber = (epIndex + 1).toString();
-        let episodeText = seasonProgress.movies ? `Filme: ${seasonProgress.episodeTitle}` : `T${seasonProgress.seasonIndex + 1} - ${seasonProgress.episodeTitle}`;
+    Object.values(bestBySeason).forEach(({ entry, key }) => {
+        const epIndex   = entry.episodeIndex;
+        const epNumber  = (epIndex + 1).toString();
+        const seasonTxt = entry.movies
+            ? `Filme: ${entry.episodeTitle}`
+            : `T${entry.seasonIndex + 1} - ${entry.episodeTitle}`;
+
         episodesHTML += `
             <div id="continue-episode-button"
-                 style="background-image: url('${seasonProgress.thumb}');"
-                 data-season-index="${seasonProgress.seasonIndex}"
+                 style="background-image: url('${entry.thumb}');"
+                 data-season-index="${entry.seasonIndex}"
                  data-episode-index="${epIndex}"
                  onclick="
                     location.hash='${serieSlug}-${epNumber}';
-                    openVideoOverlay('${appendAutoplay(seasonProgress.url)}', ${seasonProgress.seasonIndex}, ${epIndex});
+                    openVideoOverlay('${appendAutoplay(entry.url)}', ${entry.seasonIndex}, ${epIndex});
                  ">
                 <span class="icon-btn">
                     <span class="trash-lid"></span>
@@ -4071,8 +4100,8 @@ function renderContinueWatchingSection() {
                     <span class="trash-bar bar2"></span>
                     <span class="trash-bar bar3"></span>
                 </span>
-                <p>${episodeText}</p>
-                <div class="remove-button" data-season-key="${seasonKey}">✕</div>
+                <p>${seasonTxt}</p>
+                <div class="remove-button" data-season-key="${key}" data-season-index="${entry.seasonIndex}">✕</div>
             </div>
         `;
     });
@@ -4091,16 +4120,19 @@ function renderContinueWatchingSection() {
         </div>
     `;
 
+    // Reata os listeners do "X"
     document.querySelectorAll('#continue-series .remove-button').forEach(button => {
         const newBtn = button.cloneNode(true);
         button.parentNode.replaceChild(newBtn, button);
         newBtn.addEventListener('click', event => {
             event.stopPropagation();
-            const seasonKey = newBtn.getAttribute('data-season-key');
-            removeContinueSeriesSeason(seasonKey);
+            const seasonKey   = newBtn.getAttribute('data-season-key');
+            const seasonIndex = parseInt(newBtn.getAttribute('data-season-index'), 10);
+            removeContinueSeriesSeason(seasonKey, seasonIndex); // ver função abaixo
         });
     });
 }
+
 
 function addEpisodeButtonListeners() {
     document.querySelectorAll('#episode-button').forEach((button, index) => {
@@ -4321,12 +4353,83 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 
     const initialSeason = currentSerie.season[seasonIndex];
     const initialItem = initialSeason.episodes[initialEpisodeIndex];
+
+    // >>> NOVO: sincroniza globais com o que está abrindo no overlay
+    currentSeasonIndex = seasonIndex;
+    currentEpisodeIndex = initialEpisodeIndex;
+
     videoIframe.src = appendAutoplay(initialItem.url);
     videoOverlay.classList.remove('hidden');
     videoOverlay.classList.add('show');
 
+    // >>> NOVO: deixa o episódio atual marcado como .active na grade (se existir)
+    (function markInitialActive() {
+        const activeBtn = document.querySelector(
+            `#episode-button[data-season-index="${seasonIndex}"][data-url="${initialItem.url}"]`
+        );
+        if (activeBtn) {
+            document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
+            activeBtn.classList.add('active');
+            renderToggleButtons(activeBtn);
+            updateButtonVisibility();
+        } else {
+            renderToggleButtons(document.createElement('div'));
+            updateButtonVisibility();
+        }
+    })();
+
     let overlaySeasonDropdown = document.getElementById('overlay-season-dropdown');
     let overlayEpisodesDropdown = document.getElementById('overlay-episodes-dropdown');
+
+    // util local: marca episódio anterior como assistido (logs + classe + badge)
+    function markPreviousAsWatched(prevSeasonIndex, prevEpisodeIndex) {
+        if (prevSeasonIndex == null || prevEpisodeIndex == null) return;
+        const prevSeason = currentSerie.season[prevSeasonIndex];
+        if (!prevSeason) return;
+        const previousEpisode = prevSeason.episodes?.[prevEpisodeIndex];
+        if (!previousEpisode) return;
+
+        // grava no histórico (mesma lógica que você usa no click)
+        const now = new Date();
+        const date = now.toLocaleDateString('pt-BR');
+        const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+        let logs = JSON.parse(localStorage.getItem('logs')) || [];
+        logs.push({
+            serieName: currentSerie.name,
+            seasonIndex: prevSeasonIndex,
+            episodeTitle: previousEpisode.title,
+            thumb: previousEpisode.thumb || prevSeason.thumb_season,
+            date,
+            time
+        });
+        localStorage.setItem('logs', JSON.stringify(logs));
+
+        // atualiza DOM: adiciona classe .watched + badge
+        const prevBtn = document.querySelector(
+            `#episode-button[data-season-index="${prevSeasonIndex}"][data-url="${previousEpisode.url}"]`
+        );
+        if (prevBtn) {
+            prevBtn.classList.add('watched');
+            if (!prevBtn.querySelector('.badge-watched')) {
+                const badge = document.createElement('span');
+                badge.className = 'badge-watched';
+                badge.textContent = '▶ ASSISTIDO';
+                prevBtn.appendChild(badge);
+            }
+        }
+    }
+
+    // util local: ativa o novo episódio na grade e sincroniza UI
+    function activateEpisodeInDOM(seasonIdx, episodeObj) {
+        document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
+        const btn = document.querySelector(
+            `#episode-button[data-season-index="${seasonIdx}"][data-url="${episodeObj.url}"]`
+        );
+        if (btn) btn.classList.add('active');
+        renderToggleButtons(btn || document.createElement('div'));
+        updateButtonVisibility();
+    }
 
     if (!overlaySeasonDropdown || !overlayEpisodesDropdown) {
         overlaySeasonDropdown = document.createElement('select');
@@ -4349,39 +4452,42 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
             overlayEpisodesDropdown.value = initialEpisodeIndex;
             videoOverlayDropdown.appendChild(overlayEpisodesDropdown);
 
-            overlaySeasonDropdown.addEventListener('change', function() {
+            // Troca de TEMPORADA no overlay
+            overlaySeasonDropdown.addEventListener('change', function () {
                 const newSeasonIndex = parseInt(this.value, 10);
-                let newEpisodeIndex;
 
+                // pega episódio de destino (salvo em continues, senão 0)
                 const serieKey = currentSerie.name.replace(/\s+/g, '_');
                 const seasonKey = currentSerie.season[newSeasonIndex].name || `Temporada_${newSeasonIndex + 1}`;
                 const newSavedProgress = continues[serieKey] && continues[serieKey][seasonKey];
-                newEpisodeIndex = (newSavedProgress && newSavedProgress.episodeIndex !== undefined) ? newSavedProgress.episodeIndex : 0;
+                const newEpisodeIndex = (newSavedProgress && newSavedProgress.episodeIndex !== undefined)
+                    ? newSavedProgress.episodeIndex
+                    : 0;
 
+                // >>> NOVO: marca o anterior como assistido (se mudou de fato)
+                if (newSeasonIndex !== currentSeasonIndex || newEpisodeIndex !== currentEpisodeIndex) {
+                    markPreviousAsWatched(currentSeasonIndex, currentEpisodeIndex);
+                }
+
+                currentSeasonIndex = newSeasonIndex;
                 currentEpisodeIndex = newEpisodeIndex;
+
                 updateEpisodesDropdown(newSeasonIndex, overlayEpisodesDropdown);
                 overlayEpisodesDropdown.value = currentEpisodeIndex;
 
                 const selectedSeason = currentSerie.season[newSeasonIndex];
                 const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
-                const actualSeasonIndex = newSeasonIndex;
-                
                 videoIframe.src = appendAutoplay(selectedItem.url);
 
-                if (actualSeasonIndex === currentSeasonIndex && currentSeasonDropdownValue !== 'all') {
-                    document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
-                    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${selectedItem.url}"]`);
-                    if (currentEpisodeButton) currentEpisodeButton.classList.add('active');
-                    renderToggleButtons(currentEpisodeButton || document.createElement('div'));
-                    updateButtonVisibility();
-                }
+                // marca .active no grid, se existir na tela
+                activateEpisodeInDOM(newSeasonIndex, selectedItem);
 
                 const progress = {
                     serieName: currentSerie.name,
                     seasonName: selectedSeason.name || `Temporada_${newSeasonIndex + 1}`,
                     episodeTitle: selectedItem.title,
                     episodeIndex: currentEpisodeIndex,
-                    seasonIndex: actualSeasonIndex,
+                    seasonIndex: newSeasonIndex,
                     thumb: selectedItem.thumb || selectedSeason.thumb_season,
                     url: selectedItem.url,
                     movies: selectedSeason.movies,
@@ -4390,28 +4496,36 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 
                 saveContinueProgress(progress);
                 renderContinueWatchingSection();
-                // Só atualizar se não estiver em "all"
+
                 if (currentSeasonDropdownValue !== 'all') {
                     currentSeasonDropdownValue = `season-${newSeasonIndex}`;
                 }
+
+                // >>> NOVO: registra o novo episódio no log (para aparecer como assistido)
+                logEpisodeClick(selectedItem, newSeasonIndex, currentEpisodeIndex);
             });
 
-            overlayEpisodesDropdown.addEventListener('change', function() {
-                currentEpisodeIndex = parseInt(this.value, 10);
-                const currentOverlaySeasonIndex = overlaySeasonDropdown.value;
+            // Troca de EPISÓDIO no overlay
+            overlayEpisodesDropdown.addEventListener('change', function () {
+                const currentOverlaySeasonIndex = parseInt(overlaySeasonDropdown.value, 10);
+                const newEpisodeIndex = parseInt(this.value, 10);
+
+                // >>> NOVO: marca o anterior como assistido (se mudou de fato)
+                if (newEpisodeIndex !== currentEpisodeIndex || currentOverlaySeasonIndex !== currentSeasonIndex) {
+                    markPreviousAsWatched(currentSeasonIndex, currentEpisodeIndex);
+                }
+
+                currentSeasonIndex = currentOverlaySeasonIndex;
+                currentEpisodeIndex = newEpisodeIndex;
+
                 const selectedSeason = currentSerie.season[currentOverlaySeasonIndex];
                 const selectedItem = selectedSeason.episodes[currentEpisodeIndex];
 
                 videoIframe.src = appendAutoplay(selectedItem.url);
                 overlayEpisodesDropdown.value = currentEpisodeIndex;
 
-                if (currentOverlaySeasonIndex == currentSeasonIndex && currentSeasonDropdownValue !== 'all') {
-                    document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
-                    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${selectedItem.url}"]`);
-                    if (currentEpisodeButton) currentEpisodeButton.classList.add('active');
-                    renderToggleButtons(currentEpisodeButton || document.createElement('div'));
-                    updateButtonVisibility();
-                }
+                // marca .active no grid, se existir na tela
+                activateEpisodeInDOM(currentOverlaySeasonIndex, selectedItem);
 
                 const progress = {
                     serieName: currentSerie.name,
@@ -4427,17 +4541,22 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
 
                 saveContinueProgress(progress);
                 renderContinueWatchingSection();
-                // Só atualizar se não estiver em "all"
+
                 if (currentSeasonDropdownValue !== 'all') {
                     currentSeasonDropdownValue = `season-${currentOverlaySeasonIndex}`;
                 }
+
+                // >>> NOVO: registra o novo episódio no log (para aparecer como assistido)
+                logEpisodeClick(selectedItem, currentOverlaySeasonIndex, currentEpisodeIndex);
             });
         }
     } else {
         overlaySeasonDropdown.value = seasonIndex;
         updateEpisodesDropdown(seasonIndex, overlayEpisodesDropdown);
+        overlayEpisodesDropdown.value = initialEpisodeIndex;
     }
 }
+
 
 function updateEpisodesDropdown(seasonIndex, episodesDropdown) {
     episodesDropdown.innerHTML = '';
@@ -4623,13 +4742,23 @@ function updateButtonVisibility() {
 }
 
 function saveContinueProgress(progress) {
+
     let currentContinues = JSON.parse(localStorage.getItem('continues')) || {};
     const serieKey = progress.serieName.replace(/\s+/g, '_');
-    const seasonKey = progress.seasonName || `Temporada_${progress.seasonIndex + 1}`;
 
     if (!currentContinues[serieKey]) {
         currentContinues[serieKey] = {};
     }
+
+    // === DEDUP: remova QUALQUER chave existente desta série com o mesmo seasonIndex ===
+    Object.entries(currentContinues[serieKey]).forEach(([k, v]) => {
+        if (v && typeof v.seasonIndex === 'number' && v.seasonIndex === progress.seasonIndex) {
+            delete currentContinues[serieKey][k];
+        }
+    });
+
+    // Mantém compatibilidade com o resto do código: usa a chave baseada em nome OU fallback
+    const seasonKey = progress.seasonName || `Temporada_${progress.seasonIndex + 1}`;
 
     currentContinues[serieKey][seasonKey] = {
         serieName: progress.serieName,
