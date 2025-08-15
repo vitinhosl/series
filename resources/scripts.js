@@ -11,7 +11,7 @@ const seriesData = [
                     "https://pp-vod-img-aws.akamaized.net/0068571/0068571_200.jpg",
                     // "https://i.imgur.com/eiBmJtU.jpeg" //MESMA DE CIMA IMGUR
                 ],
-                badge: "",
+                badge: "TEST",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
@@ -2900,7 +2900,7 @@ const seriesData = [
                         // "https://i.imgur.com/G7Q8SZ7.jpeg",
                         // "https://i.imgur.com/beK4a7A.jpeg"
                     ],
-                    text: "NOVO",
+                    text: "",
                     description: `
                         
                     `
@@ -3650,20 +3650,23 @@ const seriesData = [
 //=======================================================================
 //CONFIGURAÇÕES
 //=======================================================================
-// localStorage.clear();
-const selectedThumbs            = {};
-const thumbnailCache            = {};
-let randomImagesCards           = false;
-let randomImagesDescription     = false;
-let randomImagesCarrousel       = false;
-let autoPlay                    = true;
-let animationReverseEpisodes    = false;
-let animationSpeedEpisodes      = 3;
-let animationSpeedButtons       = 30;
-let animationSpeedSearchsKeys   = 2;
-let animationSpeedCarrouselBar  = 5;
-let animationSpeedCarrouselDrag = 0.30;
-let animationSpeedLogs          = 20;
+// localStorage.clear();                    //LIMPA TODO O CACHE (FAVORITOS, ASSISTIDOS, ETC...)
+let randomImagesCards           = false;    //AS IMAGENS ALEATÓRIAS DOS BOTÕES
+let randomImagesDescription     = false;    //AS IMAGENS ALEATÓRIAS DAS DESCRIÇÕES
+let randomImagesCarrousel       = false;    //AS IMAGENS ALEATÓRIAS DO CARROUSEL
+let autoPlay                    = true;     //AUTOPLAY NOS EPISÓDIOS
+let animationReverseEpisodes    = false;    //ANIMAÇÃO REVERSA NOS EPISÓDIOS
+let animationPauseCarrousel     = true;     //ANIMAÇÃO DO CARROUSEL COMEÇA PAUSADA
+let animationSpeedCarrouselDrag = 0.30;     //QUANTIDADE PRESSIONADO QUE TEM QUE ARRASTAR 0.30 = 30%
+let animationSpeedCarrouselBar  = 5;        //VELOCIDADE DAS ANIMAÇÕES DO CARROUSEL
+let animationSpeedEpisodes      = 3;        //VELOCIDADE DAS ANIMAÇÕES DOS EPISÓDIOS
+let animationSpeedButtons       = 30;       //VELOCIDADE DAS ANIMAÇÕES DOS BOTÕES
+let animationSpeedSearchsKeys   = 2;        //VELOCIDADE DAS ANIMAÇÕES DOS BOTÕES DE PESQUISA
+let animationSpeedLogs          = 20;       //VELOCIDADE DAS ANIMAÇÕES DOS CARDS DE HISTÓRICOS
+
+//=======================================================================
+//FLAGS
+//=======================================================================
 let currentSerie                = null;
 let currentEpisodeIndex         = 0;
 let currentSeasonIndex          = 0;
@@ -3673,6 +3676,8 @@ let continues                   = JSON.parse(localStorage.getItem('continues')) 
 let currentSeasonDropdownValue  = 'all';
 let seasonExpandedState         = {};
 let currentFilter               = null;
+const selectedThumbs            = {};
+const thumbnailCache            = {};
 
 //=======================================================================
 //UTILS COMPARTILHADOS (sem duplicar dentro de funções)
@@ -5091,6 +5096,7 @@ function renderCarousel() {
         <div class="favorite-text">${isFavClone ? 'FAVORITO' : 'FAVORITAR'}</div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="favorite-icon-carrousel">
             <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" stroke-linejoin="round" stroke-linecap="round"></path>
+        </svg>
       </div>
     </label>`;
 
