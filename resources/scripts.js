@@ -4133,7 +4133,6 @@ function renderContinueWatchingSection() {
     });
 }
 
-
 function addEpisodeButtonListeners() {
     document.querySelectorAll('#episode-button').forEach((button, index) => {
         button.addEventListener('click', function() {
@@ -4557,7 +4556,6 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
     }
 }
 
-
 function updateEpisodesDropdown(seasonIndex, episodesDropdown) {
     episodesDropdown.innerHTML = '';
 
@@ -4642,103 +4640,258 @@ function renderToggleButtons(button) {
 function navigateDirection(direction) {
     const seasonDropdown = document.getElementById('season-dropdown');
     const isAllSeasons = seasonDropdown && seasonDropdown.value === 'all';
-    let currentSeason, totalItems;
+    if (!currentSerie) return;
 
-    // If there is only one season or no dropdown, treat it as a single season
-    if (!seasonDropdown || currentSerie.season.length === 1) {
-        currentSeasonIndex = 0; // Ensure single season uses index 0
-        currentSeason = currentSerie.season[0];
-        totalItems = currentSeason.episodes.length;
-    } else if (isAllSeasons) {
-        currentSeason = { episodes: currentSerie.season.flatMap(s => s.episodes) };
-        totalItems = currentSeason.episodes.length;
-    } else {
-        currentSeason = currentSerie.season[currentSeasonIndex];
-        totalItems = currentSeason.episodes.length;
+    const findPrevNonMovieSeason = (fromIdx) => {
+        for (let i = fromIdx - 1; i >= 0; i--) {
+            const s = currentSerie.season[i];
+            if (s && !s.movies && s.episodes && s.episodes.length) return i;
+        }
+        return -1;
+    };
+    const findNextNonMovieSeason = (fromIdx) => {
+        for (let i = fromIdx + 1; i < currentSerie.season.length; i++) {
+            const s = currentSerie.season[i];
+            if (s && !s.movies && s.episodes && s.episodes.length) return i;
+        }
+        return -1;
+    };
+
+    // ===== MODO "ALL": navegação linear entre todos episódios =====
+    if (isAllSeasons) {
+        const map = [];
+        currentSerie.season.forEach((s, sIdx) => (s.episodes || []).forEach((ep, eIdx) => map.push({ sIdx, eIdx, ep, season: s })));
+
+        let gIdx = map.findIndex(m => m.sIdx === currentSeasonIndex && m.eIdx === currentEpisodeIndex);
+        if (gIdx === -1) gIdx = 0;
+
+        if (direction === 'prev' && gIdx > 0) gIdx--;
+        else if (direction === 'next' && gIdx < map.length - 1) gIdx++;
+        else return;
+
+        const { sIdx, eIdx, ep, season } = map[gIdx];
+        currentSeasonIndex = sIdx;
+        currentEpisodeIndex = eIdx;
+
+        openVideoOverlay(appendAutoplay(ep.url), sIdx, eIdx);
+
+        document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
+        const btn = document.querySelector(`#episode-button[data-season-index="${sIdx}"][data-url="${ep.url}"]`);
+        if (btn) btn.classList.add('active');
+        renderToggleButtons(btn || document.createElement('div'));
+
+        updateButtonVisibility();
+
+        const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
+        const epNumber = (eIdx + 1).toString();
+        window.history.replaceState(
+            { page: 'series', serieName: currentSerie.name, episodeIndex: eIdx, seasonIndex: sIdx },
+            '',
+            `#${serieSlug}-${epNumber}`
+        );
+
+        const progress = {
+            serieName: currentSerie.name,
+            seasonName: season.name || `Temporada_${sIdx + 1}`,
+            episodeTitle: ep.title,
+            episodeIndex: eIdx,
+            seasonIndex: sIdx,
+            thumb: ep.thumb || season.thumb_season,
+            url: ep.url,
+            movies: season.movies,
+            activeEpisodeIndex: eIdx
+        };
+        saveContinueProgress(progress);
+        renderContinueWatchingSection();
+        logEpisodeClick(ep, sIdx, eIdx);
+        return;
     }
 
-    const serieKey = currentSerie.name.replace(/\s+/g, '_');
-    const seasonKey = currentSeason.name || `Temporada_${currentSeasonIndex + 1}`;
-    const seasonProgress = continues[serieKey] && continues[serieKey][seasonKey];
-    if (seasonProgress && seasonProgress.episodeIndex !== undefined) {
-        currentEpisodeIndex = seasonProgress.episodeIndex;
-    }
+    // ===== MODO "TEMPORADA ESPECÍFICA" =====
+    const curSeason = currentSerie.season[currentSeasonIndex];
+    const count = curSeason?.episodes?.length || 0;
 
-    if (direction === 'prev' && currentEpisodeIndex > 0) {
-        currentEpisodeIndex--;
-    } else if (direction === 'next' && currentEpisodeIndex < totalItems - 1) {
-        currentEpisodeIndex++;
+    if (direction === 'prev') {
+        if (currentEpisodeIndex > 0) {
+            currentEpisodeIndex--;
+        } else {
+            // EP 1 → volta para última da temporada anterior (não-filme), se existir
+            const prevIdx = findPrevNonMovieSeason(currentSeasonIndex);
+            if (prevIdx === -1) return;
+            currentSeasonIndex = prevIdx;
+            currentEpisodeIndex = currentSerie.season[prevIdx].episodes.length - 1;
+
+            // atualiza dropdown principal
+            const sd = document.getElementById('season-dropdown');
+            if (sd && sd.value !== 'all') {
+                sd.value = `season-${prevIdx}`;
+                sd.dispatchEvent(new Event('change'));
+            }
+        }
+    } else if (direction === 'next') {
+        if (currentEpisodeIndex < count - 1) {
+            currentEpisodeIndex++;
+        } else {
+            // último EP → vai pro EP 1 da próxima temporada (não-filme), se existir
+            const nextIdx = findNextNonMovieSeason(currentSeasonIndex);
+            if (nextIdx === -1) return;
+            currentSeasonIndex = nextIdx;
+            currentEpisodeIndex = 0;
+
+            const sd = document.getElementById('season-dropdown');
+            if (sd && sd.value !== 'all') {
+                sd.value = `season-${nextIdx}`;
+                sd.dispatchEvent(new Event('change'));
+            }
+        }
     } else {
         return;
     }
 
-    const episodesDropdown = document.getElementById('overlay-episodes-dropdown');
-    if (episodesDropdown) {
-        episodesDropdown.value = currentEpisodeIndex;
-    }
+    const episode = currentSerie.season[currentSeasonIndex].episodes[currentEpisodeIndex];
+    const seasonObj = currentSerie.season[currentSeasonIndex];
 
-    const episode = currentSeason.episodes[currentEpisodeIndex];
-    const actualSeasonIndex = isAllSeasons ? 0 : currentSeasonIndex;
-    openVideoOverlay(appendAutoplay(episode.url), actualSeasonIndex, currentEpisodeIndex);
-
-    const serieName = currentSerie.name;
-    const seasonName = currentSeason.name || `Temporada_${currentSeasonIndex + 1}`;
-    const episodeTitle = episode.title;
-
-    const progress = {
-        serieName,
-        seasonName,
-        episodeTitle,
-        episodeIndex: currentEpisodeIndex,
-        seasonIndex: actualSeasonIndex,
-        thumb: episode.thumb || currentSeason.thumb_season,
-        url: episode.url,
-        movies: currentSeason.movies,
-        activeEpisodeIndex: currentEpisodeIndex
-    };
-
-    saveContinueProgress(progress);
-    renderContinueWatchingSection();
+    openVideoOverlay(appendAutoplay(episode.url), currentSeasonIndex, currentEpisodeIndex);
 
     document.querySelectorAll('#episode-button').forEach(btn => btn.classList.remove('active'));
-    const currentEpisodeButton = document.querySelector(`#episode-button[data-url="${episode.url}"]`);
-    if (currentEpisodeButton) currentEpisodeButton.classList.add('active');
+    const curBtn = document.querySelector(
+        `#episode-button[data-season-index="${currentSeasonIndex}"][data-url="${episode.url}"]`
+    );
+    if (curBtn) curBtn.classList.add('active');
 
-    renderToggleButtons(currentEpisodeButton || document.querySelector(`#episode-button[data-url="${episode.url}"]`));
+    renderToggleButtons(curBtn || document.createElement('div'));
     updateButtonVisibility();
-
-    logEpisodeClick(episode, actualSeasonIndex, currentEpisodeIndex);
 
     const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
     const epNumber = (currentEpisodeIndex + 1).toString();
     window.history.replaceState(
-        { page: 'series', serieName: currentSerie.name, episodeIndex: currentEpisodeIndex, seasonIndex: actualSeasonIndex },
+        { page: 'series', serieName: currentSerie.name, episodeIndex: currentEpisodeIndex, seasonIndex: currentSeasonIndex },
         '',
         `#${serieSlug}-${epNumber}`
     );
+
+    const progress = {
+        serieName: currentSerie.name,
+        seasonName: seasonObj.name || `Temporada_${currentSeasonIndex + 1}`,
+        episodeTitle: episode.title,
+        episodeIndex: currentEpisodeIndex,
+        seasonIndex: currentSeasonIndex,
+        thumb: episode.thumb || seasonObj.thumb_season,
+        url: episode.url,
+        movies: seasonObj.movies,
+        activeEpisodeIndex: currentEpisodeIndex
+    };
+    saveContinueProgress(progress);
+    renderContinueWatchingSection();
+    logEpisodeClick(episode, currentSeasonIndex, currentEpisodeIndex);
 }
 
 function updateButtonVisibility() {
-    const prevButton = document.getElementById('prev-video-button');
-    const nextButton = document.getElementById('next-video-button');
+    const prevButton = document.getElementById('prev-video-button') || document.getElementById('prev-video-button-season');
+    const nextButton = document.getElementById('next-video-button') || document.getElementById('next-video-button-season');
     const seasonDropdown = document.getElementById('season-dropdown');
-    let totalItems;
+    if (!prevButton || !nextButton || !currentSerie) return;
 
-    if (seasonDropdown && seasonDropdown.value === 'all') {
-        totalItems = currentSerie.season.flatMap(s => s.episodes).length;
-        if (currentSerie.movies?.length > 0) {
-            totalItems += currentSerie.movies.length;
-        }
-    } else {
-        if (seasonDropdown && seasonDropdown.value === 'movies') {
-            totalItems = currentSerie.movies?.length || 0;
+    const setTooltip = (btn, text, seasonal) => {
+        [...btn.querySelectorAll('.tooltip-text, .tooltip-text.season')].forEach(n => n.remove());
+
+        const span = document.createElement('span');
+
+        if (seasonal) {
+            const parts = text.split(' ');
+            if (parts.length > 1 && (parts.includes('Próxima') || parts.includes('Anterior'))) {
+                const firstPart = parts.shift();
+                span.innerHTML = `${firstPart}<br>${parts.join(' ')}`;
+            } else {
+                span.textContent = text;
+            }
+            span.className = 'tooltip-text season tooltip-top';
         } else {
-            totalItems = currentSerie.season[currentSeasonIndex]?.episodes.length || 0;
+            span.textContent = text;
+            span.className = 'tooltip-text tooltip-top';
         }
+        btn.appendChild(span);
+    };
+    const setPrevDefault = () => {
+        if (prevButton.id !== 'prev-video-button') prevButton.id = 'prev-video-button';
+        setTooltip(prevButton, 'Anterior', false);
+    };
+    const setNextDefault = () => {
+        if (nextButton.id !== 'next-video-button') nextButton.id = 'next-video-button';
+        setTooltip(nextButton, 'Próximo', false);
+    };
+    const seasonOrdinalNonMovie = (targetIdx) => {
+        let ord = 0;
+        for (let i = 0; i <= targetIdx; i++) {
+            const s = currentSerie.season[i];
+            if (s && !s.movies) ord++;
+        }
+        return ord;
+    };
+    const findPrevNonMovieSeason = (fromIdx) => {
+        for (let i = fromIdx - 1; i >= 0; i--) {
+            const s = currentSerie.season[i];
+            if (s && !s.movies && s.episodes && s.episodes.length) return i;
+        }
+        return -1;
+    };
+    const findNextNonMovieSeason = (fromIdx) => {
+        for (let i = fromIdx + 1; i < currentSerie.season.length; i++) {
+            const s = currentSerie.season[i];
+            if (s && !s.movies && s.episodes && s.episodes.length) return i;
+        }
+        return -1;
+    };
+
+    // ===== MODO "ALL" =====
+    if (seasonDropdown && seasonDropdown.value === 'all') {
+        setPrevDefault();
+        setNextDefault();
+
+        const map = [];
+        currentSerie.season.forEach((s, sIdx) => (s.episodes || []).forEach((_, eIdx) => map.push({ sIdx, eIdx })));
+        const gIdx = map.findIndex(m => m.sIdx === currentSeasonIndex && m.eIdx === currentEpisodeIndex);
+
+        prevButton.style.display = (gIdx <= 0 || gIdx === -1) ? 'none' : 'block';
+        nextButton.style.display = (gIdx === -1 || gIdx >= map.length - 1) ? 'none' : 'block';
+        return;
     }
 
-    prevButton.style.display = currentEpisodeIndex === 0 ? 'none' : 'block';
-    nextButton.style.display = currentEpisodeIndex === totalItems - 1 ? 'none' : 'block';
+    // ===== MODO "TEMPORADA ESPECÍFICA" =====
+    const season = currentSerie.season[currentSeasonIndex];
+    const total = season?.episodes?.length || 0;
+
+    // PREV
+    if (currentEpisodeIndex === 0) {
+        const prevSeasonIdx = findPrevNonMovieSeason(currentSeasonIndex);
+        if (prevSeasonIdx !== -1) {
+            if (prevButton.id !== 'prev-video-button-season') prevButton.id = 'prev-video-button-season';
+            setTooltip(prevButton, `Temporada Anterior: ${seasonOrdinalNonMovie(prevSeasonIdx)}`, true);
+            prevButton.style.display = 'block';
+        } else {
+            setPrevDefault();
+            prevButton.style.display = 'none';
+        }
+    } else {
+        setPrevDefault();
+        prevButton.style.display = 'block';
+    }
+
+    // NEXT
+    if (currentEpisodeIndex < total - 1) {
+        setNextDefault();
+        nextButton.style.display = 'block';
+    } else {
+        const nextSeasonIdx = findNextNonMovieSeason(currentSeasonIndex);
+        if (nextSeasonIdx !== -1) {
+            if (nextButton.id !== 'next-video-button-season') nextButton.id = 'next-video-button-season';
+            setTooltip(nextButton, `Próxima Temporada: ${seasonOrdinalNonMovie(nextSeasonIdx)}`, true);
+            nextButton.style.display = 'block';
+        } else {
+            setNextDefault();
+            nextButton.style.display = 'none';
+        }
+    }
 }
 
 function saveContinueProgress(progress) {
@@ -4862,10 +5015,12 @@ function renderCarousel() {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
 
+    // limpar estado anterior
     slider.querySelectorAll(':scope > input[type="radio"]').forEach(n => n.remove());
     if (slidesContainer) slidesContainer.innerHTML = '';
     if (dotsContainer) dotsContainer.innerHTML = '';
 
+    // nada pra mostrar
     if (!seriesData[0]?.group || seriesData[0].group.length === 0) {
         removeControlsBottom(slider);
         if (dotsContainer) dotsContainer.style.display = 'none';
@@ -4887,16 +5042,16 @@ function renderCarousel() {
 
     const totalSlides = enabledSeries.length;
 
+    // ------- APENAS 1 SLIDE -------
     if (totalSlides === 1) {
         const carrousel = enabledSeries[0].carrousel;
         const serie = enabledSeries[0];
 
-        const numSeasons = serie.season.filter(season => !season.movies).length;
-        const numEpisodes = serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0);
-        const numMovies = serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0);
+        const numSeasons = serie.season.filter(s => !s.movies).length;
+        const numEpisodes = serie.season.filter(s => !s.movies).reduce((t, s) => t + s.episodes.length, 0);
+        const numMovies   = serie.season.filter(s =>  s.movies).reduce((t, s) => t + s.episodes.length, 0);
 
-        // Seleciona a imagem com base em randomImagesCarrousel
-        const carrouselThumb = randomImagesCarrousel && carrousel.thumb?.length > 0
+        const carrouselThumb = (randomImagesCarrousel && carrousel.thumb?.length > 0)
             ? carrousel.thumb[Math.floor(Math.random() * carrousel.thumb.length)]
             : carrousel.thumb?.[0] || '';
 
@@ -4904,20 +5059,39 @@ function renderCarousel() {
             ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
             : carrousel.title;
 
+        const isFavorite = (JSON.parse(localStorage.getItem('favorites')) || []).some(f => f.name === serie.name);
+        const badgeChip  = serie.badge ? `<span class="chip badge">${serie.badge}</span>` : '';
+        const newChip    = carrousel.text ? `<span class="chip new">${carrousel.text}</span>` : '';
+
+        const favMarkup = `
+          <label class="favorite-button-carrousel">
+            <input type="checkbox" ${isFavorite ? 'checked=""' : ''} class="favorite-checkbox" data-serie='${JSON.stringify(serie)}' />
+            <div class="favorite-button-star">
+              <div class="favorite-text">${isFavorite ? 'FAVORITO' : 'FAVORITAR'}</div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                   stroke-width="1.5" stroke="currentColor" class="favorite-icon-carrousel">
+                <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.563 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                      stroke-linejoin="round" stroke-linecap="round"></path>
+              </svg>
+            </div>
+          </label>
+        `;
+
         slidesContainer.innerHTML = `
             <section class="slide" style="--bg: url('${carrouselThumb}')">
                 <div class="content">
                     <h1 class="brand-title">${titleContent}</h1>
                     <div class="chips">
-                        ${carrousel.text ? `<span class="chip new">${carrousel.text}</span>` : ''}
+                        ${badgeChip}
+                        ${newChip}
+                        ${numMovies   > 0 ? `<span class="chip movies">Filmes: ${numMovies}</span>` : ''}
                         ${numSeasons > 0 ? `<span class="chip seasons">Temporadas: ${numSeasons}</span>` : ''}
                         ${numEpisodes > 0 ? `<span class="chip episodes">Episódios: ${numEpisodes}</span>` : ''}
-                        ${numMovies > 0 ? `<span class="chip movies">Filmes: ${numMovies}</span>` : ''}
                     </div>
                     <p class="desc">${(carrousel.description || '').trim()}</p>
                     <div class="actions">
-                        <button class="btn primary">ASSISTIR</button>
-                        <button class="btn">FAVORITAR</button>
+                        <button class="btn primary" data-serie='${JSON.stringify(serie)}'>ASSISTIR</button>
+                        ${favMarkup}
                     </div>
                 </div>
             </section>
@@ -4936,9 +5110,11 @@ function renderCarousel() {
         const dynStyle = getOrCreateStyleTag('carousel-dynamic-rules');
         dynStyle.textContent = '';
 
+        wireCarouselCTA(); // liga CTAs
         return;
     }
 
+    // ------- MÚLTIPLOS SLIDES -------
     if (dotsContainer) dotsContainer.style.display = '';
     if (progressBar) { progressBar.style.display = ''; progressBar.style.width = '0%'; }
     if (prevBtn) prevBtn.style.display = '';
@@ -4955,12 +5131,11 @@ function renderCarousel() {
         const radioId = `s${index + 1}`;
         const isFirst = index === 0;
 
-        const numSeasons = item.season.filter(season => !season.movies).length;
-        const numEpisodes = item.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0);
-        const numMovies = item.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0);
+        const numSeasons = item.season.filter(s => !s.movies).length;
+        const numEpisodes = item.season.filter(s => !s.movies).reduce((t, s) => t + s.episodes.length, 0);
+        const numMovies   = item.season.filter(s =>  s.movies).reduce((t, s) => t + s.episodes.length, 0);
 
-        // Seleciona a imagem com base em randomImagesCarrousel
-        const carrouselThumb = randomImagesCarrousel && carrousel.thumb?.length > 0
+        const carrouselThumb = (randomImagesCarrousel && carrousel.thumb?.length > 0)
             ? carrousel.thumb[Math.floor(Math.random() * carrousel.thumb.length)]
             : carrousel.thumb?.[0] || '';
 
@@ -4970,20 +5145,39 @@ function renderCarousel() {
             ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
             : carrousel.title;
 
+        const isFavorite = (JSON.parse(localStorage.getItem('favorites')) || []).some(f => f.name === item.name);
+        const badgeChip  = item.badge ? `<span class="chip badge">${item.badge}</span>` : '';
+        const newChip    = carrousel.text ? `<span class="chip new">${carrousel.text}</span>` : '';
+
+        const favMarkup = `
+          <label class="favorite-button-carrousel">
+            <input type="checkbox" ${isFavorite ? 'checked=""' : ''} class="favorite-checkbox" data-serie='${JSON.stringify(item)}' />
+            <div class="favorite-button-star">
+              <div class="favorite-text">${isFavorite ? 'FAVORITO' : 'FAVORITAR'}</div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                   stroke-width="1.5" stroke="currentColor" class="favorite-icon-carrousel">
+                <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.563 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                      stroke-linejoin="round" stroke-linecap="round"></path>
+              </svg>
+            </div>
+          </label>
+        `;
+
         slidesHTML.push(`
             <section class="slide" style="--bg: url('${carrouselThumb}')">
                 <div class="content">
                     <h1 class="brand-title">${titleContent}</h1>
                     <div class="chips">
-                        ${carrousel.text ? `<span class="chip new">${carrousel.text}</span>` : ''}
+                        ${badgeChip}
+                        ${newChip}
+                        ${numMovies   > 0 ? `<span class="chip movies">Filmes: ${numMovies}</span>` : ''}
                         ${numSeasons > 0 ? `<span class="chip seasons">Temporadas: ${numSeasons}</span>` : ''}
                         ${numEpisodes > 0 ? `<span class="chip episodes">Episódios: ${numEpisodes}</span>` : ''}
-                        ${numMovies > 0 ? `<span class="chip movies">Filmes: ${numMovies}</span>` : ''}
                     </div>
                     <p class="desc">${(carrousel.description || '').trim()}</p>
                     <div class="actions">
-                        <button class="btn primary">ASSISTIR</button>
-                        <button class="btn">FAVORITAR</button>
+                        <button class="btn primary" data-serie='${JSON.stringify(item)}'>ASSISTIR</button>
+                        ${favMarkup}
                     </div>
                 </div>
             </section>
@@ -4992,13 +5186,13 @@ function renderCarousel() {
         dotsHTML.push(`<label for="${radioId}"></label>`);
     });
 
+    // clone do primeiro slide para "loop" suave
     const firstEnabledItem = enabledSeries[0];
-    const firstNumSeasons = firstEnabledItem.season.filter(season => !season.movies).length;
-    const firstNumEpisodes = firstEnabledItem.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0);
-    const firstNumMovies = firstEnabledItem.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0);
+    const firstNumSeasons = firstEnabledItem.season.filter(s => !s.movies).length;
+    const firstNumEpisodes = firstEnabledItem.season.filter(s => !s.movies).reduce((t, s) => t + s.episodes.length, 0);
+    const firstNumMovies   = firstEnabledItem.season.filter(s =>  s.movies).reduce((t, s) => t + s.episodes.length, 0);
 
-    // Seleciona a imagem com base em randomImagesCarrousel para o clone
-    const firstCarrouselThumb = randomImagesCarrousel && firstEnabledItem.carrousel.thumb?.length > 0
+    const firstCarrouselThumb = (randomImagesCarrousel && firstEnabledItem.carrousel.thumb?.length > 0)
         ? firstEnabledItem.carrousel.thumb[Math.floor(Math.random() * firstEnabledItem.carrousel.thumb.length)]
         : firstEnabledItem.carrousel.thumb?.[0] || '';
 
@@ -5006,37 +5200,60 @@ function renderCarousel() {
         ? `<img src="${firstEnabledItem.carrousel.logo}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo">`
         : firstEnabledItem.carrousel.title;
 
+    const isFavClone = (JSON.parse(localStorage.getItem('favorites')) || []).some(f => f.name === firstEnabledItem.name);
+    const badgeChipClone = firstEnabledItem.badge ? `<span class="chip badge">${firstEnabledItem.badge}</span>` : '';
+    const newChipClone   = firstEnabledItem.carrousel.text ? `<span class="chip new">${firstEnabledItem.carrousel.text}</span>` : '';
+
+    const favMarkupClone = `
+      <label class="favorite-button-carrousel">
+        <input type="checkbox" ${isFavClone ? 'checked=""' : ''} class="favorite-checkbox" data-serie='${JSON.stringify(firstEnabledItem)}' />
+        <div class="favorite-button-star">
+          <div class="favorite-text">${isFavClone ? 'FAVORITO' : 'FAVORITAR'}</div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               stroke-width="1.5" stroke="currentColor" class="favorite-icon-carrousel">
+            <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.563 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                  stroke-linejoin="round" stroke-linecap="round"></path>
+          </svg>
+        </div>
+      </label>
+    `;
+
     slidesHTML.push(`
         <section class="slide clone" style="--bg: url('${firstCarrouselThumb}')">
             <div class="content">
                 <h1 class="brand-title">${cloneTitleContent}</h1>
                 <div class="chips">
-                    ${firstEnabledItem.carrousel.text ? `<span class="chip new">${firstEnabledItem.carrousel.text}</span>` : ''}
+                    ${badgeChipClone}
+                    ${newChipClone}
+                    ${firstNumMovies   > 0 ? `<span class="chip movies">Filmes: ${firstNumMovies}</span>` : ''}
                     ${firstNumSeasons > 0 ? `<span class="chip seasons">Temporadas: ${firstNumSeasons}</span>` : ''}
                     ${firstNumEpisodes > 0 ? `<span class="chip episodes">Episódios: ${firstNumEpisodes}</span>` : ''}
-                    ${firstNumMovies > 0 ? `<span class="chip movies">Filmes: ${firstNumMovies}</span>` : ''}
                 </div>
                 <p class="desc">${(firstEnabledItem.carrousel.description || '').trim()}</p>
                 <div class="actions">
-                    <button class="btn primary">ASSISTIR</button>
-                    <button class="btn">FAVORITAR</button>
+                    <button class="btn primary" data-serie='${JSON.stringify(firstEnabledItem)}'>ASSISTIR</button>
+                    ${favMarkupClone}
                 </div>
             </div>
         </section>
     `);
     radios.push(`<input type="radio" name="slider" id="s${totalSlides + 1}">`);
 
+    // injeta DOM
     slider.insertAdjacentHTML('afterbegin', radios.join(''));
     slidesContainer.innerHTML = slidesHTML.join('');
     dotsContainer.innerHTML = dotsHTML.join('');
 
+    wireCarouselCTA(); // liga CTAs
+
+    // dimensões
     const slidesElement = document.querySelector('.slides');
     slidesElement.style.width = `${100 * (totalSlides + 1)}%`;
     document.querySelectorAll('.slide').forEach(slide => {
         slide.style.width = `${100 / (totalSlides + 1)}%`;
     });
 
-    // O restante da função renderCarousel permanece inalterado
+    // ===== A PARTIR DAQUI motor original =====
     const slides = document.querySelector('.slider .slides');
     const radioInputs = [...document.querySelectorAll('.slider input[type="radio"]')];
     const s1 = document.getElementById('s1');
@@ -5058,27 +5275,21 @@ function renderCarousel() {
     function injectPlayPause(slider) {
         const existing = slider.querySelector('.dots-play-btn');
         if (existing) return existing;
-
         const controlsBottom = document.createElement('div');
         controlsBottom.className = 'controls-bottom';
-
         const dotsWrap = document.createElement('div');
         dotsWrap.className = 'dots-container';
-
         const label = document.createElement('div');
         label.className = 'dots-toggle';
         label.setAttribute('aria-label', 'Reproduzir/Pausar');
-
         const input = document.createElement('input');
         input.className = 'dots-play-btn';
         input.type = 'checkbox';
         input.checked = true;
-
         label.appendChild(input);
         dotsWrap.appendChild(label);
         controlsBottom.appendChild(dotsWrap);
         slider.appendChild(controlsBottom);
-
         return input;
     }
 
@@ -5129,10 +5340,8 @@ function renderCarousel() {
     function nextSlide() {
         if (isTransitioning) return;
         isTransitioning = true;
-
         const i = getIndex();
         const lastRealIndex = radioInputs.length - 2;
-
         if (i === lastRealIndex) {
             radioInputs[i + 1].checked = true;
             const onEnd = () => {
@@ -5155,11 +5364,9 @@ function renderCarousel() {
     function prevSlide() {
         if (isTransitioning) return;
         isTransitioning = true;
-
         const i = getIndex();
         const lastRealIndex = radioInputs.length - 2;
         const firstRealIndex = 0;
-
         if (i === firstRealIndex) {
             slides.classList.add('no-anim');
             radioInputs[radioInputs.length - 1].checked = true;
@@ -5212,46 +5419,34 @@ function renderCarousel() {
     function startDragging(e) {
         if (isTransitioning) return;
         isDragging = true;
-
         const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
         startX = lastX = pageX;
         lastT = performance.now();
         dragDistance = 0;
         velocity = 0;
-
         pauseTimer();
-
         slideWidth = measureSlideWidthAndGap();
         const i = getIndex();
         baseOffset = -(i * slideWidth);
-
         slides.classList.add('no-anim');
         slides.style.willChange = 'transform';
         slides.style.cursor = 'grabbing';
         slides.style.transform = `translateX(${baseOffset}px)`;
-
         if (e.cancelable) e.preventDefault();
     }
 
     function drag(e) {
         if (!isDragging) return;
-
         const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
         const now = performance.now();
         velocity = (pageX - lastX) / Math.max(1, (now - lastT));
         lastX = pageX;
         lastT = now;
-
         dragDistance = pageX - startX;
         let desired = baseOffset + dragDistance;
         const maxOffset = -((radioInputs.length - 1) * slideWidth);
-
-        if (desired > 0) {
-            desired = desired * rubberbandFactor;
-        } else if (desired < maxOffset) {
-            desired = maxOffset + (desired - maxOffset) * rubberbandFactor;
-        }
-
+        if (desired > 0) desired = desired * rubberbandFactor;
+        else if (desired < maxOffset) desired = maxOffset + (desired - maxOffset) * rubberbandFactor;
         slides.style.transform = `translateX(${desired}px)`;
         if (e.cancelable) e.preventDefault();
     }
@@ -5259,23 +5454,18 @@ function renderCarousel() {
     function endDragging() {
         if (!isDragging) return;
         isDragging = false;
-
         slides.style.cursor = 'grab';
         slides.style.willChange = '';
         slides.classList.remove('no-anim');
-
         const moved = Math.abs(dragDistance);
         const movedFraction = moved / Math.max(1, slideWidth);
         const fastSwipe = Math.abs(velocity) > flingVelocityThreshold;
-
         if (moved < 2) {
             clearInlineTransform();
-            dragDistance = 0;
-            velocity = 0;
+            dragDistance = 0; velocity = 0;
             if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
             return;
         }
-
         if (movedFraction >= animationSpeedCarrouselDrag || fastSwipe) {
             clearInlineTransform();
             if (dragDistance < 0) nextSlide();
@@ -5298,13 +5488,8 @@ function renderCarousel() {
         }
     }
 
-    slider.addEventListener('mouseenter', () => {
-        if (!isManuallyPaused) pauseTimer();
-    });
-
-    slider.addEventListener('mouseleave', () => {
-        if (!isManuallyPaused && !isDragging) resumeTimer();
-    });
+    slider.addEventListener('mouseenter', () => { if (!isManuallyPaused) pauseTimer(); });
+    slider.addEventListener('mouseleave', () => { if (!isManuallyPaused && !isDragging) resumeTimer(); });
 
     slides.addEventListener('mousedown', startDragging);
     slides.addEventListener('mousemove', drag);
@@ -5331,34 +5516,94 @@ function renderCarousel() {
         slides.addEventListener('transitionend', onTransitionEnd, { once: true });
     }));
 
-    if (nextBtn) nextBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        clearInlineTransform();
-        nextSlide();
-    });
-
-    if (prevBtn) prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        clearInlineTransform();
-        prevSlide();
-    });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); clearInlineTransform(); nextSlide(); });
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); clearInlineTransform(); prevSlide(); });
 
     const style = getOrCreateStyleTag('carousel-dynamic-rules');
     const cssRules = radioInputs.map((_, index) => {
         return `#s${index + 1}:checked ~ .slides { transform: translateX(-${index * 100 / (totalSlides + 1)}%); }`;
     }).join('\n');
-
     const dotRules = enabledSeries.map((_, index) => {
         return `#s${index + 1}:checked ~ .dots label[for="s${index + 1}"] { background: #fff; width: 40px; }`;
     }).join('\n');
-
     const cloneDotRule = `#s${totalSlides + 1}:checked ~ .dots label[for="s1"] { background: #fff; width: 40px; }`;
-
     style.textContent = `${cssRules}\n${dotRules}\n${cloneDotRule}`;
 
     const initialPlay = pauseCheckbox ? pauseCheckbox.checked : true;
     toggleManualPause(initialPlay);
     restartTimer();
+
+    function removeControlsBottom(sliderEl) {
+        const el = sliderEl.querySelector('.controls-bottom');
+        if (el) el.remove();
+    }
+    function getOrCreateStyleTag(id) {
+        let style = document.getElementById(id);
+        if (!style) {
+            style = document.createElement('style');
+            style.id = id;
+            document.head.appendChild(style);
+        }
+        return style;
+    }
+}
+
+function wireCarouselCTA() {
+  document.querySelectorAll('.slide .btn.primary').forEach(btn => {
+    btn.onclick = function () {
+      const serie = JSON.parse(this.getAttribute('data-serie') || '{}');
+      if (!serie || !serie.name || !serie.enabled) return;
+
+      window.history.pushState({ page: 'series', serieName: serie.name }, serie.name, `#${serie.name.replace(/\s+/g, '-')}`);
+
+      document.getElementById('home').classList.remove('show');
+      document.getElementById('home').classList.add('hidden');
+      document.getElementById('series').classList.add('show');
+      document.getElementById('series').classList.remove('hidden');
+      document.getElementById('series-title').classList.remove('show');
+      document.getElementById('series-title').classList.add('hidden');
+      document.getElementById('logo').classList.remove('show');
+      document.getElementById('logo').classList.add('hidden');
+      document.getElementById('series-name').classList.remove('hidden');
+      document.getElementById('series-name').classList.add('show');
+      document.getElementById('series-logs').classList.remove('show');
+      document.getElementById('series-logs').classList.add('hidden');
+      document.getElementById('back-button').classList.remove('hidden');
+      document.getElementById('back-button').classList.add('show');
+
+      renderCurrentSeries(serie);
+    };
+  });
+
+  // FAVORITO (checkbox + rótulo)
+  document.querySelectorAll('.slide .favorite-checkbox').forEach(cb => {
+    cb.onchange = function () {
+      const serie = JSON.parse(this.getAttribute('data-serie') || '{}');
+      const label = this.closest('.favorite-button-carrousel');
+      const textEl = label ? label.querySelector('.favorite-text') : null;
+
+      if (this.checked) {
+        saveFavorite(serie);
+        if (textEl) textEl.textContent = 'FAVORITO';
+      } else {
+        removeFavorite(serie);
+        if (textEl) textEl.textContent = 'FAVORITAR';
+      }
+
+      // sincroniza com grid de home
+      updateFavorites();
+
+      document.querySelectorAll('#group-home .favorite-button').forEach(btn => {
+        const s = JSON.parse(btn.getAttribute('data-serie') || '{}');
+        if (s.name === serie.name) {
+          btn.classList.toggle('active', cb.checked);
+          btn.innerHTML = cb.checked
+            ? '★ <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>'
+            : '☆ <span class="tooltip-text black tooltip-top">Adicionar aos favoritos</span>';
+        }
+      });
+    };
+  });
 }
 
 function renderSeriesButtons(filteredGroups) {
@@ -5734,6 +5979,7 @@ function handleHashChange() {
 
 // LOGS
 function createLogsSection() {
+    dedupeLogsCache();
     let logsSection = document.getElementById('logs-section');
     if (!logsSection) {
         logsSection = document.createElement('div');
@@ -5883,9 +6129,10 @@ function createLogsSection() {
 }
 
 function logEpisodeClick(episode, seasonIndex, episodeIndex) {
-    const now = new Date();
-    const date = now.toLocaleDateString('pt-BR'); // Ex.: 11/06/2025
-    const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }); // Ex.: 19:52
+    const now  = new Date();
+    const date = now.toLocaleDateString('pt-BR');
+    const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
     const serieName = currentSerie.name;
     const thumb = episode.thumb || currentSerie.season[seasonIndex].thumb_season;
 
@@ -5898,25 +6145,58 @@ function logEpisodeClick(episode, seasonIndex, episodeIndex) {
         time: time
     };
 
-    // Verifica se o log já existe para evitar duplicatas
+    // ===== Carrega e DEDUPLICA o cache inteiro (mantendo a ocorrência mais recente de cada ep) =====
     let logs = JSON.parse(localStorage.getItem('logs')) || [];
-    const isDuplicate = logs.some(log => 
-        log.serieName === logEntry.serieName &&
-        log.seasonIndex === logEntry.seasonIndex &&
-        log.episodeTitle === logEntry.episodeTitle &&
-        log.date === logEntry.date &&
-        log.time === logEntry.time
-    );
-    if (!isDuplicate) {
-        logs.push(logEntry);
-        localStorage.setItem('logs', JSON.stringify(logs));
-    }
 
-    // Atualiza a seção de logs (se estiver visível)
+    // percorre de trás pra frente para manter a última ocorrência
+    const seen = new Set();
+    const deduped = [];
+    for (let i = logs.length - 1; i >= 0; i--) {
+        const l = logs[i];
+        const key = `${l.serieName}::${l.seasonIndex}::${l.episodeTitle}`;
+        if (!seen.has(key)) {
+            seen.add(key);
+            // unshift para reconstruir na ordem original das últimas ocorrências
+            deduped.unshift(l);
+        }
+    }
+    logs = deduped;
+
+    // ===== Remove qualquer ocorrência antiga do MESMO episódio =====
+    const currentKey = `${serieName}::${seasonIndex}::${episode.title}`;
+    logs = logs.filter(l => `${l.serieName}::${l.seasonIndex}::${l.episodeTitle}` !== currentKey);
+
+    // ===== Insere a nova entrada no FINAL (na UI você inverte com reverse, logo ela sobe pro topo) =====
+    logs.push(logEntry);
+
+    localStorage.setItem('logs', JSON.stringify(logs));
+
+    // Atualiza a seção de logs (se visível)
     const logsSection = document.getElementById('logs-section');
     if (logsSection && logsSection.classList.contains('show')) {
         createLogsSection();
     }
+}
+
+function dedupeLogsCache() {
+    let logs = JSON.parse(localStorage.getItem('logs')) || [];
+    if (!Array.isArray(logs) || logs.length === 0) return;
+
+    // varre de trás pra frente (mais recente → mais antiga) e mantém só a primeira vez que vê a chave
+    const seen = new Set();
+    const deduped = [];
+    for (let i = logs.length - 1; i >= 0; i--) {
+        const l = logs[i];
+        const key = `${l.serieName}::${l.seasonIndex}::${l.episodeTitle}`;
+        if (!seen.has(key)) {
+            seen.add(key);
+            // reconstruímos na ordem original (mais antiga → mais recente)
+            deduped.unshift(l);
+        }
+    }
+
+    // salva de volta já limpo
+    localStorage.setItem('logs', JSON.stringify(deduped));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -5926,6 +6206,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderCarousel();
     renderSeriesButtons();
     updateFavorites();
+    dedupeLogsCache();
 
     document.querySelectorAll('.menu-list').forEach(item => {
         item.addEventListener('click', function(e) {
