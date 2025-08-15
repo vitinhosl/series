@@ -7,7 +7,9 @@ const seriesData = [
                 name: "A Terra Prometida",
                 thumb_buttons: [
                     "https://i.imgur.com/HFGzr9d.jpeg",
-                    // "https://i.imgur.com/3FzZHWW.jpeg",
+                    "https://i.imgur.com/3FzZHWW.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0068571/0068571_200.jpg",
+                    // "https://i.imgur.com/eiBmJtU.jpeg" //MESMA DE CIMA IMGUR
                 ],
                 badge: "",
                 type: "Temporadas",
@@ -18,7 +20,9 @@ const seriesData = [
                     enabled: true,
                     title: "A TERRA PROMETIDA",
                     logo: "", //https://i.imgur.com/J5WkXJP.png
-                    thumb: "https://i.imgur.com/H7LkieU.png",
+                    thumb: [
+                        "https://i.imgur.com/H7LkieU.png"
+                    ],
                     text: "Destaque",
                     description: `
                         Após a morte de Moisés, Josué é o novo líder dos hebreus 
@@ -27,15 +31,12 @@ const seriesData = [
                         a Terra Prometida. Continuação da saga Os Dez Mandamentos.
                     `
                 },
-                home_carrousel : {
-                    title: "",
-                    thumb: "",
-                    button: "",
-                    description: ``
-                },
                 description: {
                     title: "A TERRA PROMETIDA",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0068571/playplus_thumb_1600.jpg",
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0068571/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/OPZeZFm.jpeg", //MESMA DE CIMA IMGUR
+                    ],
                     sinopse:  `
                         Após a morte de Moisés, Josué é o novo líder dos hebreus 
                         e terá que cumprir uma difícil missão ordenada por Deus: 
@@ -237,8 +238,11 @@ const seriesData = [
             {
                 name: "Os Dez Mandamentos",
                 thumb_buttons: [
+                    "https://i.imgur.com/GsIgZ1y.jpeg",
+                    "https://i.imgur.com/XykOwEC.png",
                     "https://i.imgur.com/qUETt6r.jpeg",
-                    // "https://images.justwatch.com/poster/301798516/s166/os-dez-mandamentos.avif"
+                    "https://pp-vod-img-aws.akamaized.net/0090405/0090405_200.jpg",
+                    // "https://i.imgur.com/yU7qkUV.jpeg" //MESMA DE CIMA IMGUR
                 ],
                 badge: "",
                 type: "Temporadas",
@@ -249,8 +253,10 @@ const seriesData = [
                     enabled: true,
                     title: "OS DEZ MANDAMENTOS",
                     logo: "", //https://i.imgur.com/MJL97ex.png
-                    thumb: "https://i.imgur.com/v0uF3s6.png",
-                    text: "Destaque",
+                    thumb: [
+                        "https://i.imgur.com/v0uF3s6.png"
+                    ],
+                    text: "",
                     description: `
                         Grande sucesso da televisão brasileira, este épico bíblico 
                         narra a saga de Moisés, o hebreu que escapou da morte ainda 
@@ -260,7 +266,10 @@ const seriesData = [
                 },
                 description: {
                     title: "OS DEZ MANDAMENTOS",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/9yZZlBr.jpeg", //MESMA DE CIMA IMGUR
+                    ],
                     sinopse:  `
                         Grande sucesso da televisão brasileira, este épico bíblico 
                         narra a saga de Moisés, o hebreu que escapou da morte ainda 
@@ -546,7 +555,8 @@ const seriesData = [
                 name: "Jezabel",
                 thumb_buttons: [
                     "https://i.imgur.com/Z3WUXd9.jpeg",
-                    // "https://pp-vod-img-aws.akamaized.net/0069716/0069716_200.jpg"
+                    "https://pp-vod-img-aws.akamaized.net/0069716/0069716_200.jpg",
+                    // "https://i.imgur.com/KK33zSJ.jpeg", //MESMA DE CIMA IMGUR
                 ],
                 badge: "",
                 type: "Temporadas",
@@ -557,7 +567,9 @@ const seriesData = [
                     enabled: true,
                     title: "JEZABEL",
                     logo: "",
-                    thumb: "https://i.imgur.com/3NP8B3D.png",
+                    thumb: [
+                        "https://i.imgur.com/3NP8B3D.png"
+                    ],
                     text: "Destaque",
                     description: `
                         A trama contará a história da princesa fenícia Jezabel, 
@@ -568,8 +580,11 @@ const seriesData = [
                 },
                 description: {
                     title: "JEZABEL",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0069716/playplus_thumb_1600.jpg",
-                      sinopse:  `
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0069716/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/crr06xk.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    sinopse:  `
                         A trama contará a história da princesa fenícia Jezabel, 
                         uma princesa idólatra que se casa com o rei Acabe e usa 
                         sua beleza e maldade para tentar impor ao povo israelita 
@@ -671,7 +686,12 @@ const seriesData = [
             //REI DAVI
             {
                 name: "Rei Davi",
-                thumb_buttons: ["https://i.imgur.com/sSJVhSO.jpeg"],
+                thumb_buttons: [
+                    "https://i.imgur.com/sSJVhSO.jpeg",
+                    "https://i.imgur.com/L4TWRcP.png",
+                    // "https://pp-vod-img-aws.akamaized.net/0088301/0088301_200.jpg",
+                    // "https://i.imgur.com/C6y6k4S.jpeg", //MESMA DE CIMA IMGUR
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -681,7 +701,9 @@ const seriesData = [
                     enabled: true,
                     title: "REI DAVI",
                     logo: "",
-                    thumb: "https://i.imgur.com/vNpBaWD.png",
+                    thumb: [
+                        "https://i.imgur.com/vNpBaWD.png"
+                    ],
                     text: "Destaque",
                     description: `
                         Rei Davi é uma mini série bíblica brasileira que 
@@ -692,8 +714,11 @@ const seriesData = [
                 },
                 description: {
                     title: "REI DAVI",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0088301/playplus_thumb_1600.jpg",
-                      sinopse:  `
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0088301/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/h1QdG2R.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    sinopse:  `
                         Rei Davi é uma mini série bíblica brasileira que 
                         conta a história de Davi, o pastor de ovelhas que
                         derrotou o gigante Golias e que foi escolhido 
@@ -765,8 +790,10 @@ const seriesData = [
             {
                 name: "José do Egito",
                 thumb_buttons: [
+                    "https://i.imgur.com/Okgpw3g.png",
                     "https://i.imgur.com/Oxrdzg6.jpeg",
-                    // "https://pp-vod-img-aws.akamaized.net/0068517/0068517_200.jpg"
+                    "https://pp-vod-img-aws.akamaized.net/0068517/0068517_200.jpg",
+                    // "https://i.imgur.com/X2VwwBQ.jpeg", //MESMA DE CIMA IMGUR
                 ],
                 badge: "",
                 type: "Temporadas",
@@ -777,7 +804,9 @@ const seriesData = [
                     enabled: true,
                     title: "JOSÉ DO EGITO",
                     logo: "",
-                    thumb: "https://i.imgur.com/V2ikT7R.png",
+                    thumb: [
+                        "https://i.imgur.com/V2ikT7R.png"
+                    ],
                     text: "Destaque",
                     description: `
                         Após ser vendido como escravo pelos irmãos e 
@@ -788,8 +817,11 @@ const seriesData = [
                 },
                 description: {
                     title: "JEZABEL",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0068517/playplus_thumb_1600.jpg",
-                      sinopse:  `
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0068517/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/6XcWRVQ.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    sinopse:  `
                         Após ser vendido como escravo pelos irmãos e 
                         levado para o Egito, José é injustiçado, caluniado, 
                         preso e humilhado. A vida de José é um exemplo 
@@ -857,7 +889,11 @@ const seriesData = [
             //JESUS
             {
                 name: "Jesus",
-                thumb_buttons: ["https://i.imgur.com/JX2Coo5.png"],
+                thumb_buttons: [
+                    "https://pp-vod-img-aws.akamaized.net/0347485/0347485_200.jpg",
+                    "https://i.imgur.com/JX2Coo5.png",
+                    // "https://i.imgur.com/HWkdzd6.jpeg" //MESMA DE CIMA IMGUR
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -867,7 +903,9 @@ const seriesData = [
                     enabled: true,
                     title: "JESUS",
                     logo: "",
-                    thumb: "https://i.imgur.com/gnZ9oJ0.png",
+                    thumb: [
+                        "https://i.imgur.com/gnZ9oJ0.png"
+                    ],
                     text: "Destaque",
                     description: `
                         Quando a história dos homens estava perto de cair em desgraça, 
@@ -879,8 +917,11 @@ const seriesData = [
                 },
                 description: {
                     title: "JESUS",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0347485/playplus_thumb_1600.jpg",
-                      sinopse:  `
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0347485/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/cgeN3Jy.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    sinopse:  `
                         Quando a história dos homens estava perto de cair em desgraça, 
                         a história domundo muda para sempre após a chegada do Salvador. 
                         Jesus, a novela, contapela primeira vez na íntegra a trajetória 
@@ -1096,7 +1137,10 @@ const seriesData = [
             //GÊNESIS
             {
                 name: "Gênesis",
-                thumb_buttons: ["https://i.imgur.com/JFlXEBA.jpeg"],
+                thumb_buttons: [
+                    "https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg",
+                    // "https://i.imgur.com/A68fp1F.jpeg", //MESMA DE CIMA IMGUR
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -1106,7 +1150,9 @@ const seriesData = [
                     enabled: true,
                     title: "GÊNESIS",
                     logo: "",
-                    thumb: "https://i.imgur.com/qHQejKs.png",
+                    thumb: [
+                        "https://i.imgur.com/qHQejKs.png"
+                    ],
                     text: "Destaque",
                     description: `
                         A superprodução bíblica Gênesis vai lhe ajudar a entender aquilo 
@@ -1118,8 +1164,11 @@ const seriesData = [
                 },
                 description: {
                     title: "GÊNESIS",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0191984/playplus_thumb_1600.jpg",
-                      sinopse:  `
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0191984/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/BADXefl.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    sinopse:  `
                         A superprodução bíblica Gênesis vai lhe ajudar a entender aquilo 
                         que você sempre quis, mas nunca teve coragem de questionar. Sim, 
                         ela é cheia de histórias fascinantes, com muita emoção, talentosos 
@@ -1362,7 +1411,11 @@ const seriesData = [
             //O RICO E LÁZARO
             {
                 name: "O Rico e Lázaro",
-                thumb_buttons: ["https://i.imgur.com/io3Xbpv.jpeg"],
+                thumb_buttons: [
+                    "https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg",
+                    "https://i.imgur.com/io3Xbpv.jpeg",
+                    // "https://i.imgur.com/6wEQHLg.jpeg", //MESMA DE CIMA IMGUR
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -1372,7 +1425,9 @@ const seriesData = [
                     enabled: true,
                     title: "O RICO E LÁZARO",
                     logo: "",
-                    thumb: "https://i.imgur.com/sz0LCJC.png",
+                    thumb: [
+                        "https://i.imgur.com/sz0LCJC.png"
+                    ],
                     text: "Destaque",
                     description: `
                         Após o governo de vários reis que se afastaram de Deus, Jerusalém 
@@ -1384,8 +1439,11 @@ const seriesData = [
                 },
                 description: {
                     title: "O RICO E LÁZARO",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0068614/playplus_thumb_1600.jpg",
-                      sinopse:  `
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0068614/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/X0fkwzu.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    sinopse:  `
                         Após o governo de vários reis que se afastaram de Deus, Jerusalém 
                         encontra-se mergulhada na idolatria. A grande amizade de Zac e Asher 
                         é abalada pelo amor que ambos sentem pela companheira de infância, 
@@ -1590,7 +1648,10 @@ const seriesData = [
             {
                 name: "A Rainha da Pérsia",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/tKjng2c.png"],
+                thumb_buttons: [
+                    // "https://pp-vod-img-aws.akamaized.net/0433417/0433417_200.jpg",
+                    "https://i.imgur.com/tKjng2c.png", //MESMA DE CIMA IMGUR
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -1600,7 +1661,9 @@ const seriesData = [
                     enabled: true,
                     title: "A RAINHA DA PÉRSIA",
                     logo: "",
-                    thumb: "https://i.imgur.com/5x7Rmg9.png",
+                    thumb: [
+                        "https://i.imgur.com/5x7Rmg9.png"
+                    ],
                     text: "Destaque",
                     description: `
                         A Rainha da Pérsia é uma série que nos transporta para 
@@ -1611,8 +1674,11 @@ const seriesData = [
                 },
                 description: {
                     title: "A RAINHA DA PÉRSIA",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0433417/playplus_thumb_852.jpg",
-                      sinopse:  `
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0433417/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/k1Q9CXR.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    sinopse:  `
                         A Rainha da Pérsia é uma série que nos transporta para 
                         os tempos antigos da Bíblia, onde a vida de uma jovem 
                         judia, Hadassah, também conhecida como Ester, se entrelaça 
@@ -1664,7 +1730,11 @@ const seriesData = [
             //A HISTÓRIA DE ESTER
             {
                 name: "A História de Ester",
-                thumb_buttons: ["https://i.imgur.com/YqgmJBA.jpeg"],
+                thumb_buttons: [
+                    "https://i.imgur.com/YqgmJBA.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0068508/0068508_200.jpg",
+                    // "https://i.imgur.com/30c5JJ4.jpeg", //MESMA DE CIMA IMGUR
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -1674,7 +1744,7 @@ const seriesData = [
                     enabled: false,
                     title: "",
                     logo: "",
-                    thumb: "",
+                    thumb: [""],
                     text: "",
                     description: `
                         
@@ -1682,7 +1752,10 @@ const seriesData = [
                 },
                 description: {
                     title: "A HISTÓRIA DE ESTER",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0068508/playplus_thumb_852.jpg",
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0068508/playplus_thumb_852.jpg", //1600 OFF
+                        "https://i.imgur.com/HNMg6YB.jpeg", //MESMA DE CIMA IMGUR
+                    ],
                     sinopse:  `
                         A minissérie A História de Ester se passa por volta 
                         de 400 anos a.C., na antiga Pérsia, onde hoje é o Irã. 
@@ -1716,19 +1789,21 @@ const seriesData = [
                 name: "Apocalipse",
                 thumb_page: "",
                 thumb_buttons: [
-                    // "https://i.imgur.com/gEPrg5k.jpeg",
-                    "https://pp-vod-img-aws.akamaized.net/0070604/0070604_200.jpg"
+                    "https://i.imgur.com/gEPrg5k.jpeg",
+                    "https://i.imgur.com/KwwrJdX.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0070604/0070604_200.jpg",
+                    // "https://i.imgur.com/r4GPwF5.jpeg", //MESMA DE CIMA IMGUR
                 ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
-                 carrousel: {
+                carrousel: {
                     enabled: false,
                     title: "",
                     logo: "",
-                    thumb: "",
+                    thumb: [""],
                     text: "",
                     description: `
                         
@@ -1736,7 +1811,10 @@ const seriesData = [
                 },
                 description: {
                     title: "APOCALIPSE",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0070604/playplus_thumb_1600.jpg",
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0070604/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/NRPhGRI.jpeg", //MESMA DE CIMA IMGUR
+                    ],
                     sinopse:  `
                         Baseada nas interpretações de um dos capítulos da bíblia, 
                         a novela retrata as catástrofes dos fins dos tempos. 
@@ -1943,7 +2021,7 @@ const seriesData = [
                     enabled: false,
                     title: "",
                     logo: "",
-                    thumb: "",
+                    thumb: [""],
                     text: "",
                     description: `
                         
@@ -1951,7 +2029,10 @@ const seriesData = [
                 },
                 description: {
                     title: "REIS",
-                    thumb: "https://i.imgur.com/yfMLDL9.jpeg",
+                    thumb: [
+                        "https://i.imgur.com/yfMLDL9.jpeg",
+                        "https://i.imgur.com/deMH9PD.jpeg",
+                    ],
                     sinopse:  `
                         Nas terras de Canaã, um povo que caminhou décadas pelo deserto 
                         e enfrentou batalhas épicas com prodígios jamais vistos por 
@@ -1960,14 +2041,16 @@ const seriesData = [
                     `
                 },
                 season: [
-                    //TEMPORADA 01 - A DECEPÇÃO
+                    //TEMPORADA 01 - A DECEPÇÃO   (24 EPISÓDIOS)
                     {
                         name: "Temporada 01: A Decepção",
                         thumb_season: "https://i.imgur.com/m2VwgJJ.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A DECEPÇÃO",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0256021/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0256021/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                 Reis - A Decepção retrata a história da nação de Israel, 
                                 do momento em que o último juiz, o profeta Samuel, é usado 
@@ -2003,14 +2086,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 02 - A INGRATIDÃO
+                    //TEMPORADA 02 - A INGRATIDÃO       (31 EPISÓDIOS)
                     {
                         name: "Temporada 02: A Ingratidão",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A INGRATIDÃO",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0260819/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0260819/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                 Reis - A Ingratidão retrata o início do reinado de Saul, o primeiro rei 
                                 de Israel, e na sua relação com o profeta Samuel e com o povo israelita. 
@@ -2053,14 +2138,16 @@ const seriesData = [
                         ]
                     },
                     
-                    //TEMPORADA 03 - A REJEIÇÃO
+                    //TEMPORADA 03 - A REJEIÇÃO         (30 EPISÓDIOS)
                     {
                         name: "Temporada 03: A Rejeição",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A REJEIÇÃO",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0276558/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0276558/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                 Reis - A Rejeição retrata a história do primeiro rei de 
                                 Israel. Escolhido por Deus e aclamado pelo povo, Saul 
@@ -2102,14 +2189,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 04 - A ESCOLHA
+                    //TEMPORADA 04 - A ESCOLHA          (16 EPISÓDIOS)
                     {
                         name: "Temporada 04: A Escolha",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A ESCOLHA",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0283103/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0283103/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                 Reis – A Escolha retrata o início de uma história de fé, amor e 
                                 superação do mais aclamado rei que a humanidade já ouviu falar. 
@@ -2137,14 +2226,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 05 - A PERSEGUIÇÃO
+                    //TEMPORADA 05 - A PERSEGUIÇÃO      (38 EPISÓDIOS)
                     {
                         name: "Temporada 05: A Perseguição",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A PERSEGUIÇÃO",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0337855/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0337855/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                 Reis - A Perseguição retrata à incrível trajetória do temente e 
                                 corajoso Davi, que, através do seu caráter virtuoso e de suas inúmeras 
@@ -2194,14 +2285,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 06 - A CONQUISTA
+                    //TEMPORADA 06 - A CONQUISTA        (26 EPISÓDIOS)
                     {
                         name: "Temporada 06: A Conquista",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A CONQUISTA",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0366700/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0366700/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                Reis – A Conquista retrata os acontecimentos da vida de Davi após a 
                                morte do seu maior perseguidor, Saul, bem como a inclinação do aclamado 
@@ -2239,14 +2332,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 07 - O PECADO
+                    //TEMPORADA 07 - O PECADO           (39 EPISÓDIOS)
                     {
                         name: "Temporada 07: O Pecado",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A CONQUISTA",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0373820/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0373820/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                Reis - O Pecado retrata o auge do reinado de Davi e mergulha nas suas 
                                intensas batalhas internas. Aquele aclamado rei de Israel dedicado à 
@@ -2297,14 +2392,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 08 - A CONSEQUÊNCIA
+                    //TEMPORADA 08 - A CONSEQUÊNCIA     (55 EPISÓDIOS)
                     {
                         name: "Temporada 08: A Consequência",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A CONSEQUÊNCIA",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0384653/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0384653/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                 Reis – A Consequência retrata à história de Davi anos depois do 
                                 terrível e lamentável pecado cometido. Agora não mais um homem 
@@ -2372,14 +2469,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 09 - A SUCESSÃO
+                    //TEMPORADA 09 - A SUCESSÃO         (35 EPISÓDIOS)
                     {
                         name: "Temporada 09: A Sucessão",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A SUCESSÃO",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0396070/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0396070/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                 Reis – A Sucessão retrata o início da trajetória de Salomão, 
                                 aquele conhecido como o homem mais sábio que já existiu. 
@@ -2426,14 +2525,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 10 - A DECADÊNCIA
+                    //TEMPORADA 10 - A DECADÊNCIA       (21 EPISÓDIOS)
                     {
                         name: "Temporada 10: A Decadência",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A DECADÊNCIA",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0424348/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0424348/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                 Reis - A Decadência retrata o apogeu e o declínio do reinado de Salomão 
                                 em Israel. O homem mais sábio do mundo está rodeado por riquezas, bens e 
@@ -2466,14 +2567,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 11 - A DIVISÃO
+                    //TEMPORADA 11 - A DIVISÃO          (19 EPISÓDIOS)
                     {
                         name: "Temporada 11: A Divisão",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A DIVISÃO",
-                            thumb: "https://pp-vod-img-aws.akamaized.net/0429062/playplus_thumb_1600.jpg",
+                            thumb: [
+                                "https://pp-vod-img-aws.akamaized.net/0429062/playplus_thumb_1600.jpg"
+                            ],
                             sinopse:  `
                                 Reis - A Divisão retrata a deplorável situação do que se tornou o reino 
                                 de Israel após a morte do rei Salomão. Seu filho e sucessor, Roboão, 
@@ -2504,14 +2607,16 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 12 - A EMBOSCADA
+                    //TEMPORADA 12 - A EMBOSCADA        (23 EPISÓDIOS)
                     {
                         name: "Temporada 12: A Emboscada",
-                        thumb_season: "https://yt3.googleusercontent.com/yH1RQDWIaP_4lQ-pdoc6uACAd-byS0aKa9XbloxMLMF87ZL62Mor4TxaJgwi6kcrXlB3B0R7=s900-c-k-c0x00ffffff-no-rj",
+                        thumb_season: "https://i.imgur.com/UOfQaNd.jpeg",
                         movies: false,
                         description: {
                             title: "REIS - A EMBOSCADA",
-                            thumb: "https://i.imgur.com/M6qjlPq.jpeg",
+                            thumb: [
+                                "https://i.imgur.com/M6qjlPq.jpeg"
+                            ],
                             sinopse:  `
                                 Reis - A Emboscada retrata a divisão de Israel após a morte de Salomão,
                                 sendo reinado por Abias e Jeroboão, mostrando como os erros e acertos 
@@ -2546,14 +2651,17 @@ const seriesData = [
                         ]
                     },
 
-                    //TEMPORADA 13 - A ESPERANÇA
+                    //TEMPORADA 13 - A ESPERANÇA        (25 EPISÓDIOS)
                     {
                         name: "Temporada 13: A Esperança",
                         thumb_season: "https://univideo01.akamaized.net/cdn/asset/images/L1_DESKTOP-SEJNM.jpg",
                         movies: false,
                         description: {
                             title: "REIS - A ESPERANÇA",
-                            thumb: "https://i.imgur.com/CE7GRzN.jpeg",
+                            thumb: [
+                                "https://i.imgur.com/CE7GRzN.jpeg",
+
+                            ],
                             sinopse:  `
                                 Reis - A Esperança retrata a história do Rei Asa que governou o 
                                 Reino de Judá e é conhecido por suas reformas religiosas e busca 
@@ -2561,31 +2669,31 @@ const seriesData = [
                             `
                         },
                         episodes: [
-                            { title: "Episódio 001 - (358)", duration: "51:04", thumb: "https://i.imgur.com/dgdnQMJ.jpeg", url: "https://ok.ru/videoembed/9833061026415" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-358.mp4"] },
-                            { title: "Episódio 002 - (359)", duration: "37:41", thumb: "https://i.imgur.com/ZgS1lsB.jpeg", url: "https://ok.ru/videoembed/9855088331375" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-359.mp4"] },
-                            { title: "Episódio 003 - (360)", duration: "36:16", thumb: "https://i.imgur.com/IvOZzpP.jpeg", url: "https://ok.ru/videoembed/9855137745519" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-360.mp4"] },
-                            { title: "Episódio 004 - (361)", duration: "39:10", thumb: "https://i.imgur.com/N9ZJBuw.jpeg", url: "https://ok.ru/videoembed/9881453136495" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-361.mp4"] },
-                            { title: "Episódio 005 - (362)", duration: "40:38", thumb: "https://i.imgur.com/J1G0Rjs.jpeg", url: "https://ok.ru/videoembed/9886217079407" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-362.mp4"] },
-                            { title: "Episódio 006 - (363)", duration: "38:10", thumb: "https://i.imgur.com/Kxt1W3W.jpeg", url: "https://ok.ru/videoembed/9906946706031" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-363.mp4"] },
-                            { title: "Episódio 007 - (364)", duration: "38:59", thumb: "https://i.imgur.com/qutMxfk.jpeg", url: "https://ok.ru/videoembed/9906967677551" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-364.mp4"] },
-                            { title: "Episódio 008 - (365)", duration: "39:52", thumb: "https://i.imgur.com/rXYDr7e.jpeg", url: "https://ok.ru/videoembed/9932768938607" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-365.mp4"] },
-                            { title: "Episódio 009 - (366)", duration: "37:10", thumb: "https://i.imgur.com/OE0N8lU.jpeg", url: "https://ok.ru/videoembed/9932953684591" , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-366.mp4"] },
-                            
-                            { title: "Episódio 010 - (367)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-367.mp4"] },
-                            { title: "Episódio 011 - (368)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-368.mp4"] },
-                            { title: "Episódio 012 - (369)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-369.mp4"] },
-                            { title: "Episódio 013 - (370)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-370.mp4"] },
-                            { title: "Episódio 014 - (371)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-371.mp4"] },
-                            { title: "Episódio 015 - (372)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-372.mp4"] },
-                            { title: "Episódio 016 - (373)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-373.mp4"] },
-                            { title: "Episódio 017 - (374)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-374.mp4"] },
-                            { title: "Episódio 018 - (375)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-375.mp4"] },
-                            { title: "Episódio 019 - (376)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-376.mp4"] },
-                            { title: "Episódio 020 - (377)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-377.mp4"] },
-                            { title: "Episódio 021 - (378)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-378.mp4"] },
-                            { title: "Episódio 022 - (379)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-379.mp4"] },
-                            { title: "Episódio 023 - (380)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-380.mp4"] },
-                            { title: "Episódio 024 - (381)", duration: "00:00", thumb: "https://i.imgur.com/m2VwgJJ.jpeg", url: " " , alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-381.mp4"] },
+                            { title: "Episódio 001 - (358)", duration: "51:02", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY1uL-8slUguUyqJ_KC97EPzA2t49e2-upTSSvNeNVq8A&fn=external_7", url: "https://ok.ru/videoembed/9338128567001", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-358.mp4"] },
+                            { title: "Episódio 002 - (359)", duration: "37:39", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYSxxCayqxIz2KdBF-IMaxRAIWLACkv2IwIGvbQHMF6U8&fn=external_7", url: "https://ok.ru/videoembed/9355635526361", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-359.mp4"] },
+                            { title: "Episódio 003 - (360)", duration: "36:15", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY4WkwDE_vHpWhcnEDnNkcFGNhFG7M79aVGjqpA1xLHrM&fn=external_7", url: "https://ok.ru/videoembed/9355714759385", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-360.mp4"] },
+                            { title: "Episódio 004 - (361)", duration: "39:08", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYjNbhEyTA5ZlG_1a_sJVkXq5lD7rFvRlxQTCYaaKRXTs&fn=external_7", url: "https://ok.ru/videoembed/9383282871001", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-361.mp4"] },
+                            { title: "Episódio 005 - (362)", duration: "40:37", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYqfUj9HqjLQQ4UFLYpw7OPQxDIlGnk9a5pqyZD944ApA&fn=external_7", url: "https://ok.ru/videoembed/9383344081625", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-362.mp4"] },
+                            { title: "Episódio 006 - (363)", duration: "38:08", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYKH75B3DGwT9q1xVioPZt5n1Efag0Ss0GnNWS2EOlFW0&fn=external_7", url: "https://ok.ru/videoembed/9406145563353", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-363.mp4"] },
+                            { title: "Episódio 007 - (364)", duration: "38:56", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYPu-NDwYKyIGVmyZkUQRd1V31k31ezB8hwDK3ZswBo0I&fn=external_7", url: "https://ok.ru/videoembed/9406238624473", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-364.mp4"] },
+                            { title: "Episódio 008 - (365)", duration: "39:50", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYyvffUJb9jGAxj8Aeb8r2Fj7P7ayMCFQtDBFtIcfO2EE&fn=external_7", url: "https://ok.ru/videoembed/9427857246937", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-365.mp4"] },
+                            { title: "Episódio 009 - (366)", duration: "37:07", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYzvXB6TLMwBORYIwK6NBVAVhvelBEezc9pYwmu1Waw-I&fn=external_7", url: "https://ok.ru/videoembed/9427908561625", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-366.mp4"] },
+                            { title: "Episódio 010 - (367)", duration: "42:14", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYsMjN9F3xQa6ZMPCts0ps8Oqkk3jWalKys6rmSRm9WtY&fn=external_7", url: "https://ok.ru/videoembed/9452127652569", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-367.mp4"] },
+                            { title: "Episódio 011 - (368)", duration: "40:08", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYmtdcw9aFTxM5Twatxlgr91AyQ5D7coEzt0HXXvtuY3A&fn=external_7", url: "https://ok.ru/videoembed/9452146002649", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-368.mp4"] },
+                            { title: "Episódio 012 - (369)", duration: "42:38", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYpcx4s0In52YemGYI6Wci5EoGt4ishV6OMALyfMbbN1o&fn=external_7", url: "https://ok.ru/videoembed/9474175470297", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-369.mp4"] },
+                            { title: "Episódio 013 - (370)", duration: "42:03", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYfq-isMyEbmknNdMSsG9lxJP2dgG1yUfCyO_baEtNAfY&fn=external_7", url: "https://ok.ru/videoembed/9474205616857", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-370.mp4"] },
+                            { title: "Episódio 014 - (371)", duration: "32:31", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYDlJwAzKCUqEc_yRsBdsI1lGz4tBTYEZ45IVCMyZMUxg&fn=external_7", url: "https://ok.ru/videoembed/9496594221785", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-371.mp4"] },
+                            { title: "Episódio 015 - (372)", duration: "43:43", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYnlajuH0qw9IYOoRHDQW1bD_DZlY984c1igFWragJk2Y&fn=external_7", url: "https://ok.ru/videoembed/9496610343641", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-372.mp4"] },
+                            { title: "Episódio 016 - (373)", duration: "40:45", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYQW2nZttkz5zsvb_qks9ZQNHX19QyBC5sOUCk-GmFaho&fn=external_7", url: "https://ok.ru/videoembed/9521022569177", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-373.mp4"] },
+                            { title: "Episódio 017 - (374)", duration: "39:07", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYr-v7fSLwtogKzbbjBcP7Mm4ethDB7GbUuyHOiRSNFmo&fn=external_7", url: "https://ok.ru/videoembed/9521041181401", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-374.mp4"] },
+                            { title: "Episódio 018 - (375)", duration: "44:03", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY4N7x2gS3ow0QUHFC4V56M0bhvs9UyyTainPX3nFuqbY&fn=external_7", url: "https://ok.ru/videoembed/9545551973081", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-375.mp4"] },
+                            { title: "Episódio 019 - (376)", duration: "45:36", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYuZcyZd82f5TVWvNG-EURD1KUitTam1aRfB1FqBaZN3g&fn=external_7", url: "https://ok.ru/videoembed/9547976805081", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-376.mp4"] },
+                            { title: "Episódio 020 - (377)", duration: "39:07", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY8uWMVPh-PW1R-_X4DX2RiyNRsv-yFIWPUTlH_8g71MA&fn=external_7", url: "https://ok.ru/videoembed/9563126958809", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-377.mp4"] },
+                            { title: "Episódio 021 - (378)", duration: "40:46", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYIFHeXz2o4So1G6v1-KlAFhKGdRi32dSYGyXRNA1Jdh4&fn=external_7", url: "https://ok.ru/videoembed/9563142032089", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-378.mp4"] },
+                            { title: "Episódio 022 - (379)", duration: "45:43", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYBURtgEUjQLu968TaKeXgOe8-l0c_fhGsuyirU9PwgtA&fn=external_7", url: "https://ok.ru/videoembed/9595952171737", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-379.mp4"] },
+                            { title: "Episódio 023 - (380)", duration: "43:14", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYJaRg6dynmJ333WXWom0R4mg0ilJbFn6TE1oIIIZDDmo&fn=external_7", url: "https://ok.ru/videoembed/9595961674457", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-380.mp4"] },
+                            { title: "Episódio 024 - (381)", duration: "41:54", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYUdcv5YtPAQwGIvFSZflAMOvfQMj52wnGVYxeJ6KSpWw&fn=external_7", url: "https://ok.ru/videoembed/9600408619737", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-381.mp4"] },
+                            { title: "Episódio 025 - (382)", duration: "50:05", thumb: "https://i.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYA36dN-1BfCO07WTyQP7X2ur-UkdbWOHSFfGdr-xBvnM&fn=external_7", url: "https://ok.ru/videoembed/9600413928153", alternative: ["https://cdn-novflix.com/storage1/REIS/REIS-382.mp4"] },
                         ]
                     },
                 ]
@@ -2595,7 +2703,11 @@ const seriesData = [
             {
                 name: "Sansão e Dalila",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/AUF8QiG.jpeg"],
+                thumb_buttons: [
+                    "https://pp-vod-img-aws.akamaized.net/0069029/0069029_200.jpg",
+                    "https://i.imgur.com/AUF8QiG.jpeg",
+                    // "https://i.imgur.com/5IoZDhV.jpeg", //MESMA DE CIMA IMGUR
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -2605,7 +2717,7 @@ const seriesData = [
                     enabled: false,
                     title: "",
                     logo: "",
-                    thumb: "",
+                    thumb: [""],
                     text: "",
                     description: `
                         
@@ -2613,7 +2725,10 @@ const seriesData = [
                 },
                 description: {
                     title: "SANSÃO E DALILA",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0069029/playplus_thumb_1600.jpg",
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0069029/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/QZb9etq.jpeg", //MESMA DE CIMA IMGUR
+                    ],
                     sinopse:  `
                         A obra Sansão e Dalila retrata uma época em que hebreus fortemente
                         oprimidos e perseguidos pelos filisteus clamavam por libertação. Neste
@@ -2661,17 +2776,31 @@ const seriesData = [
                 name: "Lia",
                 thumb_page: "",
                 thumb_buttons: [
-                    //"https://i.imgur.com/h8a6jYP.jpeg",
-                    "https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg"
+                    "https://i.imgur.com/h8a6jYP.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg",
+                    // "https://i.imgur.com/3aJXqgl.jpeg", //MESMA DE CIMA IMGUR
                 ], 
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "",
+                    logo: "",
+                    thumb: [""],
+                    text: "",
+                    description: `
+                        
+                    `
+                },
                 description: {
                     title: "LIA",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0072028/playplus_thumb_1600.jpg",
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0072028/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/laxl1rV.jpeg", //MESMA DE CIMA IMGUR
+                    ],
                     sinopse:  `
                         A minissérie é baseada na história de Lia, uma das esposas de Jacó, 
                         o progenitor da Nação Judaica. Jacó teve doze filhos, que deram nomes 
@@ -2704,15 +2833,29 @@ const seriesData = [
             {
                 name: "Neemias",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/tzBW2PF.jpeg"],
+                thumb_buttons: [
+                    "https://i.imgur.com/tzBW2PF.jpeg"
+                ],
                 badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "",
+                    logo: "",
+                    thumb: [""],
+                    text: "",
+                    description: `
+                        
+                    `
+                },
                 description: {
                     title: "NEEMIAS",
-                    thumb: "https://i.imgur.com/6xJGpt0.jpeg",
+                    thumb: [
+                        "https://i.imgur.com/6xJGpt0.jpeg"
+                    ],
                     sinopse:  `
                         A minissérie Neemias, que narra a história da reconstrução dos muros de
                         Jerusalém liderada por Neemias após o exílio babilônico
@@ -2739,10 +2882,10 @@ const seriesData = [
             //PAULO, O APÓSTOLO
             {
                 name: "Paulo o Apóstolo",
-                thumb_page: "https://i.imgur.com/G7Q8SZ7.jpeg", //https://i.imgur.com/G7Q8SZ7.jpeg https://i.imgur.com/beK4a7A.jpeg
                 thumb_buttons: [
                     "https://i.imgur.com/4g0vsCZ.jpeg",
-                    //"https://i.imgur.com/kcwpdNz.png"
+                    // "https://pp-vod-img-aws.akamaized.net/0503079/0503079_200.jpg",
+                    "https://i.imgur.com/kcwpdNz.png" //MESMA DE CIMA IMGUR
                 ],
                 badge: "NOVO",
                 type: "Temporadas",
@@ -2750,18 +2893,25 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
+                    enabled: true,
                     title: "",
                     logo: "",
-                    thumb: "",
-                    text: "",
+                    thumb: [
+                        "https://i.imgur.com/G7Q8SZ7.jpeg",
+                        // "https://i.imgur.com/G7Q8SZ7.jpeg",
+                        // "https://i.imgur.com/beK4a7A.jpeg"
+                    ],
+                    text: "NOVO",
                     description: `
                         
                     `
                 },
                 description: {
                     title: "PAULO O APÓSTOLO",
-                    thumb: "https://pp-vod-img-aws.akamaized.net/0503079/playplus_thumb_1600.jpg",
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0503079/playplus_thumb_1600.jpg",
+                        // "https://i.imgur.com/BDXUWVd.jpeg", //MESMA DE CIMA IMGUR
+                    ],
                     sinopse:  `
                         Paulo, O Apóstolo narra a fascinante e profunda jornada 
                         de Saulo de Tarso, um jovem fariseu fervoroso que, após um 
@@ -2799,15 +2949,18 @@ const seriesData = [
                             { title: "Episódio 023", duration: "42:46", thumb: "https://pp-vod-img-aws.akamaized.net/0511126/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9750810069721", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-023.mp4"] },
                             { title: "Episódio 024", duration: "55:03", thumb: "https://pp-vod-img-aws.akamaized.net/0511398/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9750819834585", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-024.mp4"] },
                             { title: "Episódio 025", duration: "35:22", thumb: "https://pp-vod-img-aws.akamaized.net/0511756/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/9792841452249", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-025.mp4"] },
-                            { title: "Episódio 026", duration: "40:42", thumb: "https://i.imgur.com/q4gmGql.png"                                                                  , url: "https://ok.ru/videoembed/9792881429209", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-026.mp4"] },
-                            { title: "Episódio 027", duration: "46:47", thumb: "https://i.imgur.com/HYhodHB.png"                                                                  , url: "https://ok.ru/videoembed/9792893618905", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-027.mp4"] },
-                            { title: "Episódio 028", duration: "40:52", thumb: "https://i.imgur.com/XqtWvM9.png"                                                                  , url: "https://ok.ru/videoembed/9798894160601", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-028.mp4"] },
-                            { title: "Episódio 029", duration: "38:24", thumb: "https://i.imgur.com/0Ll5Cbq.png"                                                                  , url: "https://ok.ru/videoembed/9798899337945", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-029.mp4"] },
-                            { title: "Episódio 030", duration: "31:39", thumb: "https://i.imgur.com/div4i9x.png"                                                                  , url: "https://ok.ru/videoembed/9819050019545", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-030.mp4"] },
-                            { title: "Episódio 031", duration: "40:42", thumb: "https://i.imgur.com/0b6XIte.jpeg"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-031.mp4"] },
-                            { title: "Episódio 032", duration: "43:47", thumb: "https://i.imgur.com/JDHRzYV.png"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-032.mp4"] },
-                            { title: "Episódio 033", duration: "39:54", thumb: "https://i.imgur.com/in8McsP.png"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-033.mp4"] },
-                            { title: "Episódio 034", duration: "47:31", thumb: "https://i.imgur.com/kYzDLxg.png"                                                                  , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-034.mp4"] },
+                            { title: "Episódio 026", duration: "40:42", thumb: "https://i.imgur.com/q4gmGql.png"                                    , url: "https://ok.ru/videoembed/9792881429209", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-026.mp4"] },
+                            { title: "Episódio 027", duration: "46:47", thumb: "https://i.imgur.com/HYhodHB.png"                                    , url: "https://ok.ru/videoembed/9792893618905", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-027.mp4"] },
+                            { title: "Episódio 028", duration: "40:52", thumb: "https://i.imgur.com/XqtWvM9.png"                                    , url: "https://ok.ru/videoembed/9798894160601", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-028.mp4"] },
+                            { title: "Episódio 029", duration: "38:24", thumb: "https://i.imgur.com/0Ll5Cbq.png"                                    , url: "https://ok.ru/videoembed/9798899337945", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-029.mp4"] },
+                            { title: "Episódio 030", duration: "31:39", thumb: "https://i.imgur.com/div4i9x.png"                                    , url: "https://ok.ru/videoembed/9819050019545", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-030.mp4"] },
+                            { title: "Episódio 031", duration: "40:35", thumb: "https://i.imgur.com/0b6XIte.jpeg"                                   , url: "https://ok.ru/videoembed/9831735560921", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-031.mp4"] },
+                            { title: "Episódio 032", duration: "43:41", thumb: "https://i.imgur.com/JDHRzYV.png"                                    , url: "https://ok.ru/videoembed/9831739034329", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-032.mp4"] },
+                            { title: "Episódio 033", duration: "39:48", thumb: "https://i.imgur.com/in8McsP.png"                                    , url: "https://ok.ru/videoembed/9834659842777", alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-033.mp4"] },
+                            { title: "Episódio 034", duration: "47:31", thumb: "https://i.imgur.com/kYzDLxg.png"                                    , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-034.mp4"] },
+                            { title: "Episódio 035", duration: "48:04", thumb: "https://i.imgur.com/2LVmeon.jpeg"                                   , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-035.mp4"] },
+                            { title: "Episódio 036", duration: "47:40", thumb: "https://i.imgur.com/I61hzdg.png"                                    , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-036.mp4"] },
+                            { title: "Episódio 037", duration: "46:22", thumb: "https://i.imgur.com/LdGxqqd.png"                                    , url: "",                                       alternative: ["https://cdn-novflix.com/storage1/PAULO/PAULO-037.mp4"] },
                         ]
                     },
                 ]
@@ -2817,7 +2970,10 @@ const seriesData = [
             {
                 name: "A Bíblia",
                 thumb_page: "",
-                thumb_buttons: ["https://pp-vod-img-aws.akamaized.net/0238038/0238038_200.jpg"],
+                thumb_buttons: [
+                    "https://pp-vod-img-aws.akamaized.net/0238038/0238038_200.jpg",
+                    // "https://i.imgur.com/jgSVF31.jpeg", //MESMA DE CIMA IMGUR
+                ],
                 badge: "NOVO",
                 type: "Temporadas",
                 canais: false,
@@ -2827,7 +2983,7 @@ const seriesData = [
                     enabled: false,
                     title: "",
                     logo: "",
-                    thumb: "",
+                    thumb: [""],
                     text: "",
                     description: `
                         
@@ -2835,7 +2991,10 @@ const seriesData = [
                 },
                 description: {
                     title: "A BÍBLIA",
-                    thumb: "	https://pp-vod-img-aws.akamaized.net/0238038/playplus_thumb_1600.jpg",
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0238038/playplus_thumb_1600.jpg",
+                        // "https://i.imgur.com/DeKWycs.jpeg", //MESMA DE CIMA IMGUR
+                    ],
                     sinopse:  `
                         A Bíblia traz um compilado de episódios épicos, exibidos em ordem 
                         cronológica, dos principais acontecimentos bíblicos retratados nas 
@@ -2845,7 +3004,9 @@ const seriesData = [
                 season: [
                     {
                         name: "A Bíblia",
-                        thumb_season: "https://pp-vod-img-aws.akamaized.net/0238038/playplus_thumb_852.jpg",
+                        thumb_season: [
+                            "https://i.imgur.com/w66fwvH.jpeg"
+                        ],
                         movies: false,
                         episodes: [
                             { title: "Episódio 01 - A Criação",                duration: "49:52"  , thumb: "https://pp-vod-img-aws.akamaized.net/0239065/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/3080528923353", alternative: []},
@@ -3450,8 +3611,7 @@ const seriesData = [
                 thumb_page: "",
                 thumb_buttons: [
                     "https://pp-vod-img-aws.akamaized.net/0069081/0069081_200.jpg",
-                    // "https://i.imgur.com/SEnkwUw.jpeg", 
-                    // "https://s2.glbimg.com/ZL5vyy2AgnF4hB9zaOpsfIbnttA=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2024/2/v/xY2nXpT1elFw5Zg5ChbQ/2024-4284-rebelde-t3-poster.jpg"
+                    // "https://i.imgur.com/9BYbB7x.jpeg"
                 ],
                 badge: "NOVO",
                 type: "Temporadas",
@@ -3474,10 +3634,10 @@ const seriesData = [
                 season: [
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://i.imgur.com/5ya030J.jpeg",
+                        thumb_season: "https://i.imgur.com/Wcezl0p.png",
                         movies: false,
                         episodes: [
-                            //{ title: "Episódio 001", duration: "44:09", thumb: "https://s02.video.glbimg.com/x216/12053565.jpg", url: "https://cdn-novflix.com/storage6/RBD/RBD-001.mp4", alternative: ["https://www.youtube.com/embed/YPe1mKU7xQ4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
+                            { title: "Episódio 001", duration: "44:09", thumb: "", url: "https://cdn-novflix.com/storage6/RBD/RBD-001.mp4", alternative: ["https://www.youtube.com/embed/YPe1mKU7xQ4?list=PLLTBRifDXIy_0ptz_XRs37oM6Hu8K47L7"] },
                         ]
                     }
 
@@ -3491,6 +3651,9 @@ const seriesData = [
 // localStorage.clear();
 const selectedThumbs            = {};
 const thumbnailCache            = {};
+let randomImagesCards           = false;
+let randomImagesDescription     = false;
+let randomImagesCarrousel       = false;
 let autoPlay                    = true;
 let animationReverseEpisodes    = false;
 let animationSpeedEpisodes      = 3;
@@ -3575,7 +3738,7 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
     }
 
     let descriptionHTML = '';
-    let desc = serie.description; // Default to series-level description
+    let desc = serie.description;
     if (dropdownValue !== 'all' && serie.season[currentSeasonIndex]?.description) {
         desc = serie.season[currentSeasonIndex].description;
     }
@@ -3614,10 +3777,14 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
         }
         const sinopseHTML = desc.sinopse.replace(/(?:\r\n|\r|\n)/g, '<br>');
         const isFavorite = favorites.some(fav => fav.name === serie.name);
+        // Seleciona a imagem com base em randomImagesDescription
+        const descriptionThumb = randomImagesDescription && desc.thumb?.length > 0
+            ? desc.thumb[Math.floor(Math.random() * desc.thumb.length)]
+            : desc.thumb?.[0] || '';
 
         descriptionHTML = `
             <div id="series-description">
-                <div class="description-thumb" style="background-image: url('${desc.thumb}');"></div>
+                <div class="description-thumb" style="background-image: url('${descriptionThumb}');"></div>
                 <div class="description-content">
                     <h2>${desc.title}</h2>
                     ${summaryHTML}
@@ -3702,7 +3869,6 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
             document.getElementById('series-available-text').innerText = newText;
 
             animateEpisodes(newEpisodes.length, previousEpisodeCount, () => {
-                // Re-render the entire series with the new dropdown value to update description
                 renderCurrentSeries(serie, value);
             });
 
@@ -4560,495 +4726,510 @@ function filterSeries() {
 }
 
 function renderCarousel() {
-  const slider = document.querySelector('.slider');
-  const slidesContainer = document.getElementById('slides');
-  const dotsContainer = document.getElementById('dots');
-  const progressBar = document.getElementById('progressBar');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
+    const slider = document.querySelector('.slider');
+    const slidesContainer = document.getElementById('slides');
+    const dotsContainer = document.getElementById('dots');
+    const progressBar = document.getElementById('progressBar');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
-  slider.querySelectorAll(':scope > input[type="radio"]').forEach(n => n.remove());
-  if (slidesContainer) slidesContainer.innerHTML = '';
-  if (dotsContainer) dotsContainer.innerHTML = '';
+    slider.querySelectorAll(':scope > input[type="radio"]').forEach(n => n.remove());
+    if (slidesContainer) slidesContainer.innerHTML = '';
+    if (dotsContainer) dotsContainer.innerHTML = '';
 
-  if (!seriesData[0]?.group || seriesData[0].group.length === 0) {
-    removeControlsBottom(slider);
-    if (dotsContainer) dotsContainer.style.display = 'none';
-    if (progressBar) progressBar.style.display = 'none';
-    if (prevBtn) prevBtn.style.display = 'none';
-    if (nextBtn) nextBtn.style.display = 'none';
-    return;
-  }
+    if (!seriesData[0]?.group || seriesData[0].group.length === 0) {
+        removeControlsBottom(slider);
+        if (dotsContainer) dotsContainer.style.display = 'none';
+        if (progressBar) progressBar.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        return;
+    }
 
-  const enabledSeries = seriesData[0].group.filter(item => item.carrousel && item.carrousel.enabled !== false);
-  if (enabledSeries.length === 0) {
-    removeControlsBottom(slider);
-    if (dotsContainer) dotsContainer.style.display = 'none';
-    if (progressBar) progressBar.style.display = 'none';
-    if (prevBtn) prevBtn.style.display = 'none';
-    if (nextBtn) nextBtn.style.display = 'none';
-    return;
-  }
+    const enabledSeries = seriesData[0].group.filter(item => item.carrousel && item.carrousel.enabled !== false);
+    if (enabledSeries.length === 0) {
+        removeControlsBottom(slider);
+        if (dotsContainer) dotsContainer.style.display = 'none';
+        if (progressBar) progressBar.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        return;
+    }
 
-  const totalSlides = enabledSeries.length;
+    const totalSlides = enabledSeries.length;
 
-  if (totalSlides === 1) {
-    const carrousel = enabledSeries[0].carrousel;
+    if (totalSlides === 1) {
+        const carrousel = enabledSeries[0].carrousel;
+        const serie = enabledSeries[0];
 
-    const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
-      ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
-      : carrousel.title;
+        const numSeasons = serie.season.filter(season => !season.movies).length;
+        const numEpisodes = serie.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0);
+        const numMovies = serie.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0);
 
-    slidesContainer.innerHTML = `
-      <section class="slide" style="--bg: url('${carrousel.thumb}')">
-        <div class="content">
-          <h1 class="brand-title">${titleContent}</h1>
-          <span class="chip new">${carrousel.text ?? ''}</span>
-          <p class="desc">${(carrousel.description || '').trim()}</p>
-          <div class="actions">
-            <button class="btn primary">ASSISTIR</button>
-            <button class="btn">FAVORITAR</button>
-          </div>
-        </div>
-      </section>
-    `;
+        // Seleciona a imagem com base em randomImagesCarrousel
+        const carrouselThumb = randomImagesCarrousel && carrousel.thumb?.length > 0
+            ? carrousel.thumb[Math.floor(Math.random() * carrousel.thumb.length)]
+            : carrousel.thumb?.[0] || '';
 
-    // esconder/limpar tudo que não faz sentido com 1 slide
-    removeControlsBottom(slider);
-    if (dotsContainer) { dotsContainer.innerHTML = ''; dotsContainer.style.display = 'none'; }
-    if (progressBar) progressBar.style.display = 'none';
-    if (prevBtn) prevBtn.style.display = 'none';
-    if (nextBtn) nextBtn.style.display = 'none';
+        const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
+            ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
+            : carrousel.title;
 
-    // largura única
-    const slidesElement = document.querySelector('.slides');
-    if (slidesElement) slidesElement.style.width = '100%';
-    document.querySelectorAll('.slide').forEach(s => s.style.width = '100%');
+        slidesContainer.innerHTML = `
+            <section class="slide" style="--bg: url('${carrouselThumb}')">
+                <div class="content">
+                    <h1 class="brand-title">${titleContent}</h1>
+                    <div class="chips">
+                        ${carrousel.text ? `<span class="chip new">${carrousel.text}</span>` : ''}
+                        ${numSeasons > 0 ? `<span class="chip seasons">Temporadas: ${numSeasons}</span>` : ''}
+                        ${numEpisodes > 0 ? `<span class="chip episodes">Episódios: ${numEpisodes}</span>` : ''}
+                        ${numMovies > 0 ? `<span class="chip movies">Filmes: ${numMovies}</span>` : ''}
+                    </div>
+                    <p class="desc">${(carrousel.description || '').trim()}</p>
+                    <div class="actions">
+                        <button class="btn primary">ASSISTIR</button>
+                        <button class="btn">FAVORITAR</button>
+                    </div>
+                </div>
+            </section>
+        `;
 
-    // limpa regras dinâmicas anteriores (se houver)
-    const dynStyle = getOrCreateStyleTag('carousel-dynamic-rules');
-    dynStyle.textContent = '';
+        removeControlsBottom(slider);
+        if (dotsContainer) { dotsContainer.innerHTML = ''; dotsContainer.style.display = 'none'; }
+        if (progressBar) progressBar.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
 
-    return;
-  }
+        const slidesElement = document.querySelector('.slides');
+        if (slidesElement) slidesElement.style.width = '100%';
+        document.querySelectorAll('.slide').forEach(s => s.style.width = '100%');
 
-  if (dotsContainer) dotsContainer.style.display = '';
-  if (progressBar) { progressBar.style.display = ''; progressBar.style.width = '0%'; }
-  if (prevBtn) prevBtn.style.display = '';
-  if (nextBtn) nextBtn.style.display = '';
+        const dynStyle = getOrCreateStyleTag('carousel-dynamic-rules');
+        dynStyle.textContent = '';
 
-  let pauseCheckbox = injectPlayPause(slider);
+        return;
+    }
 
-  const slidesHTML = [];
-  const radios = [];
-  const dotsHTML = [];
+    if (dotsContainer) dotsContainer.style.display = '';
+    if (progressBar) { progressBar.style.display = ''; progressBar.style.width = '0%'; }
+    if (prevBtn) prevBtn.style.display = '';
+    if (nextBtn) nextBtn.style.display = '';
 
-  enabledSeries.forEach((item, index) => {
-    const carrousel = item.carrousel;
-    const radioId = `s${index + 1}`;
-    const isFirst = index === 0;
+    let pauseCheckbox = injectPlayPause(slider);
 
-    // Radio
-    radios.push(`<input ${isFirst ? 'checked' : ''} type="radio" name="slider" id="${radioId}">`);
+    const slidesHTML = [];
+    const radios = [];
+    const dotsHTML = [];
 
-    // Slide
-    const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
-      ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
-      : carrousel.title;
+    enabledSeries.forEach((item, index) => {
+        const carrousel = item.carrousel;
+        const radioId = `s${index + 1}`;
+        const isFirst = index === 0;
+
+        const numSeasons = item.season.filter(season => !season.movies).length;
+        const numEpisodes = item.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0);
+        const numMovies = item.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0);
+
+        // Seleciona a imagem com base em randomImagesCarrousel
+        const carrouselThumb = randomImagesCarrousel && carrousel.thumb?.length > 0
+            ? carrousel.thumb[Math.floor(Math.random() * carrousel.thumb.length)]
+            : carrousel.thumb?.[0] || '';
+
+        radios.push(`<input ${isFirst ? 'checked' : ''} type="radio" name="slider" id="${radioId}">`);
+
+        const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
+            ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
+            : carrousel.title;
+
+        slidesHTML.push(`
+            <section class="slide" style="--bg: url('${carrouselThumb}')">
+                <div class="content">
+                    <h1 class="brand-title">${titleContent}</h1>
+                    <div class="chips">
+                        ${carrousel.text ? `<span class="chip new">${carrousel.text}</span>` : ''}
+                        ${numSeasons > 0 ? `<span class="chip seasons">Temporadas: ${numSeasons}</span>` : ''}
+                        ${numEpisodes > 0 ? `<span class="chip episodes">Episódios: ${numEpisodes}</span>` : ''}
+                        ${numMovies > 0 ? `<span class="chip movies">Filmes: ${numMovies}</span>` : ''}
+                    </div>
+                    <p class="desc">${(carrousel.description || '').trim()}</p>
+                    <div class="actions">
+                        <button class="btn primary">ASSISTIR</button>
+                        <button class="btn">FAVORITAR</button>
+                    </div>
+                </div>
+            </section>
+        `);
+
+        dotsHTML.push(`<label for="${radioId}"></label>`);
+    });
+
+    const firstEnabledItem = enabledSeries[0];
+    const firstNumSeasons = firstEnabledItem.season.filter(season => !season.movies).length;
+    const firstNumEpisodes = firstEnabledItem.season.filter(season => !season.movies).reduce((total, season) => total + season.episodes.length, 0);
+    const firstNumMovies = firstEnabledItem.season.filter(season => season.movies).reduce((total, season) => total + season.episodes.length, 0);
+
+    // Seleciona a imagem com base em randomImagesCarrousel para o clone
+    const firstCarrouselThumb = randomImagesCarrousel && firstEnabledItem.carrousel.thumb?.length > 0
+        ? firstEnabledItem.carrousel.thumb[Math.floor(Math.random() * firstEnabledItem.carrousel.thumb.length)]
+        : firstEnabledItem.carrousel.thumb?.[0] || '';
+
+    const cloneTitleContent = (firstEnabledItem.carrousel.logo && firstEnabledItem.carrousel.logo.trim() !== '')
+        ? `<img src="${firstEnabledItem.carrousel.logo}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo">`
+        : firstEnabledItem.carrousel.title;
 
     slidesHTML.push(`
-      <section class="slide" style="--bg: url('${carrousel.thumb}')">
-        <div class="content">
-          <h1 class="brand-title">${titleContent}</h1>
-          <span class="chip new">${carrousel.text ?? ''}</span>
-          <p class="desc">${(carrousel.description || '').trim()}</p>
-          <div class="actions">
-            <button class="btn primary">ASSISTIR</button>
-            <button class="btn">FAVORITAR</button>
-          </div>
-        </div>
-      </section>
+        <section class="slide clone" style="--bg: url('${firstCarrouselThumb}')">
+            <div class="content">
+                <h1 class="brand-title">${cloneTitleContent}</h1>
+                <div class="chips">
+                    ${firstEnabledItem.carrousel.text ? `<span class="chip new">${firstEnabledItem.carrousel.text}</span>` : ''}
+                    ${firstNumSeasons > 0 ? `<span class="chip seasons">Temporadas: ${firstNumSeasons}</span>` : ''}
+                    ${firstNumEpisodes > 0 ? `<span class="chip episodes">Episódios: ${firstNumEpisodes}</span>` : ''}
+                    ${firstNumMovies > 0 ? `<span class="chip movies">Filmes: ${firstNumMovies}</span>` : ''}
+                </div>
+                <p class="desc">${(firstEnabledItem.carrousel.description || '').trim()}</p>
+                <div class="actions">
+                    <button class="btn primary">ASSISTIR</button>
+                    <button class="btn">FAVORITAR</button>
+                </div>
+            </div>
+        </section>
     `);
+    radios.push(`<input type="radio" name="slider" id="s${totalSlides + 1}">`);
 
-    // Dot
-    dotsHTML.push(`<label for="${radioId}"></label>`);
-  });
+    slider.insertAdjacentHTML('afterbegin', radios.join(''));
+    slidesContainer.innerHTML = slidesHTML.join('');
+    dotsContainer.innerHTML = dotsHTML.join('');
 
-  // Clone do primeiro no final
-  const firstEnabledItem = enabledSeries[0];
-  const cloneTitleContent = (firstEnabledItem.carrousel.logo && firstEnabledItem.carrousel.logo.trim() !== '')
-    ? `<img src="${firstEnabledItem.carrousel.logo}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo">`
-    : firstEnabledItem.carrousel.title;
+    const slidesElement = document.querySelector('.slides');
+    slidesElement.style.width = `${100 * (totalSlides + 1)}%`;
+    document.querySelectorAll('.slide').forEach(slide => {
+        slide.style.width = `${100 / (totalSlides + 1)}%`;
+    });
 
-  slidesHTML.push(`
-    <section class="slide clone" style="--bg: url('${firstEnabledItem.carrousel.thumb}')">
-      <div class="content">
-        <h1 class="brand-title">${cloneTitleContent}</h1>
-        <span class="chip new">${firstEnabledItem.carrousel.text ?? ''}</span>
-        <p class="desc">${(firstEnabledItem.carrousel.description || '').trim()}</p>
-        <div class="actions">
-          <button class="btn primary">ASSISTIR</button>
-          <button class="btn">FAVORITAR</button>
-        </div>
-      </div>
-    </section>
-  `);
-  radios.push(`<input type="radio" name="slider" id="s${totalSlides + 1}">`);
+    // O restante da função renderCarousel permanece inalterado
+    const slides = document.querySelector('.slider .slides');
+    const radioInputs = [...document.querySelectorAll('.slider input[type="radio"]')];
+    const s1 = document.getElementById('s1');
 
-  // Injeta rádios e slides
-  slider.insertAdjacentHTML('afterbegin', radios.join(''));
-  slidesContainer.innerHTML = slidesHTML.join('');
-  dotsContainer.innerHTML = dotsHTML.join('');
+    const flingVelocityThreshold = 0.65;
+    const rubberbandFactor = 0.35;
+    let startTime, rafId;
+    let paused = false;
+    let isManuallyPaused = false;
+    let elapsedBeforePause = 0;
+    let isTransitioning = false;
+    let isDragging = false;
+    let startX = 0;
+    let dragDistance = 0;
+    let baseOffset = 0;
+    let slideWidth = 0;
+    let lastX = 0, lastT = 0, velocity = 0;
 
-  // Larguras dinâmicas (incluindo clone)
-  const slidesElement = document.querySelector('.slides');
-  slidesElement.style.width = `${100 * (totalSlides + 1)}%`;
-  document.querySelectorAll('.slide').forEach(slide => {
-    slide.style.width = `${100 / (totalSlides + 1)}%`;
-  });
+    function injectPlayPause(slider) {
+        const existing = slider.querySelector('.dots-play-btn');
+        if (existing) return existing;
 
-  const slides = document.querySelector('.slider .slides');
-  const radioInputs = [...document.querySelectorAll('.slider input[type="radio"]')];
-  const s1 = document.getElementById('s1'); // primeiro real
+        const controlsBottom = document.createElement('div');
+        controlsBottom.className = 'controls-bottom';
 
-  // ===== Config =====
-  const flingVelocityThreshold = 0.65;
-  const rubberbandFactor = 0.35;
+        const dotsWrap = document.createElement('div');
+        dotsWrap.className = 'dots-container';
 
-  // ===== Estado =====
-  let startTime, rafId;
-  let paused = false;
-  let isManuallyPaused = false;
-  let elapsedBeforePause = 0;
-  let isTransitioning = false;
+        const label = document.createElement('div');
+        label.className = 'dots-toggle';
+        label.setAttribute('aria-label', 'Reproduzir/Pausar');
 
-  // Drag
-  let isDragging = false;
-  let startX = 0;
-  let dragDistance = 0;
-  let baseOffset = 0;
-  let slideWidth = 0;
-  let lastX = 0, lastT = 0, velocity = 0;
+        const input = document.createElement('input');
+        input.className = 'dots-play-btn';
+        input.type = 'checkbox';
+        input.checked = true;
 
-  function injectPlayPause(slider) {
-    // Evita duplicar se já existir (ex: re-render)
-    const existing = slider.querySelector('.dots-play-btn');
-    if (existing) return existing;
+        label.appendChild(input);
+        dotsWrap.appendChild(label);
+        controlsBottom.appendChild(dotsWrap);
+        slider.appendChild(controlsBottom);
 
-    const controlsBottom = document.createElement('div');
-    controlsBottom.className = 'controls-bottom';
-
-    const dotsWrap = document.createElement('div');
-    dotsWrap.className = 'dots-container';
-
-    const label = document.createElement('label');
-    label.className = 'dots-toggle';
-    label.setAttribute('aria-label', 'Reproduzir/Pausar');
-
-    const input = document.createElement('input');
-    input.className = 'dots-play-btn';
-    input.type = 'checkbox';
-    input.checked = true; // começa em PLAY
-
-    label.appendChild(input);
-    dotsWrap.appendChild(label);
-    controlsBottom.appendChild(dotsWrap);
-    slider.appendChild(controlsBottom);
-
-    return input;
-  }
-
-  function removeControlsBottom(slider) {
-    const el = slider.querySelector('.controls-bottom');
-    if (el) el.remove();
-  }
-
-  function getOrCreateStyleTag(id) {
-    let style = document.getElementById(id);
-    if (!style) {
-        style = document.createElement('style');
-        style.id = id;
-        document.head.appendChild(style);
+        return input;
     }
-    return style;
-  }
 
-  const getIndex = () => radioInputs.findIndex(r => r.checked);
-  const clearInlineTransform = () => { slides.style.transform = ''; };
-
-  function measureSlideWidthAndGap() {
-    const first = slides.firstElementChild;
-    if (!first) return slider.clientWidth;
-    const rect = first.getBoundingClientRect();
-    const mr = parseFloat(getComputedStyle(first).marginRight) || 0;
-    return rect.width + mr;
-  }
-
-  function toggleManualPause(isChecked) {
-    if (isChecked) { // checked = PLAY
-      isManuallyPaused = false;
-      if (progressBar) progressBar.style.opacity = '1';
-      if (!slider.matches(':hover') && !isDragging) resumeTimer();
-    } else {         // unchecked = PAUSE
-      isManuallyPaused = true;
-      pauseTimer();
-      if (progressBar) progressBar.style.opacity = '0';
+    function removeControlsBottom(slider) {
+        const el = slider.querySelector('.controls-bottom');
+        if (el) el.remove();
     }
-  }
 
-  function onTransitionEnd() {
-    slides.removeEventListener('transitionend', onTransitionEnd);
-    isTransitioning = false;
-    if (!paused) restartTimer();
-  }
+    function getOrCreateStyleTag(id) {
+        let style = document.getElementById(id);
+        if (!style) {
+            style = document.createElement('style');
+            style.id = id;
+            document.head.appendChild(style);
+        }
+        return style;
+    }
 
-  function nextSlide() {
-    if (isTransitioning) return;
-    isTransitioning = true;
+    const getIndex = () => radioInputs.findIndex(r => r.checked);
+    const clearInlineTransform = () => { slides.style.transform = ''; };
 
-    const i = getIndex();
-    const lastRealIndex = radioInputs.length - 2; // penúltimo = último real
+    function measureSlideWidthAndGap() {
+        const first = slides.firstElementChild;
+        if (!first) return slider.clientWidth;
+        const rect = first.getBoundingClientRect();
+        const mr = parseFloat(getComputedStyle(first).marginRight) || 0;
+        return rect.width + mr;
+    }
 
-    if (i === lastRealIndex) {
-      // vai pro clone final e depois teleporta pro primeiro real
-      radioInputs[i + 1].checked = true;
-      const onEnd = () => {
-        slides.removeEventListener('transitionend', onEnd);
-        slides.classList.add('no-anim');
-        s1 && (s1.checked = true);
-        void slides.offsetWidth; // reflow
-        slides.classList.remove('no-anim');
+    function toggleManualPause(isChecked) {
+        if (isChecked) {
+            isManuallyPaused = false;
+            if (progressBar) progressBar.style.opacity = '1';
+            if (!slider.matches(':hover') && !isDragging) resumeTimer();
+        } else {
+            isManuallyPaused = true;
+            pauseTimer();
+            if (progressBar) progressBar.style.opacity = '0';
+        }
+    }
+
+    function onTransitionEnd() {
+        slides.removeEventListener('transitionend', onTransitionEnd);
         isTransitioning = false;
         if (!paused) restartTimer();
-      };
-      slides.addEventListener('transitionend', onEnd);
-    } else {
-      const nextIndex = (i + 1) % radioInputs.length;
-      radioInputs[nextIndex].checked = true;
-      slides.addEventListener('transitionend', onTransitionEnd);
-    }
-  }
-
-  function prevSlide() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-
-    const i = getIndex();
-    const lastRealIndex = radioInputs.length - 2; // último real
-    const firstRealIndex = 0;
-
-    if (i === firstRealIndex) {
-      // salta pro clone do fim e volta pro último real
-      slides.classList.add('no-anim');
-      radioInputs[radioInputs.length - 1].checked = true; // clone final
-      void slides.offsetWidth;
-      slides.classList.remove('no-anim');
-      radioInputs[lastRealIndex].checked = true;
-    } else {
-      radioInputs[i - 1].checked = true;
-    }
-    slides.addEventListener('transitionend', onTransitionEnd);
-  }
-
-  function updateProgressBar() {
-    if (paused) return;
-    const elapsed = Date.now() - startTime;
-    const percent = Math.min((elapsed / (animationSpeedCarrouselBar * 1000)) * 100, 100);
-    if (progressBar) progressBar.style.width = percent + '%';
-    if (percent >= 100) {
-      nextSlide();
-    } else {
-      rafId = requestAnimationFrame(updateProgressBar);
-    }
-  }
-
-  function restartTimer() {
-    cancelAnimationFrame(rafId);
-    startTime = Date.now();
-    if (progressBar) progressBar.style.width = '0%';
-    if (!paused) {
-      rafId = requestAnimationFrame(updateProgressBar);
-    } else {
-      elapsedBeforePause = 0;
-    }
-  }
-
-  function pauseTimer() {
-    if (paused) return;
-    paused = true;
-    cancelAnimationFrame(rafId);
-    elapsedBeforePause = Date.now() - startTime;
-  }
-
-  function resumeTimer() {
-    if (isManuallyPaused || !paused) return;
-    paused = false;
-    startTime = Date.now() - elapsedBeforePause;
-    rafId = requestAnimationFrame(updateProgressBar);
-  }
-
-  function startDragging(e) {
-    if (isTransitioning) return;
-    isDragging = true;
-
-    const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
-    startX = lastX = pageX;
-    lastT = performance.now();
-    dragDistance = 0;
-    velocity = 0;
-
-    pauseTimer();
-
-    slideWidth = measureSlideWidthAndGap();
-    const i = getIndex();
-    baseOffset = -(i * slideWidth);
-
-    slides.classList.add('no-anim');
-    slides.style.willChange = 'transform';
-    slides.style.cursor = 'grabbing';
-    slides.style.transform = `translateX(${baseOffset}px)`;
-
-    if (e.cancelable) e.preventDefault();
-  }
-
-  function drag(e) {
-    if (!isDragging) return;
-
-    const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
-
-    // velocidade px/ms (pra flick)
-    const now = performance.now();
-    velocity = (pageX - lastX) / Math.max(1, (now - lastT));
-    lastX = pageX;
-    lastT = now;
-
-    dragDistance = pageX - startX;
-
-    // alvo + rubberband nas bordas
-    let desired = baseOffset + dragDistance;
-    const maxOffset = -((radioInputs.length - 1) * slideWidth);
-
-    if (desired > 0) {
-      desired = desired * rubberbandFactor; // borracha na esquerda
-    } else if (desired < maxOffset) {
-      desired = maxOffset + (desired - maxOffset) * rubberbandFactor; // direita
     }
 
-    slides.style.transform = `translateX(${desired}px)`;
-    if (e.cancelable) e.preventDefault();
-  }
+    function nextSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
 
-  function endDragging() {
-if (!isDragging) return;
-isDragging = false;
+        const i = getIndex();
+        const lastRealIndex = radioInputs.length - 2;
 
-slides.style.cursor = 'grab';
-slides.style.willChange = '';
-slides.classList.remove('no-anim');
+        if (i === lastRealIndex) {
+            radioInputs[i + 1].checked = true;
+            const onEnd = () => {
+                slides.removeEventListener('transitionend', onEnd);
+                slides.classList.add('no-anim');
+                s1 && (s1.checked = true);
+                void slides.offsetWidth;
+                slides.classList.remove('no-anim');
+                isTransitioning = false;
+                if (!paused) restartTimer();
+            };
+            slides.addEventListener('transitionend', onEnd);
+        } else {
+            const nextIndex = (i + 1) % radioInputs.length;
+            radioInputs[nextIndex].checked = true;
+            slides.addEventListener('transitionend', onTransitionEnd);
+        }
+    }
 
-const moved = Math.abs(dragDistance);
-const movedFraction = moved / Math.max(1, slideWidth);
-const fastSwipe = Math.abs(velocity) > flingVelocityThreshold;
+    function prevSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
 
-// >>> FIX: se praticamente não mexeu (duplo-clique / clique), limpa o transform inline
-if (moved < 2) {
-    clearInlineTransform();
-    dragDistance = 0;           // zera estado pra não poluir próximos cliques
-    velocity = 0;
-    if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
-    return;
-}
+        const i = getIndex();
+        const lastRealIndex = radioInputs.length - 2;
+        const firstRealIndex = 0;
 
-if (movedFraction >= animationSpeedCarrouselDrag || fastSwipe) {
-    clearInlineTransform();
-    if (dragDistance < 0) nextSlide(); else prevSlide();
-} else {
-    // volta pro slide atual com animação
-    slides.style.transform = `translateX(${baseOffset}px)`;
+        if (i === firstRealIndex) {
+            slides.classList.add('no-anim');
+            radioInputs[radioInputs.length - 1].checked = true;
+            void slides.offsetWidth;
+            slides.classList.remove('no-anim');
+            radioInputs[lastRealIndex].checked = true;
+        } else {
+            radioInputs[i - 1].checked = true;
+        }
+        slides.addEventListener('transitionend', onTransitionEnd);
+    }
 
-    const onBack = () => {
-    slides.removeEventListener('transitionend', onBack);
-    clearInlineTransform();   // garante que css dos radios volta a mandar
-    if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
-    };
-    slides.addEventListener('transitionend', onBack, { once: true });
+    function updateProgressBar() {
+        if (paused) return;
+        const elapsed = Date.now() - startTime;
+        const percent = Math.min((elapsed / (animationSpeedCarrouselBar * 1000)) * 100, 100);
+        if (progressBar) progressBar.style.width = percent + '%';
+        if (percent >= 100) {
+            nextSlide();
+        } else {
+            rafId = requestAnimationFrame(updateProgressBar);
+        }
+    }
 
-    // Fallback extra: se por algum motivo não houver transição, limpa depois de um tick
-    requestAnimationFrame(() => {
-    // se ainda há transform inline e não está em transição visível, limpa mesmo assim
-    // (evita travar por valores idênticos)
-    if (slides.style.transform) {
-        // dá mais um frame pra chance da transição iniciar
-        requestAnimationFrame(() => {
-        if (slides.style.transform) clearInlineTransform();
+    function restartTimer() {
+        cancelAnimationFrame(rafId);
+        startTime = Date.now();
+        if (progressBar) progressBar.style.width = '0%';
+        if (!paused) {
+            rafId = requestAnimationFrame(updateProgressBar);
+        } else {
+            elapsedBeforePause = 0;
+        }
+    }
+
+    function pauseTimer() {
+        if (paused) return;
+        paused = true;
+        cancelAnimationFrame(rafId);
+        elapsedBeforePause = Date.now() - startTime;
+    }
+
+    function resumeTimer() {
+        if (isManuallyPaused || !paused) return;
+        paused = false;
+        startTime = Date.now() - elapsedBeforePause;
+        rafId = requestAnimationFrame(updateProgressBar);
+    }
+
+    function startDragging(e) {
+        if (isTransitioning) return;
+        isDragging = true;
+
+        const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+        startX = lastX = pageX;
+        lastT = performance.now();
+        dragDistance = 0;
+        velocity = 0;
+
+        pauseTimer();
+
+        slideWidth = measureSlideWidthAndGap();
+        const i = getIndex();
+        baseOffset = -(i * slideWidth);
+
+        slides.classList.add('no-anim');
+        slides.style.willChange = 'transform';
+        slides.style.cursor = 'grabbing';
+        slides.style.transform = `translateX(${baseOffset}px)`;
+
+        if (e.cancelable) e.preventDefault();
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+
+        const pageX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+        const now = performance.now();
+        velocity = (pageX - lastX) / Math.max(1, (now - lastT));
+        lastX = pageX;
+        lastT = now;
+
+        dragDistance = pageX - startX;
+        let desired = baseOffset + dragDistance;
+        const maxOffset = -((radioInputs.length - 1) * slideWidth);
+
+        if (desired > 0) {
+            desired = desired * rubberbandFactor;
+        } else if (desired < maxOffset) {
+            desired = maxOffset + (desired - maxOffset) * rubberbandFactor;
+        }
+
+        slides.style.transform = `translateX(${desired}px)`;
+        if (e.cancelable) e.preventDefault();
+    }
+
+    function endDragging() {
+        if (!isDragging) return;
+        isDragging = false;
+
+        slides.style.cursor = 'grab';
+        slides.style.willChange = '';
+        slides.classList.remove('no-anim');
+
+        const moved = Math.abs(dragDistance);
+        const movedFraction = moved / Math.max(1, slideWidth);
+        const fastSwipe = Math.abs(velocity) > flingVelocityThreshold;
+
+        if (moved < 2) {
+            clearInlineTransform();
+            dragDistance = 0;
+            velocity = 0;
+            if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
+            return;
+        }
+
+        if (movedFraction >= animationSpeedCarrouselDrag || fastSwipe) {
+            clearInlineTransform();
+            if (dragDistance < 0) nextSlide();
+            else prevSlide();
+        } else {
+            slides.style.transform = `translateX(${baseOffset}px)`;
+            const onBack = () => {
+                slides.removeEventListener('transitionend', onBack);
+                clearInlineTransform();
+                if (!isManuallyPaused && !slider.matches(':hover')) resumeTimer();
+            };
+            slides.addEventListener('transitionend', onBack, { once: true });
+            requestAnimationFrame(() => {
+                if (slides.style.transform) {
+                    requestAnimationFrame(() => {
+                        if (slides.style.transform) clearInlineTransform();
+                    });
+                }
+            });
+        }
+    }
+
+    slider.addEventListener('mouseenter', () => {
+        if (!isManuallyPaused) pauseTimer();
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        if (!isManuallyPaused && !isDragging) resumeTimer();
+    });
+
+    slides.addEventListener('mousedown', startDragging);
+    slides.addEventListener('mousemove', drag);
+    slides.addEventListener('mouseup', endDragging);
+    slides.addEventListener('mouseleave', endDragging);
+
+    slides.addEventListener('touchstart', startDragging, { passive: false });
+    slides.addEventListener('touchmove', drag, { passive: false });
+    slides.addEventListener('touchend', endDragging);
+
+    slides.addEventListener('click', (e) => {
+        if (Math.abs(dragDistance) > 3) e.preventDefault();
+    }, true);
+
+    if (pauseCheckbox) {
+        pauseCheckbox.addEventListener('change', (e) => {
+            toggleManualPause(e.target.checked);
         });
     }
+
+    radioInputs.forEach(radio => radio.addEventListener('change', () => {
+        clearInlineTransform();
+        if (!paused) restartTimer();
+        slides.addEventListener('transitionend', onTransitionEnd, { once: true });
+    }));
+
+    if (nextBtn) nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearInlineTransform();
+        nextSlide();
     });
-}
-  }
 
-
-  slider.addEventListener('mouseenter', () => {
-    if (!isManuallyPaused) pauseTimer();
-  });
-
-  slider.addEventListener('mouseleave', () => {
-    if (!isManuallyPaused && !isDragging) resumeTimer();
-  });
-
-  slides.addEventListener('mousedown', startDragging);
-  slides.addEventListener('mousemove', drag);
-  slides.addEventListener('mouseup', endDragging);
-  slides.addEventListener('mouseleave', endDragging);
-
-  slides.addEventListener('touchstart', startDragging, { passive: false });
-  slides.addEventListener('touchmove', drag, { passive: false });
-  slides.addEventListener('touchend', endDragging);
-
-  slides.addEventListener('click', (e) => {
-    if (Math.abs(dragDistance) > 3) e.preventDefault();
-  }, true);
-
-  if (pauseCheckbox) {
-    pauseCheckbox.addEventListener('change', (e) => {
-      toggleManualPause(e.target.checked);
+    if (prevBtn) prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearInlineTransform();
+        prevSlide();
     });
-  }
 
-  radioInputs.forEach(radio => radio.addEventListener('change', () => {
-  clearInlineTransform();                 // <<< garante que CSS dos radios prevaleça
-  if (!paused) restartTimer();
-  slides.addEventListener('transitionend', onTransitionEnd, { once: true });
-  }));
+    const style = getOrCreateStyleTag('carousel-dynamic-rules');
+    const cssRules = radioInputs.map((_, index) => {
+        return `#s${index + 1}:checked ~ .slides { transform: translateX(-${index * 100 / (totalSlides + 1)}%); }`;
+    }).join('\n');
 
-  if (nextBtn) nextBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  clearInlineTransform();
-  nextSlide();
-  });
-  
-  if (prevBtn) prevBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  clearInlineTransform();
-  prevSlide();
-  });
+    const dotRules = enabledSeries.map((_, index) => {
+        return `#s${index + 1}:checked ~ .dots label[for="s${index + 1}"] { background: #fff; width: 40px; }`;
+    }).join('\n');
 
-  const style = getOrCreateStyleTag('carousel-dynamic-rules');
-  const cssRules = radioInputs.map((_, index) => {
-    return `#s${index + 1}:checked ~ .slides { transform: translateX(-${index * 100 / (totalSlides + 1)}%); }`;
-  }).join('\n');
+    const cloneDotRule = `#s${totalSlides + 1}:checked ~ .dots label[for="s1"] { background: #fff; width: 40px; }`;
 
-  const dotRules = enabledSeries.map((_, index) => {
-    return `#s${index + 1}:checked ~ .dots label[for="s${index + 1}"] { background: #fff; width: 40px; }`;
-  }).join('\n');
+    style.textContent = `${cssRules}\n${dotRules}\n${cloneDotRule}`;
 
-  const cloneDotRule = `#s${totalSlides + 1}:checked ~ .dots label[for="s1"] { background: #fff; width: 40px; }`;
-
-  style.textContent = `${cssRules}\n${dotRules}\n${cloneDotRule}`;
-
-  const initialPlay = pauseCheckbox ? pauseCheckbox.checked : true;
-  toggleManualPause(initialPlay);
-  restartTimer();
+    const initialPlay = pauseCheckbox ? pauseCheckbox.checked : true;
+    toggleManualPause(initialPlay);
+    restartTimer();
 }
 
 function renderSeriesButtons(filteredGroups) {
@@ -5084,9 +5265,12 @@ function renderSeriesButtons(filteredGroups) {
                 ${sortedGroup.map(serie => {
                     const isFavorite = favorites.some(fav => fav.name === serie.name);
                     const disabledClass = serie.enabled ? '' : 'disabled';
+                    // Seleciona a imagem com base em randomImagesCards
                     if (!selectedThumbs[serie.name]) {
-                        const randomThumbIndex = Math.floor(Math.random() * serie.thumb_buttons.length);
-                        selectedThumbs[serie.name] = serie.thumb_buttons[randomThumbIndex];
+                        const thumbIndex = randomImagesCards 
+                            ? Math.floor(Math.random() * serie.thumb_buttons.length)
+                            : 0;
+                        selectedThumbs[serie.name] = serie.thumb_buttons[thumbIndex];
                     }
                     const selectedThumb = selectedThumbs[serie.name];
                     const backgroundStyle = `--bg-image: url(${selectedThumb});`;

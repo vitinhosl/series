@@ -133,17 +133,19 @@ body {
   max-width: fit-content;
 }
 
-.chip.new { 
+.chip.movies,
+.chip.episodes,
+.chip.seasons { 
   text-transform: uppercase; 
   font-weight: 700; 
   letter-spacing: 0.06em; 
 }
 
-.chip.age { 
-  background: rgb(243, 156, 18); 
-  color: #111; 
-  border-color: transparent; 
+.chip.new { 
+  background: rgb(255, 45, 85); 
+  text-transform: uppercase; 
   font-weight: 700; 
+  letter-spacing: 0.06em; 
 }
 
 .desc { 
