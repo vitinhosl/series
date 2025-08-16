@@ -135,7 +135,7 @@ body {
   color: #fff;
 }
 
-.chip.badge,
+.chip.new,
 .chip.movies,
 .chip.episodes,
 .chip.seasons { 
@@ -144,8 +144,7 @@ body {
   letter-spacing: 0.06em; 
 }
 
-
-.chip.new { 
+.chip.badgen { 
   background: linear-gradient(to right, rgb(255, 2, 102) 0%, rgb(187, 0, 73) 80%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: #fff;

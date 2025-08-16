@@ -7,9 +7,10 @@
 //DIGITAR ALLOW/{PH1} PARA PODER COPIAR
 
 //#region OK.RU
+let reverse = true;
+
 (function() {
     // Variável para controlar a ordem da lista
-    let reverse = true;
 
     // Detecta modo claro/escuro
     const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -121,7 +122,7 @@
         let output = "";
         idsAndTitlesArray.forEach(([id, { title, thumb, duration }], index) => {
             const number = String(index + 1).padStart(3, '0');
-            output += `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration || 'Duração não encontrada'}", thumb: "${thumb || 'Thumbnail não encontrada'}", url: "https://ok.ru/videoembed/${id}", alternative: []},\n`;
+            output += `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration || 'Duração não encontrada'}", thumb: "${thumb || 'Thumbnail não encontrada'}", url: "https://ok.ru/videoembed/${id}" },\n`;
         });
 
         navigator.clipboard.writeText(output).then(() => {
@@ -141,9 +142,10 @@
 //#endregion
 
 //#region ANIMESBR.TV
+let reverse = true;
+
 (function() {
     // Variável para controlar a ordem da lista
-    let reverse = true;
 
     // Detecta modo claro/escuro
     const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -255,7 +257,7 @@
         // Gera a saída no formato dos outros scripts
         const output = episodes.map((episode, index) => {
             const number = String(index + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${episode.title}"] - { title: "${number}", duration: "${episode.duration}", thumb: "${episode.thumb}", url: "${episode.url}", alternative: []},`;
+            return `[EPISÓDIO: "${episode.title}"] - { title: "${number}", duration: "${episode.duration}", thumb: "${episode.thumb}", url: "${episode.url}" },`;
         }).join('\n');
 
         // Copia para clipboard
@@ -276,9 +278,10 @@
 //#endregion  
 
 //#region YOUTUBE PLAYLIST
+let reverse = true;
+
 (function() {
     // Variável para controlar a ordem da lista
-    let reverse = true;
 
     // Detecta modo claro/escuro
     const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -371,7 +374,7 @@
 
             // Monta objeto
             const number = String(idx + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration}", thumb: "${thumb}", url: "${href}", alternative: []},`;
+            return `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration}", thumb: "${thumb}", url: "${href}" },`;
         });
 
         // Aplica ordenação reversa se necessário
@@ -398,9 +401,10 @@
 //#endregion
 
 //#region GLOBOPLAY
+ let reverse = true;
+
 (function() {
     // Variável para controlar a ordem da lista
-    let reverse = true;
 
     // Detecta modo claro/escuro
     const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -514,7 +518,7 @@
         // Formata a saída
         const output = list.map((item, idx) => {
             const number = String(idx + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}", alternative: []},`;
+            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}" },`;
         }).join('\n');
 
         // Copia para clipboard
@@ -534,9 +538,10 @@
 //#endregion
 
 //#region PLAYPLUS
+let reverse = false;
+
 (function() {
     // Variável para controlar a ordem da lista
-    let reverse = false;
 
     // Detecta modo claro/escuro
     const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -653,7 +658,7 @@
         // Formata a saída
         const output = list.map((item, idx) => {
             const number = String(idx + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}", alternative: []},`;
+            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}" },`;
         }).join('\n');
 
         // Copia para clipboard
@@ -671,6 +676,9 @@
     });
 })();
 //#endregion
+
+
+
 
 
 
