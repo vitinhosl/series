@@ -1138,7 +1138,8 @@ const seriesData = [
                 name: "Gênesis",
                 thumb_buttons: [
                     "https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg",
-                    // "https://i.imgur.com/A68fp1F.jpeg", //MESMA DE CIMA IMGUR
+                    // "https://imgur.com/a/NZ5fHnx", //MESMA DE CIMA IMGUR
+                    "https://i.imgur.com/A68fp1F.jpeg",
                 ],
                 badge: "",
                 type: "Temporadas",
@@ -1165,7 +1166,8 @@ const seriesData = [
                     title: "GÊNESIS",
                     thumb: [
                         "https://pp-vod-img-aws.akamaized.net/0191984/playplus_thumb_1600.jpg",
-                        "https://i.imgur.com/BADXefl.jpeg", //MESMA DE CIMA IMGUR
+                        // "https://i.imgur.com/lLC6g7q.jpeg", //MESMA DE CIMA IMGUR
+                        "https://i.imgur.com/BADXefl.jpeg",
                     ],
                     sinopse:  `
                         A superprodução bíblica Gênesis vai lhe ajudar a entender aquilo 
@@ -3657,10 +3659,11 @@ const seriesData = [
 //CONFIGURAÇÕES
 //=======================================================================
 // localStorage.clear();                    //LIMPA TODO O CACHE (FAVORITOS, ASSISTIDOS, ETC...)
+let autoPlay                    = true;     //AUTOPLAY NOS EPISÓDIOS
+let enableArrowButtons          = true;     //EPISÓDIOS EM LISTAS >>>
 let randomImagesCards           = false;    //AS IMAGENS ALEATÓRIAS DOS BOTÕES
 let randomImagesDescription     = false;    //AS IMAGENS ALEATÓRIAS DAS DESCRIÇÕES
 let randomImagesCarrousel       = false;    //AS IMAGENS ALEATÓRIAS DO CARROUSEL
-let autoPlay                    = true;     //AUTOPLAY NOS EPISÓDIOS
 let animationReverseEpisodes    = false;    //ANIMAÇÃO REVERSA NOS EPISÓDIOS
 let animationPauseCarrousel     = true;     //ANIMAÇÃO DO CARROUSEL COMEÇA PAUSADA
 let animationSpeedCarrouselDrag = 0.30;     //QUANTIDADE PRESSIONADO QUE TEM QUE ARRASTAR 0.30 = 30%
