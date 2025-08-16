@@ -11,7 +11,7 @@ const seriesData = [
                     "https://pp-vod-img-aws.akamaized.net/0068571/0068571_200.jpg",
                     // "https://i.imgur.com/eiBmJtU.jpeg" //MESMA DE CIMA IMGUR
                 ],
-                badge: "TEST",
+                badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
@@ -249,7 +249,7 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "OS DEZ MANDAMENTOS",
                     logo: "", //https://i.imgur.com/MJL97ex.png
                     thumb: [
@@ -563,7 +563,7 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "JEZABEL",
                     logo: "",
                     thumb: [
@@ -697,7 +697,7 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "REI DAVI",
                     logo: "",
                     thumb: [
@@ -800,7 +800,7 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "JOSÉ DO EGITO",
                     logo: "",
                     thumb: [
@@ -899,7 +899,7 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "JESUS",
                     logo: "",
                     thumb: [
@@ -1146,7 +1146,7 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                  carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "GÊNESIS",
                     logo: "",
                     thumb: [
@@ -1421,7 +1421,7 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "O RICO E LÁZARO",
                     logo: "",
                     thumb: [
@@ -1657,7 +1657,7 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                  carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "A RAINHA DA PÉRSIA",
                     logo: "",
                     thumb: [
@@ -2886,13 +2886,13 @@ const seriesData = [
                     // "https://pp-vod-img-aws.akamaized.net/0503079/0503079_200.jpg",
                     "https://i.imgur.com/kcwpdNz.png" //MESMA DE CIMA IMGUR
                 ],
-                badge: "NOVO",
+                badge: "NOVIDADE",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "",
                     logo: "",
                     thumb: [
@@ -2974,7 +2974,7 @@ const seriesData = [
                     // "https://i.imgur.com/nymmbbY.png",
                     // "https://i.imgur.com/jgSVF31.jpeg", //MESMA DE CIMA IMGUR
                 ],
-                badge: "NOVO",
+                badge: "NOVIDADE",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
@@ -2992,8 +2992,8 @@ const seriesData = [
                 description: {
                     title: "A BÍBLIA",
                     thumb: [
-                        "https://i.imgur.com/VnccUVt.png",
                         "https://pp-vod-img-aws.akamaized.net/0238038/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/VnccUVt.png",
                         // "https://i.imgur.com/DeKWycs.jpeg", //MESMA DE CIMA IMGUR
                     ],
                     sinopse:  `
@@ -3124,7 +3124,7 @@ const seriesData = [
                     // "https://i.imgur.com/SEnkwUw.jpeg", 
                     // "https://s2.glbimg.com/ZL5vyy2AgnF4hB9zaOpsfIbnttA=/i.s3.glbimg.com/v1/AUTH_c3c606ff68e7478091d1ca496f9c5625/internal_photos/bs/2024/2/v/xY2nXpT1elFw5Zg5ChbQ/2024-4284-rebelde-t3-poster.jpg"
                 ],
-                badge: "NOVO",
+                badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
@@ -3132,7 +3132,11 @@ const seriesData = [
                 movies: false,
                 description: {
                     title: "REBELDE - RBD",
-                    thumb: "https://t.ctcdn.com.br/dqfZvWitHmOYJINf4NGgYUh9r3w=/768x432/smart/i821197.jpeg",
+                    thumb: [
+                      "https://t.ctcdn.com.br/dqfZvWitHmOYJINf4NGgYUh9r3w=/768x432/smart/i821197.jpeg",
+                      "https://i.imgur.com/9rHpaOs.png",
+                      "https://i.imgur.com/ELzLaFl.png"
+                    ],
                     sinopse:  `
                         Rebelde - Numa escola de elite, seis alunos com diferentes
                         histórias descobrem algo em comum capaz de superar todas 
@@ -3614,7 +3618,7 @@ const seriesData = [
                     "https://pp-vod-img-aws.akamaized.net/0069081/0069081_200.jpg",
                     // "https://i.imgur.com/9BYbB7x.jpeg"
                 ],
-                badge: "NOVO",
+                badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
@@ -3673,6 +3677,7 @@ let currentSerie                = null;
 let currentEpisodeIndex         = 0;
 let currentSeasonIndex          = 0;
 let previousEpisodeCount        = 0;
+let savedScrollPosition         = 0;
 let favorites                   = JSON.parse(localStorage.getItem('favorites')) || [];
 let continues                   = JSON.parse(localStorage.getItem('continues')) || {};
 let currentSeasonDropdownValue  = 'all';
@@ -3682,7 +3687,7 @@ const selectedThumbs            = {};
 const thumbnailCache            = {};
 
 //=======================================================================
-//FUNÇÕES UTILS 
+//FUNÇÕES UTILS E HELPERS
 //=======================================================================
 function getOrCreateStyleTag(id) {
   let style = document.getElementById(id);
@@ -3727,6 +3732,53 @@ function coerceUrlList(u) {
 function primaryUrlOf(ep) {
   const list = coerceUrlList(ep && ep.url);
   return list[0] || '';
+}
+
+function requestTop() {
+  requestAnimationFrame(() => {
+    const candidates = [
+      window,
+      document.scrollingElement || document.documentElement,
+      document.body,
+      document.querySelector('#main'),
+      document.getElementById('series'),
+      document.getElementById('home'),
+      document.getElementById('logs-section'),
+      document.getElementById('video-overlay'),
+    ].filter(Boolean);
+
+    candidates.forEach(el => {
+      if (el === window) {
+        window.scrollTo(0, 0);
+      } else {
+        // tenta de todos os jeitos
+        el.scrollTop = 0;
+        el.scrollLeft = 0;
+        if (typeof el.scrollTo === 'function') el.scrollTo(0, 0);
+      }
+    });
+  });
+}
+
+function lockPageScroll(lock) {
+  const main = document.getElementById('main');
+  document.documentElement.classList.toggle('no-scroll', lock);
+  document.body.classList.toggle('no-scroll', lock);
+  if (main) main.classList.toggle('lock-scroll', lock);
+}
+
+function blockOverlayScrollEvents(overlay, lock) {
+  const handler = e => { e.preventDefault(); };
+  if (!overlay) return;
+  if (lock) {
+    overlay.addEventListener('wheel', handler, { passive: false });
+    overlay.addEventListener('touchmove', handler, { passive: false });
+    overlay.__blockHandler = handler; // guarda p/ remover depois
+  } else if (overlay.__blockHandler) {
+    overlay.removeEventListener('wheel', overlay.__blockHandler);
+    overlay.removeEventListener('touchmove', overlay.__blockHandler);
+    overlay.__blockHandler = null;
+  }
 }
 
 //=======================================================================
@@ -4343,6 +4395,8 @@ function setupThumbnailLoading() {
 //OVERLAY / DROPDOWNS / RENDER DE FONTE DE VÍDEOS / BOTÕES PREV/NEXT
 //=======================================================================
 function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeIndex = currentEpisodeIndex) {
+  savedScrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  lockPageScroll(true);
   const videoOverlay = document.getElementById('video-overlay');
   const videoIframe = document.getElementById('video-iframe');
   const videoOverlayDropdown = document.getElementById('video-overlay-dropdown');
@@ -4925,7 +4979,6 @@ function updateButtonVisibility() {
 //CARROSSEL
 //=======================================================================
 function wireCarouselCTA() {
-  // ASSISTIR
   document.querySelectorAll('.slide .btn.primary').forEach(btn => {
     btn.onclick = function () {
       const serie = JSON.parse(this.getAttribute('data-serie') || '{}');
@@ -4953,6 +5006,7 @@ function wireCarouselCTA() {
 }
 
 function renderCarousel() {
+  const wrapper = document.querySelector('.wrapper');
   const slider = document.querySelector('.slider');
   const slidesContainer = document.getElementById('slides');
   const dotsContainer = document.getElementById('dots');
@@ -4982,6 +5036,7 @@ function renderCarousel() {
     if (progressBar) progressBar.style.display = 'none';
     if (prevBtn) prevBtn.style.display = 'none';
     if (nextBtn) nextBtn.style.display = 'none';
+    wrapper.style.display = "none";
     return;
   }
 
@@ -5457,7 +5512,7 @@ function renderCarousel() {
 }
 
 //=======================================================================
-//BUTTONS/GRADE & FAVORITOS
+//BUTTONS DE SÉRIES & FAVORITOS
 //=======================================================================
 function renderSeriesButtons(filteredGroups) {
   const groupHome = document.getElementById('group-home');
@@ -5544,6 +5599,7 @@ function renderSeriesButtons(filteredGroups) {
   // abrir série
   document.querySelectorAll('#group-series-button').forEach(button => {
     button.addEventListener('click', function () {
+      requestTop();
       const serieName = this.querySelector('h1').innerText;
       const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
       if (!serie.enabled) return;
@@ -6090,8 +6146,12 @@ function dedupeLogsCache() {
 //CARREGAMENTO INICIAL + ATALHOS DO TECLADO
 //=======================================================================
 document.addEventListener('DOMContentLoaded', function() {
+    requestTop();
+    window.addEventListener('load', function() {
+        requestTop();
+    });
+
     searchInput = document.querySelector('#search .input');
-    
     seasonExpandedState = {};
     renderCarousel();
     renderSeriesButtons();
@@ -6127,6 +6187,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('close-overlay-button').addEventListener('click', function() {
         const videoOverlay = document.getElementById('video-overlay');
         const videoIframe = document.getElementById('video-iframe');
+
+        blockOverlayScrollEvents(videoOverlay, false);
+        lockPageScroll(false);
+        
         videoOverlay.classList.replace('show', 'hidden');
         videoIframe.src = '';
         document.getElementById('overlay-season-dropdown')?.remove();
@@ -6136,6 +6200,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (logsSection) {
             logsSection.classList.replace('show', 'hidden');
         }
+
+        requestAnimationFrame(() => {
+          window.scrollTo(0, savedScrollPosition);
+          document.documentElement.scrollTop = savedScrollPosition;
+          document.body.scrollTop = savedScrollPosition;
+          const main = document.getElementById('main');
+          if (main) {
+              main.scrollTop = savedScrollPosition;
+              if (typeof main.scrollTo === 'function') main.scrollTo(0, savedScrollPosition);
+          }
+      });
 
         if (currentSerie) {
             const serieSlug = currentSerie.name.trim().replace(/\s+/g, '-');
@@ -6158,6 +6233,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('back-button').addEventListener('click', () => {
+        requestTop();
         const logsSection = document.getElementById('logs-section');
         const seriesSection = document.getElementById('series');
 
@@ -6304,20 +6380,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+      const header = document.querySelector('header');
+      if (document.getElementById('video-overlay')?.classList.contains('show')) return;
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
-    
-    const defaultButton = document.querySelector('#keys button:first-child');
-    defaultButton.classList.add('checked');
-    defaultButton.click();
-});
 
-window.addEventListener('keydown', (event) => {
+    window.addEventListener('keydown', (event) => {
     const videoOverlay = document.querySelector('#video-overlay');
     const seriesContainer = document.querySelector('#series');
 
@@ -6336,4 +6404,9 @@ window.addEventListener('keydown', (event) => {
             navigateDirection('next');
         break;  
     }
+    });
+    
+    const defaultButton = document.querySelector('#keys button:first-child');
+    defaultButton.classList.add('checked');
+    defaultButton.click();
 });

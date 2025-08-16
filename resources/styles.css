@@ -24,6 +24,16 @@ body {
     background-color: rgb(14, 16, 21);
 }
 
+html.no-scroll, body.no-scroll { 
+    overflow: hidden; 
+    height: 100%; 
+}
+
+#main.lock-scroll { 
+    overflow: hidden; 
+    height: 100vh; 
+}
+
 .wrapper { 
   min-height: 800px; 
   display: flex; 
@@ -739,7 +749,7 @@ header.scrolled {
   top: 0; left: 0;
   width: 100%;  
   height: 100%;
-  background: linear-gradient(90deg,rgb(21, 24, 34) 10%, rgba(27, 29, 34, 0) 90.92%);
+  background: linear-gradient(90deg,rgb(21, 24, 34) 0%, rgba(27, 29, 34, 0) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -1686,8 +1696,8 @@ header.scrolled {
     left: 50%;
     transform: translateX(-50%);
     font-weight: bold;
-    background: linear-gradient(to bottom, rgb(200, 209, 214), rgb(255, 255, 255));
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
+    background: linear-gradient(to bottom, rgb(250, 247, 228), rgb(226, 179, 127));
+    text-shadow: 2px 2px 5px rgba(145, 87, 33, 0.7);
     -webkit-background-clip: text;
     color: transparent;
     
@@ -1699,8 +1709,8 @@ header.scrolled {
 
 #continue-episode-button:hover p,
 #episode-button:hover p {
-    background: linear-gradient(to bottom, rgb(250, 247, 228), rgb(226, 179, 127));
-    text-shadow: 2px 2px 5px rgba(145, 87, 33, 0.7);
+    background: linear-gradient(to bottom, rgb(200, 209, 214), rgb(255, 255, 255));
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
     -webkit-background-clip: text;
     color: transparent;
 }
@@ -2085,6 +2095,9 @@ header.scrolled {
 
 #video-overlay {
     position: fixed;
+    overflow: hidden;
+    display: none;
+    inset: 0;
     top: 0%;
     left: 0;
     width: 100%;
