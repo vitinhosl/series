@@ -5013,6 +5013,7 @@ function renderCarousel() {
   const progressBar = document.getElementById('progressBar');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
+  const progressbar =  document.querySelector('.progress-bar-container');
 
   // limpar estado anterior
   slider.querySelectorAll(':scope > input[type="radio"]').forEach(n => n.remove());
@@ -5026,6 +5027,8 @@ function renderCarousel() {
     if (progressBar) progressBar.style.display = 'none';
     if (prevBtn) prevBtn.style.display = 'none';
     if (nextBtn) nextBtn.style.display = 'none';
+    if (wrapper) wrapper.style.display = "none";
+    if (progressbar) progressbar.style.display = "none";
     return;
   }
 
@@ -5036,7 +5039,8 @@ function renderCarousel() {
     if (progressBar) progressBar.style.display = 'none';
     if (prevBtn) prevBtn.style.display = 'none';
     if (nextBtn) nextBtn.style.display = 'none';
-    wrapper.style.display = "none";
+    if (wrapper) wrapper.style.display = "none";
+    if (progressbar) progressbar.style.display = "none";
     return;
   }
 
@@ -5098,6 +5102,7 @@ function renderCarousel() {
     if (progressBar) progressBar.style.display = 'none';
     if (prevBtn) prevBtn.style.display = 'none';
     if (nextBtn) nextBtn.style.display = 'none';
+    if (progressbar) progressbar.style.display = 'none';
 
     const slidesElement = document.querySelector('.slides');
     if (slidesElement) slidesElement.style.width = '100%';

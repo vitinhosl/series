@@ -186,6 +186,7 @@ html.no-scroll, body.no-scroll {
   background: #262626;
   color: #fff;
   transition: transform 0.06s, box-shadow 0.2s, background 0.2s;
+  outline: none;
 }
 
 .btn:active { 
