@@ -20,7 +20,11 @@ const seriesData = [
                 carrousel: {
                     enabled: true,
                     title: "A TERRA PROMETIDA",
-                    logo: "", //https://i.imgur.com/J5WkXJP.png
+                    logo: {
+                      enabled: false,
+                      url: "https://i.imgur.com/B6tMcLM.png",
+                      minimalist: false,
+                    },
                     thumb: [
                         "https://pp-vod-img-aws.akamaized.net/0068571/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/H7LkieU.png",
@@ -255,7 +259,11 @@ const seriesData = [
                 carrousel: {
                     enabled: true,
                     title: "OS DEZ MANDAMENTOS",
-                    logo: "", //https://i.imgur.com/MJL97ex.png
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/jpGZXos.png", //https://i.imgur.com/nQfnOXD.png
+                      minimalist: false,
+                    },
                     thumb: [
                       "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
                       "https://i.imgur.com/v0uF3s6.png",
@@ -558,6 +566,8 @@ const seriesData = [
             {
                 name: "Jezabel",
                 thumb_buttons: [
+                  "https://i.imgur.com/pgGkftW.jpeg",
+                  "https://i.imgur.com/gxlYNza.jpeg",
                   "https://i.imgur.com/lmTWoCz.jpeg",
                   "https://i.imgur.com/Z3WUXd9.jpeg",
                   "https://pp-vod-img-aws.akamaized.net/0069716/0069716_200.jpg",
@@ -571,7 +581,11 @@ const seriesData = [
                 carrousel: {
                     enabled: false,
                     title: "JEZABEL",
-                    logo: "",
+                    logo: {
+                      enabled: true,
+                      url: "",
+                      minimalist: false,
+                    },
                     thumb: [
                         "https://i.imgur.com/3NP8B3D.png"
                     ],
@@ -704,9 +718,13 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
+                    enabled: true,
                     title: "REI DAVI",
-                    logo: "",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/wp5Zlyg.png",
+                      minimalist: false,
+                    },
                     thumb: [
                         "https://i.imgur.com/vNpBaWD.png"
                     ],
@@ -808,9 +826,13 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
+                    enabled: true,
                     title: "JOSÉ DO EGITO",
-                    logo: "",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/grhZxPH.png",
+                      minimalist: false,
+                    },
                     thumb: [
                         "https://i.imgur.com/V2ikT7R.png"
                     ],
@@ -910,9 +932,13 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
+                    enabled: true,
                     title: "JESUS",
-                    logo: "",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/XZygqfc.png",
+                      minimalist: false,
+                    },
                     thumb: [
                         "https://i.imgur.com/gnZ9oJ0.png"
                     ],
@@ -1160,10 +1186,14 @@ const seriesData = [
                 canais: false,
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
-                 carrousel: {
+                carrousel: {
                     enabled: false,
                     title: "GÊNESIS",
-                    logo: "",
+                    logo: {
+                      enabled: false,
+                      url: "",
+                      minimalist: false,
+                    },
                     thumb: [
                         "https://i.imgur.com/qHQejKs.png"
                     ],
@@ -1427,9 +1457,10 @@ const seriesData = [
             {
                 name: "O Rico e Lázaro",
                 thumb_buttons: [
+                  "https://i.imgur.com/kDT7mQX.png",
                   "https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg",
-                  "https://i.imgur.com/io3Xbpv.jpeg",
                   "https://i.imgur.com/uFrpJHB.jpeg",
+                  "https://i.imgur.com/io3Xbpv.jpeg",
                   // "https://i.imgur.com/6wEQHLg.jpeg", //MESMA DE CIMA IMGUR
                 ],
                 badge: "",
@@ -1438,9 +1469,13 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
+                    enabled: true,
                     title: "O RICO E LÁZARO",
-                    logo: "",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/5itbTP4.png",
+                      minimalist: false,
+                    },
                     thumb: [
                         "https://i.imgur.com/sz0LCJC.png"
                     ],
@@ -1675,9 +1710,13 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                  carrousel: {
-                    enabled: false,
+                    enabled: true,
                     title: "A RAINHA DA PÉRSIA",
-                    logo: "",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/RpLhiMU.png",
+                      minimalist: false,
+                    },
                     thumb: [
                         "https://i.imgur.com/5x7Rmg9.png"
                     ],
@@ -1762,8 +1801,12 @@ const seriesData = [
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
-                    title: "",
-                    logo: "",
+                    title: "A HISTÓRIA DE ESTER",
+                    logo: {
+                      enabled: false,
+                      url: "",
+                      minimalist: false,
+                    },
                     thumb: [""],
                     text: "",
                     description: `
@@ -1821,9 +1864,13 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
-                    title: "",
-                    logo: "",
+                    enabled: true,
+                    title: "APOCALIPSE",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/A4tMqV5.png", //https://i.imgur.com/uXANclN.png
+                      minimalist: false,
+                    },
                     thumb: [""],
                     text: "",
                     description: `
@@ -2051,9 +2098,13 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
-                    title: "",
-                    logo: "",
+                    enabled: true,
+                    title: "REIS",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/NicAbr0.png",
+                      minimalist: false,
+                    },
                     thumb: [""],
                     text: "",
                     description: `
@@ -2749,8 +2800,12 @@ const seriesData = [
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
-                    title: "",
-                    logo: "",
+                    title: "SANSÃO E DALÍLA",
+                    logo: {
+                      enabled: false,
+                      url: "",
+                      minimalist: false,
+                    },
                     thumb: [""],
                     text: "",
                     description: `
@@ -2821,9 +2876,13 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
-                    title: "",
-                    logo: "",
+                    enabled: true,
+                    title: "LIA",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/yxg0lmv.png",
+                      minimalist: false,
+                    },
                     thumb: [""],
                     text: "",
                     description: `
@@ -2879,8 +2938,12 @@ const seriesData = [
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
-                    title: "",
-                    logo: "",
+                    title: "NEEMIAS",
+                    logo: {
+                      enabled: false,
+                      url: "",
+                      minimalist: false,
+                    },
                     thumb: [""],
                     text: "",
                     description: `
@@ -2932,8 +2995,12 @@ const seriesData = [
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: true,
-                    title: "",
-                    logo: "",
+                    title: "PAULO O APÓSTOLO",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/nZDzVqu.png",
+                      minimalist: false,
+                    },
                     thumb: [
                         "https://i.imgur.com/6K7vZYB.png"
                         // "https://i.imgur.com/G7Q8SZ7.jpeg",
@@ -3024,9 +3091,13 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
-                    title: "",
-                    logo: "",
+                    enabled: true,
+                    title: "A BÍBLIA",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/UfEu54B.png",
+                      minimalist: false,
+                    },
                     thumb: [""],
                     text: "",
                     description: `
@@ -3152,7 +3223,6 @@ const seriesData = [
                 ]
             },
 
-
             //JÓ
             {
                 name: "A Vida de Jó",
@@ -3167,9 +3237,13 @@ const seriesData = [
                 enabled: false,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
-                    title: "",
-                    logo: "",
+                    enabled: true,
+                    title: "A VIDA DE JÓ",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/JzaYvyH.png", //https://i.imgur.com/W0IavDC.png
+                      minimalist: false,
+                    },
                     thumb: [""],
                     text: "",
                     description: `
@@ -4565,7 +4639,7 @@ function renderCarousel() {
   const progressBar = document.getElementById('progressBar');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
-  const progressbar =  document.querySelector('.progress-bar-container');
+  const progressbar = document.querySelector('.progress-bar-container');
 
   // limpar estado anterior
   slider.querySelectorAll(':scope > input[type="radio"]').forEach(n => n.remove());
@@ -4611,9 +4685,20 @@ function renderCarousel() {
       ? carrousel.thumb[Math.floor(Math.random() * carrousel.thumb.length)]
       : carrousel.thumb?.[0] || '';
 
-    const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
-      ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
-      : carrousel.title;
+    // Verifica o formato do logo
+    let logoContent = '';
+    let logoStyle = '';
+    if (carrousel.logo && typeof carrousel.logo === 'object' && carrousel.logo.url && carrousel.logo.enabled !== false) {
+      logoStyle = carrousel.logo.minimalist ? 'filter: brightness(0) invert(1);' : '';
+      logoContent = `<img src="${carrousel.logo.url}" alt="${carrousel.title}" class="brand-logo" style="${logoStyle}">`;
+    } else if (typeof carrousel.logo === 'string' && carrousel.logo.trim() !== '') {
+      logoContent = `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`; // Suporte ao formato antigo
+    }
+
+    const titleContent = `
+      ${logoContent}
+      <h1 class="brand-title">${carrousel.title}</h1>
+    `;
 
     const isFavorite = (JSON.parse(localStorage.getItem('favorites')) || []).some(f => f.name === serie.name);
     const badgeChip  = serie.badge ? `<span class="chip badgen">${serie.badge}</span>` : '';
@@ -4625,7 +4710,7 @@ function renderCarousel() {
         <div class="favorite-button-star">
           <div class="favorite-text">${isFavorite ? 'FAVORITO' : 'FAVORITAR'}</div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="favorite-icon-carrousel">
-            <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" stroke-linejoin="round" stroke-linecap="round"></path>
+            <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.563.563 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" stroke-linejoin="round" stroke-linecap="round"></path>
           </svg>
         </div>
       </label>`;
@@ -4633,7 +4718,7 @@ function renderCarousel() {
     slidesContainer.innerHTML = `
       <section class="slide" style="--bg: url('${carrouselThumb}')">
         <div class="content">
-          <h1 class="brand-title">${titleContent}</h1>
+          ${titleContent}
           <div class="chips">
             ${badgeChip}
             ${newChip}
@@ -4693,9 +4778,20 @@ function renderCarousel() {
 
     radios.push(`<input ${isFirst ? 'checked' : ''} type="radio" name="slider" id="${radioId}">`);
 
-    const titleContent = (carrousel.logo && carrousel.logo.trim() !== '')
-      ? `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`
-      : carrousel.title;
+    // Verifica o formato do logo
+    let logoContent = '';
+    let logoStyle = '';
+    if (carrousel.logo && typeof carrousel.logo === 'object' && carrousel.logo.url && carrousel.logo.enabled !== false) {
+      logoStyle = carrousel.logo.minimalist ? 'filter: brightness(0) invert(1);' : '';
+      logoContent = `<img src="${carrousel.logo.url}" alt="${carrousel.title}" class="brand-logo" style="${logoStyle}">`;
+    } else if (typeof carrousel.logo === 'string' && carrousel.logo.trim() !== '') {
+      logoContent = `<img src="${carrousel.logo}" alt="${carrousel.title}" class="brand-logo">`; // Suporte ao formato antigo
+    }
+
+    const titleContent = `
+      ${logoContent}
+      <h1 class="brand-title">${carrousel.title}</h1>
+    `;
 
     const isFavorite = (JSON.parse(localStorage.getItem('favorites')) || []).some(f => f.name === item.name);
     const badgeChip  = item.badge ? `<span class="chip badgen">${item.badge}</span>` : '';
@@ -4707,7 +4803,7 @@ function renderCarousel() {
         <div class="favorite-button-star">
           <div class="favorite-text">${isFavorite ? 'FAVORITO' : 'FAVORITAR'}</div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="favorite-icon-carrousel">
-            <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" stroke-linejoin="round" stroke-linecap="round"></path>
+            <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.563.563 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" stroke-linejoin="round" stroke-linecap="round"></path>
           </svg>
         </div>
       </label>`;
@@ -4715,7 +4811,7 @@ function renderCarousel() {
     slidesHTML.push(`
       <section class="slide" style="--bg: url('${carrouselThumb}')">
         <div class="content">
-          <h1 class="brand-title">${titleContent}</h1>
+          ${titleContent}
           <div class="chips">
             ${badgeChip}
             ${newChip}
@@ -4743,9 +4839,20 @@ function renderCarousel() {
     ? firstEnabledItem.carrousel.thumb[Math.floor(Math.random() * firstEnabledItem.carrousel.thumb.length)]
     : firstEnabledItem.carrousel.thumb?.[0] || '';
 
-  const cloneTitleContent = (firstEnabledItem.carrousel.logo && firstEnabledItem.carrousel.logo.trim() !== '')
-    ? `<img src="${firstEnabledItem.carrousel.logo}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo">`
-    : firstEnabledItem.carrousel.title;
+  // Verifica o formato do logo para o clone
+  let firstLogoContent = '';
+  let firstLogoStyle = '';
+  if (firstEnabledItem.carrousel.logo && typeof firstEnabledItem.carrousel.logo === 'object' && firstEnabledItem.carrousel.logo.url && firstEnabledItem.carrousel.logo.enabled !== false) {
+    firstLogoStyle = firstEnabledItem.carrousel.logo.minimalist ? 'filter: brightness(0) invert(1);' : '';
+    firstLogoContent = `<img src="${firstEnabledItem.carrousel.logo.url}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo" style="${firstLogoStyle}">`;
+  } else if (typeof firstEnabledItem.carrousel.logo === 'string' && firstEnabledItem.carrousel.logo.trim() !== '') {
+    firstLogoContent = `<img src="${firstEnabledItem.carrousel.logo}" alt="${firstEnabledItem.carrousel.title}" class="brand-logo">`; // Suporte ao formato antigo
+  }
+
+  const cloneTitleContent = `
+    ${firstLogoContent}
+    <h1 class="brand-title">${firstEnabledItem.carrousel.title}</h1>
+  `;
 
   const isFavClone = (JSON.parse(localStorage.getItem('favorites')) || []).some(f => f.name === firstEnabledItem.name);
   const badgeChipClone = firstEnabledItem.badge ? `<span class="chip badgen">${firstEnabledItem.badge}</span>` : '';
@@ -4757,7 +4864,7 @@ function renderCarousel() {
       <div class="favorite-button-star">
         <div class="favorite-text">${isFavClone ? 'FAVORITO' : 'FAVORITAR'}</div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="favorite-icon-carrousel">
-            <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" stroke-linejoin="round" stroke-linecap="round"></path>
+            <path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.563.563 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" stroke-linejoin="round" stroke-linecap="round"></path>
         </svg>
       </div>
     </label>`;
@@ -4765,7 +4872,7 @@ function renderCarousel() {
   slidesHTML.push(`
     <section class="slide clone" style="--bg: url('${firstCarrouselThumb}')">
       <div class="content">
-        <h1 class="brand-title">${cloneTitleContent}</h1>
+        ${cloneTitleContent}
         <div class="chips">
           ${badgeChipClone}
           ${newChipClone}
