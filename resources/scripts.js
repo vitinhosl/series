@@ -269,10 +269,10 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "OS DEZ MANDAMENTOS",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/jpGZXos.png", //https://i.imgur.com/nQfnOXD.png
                       minimalist: false,
                     },
@@ -606,7 +606,7 @@ const seriesData = [
                     enabled: false,
                     title: "JEZABEL",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "",
                       minimalist: false,
                     },
@@ -754,10 +754,10 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "REI DAVI",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/wp5Zlyg.png",
                       minimalist: false,
                     },
@@ -876,10 +876,10 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "JOSÉ DO EGITO",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/grhZxPH.png",
                       minimalist: false,
                     },
@@ -994,10 +994,10 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "JESUS",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/XZygqfc.png",
                       minimalist: false,
                     },
@@ -1555,10 +1555,10 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "O RICO E LÁZARO",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/5itbTP4.png",
                       minimalist: false,
                     },
@@ -1808,10 +1808,10 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                  carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "A RAINHA DA PÉRSIA",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/RpLhiMU.png",
                       minimalist: false,
                     },
@@ -1986,10 +1986,10 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "APOCALIPSE",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/A4tMqV5.png", //https://i.imgur.com/uXANclN.png
                       minimalist: false,
                     },
@@ -3034,10 +3034,10 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "LIA",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/yxg0lmv.png",
                       minimalist: false,
                     },
@@ -3176,7 +3176,7 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "PAULO O APÓSTOLO",
                     logo: {
                       enabled: true,
@@ -3285,10 +3285,10 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "A BÍBLIA",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/UfEu54B.png",
                       minimalist: false,
                     },
@@ -3443,10 +3443,10 @@ const seriesData = [
                 enabled: false,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: true,
+                    enabled: false,
                     title: "A VIDA DE JÓ",
                     logo: {
-                      enabled: true,
+                      enabled: false,
                       url: "https://i.imgur.com/JzaYvyH.png", //https://i.imgur.com/W0IavDC.png
                       minimalist: false,
                     },

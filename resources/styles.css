@@ -122,6 +122,11 @@ html.no-scroll, body.no-scroll {
   font-size: 30px;
 }
 
+.brand-logo {
+    /* width: 200px; */
+    /* height: 100px; */
+}
+
 .row { 
   display: flex; 
   align-items: center; 
