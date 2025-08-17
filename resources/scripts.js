@@ -43,6 +43,18 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0068571/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/OPZeZFm.jpeg", //MESMA DE CIMA IMGUR
                     ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 60,
+                        opacity: 0.5,
+                        mixBlend: 'soft-light',
+                        links: [
+                          "https://i.imgur.com/xBEiKDA.mp4" //60sec
+                        ],
+                      },
+                    ],
                     sinopse:  `
                         Após a morte de Moisés, Josué é o novo líder dos hebreus 
                         e terá que cumprir uma difícil missão ordenada por Deus: 
@@ -281,6 +293,18 @@ const seriesData = [
                     thumb: [
                       "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
                       "https://i.imgur.com/9yZZlBr.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 60,
+                        opacity: 0.5,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/MXpg3bT.mp4" //60sec
+                        ],
+                      },
                     ],
                     sinopse:  `
                         Grande sucesso da televisão brasileira, este épico bíblico 
@@ -603,6 +627,18 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0069716/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/crr06xk.jpeg", //MESMA DE CIMA IMGUR
                     ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 60,
+                        opacity: 1.0,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/YMO7M06.mp4" //60sec
+                        ],
+                      },
+                    ],
                     sinopse:  `
                         A trama contará a história da princesa fenícia Jezabel, 
                         uma princesa idólatra que se casa com o rei Acabe e usa 
@@ -742,6 +778,20 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0088301/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/h1QdG2R.jpeg", //MESMA DE CIMA IMGUR
                     ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 15,
+                        opacity: 1.0,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/Lorqmap.mp4" //15sec
+                        ],
+                      },
+
+                      
+                    ],
                     sinopse:  `
                         Rei Davi é uma mini série bíblica brasileira que 
                         conta a história de Davi, o pastor de ovelhas que
@@ -845,10 +895,22 @@ const seriesData = [
                     `
                 },
                 description: {
-                    title: "JEZABEL",
+                    title: "JOSÉ DO EGITO",
                     thumb: [
                         "https://pp-vod-img-aws.akamaized.net/0068517/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/6XcWRVQ.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 10,
+                        opacity: 0.5,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/yVKu5kh.mp4" //10sec
+                        ],
+                      },
                     ],
                     sinopse:  `
                         Após ser vendido como escravo pelos irmãos e 
@@ -956,6 +1018,18 @@ const seriesData = [
                     thumb: [
                         "https://pp-vod-img-aws.akamaized.net/0347485/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/cgeN3Jy.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 18,
+                        opacity: 1.0,
+                        mixBlend: 'soft-light',
+                        links: [
+                          "https://i.imgur.com/1MsWbz7.mp4" //18sec
+                        ],
+                      },
                     ],
                     sinopse:  `
                         Quando a história dos homens estava perto de cair em desgraça, 
@@ -1212,6 +1286,18 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0191984/playplus_thumb_1600.jpg",
                         // "https://i.imgur.com/lLC6g7q.jpeg", //MESMA DE CIMA IMGUR
                         "https://i.imgur.com/BADXefl.jpeg",
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 60,
+                        opacity: 1.0,
+                        mixBlend: 'darken',
+                        links: [
+                          "https://i.imgur.com/V4TwcLL.mp4" //60sec
+                        ],
+                      },
                     ],
                     sinopse:  `
                         A superprodução bíblica Gênesis vai lhe ajudar a entender aquilo 
@@ -1494,6 +1580,18 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0068614/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/X0fkwzu.jpeg", //MESMA DE CIMA IMGUR
                     ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 60,
+                        opacity: 0.5,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/fVP2xP4.mp4" //60sec
+                        ],
+                      },
+                    ],
                     sinopse:  `
                         Após o governo de vários reis que se afastaram de Deus, Jerusalém 
                         encontra-se mergulhada na idolatria. A grande amizade de Zac e Asher 
@@ -1734,6 +1832,18 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0433417/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/k1Q9CXR.jpeg", //MESMA DE CIMA IMGUR
                     ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 60,
+                        opacity: 0.5,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/OMPGSGt.mp4" //60sec
+                        ],
+                      },
+                    ],
                     sinopse:  `
                         A Rainha da Pérsia é uma série que nos transporta para 
                         os tempos antigos da Bíblia, onde a vida de uma jovem 
@@ -1819,6 +1929,18 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0068508/playplus_thumb_852.jpg", //1600 OFF
                         "https://i.imgur.com/HNMg6YB.jpeg", //MESMA DE CIMA IMGUR
                     ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 10,
+                        opacity: 1.0,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/PfC5JRU.mp4" //10sec
+                        ],
+                      },
+                    ],
                     sinopse:  `
                         A minissérie A História de Ester se passa por volta 
                         de 400 anos a.C., na antiga Pérsia, onde hoje é o Irã. 
@@ -1882,6 +2004,18 @@ const seriesData = [
                     thumb: [
                         "https://pp-vod-img-aws.akamaized.net/0070604/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/NRPhGRI.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 21,
+                        opacity: 1.0,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/fcdnsXS.mp4" //21 sec
+                        ],
+                      },
                     ],
                     sinopse:  `
                         Baseada nas interpretações de um dos capítulos da bíblia, 
@@ -2116,6 +2250,18 @@ const seriesData = [
                     thumb: [
                         "https://i.imgur.com/yfMLDL9.jpeg",
                         "https://i.imgur.com/deMH9PD.jpeg",
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 10,
+                        opacity: 1.0,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/YMJ0kHc.mp4" //10sec
+                        ],
+                      },
                     ],
                     sinopse:  `
                         Nas terras de Canaã, um povo que caminhou décadas pelo deserto 
@@ -2818,6 +2964,18 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0069029/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/QZb9etq.jpeg", //MESMA DE CIMA IMGUR
                     ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 9,
+                        opacity: 1.0,
+                        mixBlend: 'soft-light',
+                        links: [
+                          "https://i.imgur.com/3EEuTdX.mp4" //9sec
+                        ],
+                      },
+                    ],
                     sinopse:  `
                         A obra Sansão e Dalila retrata uma época em que hebreus fortemente
                         oprimidos e perseguidos pelos filisteus clamavam por libertação. Neste
@@ -2895,6 +3053,18 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0072028/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/laxl1rV.jpeg", //MESMA DE CIMA IMGUR
                     ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 60,
+                        opacity: 0.7,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/XQE1ueX.mp4" //60sec
+                        ],
+                      },
+                    ],
                     sinopse:  `
                         A minissérie é baseada na história de Lia, uma das esposas de Jacó, 
                         o progenitor da Nação Judaica. Jacó teve doze filhos, que deram nomes 
@@ -2954,6 +3124,18 @@ const seriesData = [
                     title: "NEEMIAS",
                     thumb: [
                         "https://i.imgur.com/6xJGpt0.jpeg"
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 30,
+                        opacity: 1.0,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/t0OUFwi.mp4" //30sec
+                        ],
+                      },
                     ],
                     sinopse:  `
                         A minissérie Neemias, que narra a história da reconstrução dos muros de
@@ -3017,6 +3199,18 @@ const seriesData = [
                     thumb: [
                         "https://pp-vod-img-aws.akamaized.net/0503079/playplus_thumb_1600.jpg",
                         // "https://i.imgur.com/BDXUWVd.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 16,
+                        opacity: 0.5,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/pGx6LNd.mp4" //16sec
+                        ],
+                      },
                     ],
                     sinopse:  `
                         Paulo, O Apóstolo narra a fascinante e profunda jornada 
@@ -3110,6 +3304,18 @@ const seriesData = [
                         "https://pp-vod-img-aws.akamaized.net/0238038/playplus_thumb_1600.jpg",
                         "https://i.imgur.com/VnccUVt.png",
                         // "https://i.imgur.com/DeKWycs.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 8,
+                        opacity: 1.0,
+                        mixBlend: 'soft-light',
+                        links: [
+                          "https://i.imgur.com/z42PB4N.mp4" //8sec
+                        ],
+                      },
                     ],
                     sinopse:  `
                         A Bíblia traz um compilado de episódios épicos, exibidos em ordem 
@@ -3407,6 +3613,9 @@ function blockOverlayScrollEvents(overlay, lock) {
   }
 }
 
+const toArray = v => Array.isArray(v) ? v : (v ? [v] : []);
+const isVideoURL = u => /\.(mp4|webm|ogg)(\?.*)?$/i.test(u);
+
 //=======================================================================
 //SERIE ATUAL
 //=======================================================================
@@ -3553,6 +3762,13 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
     </div>`;
   document.getElementById('series').innerHTML = html;
 
+  const effectConfig =
+  (dropdownValue !== 'all' && currentSerie.season[currentSeasonIndex]?.description?.effect)
+  || currentSerie?.description?.effect
+  || currentSerie?.effect;
+
+setupDescriptionEffects(effectConfig);
+
   const newDropdown = document.getElementById('season-dropdown');
   const episodesContainer = document.getElementById('current-series-episodes');
   if (newDropdown) {
@@ -3611,6 +3827,118 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
   addEpisodeButtonListeners();
   updateButtonVisibility();
   setupThumbnailLoading();
+}
+
+function normalizeFade(fade, dur) {
+  let fi, fo;
+  if (typeof fade === 'number') { fi = fo = Math.min(fade, dur / 2); }
+  else if (fade && typeof fade === 'object') {
+    fi = Math.min(fade.in  || 0, dur / 2);
+    fo = Math.min(fade.out || 0, dur / 2);
+  } else { fi = fo = 0; }
+  return { fi, fo };
+}
+
+function runEdgeFade(el, durSec, { fi, fo }, startNow) {
+  const durMs = (durSec || 10) * 1000;
+  const inMs  = (fi || 0) * 1000;
+  const outMs = (fo || 0) * 1000;
+  let outTimer;
+
+  const start = () => {
+    // fade-in
+    el.style.transition = `opacity ${fi}s linear`;
+    el.style.opacity = '1';
+    // agenda o fade-out no final
+    if (outTimer) clearTimeout(outTimer);
+    outTimer = setTimeout(() => {
+      el.style.transition = `opacity ${fo}s linear`;
+      el.style.opacity = '0';
+    }, Math.max(0, durMs - outMs));
+  };
+
+  const stop = () => {
+    if (outTimer) clearTimeout(outTimer);
+    el.style.transition = '';
+    el.style.opacity = '0';
+  };
+
+  if (startNow) start();
+  return { start, stop };
+}
+
+function applyOneEffect(layerHost, cfg, hoverTarget = layerHost) {
+  const layer = document.createElement('div');
+  layer.className = 'effect-layer';
+  if (cfg.mixBlend) layer.style.mixBlendMode = cfg.mixBlend;
+  if (cfg.opacity) layer.style.opacity = cfg.opacity;
+  layerHost.appendChild(layer);
+
+  const durationFallback = Number(cfg.duration) || 0;
+  const links = toArray(cfg.links);
+
+  const onHoverStart = (starter) => () => starter();
+  const onHoverStop  = (stopper) => () => stopper();
+
+  links.forEach(link => {
+    if (isVideoURL(link)) {
+      const v = document.createElement('video');
+      v.src = link; v.muted = true; v.playsInline = true;
+      v.loop = false; v.autoplay = !cfg.hover;
+      layer.appendChild(v);
+
+      const startWithKnownDur = (dur) => {
+        const fade = normalizeFade(cfg.fade, dur);
+        const ctrl = runEdgeFade(v, dur, fade, !cfg.hover);
+        if (!cfg.hover) v.play().catch(()=>{});
+
+        if (cfg.hover) {
+          hoverTarget.addEventListener('mouseenter', onHoverStart(() => {
+            v.currentTime = 0; v.play().catch(()=>{}); ctrl.start();
+          }));
+          hoverTarget.addEventListener('mouseleave', onHoverStop(() => {
+            v.pause(); ctrl.stop();
+          }));
+        } else {
+          v.addEventListener('ended', () => {
+            v.currentTime = 0; v.play().catch(()=>{}); ctrl.start();
+          });
+        }
+      };
+
+      v.addEventListener('loadedmetadata', () => {
+        const dur = isFinite(v.duration) && v.duration > 0 ? v.duration : durationFallback;
+        startWithKnownDur(dur);
+      });
+      v.addEventListener('error', () => startWithKnownDur(durationFallback));
+    } else {
+      const img = document.createElement('img');
+      img.src = link;
+      layer.appendChild(img);
+
+      const dur  = durationFallback;
+      const fade = normalizeFade(cfg.fade, dur);
+      const ctrl = runEdgeFade(img, dur, fade, !cfg.hover);
+
+      if (cfg.hover) {
+        let loopTimer;
+        const startLoop = () => { ctrl.start(); clearInterval(loopTimer); loopTimer = setInterval(() => ctrl.start(), dur * 1000); };
+        const stopLoop  = () => { clearInterval(loopTimer); ctrl.stop(); };
+        hoverTarget.addEventListener('mouseenter', startLoop);
+        hoverTarget.addEventListener('mouseleave', stopLoop);
+      } else {
+        setInterval(() => ctrl.start(), dur * 1000);
+      }
+    }
+  });
+}
+
+function setupDescriptionEffects(effectConfig) {
+  const root = document.querySelector('#series-description');
+  const host = root?.querySelector('.description-thumb');
+  if (!root || !host || !effectConfig) return;
+  const list = toArray(effectConfig);
+  list.forEach(cfg => applyOneEffect(host, cfg, root));
 }
 
 //=======================================================================
@@ -5178,7 +5506,6 @@ function renderCarousel() {
 //=======================================================================
 //BUTTONS DE SÉRIES & FAVORITOS
 //=======================================================================
-// === Estilos e motor p/ setas + arraste nas linhas de cards (HOME) ===
 function ensureRowScrollerStyles() {
   if (document.getElementById('row-scroller-styles')) return;
   const s = document.createElement('style');
