@@ -238,6 +238,7 @@ const seriesData = [
             {
                 name: "Os Dez Mandamentos",
                 thumb_buttons: [
+                  "https://i.imgur.com/j3fie28.jpeg",
                   "https://pp-vod-img-aws.akamaized.net/0090405/0090405_200.jpg",
                   "https://i.imgur.com/qUETt6r.jpeg",
                   "https://i.imgur.com/kZw3NcV.jpeg",
@@ -3142,6 +3143,49 @@ const seriesData = [
             },
 
 
+            //JÓ
+            {
+                name: "A Vida de Jó",
+                thumb_page: "",
+                thumb_buttons: [
+                  "https://i.imgur.com/3RfyOs1.png",
+                  "https://i.imgur.com/MOrLAIA.png",
+                ],
+                badge: "EM BREVE",
+                type: "Temporadas",
+                canais: false,
+                enabled: false,
+                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "",
+                    logo: "",
+                    thumb: [""],
+                    text: "",
+                    description: `
+                        
+                    `
+                },
+                description: {
+                    title: "A VIDA DE JÓ",
+                    thumb: [
+                        "https://i.imgur.com/9iL64j0.png"
+                    ],
+                    sinopse:  `
+
+                    `
+                },
+                season: [
+                    {
+                        name: "Temporada 01",
+                        thumb_season: "https://i.imgur.com/9iL64j0.png",
+                        movies: false,
+                        episodes: [
+                            { title: "Episódio 001", duration: "00:00", thumb: "", url: [""] },
+                        ]
+                    }
+                ]
+            },
         ]
     },
   
