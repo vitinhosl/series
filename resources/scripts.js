@@ -6,8 +6,9 @@ const seriesData = [
             {
                 name: "A Terra Prometida",
                 thumb_buttons: [
-                  "https://i.imgur.com/HFGzr9d.jpeg",
                   "https://i.imgur.com/3FzZHWW.jpeg",
+                  "https://i.imgur.com/HFGzr9d.jpeg",
+                  "https://i.imgur.com/W56d1ie.jpeg",
                   "https://pp-vod-img-aws.akamaized.net/0068571/0068571_200.jpg",
                   // "https://i.imgur.com/eiBmJtU.jpeg" //MESMA DE CIMA IMGUR
                 ],
@@ -238,8 +239,9 @@ const seriesData = [
             {
                 name: "Os Dez Mandamentos",
                 thumb_buttons: [
-                  "https://i.imgur.com/j3fie28.jpeg",
                   "https://pp-vod-img-aws.akamaized.net/0090405/0090405_200.jpg",
+                  "https://i.imgur.com/m0rO0NY.jpeg",
+                  "https://i.imgur.com/CFnQGfS.jpeg",
                   "https://i.imgur.com/qUETt6r.jpeg",
                   "https://i.imgur.com/kZw3NcV.jpeg",
                   // "https://i.imgur.com/yU7qkUV.jpeg" //MESMA DE CIMA IMGUR
@@ -250,11 +252,12 @@ const seriesData = [
                 enabled: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
-                    enabled: false,
+                    enabled: true,
                     title: "OS DEZ MANDAMENTOS",
                     logo: "", //https://i.imgur.com/MJL97ex.png
                     thumb: [
-                        "https://i.imgur.com/v0uF3s6.png"
+                      "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
+                      "https://i.imgur.com/v0uF3s6.png",
                     ],
                     text: "",
                     description: `
@@ -267,8 +270,8 @@ const seriesData = [
                 description: {
                     title: "OS DEZ MANDAMENTOS",
                     thumb: [
-                        "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
-                        "https://i.imgur.com/9yZZlBr.jpeg", //MESMA DE CIMA IMGUR
+                      "https://pp-vod-img-aws.akamaized.net/0090405/playplus_thumb_1600.jpg",
+                      "https://i.imgur.com/9yZZlBr.jpeg", //MESMA DE CIMA IMGUR
                     ],
                     sinopse:  `
                         Grande sucesso da televisão brasileira, este épico bíblico 
@@ -281,7 +284,7 @@ const seriesData = [
                     //TEMPORADA 01 - EPISÓDIOS 176
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://i.imgur.com/9wRJdtG.png", //https://i.imgur.com/m21M7qL.png
+                        thumb_season: "https://i.imgur.com/j3fie28.jpeg", //"https://i.imgur.com/9wRJdtG.png", //"https://i.imgur.com/m21M7qL.png",
                         movies: false,
                         episodes: [
                             { title: "Episódio 001", duration: "59:45"  , thumb: "https://i.imgur.com/T1Y89pS.jpeg", url: ["https://ok.ru/videoembed/3680592988759", "https://cdn-novflix.com/storage3/ODM/ODMzJ8ZbkUekz24eeeVxdBUi001.mp4", "https://ok.ru/videoembed/3570728634939", "https://ok.ru/videoembed/3532966726361"] },
@@ -466,7 +469,7 @@ const seriesData = [
                     //TEMPORADA 02 - EPISÓDIOS 66
                     {
                         name: "Temporada 02",
-                        thumb_season: "https://i.imgur.com/m21M7qL.png",
+                        thumb_season: "https://i.imgur.com/j3fie28.jpeg", //"https://i.imgur.com/9wRJdtG.png", //"https://i.imgur.com/m21M7qL.png",
                         movies: false,
                         description: {
                             title: "OS DEZ MANDAMENTOS",
@@ -893,6 +896,8 @@ const seriesData = [
             {
                 name: "Jesus",
                 thumb_buttons: [
+                  "https://i.imgur.com/hbM64ht.jpeg",
+                  "https://i.imgur.com/lVCtz63.jpeg",
                   "https://pp-vod-img-aws.akamaized.net/0347485/0347485_200.jpg",
                   "https://i.imgur.com/WjRXSvX.jpeg",
                   "https://i.imgur.com/JX2Coo5.png",
@@ -1143,6 +1148,8 @@ const seriesData = [
                 name: "Gênesis",
                 thumb_buttons: [
                   "https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg",
+                  "https://i.imgur.com/jkRZshy.jpeg",
+                  "https://i.imgur.com/Ld0UYWx.jpeg",
                   // "https://imgur.com/a/NZ5fHnx", //MESMA DE CIMA IMGUR
                   "https://i.imgur.com/A68fp1F.jpeg",
                   "https://i.imgur.com/xHqjptH.jpeg",
@@ -1657,8 +1664,9 @@ const seriesData = [
                 name: "A Rainha da Pérsia",
                 thumb_page: "",
                 thumb_buttons: [
-                  // "https://pp-vod-img-aws.akamaized.net/0433417/0433417_200.jpg",
                   "https://i.imgur.com/tKjng2c.png", //MESMA DE CIMA IMGUR
+                  "https://i.imgur.com/mVFwj6U.jpeg",
+                  // "https://pp-vod-img-aws.akamaized.net/0433417/0433417_200.jpg",
                 ],
                 badge: "",
                 type: "Temporadas",
@@ -1739,9 +1747,11 @@ const seriesData = [
             {
                 name: "A História de Ester",
                 thumb_buttons: [
-                  "https://i.imgur.com/YqgmJBA.jpeg",
-                  "https://i.imgur.com/jjT6cds.jpeg",
                   "https://pp-vod-img-aws.akamaized.net/0068508/0068508_200.jpg",
+                  "https://i.imgur.com/jjT6cds.jpeg",
+                  "https://i.imgur.com/YqgmJBA.jpeg",
+                  "https://i.imgur.com/V8NXWLT.jpeg",
+                  "https://i.imgur.com/jhQjNXM.jpeg",
                   // "https://i.imgur.com/30c5JJ4.jpeg", //MESMA DE CIMA IMGUR
                 ],
                 badge: "",
@@ -1835,8 +1845,7 @@ const seriesData = [
                 season: [
                     {
                         name: "Temporada 01",
-                        // thumb_season: "https://i.imgur.com/OyIsqqk.jpeg",
-                        thumb_season: "https://i.imgur.com/Bk1iARb.jpeg",
+                        thumb_season: "https://i.imgur.com/qcObFl4.png",
                         movies: false,
                         episodes: [
                             { title: "Episódio 001", duration: "53:28"  , thumb: "https://i.imgur.com/d2yoYEv.jpeg", url: ["https://ok.ru/videoembed/394515581527", "https://cdn-novflix.com/storage2/APO/APOzJ8ZbkUekz24eeeVxdBUi001.mp4", "https://ok.ru/videoembed/3788446829115", "https://ok.ru/videoembed/2543759526617"]},
