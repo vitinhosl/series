@@ -22,7 +22,8 @@ const seriesData = [
                     title: "A TERRA PROMETIDA",
                     logo: "", //https://i.imgur.com/J5WkXJP.png
                     thumb: [
-                        "https://i.imgur.com/H7LkieU.png"
+                        "https://pp-vod-img-aws.akamaized.net/0068571/playplus_thumb_1600.jpg",
+                        "https://i.imgur.com/H7LkieU.png",
                     ],
                     text: "Destaque",
                     description: `
