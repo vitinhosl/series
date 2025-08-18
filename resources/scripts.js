@@ -3475,7 +3475,7 @@ const seriesData = [
                 badge: "EM BREVE",
                 type: "Temporadas",
                 canais: false,
-                enabled: false,
+                enabled: true,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
