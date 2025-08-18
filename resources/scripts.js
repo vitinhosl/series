@@ -5,13 +5,15 @@ const seriesData = [
             //A TERRA PROMETIDA
             {
                 name: "A Terra Prometida",
-                thumb_buttons: [
-                  "https://i.imgur.com/3FzZHWW.jpeg",
-                  "https://i.imgur.com/HFGzr9d.jpeg",
-                  "https://i.imgur.com/W56d1ie.jpeg",
-                  "https://pp-vod-img-aws.akamaized.net/0068571/0068571_200.jpg",
-                  // "https://i.imgur.com/eiBmJtU.jpeg" //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/3FzZHWW.jpeg",
+                    "https://i.imgur.com/HFGzr9d.jpeg",
+                    "https://i.imgur.com/W56d1ie.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0068571/0068571_200.jpg",
+                    // "https://i.imgur.com/eiBmJtU.jpeg" //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -255,14 +257,16 @@ const seriesData = [
             //OS DEZ MANDAMENTOS - 2 TEMPORADAS
             {
                 name: "Os Dez Mandamentos",
-                thumb_buttons: [
-                  "https://pp-vod-img-aws.akamaized.net/0090405/0090405_200.jpg",
-                  "https://i.imgur.com/m0rO0NY.jpeg",
-                  "https://i.imgur.com/CFnQGfS.jpeg",
-                  "https://i.imgur.com/qUETt6r.jpeg",
-                  "https://i.imgur.com/kZw3NcV.jpeg",
-                  // "https://i.imgur.com/yU7qkUV.jpeg" //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://pp-vod-img-aws.akamaized.net/0090405/0090405_200.jpg",
+                    "https://i.imgur.com/m0rO0NY.jpeg",
+                    "https://i.imgur.com/CFnQGfS.jpeg",
+                    "https://i.imgur.com/qUETt6r.jpeg",
+                    "https://i.imgur.com/kZw3NcV.jpeg",
+                    // "https://i.imgur.com/yU7qkUV.jpeg" //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -589,14 +593,16 @@ const seriesData = [
             //JEZABEL
             {
                 name: "Jezabel",
-                thumb_buttons: [
-                  "https://i.imgur.com/pgGkftW.jpeg",
-                  "https://i.imgur.com/gxlYNza.jpeg",
-                  "https://i.imgur.com/lmTWoCz.jpeg",
-                  "https://i.imgur.com/Z3WUXd9.jpeg",
-                  "https://pp-vod-img-aws.akamaized.net/0069716/0069716_200.jpg",
-                  // "https://i.imgur.com/KK33zSJ.jpeg", //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/pgGkftW.jpeg",
+                    "https://i.imgur.com/gxlYNza.jpeg",
+                    "https://i.imgur.com/lmTWoCz.jpeg",
+                    "https://i.imgur.com/Z3WUXd9.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0069716/0069716_200.jpg",
+                    // "https://i.imgur.com/KK33zSJ.jpeg", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -741,13 +747,15 @@ const seriesData = [
             //REI DAVI
             {
                 name: "Rei Davi",
-                thumb_buttons: [
-                  "https://i.imgur.com/xvMBheq.jpeg",
-                  "https://i.imgur.com/sSJVhSO.jpeg",
-                  "https://i.imgur.com/L4TWRcP.png",
-                  // "https://pp-vod-img-aws.akamaized.net/0088301/0088301_200.jpg",
-                  // "https://i.imgur.com/C6y6k4S.jpeg", //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/xvMBheq.jpeg",
+                    "https://i.imgur.com/sSJVhSO.jpeg",
+                    "https://i.imgur.com/L4TWRcP.png",
+                    // "https://pp-vod-img-aws.akamaized.net/0088301/0088301_200.jpg",
+                    // "https://i.imgur.com/C6y6k4S.jpeg", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -863,13 +871,15 @@ const seriesData = [
             //JOSÉ DO EGITO
             {
                 name: "José do Egito",
-                thumb_buttons: [
-                  "https://i.imgur.com/Oxrdzg6.jpeg",
-                  "https://i.imgur.com/Okgpw3g.png",
-                  "https://i.imgur.com/Rv08WY2.jpeg",
-                  "https://pp-vod-img-aws.akamaized.net/0068517/0068517_200.jpg",
-                  // "https://i.imgur.com/X2VwwBQ.jpeg", //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/Oxrdzg6.jpeg",
+                    "https://i.imgur.com/Okgpw3g.png",
+                    "https://i.imgur.com/Rv08WY2.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0068517/0068517_200.jpg",
+                    // "https://i.imgur.com/X2VwwBQ.jpeg", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -980,14 +990,16 @@ const seriesData = [
             //JESUS
             {
                 name: "Jesus",
-                thumb_buttons: [
-                  "https://i.imgur.com/hbM64ht.jpeg",
-                  "https://i.imgur.com/lVCtz63.jpeg",
-                  "https://pp-vod-img-aws.akamaized.net/0347485/0347485_200.jpg",
-                  "https://i.imgur.com/WjRXSvX.jpeg",
-                  "https://i.imgur.com/JX2Coo5.png",
-                  // "https://i.imgur.com/HWkdzd6.jpeg" //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/hbM64ht.jpeg",
+                    "https://i.imgur.com/lVCtz63.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0347485/0347485_200.jpg",
+                    "https://i.imgur.com/WjRXSvX.jpeg",
+                    "https://i.imgur.com/JX2Coo5.png",
+                    // "https://i.imgur.com/HWkdzd6.jpeg" //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -1247,14 +1259,16 @@ const seriesData = [
             //GÊNESIS
             {
                 name: "Gênesis",
-                thumb_buttons: [
-                  "https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg",
-                  "https://i.imgur.com/jkRZshy.jpeg",
-                  "https://i.imgur.com/Ld0UYWx.jpeg",
-                  // "https://imgur.com/a/NZ5fHnx", //MESMA DE CIMA IMGUR
-                  "https://i.imgur.com/A68fp1F.jpeg",
-                  "https://i.imgur.com/xHqjptH.jpeg",
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg",
+                    "https://i.imgur.com/jkRZshy.jpeg",
+                    "https://i.imgur.com/Ld0UYWx.jpeg",
+                    // "https://imgur.com/a/NZ5fHnx", //MESMA DE CIMA IMGUR
+                    "https://i.imgur.com/A68fp1F.jpeg",
+                    "https://i.imgur.com/xHqjptH.jpeg",
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -1542,13 +1556,15 @@ const seriesData = [
             //O RICO E LÁZARO
             {
                 name: "O Rico e Lázaro",
-                thumb_buttons: [
-                  "https://i.imgur.com/kDT7mQX.png",
-                  "https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg",
-                  "https://i.imgur.com/uFrpJHB.jpeg",
-                  "https://i.imgur.com/io3Xbpv.jpeg",
-                  // "https://i.imgur.com/6wEQHLg.jpeg", //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/kDT7mQX.png",
+                    "https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg",
+                    "https://i.imgur.com/uFrpJHB.jpeg",
+                    "https://i.imgur.com/io3Xbpv.jpeg",
+                    // "https://i.imgur.com/6wEQHLg.jpeg", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -1797,11 +1813,13 @@ const seriesData = [
             {
                 name: "A Rainha da Pérsia",
                 thumb_page: "",
-                thumb_buttons: [
-                  "https://i.imgur.com/tKjng2c.png", //MESMA DE CIMA IMGUR
-                  "https://i.imgur.com/mVFwj6U.jpeg",
-                  // "https://pp-vod-img-aws.akamaized.net/0433417/0433417_200.jpg",
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/tKjng2c.png", //MESMA DE CIMA IMGUR
+                    "https://i.imgur.com/mVFwj6U.jpeg",
+                    // "https://pp-vod-img-aws.akamaized.net/0433417/0433417_200.jpg",
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -1896,14 +1914,16 @@ const seriesData = [
             //A HISTÓRIA DE ESTER
             {
                 name: "A História de Ester",
-                thumb_buttons: [
-                  "https://pp-vod-img-aws.akamaized.net/0068508/0068508_200.jpg",
-                  "https://i.imgur.com/jjT6cds.jpeg",
-                  "https://i.imgur.com/YqgmJBA.jpeg",
-                  "https://i.imgur.com/V8NXWLT.jpeg",
-                  "https://i.imgur.com/jhQjNXM.jpeg",
-                  // "https://i.imgur.com/30c5JJ4.jpeg", //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://pp-vod-img-aws.akamaized.net/0068508/0068508_200.jpg",
+                    "https://i.imgur.com/jjT6cds.jpeg",
+                    "https://i.imgur.com/YqgmJBA.jpeg",
+                    "https://i.imgur.com/V8NXWLT.jpeg",
+                    "https://i.imgur.com/jhQjNXM.jpeg",
+                    // "https://i.imgur.com/30c5JJ4.jpeg", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -1973,13 +1993,15 @@ const seriesData = [
             {
                 name: "Apocalipse",
                 thumb_page: "",
-                thumb_buttons: [
-                  "https://i.imgur.com/gEPrg5k.jpeg",
-                  "https://i.imgur.com/KwwrJdX.jpeg",
-                  "https://pp-vod-img-aws.akamaized.net/0070604/0070604_200.jpg",
-                  "https://i.imgur.com/9vxK9Zf.jpeg",
-                  // "https://i.imgur.com/r4GPwF5.jpeg", //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/gEPrg5k.jpeg",
+                    "https://i.imgur.com/KwwrJdX.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0070604/0070604_200.jpg",
+                    "https://i.imgur.com/9vxK9Zf.jpeg",
+                    // "https://i.imgur.com/r4GPwF5.jpeg", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -2194,8 +2216,8 @@ const seriesData = [
             //REIS - 13 TEMPORADAS
             {
                 name: "Reis",
-                thumb_page: "",
-                thumb_buttons: [
+                thumb_buttons: {
+                  url: [
                     "https://i.imgur.com/hhnDLbk.jpeg", //00 PADRÃO // "https://i.imgur.com/HxmEXcN.jpeg",
 
                     "https://i.imgur.com/8YEOWSo.jpeg", //01 A DECEPÇÃO
@@ -2224,8 +2246,8 @@ const seriesData = [
                     //"https://pp-vod-img-aws.akamaized.net/0396070/0396070_200.jpg", //09 A SUCESSÃO
                     //"https://pp-vod-img-aws.akamaized.net/0424348/0424348_200.jpg", //10 A DECADÊNCIA
                     //"https://pp-vod-img-aws.akamaized.net/0429062/0429062_200.jpg", //11 A DIVISÃO
-
-                ],
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -2933,12 +2955,14 @@ const seriesData = [
             {
                 name: "Sansão e Dalila",
                 thumb_page: "",
-                thumb_buttons: [
-                  "https://pp-vod-img-aws.akamaized.net/0069029/0069029_200.jpg",
-                  "https://i.imgur.com/ObzeTJc.jpeg",
-                  "https://i.imgur.com/AUF8QiG.jpeg",
-                  // "https://i.imgur.com/5IoZDhV.jpeg", //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://pp-vod-img-aws.akamaized.net/0069029/0069029_200.jpg",
+                    "https://i.imgur.com/ObzeTJc.jpeg",
+                    "https://i.imgur.com/AUF8QiG.jpeg",
+                    // "https://i.imgur.com/5IoZDhV.jpeg", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -3022,12 +3046,14 @@ const seriesData = [
             {
                 name: "Lia",
                 thumb_page: "",
-                thumb_buttons: [
-                  "https://i.imgur.com/9vEih6n.jpeg",
-                  "https://i.imgur.com/h8a6jYP.jpeg",
-                  "https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg",
-                  // "https://i.imgur.com/3aJXqgl.jpeg", //MESMA DE CIMA IMGUR
-                ], 
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/9vEih6n.jpeg",
+                    "https://i.imgur.com/h8a6jYP.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg",
+                    // "https://i.imgur.com/3aJXqgl.jpeg", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -3097,10 +3123,12 @@ const seriesData = [
             {
                 name: "Neemias",
                 thumb_page: "",
-                thumb_buttons: [
-                  "https://i.imgur.com/PIyJSbp.jpeg",
-                  // "https://i.imgur.com/tzBW2PF.jpeg",
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/PIyJSbp.jpeg",
+                    // "https://i.imgur.com/tzBW2PF.jpeg",
+                  ],
+                },
                 badge: "",
                 type: "Temporadas",
                 canais: false,
@@ -3164,11 +3192,13 @@ const seriesData = [
             {
                 name: "A Bíblia",
                 thumb_page: "",
-                thumb_buttons: [
-                  "https://pp-vod-img-aws.akamaized.net/0238038/0238038_200.jpg",
-                  "https://i.imgur.com/nymmbbY.png",
-                  // "https://i.imgur.com/jgSVF31.jpeg", //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://pp-vod-img-aws.akamaized.net/0238038/0238038_200.jpg",
+                    "https://i.imgur.com/nymmbbY.png",
+                    // "https://i.imgur.com/jgSVF31.jpeg", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "NOVIDADE",
                 type: "Temporadas",
                 canais: false,
@@ -3322,13 +3352,15 @@ const seriesData = [
             //PAULO, O APÓSTOLO
             {
                 name: "Paulo o Apóstolo",
-                thumb_buttons: [
-                  "https://i.imgur.com/okQVATu.jpeg",
-                  "https://i.imgur.com/mH6sHVr.jpeg",
-                  "https://i.imgur.com/4g0vsCZ.jpeg",
-                  // "https://pp-vod-img-aws.akamaized.net/0503079/0503079_200.jpg",
-                  // "https://i.imgur.com/kcwpdNz.png", //MESMA DE CIMA IMGUR
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/okQVATu.jpeg",
+                    "https://i.imgur.com/mH6sHVr.jpeg",
+                    "https://i.imgur.com/4g0vsCZ.jpeg",
+                    // "https://pp-vod-img-aws.akamaized.net/0503079/0503079_200.jpg",
+                    // "https://i.imgur.com/kcwpdNz.png", //MESMA DE CIMA IMGUR
+                  ],
+                },
                 badge: "NOVIDADE",
                 type: "Temporadas",
                 canais: false,
@@ -3434,10 +3466,12 @@ const seriesData = [
             {
                 name: "A Vida de Jó",
                 thumb_page: "",
-                thumb_buttons: [
-                  "https://i.imgur.com/3RfyOs1.png",
-                  "https://i.imgur.com/MOrLAIA.png",
-                ],
+                thumb_buttons: {
+                  url: [
+                    "https://i.imgur.com/3RfyOs1.png",
+                    "https://i.imgur.com/MOrLAIA.png",
+                  ],
+                },
                 badge: "EM BREVE",
                 type: "Temporadas",
                 canais: false,
@@ -5611,16 +5645,24 @@ function renderSeriesButtons(filteredGroups) {
       return a.name.localeCompare(b.name);
     });
 
-    // ——— conteúdo dos cards (o mesmo map que você já tinha) ———
     const cardsHTML = sortedGroup.map(serie => {
       const isFavorite = favorites.some(fav => fav.name === serie.name);
       const disabledClass = serie.enabled ? '' : 'disabled';
+
+      // Novo: Suporte para ambos os formatos de thumb_buttons
+      const thumbList = Array.isArray(serie.thumb_buttons) 
+        ? serie.thumb_buttons 
+        : serie.thumb_buttons?.url || [];
+
       if (!selectedThumbs[serie.name]) {
-        const thumbIndex = randomImagesCards ? Math.floor(Math.random() * serie.thumb_buttons.length) : 0;
-        selectedThumbs[serie.name] = serie.thumb_buttons[thumbIndex];
+        const thumbIndex = randomImagesCards && thumbList.length > 0 
+          ? Math.floor(Math.random() * thumbList.length) 
+          : 0;
+        selectedThumbs[serie.name] = thumbList[thumbIndex] || '';
       }
       const selectedThumb = selectedThumbs[serie.name];
       const backgroundStyle = `--bg-image: url(${selectedThumb});`;
+
       return `
         <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
           ${serie.badge ? `<span class="badge">${serie.badge}</span>` : ''}
@@ -5645,7 +5687,6 @@ function renderSeriesButtons(filteredGroups) {
         </div>`;
     }).join('');
 
-    // ——— aqui entra a versão com setas/drag quando enableArrowButtons === true ———
     const groupSeriesHTML = `
       <div id="group-series" class="group-series-enter" style="animation-delay: ${groupIndex * 0.2}s;">
         <div id="group-series-header"><h2>${group.group_name}</h2></div>
@@ -5670,25 +5711,22 @@ function renderSeriesButtons(filteredGroups) {
     groupHome.innerHTML += groupSeriesHTML;
   });
 
-  // === ativa setas + arraste (somente quando habilitado) ===
+  // Resto da função permanece inalterado
   if (enableArrowButtons) {
     ensureRowScrollerStyles();
     document.querySelectorAll('.group-series-rail').forEach(makeRowScrollable);
   }
 
-  // ===== animação nos cards =====
   document.querySelectorAll('#group-series-button').forEach((button, index) => {
     button.style.opacity = '0';
     setTimeout(() => { button.classList.add('fade-in-up'); }, index * animationSpeedButtons);
   });
 
-  // ===== rebind seguro =====
   document.querySelectorAll('.favorite-button').forEach(button => {
     const newButton = button.cloneNode(true);
     button.parentNode.replaceChild(newButton, button);
   });
 
-  // ===== favorito -> estado central =====
   document.querySelectorAll('.favorite-button').forEach(button => {
     button.addEventListener('click', function (event) {
       event.stopPropagation();
@@ -5698,7 +5736,6 @@ function renderSeriesButtons(filteredGroups) {
     });
   });
 
-  // ===== abrir série =====
   document.querySelectorAll('#group-series-button').forEach(button => {
     button.addEventListener('click', function () {
       requestTop();
