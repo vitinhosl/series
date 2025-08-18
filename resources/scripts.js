@@ -3159,117 +3159,7 @@ const seriesData = [
                     }
                 ]
             },
-
-            //PAULO, O APÓSTOLO
-            {
-                name: "Paulo o Apóstolo",
-                thumb_buttons: [
-                  "https://i.imgur.com/okQVATu.jpeg",
-                  "https://i.imgur.com/mH6sHVr.jpeg",
-                  "https://i.imgur.com/4g0vsCZ.jpeg",
-                  // "https://pp-vod-img-aws.akamaized.net/0503079/0503079_200.jpg",
-                  // "https://i.imgur.com/kcwpdNz.png", //MESMA DE CIMA IMGUR
-                ],
-                badge: "NOVIDADE",
-                type: "Temporadas",
-                canais: false,
-                enabled: true,
-                title: "", //TEXTO DO BOTÃO ENABLED OFF
-                carrousel: {
-                    enabled: false,
-                    title: "PAULO O APÓSTOLO",
-                    logo: {
-                      enabled: true,
-                      url: "https://i.imgur.com/nZDzVqu.png",
-                      minimalist: false,
-                    },
-                    thumb: [
-                        "https://i.imgur.com/6K7vZYB.png"
-                        // "https://i.imgur.com/G7Q8SZ7.jpeg",
-                        // "https://i.imgur.com/G7Q8SZ7.jpeg",
-                        // "https://i.imgur.com/beK4a7A.jpeg"
-                    ],
-                    text: "",
-                    description: `
-                        
-                    `
-                },
-                description: {
-                    title: "PAULO O APÓSTOLO",
-                    thumb: [
-                        "https://pp-vod-img-aws.akamaized.net/0503079/playplus_thumb_1600.jpg",
-                        // "https://i.imgur.com/BDXUWVd.jpeg", //MESMA DE CIMA IMGUR
-                    ],
-                    effect: [
-                      {
-                        hover: true,
-                        fade: 2,
-                        duration: 16,
-                        opacity: 0.5,
-                        mixBlend: 'screen',
-                        links: [
-                          "https://i.imgur.com/pGx6LNd.mp4" //16sec
-                        ],
-                      },
-                    ],
-                    sinopse:  `
-                        Paulo, O Apóstolo narra a fascinante e profunda jornada 
-                        de Saulo de Tarso, um jovem fariseu fervoroso que, após um 
-                        encontro inesperado, tem sua vida transformada para sempre.
-                    `
-                },
-                season: [
-                    {
-                        name: "Temporada 01",
-                        thumb_season: [
-                          "https://i.imgur.com/9pJoyDS.jpeg",
-                          "https://i.imgur.com/Zuxuw0k.jpeg",
-                          "https://i.imgur.com/SopD9wH.png"
-                        ], 
-                        movies: false,
-                        episodes: [
-                            { title: "Episódio 001", duration: "46:38", thumb: "https://pp-vod-img-aws.akamaized.net/0503527/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9623516547801", "https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4"] },
-                            { title: "Episódio 002", duration: "46:29", thumb: "https://pp-vod-img-aws.akamaized.net/0503850/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9623551412953", "https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4"] },
-                            { title: "Episódio 003", duration: "45:06", thumb: "https://pp-vod-img-aws.akamaized.net/0504080/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9623569631961", "https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4"] },
-                            { title: "Episódio 004", duration: "44:47", thumb: "https://pp-vod-img-aws.akamaized.net/0504387/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9633639762649", "https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4"] },
-                            { title: "Episódio 005", duration: "52:14", thumb: "https://pp-vod-img-aws.akamaized.net/0504764/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9633664404185", "https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4"] },
-                            { title: "Episódio 006", duration: "49:52", thumb: "https://pp-vod-img-aws.akamaized.net/0505241/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9633679346393", "https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
-                            { title: "Episódio 007", duration: "36:31", thumb: "https://pp-vod-img-aws.akamaized.net/0505589/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9652631702233", "https://cdn-novflix.com/storage1/PAULO/PAULO-007.mp4"] },
-                            { title: "Episódio 008", duration: "40:53", thumb: "https://pp-vod-img-aws.akamaized.net/0505879/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9654593981145", "https://cdn-novflix.com/storage1/PAULO/PAULO-008.mp4"] },
-                            { title: "Episódio 009", duration: "43:28", thumb: "https://pp-vod-img-aws.akamaized.net/0506196/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9672930233049", "https://cdn-novflix.com/storage1/PAULO/PAULO-009.mp4"] },
-                            { title: "Episódio 010", duration: "41:28", thumb: "https://pp-vod-img-aws.akamaized.net/0506481/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9715972967129", "https://cdn-novflix.com/storage1/PAULO/PAULO-010.mp4"] },
-                            { title: "Episódio 011", duration: "44:58", thumb: "https://pp-vod-img-aws.akamaized.net/0506999/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9717906213593", "https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4"] },
-                            { title: "Episódio 012", duration: "39:23", thumb: "https://pp-vod-img-aws.akamaized.net/0507305/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9718428797657", "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4"] },
-                            { title: "Episódio 013", duration: "47:54", thumb: "https://pp-vod-img-aws.akamaized.net/0507591/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9725901212377", "https://cdn-novflix.com/storage1/PAULO/PAULO-013.mp4"] },
-                            { title: "Episódio 014", duration: "44:35", thumb: "https://pp-vod-img-aws.akamaized.net/0507892/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9725904947929", "https://cdn-novflix.com/storage1/PAULO/PAULO-014.mp4"] },
-                            { title: "Episódio 015", duration: "44:50", thumb: "https://pp-vod-img-aws.akamaized.net/0508273/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9728533662425", "https://cdn-novflix.com/storage1/PAULO/PAULO-015.mp4"] },
-                            { title: "Episódio 016", duration: "48:47", thumb: "https://pp-vod-img-aws.akamaized.net/0508657/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9729519717081", "https://cdn-novflix.com/storage1/PAULO/PAULO-016.mp4"] },
-                            { title: "Episódio 017", duration: "44:10", thumb: "https://pp-vod-img-aws.akamaized.net/0508959/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9729530923737", "https://cdn-novflix.com/storage1/PAULO/PAULO-017.mp4"] },
-                            { title: "Episódio 018", duration: "47:53", thumb: "https://pp-vod-img-aws.akamaized.net/0509268/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9729541016281", "https://cdn-novflix.com/storage1/PAULO/PAULO-018.mp4"] },
-                            { title: "Episódio 019", duration: "58:00", thumb: "https://pp-vod-img-aws.akamaized.net/0509579/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9736014727897", "https://cdn-novflix.com/storage1/PAULO/PAULO-019.mp4"] },
-                            { title: "Episódio 020", duration: "50:59", thumb: "https://pp-vod-img-aws.akamaized.net/0509983/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9736016825049", "https://cdn-novflix.com/storage1/PAULO/PAULO-020.mp4"] },
-                            { title: "Episódio 021", duration: "50:56", thumb: "https://pp-vod-img-aws.akamaized.net/0510430/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9736017939161", "https://cdn-novflix.com/storage1/PAULO/PAULO-021.mp4"] },
-                            { title: "Episódio 022", duration: "55:50", thumb: "https://pp-vod-img-aws.akamaized.net/0510775/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9750802598617", "https://cdn-novflix.com/storage1/PAULO/PAULO-022.mp4"] },
-                            { title: "Episódio 023", duration: "42:46", thumb: "https://pp-vod-img-aws.akamaized.net/0511126/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9750810069721", "https://cdn-novflix.com/storage1/PAULO/PAULO-023.mp4"] },
-                            { title: "Episódio 024", duration: "55:03", thumb: "https://pp-vod-img-aws.akamaized.net/0511398/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9750819834585", "https://cdn-novflix.com/storage1/PAULO/PAULO-024.mp4"] },
-                            { title: "Episódio 025", duration: "35:22", thumb: "https://pp-vod-img-aws.akamaized.net/0511756/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9792841452249", "https://cdn-novflix.com/storage1/PAULO/PAULO-025.mp4"] },
-                            { title: "Episódio 026", duration: "40:42", thumb: "https://i.imgur.com/q4gmGql.png"                                    , url: ["https://ok.ru/videoembed/9792881429209", "https://cdn-novflix.com/storage1/PAULO/PAULO-026.mp4"] },
-                            { title: "Episódio 027", duration: "46:47", thumb: "https://i.imgur.com/HYhodHB.png"                                    , url: ["https://ok.ru/videoembed/9792893618905", "https://cdn-novflix.com/storage1/PAULO/PAULO-027.mp4"] },
-                            { title: "Episódio 028", duration: "40:52", thumb: "https://i.imgur.com/XqtWvM9.png"                                    , url: ["https://ok.ru/videoembed/9798894160601", "https://cdn-novflix.com/storage1/PAULO/PAULO-028.mp4"] },
-                            { title: "Episódio 029", duration: "38:24", thumb: "https://i.imgur.com/0Ll5Cbq.png"                                    , url: ["https://ok.ru/videoembed/9798899337945", "https://cdn-novflix.com/storage1/PAULO/PAULO-029.mp4"] },
-                            { title: "Episódio 030", duration: "31:39", thumb: "https://i.imgur.com/div4i9x.png"                                    , url: ["https://ok.ru/videoembed/9819050019545", "https://cdn-novflix.com/storage1/PAULO/PAULO-030.mp4"] },
-                            { title: "Episódio 031", duration: "40:35", thumb: "https://i.imgur.com/0b6XIte.jpeg"                                   , url: ["https://ok.ru/videoembed/9831735560921", "https://cdn-novflix.com/storage1/PAULO/PAULO-031.mp4"] },
-                            { title: "Episódio 032", duration: "43:41", thumb: "https://i.imgur.com/JDHRzYV.png"                                    , url: ["https://ok.ru/videoembed/9831739034329", "https://cdn-novflix.com/storage1/PAULO/PAULO-032.mp4"] },
-                            { title: "Episódio 033", duration: "39:48", thumb: "https://i.imgur.com/in8McsP.png"                                    , url: ["https://ok.ru/videoembed/9834659842777", "https://cdn-novflix.com/storage1/PAULO/PAULO-033.mp4"] },
-                            { title: "Episódio 034", duration: "47:31", thumb: "https://i.imgur.com/kYzDLxg.png"                                    , url: ["https://ok.ru/videoembed/9841379773145", "https://cdn-novflix.com/storage1/PAULO/PAULO-034.mp4"] },
-                            { title: "Episódio 035", duration: "48:04", thumb: "https://i.imgur.com/2LVmeon.jpeg"                                   , url: ["https://ok.ru/videoembed/9841387834073", "https://cdn-novflix.com/storage1/PAULO/PAULO-035.mp4"] },
-                            { title: "Episódio 036", duration: "47:40", thumb: "https://i.imgur.com/I61hzdg.png"                                    , url: ["https://ok.ru/videoembed/9841395305177", "https://cdn-novflix.com/storage1/PAULO/PAULO-036.mp4"] },
-                            { title: "Episódio 037", duration: "46:22", thumb: "https://i.imgur.com/LdGxqqd.png"                                    , url: ["https://cdn-novflix.com/storage1/PAULO/PAULO-037.mp4"] },
-                        ]
-                    },
-                ]
-            },
-
+  
             //A BÍBLIA
             {
                 name: "A Bíblia",
@@ -3429,7 +3319,118 @@ const seriesData = [
                 ]
             },
 
-            //JÓ
+            //PAULO, O APÓSTOLO
+            {
+                name: "Paulo o Apóstolo",
+                thumb_buttons: [
+                  "https://i.imgur.com/okQVATu.jpeg",
+                  "https://i.imgur.com/mH6sHVr.jpeg",
+                  "https://i.imgur.com/4g0vsCZ.jpeg",
+                  // "https://pp-vod-img-aws.akamaized.net/0503079/0503079_200.jpg",
+                  // "https://i.imgur.com/kcwpdNz.png", //MESMA DE CIMA IMGUR
+                ],
+                badge: "NOVIDADE",
+                type: "Temporadas",
+                canais: false,
+                enabled: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "PAULO O APÓSTOLO",
+                    logo: {
+                      enabled: true,
+                      url: "https://i.imgur.com/nZDzVqu.png",
+                      minimalist: false,
+                    },
+                    thumb: [
+                        "https://i.imgur.com/6K7vZYB.png"
+                        // "https://i.imgur.com/G7Q8SZ7.jpeg",
+                        // "https://i.imgur.com/G7Q8SZ7.jpeg",
+                        // "https://i.imgur.com/beK4a7A.jpeg"
+                    ],
+                    text: "",
+                    description: `
+                        
+                    `
+                },
+                description: {
+                    title: "PAULO O APÓSTOLO",
+                    thumb: [
+                        "https://pp-vod-img-aws.akamaized.net/0503079/playplus_thumb_1600.jpg",
+                        // "https://i.imgur.com/BDXUWVd.jpeg", //MESMA DE CIMA IMGUR
+                    ],
+                    effect: [
+                      {
+                        hover: true,
+                        fade: 2,
+                        duration: 16,
+                        opacity: 0.5,
+                        mixBlend: 'screen',
+                        links: [
+                          "https://i.imgur.com/pGx6LNd.mp4" //16sec
+                        ],
+                      },
+                    ],
+                    sinopse:  `
+                        Paulo, O Apóstolo narra a fascinante e profunda jornada 
+                        de Saulo de Tarso, um jovem fariseu fervoroso que, após um 
+                        encontro inesperado, tem sua vida transformada para sempre.
+                    `
+                },
+                season: [
+                    {
+                        name: "Temporada 01",
+                        thumb_season: [
+                          "https://i.imgur.com/9pJoyDS.jpeg",
+                          "https://i.imgur.com/Zuxuw0k.jpeg",
+                          "https://i.imgur.com/SopD9wH.png"
+                        ], 
+                        movies: false,
+                        episodes: [
+                            { title: "Episódio 001", duration: "46:38", thumb: "https://pp-vod-img-aws.akamaized.net/0503527/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9623516547801", "https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4"] },
+                            { title: "Episódio 002", duration: "46:29", thumb: "https://pp-vod-img-aws.akamaized.net/0503850/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9623551412953", "https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4"] },
+                            { title: "Episódio 003", duration: "45:06", thumb: "https://pp-vod-img-aws.akamaized.net/0504080/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9623569631961", "https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4"] },
+                            { title: "Episódio 004", duration: "44:47", thumb: "https://pp-vod-img-aws.akamaized.net/0504387/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9633639762649", "https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4"] },
+                            { title: "Episódio 005", duration: "52:14", thumb: "https://pp-vod-img-aws.akamaized.net/0504764/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9633664404185", "https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4"] },
+                            { title: "Episódio 006", duration: "49:52", thumb: "https://pp-vod-img-aws.akamaized.net/0505241/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9633679346393", "https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4"] },
+                            { title: "Episódio 007", duration: "36:31", thumb: "https://pp-vod-img-aws.akamaized.net/0505589/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9652631702233", "https://cdn-novflix.com/storage1/PAULO/PAULO-007.mp4"] },
+                            { title: "Episódio 008", duration: "40:53", thumb: "https://pp-vod-img-aws.akamaized.net/0505879/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9654593981145", "https://cdn-novflix.com/storage1/PAULO/PAULO-008.mp4"] },
+                            { title: "Episódio 009", duration: "43:28", thumb: "https://pp-vod-img-aws.akamaized.net/0506196/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9672930233049", "https://cdn-novflix.com/storage1/PAULO/PAULO-009.mp4"] },
+                            { title: "Episódio 010", duration: "41:28", thumb: "https://pp-vod-img-aws.akamaized.net/0506481/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9715972967129", "https://cdn-novflix.com/storage1/PAULO/PAULO-010.mp4"] },
+                            { title: "Episódio 011", duration: "44:58", thumb: "https://pp-vod-img-aws.akamaized.net/0506999/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9717906213593", "https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4"] },
+                            { title: "Episódio 012", duration: "39:23", thumb: "https://pp-vod-img-aws.akamaized.net/0507305/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9718428797657", "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4"] },
+                            { title: "Episódio 013", duration: "47:54", thumb: "https://pp-vod-img-aws.akamaized.net/0507591/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9725901212377", "https://cdn-novflix.com/storage1/PAULO/PAULO-013.mp4"] },
+                            { title: "Episódio 014", duration: "44:35", thumb: "https://pp-vod-img-aws.akamaized.net/0507892/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9725904947929", "https://cdn-novflix.com/storage1/PAULO/PAULO-014.mp4"] },
+                            { title: "Episódio 015", duration: "44:50", thumb: "https://pp-vod-img-aws.akamaized.net/0508273/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9728533662425", "https://cdn-novflix.com/storage1/PAULO/PAULO-015.mp4"] },
+                            { title: "Episódio 016", duration: "48:47", thumb: "https://pp-vod-img-aws.akamaized.net/0508657/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9729519717081", "https://cdn-novflix.com/storage1/PAULO/PAULO-016.mp4"] },
+                            { title: "Episódio 017", duration: "44:10", thumb: "https://pp-vod-img-aws.akamaized.net/0508959/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9729530923737", "https://cdn-novflix.com/storage1/PAULO/PAULO-017.mp4"] },
+                            { title: "Episódio 018", duration: "47:53", thumb: "https://pp-vod-img-aws.akamaized.net/0509268/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9729541016281", "https://cdn-novflix.com/storage1/PAULO/PAULO-018.mp4"] },
+                            { title: "Episódio 019", duration: "58:00", thumb: "https://pp-vod-img-aws.akamaized.net/0509579/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9736014727897", "https://cdn-novflix.com/storage1/PAULO/PAULO-019.mp4"] },
+                            { title: "Episódio 020", duration: "50:59", thumb: "https://pp-vod-img-aws.akamaized.net/0509983/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9736016825049", "https://cdn-novflix.com/storage1/PAULO/PAULO-020.mp4"] },
+                            { title: "Episódio 021", duration: "50:56", thumb: "https://pp-vod-img-aws.akamaized.net/0510430/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9736017939161", "https://cdn-novflix.com/storage1/PAULO/PAULO-021.mp4"] },
+                            { title: "Episódio 022", duration: "55:50", thumb: "https://pp-vod-img-aws.akamaized.net/0510775/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9750802598617", "https://cdn-novflix.com/storage1/PAULO/PAULO-022.mp4"] },
+                            { title: "Episódio 023", duration: "42:46", thumb: "https://pp-vod-img-aws.akamaized.net/0511126/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9750810069721", "https://cdn-novflix.com/storage1/PAULO/PAULO-023.mp4"] },
+                            { title: "Episódio 024", duration: "55:03", thumb: "https://pp-vod-img-aws.akamaized.net/0511398/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9750819834585", "https://cdn-novflix.com/storage1/PAULO/PAULO-024.mp4"] },
+                            { title: "Episódio 025", duration: "35:22", thumb: "https://pp-vod-img-aws.akamaized.net/0511756/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9792841452249", "https://cdn-novflix.com/storage1/PAULO/PAULO-025.mp4"] },
+                            { title: "Episódio 026", duration: "40:42", thumb: "https://i.imgur.com/q4gmGql.png"                                    , url: ["https://ok.ru/videoembed/9792881429209", "https://cdn-novflix.com/storage1/PAULO/PAULO-026.mp4"] },
+                            { title: "Episódio 027", duration: "46:47", thumb: "https://i.imgur.com/HYhodHB.png"                                    , url: ["https://ok.ru/videoembed/9792893618905", "https://cdn-novflix.com/storage1/PAULO/PAULO-027.mp4"] },
+                            { title: "Episódio 028", duration: "40:52", thumb: "https://i.imgur.com/XqtWvM9.png"                                    , url: ["https://ok.ru/videoembed/9798894160601", "https://cdn-novflix.com/storage1/PAULO/PAULO-028.mp4"] },
+                            { title: "Episódio 029", duration: "38:24", thumb: "https://i.imgur.com/0Ll5Cbq.png"                                    , url: ["https://ok.ru/videoembed/9798899337945", "https://cdn-novflix.com/storage1/PAULO/PAULO-029.mp4"] },
+                            { title: "Episódio 030", duration: "31:39", thumb: "https://i.imgur.com/div4i9x.png"                                    , url: ["https://ok.ru/videoembed/9819050019545", "https://cdn-novflix.com/storage1/PAULO/PAULO-030.mp4"] },
+                            { title: "Episódio 031", duration: "40:35", thumb: "https://i.imgur.com/0b6XIte.jpeg"                                   , url: ["https://ok.ru/videoembed/9831735560921", "https://cdn-novflix.com/storage1/PAULO/PAULO-031.mp4"] },
+                            { title: "Episódio 032", duration: "43:41", thumb: "https://i.imgur.com/JDHRzYV.png"                                    , url: ["https://ok.ru/videoembed/9831739034329", "https://cdn-novflix.com/storage1/PAULO/PAULO-032.mp4"] },
+                            { title: "Episódio 033", duration: "39:48", thumb: "https://i.imgur.com/in8McsP.png"                                    , url: ["https://ok.ru/videoembed/9834659842777", "https://cdn-novflix.com/storage1/PAULO/PAULO-033.mp4"] },
+                            { title: "Episódio 034", duration: "47:31", thumb: "https://i.imgur.com/kYzDLxg.png"                                    , url: ["https://ok.ru/videoembed/9841379773145", "https://cdn-novflix.com/storage1/PAULO/PAULO-034.mp4"] },
+                            { title: "Episódio 035", duration: "48:04", thumb: "https://i.imgur.com/2LVmeon.jpeg"                                   , url: ["https://ok.ru/videoembed/9841387834073", "https://cdn-novflix.com/storage1/PAULO/PAULO-035.mp4"] },
+                            { title: "Episódio 036", duration: "47:40", thumb: "https://i.imgur.com/I61hzdg.png"                                    , url: ["https://ok.ru/videoembed/9841395305177", "https://cdn-novflix.com/storage1/PAULO/PAULO-036.mp4"] },
+                            { title: "Episódio 037", duration: "46:22", thumb: "https://i.imgur.com/LdGxqqd.png"                                    , url: ["https://cdn-novflix.com/storage1/PAULO/PAULO-037.mp4"] },
+                            { title: "Episódio 038", duration: "00:00", thumb: "https://i.imgur.com/LdGxqqd.png"                                    , url: ["https://cdn-novflix.com/storage1/PAULO/PAULO-038.mp4"] },
+                        ]
+                    },
+                ]
+            },
+
+            //A VIDA DE JÓ
             {
                 name: "A Vida de Jó",
                 thumb_page: "",
@@ -3471,7 +3472,9 @@ const seriesData = [
                         thumb_season: "https://i.imgur.com/9iL64j0.png",
                         movies: false,
                         episodes: [
-                            { title: "Episódio 001", duration: "00:00", thumb: "", url: [""] },
+                          { title: "Episódio 001", duration: "00:00", thumb: "", url: ["https://cdn-novflix.com/storage1/JO/JO-001.mp4"] },
+                          { title: "Episódio 002", duration: "00:00", thumb: "", url: ["https://cdn-novflix.com/storage1/JO/JO-002.mp4"] },
+                          { title: "Episódio 003", duration: "00:00", thumb: "", url: ["https://cdn-novflix.com/storage1/JO/JO-003.mp4"] },
                         ]
                     }
                 ]
