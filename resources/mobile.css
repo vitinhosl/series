@@ -74,12 +74,47 @@
         padding-top: 50px; /* Ajuste para altura menor do header */
     }
 
-    .myCarousel {
+    .wrapper {
+        min-height: 200px;
+    }
+
+    .slider {
         max-height: 200px;
+    }
+
+    .content {
+        opacity: 0;
+    }
+    
+    .slider .arrow {
+        opacity: 1;
+        visibility: visible;
     }
     
     .carousel-inner .item  {
         height: 200px;
+    }
+
+    .arrow {
+        width: 50px;
+    }
+
+    .slider .arrow svg {
+        width: 38px;
+        height: 38px;
+    }
+
+    .dots label {
+        width: 30px;
+    }
+
+    .dots-container {
+        opacity: 0;
+        /* pointer-events: none; */
+    }
+    
+    #group-series-cards {
+        gap: 17px;
     }
 
     #group-search {
