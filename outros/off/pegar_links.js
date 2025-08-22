@@ -122,7 +122,7 @@ let reverse = true;
         let output = "";
         idsAndTitlesArray.forEach(([id, { title, thumb, duration }], index) => {
             const number = String(index + 1).padStart(3, '0');
-            output += `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration || 'Duração não encontrada'}", thumb: "${thumb || 'Thumbnail não encontrada'}", url: "https://ok.ru/videoembed/${id}" },\n`;
+            output += `[EPISÓDIO: "${title}"] - { title: "${number}", subtitle: "", duration: "${duration || 'Duração não encontrada'}", thumb: "${thumb || 'Thumbnail não encontrada'}", url: "https://ok.ru/videoembed/${id}" },\n`;
         });
 
         navigator.clipboard.writeText(output).then(() => {
@@ -242,7 +242,7 @@ let reverse = true;
 
             episodes.push({
                 title: formattedTitle,
-                duration: duration,
+                subtitle: "", duration: duration,
                 thumb: thumb,
                 url: url,
                 alternative: []
@@ -257,7 +257,7 @@ let reverse = true;
         // Gera a saída no formato dos outros scripts
         const output = episodes.map((episode, index) => {
             const number = String(index + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${episode.title}"] - { title: "${number}", duration: "${episode.duration}", thumb: "${episode.thumb}", url: "${episode.url}" },`;
+            return `[EPISÓDIO: "${episode.title}"] - { title: "${number}", subtitle: "", duration: "${episode.duration}", thumb: "${episode.thumb}", url: "${episode.url}" },`;
         }).join('\n');
 
         // Copia para clipboard
@@ -374,7 +374,7 @@ let reverse = true;
 
             // Monta objeto
             const number = String(idx + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${title}"] - { title: "${number}", duration: "${duration}", thumb: "${thumb}", url: "${href}" },`;
+            return `[EPISÓDIO: "${title}"] - { title: "${number}", subtitle: "", duration: "${duration}", thumb: "${thumb}", url: "${href}" },`;
         });
 
         // Aplica ordenação reversa se necessário
@@ -503,7 +503,7 @@ let reverse = true;
             return {
                 title: title,
                 number: number,
-                duration: duration,
+                subtitle: "", duration: duration,
                 thumb: thumb,
                 url: href,
                 alternative: []
@@ -518,7 +518,7 @@ let reverse = true;
         // Formata a saída
         const output = list.map((item, idx) => {
             const number = String(idx + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}" },`;
+            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", subtitle: "", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}" },`;
         }).join('\n');
 
         // Copia para clipboard
@@ -643,7 +643,7 @@ let reverse = false;
             return {
                 title: title,
                 number: number,
-                duration: duration,
+                subtitle: "", duration: duration,
                 thumb: thumb,
                 url: url,
                 alternative: []
@@ -658,7 +658,7 @@ let reverse = false;
         // Formata a saída
         const output = list.map((item, idx) => {
             const number = String(idx + 1).padStart(3, '0');
-            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}" },`;
+            return `[EPISÓDIO: "${item.title}"] - { title: "${number}", subtitle: "", duration: "${item.duration}", thumb: "${item.thumb}", url: "${item.url}" },`;
         }).join('\n');
 
         // Copia para clipboard
@@ -677,7 +677,150 @@ let reverse = false;
 })();
 //#endregion
 
+//#region OVERFLIX
+let reverse = false;
 
+(function() {
+    // Detect dark mode
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Create floating container
+    const container = document.createElement('div');
+    Object.assign(container.style, {
+        position: 'fixed',
+        top: '10px',
+        right: '10px',
+        zIndex: '9999',
+        background: isDarkMode ? '#1f1f1f' : 'white',
+        color: isDarkMode ? 'white' : 'black',
+        padding: '10px',
+        border: '1px solid ' + (isDarkMode ? '#444' : '#ccc'),
+        borderRadius: '5px',
+        maxWidth: '350px',
+        fontFamily: 'sans-serif',
+        fontSize: '14px'
+    });
+
+    // Main button
+    const button = document.createElement('button');
+    button.textContent = 'Gerar e Copiar Lista de Episódios';
+    Object.assign(button.style, {
+        padding: '5px 10px',
+        marginBottom: '10px',
+        cursor: 'pointer'
+    });
+
+    // Close button
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    Object.assign(closeButton.style, {
+        position: 'absolute',
+        top: '5px',
+        right: '5px',
+        padding: '2px 6px',
+        cursor: 'pointer'
+    });
+    closeButton.addEventListener('click', () => container.remove());
+
+    // Fallback textarea
+    const textarea = document.createElement('textarea');
+    Object.assign(textarea.style, {
+        width: '100%',
+        height: '200px',
+        display: 'none',
+        marginTop: '5px',
+        background: isDarkMode ? '#333' : 'white',
+        color: isDarkMode ? 'white' : 'black'
+    });
+
+    container.appendChild(closeButton);
+    container.appendChild(button);
+    container.appendChild(textarea);
+    document.body.appendChild(container);
+
+    // Function to scroll to bottom
+    async function scrollToBottom() {
+        let lastHeight = document.body.scrollHeight;
+        while (true) {
+            window.scrollTo(0, document.body.scrollHeight);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const newHeight = document.body.scrollHeight;
+            if (newHeight === lastHeight) break;
+            lastHeight = newHeight;
+        }
+    }
+
+    // Mock GetIframe function (since actual implementation is not provided)
+    async function GetIframe(episodeId, playerType) {
+        // This is a placeholder. In a real scenario, this would make an HTTP request or extract the iframe src
+        // For now, return a constructed URL based on pattern
+        return `https://overflixtv.love/player/${playerType}/${episodeId}`;
+    }
+
+    // Event listener for button click
+    button.addEventListener('click', async () => {
+        await scrollToBottom();
+        const episodes = [...document.querySelectorAll('#listagem li a[href*="/assistir-"]')];
+        const episodeData = [];
+
+        for (const [index, link] of episodes.entries()) {
+            const href = link.href;
+            const title = link.textContent.trim() || 'Sem título';
+            const episodeIdMatch = href.match(/-(\d+)\/$/);
+            const episodeId = episodeIdMatch ? episodeIdMatch[1] : `unknown-${index}`;
+            const episodeNumber = String(index + 1).padStart(3, '0');
+
+            // Fetch player links
+            const players = ['filemoon', 'doodstream', 'mixdrop', 'streamtape'];
+            const playerLinks = {};
+
+            for (const player of players) {
+                try {
+                    const iframeUrl = await GetIframe(episodeId, player);
+                    playerLinks[player] = iframeUrl || `${player} não encontrado`;
+                } catch (err) {
+                    console.error(`Erro ao obter ${player} para episódio ${episodeId}:`, err);
+                    playerLinks[player] = `${player} não encontrado`;
+                }
+            }
+
+            episodeData.push({
+                episodeNumber,
+                title,
+                url: href,
+                players: playerLinks
+            });
+        }
+
+        if (reverse) {
+            episodeData.reverse();
+        }
+
+        let output = '';
+        episodeData.forEach(({ episodeNumber, title, url, players }, index) => {
+            output += `[EPISÓDIO: "${title}"] - { title: "${episodeNumber}", subtitle: "", url: "${url}", players: {\n`;
+            output += `    filemoon: "${players.filemoon}",\n`;
+            output += `    doodstream: "${players.doodstream}",\n`;
+            output += `    mixdrop: "${players.mixdrop}",\n`;
+            output += `    streamtape: "${players.streamtape}"\n`;
+            output += `} },\n`;
+        });
+
+        navigator.clipboard.writeText(output).then(() => {
+            button.textContent = 'Copiado!';
+            setTimeout(() => button.textContent = 'Gerar e Copiar Lista de Episódios', 2000);
+            textarea.style.display = 'block';
+            textarea.value = output;
+        }).catch(err => {
+            console.error("Erro ao copiar:", err);
+            textarea.style.display = 'block';
+            textarea.value = output;
+            textarea.select();
+            alert('Erro ao copiar. A lista foi exibida na área de texto. Pressione Ctrl+C para copiar.');
+        });
+    });
+})();
+//#endregion
 
 
 

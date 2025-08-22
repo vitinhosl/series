@@ -1085,12 +1085,6 @@ header.scrolled {
     user-select: none;
 }
 
-#group-series-button {
-    flex: 0 0 auto;
-    min-width: 200px;
-    position: relative;
-}
-
 #group-series-cards.no-wrap::-webkit-scrollbar {
     height: 8px;
 }
@@ -1166,6 +1160,8 @@ header.scrolled {
     position: relative;
     transition: all 0.3s ease, background-size 0.3s ease;
     overflow: visible;
+    flex: 0 0 auto;
+    min-width: 200px;
 }
 
 #group-series-button::before {
@@ -2063,13 +2059,19 @@ header.scrolled {
     color: transparent;
 }
 
+.episode-subtitle,
 .episode-title {
-    margin-top: 0px;
-    /* margin-left: 10px; */
-    font-size: 13px;
-    text-align: left;
-    color: rgb(233, 244, 251);
+  margin-top: 0px;
+  /* margin-left: 10px; */
+  font-size: 13px;
+  text-align: left;
+  color: rgb(233, 244, 251);
+  width: 220px;
+  text-align: left;
+  word-break: break-word;
+  /* padding: 10px 0; */
 }
+
 
 .remove-button {
     position: absolute;
@@ -2811,6 +2813,8 @@ p {
 .remove-log-button:hover span {
     transform: rotate(360deg);
 }
+
+
 
 
 

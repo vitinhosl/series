@@ -1,6 +1,6 @@
 const channelData = [
     {
-        group_name: "Canais Ao Vivo",
+        group_name: "CANAIS AOVIVO",
         group: [
             //ESPN
             {

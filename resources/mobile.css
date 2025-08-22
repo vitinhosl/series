@@ -1,7 +1,8 @@
 
 /* MMONITOR ULTRA WIDE */
 @media (max-width: 2560px) {
-    #group-series-button{
+    .episode-title,
+    #group-series-button {
         width: 225px;
     }
 
@@ -34,6 +35,7 @@
 
 /* MONITOR MEDIANO  - 720P */
 @media (max-width: 1366px) {
+    .episode-title,
     #group-series-button {
         width: 230px;
     }
@@ -156,6 +158,10 @@
     #group-series-button {
         width: 160px;
         height: 250px;
+    }
+
+    .episode-title {
+        width: 160px;
     }
 
     #group-series-button .info h1 {
