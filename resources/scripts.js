@@ -40,6 +40,9 @@ const thumbnailCache            = {};
 //=======================================================================
 //FUNÇÕES UTILS E HELPERS
 //=======================================================================
+const toArray = v => Array.isArray(v) ? v : (v ? [v] : []);
+const isVideoURL = u => /\.(mp4|webm|ogg)(\?.*)?$/i.test(u);
+
 function getOrCreateStyleTag(id) {
   let style = document.getElementById(id);
   if (!style) {
@@ -134,8 +137,9 @@ function blockOverlayScrollEvents(overlay, lock) {
   }
 }
 
-const toArray = v => Array.isArray(v) ? v : (v ? [v] : []);
-const isVideoURL = u => /\.(mp4|webm|ogg)(\?.*)?$/i.test(u);
+function shouldShowDescription(desc) {
+  return !!desc && typeof desc === 'object' && desc.enabled !== false && Array.isArray(desc.thumb) && desc.thumb.length > 0;
+}
 
 //=======================================================================
 //SERIE ATUAL
@@ -208,7 +212,9 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
     desc = serie.season[currentSeasonIndex].description;
   }
 
-  if (desc && typeof desc === 'object') {
+  const showDescription = shouldShowDescription(desc);
+
+  if (showDescription) {
     const parts = [];
     if (dropdownValue === 'all') {
       const episodeSeasons = serie.season.filter(s => !s.movies);
@@ -267,14 +273,14 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
       <div id="section-season">
         <div id="current-series-header">
           <p id="series-available-text">${availableText}</p>
-          ${!serie.description && showDropdown ? `
-          <select id="season-dropdown">
-            ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Ver todos os episódios</option>` : ''}
-            ${serie.season.map((season, idx) => {
-              const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
-              return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
-            }).join('')}
-          </select>` : ''}
+          ${!showDescription && showDropdown ? `
+            <select id="season-dropdown">
+              ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Ver todos os episódios</option>` : ''}
+              ${serie.season.map((season, idx) => {
+                const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
+                return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
+              }).join('')}
+            </select>` : ''}
         </div>
         <div id="current-series-episodes">
           ${renderEpisodes(serie, dropdownValue)}
@@ -283,12 +289,13 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
     </div>`;
   document.getElementById('series').innerHTML = html;
 
-  const effectConfig =
-  (dropdownValue !== 'all' && currentSerie.season[currentSeasonIndex]?.description?.effect)
-  || currentSerie?.description?.effect
-  || currentSerie?.effect;
+  const effectConfig = showDescription
+  ? ((dropdownValue !== 'all' && currentSerie.season[currentSeasonIndex]?.description?.effect)
+    || currentSerie?.description?.effect
+    || currentSerie?.effect)
+  : null;
 
-setupDescriptionEffects(effectConfig);
+  setupDescriptionEffects(effectConfig);
 
   const newDropdown = document.getElementById('season-dropdown');
   const episodesContainer = document.getElementById('current-series-episodes');
