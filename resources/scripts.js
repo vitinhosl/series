@@ -1,3 +1,5 @@
+import { channelData } from '../episodes/canais.js';
+
 const seriesData = [
     {
       group_name: "SÉRIES BIBLÍCAS",
@@ -3677,7 +3679,7 @@ const seriesData = [
                     movies: false,
                     episodes: [
                       { title: "Episódio 001", subtitle: "", duration: "1:09:48", thumb: "https://i.imgur.com/wSPSsZz.jpeg", url: [ "https://filemoon.to/e/fohv33go6fjl/2Efu4ZQADExGVxxV",                   "https://mixdrop.sn/e/gjojl1pptpow89", "https://streamtape.com/get_video?id=kpZO7OpaKbF6l2&expires=1755927970&ip=FRuOExyNRxSNFt&token=j1EN2K21sdWR&stream=1", "https://www.secvideo1.online/get_file/12/3b370c31cd091769c32c56cc419d14d100d7961945/799000/799756/799756_720p.mp4"] },
-                      { title: "Episódio 002", subtitle: "", duration: "1:12:05", thumb: "https://i.imgur.com/EvClHOG.jpeg", url: [ "https://filemoon.to/e/lj48z8unqxdz/iHsPANnDC5OGUVMl",                   "https://mixdrop.sn/e/mkqke3l6bn08ex", "https://streamtape.com/get_video?id=kpZO7OpaKbF6l2&expires=1755928210&ip=FRuOExyNRxSNFt&token=JZYpQUlYQNKY&stream=1",, "https://www.secvideo1.online/get_file/11/8a47a0e8cfde8c95119aab1c2f58e767038f916782/799000/799758/799758_720p.mp4"] },
+                      { title: "Episódio 002", subtitle: "", duration: "1:12:05", thumb: "https://i.imgur.com/EvClHOG.jpeg", url: [ "https://filemoon.to/e/lj48z8unqxdz/iHsPANnDC5OGUVMl",                   "https://mixdrop.sn/e/mkqke3l6bn08ex", "https://streamtape.com/get_video?id=kpZO7OpaKbF6l2&expires=1755928210&ip=FRuOExyNRxSNFt&token=JZYpQUlYQNKY&stream=1", "https://www.secvideo1.online/get_file/11/8a47a0e8cfde8c95119aab1c2f58e767038f916782/799000/799758/799758_720p.mp4"] },
                       { title: "Episódio 003", subtitle: "", duration: "1:16:04", thumb: "https://i.imgur.com/ZiFxnRq.jpeg", url: [ "https://filemoon.to/e/jg689j9a243d/d6riHn7Q3oaC15sB",                   "https://mixdrop.sn/e/360618m7a0ml7n", "https://streamtape.com/get_video?id=OWGR0wWAPOs1aQ&expires=1755928445&ip=FRuOExyNRxSNFt&token=9tJlvom9xpCp&stream=1", "https://www.secvideo1.online/get_file/11/ca86ecec53eeddbfeaa935625e65121bcd2ad1ccb3/799000/799759/799759_720p.mp4"] },
                       { title: "Episódio 004", subtitle: "", duration: "1:13:44", thumb: "https://i.imgur.com/Dl3hKwN.jpeg", url: [ "https://filemoon.to/e/e4chpfzlhd95/JmuOVkt3423BLmEs",                   "https://mixdrop.sn/e/4d7dx8q7iwenzp", "https://streamtape.com/get_video?id=oQKR8d9vQlcdk7&expires=1755928832&ip=FRuOExyNRxSNFt&token=icWW_qLDGS43&stream=1", "https://www.secvideo1.online/get_file/5/e0aac5e5eb6ed4c3840cc1f48bd3940d675f45cca6/799000/799760/799760_720p.mp4" ] },
                       { title: "Episódio 005", subtitle: "", duration: "1:13:48", thumb: "https://i.imgur.com/vcAMthw.jpeg", url: [ "https://filemoon.to/e/nxyu4edc2aa1/Alquimia.das.Almas.S01E05.720p.mp4", "https://mixdrop.sn/e/1n6nq8xvuexmqz", "https://streamtape.com/get_video?id=8vYz1GKezrhXdG&expires=1755928944&ip=FRuOExyNRxSNFt&token=H8OMM9FA2RfZ&stream=1", "https://www.secvideo1.online/get_file/8/bc1fd7f62b4ddee29c2a2bed02f8ce06fe91a6dd30/799000/799765/799765_720p.mp4" ] },
@@ -3721,6 +3723,7 @@ const seriesData = [
       ]
     },
   
+    ...channelData,
 ];
 
 //=======================================================================
