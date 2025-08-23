@@ -1,4 +1,4 @@
-const channelData = [
+export const channelData = [
     {
         group_name: "CANAIS AOVIVO",
         group: [
@@ -80,5 +80,3 @@ const channelData = [
         ]
     },
 ];
-
-export { channelData };

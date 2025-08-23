@@ -482,7 +482,7 @@ const OldnovelsData= [
     }
 ]
 
-const novelsData= [
+export const novelsData= [
     {
         group_name: "NOVELAS",
         group: [
@@ -1022,5 +1022,3 @@ const novelsData= [
         ]
     },
 ]
-
-export { novelsData };
