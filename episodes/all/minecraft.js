@@ -5,14 +5,61 @@ export const minecraftData = [
             //EM BUSCA DA CASA AUTOMÁTICA
             {
                 name: "Em busca da casa automática",
-                thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/EOc9RN1.png",],
+                thumb_buttons: [
+                    "https://i.imgur.com/RuLrytN.png",
+                    "https://i.imgur.com/EOc9RN1.png",
+                ],
                 badge: "Viniccius13",
+                type: "",
+                canais: false,
                 enabled: true,
+                youtube: true,
+                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "EM BUSCA DA CASA AUTOMÁTICA",
+                    logo: {
+                    enabled: false,
+                    url: "",
+                    minimalist: false,
+                    },
+                    thumb: [
+                        "",
+                    ],
+                    text: "",
+                    description: `
+
+                    `
+                },
+                description: {
+                    enabled: true,
+                    title: "EM BUSCA DA CASA AUTOMÁTICA",
+                    thumb: [
+                        "https://i.imgur.com/0IA12V0.png",
+                    ],
+                    effect: [
+                        {
+                            hover: true,
+                            fade: 2,
+                            duration: 60,
+                            opacity: 0.5,
+                            mixBlend: 'soft-light',
+                            links: [
+                                ""
+                            ],
+                        },
+                    ],
+                    sinopse:  `
+                    O Mundo Automático é o mundo em que se passa a série Em Busca da Casa 
+                    Automática. Sua principal construção é a Casa Automática. Um lugar bem 
+                    conhecido do Mundo Automático é o Mar do Sul, onde ficam construções 
+                    importantes como a Farm de Guardian e a Mega Mob Trap.
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
+                        thumb_season: "https://i.imgur.com/1K5ZMuG.jpeg",
                         movies: false,
                         episodes: [
                             { title: "Episódio 001"   , subtitle: "Em busca da casa automática"                             , duration: "21:59"  , thumb: "https://i.ytimg.com/vi/aWzKb071D9o/hqdefault.jpg?sqp=-oaymwEnCPYBEIoBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB_9ibVneC7ff7PdZgU_07EjwdVzQ", url: "https://www.youtube.com/embed/aWzKb071D9o" },                    
@@ -417,16 +464,62 @@ export const minecraftData = [
             {
                 name: "Craft Games",
                 thumb_page: "",
-                thumb_buttons: ["https://i.imgur.com/7A5rAwe.png",],
-                badge: "Davi Gamer",
+                thumb_buttons: [
+                    "https://i.imgur.com/r9JKRFi.png",
+                    "https://i.imgur.com/7A5rAwe.png",
+                ],
+                badge: "",
+                type: "",
+                canais: false,
                 enabled: true,
+                youtube: true,
+                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "CRAFT GAMES",
+                    logo: {
+                    enabled: false,
+                    url: "",
+                    minimalist: false,
+                    },
+                    thumb: [
+                        "",
+                    ],
+                    text: "",
+                    description: `
+
+                    `
+                },
+                description: {
+                    enabled: true,
+                    title: "CRAFT GAMES",
+                    thumb: [
+                        "https://i.imgur.com/xVGHwi9.jpeg",
+                    ],
+                    effect: [
+                        {
+                            hover: true,
+                            fade: 2,
+                            duration: 60,
+                            opacity: 0.5,
+                            mixBlend: 'soft-light',
+                            links: [
+                                ""
+                            ],
+                        },
+                    ],
+                    sinopse:  `
+                        Série do DaviGamerHD no YouTube com o objetivo de criar mini-games no Minecraft modo sobrevivência
+
+                    `
+                },
                 season: [
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
+                        thumb_season: "https://i.imgur.com/0kgGepd.jpeg",
                         movies: false,
                         episodes: [
-                            { title: "Episódio 001", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/wyjphDUt1vrlckpvfPd0TekuqMm-300x170.jpg", url: "https://secvideo1.online/embed/852574/", alternative: ["https://secvideo1.online/embed/852573/"] },
+                            { title: "Episódio 001", duration: "", thumb: "", url: [""] },
                         ]
                     },
                 ]
