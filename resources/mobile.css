@@ -185,12 +185,17 @@
     }
 
     #continue-episode-button, #episode-button {
-        width: 100%;
+        /* width: 100%; */
         height: 200px;
+        width: 401px;
     }
 
     #continue-episode-button:hover, #episode-button:hover {
         transform: scale(1.03);
+    }
+
+    .episode-list {
+        display: block;
     }
 
     #current-series-episodes,

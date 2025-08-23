@@ -58,7 +58,7 @@ export const animesData = [
                 season: [
                     {
                         name: "Temporada 01",
-                        thumb_season: "https://i.imgur.com/h9XkuUs.jpeg",
+                        thumb_season: "https://i.imgur.com/mNG5KTx.jpeg",
                         movies: false,
                         episodes: [
                             { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://animesbr.tv/wp-content/uploads/2024/03/wyjphDUt1vrlckpvfPd0TekuqMm-300x170.jpg", url: ["https://secvideo1.online/embed/852574/", "https://secvideo1.online/embed/852573/"] },

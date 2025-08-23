@@ -513,6 +513,7 @@ export const biblicalData = [
                       thumb_season: "https://i.imgur.com/j3fie28.jpeg", //"https://i.imgur.com/9wRJdtG.png", //"https://i.imgur.com/m21M7qL.png",
                       movies: false,
                       description: {
+                          enabled: true,
                           title: "OS DEZ MANDAMENTOS",
                           thumb: "https://i.imgur.com/3AvCCKN.jpeg",
                           sinopse:  `
