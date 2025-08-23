@@ -49,7 +49,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 60,
                         opacity: 0.5,
@@ -304,7 +304,7 @@ export const biblicalData = [
                   ],
                   effect: [
                     {
-                      hover: true,
+                      hover: false,
                       fade: 2,
                       subtitle: "", duration: 60,
                       opacity: 0.5,
@@ -515,12 +515,26 @@ export const biblicalData = [
                       description: {
                           enabled: true,
                           title: "OS DEZ MANDAMENTOS",
-                          thumb: "https://i.imgur.com/3AvCCKN.jpeg",
+                          thumb: [
+                            "https://i.imgur.com/3AvCCKN.jpeg"
+                          ],
+                          effect: [
+                            {
+                              hover: false,
+                              fade: 2,
+                              subtitle: "", duration: 60,
+                              opacity: 0.5,
+                              mixBlend: 'screen',
+                              links: [
+                                "https://i.imgur.com/MXpg3bT.mp4" //60sec
+                              ],
+                            },
+                          ],
                           sinopse:  `
-                              A trama explora as dificuldades da travessia 
-                              durante os 40 anos de peregrinação. Entre os 
-                              conflitos internos e externos do povo, e a busca 
-                              pela fé e esperança em meio às adversidades. 
+                            A trama explora as dificuldades da travessia 
+                            durante os 40 anos de peregrinação. Entre os 
+                            conflitos internos e externos do povo, e a busca 
+                            pela fé e esperança em meio às adversidades. 
                           `
                       },
                       episodes: [
@@ -641,7 +655,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 60,
                         opacity: 1.0,
@@ -795,7 +809,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 15,
                         opacity: 1.0,
@@ -921,7 +935,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 10,
                         opacity: 0.5,
@@ -1044,7 +1058,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 18,
                         opacity: 1.0,
@@ -1315,7 +1329,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 60,
                         opacity: 1.0,
@@ -1611,7 +1625,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 60,
                         opacity: 0.5,
@@ -1867,7 +1881,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 60,
                         opacity: 0.5,
@@ -1968,7 +1982,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 10,
                         opacity: 1.0,
@@ -2047,7 +2061,7 @@ export const biblicalData = [
                     ],
                     effect: [
                     {
-                        hover: true,
+                        hover: false,
                         fade: 2,
                         subtitle: "", duration: 21,
                         opacity: 1.0,
@@ -2272,7 +2286,7 @@ export const biblicalData = [
               enabled: true,
               title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
               carrousel: {
-                  enabled: true,
+                  enabled: false,
                   title: "REIS",
                   logo: {
                     enabled: true,
@@ -2294,7 +2308,7 @@ export const biblicalData = [
                   ],
                   effect: [
                     {
-                      hover: true,
+                      hover: false,
                       fade: 2,
                       subtitle: "", duration: 10,
                       opacity: 1.0,
@@ -3023,7 +3037,7 @@ export const biblicalData = [
                   ],
                   effect: [
                     {
-                      hover: true,
+                      hover: false,
                       fade: 2,
                       subtitle: "", duration: 9,
                       opacity: 1.0,
@@ -3116,7 +3130,7 @@ export const biblicalData = [
                   ],
                   effect: [
                     {
-                      hover: true,
+                      hover: false,
                       fade: 2,
                       subtitle: "", duration: 60,
                       opacity: 0.7,
@@ -3191,7 +3205,7 @@ export const biblicalData = [
                   ],
                   effect: [
                     {
-                      hover: true,
+                      hover: false,
                       fade: 2,
                       subtitle: "", duration: 30,
                       opacity: 1.0,
@@ -3266,7 +3280,7 @@ export const biblicalData = [
                   ],
                   effect: [
                     {
-                      hover: true,
+                      hover: false,
                       fade: 2,
                       subtitle: "", duration: 8,
                       opacity: 1.0,
@@ -3531,7 +3545,7 @@ export const biblicalData = [
                   ],
                   effect: [
                     {
-                      hover: true,
+                      hover: false,
                       fade: 2,
                       subtitle: "", duration: 16,
                       opacity: 0.5,

@@ -8,8 +8,8 @@ export const animesData = [
                 thumb_buttons: {
                     url: [
                         // "https://animesbr.tv/wp-content/uploads/2025/01/vTCjCkwHn3bfqVLdQjZke3c8w7l-200x300.jpg",
-                        "https://i.imgur.com/x3j8fU5.jpeg",
-                        "https://i.imgur.com/seZ30fi.jpeg",
+                        "https://i.imgur.com/B54Pi2i.jpeg",
+                        "https://i.imgur.com/YtFlIIe.jpeg",
                     ],
                 },
                 badge: "",
