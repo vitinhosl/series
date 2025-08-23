@@ -1,4 +1,4 @@
-const OldnovelsData= [
+export const OldnovelsData= [
     {
         group_name: "NOVELAS",
         group: [
@@ -520,7 +520,7 @@ export const novelsData= [
                     `
                 },
                 description: {
-                    enabled: false,
+                    enabled: true,
                     title: "REBELDE - RBD",
                     thumb: [
                         "https://t.ctcdn.com.br/dqfZvWitHmOYJINf4NGgYUh9r3w=/768x432/smart/i821197.jpeg",
@@ -1045,7 +1045,7 @@ export const novelsData= [
                     `
                 },
                 description: {
-                    enabled: false,
+                    enabled: true,
                     title: "REBELDE - BRASILEIRO",
                     thumb: [
                         "https://pp-vod-img-aws.akamaized.net/0069081/playplus_thumb_1600.jpg",
@@ -1070,7 +1070,6 @@ export const novelsData= [
                         na música um objetivo comum.
                     `
                 },
-
                 season: [
                     {
                         name: "Temporada 01",
