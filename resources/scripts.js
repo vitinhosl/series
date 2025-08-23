@@ -3043,4 +3043,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const defaultButton = document.querySelector('#keys button:first-child');
     defaultButton.classList.add('checked');
     defaultButton.click();
+
+    
 });
