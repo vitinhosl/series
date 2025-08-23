@@ -89,6 +89,7 @@
     .description-thumb {
         max-height: 200px;
         min-height: auto;
+        width: 103%;
     }
 
     .description-thumb::before {
@@ -107,9 +108,13 @@
         font-size: 1em;
     }
 
+    .description-content h4, .description-content h3 {
+        font-size: 0.9em;
+    }
+
     .favorite-button-s2 {
         top: -50px;
-        left: 380px;
+        left: 260px;
     }
 
     .description-content p {
@@ -219,7 +224,7 @@
     #continue-episode-button, #episode-button {
         /* width: 100%; */
         height: 200px;
-        width: 401px;
+        width: 345px;
     }
 
     #continue-episode-button:hover, #episode-button:hover {
