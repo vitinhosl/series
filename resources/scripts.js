@@ -2,6 +2,138 @@ import { seriesAll } from '../episodes/index.js';
 
 const seriesData = seriesAll;
 
+const seriesData2 = [
+    {
+      group_name: "FILMES",
+      visible: true,
+      group: [
+          //HARRY POTTER
+          {
+            name: "Harry Potter",
+            thumb_page: "",
+            thumb_buttons: {
+              url: [
+                "https://media.filmelier.com//images/tit/9548/poster/harry-potter-and-the-sorcerers-stone59098.webp",                       //HARRY POTTER 1: EA PEDRA FILOSOFAL
+                "https://media.filmelier.com//images/tit/9549/poster/harry-potter-and-the-chamber-of-secrets68393.webp",                    //HARRY POTTER 2: EA CÂMARA SECRETA
+                "https://img.elo7.com.br/product/zoom/2657A18/big-poster-harry-potter-e-o-prisioneiro-de-azkaban-lo3-90x60-poster.jpg",     //HARRY POTTER 3: EO CÁLICE DE FOGO
+                "https://media.filmelier.com//images/tit/9551/poster/harry-potter-and-the-goblet-of-fire23738.webp",                        //HARRY POTTER 4: EO PRISIONEIRO DE AZKABAN
+                "https://media.filmelier.com//images/tit/9552/poster/harry-potter-and-the-order-of-the-phoenix62526.webp",                  //HARRY POTTER 5: EA ORDEM DA FÊNIX
+                "https://media.filmelier.com//images/tit/9553/poster/harry-potter-and-the-half-blood-prince48956.webp",                     //HARRY POTTER 6: EO ENIGMA DO PRÍNCIPE
+                "https://media.filmelier.com//images/tit/9554/poster/harry-potter-and-the-deathly-hallows-part-172466.webp",                //HARRY POTTER 7: EAS RELIQUIAS DA MORTE PT 1
+                "https://media.filmelier.com//images/tit/9555/poster/harry-potter-and-the-deathly-hallows-part-279188.webp",                //HARRY POTTER 8: EAS RELIQUIAS DA MORTE PT 2
+              ],
+            },
+            badge: "",
+            type: "",
+            canais: false,
+            enabled: true,
+            youtube: false,
+            visible: false,
+            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            carrousel: {
+                enabled: false,
+                title: "HARRY POTTER",
+                logo: {
+                  enabled: false,
+                  url: "",
+                  minimalist: false,
+                },
+                thumb: [""],
+                text: "",
+                description: `
+                    
+                `
+            },
+            description: {
+                title: "HARRY POTTER",
+                thumb: [
+                  "https://i.imgur.com/XhVA7qP.jpeg",
+                ],
+                sinopse:  `
+                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
+                `
+            },
+            season: [
+                {
+                  name: "Filmes",
+                  thumb_season: "https://i.imgur.com/sWx8cad.png",
+                  movies: true,
+                  episodes: [
+                    { title: "Episódio 001"   , subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/4b990c5d-38ab-4daf-8092-2617cbc6d062/e1b7b1e8-6659-11f0-be5e-0afff99ad1ad?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                    { title: "Episódio 002"   , subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/48674b82-9076-4080-a40c-379efad5eb89/80cd8de7-a391-44dc-b03b-0035bddc770e?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                    { title: "Episódio 003"   , subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/f8/76/0d/f8760df5-55d1-c54f-c74f-593384d4a264/4aa21897-d969-4938-a0e4-d056057958ba_HP3_AZKABAN_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/340x191.webp", url: [""] },
+                    { title: "Episódio 004"   , subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video211/v4/55/bf/98/55bf9850-7421-9b54-b1d2-41dc277bcb8b/c3c9a44f-ab59-498c-a320-f8e75467abfb_HP4_GOBLET_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/340x191.webp", url: [""] },
+                    { title: "Episódio 005"   , subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video211/v4/79/12/03/79120352-f816-3c4c-700c-b9f8c2fac24b/37d7be2c-929c-4c61-8054-988f8305e6cd_HP5_PHOENIX_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/340x191.webp", url: [""] },
+                    { title: "Episódio 006"   , subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video211/v4/a4/67/06/a46706c7-fffb-918d-06ae-9d365d4379e1/5041760a-c4cf-4cdc-b63d-506e744d28ce_HP6_PRINCE_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/340x191.webp", url: [""] },
+                    { title: "Episódio 007"   , subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video211/v4/f9/75/34/f97534aa-0f55-1910-272c-4f5f5b31690e/0db903be-4dba-4d7e-babd-17667fea2129_HP7_PART1_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/340x191.webp", url: [""] },
+                    { title: "Episódio 007 II", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/21/90/24/21902420-c5ca-1b58-4cc2-dfc6ac49a93f/f86c1590-9f59-4e5e-bad7-95a3c36f4dcd_HP7_PART2_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/340x191.webp", url: [""] },
+                  ]
+                },
+            ]
+          },
+
+          //ANIMAIS FANTASTICOS
+          {
+            name: "Animais Fantasticos",
+            thumb_page: "",
+            thumb_buttons: {
+              url: [
+                "https://media.filmelier.com//images/tit/8407/poster/fantastic-beasts-and-where-to-find-them6048.webp",      //ANIMAIS FANTÁSTICOS 1: E ONDE HABITAM
+                "https://media.filmelier.com//images/tit/4956/poster/fantastic-beasts-the-crimes-of-grindelwald44820.webp",  //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
+                "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
+              ],
+            },
+            badge: "",
+            type: "",
+            canais: false,
+            enabled: true,
+            youtube: false,
+            visible: true,
+            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            carrousel: {
+                enabled: false,
+                title: "ANIMAIS FANTASTICOS",
+                logo: {
+                  enabled: false,
+                  url: "",
+                  minimalist: false,
+                },
+                thumb: [""],
+                text: "",
+                description: `
+                    
+                `
+            },
+            description: {
+                title: "ANIMAIS FANTASTICOS",
+                thumb: [
+                  "https://i.imgur.com/XhVA7qP.jpeg",
+                ],
+                video: [
+                  "https://i.imgur.com/Tfae1ar.mp4",
+                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
+                ],
+                sinopse:  `
+                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
+                `
+            },
+            season: [
+                {
+                  name: "Filmes",
+                  thumb_season: "https://i.imgur.com/sWx8cad.png",
+                  movies: false,
+                  episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
+                    { title: "Episódio 002", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/56/42/20/56422092-b548-cc1a-b598-92d03717217a/a915cc2b-bf67-47f5-9a12-863395a298c7_FB_CRIMES_OF_GRINDELWALD_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"         , url: [""] },
+                    { title: "Episódio 003", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video211/v4/7c/ce/a8/7ccea8a2-9b01-5576-0fb0-2c94a8823269/39aae040-4990-44bf-b1c8-dc7fddc22189_FantasticBeasts_SecretsDumbledore_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp", url: [""] },
+                  ]
+                },
+            ]
+          },
+      ]
+    },
+];
+
 //=======================================================================
 //CONFIGURAÇÕES
 //=======================================================================
@@ -20,6 +152,8 @@ let animationSpeedEpisodes      = 3;        //VELOCIDADE DAS ANIMAÇÕES DOS EPI
 let animationSpeedButtons       = 30;       //VELOCIDADE DAS ANIMAÇÕES DOS BOTÕES
 let animationSpeedSearchsKeys   = 2;        //VELOCIDADE DAS ANIMAÇÕES DOS BOTÕES DE PESQUISA
 let animationSpeedLogs          = 20;       //VELOCIDADE DAS ANIMAÇÕES DOS CARDS DE HISTÓRICOS
+let descriptionVideoLoop        = true;     //LOOP DO VIDEO
+let descriptionVideoFadeSec     = 0.6;      //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
 
 //=======================================================================
 //FLAGS
@@ -149,7 +283,7 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
   const seriesNameContainer = document.getElementById('series-name');
 
   seriesContainer.innerHTML = '';
-  seriesNameContainer.innerHTML = `<h1>${serie.name}</h1>`;
+  seriesNameContainer.innerHTML = '<h1>' + serie.name + '</h1>';
 
   if (serie.season.length === 0 && (!serie.movies || serie.movies.length === 0)) {
     seriesContainer.innerHTML = `
@@ -164,51 +298,67 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
   const isNewSeries = !currentSerie || currentSerie.name !== serie.name;
   currentSerie = serie;
 
-  const serieKey = serie.name.replace(/\s+/g, '_');
   const hasSeasons = serie.season.length > 0;
-  const showDropdown = hasSeasons && (serie.season.length > 1 || (serie.season.length === 1 && serie.season.some(s => s.movies)));
-  const showAllOption = serie.season.length > 1 || (serie.season.length === 1 && serie.season.some(s => s.movies));
+
+  // Apenas filmes?
+  const onlyMovies = hasSeasons && serie.season.every(s => !!s.movies);
+  const allLabel   = onlyMovies ? 'Ver todos os filmes' : 'Ver todos os episódios';
+
+  // Mostrar dropdown? (não mostrar quando só houver filmes)
+  const showDropdownBase   = hasSeasons && (serie.season.length > 1 || (serie.season.length === 1 && serie.season.some(s => s.movies)));
+  const showAllOption      = serie.season.length > 1 || (serie.season.length === 1 && serie.season.some(s => s.movies));
+  const shouldShowDropdown = showDropdownBase && !onlyMovies;
 
   let episodesToRender = [];
   let availableText = '';
+
+  // Ponto inicial do dropdown
   if (isNewSeries || !dropdownValue || (dropdownValue === 'all' && !showAllOption)) {
-    if (showAllOption) {
+    if (onlyMovies) {
+      currentSeasonIndex = 0;
+      dropdownValue = 'season-' + currentSeasonIndex;
+      currentSeasonDropdownValue = dropdownValue;
+    } else if (showAllOption) {
       dropdownValue = 'all';
       currentSeasonDropdownValue = 'all';
     } else {
       currentSeasonIndex = 0;
-      dropdownValue = `season-${currentSeasonIndex}`;
+      dropdownValue = 'season-' + currentSeasonIndex;
       currentSeasonDropdownValue = dropdownValue;
     }
   }
 
   if (hasSeasons) {
     if (dropdownValue === 'all' && showAllOption) {
-      episodesToRender = serie.season.flatMap(s => s.episodes);
-      availableText = `Todos os episódios: ${episodesToRender.length}`;
+      episodesToRender = serie.season.flatMap(function (s) { return s.episodes; });
+      availableText = onlyMovies
+        ? 'Filmes disponíveis: ' + episodesToRender.length
+        : 'Todos os episódios: ' + episodesToRender.length;
     } else {
       currentSeasonIndex = parseInt(dropdownValue.split('-')[1], 10);
       const currentSeason = serie.season[currentSeasonIndex];
       episodesToRender = currentSeason.episodes;
       const isMovie = !!currentSeason.movies;
-      const seasonsOfType = serie.season.filter(s => !!s.movies === isMovie);
-      const relativeIndex = serie.season.slice(0, currentSeasonIndex).filter(s => !!s.movies === isMovie).length;
+      const seasonsOfType = serie.season.filter(function (s) { return (!!s.movies) === isMovie; });
+      const relativeIndex = serie.season.slice(0, currentSeasonIndex).filter(function (s) { return (!!s.movies) === isMovie; }).length;
+
       availableText = isMovie ? 'Filmes disponíveis' : 'Episódios disponíveis';
-      if (seasonsOfType.length > 1) availableText = `T${relativeIndex + 1} - ${availableText}`;
-      availableText += `: ${currentSeason.episodes.length}`;
+      if (seasonsOfType.length > 1) availableText = 'T' + (relativeIndex + 1) + ' - ' + availableText;
+      availableText += ': ' + currentSeason.episodes.length;
     }
   } else {
     const currentSeason = serie.season[0];
     episodesToRender = currentSeason.episodes;
-    availableText = `Episódios disponíveis: ${currentSeason.episodes.length}`;
+    availableText = 'Episódios disponíveis: ' + currentSeason.episodes.length;
     currentSeasonIndex = 0;
-    dropdownValue = `season-0`;
+    dropdownValue = 'season-0';
     currentSeasonDropdownValue = dropdownValue;
   }
 
+  // ===== Descrição =====
   let descriptionHTML = '';
   let desc = serie.description;
-  if (dropdownValue !== 'all' && serie.season[currentSeasonIndex]?.description) {
+  if (dropdownValue !== 'all' && serie.season[currentSeasonIndex] && serie.season[currentSeasonIndex].description) {
     desc = serie.season[currentSeasonIndex].description;
   }
 
@@ -217,50 +367,65 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
   if (showDescription) {
     const parts = [];
     if (dropdownValue === 'all') {
-      const episodeSeasons = serie.season.filter(s => !s.movies);
-      const movieSeasons   = serie.season.filter(s =>  s.movies);
-      const totalEpisodes  = episodeSeasons.reduce((sum, s) => sum + (s.episodes?.length || 0), 0);
-      const totalMovies    = movieSeasons.reduce((sum, s) => sum + (s.episodes?.length || 0), 0);
-      if (episodeSeasons.length) parts.push(`Temporadas: ${episodeSeasons.length} - Episódios ${totalEpisodes}`);
-      if (movieSeasons.length)   parts.push(`Filmes: ${totalMovies}`);
+      const episodeSeasons = serie.season.filter(function (s) { return !s.movies; });
+      const movieSeasons   = serie.season.filter(function (s) { return !!s.movies; });
+      const totalEpisodes  = episodeSeasons.reduce(function (sum, s) { return sum + (s.episodes ? s.episodes.length : 0); }, 0);
+      const totalMovies    = movieSeasons.reduce(function (sum, s) { return sum + (s.episodes ? s.episodes.length : 0); }, 0);
+      if (episodeSeasons.length) {
+        parts.push('Temporadas ' + String(episodeSeasons.length).padStart(2, '0') + ' - Episódios ' + totalEpisodes);
+      }
+      if (movieSeasons.length)   parts.push('Filmes: ' + totalMovies);
     } else {
       const cs = serie.season[currentSeasonIndex];
-      const isMovieSeason = cs.movies;
-      const seasonLabel = cs.name || (isMovieSeason ? 'Filmes' : `Temporada ${currentSeasonIndex + 1}`);
-      const count = cs.episodes.length;
-      if (isMovieSeason) parts.push(`Filmes: ${count}`);
-      else parts.push(`${seasonLabel} - Episódios ${count}`);
+      const isMovieSeason = !!cs.movies;
+      const count = (cs.episodes ? cs.episodes.length : 0);
+
+      if (isMovieSeason) {
+        parts.push('Filmes: ' + count);
+      } else {
+        const nonMovieSeasons = serie.season.filter(function (s) { return !s.movies; });
+        const totalNonMovieSeasons = nonMovieSeasons.length;
+
+        if (totalNonMovieSeasons <= 1) {
+          // Só 1 temporada ⇒ não mostrar "Temporada 1 - ..."
+          parts.push('Episódios ' + count);
+        } else {
+          const seasonOrdinal = nonMovieSeasons.indexOf(cs) + 1;
+          const seasonLabel = cs.name ? cs.name : ('Temporada ' + seasonOrdinal);
+          parts.push(seasonLabel + ' - Episódios ' + count);
+        }
+      }
     }
 
     let summaryHTML = '';
     if (parts.length > 0) {
-      summaryHTML = `<h3>${parts[0]}</h3>`;
-      if (parts.length > 1) summaryHTML += `<h4>${parts[1]}</h4>`;
+      summaryHTML = '<h3>' + parts[0] + '</h3>';
+      if (parts.length > 1) summaryHTML += '<h4>' + parts[1] + '</h4>';
     }
 
-    const sinopseHTML = desc.sinopse.replace(/(?:\r\n|\r|\n)/g, '<br>');
-    const isFavorite = favorites.some(fav => fav.name === serie.name);
-    const descriptionThumb = randomImagesDescription && desc.thumb?.length > 0
+    const sinopseHTML = (desc.sinopse || '').replace(/(?:\r\n|\r|\n)/g, '<br>');
+    const isFavorite = favorites.some(function (fav) { return fav.name === serie.name; });
+    const descriptionThumb = (randomImagesDescription && desc.thumb && desc.thumb.length > 0)
       ? desc.thumb[Math.floor(Math.random() * desc.thumb.length)]
-      : desc.thumb?.[0] || '';
+      : (desc.thumb && desc.thumb[0]) ? desc.thumb[0] : '';
 
     descriptionHTML = `
       <div id="series-description">
         <div class="description-thumb" style="background-image: url('${descriptionThumb}');"></div>
         <div class="description-content">
-          <h2>${desc.title}</h2>
+          <h2>${desc.title || serie.name}</h2>
           ${summaryHTML}
           <p>${sinopseHTML}</p>
           <button class="favorite-button-s2 ${isFavorite ? 'active' : ''}"
                   data-serie='${JSON.stringify(serie)}'
                   aria-label="${isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}"></button>
-          ${showDropdown ? `
+          ${shouldShowDropdown ? `
             <p2>Seleciona uma opção:</p2>
             <select id="season-dropdown">
-              ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Ver todos os episódios</option>` : ''}
-              ${serie.season.map((season, idx) => {
-                const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
-                return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
+              ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>${allLabel}</option>` : ''}
+              ${serie.season.map(function (season, idx) {
+                const label = season.name || (season.movies ? 'Filmes' : ('Temporada ' + (idx + 1)));
+                return `<option value="season-${idx}" ${dropdownValue === 'season-' + idx ? 'selected' : ''}>${label}</option>`;
               }).join('')}
             </select>` : ''}
         </div>
@@ -273,12 +438,12 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
       <div id="section-season">
         <div id="current-series-header">
           <p id="series-available-text">${availableText}</p>
-          ${!showDescription && showDropdown ? `
+          ${!showDescription && shouldShowDropdown ? `
             <select id="season-dropdown">
-              ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>Ver todos os episódios</option>` : ''}
-              ${serie.season.map((season, idx) => {
-                const label = season.name || (season.movies ? 'Filmes' : `Temporada ${idx + 1}`);
-                return `<option value="season-${idx}" ${dropdownValue === `season-${idx}` ? 'selected' : ''}>${label}</option>`;
+              ${showAllOption ? `<option value="all" ${dropdownValue === 'all' ? 'selected' : ''}>${allLabel}</option>` : ''}
+              ${serie.season.map(function (season, idx) {
+                const label = season.name || (season.movies ? 'Filmes' : ('Temporada ' + (idx + 1)));
+                return `<option value="season-${idx}" ${dropdownValue === 'season-' + idx ? 'selected' : ''}>${label}</option>`;
               }).join('')}
             </select>` : ''}
         </div>
@@ -290,16 +455,20 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
   document.getElementById('series').innerHTML = html;
 
   const effectConfig = showDescription
-  ? ((dropdownValue !== 'all' && currentSerie.season[currentSeasonIndex]?.description?.effect)
-    || currentSerie?.description?.effect
-    || currentSerie?.effect)
-  : null;
+    ? ((dropdownValue !== 'all' && currentSerie.season[currentSeasonIndex] && currentSerie.season[currentSeasonIndex].description && currentSerie.season[currentSeasonIndex].description.effect)
+      || (currentSerie.description && currentSerie.description.effect)
+      || currentSerie.effect)
+    : null;
 
   setupDescriptionEffects(effectConfig);
+  setupDescriptionHoverPreview(desc);
 
   const newDropdown = document.getElementById('season-dropdown');
   const episodesContainer = document.getElementById('current-series-episodes');
-  if (newDropdown) {
+
+  if (!newDropdown) {
+    episodesContainer.style.display = 'flex';
+  } else {
     newDropdown.value = dropdownValue;
     episodesContainer.style.display = newDropdown.value === 'all' ? 'block' : 'flex';
   }
@@ -308,7 +477,7 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
   animateEpisodes(episodesToRender.length, previousEpisodeCount);
   previousEpisodeCount = episodesToRender.length;
 
-  if (showDropdown && newDropdown) {
+  if (shouldShowDropdown && newDropdown) {
     newDropdown.addEventListener('change', function () {
       const value = this.value;
       currentSeasonDropdownValue = value;
@@ -317,38 +486,41 @@ function renderCurrentSeries(serie, dropdownValue = currentSeasonDropdownValue) 
       let newEpisodes = [];
       let newText = '';
       if (value === 'all' && showAllOption) {
-        newEpisodes = serie.season.flatMap(s => s.episodes);
-        newText = `Todos os episódios: ${newEpisodes.length}`;
+        newEpisodes = serie.season.flatMap(function (s) { return s.episodes; });
+        newText = onlyMovies
+          ? 'Filmes disponíveis: ' + newEpisodes.length
+          : 'Todos os episódios: ' + newEpisodes.length;
       } else {
         currentSeasonIndex = parseInt(value.split('-')[1], 10);
         const selSeason = serie.season[currentSeasonIndex];
         const isMovieSel = !!selSeason.movies;
         newEpisodes = selSeason.episodes;
-        const seasonsOfType = serie.season.filter(s => !!s.movies === isMovieSel);
-        const relIndexSel = serie.season.slice(0, currentSeasonIndex).filter(s => !!s.movies === isMovieSel).length;
+        const seasonsOfType = serie.season.filter(function (s) { return (!!s.movies) === isMovieSel; });
+        const relIndexSel = serie.season.slice(0, currentSeasonIndex).filter(function (s) { return (!!s.movies) === isMovieSel; }).length;
+
         newText = isMovieSel ? 'Filmes disponíveis' : 'Episódios disponíveis';
-        if (seasonsOfType.length > 1) newText = `T${relIndexSel + 1} - ${newText}`;
-        newText += `: ${selSeason.episodes.length}`;
+        if (seasonsOfType.length > 1) newText = 'T' + (relIndexSel + 1) + ' - ' + newText;
+        newText += ': ' + selSeason.episodes.length;
       }
 
       document.getElementById('series-available-text').innerText = newText;
-      animateEpisodes(newEpisodes.length, previousEpisodeCount, () => renderCurrentSeries(serie, value));
+      animateEpisodes(newEpisodes.length, previousEpisodeCount, function () { renderCurrentSeries(serie, value); });
       previousEpisodeCount = newEpisodes.length;
     });
   }
 
-  // favorito na descrição => usa estado central
+  // favorito na descrição
   const favoriteButtonS2 = document.querySelector('.favorite-button-s2');
   if (favoriteButtonS2) {
     favoriteButtonS2.addEventListener('click', function (event) {
       event.stopPropagation();
-      const serie = JSON.parse(this.getAttribute('data-serie'));
+      const serieObj = JSON.parse(this.getAttribute('data-serie'));
       const willFav = !this.classList.contains('active');
 
       this.classList.add('heart-pulse');
       setTimeout(() => this.classList.remove('heart-pulse'), 300);
 
-      setFavoriteState(serie, willFav);
+      setFavoriteState(serieObj, willFav);
     });
   }
 
@@ -875,6 +1047,148 @@ function setupThumbnailLoading() {
             img.style.opacity = '1'; // Mostra
         }
     });
+}
+
+//=======================================================================
+//VÍDEO DA DESCRIÇÃO
+//=======================================================================
+function setupDescriptionHoverPreview(desc) {
+  if (!shouldShowDescription(desc) || !desc.video) return;
+
+  const root = document.querySelector('#series-description');
+  const host = root?.querySelector('.description-thumb');
+  if (!root || !host) return;
+
+  // Limpa a camada anterior + timers + listeners
+  host.querySelectorAll('.effect-layer.effect-layer-video, .effect-layer.effect-layer-iframe').forEach(n => n.remove());
+  host.classList.remove('video-visible');
+  host.querySelectorAll('.toggleSound, #checkboxInput').forEach(n => n.remove()); // Remove os elementos antigos do botão
+
+  if (host.__descTimers) {
+    clearTimeout(host.__descTimers.start);
+    clearTimeout(host.__descTimers.hide);
+  }
+  if (host.__descHandlers) {
+    root.removeEventListener('mouseenter', host.__descHandlers.enter);
+    root.removeEventListener('mouseleave', host.__descHandlers.leave);
+  }
+  host.__descTimers   = { start:null, hide:null };
+  host.__descHandlers = {};
+
+  // Cria a camada
+  const layer = document.createElement('div');
+  layer.className = 'effect-layer effect-layer-video';
+  host.appendChild(layer);
+  
+  const list = Array.isArray(desc.video) ? desc.video : [desc.video];
+  const videoPick = list.find(u => /\.(mp4|webm|ogg)(\?.*)?$/i.test(u));
+  const drivePick = list.find(u => u.includes('drive.google.com/file/d/') && u.includes('/preview'));
+  
+  let mediaElement;
+  let isDriveVideo = false;
+  
+  if (videoPick) {
+      // Prioriza link direto de vídeo
+      const v = document.createElement('video');
+      v.className = 'hero-bg-video';
+      v.src = videoPick;
+      v.muted = true;
+      v.playsInline = true;
+      v.loop = !!descriptionVideoLoop;
+      v.autoplay = false;
+      v.preload = 'metadata';
+      mediaElement = v;
+
+      // Cria os elementos do novo botão (ADICIONADO)
+      const checkboxInput = document.createElement('input');
+      checkboxInput.type = 'checkbox';
+      checkboxInput.id = 'checkboxInput';
+      checkboxInput.checked = false;
+      host.appendChild(checkboxInput);
+
+      const toggleSoundLabel = document.createElement('label');
+      toggleSoundLabel.htmlFor = 'checkboxInput';
+      toggleSoundLabel.className = 'toggleSound';
+      toggleSoundLabel.innerHTML = `
+        <div class="speaker"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 75 75">
+          <path d="M39.389,13.769 L22.235,28.606 L6,28.606 L6,47.699 L21.989,47.699 L39.389,62.75 L39.389,13.769z" style="stroke:#fff;stroke-width:5;stroke-linejoin:round;fill:#fff;"></path>
+          <path d="M48,27.6a19.5,19.5 0 0 1 0,21.4M55.1,20.5a30,30 0 0 1 0,35.6M61.6,14a38.8,38.8 0 0 1 0,48.6" style="fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round"></path>
+        </svg></div>
+        <div class="mute-speaker">
+          <svg version="1.0" viewBox="0 0 75 75">
+            <path class="speaker-shape" d="m39,14-17,15H6V48H22l17,15z"></path>
+            <path class="mute-x" d="m49,26 20,24m0-24-20,24"></path>
+          </svg>
+        </div>
+      `;
+      host.appendChild(toggleSoundLabel);
+
+      // Adiciona o evento de clique para ligar/desligar o áudio
+      checkboxInput.addEventListener('change', () => {
+          v.muted = !checkboxInput.checked;
+      });
+
+  } else if (drivePick) {
+      // Usa o iframe para o Google Drive
+      const iframe = document.createElement('iframe');
+      iframe.className = 'hero-bg-video';
+      iframe.src = drivePick;
+      iframe.allow = "autoplay";
+      iframe.frameBorder = "0";
+      isDriveVideo = true;
+      mediaElement = iframe;
+      layer.className = 'effect-layer effect-layer-video effect-layer-iframe';
+  } else {
+      return;
+  }
+  
+  layer.appendChild(mediaElement);
+
+  let shown = false;
+  const delayMs = Math.max(0, (descriptionVideoFadeSec || 0.6) * 1000);
+
+  // Inicia após hover
+  const start = () => {
+    clearTimeout(host.__descTimers.hide);
+    if (shown) return;
+    clearTimeout(host.__descTimers.start);
+    host.__descTimers.start = setTimeout(() => {
+      if (host.matches(':hover') || root.matches(':hover')) {
+        shown = true;
+        host.classList.add('video-visible');
+        if (!isDriveVideo) {
+            mediaElement.currentTime = 0;
+            mediaElement.play().catch(()=>{});
+        }
+      }
+    }, delayMs);
+  };
+
+  // Ao sair do hover: fade-out + pausa/reset
+  const scheduleHide = () => {
+    clearTimeout(host.__descTimers.start);
+    clearTimeout(host.__descTimers.hide);
+    host.__descTimers.hide = setTimeout(() => {
+      if (host.matches(':hover') || root.matches(':hover')) return;
+      host.classList.remove('video-visible');
+
+      const finish = () => {
+        if (!isDriveVideo) {
+            mediaElement.pause();
+            try { mediaElement.currentTime = 0; } catch {}
+        }
+        shown = false;
+        mediaElement.removeEventListener('transitionend', finish);
+      };
+      mediaElement.addEventListener('transitionend', finish, { once:true });
+      setTimeout(finish, delayMs + 50);
+    }, delayMs);
+  };
+
+  host.__descHandlers.enter = start;
+  host.__descHandlers.leave = scheduleHide;
+  root.addEventListener('mouseenter', host.__descHandlers.enter);
+  root.addEventListener('mouseleave', host.__descHandlers.leave);
 }
 
 //=======================================================================
@@ -2121,12 +2435,28 @@ function makeRowScrollable(railEl){
   }, true);
 }
 
+function isVisibleSeriesButtons(item) {
+  return item && item.visible !== false;
+}
+
+function isVisibleSeriesGroup(group) {
+  return group && group.visible !== false;
+}
+
 function renderSeriesButtons(filteredGroups) {
   const groupHome = document.getElementById('group-home');
   groupHome.innerHTML = '';
 
   favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  const groups = filteredGroups || seriesData;
+
+  // 1) Fonte: ou vem de um filtro, ou usa seriesData
+  const sourceGroups = filteredGroups || seriesData;
+
+  // 2) Filtra grupos invisíveis, filtra itens invisíveis dentro de cada grupo
+  const groups = sourceGroups
+    .filter(isVisibleSeriesGroup) // <— grupo precisa ser visível (ou não ter 'visible')
+    .map(g => ({ ...g, group: (g.group || []).filter(isVisibleSeriesButtons) })) // <— itens visíveis
+    .filter(g => g.group.length > 0); // remove grupos que ficaram vazios
 
   groups.forEach((group, groupIndex) => {
     const sortedGroup = [...group.group].sort((a, b) => {
@@ -2140,18 +2470,19 @@ function renderSeriesButtons(filteredGroups) {
       return a.name.localeCompare(b.name);
     });
 
+    if (sortedGroup.length === 0) return;
+
     const cardsHTML = sortedGroup.map(serie => {
       const isFavorite = favorites.some(fav => fav.name === serie.name);
       const disabledClass = serie.enabled ? '' : 'disabled';
 
-      // Novo: Suporte para ambos os formatos de thumb_buttons
-      const thumbList = Array.isArray(serie.thumb_buttons) 
-        ? serie.thumb_buttons 
-        : serie.thumb_buttons?.url || [];
+      const thumbList = Array.isArray(serie.thumb_buttons)
+        ? serie.thumb_buttons
+        : (serie.thumb_buttons && Array.isArray(serie.thumb_buttons.url) ? serie.thumb_buttons.url : []);
 
       if (!selectedThumbs[serie.name]) {
-        const thumbIndex = randomImagesCards && thumbList.length > 0 
-          ? Math.floor(Math.random() * thumbList.length) 
+        const thumbIndex = (randomImagesCards && thumbList.length > 0)
+          ? Math.floor(Math.random() * thumbList.length)
           : 0;
         selectedThumbs[serie.name] = thumbList[thumbIndex] || '';
       }
@@ -2164,13 +2495,14 @@ function renderSeriesButtons(filteredGroups) {
           <div class="info">
             <h1>${serie.name}</h1>
             ${serie.enabled ? (
-              serie.season.length > 0 ? 
-                serie.canais ? 
-                  `<p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>`
-                : `
-                  ${serie.season.filter(s => !s.movies).length > 1 ? `<p>Temporadas: ${serie.season.filter(s => !s.movies).length}</p>` : ``}
-                  ${serie.season.some(s => s.movies) ? `<p>Filmes: ${serie.season.filter(s => s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
-                  ${serie.season.some(s => !s.movies) ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}`
+              serie.season.length > 0 ?
+                (serie.canais
+                  ? `<p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>`
+                  : `
+                    ${serie.season.filter(s => !s.movies).length > 1 ? `<p>Temporadas: ${serie.season.filter(s => !s.movies).length}</p>` : ``}
+                    ${serie.season.some(s => s.movies) ? `<p>Filmes: ${serie.season.filter(s => s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
+                    ${serie.season.some(s => !s.movies) ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
+                  `)
               : `<p>Nenhum conteúdo disponível</p>`
             ) : ``}
             ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'EM BREVE'}</button>`}
@@ -2206,22 +2538,19 @@ function renderSeriesButtons(filteredGroups) {
     groupHome.innerHTML += groupSeriesHTML;
   });
 
-  // Resto da função permanece inalterado
+  // (restante da função igual)
   if (enableArrowButtons) {
     ensureRowScrollerStyles();
     document.querySelectorAll('.group-series-rail').forEach(makeRowScrollable);
   }
-
   document.querySelectorAll('#group-series-button').forEach((button, index) => {
     button.style.opacity = '0';
     setTimeout(() => { button.classList.add('fade-in-up'); }, index * animationSpeedButtons);
   });
-
   document.querySelectorAll('.favorite-button').forEach(button => {
     const newButton = button.cloneNode(true);
     button.parentNode.replaceChild(newButton, button);
   });
-
   document.querySelectorAll('.favorite-button').forEach(button => {
     button.addEventListener('click', function (event) {
       event.stopPropagation();
@@ -2230,14 +2559,17 @@ function renderSeriesButtons(filteredGroups) {
       setFavoriteState(serie, willFav);
     });
   });
-
   document.querySelectorAll('#group-series-button').forEach(button => {
     button.addEventListener('click', function () {
       requestTop();
       const serieName = this.querySelector('h1').innerText;
-      const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
-      if (!serie.enabled) return;
-      window.history.pushState({ page: 'series', serieName }, serieName, `#${serieName.replace(/\s+/g, '-')}`);
+      const serie = seriesData
+        .filter(isVisibleSeriesGroup)                 // garante grupo visível
+        .flatMap(group => (group.group || []))
+        .filter(isVisibleSeriesButtons)                  // garante item visível
+        .find(serie => serie.name === serieName);
+      if (!serie || !serie.enabled) return;
+      window.history.pushState({ page: 'series', serieName }, serieName, '#' + serieName.replace(/\s+/g, '-'));
       document.getElementById('home').classList.replace('show','hidden');
       document.getElementById('series').classList.replace('hidden','show');
       document.getElementById('series-title').classList.replace('show','hidden');

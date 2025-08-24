@@ -1,6 +1,7 @@
 export const channelData = [
     {
         group_name: "CANAIS AOVIVO",
+        visible: true,
         group: [
             //ESPN
             {
@@ -9,6 +10,8 @@ export const channelData = [
                 type: "Canais",
                 enabled: true,
                 canais: true,
+                youtube: false,
+                visible: true,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 thumb_buttons: ["https://i.imgur.com/53B8dup.jpeg"],
                 carrousel: {
@@ -72,6 +75,8 @@ export const channelData = [
                 type: "Canais",
                 enabled: true,
                 canais: true,
+                youtube: false,
+                visible: true,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 thumb_buttons: ["https://i.imgur.com/m8tPb5P.jpeg"],
                 carrousel: {
@@ -134,6 +139,8 @@ export const channelData = [
                 type: "Canais",
                 enabled: true,
                 canais: true,
+                youtube: false,
+                visible: true,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 thumb_buttons: ["https://i.imgur.com/NLvBCb3.jpeg"],
                 carrousel: {

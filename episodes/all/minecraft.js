@@ -1,19 +1,21 @@
 export const minecraftData = [
     {
         group_name: "MINECRAFT",
+        visible: true,
         group: [
             //EM BUSCA DA CASA AUTOMÁTICA
             {
                 name: "Em busca da casa automática",
                 thumb_buttons: [
-                    "https://i.imgur.com/RuLrytN.png",
                     "https://i.imgur.com/EOc9RN1.png",
+                    "https://i.imgur.com/RuLrytN.png",
                 ],
-                badge: "Viniccius13",
+                badge: "",
                 type: "",
                 canais: false,
                 enabled: true,
                 youtube: true,
+                visible: true,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
@@ -465,14 +467,15 @@ export const minecraftData = [
                 name: "Craft Games",
                 thumb_page: "",
                 thumb_buttons: [
-                    "https://i.imgur.com/r9JKRFi.png",
                     "https://i.imgur.com/7A5rAwe.png",
+                    "https://i.imgur.com/r9JKRFi.png",
                 ],
-                badge: "",
+                badge: "EMBREVE",
                 type: "",
                 canais: false,
-                enabled: true,
+                enabled: false,
                 youtube: true,
+                visible: true,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,

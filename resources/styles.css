@@ -776,6 +776,38 @@ header.scrolled {
   opacity: 0; will-change: opacity;
 }
 
+#series-description .description-thumb .effect-layer .hero-bg-iframe{
+  position:absolute; inset:0; width:100%; height:100%;
+  border:0; opacity:0; transition: opacity var(--descVideoFade,.6s) ease;
+  pointer-events:none;
+}
+
+#series-description .description-thumb.video-visible .effect-layer .hero-bg-video,
+#series-description .description-thumb.video-visible .effect-layer .hero-bg-iframe{
+  opacity:1;
+}
+
+:root{ --descVideoFade:0.6s; }
+
+#series-description .description-thumb .effect-layer-video{
+  position:absolute; inset:0; overflow:hidden;
+}
+
+#series-description .description-thumb .effect-layer-video .hero-bg-video{
+  width:100%; height:100%; object-fit:cover;
+  opacity:0; pointer-events:none;
+  transition:opacity var(--descVideoFade) linear;
+}
+
+#series-description .description-thumb.video-visible .effect-layer-video .hero-bg-video{
+  opacity:1;
+  pointer-events: initial;
+}
+
+#series-description .description-thumb .effect-layer-iframe .hero-bg-video{
+  object-fit: initial;
+}
+
 .description-content h2 { margin: 0 0 8px; font-size: 2em; }
 .description-content h4,
 .description-content h3 {
@@ -787,8 +819,8 @@ header.scrolled {
 
 .description-content p { margin: 0 0 16px; line-height: 1.4; }
 .favorite-button-s2 {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     border: none;
     border-radius: 50%;
     background: rgba(77, 79, 84, 0.3);
@@ -796,6 +828,21 @@ header.scrolled {
     position: relative;
     overflow: hidden;
     transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.13);
+}
+
+#series-description.video-visible .description-content {
+    padding: 60px 100px 100px 100px;
+    transition: padding 0.5s ease;
+}
+
+#series-description.video-visible .description-content h3,
+#series-description.video-visible .description-content p {
+    display: none;
+}
+
+.favorite-button-s2:active {
+  transform: scale(0.8);
 }
 
 .favorite-button-s2:hover::before {
@@ -821,7 +868,7 @@ header.scrolled {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="%23fff"/></svg>') no-repeat center;
 }
 
-.favorite-button-s2:hover {
+.favorite-button-s2:hover:not(:active) {
     background: rgba(97, 99, 104, 0.5);
     transform: scale(1.1);
 }
@@ -867,6 +914,117 @@ header.scrolled {
 
 .description-content  #season-dropdown:focus {
     border-color: rgba(57, 59, 64, 0.5);
+}
+
+.toggleSound {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.13);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  border: none;
+  background: rgba(77, 79, 84, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#checkboxInput {
+  display: none;
+}
+
+.bell, .speaker, .mute-speaker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition-duration: .3s;
+}
+
+.bell path, .speaker svg, .mute-speaker svg {
+  width: 22px;
+}
+
+.bell path {
+  fill: white;
+}
+
+.mute-speaker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: 3;
+  transition-duration: .3s;
+}
+
+.speaker {
+    opacity: 0;
+}
+
+.speaker svg path {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.mute-speaker .speaker-shape {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.mute-speaker .mute-x {
+  fill: none;
+  stroke: #ff0000;
+  stroke-width: 7;
+}
+
+.toggleSound:hover .speaker svg path {
+  fill: #f5f5f5;
+  stroke: #f5f5f5;
+}
+
+#series-description .description-thumb.video-visible .toggleSound{
+  opacity:1;
+  pointer-events: initial;
+}
+
+#checkboxInput:checked + .toggleSound .speaker {
+  opacity: 1;
+}
+
+#checkboxInput:checked + .toggleSound .mute-speaker {
+  opacity: 0;
+}
+
+#checkboxInput:hover:not(:active) + .toggleSound {
+  background: rgba(97, 99, 104, 0.5);
+  transform: scale(1.1);
+}
+
+#checkboxInput:active + .toggleSound {
+  background: rgba(97, 99, 104, 0.5);
+  transform: scale(0.8);
+}
+
+.description-thumb.video-visible:has(.description-content) {
+    padding: 60px 100px 100px 100px;
+}
+
+.description-thumb.video-visible:has(.description-content h3),
+.description-thumb.video-visible:has(.description-content p ){
+    display: none;
 }
 
 #continue-series,

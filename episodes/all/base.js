@@ -10,6 +10,8 @@ export const baseSeries = [
         type: "Temporadas",
         canais: false,
         enabled: true,
+        youtube: false,
+        visible: true,
         title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
         carrousel: {
             enabled: false,

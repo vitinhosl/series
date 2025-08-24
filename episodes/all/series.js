@@ -1,6 +1,7 @@
 export const seriesData = [
   {
     group_name: "SÉRIES",
+    visible: true,
     group: [
         //ALQUIMIA DAS ALMAS
         {
@@ -17,6 +18,8 @@ export const seriesData = [
             type: "Temporadas",
             canais: false,
             enabled: true,
+            youtube: false,
+            visible: true,
             title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
@@ -90,6 +93,68 @@ export const seriesData = [
                   ]
                 },
             ]
+        },
+
+        //GAME OF THRONES
+        {
+          name: "Game of Thrones",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/KLwmxCI.jpeg",
+              "https://i.imgur.com/xf5vGSj.jpeg",
+              "https://i.imgur.com/viy45SG.jpeg",
+            ],
+          },
+          badge: "EM BREVE",
+          type: "Temporadas",
+          canais: false,
+          enabled: false,
+          youtube: false,
+          visible: true,
+          title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "GAME OF THRONES",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "GAME OF THRONES",
+              thumb: [
+                "https://i.imgur.com/XhVA7qP.jpeg",
+              ],
+              sinopse:  `
+                Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/sWx8cad.png",
+                movies: false,
+                episodes: [
+                  { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/83eca32a-12d2-4e05-8245-e17855c9e390/774c0031304ac990f73849d6e5e16bc430e87382.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                  { title: "Episódio 002", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/94a772a7-28f7-4189-90c4-92e446c175e9/56f23807a2a7c52d223a01ebaac06ebcb9efa542.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                  { title: "Episódio 003", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/27dc2434-8591-47f1-b862-537117e460d2/3bcc4b9a16a6e6ee1949bcf9d10710ce2dd5150a.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                  { title: "Episódio 004", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/0b6a66e5-b625-4662-929a-7db64b6859f5/6292833c7f17f9af9d263de4adbfb21783027530.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                  { title: "Episódio 005", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/21ed7c55-8b93-422a-93fc-db8913ff57d5/d30d1e9cf2ab5125a640a54a43ff706ae6d1f760.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                  { title: "Episódio 006", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/55188342-e71b-4a51-ba67-45e9f8781a36/f8e0b795dc6dc64b36eea36758b087082694c3e0.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                  { title: "Episódio 007", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/c69beaf6-1ff2-49cd-adae-ba82c86cee06/fd9e91eea3eb77ba02fde764e8ba9c3a26c7a8d0.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                  { title: "Episódio 008", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/017ce193-f0aa-4d7a-9eb1-be60f3f490e0/99be68cbe4eeb789762418f9e12f38ec00eea2ad.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                  { title: "Episódio 009", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/5b9bda9b-aa4e-4c2a-8ee4-a46282332886/9e74b2857081bd41446768bbbf2f370c96103496.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                  { title: "Episódio 010", subtitle: "", duration: "", thumb: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/5f8715e7-d6a4-4de9-a0be-7b36e5ffa95c/c091e7411336c29f3e364bd43f5ab77c131296c9.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=320", url: [""] },
+                ]
+              },
+          ]
         },
     ]
   },

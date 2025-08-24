@@ -1,6 +1,7 @@
 export const animesData = [
     {
         group_name: "ANIMES",
+        visible: true,
         group: [
             //SOLO LEVELING
             {
@@ -16,6 +17,8 @@ export const animesData = [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                youtube: false,
+                visible: true,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
@@ -109,10 +112,12 @@ export const animesData = [
                         "https://animefire.plus/img/animes/haikyuu-large.webp",
                     ],
                 },
-                badge: "",
+                badge: "EM BREVE",
                 type: "Temporadas",
                 canais: false,
-                enabled: true,
+                enabled: false,
+                youtube: false,
+                visible: true,
                 title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,

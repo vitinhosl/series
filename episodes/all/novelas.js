@@ -485,6 +485,7 @@ export const OldnovelsData= [
 export const novelsData= [
     {
         group_name: "NOVELAS",
+        visible: true,
         group: [
             //REBELDE MEXICANO (RBD)
             {
@@ -501,8 +502,9 @@ export const novelsData= [
                 type: "Temporadas",
                 canais: false,
                 enabled: true,
+                youtube: false,
+                visible: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
-                movies: false,
                 carrousel: {
                     enabled: false,
                     title: "NOME",
@@ -1022,12 +1024,13 @@ export const novelsData= [
                         // "https://i.imgur.com/9BYbB7x.jpeg"
                     ],
                 },
-                badge: "",
+                badge: "false",
                 type: "Temporadas",
                 canais: false,
-                enabled: true,
+                enabled: false,
+                youtube: false,
+                visible: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
-                movies: false,
                 carrousel: {
                     enabled: false,
                     title: "REBELDE BRASILEIRO",
@@ -1050,7 +1053,7 @@ export const novelsData= [
                     thumb: [
                         "https://pp-vod-img-aws.akamaized.net/0069081/playplus_thumb_1600.jpg",
                     ],
-                     effect: [
+                        effect: [
                         {
                             hover: true,
                             fade: 2,
