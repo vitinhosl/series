@@ -12,7 +12,7 @@ export const baseSeries = [
         enabled: true,
         youtube: false,
         visible: true,
-        title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+        title: "", //TEXTO DO BOTÃO ENABLED OFF
         carrousel: {
             enabled: false,
             title: "NOME",

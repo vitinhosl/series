@@ -20,7 +20,7 @@ export const seriesData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "ALQUIMIA DAS ALMAS",
@@ -106,13 +106,13 @@ export const seriesData = [
               "https://i.imgur.com/viy45SG.jpeg",
             ],
           },
-          badge: "EM BREVE",
+          badge: "",
           type: "Temporadas",
           canais: false,
           enabled: false,
           youtube: false,
           visible: true,
-          title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
           carrousel: {
               enabled: false,
               title: "GAME OF THRONES",

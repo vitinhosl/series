@@ -19,13 +19,13 @@ export const moviesData = [
                 "https://media.filmelier.com//images/tit/9555/poster/harry-potter-and-the-deathly-hallows-part-279188.webp",                //HARRY POTTER 8: EAS RELIQUIAS DA MORTE PT 2
                 ],
             },
-            badge: "EM BREVE",
+            badge: "",
             type: "",
             canais: false,
             enabled: false,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "HARRY POTTER",
@@ -79,13 +79,13 @@ export const moviesData = [
                 "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
                 ],
             },
-            badge:  "EM BREVE",
+            badge: "",
             type: "",
             canais: false,
             enabled: false,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "ANIMAIS FANTASTICOS",

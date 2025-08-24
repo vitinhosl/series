@@ -22,7 +22,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: true,
                 title: "A TERRA PROMETIDA",
@@ -279,7 +279,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "OS DEZ MANDAMENTOS",
@@ -637,7 +637,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "JEZABEL",
@@ -793,7 +793,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "REI DAVI",
@@ -921,7 +921,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "JOSÉ DO EGITO",
@@ -1045,7 +1045,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "JESUS",
@@ -1317,7 +1317,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "GÊNESIS",
@@ -1616,7 +1616,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "O RICO E LÁZARO",
@@ -1875,7 +1875,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "A RAINHA DA PÉRSIA",
@@ -1983,7 +1983,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "A HISTÓRIA DE ESTER",
@@ -2064,7 +2064,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "APOCALIPSE",
@@ -2312,7 +2312,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "REIS",
@@ -3043,7 +3043,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "SANSÃO E DALÍLA",
@@ -3138,7 +3138,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "LIA",
@@ -3216,7 +3216,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "NEEMIAS",
@@ -3291,7 +3291,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "A BÍBLIA",
@@ -3453,7 +3453,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "MILAGRES DE JESUS",
@@ -3556,7 +3556,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "PAULO O APÓSTOLO",
@@ -3674,7 +3674,7 @@ export const biblicalData = [
             enabled: true,
             youtube: false,
             visible: true,
-            title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
                 title: "A VIDA DE JÓ",

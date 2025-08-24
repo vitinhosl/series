@@ -16,7 +16,7 @@ export const minecraftData = [
                 enabled: true,
                 youtube: true,
                 visible: true,
-                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
                     title: "EM BUSCA DA CASA AUTOMÁTICA",
@@ -470,13 +470,13 @@ export const minecraftData = [
                     "https://i.imgur.com/7A5rAwe.png",
                     "https://i.imgur.com/r9JKRFi.png",
                 ],
-                badge: "EMBREVE",
+                badge: "",
                 type: "",
                 canais: false,
                 enabled: false,
                 youtube: true,
                 visible: true,
-                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
                     title: "CRAFT GAMES",

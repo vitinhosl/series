@@ -1024,7 +1024,7 @@ export const novelsData= [
                         // "https://i.imgur.com/9BYbB7x.jpeg"
                     ],
                 },
-                badge: "EM BREVE",
+                badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: false,

@@ -12,7 +12,7 @@ export const channelData = [
                 canais: true,
                 youtube: false,
                 visible: true,
-                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 thumb_buttons: ["https://i.imgur.com/53B8dup.jpeg"],
                 carrousel: {
                     enabled: false,
@@ -77,7 +77,7 @@ export const channelData = [
                 canais: true,
                 youtube: false,
                 visible: true,
-                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 thumb_buttons: ["https://i.imgur.com/m8tPb5P.jpeg"],
                 carrousel: {
                     enabled: false,
@@ -141,7 +141,7 @@ export const channelData = [
                 canais: true,
                 youtube: false,
                 visible: true,
-                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 thumb_buttons: ["https://i.imgur.com/NLvBCb3.jpeg"],
                 carrousel: {
                     enabled: false,

@@ -2472,10 +2472,11 @@ function renderSeriesButtons(filteredGroups) {
 
     if (sortedGroup.length === 0) return;
 
-    const cardsHTML = sortedGroup.map(serie => {
+      const cardsHTML = sortedGroup.map(serie => {
       const isFavorite = favorites.some(fav => fav.name === serie.name);
       const disabledClass = serie.enabled ? '' : 'disabled';
 
+      // pega lista de thumbs (como já está no seu código)
       const thumbList = Array.isArray(serie.thumb_buttons)
         ? serie.thumb_buttons
         : (serie.thumb_buttons && Array.isArray(serie.thumb_buttons.url) ? serie.thumb_buttons.url : []);
@@ -2489,9 +2490,15 @@ function renderSeriesButtons(filteredGroups) {
       const selectedThumb = selectedThumbs[serie.name];
       const backgroundStyle = `--bg-image: url(${selectedThumb});`;
 
+      // >>> badge dinâmico
+      const rawBadge = (typeof serie.badge === 'string' ? serie.badge : '');
+      const normalizedBadge = rawBadge ? rawBadge.trim() : '';
+      const badgeText = (!serie.enabled && !normalizedBadge) ? 'EM BREVE' : normalizedBadge;
+      const badgeHTML = badgeText ? `<span class="badge">${badgeText}</span>` : '';
+
       return `
         <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
-          ${serie.badge ? `<span class="badge">${serie.badge}</span>` : ''}
+          ${badgeHTML}
           <div class="info">
             <h1>${serie.name}</h1>
             ${serie.enabled ? (
@@ -2505,7 +2512,7 @@ function renderSeriesButtons(filteredGroups) {
                   `)
               : `<p>Nenhum conteúdo disponível</p>`
             ) : ``}
-            ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'EM BREVE'}</button>`}
+            ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'INDISPONÍVEL'}</button>`}
           </div>
           <button class="favorite-button ${isFavorite ? 'active' : ''}" data-serie='${JSON.stringify(serie)}'>
             ${isFavorite ? '★' : '☆'}

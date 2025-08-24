@@ -19,7 +19,7 @@ export const animesData = [
                 enabled: true,
                 youtube: false,
                 visible: true,
-                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
                     title: "SOLO LEVELING",
@@ -112,13 +112,13 @@ export const animesData = [
                         "https://animefire.plus/img/animes/haikyuu-large.webp",
                     ],
                 },
-                badge: "EM BREVE",
+                badge: "",
                 type: "Temporadas",
                 canais: false,
                 enabled: false,
                 youtube: false,
                 visible: true,
-                title: "INDISPONÍVEL", //TEXTO DO BOTÃO ENABLED OFF
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
                     enabled: false,
                     title: "HAIKYU",
