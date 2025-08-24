@@ -15,5 +15,5 @@ export const seriesAll = [
   ...channelData,
   ...animesData,
   ...minecraftData,
-  // ...moviesData,
+  ...moviesData,
 ];
