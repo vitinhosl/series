@@ -5,9 +5,10 @@ export const minecraftData = [
         group: [
             //EM BUSCA DA CASA AUTOMÁTICA
             {
-                name: "Em busca da casa automática",
+                name: "Casa Automática",
                 thumb_buttons: [
-                    "https://i.imgur.com/EOc9RN1.png",
+                    "https://i.imgur.com/bG5XyaM.png", 
+                    "https://i.imgur.com/EOc9RN1.png", //MESMA DE CIMA SEM LOGO
                     "https://i.imgur.com/RuLrytN.png",
                 ],
                 badge: "",
@@ -467,7 +468,8 @@ export const minecraftData = [
                 name: "Craft Games",
                 thumb_page: "",
                 thumb_buttons: [
-                    "https://i.imgur.com/7A5rAwe.png",
+                    "https://i.imgur.com/2HtrltH.png",
+                    "https://i.imgur.com/7A5rAwe.png", //MESMA DE CIMA SEM LOGO
                     "https://i.imgur.com/r9JKRFi.png",
                 ],
                 badge: "",

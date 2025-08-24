@@ -1302,128 +1302,96 @@ header.scrolled {
 }
 
 #group-series-button {
-    display: flex;
-    align-items: flex-end;
-    gap: 20px;
-    flex-wrap: wrap;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    width: 220px;
-    height: 320px;
-    background-color: rgba(9, 13, 20, 0.5);
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease, background-size 0.3s ease;
-    overflow: visible;
-    flex: 0 0 auto;
-    min-width: 200px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  width: 220px;
+  height: 320px;
+  background-color: rgba(9, 13, 20, 0.5);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease, background-size 0.3s ease;
+  overflow: visible;
+  flex: 0 0 auto;
+  min-width: 200px;
 }
 
-#group-series-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: var(--bg-image);
-    z-index: 1;
-    transition: filter 0.3s ease;
+#group-series-button .card-media {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+  background-image: var(--bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transition: background-size 0.3s ease, filter 0.3s ease;
 }
 
-#group-series-button.disabled{
-    /* pointer-events: none; */
+#group-series-button.disabled .card-media {
+  filter: grayscale(1);
 }
 
-#group-series-button.disabled::before {
-    filter: grayscale(1);
-}
-
-#group-series-button:hover::before {
-    filter: none;
-}
-
-#group-series-button:hover {
-    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+#group-series-button:hover .card-media {
+  background-size: 108%;
+  /* filter: blur(2.0px); */
 }
 
 #group-series-button::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    border-radius: 8px;
-    transition: opacity 0.5s ease;
-    opacity: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.9) 70%);
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 8px;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.9) 70%);
 }
 
-#group-series-button:hover::after {
-    opacity: 0.8;
+#group-series-button:hover::after { 
+    opacity: .8; 
 }
 
-#group-series-button:hover .info {
-    opacity: 1;
-    transform: translateY(0px);
-}
-
-#group-series-button img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 8px;
+#group-series-button:hover { 
+    box-shadow: 0px 7px 10px rgba(0,0,0,.5); 
 }
 
 #group-series-button .info {
-    position: relative;
-    z-index: 3;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.5s;
-    color: rgb(233, 244, 251);
+  position: relative; z-index: 3;
+  opacity: 0; transform: translateY(30px);
+  transition: 0.5s; color: rgb(233,244,251);
 }
 
-#group-series-button .info h1 {
-    font-size: 18px;
-    font-size: 15px;
-    color: rgb(233, 244, 251);
+#group-series-button:hover .info { 
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
-#group-series-button .info p {
-    font-size: 13px;
-    color: rgb(250, 244, 237);
+#group-series-button .info h1 { 
+    font-size: 15px; 
+    color: rgb(233,244,251); 
+}
+
+#group-series-button .info p  { 
+    font-size: 13px; 
+    color: rgb(250,244,237); 
 }
 
 #group-series-button .info button {
-    margin-top: 10px;
-    padding: 0.6rem;
-    outline: none;
-    border: none;
-    border-radius: 3px;
-    background: rgb(187, 0, 73);
-    color: rgb(233, 244, 251);
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.4s ease;
+  margin-top: 10px; padding: .6rem; outline: none; border: none; border-radius: 3px;
+  background: rgb(187, 0, 73); color: rgb(233,244,251); font-weight: bold; cursor: pointer; transition: .4s ease;
 }
 
 #group-series-button .info button:hover {
-    background: rgb(255, 2, 102);
-    color: rgb(250, 244, 237);
+  background: rgb(255, 2, 102); 
+  color: rgb(250,244,237);
 }
 
 #group-search {
