@@ -2574,17 +2574,18 @@ function syncFavoriteUI(serieName) {
 
 function setFavoriteState(serie, isFav) {
   let favs = JSON.parse(localStorage.getItem('favorites')) || [];
-  const exists = favs.some(f => f.name === serie.name);
+  const name = serie.name;
+  const exists = favs.some(f => favName(f) === name);
 
-  if (isFav && !exists) favs.push(serie);
-  if (!isFav && exists) favs = favs.filter(f => f.name !== serie.name);
+  if (isFav && !exists) favs.push({ name });
+  if (!isFav && exists) favs = favs.filter(f => favName(f) !== name);
 
   localStorage.setItem('favorites', JSON.stringify(favs));
   favorites = favs;
 
   updateFavorites();
   filterSeries();
-  syncFavoriteUI(serie.name);
+  syncFavoriteUI(name);
 }
 
 function favName(entry) { 
@@ -2665,7 +2666,7 @@ function updateFavorites() {
                       `)
                   : `<p>Nenhum conteúdo disponível</p>`
                 ) : ``}
-                ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'EM BREVE'}</button>`}
+                ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'INDISPONÍVEL'}</button>`}
               </div>
               <button class="favorite-button active" data-serie='${JSON.stringify(serie)}'>
                 ★
@@ -2711,22 +2712,6 @@ function updateFavorites() {
       renderCurrentSeries(serie);
     });
   });
-}
-
-function setFavoriteState(serie, isFav) {
-  let favs = JSON.parse(localStorage.getItem('favorites')) || [];
-  const name = serie.name;
-  const exists = favs.some(f => favName(f) === name);
-
-  if (isFav && !exists) favs.push({ name });       // << salva apenas o nome
-  if (!isFav && exists) favs = favs.filter(f => favName(f) !== name);
-
-  localStorage.setItem('favorites', JSON.stringify(favs));
-  favorites = favs;
-
-  updateFavorites();
-  filterSeries();
-  syncFavoriteUI(name);
 }
 
 function removeFavorite(serie){ setFavoriteState(serie, false); }
