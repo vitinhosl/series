@@ -3663,10 +3663,10 @@ export const biblicalData = [
             name: "A Vida de Jó",
             thumb_page: "",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/3RfyOs1.png",
-                "https://i.imgur.com/MOrLAIA.png",
-            ],
+                url: [
+                    "https://i.imgur.com/3RfyOs1.png",
+                    "https://i.imgur.com/MOrLAIA.png",
+                ],
             },
             badge: "NOVIDADE",
             type: "Temporadas",

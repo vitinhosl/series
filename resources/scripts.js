@@ -8,10 +8,11 @@ const seriesData2 = [
       group: [
           //ANIMAIS FANTASTICOS
           {
-            name: "Animais Fantasticos",
+            name: "Jo",
             thumb_page: "",
             thumb_buttons: {
               url: [
+                "https://i.imgur.com/3RfyOs1.png",
                 "https://media.filmelier.com//images/tit/8407/poster/fantastic-beasts-and-where-to-find-them6048.webp",      //ANIMAIS FANTÁSTICOS 1: E ONDE HABITAM
                 "https://media.filmelier.com//images/tit/4956/poster/fantastic-beasts-the-crimes-of-grindelwald44820.webp",  //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
                 "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
@@ -60,6 +61,170 @@ const seriesData2 = [
                     { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
                     { title: "Episódio 002", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/56/42/20/56422092-b548-cc1a-b598-92d03717217a/a915cc2b-bf67-47f5-9a12-863395a298c7_FB_CRIMES_OF_GRINDELWALD_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"         , url: [""] },
                     { title: "Episódio 003", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video211/v4/7c/ce/a8/7ccea8a2-9b01-5576-0fb0-2c94a8823269/39aae040-4990-44bf-b1c8-dc7fddc22189_FantasticBeasts_SecretsDumbledore_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp", url: [""] },
+                  ]
+                },
+            ]
+          },
+
+          {
+            name: "Animais Fantasticos",
+            thumb_page: "",
+            thumb_buttons: {
+              url: [
+                "https://media.filmelier.com//images/tit/8407/poster/fantastic-beasts-and-where-to-find-them6048.webp",      //ANIMAIS FANTÁSTICOS 1: E ONDE HABITAM
+                "https://media.filmelier.com//images/tit/4956/poster/fantastic-beasts-the-crimes-of-grindelwald44820.webp",  //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
+                "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
+              ],
+            },
+            badge: "",
+            type: "",
+            canais: false,
+            enabled: true,
+            youtube: false,
+            visible: true,
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
+            carrousel: {
+                enabled: false,
+                title: "ANIMAIS FANTASTICOS",
+                logo: {
+                  enabled: false,
+                  url: "",
+                  minimalist: false,
+                },
+                thumb: [""],
+                text: "",
+                description: `
+                    
+                `
+            },
+            description: {
+                title: "ANIMAIS FANTASTICOS",
+                thumb: [
+                  "https://i.imgur.com/XhVA7qP.jpeg",
+                ],
+                video: [
+                  "https://i.imgur.com/Tfae1ar.mp4",
+                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
+                ],
+                sinopse:  `
+                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
+                `
+            },
+            season: [
+                {
+                  name: "Filmes",
+                  thumb_season: "https://i.imgur.com/sWx8cad.png",
+                  movies: false,
+                  episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
+                  ]
+                },
+            ]
+          },
+
+          {
+            name: "Animais Fantasticos2",
+            thumb_page: "",
+            thumb_buttons: {
+              url: [
+                "https://media.filmelier.com//images/tit/4956/poster/fantastic-beasts-the-crimes-of-grindelwald44820.webp",  //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
+              ],
+            },
+            badge: "",
+            type: "",
+            canais: false,
+            enabled: true,
+            youtube: false,
+            visible: true,
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
+            carrousel: {
+                enabled: false,
+                title: "ANIMAIS FANTASTICOS",
+                logo: {
+                  enabled: false,
+                  url: "",
+                  minimalist: false,
+                },
+                thumb: [""],
+                text: "",
+                description: `
+                    
+                `
+            },
+            description: {
+                title: "ANIMAIS FANTASTICOS",
+                thumb: [
+                  "https://i.imgur.com/XhVA7qP.jpeg",
+                ],
+                video: [
+                  "https://i.imgur.com/Tfae1ar.mp4",
+                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
+                ],
+                sinopse:  `
+                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
+                `
+            },
+            season: [
+                {
+                  name: "Filmes",
+                  thumb_season: "https://i.imgur.com/sWx8cad.png",
+                  movies: false,
+                  episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
+                  ]
+                },
+            ]
+          },
+
+          {
+            name: "Animais Fantasticos 3",
+            thumb_page: "",
+            thumb_buttons: {
+              url: [
+                "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
+              ],
+            },
+            badge: "",
+            type: "",
+            canais: false,
+            enabled: true,
+            youtube: false,
+            visible: true,
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
+            carrousel: {
+                enabled: false,
+                title: "ANIMAIS FANTASTICOS",
+                logo: {
+                  enabled: false,
+                  url: "",
+                  minimalist: false,
+                },
+                thumb: [""],
+                text: "",
+                description: `
+                    
+                `
+            },
+            description: {
+                title: "ANIMAIS FANTASTICOS",
+                thumb: [
+                  "https://i.imgur.com/XhVA7qP.jpeg",
+                ],
+                video: [
+                  "https://i.imgur.com/Tfae1ar.mp4",
+                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
+                ],
+                sinopse:  `
+                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
+                `
+            },
+            season: [
+                {
+                  name: "Filmes",
+                  thumb_season: "https://i.imgur.com/sWx8cad.png",
+                  movies: false,
+                  episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
                   ]
                 },
             ]
@@ -2377,20 +2542,19 @@ function isVisibleSeriesGroup(group) {
   return group && group.visible !== false;
 }
 
-function renderSeriesButtons(filteredGroups) {
+function renderSeriesButtons(filteredGroups, mode = 'normal') {
+  const isSkeleton = mode === 'skeleton';
+
   const groupHome = document.getElementById('group-home');
   groupHome.innerHTML = '';
 
   favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-  // 1) Fonte: ou vem de um filtro, ou usa seriesData
   const sourceGroups = filteredGroups || seriesData;
-
-  // 2) Filtra grupos invisíveis, filtra itens invisíveis dentro de cada grupo
   const groups = sourceGroups
-    .filter(isVisibleSeriesGroup) // <— grupo precisa ser visível (ou não ter 'visible')
-    .map(g => ({ ...g, group: (g.group || []).filter(isVisibleSeriesButtons) })) // <— itens visíveis
-    .filter(g => g.group.length > 0); // remove grupos que ficaram vazios
+    .filter(isVisibleSeriesGroup)
+    .map(g => ({ ...g, group: (g.group || []).filter(isVisibleSeriesButtons) }))
+    .filter(g => g.group.length > 0);
 
   groups.forEach((group, groupIndex) => {
     const sortedGroup = [...group.group].sort((a, b) => {
@@ -2398,19 +2562,18 @@ function renderSeriesButtons(filteredGroups) {
       const bHasBadge = b.badge && b.badge !== "";
       if (aHasBadge !== bHasBadge) return bHasBadge - aHasBadge;
       if (aHasBadge && bHasBadge) {
-        const badgeComparison = a.badge.localeCompare(b.badge);
-        if (badgeComparison !== 0) return badgeComparison;
+        const cmp = a.badge.localeCompare(b.badge);
+        if (cmp !== 0) return cmp;
       }
       return a.name.localeCompare(b.name);
     });
 
     if (sortedGroup.length === 0) return;
 
-      const cardsHTML = sortedGroup.map(serie => {
+    const cardsHTML = sortedGroup.map(serie => {
       const isFavorite = (favorites || []).some(fav => favName(fav) === serie.name);
       const disabledClass = serie.enabled ? '' : 'disabled';
 
-      // pega lista de thumbs (como já está no seu código)
       const thumbList = Array.isArray(serie.thumb_buttons)
         ? serie.thumb_buttons
         : (serie.thumb_buttons && Array.isArray(serie.thumb_buttons.url) ? serie.thumb_buttons.url : []);
@@ -2424,40 +2587,63 @@ function renderSeriesButtons(filteredGroups) {
       const selectedThumb = selectedThumbs[serie.name];
       const backgroundStyle = `--bg-image: url(${selectedThumb});`;
 
-      // >>> badge dinâmico
       const rawBadge = (typeof serie.badge === 'string' ? serie.badge : '');
       const normalizedBadge = rawBadge ? rawBadge.trim() : '';
       const badgeText = (!serie.enabled && !normalizedBadge) ? 'EM BREVE' : normalizedBadge;
       const badgeHTML = badgeText ? `<span class="badge">${badgeText}</span>` : '';
 
-      return `
-        <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
-            <span class="card-media"></span>
-            ${badgeHTML}
+      // ------ SKELETON ------
+      if (isSkeleton) {
+        const showBadge = hasBadgeText(serie);
+        return `
+          <div id="group-series-button" class="${disabledClass} loading" style="--bg-image:none;" data-selected-thumb="${selectedThumb}">
+            <span class="card-media skeleton"></span>
+            ${showBadge ? `<span class="badge skeleton-pill"></span>` : ``}
             <div class="info">
-              <h1>${serie.name}</h1>
-              ${serie.enabled ? (
-                serie.season.length > 0 ?
-                  (serie.canais
-                    ? `<p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>`
-                    : `
-                      ${serie.season.filter(s => !s.movies).length > 1 ? `<p>Temporadas: ${serie.season.filter(s => !s.movies).length}</p>` : ``}
-                      ${serie.season.some(s => s.movies) ? `<p>Filmes: ${serie.season.filter(s => s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
-                      ${serie.season.some(s => !s.movies) ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
-                    `)
-                : `<p>Nenhum conteúdo disponível</p>`
-              ) : ``}
-              ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'INDISPONÍVEL'}</button>`}
+              <h1 class="skeleton-block skel-w-70"></h1>
+              <p class="skeleton-block skel-w-40 skel-gap"></p>
+              <p class="skeleton-block skel-w-50 skel-gap"></p>
+              <div class="skeleton-btn skel-gap"></div>
             </div>
-            <button class="favorite-button ${isFavorite ? 'active' : ''}" data-serie='${JSON.stringify(serie)}'>
-              ${isFavorite ? '★' : '☆'}
-              <span class="tooltip-text black tooltip-top">${isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}</span>
+            <button class="favorite-button skeleton-icon" disabled>
+              ★<span class="tooltip-text black tooltip-top">Carregando…</span>
             </button>
           </div>`;
+      }
+
+      // ------ NORMAL ------
+      return `
+        <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
+          <span class="card-media"></span>
+          ${badgeHTML}
+          <div class="info">
+            <h1>${serie.name}</h1>
+            ${serie.enabled ? (
+              serie.season.length > 0 ? (
+                serie.canais
+                  ? `<p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>`
+                  : `
+                    ${serie.season.filter(s => !s.movies).length > 1 ? `<p>Temporadas: ${serie.season.filter(s => !s.movies).length}</p>` : ``}
+                    ${serie.season.some(s => s.movies) ? `<p>Filmes: ${serie.season.filter(s => s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
+                    ${serie.season.some(s => !s.movies) ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
+                  `)
+              : `<p>Nenhum conteúdo disponível</p>`
+            ) : ``}
+            ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'INDISPONÍVEL'}</button>`}
+          </div>
+          <button class="favorite-button ${isFavorite ? 'active' : ''}" data-serie='${JSON.stringify(serie)}'>
+            ${isFavorite ? '★' : '☆'}
+            <span class="tooltip-text black tooltip-top">${isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}</span>
+          </button>
+        </div>`;
     }).join('');
 
+    // wrapper (com/sem setas)
+    const wrapperClass = justReplacedSkeleton ? 'group-series' : 'group-series group-series-enter';
+    const delayAttr    = justReplacedSkeleton ? '' : ` style="animation-delay: ${groupIndex * 0.2}s;"`;
+
     const groupSeriesHTML = `
-      <div id="group-series" class="group-series-enter" style="animation-delay: ${groupIndex * 0.2}s;">
+      <div id="group-series" class="${wrapperClass}"${delayAttr}>
         <div id="group-series-header"><h2>${group.group_name}</h2></div>
         ${
           enableArrowButtons
@@ -2468,61 +2654,108 @@ function renderSeriesButtons(filteredGroups) {
                 ${cardsHTML}
               </div>
               <button class="row-nav right" aria-label="Próximo">›</button>
-            </div>
-          `
+            </div>`
           : `
             <div id="group-series-cards">
               ${cardsHTML}
-            </div>
-          `
+            </div>`
         }
       </div>`;
     groupHome.innerHTML += groupSeriesHTML;
   });
 
-  // (restante da função igual)
   if (enableArrowButtons) {
     ensureRowScrollerStyles();
     document.querySelectorAll('.group-series-rail').forEach(makeRowScrollable);
   }
-  document.querySelectorAll('#group-series-button').forEach((button, index) => {
-    button.style.opacity = '0';
-    setTimeout(() => { button.classList.add('fade-in-up'); }, index * animationSpeedButtons);
-  });
-  document.querySelectorAll('.favorite-button').forEach(button => {
-    const newButton = button.cloneNode(true);
-    button.parentNode.replaceChild(newButton, button);
-  });
-  document.querySelectorAll('.favorite-button').forEach(button => {
-    button.addEventListener('click', function (event) {
-      event.stopPropagation();
-      const serie = JSON.parse(this.getAttribute('data-serie') || '{}');
-      const willFav = !this.classList.contains('active');
-      setFavoriteState(serie, willFav);
+
+  // animação de entrada dos cards
+  const cards = document.querySelectorAll('#group-series-button');
+  if (!justReplacedSkeleton) {
+    cards.forEach((button, index) => {
+      button.style.opacity = '0';
+      setTimeout(() => { button.classList.add('fade-in-up'); }, index * animationSpeedButtons);
     });
-  });
-  document.querySelectorAll('#group-series-button').forEach(button => {
-    button.addEventListener('click', function () {
-      requestTop();
-      const serieName = this.querySelector('h1').innerText;
-      const serie = seriesData
-        .filter(isVisibleSeriesGroup)                 // garante grupo visível
-        .flatMap(group => (group.group || []))
-        .filter(isVisibleSeriesButtons)                  // garante item visível
-        .find(serie => serie.name === serieName);
-      if (!serie || !serie.enabled) return;
-      window.history.pushState({ page: 'series', serieName }, serieName, '#' + serieName.replace(/\s+/g, '-'));
-      document.getElementById('home').classList.replace('show','hidden');
-      document.getElementById('series').classList.replace('hidden','show');
-      document.getElementById('series-title').classList.replace('show','hidden');
-      document.getElementById('logo').classList.replace('show','hidden');
-      document.getElementById('series-name').classList.replace('hidden','show');
-      document.getElementById('series-logs').classList.replace('show','hidden');
-      document.getElementById('back-button').classList.replace('hidden','show');
-      renderCurrentSeries(serie);
+  } else {
+    cards.forEach(btn => {
+      btn.classList.remove('fade-in-up');
+      btn.style.opacity = '1';
     });
-  });
+  }
+
+  // binds só no modo normal
+  if (!isSkeleton) {
+    document.querySelectorAll('.favorite-button').forEach(button => {
+      const newButton = button.cloneNode(true);
+      button.parentNode.replaceChild(newButton, button);
+    });
+    document.querySelectorAll('.favorite-button').forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const serie = JSON.parse(this.getAttribute('data-serie') || '{}');
+        const willFav = !this.classList.contains('active');
+        setFavoriteState(serie, willFav);
+      });
+    });
+
+    document.querySelectorAll('#group-series-button').forEach(button => {
+      button.addEventListener('click', function () {
+        requestTop();
+        const serieName = this.querySelector('h1').innerText;
+        const serie = seriesData
+          .filter(isVisibleSeriesGroup)
+          .flatMap(group => (group.group || []))
+          .filter(isVisibleSeriesButtons)
+          .find(serie => serie.name === serieName);
+        if (!serie || !serie.enabled) return;
+        window.history.pushState({ page: 'series', serieName }, serieName, '#' + serieName.replace(/\s+/g, '-'));
+        document.getElementById('home').classList.replace('show','hidden');
+        document.getElementById('series').classList.replace('hidden','show');
+        document.getElementById('series-title').classList.replace('show','hidden');
+        document.getElementById('logo').classList.replace('show','hidden');
+        document.getElementById('series-name').classList.replace('hidden','show');
+        document.getElementById('series-logs').classList.replace('show','hidden');
+        document.getElementById('back-button').classList.replace('hidden','show');
+        renderCurrentSeries(serie);
+      });
+    });
+  }
 }
+
+//=======================================================================
+//CARREGAMENTO DE PÁGINA: BOTOES ANIMADOS
+//=======================================================================
+let justReplacedSkeleton = false;
+let swapInFlight = false;
+
+function hasBadgeText(serie){
+  const raw = typeof serie.badge === 'string' ? serie.badge.trim() : '';
+  return !!raw || (!serie.enabled);
+}
+
+function renderGroupsInlineSkeleton(filteredGroups = null, delayMs = 800) {
+  if (swapInFlight) return;     // evita rodar duas vezes ao mesmo tempo
+  swapInFlight = true;
+
+  // Fase 1 (SKELETON): queremos ANIMAR => flag em false
+  justReplacedSkeleton = false;
+  renderSeriesButtons(filteredGroups, 'skeleton');
+  updateFavorites('skeleton');
+
+  setTimeout(() => {
+    // Fase 2 (REAL): NÃO queremos animar => liga a trava antes de renderizar
+    justReplacedSkeleton = true;
+    renderSeriesButtons(filteredGroups, 'normal');
+    updateFavorites('normal');
+
+    // Libera para futuros loads (a partir daqui animações voltam a funcionar)
+    requestAnimationFrame(() => {
+      justReplacedSkeleton = false;
+      swapInFlight = false;
+    });
+  }, delayMs);
+}
+
 
 //=======================================================================
 //LISTA DE FAVORITOS
@@ -2601,117 +2834,136 @@ function getCanonicalSerieByName(name){
   return null;
 }
 
-function updateFavorites() {
+function updateFavorites(mode = 'normal') {
+  const isSkeleton = mode === 'skeleton';
   const groupFavorites = document.getElementById('group-favorites');
   groupFavorites.innerHTML = '';
 
   favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  if (favorites.length === 0) { groupFavorites.innerHTML = ''; return; }
+  if (favorites.length === 0) return;
 
-  // Rehidrata cada favorito a partir do seriesData (cai no snapshot se não achar)
-  const hydrated = favorites.map(f => {
-    const name = favName(f);
-    const canonical = getCanonicalSerieByName(name);
-    return canonical || f; // fallback no que estiver salvo
-  });
+  const hydrated = favorites.map(f => getCanonicalSerieByName(favName(f)) || f);
 
-  const sortedFavorites = [...hydrated].sort((a, b) => {
-    const aHasBadge = a.badge && a.badge !== "";
-    const bHasBadge = b.badge && b.badge !== "";
-    if (aHasBadge !== bHasBadge) return bHasBadge - aHasBadge;
-    if (aHasBadge && bHasBadge) {
-      const badgeComparison = a.badge.localeCompare(b.badge);
-      if (badgeComparison !== 0) return badgeComparison;
-    }
+  const sorted = [...hydrated].sort((a,b)=> {
+    const ah = a.badge && a.badge !== ""; const bh = b.badge && b.badge !== "";
+    if (ah !== bh) return bh - ah;
+    if (ah && bh) { const cmp = a.badge.localeCompare(b.badge); if (cmp) return cmp; }
     return a.name.localeCompare(b.name);
   });
 
-  const favoritesHTML = `
-    <div id="group-series" class="group-series-enter">
+  const html = `
+    <div id="group-series" class="${justReplacedSkeleton ? 'group-series' : 'group-series group-series-enter'}">
       <div id="group-series-header"><h3>FAVORITOS ★☆</h3></div>
-      <div id="group-series-cards">
-        ${sortedFavorites.map(serie => {
+        <div id="group-series-cards">
+        ${sorted.map(serie => {
           const disabledClass = serie.enabled ? '' : 'disabled';
-
-          // thumbs (array ou {url: []})
           const thumbList = Array.isArray(serie.thumb_buttons)
             ? serie.thumb_buttons
             : (serie.thumb_buttons && Array.isArray(serie.thumb_buttons.url) ? serie.thumb_buttons.url : []);
           const selectedThumb = selectedThumbs[serie.name] || thumbList[0] || '';
-          const backgroundStyle = `--bg-image: url(${selectedThumb});`;
+          const backgroundStyle = isSkeleton ? `--bg-image:none;` : `--bg-image: url(${selectedThumb});`;
 
-          // badge dinâmico
+          const seasons = Array.isArray(serie.season) ? serie.season : [];
+          const epSeasons    = seasons.filter(s => !s.movies);
+          const movieSeasons = seasons.filter(s =>  s.movies);
+          const showTemporadas = epSeasons.length > 1;
+          const showFilmes     = movieSeasons.length > 0;
+          const showEpisodios  = epSeasons.length > 0;
+          const showBadge      = hasBadgeText(serie);
+
           const rawBadge = (typeof serie.badge === 'string' ? serie.badge : '');
           const normalizedBadge = rawBadge ? rawBadge.trim() : '';
           const badgeText = (!serie.enabled && !normalizedBadge) ? 'EM BREVE' : normalizedBadge;
-          const badgeHTML = badgeText ? `<span class="badge">${badgeText}</span>` : '';
 
-          const epSeasons = (serie.season || []).filter(s => !s.movies);
-          const movieSeasons = (serie.season || []).filter(s =>  s.movies);
+          const badgeHTML = isSkeleton
+            ? (showBadge ? `<span class="badge skeleton-pill"></span>` : '')
+            : (badgeText ? `<span class="badge">${badgeText}</span>` : '');
 
-          return `
-            <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
-              <span class="card-media"></span>
-              ${badgeHTML}
-              <div class="info">
-                <h1>${serie.name}</h1>
-                ${serie.enabled ? (
-                  (serie.season && serie.season.length > 0) ?
+          const infoHTML = isSkeleton
+            ? `
+              <h1 class="skeleton-block skel-w-70"></h1>
+              ${showTemporadas ? `<p class="skeleton-block skel-w-40 skel-gap"></p>` : ``}
+              ${showFilmes     ? `<p class="skeleton-block skel-w-35 skel-gap"></p>` : ``}
+              ${showEpisodios  ? `<p class="skeleton-block skel-w-50 skel-gap"></p>` : ``}
+              <div class="skeleton-btn skel-gap"></div>
+            `
+            : `
+              <h1>${serie.name}</h1>
+              ${
+                serie.enabled ? (
+                  (seasons.length > 0) ?
                     (serie.canais
-                      ? `<p>Canais disponíveis: ${serie.season.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>`
+                      ? `<p>Canais disponíveis: ${seasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>`
                       : `
-                        ${epSeasons.length > 1 ? `<p>Temporadas: ${epSeasons.length}</p>` : ``}
-                        ${movieSeasons.length ? `<p>Filmes: ${movieSeasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>` : ``}
-                        ${epSeasons.length ? `<p>Episódios disponíveis: ${epSeasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>` : ``}
+                        ${epSeasons.length  > 1 ? `<p>Temporadas: ${epSeasons.length}</p>` : ``}
+                        ${movieSeasons.length   ? `<p>Filmes: ${movieSeasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>` : ``}
+                        ${epSeasons.length      ? `<p>Episódios disponíveis: ${epSeasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>` : ``}
                       `)
                   : `<p>Nenhum conteúdo disponível</p>`
-                ) : ``}
-                ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'INDISPONÍVEL'}</button>`}
-              </div>
+                ) : ``
+              }
+              ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>`
+                              : `<button class="watch-button">${serie.title || 'INDISPONÍVEL'}</button>`}
+            `;
+
+          const favHTML = isSkeleton
+            ? `<button class="favorite-button skeleton-icon" disabled>★<span class="tooltip-text black tooltip-top">Carregando…</span></button>`
+            : `
               <button class="favorite-button active" data-serie='${JSON.stringify(serie)}'>
                 ★
                 <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>
-              </button>
+              </button>`;
+
+          return `
+            <div id="group-series-button" class="${disabledClass} ${isSkeleton ? 'loading' : ''}"
+                 style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
+              <span class="card-media ${isSkeleton ? 'skeleton' : ''}"></span>
+              ${badgeHTML}
+              <div class="info">${infoHTML}</div>
+              ${favHTML}
             </div>`;
         }).join('')}
       </div>
     </div>`;
-  groupFavorites.innerHTML = favoritesHTML;
+  groupFavorites.innerHTML = html;
 
-  // animações + binds (igual ao seu)
+  // animação de entrada
   document.querySelectorAll('#group-favorites #group-series-button').forEach((button, index) => {
+    if (justReplacedSkeleton) { button.style.opacity = '1'; return; }
     button.style.opacity = '0';
     setTimeout(() => { button.classList.add('fade-in-up'); }, index * 100);
   });
 
-  document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
-    const newButton = button.cloneNode(true);
-    button.parentNode.replaceChild(newButton, button);
-  });
-  document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
-    button.addEventListener('click', function (event) {
-      event.stopPropagation();
-      const serie = JSON.parse(this.getAttribute('data-serie') || '{}');
-      setFavoriteState(serie, false);
+  // binds só no modo normal
+  if (!isSkeleton) {
+    document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
+      const nb = button.cloneNode(true);
+      button.parentNode.replaceChild(nb, button);
     });
-  });
-
-  document.querySelectorAll('#group-favorites #group-series-button').forEach(button => {
-    button.addEventListener('click', function () {
-      const serieName = this.querySelector('h1').innerText;
-      const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
-      if (!serie?.enabled) return;
-      window.history.pushState({ page: 'series', serieName }, serieName, `#${serieName.replace(/\s+/g, '-')}`);
-      document.getElementById('home').classList.replace('show','hidden');
-      document.getElementById('series').classList.replace('hidden','show');
-      document.getElementById('series-title').classList.replace('show','hidden');
-      document.getElementById('logo').classList.replace('show','hidden');
-      document.getElementById('series-name').classList.replace('hidden','show');
-      document.getElementById('series-logs').classList.replace('show','hidden');
-      document.getElementById('back-button').classList.replace('hidden','show');
-      renderCurrentSeries(serie);
+    document.querySelectorAll('#group-favorites .favorite-button').forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const serie = JSON.parse(this.getAttribute('data-serie') || '{}');
+        setFavoriteState(serie, false);
+      });
     });
-  });
+    document.querySelectorAll('#group-favorites #group-series-button').forEach(button => {
+      button.addEventListener('click', function () {
+        const serieName = this.querySelector('.info h1')?.innerText;
+        const serie = seriesData.flatMap(group => group.group).find(serie => serie.name === serieName);
+        if (!serie?.enabled) return;
+        history.pushState({ page: 'series', serieName }, serieName, `#${serieName.replace(/\s+/g, '-')}`);
+        document.getElementById('home').classList.replace('show','hidden');
+        document.getElementById('series').classList.replace('hidden','show');
+        document.getElementById('series-title').classList.replace('show','hidden');
+        document.getElementById('logo').classList.replace('show','hidden');
+        document.getElementById('series-name').classList.replace('hidden','show');
+        document.getElementById('series-logs').classList.replace('show','hidden');
+        document.getElementById('back-button').classList.replace('hidden','show');
+        renderCurrentSeries(serie);
+      });
+    });
+  }
 }
 
 function removeFavorite(serie){ setFavoriteState(serie, false); }
@@ -2721,55 +2973,6 @@ function removeFavorite(serie){ setFavoriteState(serie, false); }
 //=======================================================================
 let searchInput;
 function filterSeries() {
-  const query = searchInput.value.trim();
-  const favoritesButton = document.querySelector('#keys button:nth-child(2)');
-  const isFavoritesChecked = favoritesButton && favoritesButton.innerText === '★';
-  const groupHome = document.getElementById('group-home');
-  const groupFavorites = document.getElementById('group-favorites');
-  const groupContinues = document.getElementById('group-continues');
-  const checkedButton = document.querySelector('#keys button.checked');
-
-  if (query.length > 0) {
-    const filteredGroups = seriesData.map(group => {
-      const filteredGroup = group.group.filter(serie => serie.name.toUpperCase().includes(query.toUpperCase()));
-      return { ...group, group: filteredGroup };
-    }).filter(group => group.group.length > 0);
-    groupHome.style.display = 'block';
-    groupFavorites.style.display = 'none';
-    groupContinues.style.display = 'none';
-    currentFilter = { type: 'search', value: query };
-    renderSeriesButtons(filteredGroups);
-  } else if (isFavoritesChecked) {
-    groupHome.style.display = 'none';
-    groupFavorites.style.display = 'block';
-    groupContinues.style.display = 'none';
-    currentFilter = { type: 'favorites' };
-  } else if (checkedButton) {
-    const letter = checkedButton.innerText;
-    if (letter === 'TODAS') {
-      groupHome.style.display = 'block';
-      groupFavorites.style.display = 'block';
-      groupContinues.style.display = 'block';
-      currentFilter = null;
-      renderSeriesButtons();
-    } else if (letter !== '☆' && letter !== '★') {
-      const filteredGroups = seriesData.map(group => {
-        const filteredGroup = group.group.filter(serie => serie.name.toUpperCase().startsWith(letter));
-        return { ...group, group: filteredGroup };
-      }).filter(group => group.group.length > 0);
-      groupHome.style.display = 'block';
-      groupFavorites.style.display = 'none';
-      groupContinues.style.display = 'none';
-      currentFilter = { type: 'letter', value: letter };
-      renderSeriesButtons(filteredGroups);
-    }
-  } else {
-    groupHome.style.display = 'block';
-    groupFavorites.style.display = 'block';
-    groupContinues.style.display = 'block';
-    currentFilter = null;
-    renderSeriesButtons();
-  }
 }
 
 function handleHashChange() {
@@ -3097,8 +3300,8 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput = document.querySelector('#search .input');
     seasonExpandedState = {};
     renderCarousel();
-    renderSeriesButtons();
-    updateFavorites();
+    // updateFavorites();
+    renderGroupsInlineSkeleton(null, 1200);
     dedupeLogsCache();
 
     document.querySelectorAll('.menu-list').forEach(item => {

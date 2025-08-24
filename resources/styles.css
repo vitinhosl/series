@@ -1316,7 +1316,7 @@ header.scrolled {
   background-color: rgba(9, 13, 20, 0.5);
   cursor: pointer;
   position: relative;
-  transition: all 0.3s ease, background-size 0.3s ease;
+  transition: all 0.3s ease;
   overflow: visible;
   flex: 0 0 auto;
   min-width: 200px;
@@ -1331,8 +1331,8 @@ header.scrolled {
   background-image: var(--bg-image);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
-  transition: background-size 0.3s ease, filter 0.3s ease;
+  background-size: 100% 100%; /* Substitui 'cover' por 100% 100% para cobrir e permitir transição suave */
+  transition: background-size 0.4s ease, filter 0.4s ease; /* Aumentei ligeiramente o tempo para suavidade */
 }
 
 #group-series-button.disabled .card-media {
@@ -1340,8 +1340,9 @@ header.scrolled {
 }
 
 #group-series-button:hover .card-media {
-  background-size: 108%;
-  /* filter: blur(2.0px); */
+  background-size: 110% 110%;
+  filter: none;
+  /* filter: blur(1.0px); */
 }
 
 #group-series-button::after {
@@ -1356,42 +1357,53 @@ header.scrolled {
 }
 
 #group-series-button:hover::after { 
-    opacity: .8; 
+  opacity: 0.8; 
 }
 
 #group-series-button:hover { 
-    box-shadow: 0px 7px 10px rgba(0,0,0,.5); 
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5); 
 }
 
 #group-series-button .info {
-  position: relative; z-index: 3;
-  opacity: 0; transform: translateY(30px);
-  transition: 0.5s; color: rgb(233,244,251);
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  color: rgb(233, 244, 251);
 }
 
 #group-series-button:hover .info { 
-    opacity: 1; 
-    transform: translateY(0); 
+  opacity: 1; 
+  transform: translateY(0); 
 }
 
 #group-series-button .info h1 { 
-    font-size: 15px; 
-    color: rgb(233,244,251); 
+  font-size: 15px; 
+  color: rgb(233, 244, 251); 
 }
 
-#group-series-button .info p  { 
-    font-size: 13px; 
-    color: rgb(250,244,237); 
+#group-series-button .info p { 
+  font-size: 13px; 
+  color: rgb(250, 244, 237); 
 }
 
 #group-series-button .info button {
-  margin-top: 10px; padding: .6rem; outline: none; border: none; border-radius: 3px;
-  background: rgb(187, 0, 73); color: rgb(233,244,251); font-weight: bold; cursor: pointer; transition: .4s ease;
+  margin-top: 10px;
+  padding: 0.6rem;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background: rgb(187, 0, 73);
+  color: rgb(233, 244, 251);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 #group-series-button .info button:hover {
   background: rgb(255, 2, 102); 
-  color: rgb(250,244,237);
+  color: rgb(250, 244, 237);
 }
 
 #group-search {
@@ -1427,6 +1439,74 @@ header.scrolled {
     border-radius: 4px;
     transform: translateY(10px);
 }
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%);  }
+}
+
+.skeleton,
+.skeleton-block,
+.skeleton-btn,
+.skeleton-pill,
+.skeleton-icon {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(255,255,255,.06) 25%, rgba(255,255,255,.12) 37%, rgba(255,255,255,.06) 63%);
+  background-size: 400% 100%;
+  animation: skel 1.2s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+@keyframes skel { 0% {background-position: 100% 0;} 100% {background-position: 0 0;} }
+
+#group-series-button .card-media.skeleton{
+  position:absolute; inset:0; border-radius:8px;
+}
+
+.skeleton-block{ height: 14px; opacity:.9; }
+.skel-gap{ margin-top: 8px; }
+.skel-w-70{ width:70%; } .skel-w-60{ width:60%; }
+.skel-w-50{ width:50%; } .skel-w-40{ width:40%; }
+.skel-w-35{ width:35%; }
+
+#group-series-button .badge.skeleton-pill{
+  position:absolute; 
+  z-index:3; 
+  top:8px; 
+  left:8px;
+  width:84px; 
+  height:26px; 
+  border-radius:999px;
+}
+
+.skeleton-btn{ 
+    width:120px; 
+    height:36px; 
+    border-radius:6px; 
+}
+
+#group-series-button .favorite-button.skeleton-icon{
+  position:absolute; 
+  z-index:3; 
+  top:8px; 
+  right:8px;
+  width:32px; 
+  height:32px; 
+  border-radius:50%;
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+  color:transparent;
+}
+
+#group-series-button.loading .badge,
+#group-series-button.loading .favorite-button,
+#group-series-button.loading .info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 #keys {
     display: flex;
@@ -1914,7 +1994,6 @@ header.scrolled {
     transform: translate(-50%, -50%) scale(0.95);
 }
 
-/* Ícone "play" */
 .icon-btn::before {
     content: "";
     position: absolute;
@@ -1930,7 +2009,6 @@ header.scrolled {
     opacity: 1;
 }
 
-/* Corpo do cesto da lixeira */
 .icon-btn::after {
     content: "";
     position: absolute;
@@ -1947,7 +2025,6 @@ header.scrolled {
     opacity: 0;
 }
 
-/* Tampa da lixeira */
 .icon-btn .trash-lid {
     position: absolute;
     top: 22px;
@@ -1962,7 +2039,6 @@ header.scrolled {
     opacity: 0;
 }
 
-/* Puxador da tampa */
 .icon-btn .trash-handle {
     position: absolute;
     top: 19px;
@@ -1977,7 +2053,6 @@ header.scrolled {
     opacity: 0;
 }
 
-/* Linhas internas do cesto */
 .icon-btn .trash-bar {
     position: absolute;
     bottom: 27px;
