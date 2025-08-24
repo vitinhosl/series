@@ -18,10 +18,10 @@ const seriesData2 = [
                 "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
               ],
             },
-            badge: "",
+            badge: "TESTE",
             type: "",
             canais: false,
-            enabled: false,
+            enabled: true,
             youtube: false,
             visible: true,
             title: "", //TEXTO DO BOTÃO ENABLED OFF
@@ -76,7 +76,7 @@ const seriesData2 = [
                 "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
               ],
             },
-            badge: "",
+            badge: "TESTE",
             type: "",
             canais: false,
             enabled: true,
@@ -116,7 +116,9 @@ const seriesData2 = [
                   thumb_season: "https://i.imgur.com/sWx8cad.png",
                   movies: false,
                   episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
+                    // { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
+                    // { title: "Episódio 002", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
+                    // { title: "Episódio 003", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
                   ]
                 },
             ]
@@ -224,7 +226,7 @@ const seriesData2 = [
                   thumb_season: "https://i.imgur.com/sWx8cad.png",
                   movies: false,
                   episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
+                    // { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
                   ]
                 },
             ]
@@ -2585,7 +2587,6 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
         selectedThumbs[serie.name] = thumbList[thumbIndex] || '';
       }
       const selectedThumb = selectedThumbs[serie.name];
-      const backgroundStyle = `--bg-image: url(${selectedThumb});`;
 
       const rawBadge = (typeof serie.badge === 'string' ? serie.badge : '');
       const normalizedBadge = rawBadge ? rawBadge.trim() : '';
@@ -2612,8 +2613,17 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
       }
 
       // ------ NORMAL ------
+      const shouldFadeFromSkeleton = (mode === 'normal' && swapInFlight === true);
+      const backgroundStyleNormal = shouldFadeFromSkeleton
+        ? `--bg-image:none;`                       // começa sem imagem para dar fade-in
+        : `--bg-image: url(${selectedThumb});`;
+      const fadeClass = shouldFadeFromSkeleton ? 'img-will-fade' : '';
+
       return `
-        <div id="group-series-button" class="${disabledClass}" style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
+        <div id="group-series-button"
+             class="${disabledClass} ${fadeClass}"
+             style="${backgroundStyleNormal}"
+             data-selected-thumb="${selectedThumb}">
           <span class="card-media"></span>
           ${badgeHTML}
           <div class="info">
@@ -2625,7 +2635,10 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
                   : `
                     ${serie.season.filter(s => !s.movies).length > 1 ? `<p>Temporadas: ${serie.season.filter(s => !s.movies).length}</p>` : ``}
                     ${serie.season.some(s => s.movies) ? `<p>Filmes: ${serie.season.filter(s => s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
-                    ${serie.season.some(s => !s.movies) ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
+                    ${serie.season.filter(s => !s.movies).reduce((t,s)=>t + (s.episodes?.length||0), 0) > 0
+                    ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t,s)=>t + (s.episodes?.length||0), 0)}</p>`
+                    : ``}
+
                   `)
               : `<p>Nenhum conteúdo disponível</p>`
             ) : ``}
@@ -2671,16 +2684,35 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
 
   // animação de entrada dos cards
   const cards = document.querySelectorAll('#group-series-button');
-  if (!justReplacedSkeleton) {
-    cards.forEach((button, index) => {
-      button.style.opacity = '0';
-      setTimeout(() => { button.classList.add('fade-in-up'); }, index * animationSpeedButtons);
+  if (isSkeleton) {
+    // SKELETON: desliza da esquerda→direita
+    cards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateX(-24px)';
+      card.style.transition = `opacity ${animationSpeedButtons*8}ms ease, transform ${animationSpeedButtons*8}ms ease`;
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateX(0)';
+      }, index * animationSpeedButtons);
     });
   } else {
-    cards.forEach(btn => {
-      btn.classList.remove('fade-in-up');
-      btn.style.opacity = '1';
-    });
+    // NORMAL: mantém sua lógica
+    if (!justReplacedSkeleton) {
+      cards.forEach((button, index) => {
+        button.style.opacity = '0';
+        setTimeout(() => { button.classList.add('fade-in-up'); }, index * animationSpeedButtons);
+      });
+    } else {
+      cards.forEach(btn => {
+        btn.classList.remove('fade-in-up');
+        btn.style.opacity = '1';
+      });
+    }
+  }
+
+  // fade-in da imagem somente na transição skeleton -> normal
+  if (mode === 'normal' && swapInFlight) {
+    fadeInCardImages(document);
   }
 
   // binds só no modo normal
@@ -2701,7 +2733,7 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
     document.querySelectorAll('#group-series-button').forEach(button => {
       button.addEventListener('click', function () {
         requestTop();
-        const serieName = this.querySelector('h1').innerText;
+        const serieName = this.querySelector('h1')?.innerText;
         const serie = seriesData
           .filter(isVisibleSeriesGroup)
           .flatMap(group => (group.group || []))
@@ -2722,6 +2754,7 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
   }
 }
 
+
 //=======================================================================
 //CARREGAMENTO DE PÁGINA: BOTOES ANIMADOS
 //=======================================================================
@@ -2733,29 +2766,48 @@ function hasBadgeText(serie){
   return !!raw || (!serie.enabled);
 }
 
-function renderGroupsInlineSkeleton(filteredGroups = null, delayMs = 800) {
-  if (swapInFlight) return;     // evita rodar duas vezes ao mesmo tempo
+function renderGroupsInlineSkeleton(filteredGroups = null, delayMs = 800){
+  if (swapInFlight) return;
   swapInFlight = true;
 
-  // Fase 1 (SKELETON): queremos ANIMAR => flag em false
+  // Fase 1: skeleton anima
   justReplacedSkeleton = false;
   renderSeriesButtons(filteredGroups, 'skeleton');
   updateFavorites('skeleton');
 
   setTimeout(() => {
-    // Fase 2 (REAL): NÃO queremos animar => liga a trava antes de renderizar
+    // Fase 2: conteúdo real SEM animar os cards (só a imagem com fade)
     justReplacedSkeleton = true;
     renderSeriesButtons(filteredGroups, 'normal');
     updateFavorites('normal');
 
-    // Libera para futuros loads (a partir daqui animações voltam a funcionar)
     requestAnimationFrame(() => {
-      justReplacedSkeleton = false;
-      swapInFlight = false;
+      justReplacedSkeleton = false; // libera futuras animações
+      swapInFlight = false;         // encerra a janela de transição
     });
   }, delayMs);
 }
 
+function fadeInCardImages(root = document){
+  const cards = root.querySelectorAll('#group-series-button.img-will-fade');
+  cards.forEach(card => {
+    const src = card.getAttribute('data-selected-thumb');
+    if (!src || card.__imgFaded) return;
+
+    const img = new Image();
+    img.onload = () => {
+      card.style.setProperty('--bg-image', `url('${src}')`);
+      card.classList.add('img-fade-in'); // dispara o fade
+      card.__imgFaded = true;
+    };
+    img.onerror = () => {
+      card.style.setProperty('--bg-image', `url('${src}')`);
+      card.classList.add('img-fade-in');
+      card.__imgFaded = true;
+    };
+    img.src = src;
+  });
+}
 
 //=======================================================================
 //LISTA DE FAVORITOS
@@ -2854,80 +2906,106 @@ function updateFavorites(mode = 'normal') {
   const html = `
     <div id="group-series" class="${justReplacedSkeleton ? 'group-series' : 'group-series group-series-enter'}">
       <div id="group-series-header"><h3>FAVORITOS ★☆</h3></div>
-        <div id="group-series-cards">
+      <div id="group-series-cards">
         ${sorted.map(serie => {
           const disabledClass = serie.enabled ? '' : 'disabled';
           const thumbList = Array.isArray(serie.thumb_buttons)
             ? serie.thumb_buttons
             : (serie.thumb_buttons && Array.isArray(serie.thumb_buttons.url) ? serie.thumb_buttons.url : []);
           const selectedThumb = selectedThumbs[serie.name] || thumbList[0] || '';
-          const backgroundStyle = isSkeleton ? `--bg-image:none;` : `--bg-image: url(${selectedThumb});`;
 
           const seasons = Array.isArray(serie.season) ? serie.season : [];
           const epSeasons    = seasons.filter(s => !s.movies);
           const movieSeasons = seasons.filter(s =>  s.movies);
-          const showTemporadas = epSeasons.length > 1;
-          const showFilmes     = movieSeasons.length > 0;
-          const showEpisodios  = epSeasons.length > 0;
-          const showBadge      = hasBadgeText(serie);
 
+          const showBadge = hasBadgeText(serie);
           const rawBadge = (typeof serie.badge === 'string' ? serie.badge : '');
           const normalizedBadge = rawBadge ? rawBadge.trim() : '';
           const badgeText = (!serie.enabled && !normalizedBadge) ? 'EM BREVE' : normalizedBadge;
 
-          const badgeHTML = isSkeleton
-            ? (showBadge ? `<span class="badge skeleton-pill"></span>` : '')
-            : (badgeText ? `<span class="badge">${badgeText}</span>` : '');
+          if (isSkeleton) {
+            // --- SKELETON ---
+            return `
+              <div id="group-series-button" class="${disabledClass} loading"
+                   style="--bg-image:none;" data-selected-thumb="${selectedThumb}">
+                <span class="card-media skeleton"></span>
+                ${showBadge ? `<span class="badge skeleton-pill"></span>` : ''}
+                <div class="info">
+                  <h1 class="skeleton-block skel-w-70"></h1>
+                  ${epSeasons.length > 1 ? `<p class="skeleton-block skel-w-40 skel-gap"></p>` : ``}
+                  ${movieSeasons.length ? `<p class="skeleton-block skel-w-35 skel-gap"></p>` : ``}
+                  ${epSeasons.length ? `<p class="skeleton-block skel-w-50 skel-gap"></p>` : ``}
+                  <div class="skeleton-btn skel-gap"></div>
+                </div>
+                <button class="favorite-button skeleton-icon" disabled>
+                  ★<span class="tooltip-text black tooltip-top">Carregando…</span>
+                </button>
+              </div>`;
+          }
 
-          const infoHTML = isSkeleton
-            ? `
-              <h1 class="skeleton-block skel-w-70"></h1>
-              ${showTemporadas ? `<p class="skeleton-block skel-w-40 skel-gap"></p>` : ``}
-              ${showFilmes     ? `<p class="skeleton-block skel-w-35 skel-gap"></p>` : ``}
-              ${showEpisodios  ? `<p class="skeleton-block skel-w-50 skel-gap"></p>` : ``}
-              <div class="skeleton-btn skel-gap"></div>
-            `
-            : `
-              <h1>${serie.name}</h1>
-              ${
-                serie.enabled ? (
-                  (seasons.length > 0) ?
-                    (serie.canais
-                      ? `<p>Canais disponíveis: ${seasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>`
-                      : `
-                        ${epSeasons.length  > 1 ? `<p>Temporadas: ${epSeasons.length}</p>` : ``}
-                        ${movieSeasons.length   ? `<p>Filmes: ${movieSeasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>` : ``}
-                        ${epSeasons.length      ? `<p>Episódios disponíveis: ${epSeasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>` : ``}
-                      `)
-                  : `<p>Nenhum conteúdo disponível</p>`
-                ) : ``
-              }
-              ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>`
-                              : `<button class="watch-button">${serie.title || 'INDISPONÍVEL'}</button>`}
-            `;
+          // --- NORMAL (com fade na troca skeleton -> normal) ---
+          const shouldFadeFromSkeleton = (mode === 'normal' && swapInFlight === true);
+          const backgroundStyle = shouldFadeFromSkeleton
+            ? `--bg-image:none;`
+            : `--bg-image: url(${selectedThumb});`;
+          const fadeClass = shouldFadeFromSkeleton ? 'img-will-fade' : '';
 
-          const favHTML = isSkeleton
-            ? `<button class="favorite-button skeleton-icon" disabled>★<span class="tooltip-text black tooltip-top">Carregando…</span></button>`
-            : `
+          return `
+            <div id="group-series-button" class="${disabledClass} ${fadeClass}"
+                 style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
+              <span class="card-media"></span>
+              ${badgeText ? `<span class="badge">${badgeText}</span>` : ``}
+              <div class="info">
+                <h1>${serie.name}</h1>
+                ${
+                  serie.enabled ? (
+                    seasons.length > 0
+                      ? (serie.canais
+                          ? `<p>Canais disponíveis: ${seasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>`
+                          : `
+                            ${epSeasons.length  > 1 ? `<p>Temporadas: ${epSeasons.length}</p>` : ``}
+                            ${movieSeasons.length   ? `<p>Filmes: ${movieSeasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>` : ``}
+                            ${serie.season.filter(s => !s.movies).reduce((t,s)=>t + (s.episodes?.length||0), 0) > 0
+                            ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t,s)=>t + (s.episodes?.length||0), 0)}</p>`
+                            : ``}
+                          `)
+                      : `<p>Nenhum conteúdo disponível</p>`
+                  ) : ``
+                }
+                ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>`
+                : `<button class="watch-button">${serie.title || 'INDISPONÍVEL'}</button>`}
+              </div>
               <button class="favorite-button active" data-serie='${JSON.stringify(serie)}'>
                 ★
                 <span class="tooltip-text black tooltip-top">Remover dos favoritos</span>
-              </button>`;
-
-          return `
-            <div id="group-series-button" class="${disabledClass} ${isSkeleton ? 'loading' : ''}"
-                 style="${backgroundStyle}" data-selected-thumb="${selectedThumb}">
-              <span class="card-media ${isSkeleton ? 'skeleton' : ''}"></span>
-              ${badgeHTML}
-              <div class="info">${infoHTML}</div>
-              ${favHTML}
+              </button>
             </div>`;
         }).join('')}
       </div>
     </div>`;
+
   groupFavorites.innerHTML = html;
 
-  // animação de entrada
+  // (opcional) animação do skeleton da esquerda → direita nos favoritos também
+  if (isSkeleton) {
+    const cards = groupFavorites.querySelectorAll('#group-series-button');
+    cards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateX(-24px)';
+      card.style.transition = `opacity ${animationSpeedButtons*8}ms ease, transform ${animationSpeedButtons*8}ms ease`;
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateX(0)';
+      }, index * animationSpeedButtons);
+    });
+  }
+
+  // FADE DA IMAGEM na transição skeleton -> normal (favoritos)
+  if (mode === 'normal' && swapInFlight) {
+    fadeInCardImages(groupFavorites); // usa o container de favoritos
+  }
+
+  // animação de entrada (modo normal) — mantém tua lógica
   document.querySelectorAll('#group-favorites #group-series-button').forEach((button, index) => {
     if (justReplacedSkeleton) { button.style.opacity = '1'; return; }
     button.style.opacity = '0';
@@ -2973,6 +3051,55 @@ function removeFavorite(serie){ setFavoriteState(serie, false); }
 //=======================================================================
 let searchInput;
 function filterSeries() {
+  const query = searchInput.value.trim();
+  const favoritesButton = document.querySelector('#keys button:nth-child(2)');
+  const isFavoritesChecked = favoritesButton && favoritesButton.innerText === '★';
+  const groupHome = document.getElementById('group-home');
+  const groupFavorites = document.getElementById('group-favorites');
+  const groupContinues = document.getElementById('group-continues');
+  const checkedButton = document.querySelector('#keys button.checked');
+
+  if (query.length > 0) {
+    const filteredGroups = seriesData.map(group => {
+      const filteredGroup = group.group.filter(serie => serie.name.toUpperCase().includes(query.toUpperCase()));
+      return { ...group, group: filteredGroup };
+    }).filter(group => group.group.length > 0);
+    groupHome.style.display = 'block';
+    groupFavorites.style.display = 'none';
+    groupContinues.style.display = 'none';
+    currentFilter = { type: 'search', value: query };
+    renderSeriesButtons(filteredGroups);
+  } else if (isFavoritesChecked) {
+    groupHome.style.display = 'none';
+    groupFavorites.style.display = 'block';
+    groupContinues.style.display = 'none';
+    currentFilter = { type: 'favorites' };
+  } else if (checkedButton) {
+    const letter = checkedButton.innerText;
+    if (letter === 'TODAS') {
+      groupHome.style.display = 'block';
+      groupFavorites.style.display = 'block';
+      groupContinues.style.display = 'block';
+      currentFilter = null;
+      renderSeriesButtons();
+    } else if (letter !== '☆' && letter !== '★') {
+      const filteredGroups = seriesData.map(group => {
+        const filteredGroup = group.group.filter(serie => serie.name.toUpperCase().startsWith(letter));
+        return { ...group, group: filteredGroup };
+      }).filter(group => group.group.length > 0);
+      groupHome.style.display = 'block';
+      groupFavorites.style.display = 'none';
+      groupContinues.style.display = 'none';
+      currentFilter = { type: 'letter', value: letter };
+      renderSeriesButtons(filteredGroups);
+    }
+  } else {
+    groupHome.style.display = 'block';
+    groupFavorites.style.display = 'block';
+    groupContinues.style.display = 'block';
+    currentFilter = null;
+    renderSeriesButtons();
+  }
 }
 
 function handleHashChange() {

@@ -1322,7 +1322,7 @@ header.scrolled {
   min-width: 200px;
 }
 
-#group-series-button .card-media {
+#group-series-button .card-media{
   position: absolute;
   inset: 0;
   border-radius: 8px;
@@ -1331,18 +1331,26 @@ header.scrolled {
   background-image: var(--bg-image);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%; /* Substitui 'cover' por 100% 100% para cobrir e permitir transição suave */
-  transition: background-size 0.4s ease, filter 0.4s ease; /* Aumentei ligeiramente o tempo para suavidade */
+  background-size: 100% 100%;
+  transition: opacity 1.50s ease, background-size 0.4s ease, filter 0.4s ease;
+  will-change: opacity, background-size, filter;
 }
 
-#group-series-button.disabled .card-media {
-  filter: grayscale(1);
+#group-series-button.img-will-fade .card-media{
+  opacity: 0;
+}
+
+#group-series-button.img-fade-in .card-media{
+  opacity: 1;
+}
+
+#group-series-button.disabled .card-media { 
+    filter: grayscale(1); 
 }
 
 #group-series-button:hover .card-media {
   background-size: 110% 110%;
   filter: none;
-  /* filter: blur(1.0px); */
 }
 
 #group-series-button::after {
@@ -1357,7 +1365,7 @@ header.scrolled {
 }
 
 #group-series-button:hover::after { 
-  opacity: 0.8; 
+    opacity: 0.8; 
 }
 
 #group-series-button:hover { 
