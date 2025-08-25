@@ -1,6 +1,6 @@
 export const biblicalData = [
     {
-      group_name: "SÉRIES BIBLÍCAS",
+      group_name: "Séries Bíblicas",
       visible: true,
       group: [
           //A TERRA PROMETIDA

@@ -15,6 +15,22 @@
     
     <header>
         <div id="title">
+            <label class="menu">
+                <input class="inp" type="checkbox" />
+                <div class="bar">
+                    <span class="top bar-list"></span>
+                    <span class="middle bar-list"></span>
+                    <span class="bottom bar-list"></span>
+                </div>
+                <section class="menu-container">
+                    <div class="menu-list">Início</div>
+                    <div class="menu-list">Histórico</div>
+                </section>
+            </label>
+            <button id="back-button" class="hidden">❮</button>
+            <h1 id="series-title" class="show">SL Séries</h1>
+            <h1 id="series-name" class="hidden"></h1>
+            <h1 id="series-logs" class="hidden">Lista de Histórico</h1>
             <svg width="50" height="50" viewBox="0 0 297 297" id="logo" class="show">
                 <defs>
                     <style>
@@ -43,24 +59,39 @@
                     <path d="M182.583 98.318h-37.416V214.5h37.416c8.514 0 15.417-6.902 15.417-15.417v-85.348c0-8.515-6.902-15.417-15.417-15.417z" fill="var(--screen-right)" opacity="1"></path>
                 </g>
             </svg>
-            <button id="back-button" class="hidden">❮</button>
-            <h1 id="series-title" class="show">Séries</h1>
-            <h1 id="series-name" class="hidden"></h1>
-            <h1 id="series-logs" class="hidden">Lista de Histórico</h1>
-            <label class="menu">
-                <input class="inp" type="checkbox" />
-                <div class="bar">
-                    <span class="top bar-list"></span>
-                    <span class="middle bar-list"></span>
-                    <span class="bottom bar-list"></span>
-                </div>
-                <section class="menu-container">
-                    <div class="menu-list">Início</div>
-                    <div class="menu-list">Histórico</div>
-                </section>
-            </label>
         </div>
     </header>
+
+    <!-- Scrim (fundo escuro) -->
+    <div id="menu-scrim" hidden></div>
+
+    <!-- Painel lateral -->
+    <div id="menu-lateral" class="sidebar" aria-hidden="true">
+    <nav class="sidebar-content" aria-label="Menu lateral">
+        <div class="sidebar-top">
+        <div class="brand">
+            <div id="sidebar-logo" class="brand-logo" aria-hidden="true"></div>
+            <span class="brand-title">SL Séries</span>
+        </div>
+        <button id="menu-close" class="close-btn" aria-label="Fechar menu">✕</button>
+        </div>
+
+        <div class="sidebar-section">
+        <div class="section-title">Fontes</div>
+        <ul class="menu-lista">
+            <li><a href="#" data-nav="home">Início</a></li>
+            <li><a href="#logs" data-nav="logs">Histórico</a></li>
+        </ul>
+        </div>
+
+        <hr class="section-sep"/>
+
+        <div class="sidebar-section">
+        <div class="section-title">Grupos</div>
+        <ul class="menu-lista" id="menu-grupos"><!-- preenchido via JS --></ul>
+        </div>
+    </nav>
+    </div>
 
     <div id="main" class="show">
         <div id="logs-section" class="hidden"></div>

@@ -3,7 +3,7 @@ const seriesData = seriesAll;
 
 const seriesData2 = [
     {
-      group_name: "FILMES",
+      group_name: "Filmes",
       visible: true,
       group: [
           //ANIMAIS FANTASTICOS
@@ -179,6 +179,66 @@ const seriesData2 = [
           },
 
           {
+            name: "Animais Fantasticos 3",
+            thumb_page: "",
+            thumb_buttons: {
+              url: [
+                "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
+              ],
+            },
+            badge: "",
+            type: "",
+            canais: false,
+            enabled: true,
+            youtube: false,
+            visible: true,
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
+            carrousel: {
+                enabled: false,
+                title: "ANIMAIS FANTASTICOS",
+                logo: {
+                  enabled: false,
+                  url: "",
+                  minimalist: false,
+                },
+                thumb: [""],
+                text: "",
+                description: `
+                    
+                `
+            },
+            description: {
+                title: "ANIMAIS FANTASTICOS",
+                thumb: [
+                  "https://i.imgur.com/XhVA7qP.jpeg",
+                ],
+                video: [
+                  "https://i.imgur.com/Tfae1ar.mp4",
+                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
+                ],
+                sinopse:  `
+                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
+                `
+            },
+            season: [
+                {
+                  name: "Filmes",
+                  thumb_season: "https://i.imgur.com/sWx8cad.png",
+                  movies: false,
+                  episodes: [
+                    // { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
+                  ]
+                },
+            ]
+          },
+      ]
+    },
+
+    {
+      group_name: "Séries",
+      visible: true,
+      group: [
+                  {
             name: "Animais Fantasticos 3",
             thumb_page: "",
             thumb_buttons: {
@@ -2656,7 +2716,7 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
     const delayAttr    = justReplacedSkeleton ? '' : ` style="animation-delay: ${groupIndex * 0.2}s;"`;
 
     const groupSeriesHTML = `
-      <div id="group-series" class="${wrapperClass}"${delayAttr}>
+      <div id="group-series" data-group="${group.group_name}" class="${wrapperClass}"${delayAttr}>
         <div id="group-series-header"><h2>${group.group_name}</h2></div>
         ${
           enableArrowButtons
@@ -3103,8 +3163,8 @@ function filterSeries() {
 }
 
 function handleHashChange() {
-    const rawHash = window.location.hash.substring(1);
-    const decodedHash = decodeURIComponent(rawHash);
+    const rawHash = location.hash.slice(1);
+    const decodedHash = decodeURIComponent(rawHash || '');
 
     if (history.state && history.state.page === 'home' && !decodedHash) {
         return;
@@ -3129,6 +3189,8 @@ function handleHashChange() {
         currentFilter = null;
         renderSeriesButtons();
         updateFavorites();
+        // MenuSidebar?.setActiveFonte('home');
+        // MenuSidebar?.setActiveGroup(null);
         return;
     }
 
@@ -3142,6 +3204,8 @@ function handleHashChange() {
         document.getElementById('series-name').classList.replace('show', 'hidden');
         document.getElementById('series-logs').classList.replace('hidden', 'show');
         document.getElementById('back-button').classList.replace('hidden', 'show');
+        // MenuSidebar?.setActiveFonte('logs');
+        // MenuSidebar?.setActiveGroup(null);
         return;
     }
 
@@ -3189,6 +3253,8 @@ function handleHashChange() {
             }
         }, 0);
     }
+
+    // MenuSidebar?.setActiveFonte(null);
 }
 
 //=======================================================================
@@ -3416,6 +3482,314 @@ function dedupeLogsCache() {
 }
 
 //=======================================================================
+//MENU LATERAL
+//=======================================================================
+// ==== Menu Lateral (1 ativo por vez; sem "Todas") ======================
+const MenuSidebar = (() => {
+  let els = {};
+  let opts = { filterMode: 'dom', triggerSelector: 'label.menu', seriesData: [] };
+  const state = { groups: [], initialized:false };
+
+  // ---------------- utils ----------------
+  const slugify = s => String(s||'')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase().trim();
+
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+
+  function disableAnchor(a, on){
+    a.classList.toggle('active', on);
+    a.setAttribute('aria-current', on ? 'true' : 'false');
+    a.setAttribute('aria-disabled', on ? 'true' : 'false');
+    a.style.pointerEvents = on ? 'none' : '';
+    a.style.opacity = on ? '.75' : '';
+  }
+
+  // marca/garante data-group-slug nas seções renderizadas da Home
+  function tagGroupSections(){
+    document.querySelectorAll('#group-home > section, #group-home > #group-series').forEach(sec=>{
+      const nameAttr = sec.getAttribute('data-group') || sec.dataset.group;
+      const heading  = sec.querySelector('#group-series-header h2, h2');
+      const name = nameAttr || (heading ? heading.textContent : '');
+      sec.setAttribute('data-group-slug', slugify(name));
+    });
+  }
+
+  // ---------------- init ----------------
+  function init(userOpts = {}){
+    opts = { ...opts, ...userOpts };
+
+    els.sidebar   = document.getElementById('menu-lateral');
+    els.scrim     = document.getElementById('menu-scrim');
+    els.closeBtn  = document.getElementById('menu-close');
+    els.groupsUl  = document.getElementById('menu-grupos');
+    els.brandSlot = document.getElementById('sidebar-logo');
+    els.trigger   = document.querySelector(opts.triggerSelector);
+    els.main      = document.getElementById('main');
+    if (!els.sidebar) return;
+
+    if (!state.initialized){
+      const src = (opts.seriesData && opts.seriesData.length ? opts.seriesData : (window.seriesData||[]));
+      state.groups = [...new Set(
+        (src||[]).filter(g=>g && g.group_name).map(g=>String(g.group_name).trim())
+      )].sort((a,b)=>a.localeCompare(b));
+      state.initialized = true;
+    }
+
+    cloneHeaderLogo();
+    buildGroups();          // sem "Todas" (só Favoritos + grupos reais)
+    bindNavigation();
+    bindGroups();
+    bindOpenClose();
+
+    // estado inicial: Início ativo e tudo visível
+    setActiveFonte('home');
+    showAllInDOM();
+  }
+
+  // ---------------- header logo clone ----------------
+  function cloneHeaderLogo(){
+    if (!els.brandSlot) return;
+    const src = document.getElementById('logo'); if (!src) return;
+    const c = src.cloneNode(true); c.removeAttribute('id');
+    c.style.width='28px'; c.style.height='28px';
+    els.brandSlot.innerHTML=''; els.brandSlot.appendChild(c);
+  }
+
+  // ---------------- menu grupos ----------------
+  function buildGroups(){
+    if (!els.groupsUl) return;
+    // Só "Favoritos" + grupos (removida a opção "Todas")
+    const items = [{ slug:'__favs', label:'Favoritos' }]
+      .concat(state.groups.map(g=>({ slug: slugify(g), label:g })));
+
+    els.groupsUl.innerHTML = items.map(it =>
+      `<li><a href="#" data-group="${esc(it.label)}" data-group-slug="${esc(it.slug)}">${esc(it.label)}</a></li>`
+    ).join('');
+  }
+
+  // ---------------- marcação exclusiva ----------------
+  function setActiveFonte(nav){ // 'home' | 'logs'
+    // limpa grupos
+    els.groupsUl?.querySelectorAll('a[data-group-slug]').forEach(a=>{
+      disableAnchor(a, false);
+    });
+    // marca a fonte escolhida (e desabilita clique)
+    els.sidebar.querySelectorAll('.menu-lista a[data-nav]').forEach(a=>{
+      disableAnchor(a, a.dataset.nav === nav);
+    });
+  }
+
+  function setActiveGroup(slug){ // '__favs' ou slug do grupo
+    // limpa fontes
+    els.sidebar.querySelectorAll('.menu-lista a[data-nav]').forEach(a=>{
+      disableAnchor(a, false);
+    });
+    // marca somente o grupo escolhido (e desabilita clique nele)
+    els.groupsUl?.querySelectorAll('a[data-group-slug]').forEach(a=>{
+      disableAnchor(a, a.dataset.groupSlug === slug);
+    });
+  }
+
+  // ---------------- navegação (Início/Histórico) ----------------
+  function bindNavigation(){
+    els.sidebar.querySelectorAll('.menu-lista a[data-nav]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const nav = a.dataset.nav;
+
+        if (nav === 'home'){
+          goHome();
+          showAllInDOM();
+          setActiveFonte('home');               // só Início ativo
+        } else if (nav === 'logs'){
+          goLogs();
+          setActiveFonte('logs');               // só Histórico ativo
+        }
+        close();
+      });
+    });
+  }
+
+  // ---------------- clique nos grupos ----------------
+  function bindGroups(){
+    if (!els.groupsUl) return;
+    els.groupsUl.addEventListener('click', (e)=>{
+      const a = e.target.closest('a[data-group-slug]');
+      if (!a) return;
+      e.preventDefault();
+
+      const slug = a.dataset.groupSlug;
+
+      goHome(); // sempre vai pra Home
+      if (opts.filterMode === 'dom'){
+        if (slug === '__favs') {
+          showFavoritesInDOM();
+        } else {
+          filterGroupInDOM(slug);
+        }
+      } else {
+        window.dispatchEvent(new CustomEvent('filter:group', {
+          detail: { favorites: slug === '__favs', groupSlug: slug }
+        }));
+      }
+
+      setActiveGroup(slug);   // desmarca tudo e trava só o clicado
+      close();
+    });
+  }
+
+  // ---------------- filtros DOM ----------------
+  function showAllInDOM(){
+    const home = document.getElementById('group-home');
+    const favs = document.getElementById('group-favorites');
+    if (home) home.style.display = 'block';
+    if (favs) favs.style.display = 'block';
+    tagGroupSections();
+    document.querySelectorAll('#group-home > section[data-group-slug], #group-home > #group-series[data-group-slug]')
+      .forEach(sec => sec.style.display = '');
+  }
+
+  function showFavoritesInDOM(){
+    const home = document.getElementById('group-home');
+    const favs = document.getElementById('group-favorites');
+    if (home) home.style.display = 'none';
+    if (favs) favs.style.display = 'block';
+  }
+
+  function filterGroupInDOM(slug){
+    const home = document.getElementById('group-home');
+    const favs = document.getElementById('group-favorites');
+    if (home) home.style.display = 'block';
+    if (favs) favs.style.display = 'none';
+
+    tagGroupSections();
+    document.querySelectorAll('#group-home > section[data-group-slug], #group-home > #group-series[data-group-slug]')
+      .forEach(sec => {
+        const secSlug = sec.getAttribute('data-group-slug');
+        sec.style.display = (secSlug === slug) ? '' : 'none';
+      });
+  }
+
+  // ---------------- abrir/fechar ----------------
+  function toggle(state){
+    els.sidebar.classList.toggle('open', state);
+    if (els.scrim) els.scrim.hidden = !state;
+    document.documentElement.classList.toggle('no-scroll', state);
+    document.body.classList.toggle('no-scroll', state);
+    els.main?.classList.toggle('lock-scroll', state);
+  }
+  function open(){ toggle(true); }
+  function close(){ toggle(false); }
+  function bindOpenClose(){
+    els.trigger?.addEventListener('click', (e)=>{
+      const cb = els.trigger.querySelector('.inp'); if (cb) cb.checked = false;
+      open(); e.stopPropagation();
+    });
+    els.scrim?.addEventListener('click', close);
+    els.closeBtn?.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  }
+
+  // ---------------- navegação real ----------------
+  function goHome(){
+    history.replaceState({ page:'home' }, '', location.pathname);
+    window.dispatchEvent(new PopStateEvent('popstate', { state:{ page:'home' } }));
+  }
+  function goLogs(){
+    history.pushState({ page:'logs' }, '', '#logs');
+    window.dispatchEvent(new PopStateEvent('popstate', { state:{ page:'logs' } }));
+  }
+
+  return { init, open, close, setActiveFonte, setActiveGroup };
+})();
+
+
+
+function menuSide() {
+  const menuTrigger = document.querySelector('label.menu');         // seu botão
+  const menuCheckbox = menuTrigger?.querySelector('.inp');          // só p/ animar as barras
+  const sidebar     = document.getElementById('menu-lateral');
+  const scrim       = document.getElementById('menu-scrim');
+  const closeBtn    = document.getElementById('menu-close');
+
+  if (!menuTrigger || !sidebar || !scrim) return;
+
+  const isOpen = () => sidebar.classList.contains('open');
+
+  function openMenu() {
+    sidebar.classList.add('open');
+    sidebar.setAttribute('aria-hidden', 'false');
+    scrim.hidden = false;
+    if (typeof lockPageScroll === 'function') lockPageScroll(true);
+    if (menuCheckbox) menuCheckbox.checked = true; // anima o hambúrguer em "X"
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove('open');
+    sidebar.setAttribute('aria-hidden', 'true');
+    scrim.hidden = true;
+    if (typeof lockPageScroll === 'function') lockPageScroll(false);
+    if (menuCheckbox) menuCheckbox.checked = false; // volta o hambúrguer
+  }
+
+  // clique no botão do header (impede o checkbox de abrir o antigo dropdown)
+  menuTrigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    isOpen() ? closeMenu() : openMenu();
+  });
+
+  // fechar por scrim, botão X e Esc
+  scrim.addEventListener('click', closeMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen()) closeMenu();
+  });
+
+  // navegação "Início" / "Histórico" dentro do painel
+  function toggleView(which){
+    const home  = document.getElementById('home');
+    const series= document.getElementById('series');
+    const logs  = document.getElementById('logs-section');
+
+    const show = (el, on) => { if(!el) return; el.classList.toggle('hidden', !on); el.classList.toggle('show', on); };
+
+    show(home,  which === 'home');
+    show(series,false);
+    show(logs,  which === 'logs');
+
+    // títulos do header
+    const tSeries   = document.getElementById('series-title');
+    const tName     = document.getElementById('series-name');
+    const tLogs     = document.getElementById('series-logs');
+    if (tSeries && tLogs && tName){
+      if (which === 'home'){
+        tSeries.classList.add('show');  tSeries.classList.remove('hidden');
+        tLogs.classList.add('hidden');  tLogs.classList.remove('show');
+        tName.classList.add('hidden');  tName.classList.remove('show');
+      } else if (which === 'logs'){
+        tLogs.classList.add('show');    tLogs.classList.remove('hidden');
+        tSeries.classList.add('hidden');tSeries.classList.remove('show');
+        tName.classList.add('hidden');  tName.classList.remove('show');
+      }
+    }
+  }
+
+  document.querySelectorAll('#menu-lateral [data-nav]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dest = a.getAttribute('data-nav');
+      if (dest === 'home') toggleView('home');
+      if (dest === 'logs') toggleView('logs');
+      closeMenu();
+    });
+  });
+};
+
+//=======================================================================
 //CARREGAMENTO INICIAL + ATALHOS DO TECLADO
 //=======================================================================
 document.addEventListener('DOMContentLoaded', function() {
@@ -3424,6 +3798,8 @@ document.addEventListener('DOMContentLoaded', function() {
         requestTop();
     });
 
+    MenuSidebar.init({ filterMode: 'dom', seriesData });
+
     searchInput = document.querySelector('#search .input');
     seasonExpandedState = {};
     renderCarousel();
@@ -3431,22 +3807,19 @@ document.addEventListener('DOMContentLoaded', function() {
     renderGroupsInlineSkeleton(null, 1200);
     dedupeLogsCache();
 
-    document.querySelectorAll('.menu-list').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const text = this.innerText.toLowerCase();
-            const checkbox = document.querySelector('.menu .inp');
+    document.querySelectorAll('#menu-lateral .menu-lista a').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const nav = a.dataset.nav;
 
-            if (text === 'início') {
-                window.history.replaceState({ page: 'home' }, '', window.location.pathname);
-                window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
-            } else if (text === 'histórico') {
-                window.history.pushState({ page: 'logs' }, '', '#logs');
-                window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'logs' } }));
-            }
-
-            if (checkbox) checkbox.checked = false;
-        });
+        if (nav === 'home') {
+          history.replaceState({ page: 'home' }, '', location.pathname);
+          window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
+        } else if (nav === 'logs') {
+          history.pushState({ page: 'logs' }, '', '#logs');
+          window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'logs' } }));
+        }
+      });
     });
 
     document.getElementById('prev-video-button').addEventListener('click', function() {
@@ -3506,19 +3879,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('back-button').addEventListener('click', () => {
-        requestTop();
-        const logsSection = document.getElementById('logs-section');
-        const seriesSection = document.getElementById('series');
+      requestTop();
 
-        if (logsSection && logsSection.classList.contains('show')) {
-            window.history.back();
-        } else if (seriesSection.classList.contains('show') && currentSerie) {
-            window.history.replaceState({ page: 'home' }, '', window.location.pathname);
-            window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
+      // volta SEM hash
+      history.replaceState({ page: 'home' }, '', location.pathname);
+      window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
+
+      // sincroniza o menu após a troca de tela
+      requestAnimationFrame(() => {
+        if (window.MenuSidebar?.setActiveFonte) {
+          MenuSidebar.setActiveFonte('home');  // marca Início
+          MenuSidebar.setActiveGroup(null);    // limpa qualquer grupo ativo
         } else {
-            window.history.replaceState({ page: 'home' }, '', window.location.pathname);
-            window.dispatchEvent(new PopStateEvent('popstate', { state: { page: 'home' } }));
+          // fallback se não tiver o módulo
+          const sidebar = document.getElementById('menu-lateral');
+          sidebar?.querySelectorAll('.menu-lista a[data-nav]').forEach(a => {
+            const active = a.dataset.nav === 'home';
+            a.classList.toggle('active', active);
+            a.style.pointerEvents = active ? 'none' : '';
+          });
+          sidebar?.querySelectorAll('#menu-grupos a').forEach(a => {
+            a.classList.remove('active');
+            a.style.pointerEvents = '';
+          });
         }
+      });
     });
 
     document.addEventListener('click', function(e) {
@@ -3593,6 +3978,7 @@ document.addEventListener('DOMContentLoaded', function() {
     handleHashChange();
 
     window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleHashChange);
 
     window.addEventListener('popstate', function(event) {
         const state = event.state || { page: 'home' };

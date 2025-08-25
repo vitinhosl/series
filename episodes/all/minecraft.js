@@ -1,6 +1,6 @@
 export const minecraftData = [
     {
-        group_name: "MINECRAFT",
+        group_name: "Minecraft",
         visible: true,
         group: [
             //EM BUSCA DA CASA AUTOMÁTICA

@@ -1,6 +1,6 @@
 export const moviesData = [
     {
-        group_name: "FILMES",
+        group_name: "Filmes",
         visible: true,
         group: [
             //HARRY POTTER

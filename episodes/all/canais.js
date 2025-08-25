@@ -1,6 +1,6 @@
 export const channelData = [
     {
-        group_name: "CANAIS AOVIVO",
+        group_name: "Canais",
         visible: true,
         group: [
             //ESPN

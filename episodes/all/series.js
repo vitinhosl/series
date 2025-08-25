@@ -1,6 +1,6 @@
 export const seriesData = [
   {
-    group_name: "SÉRIES",
+    group_name: "Séries",
     visible: true,
     group: [
         //ALQUIMIA DAS ALMAS

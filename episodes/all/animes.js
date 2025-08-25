@@ -1,6 +1,6 @@
 export const animesData = [
     {
-        group_name: "ANIMES",
+        group_name: "Animes",
         visible: true,
         group: [
             //SOLO LEVELING

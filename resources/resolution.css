@@ -76,6 +76,14 @@
         padding-top: 50px; /* Ajuste para altura menor do header */
     }
 
+    #menu-lateral {
+        width: 100%;
+    }
+
+    .sidebar {
+        border-radius: 0;
+    }
+
     .wrapper {
         min-height: 200px;
     }

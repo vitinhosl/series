@@ -484,7 +484,7 @@ export const OldnovelsData= [
 
 export const novelsData= [
     {
-        group_name: "NOVELAS",
+        group_name: "Novelas",
         visible: true,
         group: [
             //REBELDE MEXICANO (RBD)
