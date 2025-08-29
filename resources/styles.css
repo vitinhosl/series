@@ -21,7 +21,7 @@ body {
     color: rgb(233, 244, 251);
     padding: 10px;
     transition: all 0.3s ease;
-    background-color: rgb(14, 16, 21);
+    background-color: rgb(0, 14, 20);
     
     display: flex;
     min-height: 100vh;
@@ -954,6 +954,78 @@ header.scrolled {
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+css.toggleSound {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.13);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  border: none;
+  background: rgba(77, 79, 84, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.togglePlay {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+  right: 80px; /* Position to the left of toggleSound (20px + 50px + 10px gap) */
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.13);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  border: none;
+  background: rgba(77, 79, 84, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.togglePlay .play, .togglePlay .pause {
+  width: 24px;
+  height: 24px;
+}
+
+.togglePlay .pause {
+  display: none;
+}
+
+#playPauseInput:checked + .togglePlay .play {
+  display: none;
+}
+
+#playPauseInput:checked + .togglePlay .pause {
+  display: block;
+}
+
+#checkboxInput, #playPauseInput {
+  display: none;
+}
+
+/* Ensure buttons are visible on hover, assuming .description-thumb hover triggers visibility */
+.description-thumb:hover .toggleSound,
+.description-thumb:hover .togglePlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 #checkboxInput {
   display: none;
 }
@@ -1186,7 +1258,7 @@ header.scrolled {
 }
 
 #group-favorites {
-    background-color: rgb(14, 16, 21);
+    background-color: rgb(0, 14, 20);
     border-radius: 8px;
     /* padding: 10px; */
     /* padding-top: 10px; */
@@ -1198,7 +1270,7 @@ header.scrolled {
 }
 
 #group-series {
-    background-color: rgb(14, 16, 21);
+    background-color: rgb(0, 14, 20);
     border-radius: 8px;
     /* padding: 10px; */
     padding-top: 10px;
@@ -1218,7 +1290,7 @@ header.scrolled {
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 8px;
-  background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
+  background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(0, 14, 20) 80%);
   margin-bottom: 10px;
   transition: all 0.3s ease;
   color: rgb(233, 244, 251);
@@ -1242,7 +1314,7 @@ header.scrolled {
     gap: 20px;
     padding: 10px;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(0, 14, 20) 80%);
     margin-bottom: 10px;
     transition: all 0.3s ease;
 }
@@ -1673,7 +1745,7 @@ header.scrolled {
 #episodes-series,
 #continue-series,
 #current-series {
-    background-color: rgb(14, 16, 21);
+    background-color: rgb(0, 14, 20);
     border-radius: 8px;
     /* padding: 10px; */
 
@@ -1699,7 +1771,7 @@ header.scrolled {
     font-size: 28px;
     font-weight: bold;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(0, 14, 20) 80%);
     margin-bottom: 10px;
     color: rgb(233, 244, 251);
     display: flex;
@@ -1717,14 +1789,14 @@ header.scrolled {
     padding: 10px;
     padding-left: 10px;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(0, 14, 20) 80%);
     margin-bottom: 10px;
     transition: width 0.5s ease-out;
     /* overflow: hidden */
 }
 
 .season-header {
-    background: linear-gradient(to right, rgb(19, 21, 27) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(19, 21, 27) 0%, rgb(0, 14, 20) 80%);
     border-radius: 10px;
     padding: 10px 15px;
     margin: 5px 0px 7px 0px;
@@ -1745,7 +1817,7 @@ header.scrolled {
     right: 0;
     bottom: 0;
     border-radius: 10px;
-    background: linear-gradient(to right, rgb(9, 11, 17) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(9, 11, 17) 0%, rgb(0, 14, 20) 80%);
     opacity: 0;
     transition: opacity 0.3s ease-out;
     z-index: -1;
@@ -1760,7 +1832,7 @@ header.scrolled {
 }
 
 .logs-header {
-    background: linear-gradient(to right, rgb(19, 21, 27) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(19, 21, 27) 0%, rgb(0, 14, 20) 80%);
     border-radius: 10px;
     padding: 10px 15px;
     margin: 5px 0px 7px 0px;
@@ -1781,7 +1853,7 @@ header.scrolled {
     right: 0;
     bottom: 0;
     border-radius: 10px;
-    background: linear-gradient(to right, rgb(9, 11, 17) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(9, 11, 17) 0%, rgb(0, 14, 20) 80%);
     opacity: 0;
     transition: opacity 0.3s ease-out;
     z-index: -1;
@@ -2891,7 +2963,7 @@ p {
     font-size: 28px;
     font-weight: bold;
     border-radius: 8px;
-    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(0, 14, 20) 80%);
     margin-bottom: 10px;
 }
 
@@ -2919,7 +2991,7 @@ p {
     display: flex;
     align-items: center;
     background-color: rgb(27, 29, 34);
-    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(27, 29, 34) 0%, rgb(0, 14, 20) 80%);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -2938,7 +3010,7 @@ p {
     right: 0;
     bottom: 0;
     border-radius: 10px;
-    background: linear-gradient(to right, rgb(49, 50, 55) 0%, rgb(14, 16, 21) 80%);
+    background: linear-gradient(to right, rgb(49, 50, 55) 0%, rgb(0, 14, 20) 80%);
     opacity: 0;
     transition: opacity 0.3s ease-out;
     z-index: -1;

@@ -3708,6 +3708,8 @@ export const biblicalData = [
                     { title: "Episódio 001", subtitle: "", duration: "00:00", thumb: "", url: ["https://cdn-novflix.com/storage1/JO/JO-001.mp4"] },
                     { title: "Episódio 002", subtitle: "", duration: "00:00", thumb: "", url: ["https://cdn-novflix.com/storage1/JO/JO-002.mp4"] },
                     { title: "Episódio 003", subtitle: "", duration: "00:00", thumb: "", url: ["https://cdn-novflix.com/storage1/JO/JO-003.mp4"] },
+                    { title: "Episódio 004", subtitle: "", duration: "00:00", thumb: "", url: ["https://cdn-novflix.com/storage1/JO/JO-004.mp4"] },
+                    { title: "Episódio 005", subtitle: "", duration: "00:00", thumb: "", url: ["https://cdn-novflix.com/storage1/JO/JO-005.mp4"] },
                     ]
                 },
             ]

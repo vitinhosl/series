@@ -295,6 +295,383 @@ const seriesData2 = [
     },
 ];
 
+const seriesData3 = [
+    {
+      group_name: "Séries",
+      visible: true,
+      group: [
+        //A RODA DO TEMPO
+        {
+            name: "A Roda do Tempo",
+            thumb_page: "",
+            thumb_buttons: {
+              url: [
+                "https://i.imgur.com/LLWJSeR.jpeg",
+              ],
+            },
+            badge: "",
+            type: "",
+            canais: false,
+            enabled: true,
+            youtube: false,
+            visible: true,
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
+            carrousel: {
+                enabled: false,
+                title: "A RODA DO TEMPO",
+                logo: {
+                  enabled: false,
+                  url: "",
+                  minimalist: false,
+                },
+                thumb: [""],
+                text: "",
+                description: `
+                    
+                `
+            },
+            description: {
+                title: "A RODA DO TEMPO",
+                thumb: [
+                  "https://i.imgur.com/cOeTU5J.jpeg",
+                ],
+                video: [
+                  "https://www.youtube-nocookie.com/embed/8PbhGt8XxSM?autoplay=1",
+                  // "https://i.imgur.com/Tfae1ar.mp4",
+                ],
+                sinopse:  `
+                  Com os Amaldiçoados soltos pelo mundo, os heróis da Luz devem traçar seus próprios caminhos e reunir forças ocultas enquanto enfrentam as próprias Sombras.
+                `
+            },
+            season: [
+                {
+                  name: "Temporada 01",
+                  thumb_season: "https://i.imgur.com/9dpq8OK.png",
+                  movies: false,
+                  episodes: [
+                     { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                  ]
+                },
+            ]
+        },
+
+        //SOMBRA E OSSOS
+        {
+          name: "Sombra e Ossos",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/g4rzDUb.png",
+              "https://i.imgur.com/NwXQXGJ.jpeg",
+            ],
+          },
+          badge: "",
+          type: "",
+          canais: false,
+          enabled: true,
+          youtube: false,
+          visible: true,
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "SOMBRA E OSSOS",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "SOMBRA E OSSOS",
+              thumb: [
+                "https://i.imgur.com/ViRwaK6.jpeg",
+                // "https://i.imgur.com/FpKcbQv.jpeg",
+              ],
+              video: [
+              ],
+              sinopse:  `
+                Em um mundo atormentado por trevas e criaturas monstruosas, uma jovem cartógrafa embarca em uma perigosa jornada que pode mudar o destino de sua nação.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/FqbZZ3F.png",
+                movies: false,
+                episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                ]
+              },
+          ]
+        },
+
+        //O SENHOR DOS ANÉIS:OS ANÉIS DE PODER
+        {
+          name: "Os Anéis de Poder",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/SKEOHMc.jpeg",
+              "https://i.imgur.com/IYshKlx.png",
+              "https://i.imgur.com/aRUogCZ.png",
+              // "https://i.imgur.com/JbRssVI.jpeg",
+            ],
+          },
+          badge: "",
+          type: "",
+          canais: false,
+          enabled: true,
+          youtube: false,
+          visible: true,
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "SENHOR DOS ANÉIS: OS ANÉIS DE PODER",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "SENHOR DOS ANÉIS: OS ANÉIS DE PODER",
+              thumb: [
+                "https://i.imgur.com/hkM1IZa.jpeg",
+              ],
+              video: [
+              ],
+              sinopse:  `
+                Sauron retornou... Com planos de dominar toda a Terra-média.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/luiXZtB.jpeg",
+                movies: false,
+                episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                ]
+              },
+          ]
+        },
+
+        //GREYS ANATOMY
+        {
+          name: "Grey's Anatomy",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/ef7S2Nv.jpeg",
+              "https://i.imgur.com/gIQ8dU8.png",
+              "https://i.imgur.com/nzSQsLk.png",
+            ],
+          },
+          badge: "",
+          type: "",
+          canais: false,
+          enabled: true,
+          youtube: false,
+          visible: true,
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "GREY'S ANATOMY",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "GREY'S ANATOMY",
+              thumb: [
+                "https://i.imgur.com/6LzUpm9.jpeg",
+                "https://i.imgur.com/FxA9zwL.jpeg",
+                "https://i.imgur.com/ggt3VaZ.jpeg",
+              ],
+              video: [
+              ],
+              sinopse:  `
+                O drama médico de alta intensidade, agora em sua 15ª temporada, segue Meredith Grey e a equipe de médicos do Grey Sloan Memorial que se deparam com decisões de vida ou morte diariamente. Eles buscam conforto um do outro, e, às vezes, mais do que apenas amizade. Juntos, eles descobrem que nem a medicina nem as relações podem ser definidas em preto e branco.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/3eAqqCD.jpeg",
+                movies: false,
+                episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                ]
+              },
+          ]
+        },
+
+        //A CASA DO DRAGÃO
+        {
+          name: "A Casa do Dragão",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/5fvFZ7s.png",
+              "https://i.imgur.com/2eWdHrM.png",
+            ],
+          },
+          badge: "",
+          type: "",
+          canais: false,
+          enabled: true,
+          youtube: false,
+          visible: true,
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "A CASA DO DRAGÃO",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "A CASA DO DRAGÃO",
+              thumb: [
+                "https://i.imgur.com/oLvUdri.png",
+                "https://i.imgur.com/r0bfoEv.png",
+              ],
+              video: [
+              ],
+              sinopse:  `
+                172 anos antes do nascimento de Daenerys, a protagonista da série original, a Casa do Dragão mostrará um dos eventos mais poderosos dentro do universo, a Dança dos Dragões. Momento esse que marca a guerra civil entre a família Targaryen.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/EiKnrnl.jpeg",
+                movies: false,
+                episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                ]
+              },
+          ]
+        },
+      ]
+    },
+
+    {
+      group_name: "Filmes",
+      visible: true,
+      group: [
+        //A CASA DO DRAGÃO
+        {
+          name: "Velozes e Furiosos",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/y8FBSks.jpeg", //VELOZES E FURIOSOS 1
+              "https://i.imgur.com/bvJhA7q.jpeg", //VELOZES E FURIOSOS 2
+              "https://i.imgur.com/06E4fD1.jpeg", //VELOZES E FURIOSOS 3
+              "https://i.imgur.com/mUY6E2y.jpeg", //VELOZES E FURIOSOS 4
+              "https://i.imgur.com/fCXyIWf.jpeg", //VELOZES E FURIOSOS 5
+              "https://i.imgur.com/Z1W2iiO.jpeg", //VELOZES E FURIOSOS 6
+              "https://i.imgur.com/mB9Pvi7.jpeg", //VELOZES E FURIOSOS 7
+              "https://i.imgur.com/VEOSjQB.jpeg", //VELOZES E FURIOSOS 8
+              "https://i.imgur.com/iGgpSAl.jpeg", //VELOZES E FURIOSOS 9
+              "https://i.imgur.com/PjT4mwv.jpeg", //VELOZES E FURIOSOS 10
+
+              // "",  //VELOZES E FURIOSOS 1
+              // "https://i.imgur.com/mjTmEVq.png",  //VELOZES E FURIOSOS 2
+              // "https://i.imgur.com/mUY6E2y.jpeg", //VELOZES E FURIOSOS 4
+              // "https://i.imgur.com/ONRvfhk.jpeg", //VELOZES E FURIOSOS 4
+              // "https://i.imgur.com/8l1j8xn.png",  //VELOZES E FURIOSOS 3
+              // "https://i.imgur.com/mswA0Fu.jpeg", //VELOZES E FURIOSOS 3
+              // "https://i.imgur.com/lj7CR26.jpeg", //VELOZES E FURIOSOS 5
+              // "https://i.imgur.com/Z1W2iiO.jpeg", //VELOZES E FURIOSOS 6
+              // "https://i.imgur.com/mB9Pvi7.jpeg", //VELOZES E FURIOSOS 7
+              // "https://i.imgur.com/foMeLDd.png",  //VELOZES E FURIOSOS 8
+              // "https://i.imgur.com/6RQyGF9.jpeg", //VELOZES E FURIOSOS 9
+              "", //VELOZES E FURIOSOS 10
+            ],
+          },
+          badge: "",
+          type: "",
+          canais: false,
+          enabled: true,
+          youtube: false,
+          visible: true,
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "VELOZES FURIOSOS",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "A CASA DO DRAGÃO",
+              thumb: [
+                "https://i.imgur.com/Gc5hZql.jpeg",
+                "https://i.imgur.com/G6VpLVK.jpeg",
+              ],
+              video: [
+              ],
+              sinopse:  `
+                172 anos antes do nascimento de Daenerys, a protagonista da série original, a Casa do Dragão mostrará um dos eventos mais poderosos dentro do universo, a Dança dos Dragões. Momento esse que marca a guerra civil entre a família Targaryen.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/Jeo4AaK.png",
+                movies: false,
+                episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 002", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 003", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 004", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 005", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 006", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 007", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 008", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 009", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 010", subtitle: "", duration: "", thumb: "" , url: [""] },
+                ]
+              },
+          ]
+        },
+      ]
+    },
+];
+
 //=======================================================================
 //CONFIGURAÇÕES
 //=======================================================================
@@ -314,7 +691,8 @@ let animationSpeedButtons       = 30;       //VELOCIDADE DAS ANIMAÇÕES DOS BOT
 let animationSpeedSearchsKeys   = 2;        //VELOCIDADE DAS ANIMAÇÕES DOS BOTÕES DE PESQUISA
 let animationSpeedLogs          = 20;       //VELOCIDADE DAS ANIMAÇÕES DOS CARDS DE HISTÓRICOS
 let descriptionVideoLoop        = true;     //LOOP DO VIDEO
-let descriptionVideoFadeSec     = 0.6;      //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
+let descriptionVideoFadeSec     = 0.0;      //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
+let descriptionVideoHover       = false;    //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
 
 //=======================================================================
 //FLAGS
@@ -803,6 +1181,283 @@ function setupDescriptionEffects(effectConfig) {
 }
 
 //=======================================================================
+//VÍDEO DA DESCRIÇÃO
+//=======================================================================
+function parseYouTubeId(u){
+  try{
+    const url = new URL(u);
+    if (url.hostname.includes('youtu.be')) return url.pathname.slice(1);
+    if (url.hostname.includes('youtube.com') || url.hostname.includes('youtube-nocookie.com')){
+      if (url.searchParams.get('v')) return url.searchParams.get('v');
+      const m = url.pathname.match(/\/embed\/([^/?#]+)/);
+      if (m) return m[1];
+    }
+  }catch(e){}
+  return null;
+}
+
+function ensureYouTubeAPI(){
+  if (window.YT && window.YT.Player) return Promise.resolve(window.YT);
+  if (window._ytApiReadyPromise) return window._ytApiReadyPromise;
+  window._ytApiReadyPromise = new Promise(resolve=>{
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    const iv = setInterval(()=>{
+      if (window.YT && window.YT.Player){ clearInterval(iv); resolve(window.YT); }
+    }, 50);
+  });
+  return window._ytApiReadyPromise;
+}
+
+function setupDescriptionHoverPreview(desc) {
+  if (!shouldShowDescription(desc) || !desc.video) return;
+
+  const root = document.querySelector('#series-description');
+  const host = root?.querySelector('.description-thumb');
+  if (!root || !host) return;
+
+  // Limpa camadas/btns antigos + timers + listeners + player YT
+  host.querySelectorAll('.effect-layer.effect-layer-video, .effect-layer.effect-layer-iframe, .effect-layer.effect-layer-youtube').forEach(n => n.remove());
+  host.classList.remove('video-visible');
+  host.querySelectorAll('.toggleSound, #checkboxInput').forEach(n => n.remove());
+  if (host.__descTimers) { clearTimeout(host.__descTimers.start); clearTimeout(host.__descTimers.hide); }
+  if (host.__descHandlers) {
+    root.removeEventListener('mouseenter', host.__descHandlers.enter);
+    root.removeEventListener('mouseleave', host.__descHandlers.leave);
+  }
+  // destrói player YT anterior se houver
+  if (host.__ytPlayer) {
+    try { host.__ytPlayer.destroy(); } catch {}
+    host.__ytPlayer = null;
+  }
+
+  host.__descTimers   = { start:null, hide:null };
+  host.__descHandlers = {};
+
+  // Cria camada base
+  const layer = document.createElement('div');
+  layer.className = 'effect-layer effect-layer-video';
+  host.appendChild(layer);
+
+  // Escolha da mídia: arquivo de vídeo, YouTube ou Drive
+  const list       = Array.isArray(desc.video) ? desc.video : [desc.video];
+  const videoPick  = list.find(u => /\.(mp4|webm|ogg)(\?.*)?$/i.test(u));
+  const drivePick  = list.find(u => u.includes('drive.google.com/file/d/') && u.includes('/preview'));
+  const youtubePick= list.find(u => !!parseYouTubeId(u));
+
+  let mediaElement;
+  let isDriveVideo = false;
+  let isYouTube    = false;
+
+  if (videoPick) {
+    // ---- <video> nativo ----
+    const v = document.createElement('video');
+    v.className = 'hero-bg-video';
+    v.src = videoPick;
+    v.muted = true;
+    v.playsInline = true;
+    v.loop = !!descriptionVideoLoop;
+    v.autoplay = false;
+    v.preload = 'metadata';
+    mediaElement = v;
+
+    // Botão de som
+    const checkboxInput = document.createElement('input');
+    checkboxInput.type = 'checkbox';
+    checkboxInput.id = 'checkboxInput';
+    checkboxInput.checked = false;
+    host.appendChild(checkboxInput);
+
+    const toggleSoundLabel = document.createElement('label');
+    toggleSoundLabel.htmlFor = 'checkboxInput';
+    toggleSoundLabel.className = 'toggleSound';
+    toggleSoundLabel.innerHTML = `
+      <div class="speaker"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 75 75">
+        <path d="M39.389,13.769 L22.235,28.606 L6,28.606 L6,47.699 L21.989,47.699 L39.389,62.75 L39.389,13.769z" style="stroke:#fff;stroke-width:5;stroke-linejoin:round;fill:#fff;"></path>
+        <path d="M48,27.6a19.5,19.5 0 0 1 0,21.4M55.1,20.5a30,30 0 0 1 0,35.6M61.6,14a38.8,38.8 0 0 1 0,48.6" style="fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round"></path>
+      </svg></div>
+      <div class="mute-speaker">
+        <svg version="1.0" viewBox="0 0 75 75">
+          <path class="speaker-shape" d="m39,14-17,15H6V48H22l17,15z"></path>
+          <path class="mute-x" d="m49,26 20,24m0-24-20,24"></path>
+        </svg>
+      </div>
+    `;
+    host.appendChild(toggleSoundLabel);
+    checkboxInput.addEventListener('change', () => { v.muted = !checkboxInput.checked; });
+
+} else if (youtubePick) {
+  // ---- YouTube via IFrame API ----
+  const ytId = parseYouTubeId(youtubePick);
+  const holder = document.createElement('div');
+  holder.className = 'hero-bg-video';
+  holder.id = 'yt-prev-' + Math.random().toString(36).slice(2);
+  mediaElement = holder;
+  isYouTube = true;
+  layer.className = 'effect-layer effect-layer-video effect-layer-youtube';
+
+  // Botão de som (funciona via API YT)
+  const checkboxInput = document.createElement('input');
+  checkboxInput.type = 'checkbox';
+  checkboxInput.id = 'checkboxInput';
+  checkboxInput.checked = false;
+  host.appendChild(checkboxInput);
+
+  const toggleSoundLabel = document.createElement('label');
+  toggleSoundLabel.htmlFor = 'checkboxInput';
+  toggleSoundLabel.className = 'toggleSound';
+  toggleSoundLabel.innerHTML = `
+    <div class="speaker"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 75 75">
+      <path d="M39.389,13.769 L22.235,28.606 L6,28.606 L6,47.699 L21.989,47.699 L39.389,62.75 L39.389,13.769z" style="stroke:#fff;stroke-width:5;stroke-linejoin:round;fill:#fff;"></path>
+      <path d="M48,27.6a19.5,19.5 0 0 1 0,21.4M55.1,20.5a30,30 0 0 1 0,35.6M61.6,14a38.8,38.8 0 0 1 0,48.6" style="fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round"></path>
+    </svg></div>
+    <div class="mute-speaker">
+      <svg version="1.0" viewBox="0 0 75 75">
+        <path class="speaker-shape" d="m39,14-17,15H6V48H22l17,15z"></path>
+        <path class="mute-x" d="m49,26 20,24m0-24-20,24"></path>
+      </svg>
+    </div>
+  `;
+  host.appendChild(toggleSoundLabel);
+
+  ensureYouTubeAPI().then(YT => {
+    // destrói player anterior se ainda existir
+    if (host.__ytPlayer) {
+      try { host.__ytPlayer.destroy(); } catch {}
+      host.__ytPlayer = null;
+    }
+
+    const playerVars = {
+      autoplay: 0,               // controlamos no hover
+      controls: 0,               // sem controles
+      disablekb: 1,              // teclado desativado
+      fs: 0,
+      modestbranding: 1,
+      rel: 0,                    // reduz relacionados (não remove 100%)
+      iv_load_policy: 3,
+      playsinline: 1,
+      loop: descriptionVideoLoop ? 1 : 0,
+      playlist: ytId
+    };
+    if (/^https?:\/\//.test(location.origin)) {
+      playerVars.origin = location.origin; // evita erro 153
+    }
+
+    const player = new YT.Player(holder.id, {
+      width: '100%',
+      height: '100%',
+      host: 'https://www.youtube-nocookie.com',
+      videoId: ytId,
+      playerVars,
+      events: {
+        onReady: (ev) => {
+          host.__ytPlayer = ev.target;
+          try {
+            ev.target.mute();
+            const ifr = ev.target.getIframe?.();
+            if (ifr) {
+              ifr.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+              ifr.setAttribute('allowfullscreen', '');
+              ifr.setAttribute('referrerpolicy', 'origin');
+              ifr.style.pointerEvents = 'none';   // <- clique não interage (não pausa)
+              ifr.setAttribute('tabindex','-1');  // <- sem foco
+            }
+          } catch {}
+        },
+        onStateChange: (e) => {
+          // se alguém conseguir pausar (ex.: overlay interno), retomamos enquanto estiver em hover
+          if (e.data === YT.PlayerState.PAUSED && (host.matches(':hover') || root.matches(':hover'))) {
+            try { e.target.playVideo(); } catch {}
+          }
+        },
+        onError: (e) => console.warn('YouTube preview error', e?.data)
+      }
+    });
+
+    // toggle som para YT (continua funcionando mesmo com pointer-events none)
+    const cb = document.getElementById('checkboxInput');
+    if (cb) cb.addEventListener('change', () => {
+      const p = host.__ytPlayer;
+      if (!p) return;
+      try { cb.checked ? p.unMute() : p.mute(); } catch {}
+    });
+  });
+
+} else if (drivePick) {
+  // ---- Google Drive preview ----
+  const iframe = document.createElement('iframe');
+  iframe.className = 'hero-bg-video';
+  iframe.src = drivePick;
+  iframe.allow = 'autoplay; fullscreen';
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.referrerPolicy = 'no-referrer';
+  iframe.frameBorder = '0';
+  iframe.style.pointerEvents = 'none';  // <- clique não interage
+  iframe.setAttribute('tabindex','-1'); // <- sem foco
+  isDriveVideo = true;
+  mediaElement = iframe;
+  layer.className = 'effect-layer effect-layer-video effect-layer-iframe';
+} else {
+  return; // nada suportado
+}
+
+
+  layer.appendChild(mediaElement);
+
+  let shown = false;
+  const delayMs = Math.max(0, (descriptionVideoFadeSec || 0.6) * 1000);
+
+  const start = () => {
+    clearTimeout(host.__descTimers.hide);
+    if (shown) return;
+    clearTimeout(host.__descTimers.start);
+    host.__descTimers.start = setTimeout(() => {
+      if (host.matches(':hover') || root.matches(':hover')) {
+        shown = true;
+        host.classList.add('video-visible');
+
+        // play
+        if (isYouTube) {
+          const p = host.__ytPlayer;
+          if (p) { try { p.mute(); p.seekTo(0, true); p.playVideo(); } catch {} }
+        } else if (!isDriveVideo) {
+          mediaElement.currentTime = 0;
+          mediaElement.play().catch(()=>{});
+        }
+      }
+    }, delayMs);
+  };
+
+  const scheduleHide = () => {
+    clearTimeout(host.__descTimers.start);
+    clearTimeout(host.__descTimers.hide);
+    host.__descTimers.hide = setTimeout(() => {
+      if (host.matches(':hover') || root.matches(':hover')) return;
+      host.classList.remove('video-visible');
+
+      // stop/reset
+      if (isYouTube) {
+        const p = host.__ytPlayer;
+        if (p) { try { p.pauseVideo(); p.seekTo(0, true); } catch {} }
+        shown = false;
+      } else if (!isDriveVideo) {
+        try { mediaElement.pause(); mediaElement.currentTime = 0; } catch {}
+        shown = false;
+      } else {
+        shown = false;
+      }
+    }, delayMs);
+  };
+
+  host.__descHandlers.enter = start;
+  host.__descHandlers.leave = scheduleHide;
+  root.addEventListener('mouseenter', host.__descHandlers.enter);
+  root.addEventListener('mouseleave', host.__descHandlers.leave);
+}
+
+//=======================================================================
 //EPISÓDIOS
 //=======================================================================
 function renderEpisodes(serie, seasonValue) {
@@ -1208,148 +1863,6 @@ function setupThumbnailLoading() {
             img.style.opacity = '1'; // Mostra
         }
     });
-}
-
-//=======================================================================
-//VÍDEO DA DESCRIÇÃO
-//=======================================================================
-function setupDescriptionHoverPreview(desc) {
-  if (!shouldShowDescription(desc) || !desc.video) return;
-
-  const root = document.querySelector('#series-description');
-  const host = root?.querySelector('.description-thumb');
-  if (!root || !host) return;
-
-  // Limpa a camada anterior + timers + listeners
-  host.querySelectorAll('.effect-layer.effect-layer-video, .effect-layer.effect-layer-iframe').forEach(n => n.remove());
-  host.classList.remove('video-visible');
-  host.querySelectorAll('.toggleSound, #checkboxInput').forEach(n => n.remove()); // Remove os elementos antigos do botão
-
-  if (host.__descTimers) {
-    clearTimeout(host.__descTimers.start);
-    clearTimeout(host.__descTimers.hide);
-  }
-  if (host.__descHandlers) {
-    root.removeEventListener('mouseenter', host.__descHandlers.enter);
-    root.removeEventListener('mouseleave', host.__descHandlers.leave);
-  }
-  host.__descTimers   = { start:null, hide:null };
-  host.__descHandlers = {};
-
-  // Cria a camada
-  const layer = document.createElement('div');
-  layer.className = 'effect-layer effect-layer-video';
-  host.appendChild(layer);
-  
-  const list = Array.isArray(desc.video) ? desc.video : [desc.video];
-  const videoPick = list.find(u => /\.(mp4|webm|ogg)(\?.*)?$/i.test(u));
-  const drivePick = list.find(u => u.includes('drive.google.com/file/d/') && u.includes('/preview'));
-  
-  let mediaElement;
-  let isDriveVideo = false;
-  
-  if (videoPick) {
-      // Prioriza link direto de vídeo
-      const v = document.createElement('video');
-      v.className = 'hero-bg-video';
-      v.src = videoPick;
-      v.muted = true;
-      v.playsInline = true;
-      v.loop = !!descriptionVideoLoop;
-      v.autoplay = false;
-      v.preload = 'metadata';
-      mediaElement = v;
-
-      // Cria os elementos do novo botão (ADICIONADO)
-      const checkboxInput = document.createElement('input');
-      checkboxInput.type = 'checkbox';
-      checkboxInput.id = 'checkboxInput';
-      checkboxInput.checked = false;
-      host.appendChild(checkboxInput);
-
-      const toggleSoundLabel = document.createElement('label');
-      toggleSoundLabel.htmlFor = 'checkboxInput';
-      toggleSoundLabel.className = 'toggleSound';
-      toggleSoundLabel.innerHTML = `
-        <div class="speaker"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 75 75">
-          <path d="M39.389,13.769 L22.235,28.606 L6,28.606 L6,47.699 L21.989,47.699 L39.389,62.75 L39.389,13.769z" style="stroke:#fff;stroke-width:5;stroke-linejoin:round;fill:#fff;"></path>
-          <path d="M48,27.6a19.5,19.5 0 0 1 0,21.4M55.1,20.5a30,30 0 0 1 0,35.6M61.6,14a38.8,38.8 0 0 1 0,48.6" style="fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round"></path>
-        </svg></div>
-        <div class="mute-speaker">
-          <svg version="1.0" viewBox="0 0 75 75">
-            <path class="speaker-shape" d="m39,14-17,15H6V48H22l17,15z"></path>
-            <path class="mute-x" d="m49,26 20,24m0-24-20,24"></path>
-          </svg>
-        </div>
-      `;
-      host.appendChild(toggleSoundLabel);
-
-      // Adiciona o evento de clique para ligar/desligar o áudio
-      checkboxInput.addEventListener('change', () => {
-          v.muted = !checkboxInput.checked;
-      });
-
-  } else if (drivePick) {
-      // Usa o iframe para o Google Drive
-      const iframe = document.createElement('iframe');
-      iframe.className = 'hero-bg-video';
-      iframe.src = drivePick;
-      iframe.allow = "autoplay";
-      iframe.frameBorder = "0";
-      isDriveVideo = true;
-      mediaElement = iframe;
-      layer.className = 'effect-layer effect-layer-video effect-layer-iframe';
-  } else {
-      return;
-  }
-  
-  layer.appendChild(mediaElement);
-
-  let shown = false;
-  const delayMs = Math.max(0, (descriptionVideoFadeSec || 0.6) * 1000);
-
-  // Inicia após hover
-  const start = () => {
-    clearTimeout(host.__descTimers.hide);
-    if (shown) return;
-    clearTimeout(host.__descTimers.start);
-    host.__descTimers.start = setTimeout(() => {
-      if (host.matches(':hover') || root.matches(':hover')) {
-        shown = true;
-        host.classList.add('video-visible');
-        if (!isDriveVideo) {
-            mediaElement.currentTime = 0;
-            mediaElement.play().catch(()=>{});
-        }
-      }
-    }, delayMs);
-  };
-
-  // Ao sair do hover: fade-out + pausa/reset
-  const scheduleHide = () => {
-    clearTimeout(host.__descTimers.start);
-    clearTimeout(host.__descTimers.hide);
-    host.__descTimers.hide = setTimeout(() => {
-      if (host.matches(':hover') || root.matches(':hover')) return;
-      host.classList.remove('video-visible');
-
-      const finish = () => {
-        if (!isDriveVideo) {
-            mediaElement.pause();
-            try { mediaElement.currentTime = 0; } catch {}
-        }
-        shown = false;
-        mediaElement.removeEventListener('transitionend', finish);
-      };
-      mediaElement.addEventListener('transitionend', finish, { once:true });
-      setTimeout(finish, delayMs + 50);
-    }, delayMs);
-  };
-
-  host.__descHandlers.enter = start;
-  host.__descHandlers.leave = scheduleHide;
-  root.addEventListener('mouseenter', host.__descHandlers.enter);
-  root.addEventListener('mouseleave', host.__descHandlers.leave);
 }
 
 //=======================================================================
@@ -2814,7 +3327,6 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
   }
 }
 
-
 //=======================================================================
 //CARREGAMENTO DE PÁGINA: BOTOES ANIMADOS
 //=======================================================================
@@ -3707,7 +4219,6 @@ const MenuSidebar = (() => {
 })();
 
 
-
 function menuSide() {
   const menuTrigger = document.querySelector('label.menu');         // seu botão
   const menuCheckbox = menuTrigger?.querySelector('.inp');          // só p/ animar as barras
@@ -3792,7 +4303,44 @@ function menuSide() {
 //=======================================================================
 //CARREGAMENTO INICIAL + ATALHOS DO TECLADO
 //=======================================================================
+function loadingEffect() {
+  const MIN_SHOW_MS = 400;
+
+    const loader = document.getElementById('page-loader');
+    if (!loader) return;
+
+    // Bloqueia rolagem enquanto o loader está ativo (opcional)
+    document.documentElement.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');
+
+    const shownAt = Date.now();
+
+    function hideLoader() {
+      const elapsed = Date.now() - shownAt;
+      const wait = Math.max(0, MIN_SHOW_MS - elapsed);
+
+      setTimeout(() => {
+        loader.classList.add('is-hiding'); // dispara o fade
+        loader.addEventListener('transitionend', () => {
+          loader.remove(); // remove do DOM após o fade
+        }, { once: true });
+
+        document.documentElement.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
+      }, wait);
+    }
+
+    // Quando tudo terminou de carregar (imagens, CSS, etc.)
+    window.addEventListener('load', hideLoader);
+
+    // Se a página veio do cache de navegação (bfcache), garanta que some também
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) hideLoader();
+    });
+};
+
 document.addEventListener('DOMContentLoaded', function() {
+    loadingEffect();
     requestTop();
     window.addEventListener('load', function() {
         requestTop();

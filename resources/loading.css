@@ -1,0 +1,117 @@
+/* OVERLAY centralizado na tela */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: radial-gradient(80% 80% at 50% 50%, rgba(20,20,28,.95), rgba(8,8,12,.98));
+  display: grid;
+  place-items: center;          /* <- centra o container */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .45s ease, visibility .45s linear;
+}
+
+#page-loader.is-hiding {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ESTE é o “quadrinho” do loader (não é full-screen) */
+#page-loader .container-load {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+  background: transparent;      /* não precisa fundo aqui */
+}
+
+/* 🔴 REMOVA/COMENTE o bloco abaixo se existir
+.container-load {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  background-color: rgb(0, 14, 20);
+}
+*/
+
+/* ANIMAÇÕES (iguais às suas, com pequenos ajustes de centragem e typo) */
+.square-load {
+  width: 30px;
+  height: 30px;
+  rotate: 45deg;
+  border: solid rgb(255, 2, 102) 2px;
+  animation: jitter 1.5s ease-in-out infinite;
+  background-color: hsl(200deg,100%,4%);
+}
+
+.circle-load {
+  width: 60px;
+  height: 60px;
+  border: dashed rgb(255, 2, 102) 2px;
+  border-radius: 50%;
+  animation: smooth 10s linear infinite;
+}
+
+.centered-load {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.diamond-load {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;         /* <- centra X e Y */
+}
+
+.diamond-load.small {
+  width: 30px;
+  height: 30px;
+  stroke-dasharray: 100;
+  stroke-width: 2px;
+  animation: disappear-small 3s linear infinite;
+}
+
+.diamond-load.large {
+  width: 60px;
+  height: 60px;
+  stroke-dasharray: 200;
+  stroke-width: 0.25px;         /* (corrigido: antes estava 'stroek-width') */
+  animation: disappear-large 3s linear infinite;
+}
+
+.path-load {
+  stroke: rgb(255, 2, 102);
+  fill: none;
+}
+
+.rotated-load {
+  transform-origin: 50% 50%;    /* gira em torno do centro */
+  rotate: 180deg;
+}
+
+/* keyframes */
+@keyframes jitter {
+  0%,100% { rotate: 45deg; }
+  50%     { rotate: 135deg; }
+}
+@keyframes smooth {
+  from { rotate: 0deg; }
+  to   { rotate: 360deg; }
+}
+@keyframes disappear-small {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -100; }
+}
+@keyframes disappear-large {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -200; }
+}
+
+

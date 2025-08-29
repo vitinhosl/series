@@ -9,10 +9,30 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="resources/styles.css">
     <link rel="stylesheet" href="resources/resolution.css">
+    <link rel="stylesheet" href="resources/loading.css">
     <meta name="referrer" content="no-referrer">
 </head>
 <body>
-    
+
+    <div id="page-loader" aria-hidden="true">
+        <div class="container-load">
+            <svg class="diamond-load small" viewBox="0 0 30 30">
+            <path class="path-load" d="M1.56502 15L15 1.56502L28.4351 15L15 28.4351L1.56502 15Z"/>
+            </svg>
+            <svg class="diamond-load small rotated-load" viewBox="0 0 30 30">
+            <path class="path-load" d="M1.56502 15L15 1.56502L28.4351 15L15 28.4351L1.56502 15Z"/>
+            </svg>
+            <div class="square-load centered-load"></div>
+            <svg class="diamond-load large" viewBox="0 0 58 58">
+            <path class="path-load" d="M1.42293 29L29 1.42293L56.5771 29L29 56.5771L1.42293 29Z"/>
+            </svg>
+            <svg class="diamond-load large rotated-load" viewBox="0 0 58 58">
+            <path class="path-load" d="M1.42293 29L29 1.42293L56.5771 29L29 56.5771L1.42293 29Z"/>
+            </svg>
+            <div class="circle-load centered-load"></div>
+        </div>
+    </div>
+
     <header>
         <div id="title">
             <label class="menu">
