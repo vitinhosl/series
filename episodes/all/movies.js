@@ -126,6 +126,91 @@ export const moviesData = [
                 },
             ]
             },
+
+            //VELOZES E FURIOSOS
+            {
+                name: "Velozes e Furiosos",
+                thumb_page: "",
+                thumb_buttons: {
+                url: [
+                    "https://i.imgur.com/y8FBSks.jpeg", //VELOZES E FURIOSOS 1
+                    "https://i.imgur.com/bvJhA7q.jpeg", //VELOZES E FURIOSOS 2
+                    "https://i.imgur.com/06E4fD1.jpeg", //VELOZES E FURIOSOS 3
+                    "https://i.imgur.com/mUY6E2y.jpeg", //VELOZES E FURIOSOS 4
+                    "https://i.imgur.com/fCXyIWf.jpeg", //VELOZES E FURIOSOS 5
+                    "https://i.imgur.com/Z1W2iiO.jpeg", //VELOZES E FURIOSOS 6
+                    "https://i.imgur.com/mB9Pvi7.jpeg", //VELOZES E FURIOSOS 7
+                    "https://i.imgur.com/VEOSjQB.jpeg", //VELOZES E FURIOSOS 8
+                    "https://i.imgur.com/iGgpSAl.jpeg", //VELOZES E FURIOSOS 9
+                    "https://i.imgur.com/PjT4mwv.jpeg", //VELOZES E FURIOSOS 10
+
+                    // "",  //VELOZES E FURIOSOS 1
+                    // "https://i.imgur.com/mjTmEVq.png",  //VELOZES E FURIOSOS 2
+                    // "https://i.imgur.com/mUY6E2y.jpeg", //VELOZES E FURIOSOS 4
+                    // "https://i.imgur.com/ONRvfhk.jpeg", //VELOZES E FURIOSOS 4
+                    // "https://i.imgur.com/8l1j8xn.png",  //VELOZES E FURIOSOS 3
+                    // "https://i.imgur.com/mswA0Fu.jpeg", //VELOZES E FURIOSOS 3
+                    // "https://i.imgur.com/lj7CR26.jpeg", //VELOZES E FURIOSOS 5
+                    // "https://i.imgur.com/Z1W2iiO.jpeg", //VELOZES E FURIOSOS 6
+                    // "https://i.imgur.com/mB9Pvi7.jpeg", //VELOZES E FURIOSOS 7
+                    // "https://i.imgur.com/foMeLDd.png",  //VELOZES E FURIOSOS 8
+                    // "https://i.imgur.com/6RQyGF9.jpeg", //VELOZES E FURIOSOS 9
+                    "", //VELOZES E FURIOSOS 10
+                ],
+                },
+                badge: "",
+                type: "",
+                canais: false,
+                enabled: false,
+                youtube: false,
+                visible: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "VELOZES FURIOSOS",
+                    logo: {
+                    enabled: false,
+                    url: "",
+                    minimalist: false,
+                    },
+                    thumb: [""],
+                    text: "",
+                    description: `
+                        
+                    `
+                },
+                description: {
+                    title: "A CASA DO DRAGÃO",
+                    thumb: [
+                    "https://i.imgur.com/Gc5hZql.jpeg",
+                    "https://i.imgur.com/G6VpLVK.jpeg",
+                    ],
+                    video: [
+                    ],
+                    sinopse:  `
+                    172 anos antes do nascimento de Daenerys, a protagonista da série original, a Casa do Dragão mostrará um dos eventos mais poderosos dentro do universo, a Dança dos Dragões. Momento esse que marca a guerra civil entre a família Targaryen.
+                    `
+                },
+                season: [
+                    {
+                    name: "Temporada 01",
+                    thumb_season: "https://i.imgur.com/Jeo4AaK.png",
+                    movies: false,
+                    episodes: [
+                        { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                        { title: "Episódio 002", subtitle: "", duration: "", thumb: "" , url: [""] },
+                        { title: "Episódio 003", subtitle: "", duration: "", thumb: "" , url: [""] },
+                        { title: "Episódio 004", subtitle: "", duration: "", thumb: "" , url: [""] },
+                        { title: "Episódio 005", subtitle: "", duration: "", thumb: "" , url: [""] },
+                        { title: "Episódio 006", subtitle: "", duration: "", thumb: "" , url: [""] },
+                        { title: "Episódio 007", subtitle: "", duration: "", thumb: "" , url: [""] },
+                        { title: "Episódio 008", subtitle: "", duration: "", thumb: "" , url: [""] },
+                        { title: "Episódio 009", subtitle: "", duration: "", thumb: "" , url: [""] },
+                        { title: "Episódio 010", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    ]
+                    },
+                ]
+            },
         ]
     },
 ];

@@ -21,7 +21,7 @@ const seriesData2 = [
             badge: "TESTE",
             type: "",
             canais: false,
-            enabled: true,
+            enabled: false,
             youtube: false,
             visible: true,
             title: "", //TEXTO DO BOTÃO ENABLED OFF
@@ -584,7 +584,7 @@ const seriesData3 = [
       group_name: "Filmes",
       visible: true,
       group: [
-        //A CASA DO DRAGÃO
+        //VELOZES E FURIOSOS
         {
           name: "Velozes e Furiosos",
           thumb_page: "",
@@ -693,6 +693,7 @@ let animationSpeedLogs          = 20;       //VELOCIDADE DAS ANIMAÇÕES DOS CAR
 let descriptionVideoLoop        = true;     //LOOP DO VIDEO
 let descriptionVideoFadeSec     = 0.0;      //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
 let descriptionVideoHover       = false;    //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
+let disableButtonFirst          = false;    //SE AS SÉRIES DESATIVADAS DEVEM SER OS PRIMEIROS
 
 //=======================================================================
 //FLAGS
@@ -3133,13 +3134,30 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
 
   groups.forEach((group, groupIndex) => {
     const sortedGroup = [...group.group].sort((a, b) => {
+      // Prioridade 1: Baseado em enabled e na config disableButtonFirst
+      const aDisabled = !a.enabled;  // true se desativado
+      const bDisabled = !b.enabled;
+      let aPriority = aDisabled ? 0 : 1;  // Por padrão, desativado (0) antes de ativado (1)
+      let bPriority = bDisabled ? 0 : 1;
+      if (!disableButtonFirst) {
+        // Inverte: desativado (1) depois de ativado (0)
+        aPriority = aDisabled ? 1 : 0;
+        bPriority = bDisabled ? 1 : 0;
+      }
+      if (aPriority !== bPriority) return aPriority - bPriority;
+
+      // Prioridade 2: Presença de badge (com badge primeiro)
       const aHasBadge = a.badge && a.badge !== "";
       const bHasBadge = b.badge && b.badge !== "";
       if (aHasBadge !== bHasBadge) return bHasBadge - aHasBadge;
+
+      // Prioridade 3: Valor do badge (alfabético)
       if (aHasBadge && bHasBadge) {
         const cmp = a.badge.localeCompare(b.badge);
         if (cmp !== 0) return cmp;
       }
+
+      // Prioridade 4: Nome (alfabético)
       return a.name.localeCompare(b.name);
     });
 
@@ -3468,10 +3486,31 @@ function updateFavorites(mode = 'normal') {
 
   const hydrated = favorites.map(f => getCanonicalSerieByName(favName(f)) || f);
 
-  const sorted = [...hydrated].sort((a,b)=> {
-    const ah = a.badge && a.badge !== ""; const bh = b.badge && b.badge !== "";
+  const sorted = [...hydrated].sort((a, b) => {
+    // Prioridade 1: Baseado em enabled e na config disableButtonFirst
+    const aDisabled = !a.enabled;  // true se desativado
+    const bDisabled = !b.enabled;
+    let aPriority = aDisabled ? 0 : 1;  // Por padrão, desativado (0) antes de ativado (1)
+    let bPriority = bDisabled ? 0 : 1;
+    if (!disableButtonFirst) {
+      // Inverte: desativado (1) depois de ativado (0)
+      aPriority = aDisabled ? 1 : 0;
+      bPriority = bDisabled ? 1 : 0;
+    }
+    if (aPriority !== bPriority) return aPriority - bPriority;
+
+    // Prioridade 2: Presença de badge (com badge primeiro)
+    const ah = a.badge && a.badge !== "";
+    const bh = b.badge && b.badge !== "";
     if (ah !== bh) return bh - ah;
-    if (ah && bh) { const cmp = a.badge.localeCompare(b.badge); if (cmp) return cmp; }
+
+    // Prioridade 3: Valor do badge (alfabético)
+    if (ah && bh) {
+      const cmp = a.badge.localeCompare(b.badge);
+      if (cmp) return cmp;
+    }
+
+    // Prioridade 4: Nome (alfabético)
     return a.name.localeCompare(b.name);
   });
 

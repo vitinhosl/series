@@ -7,14 +7,14 @@ export const biblicalData = [
           {
             name: "A Terra Prometida",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/3FzZHWW.jpeg",
-                "https://i.imgur.com/HFGzr9d.jpeg",
-                "https://i.imgur.com/W56d1ie.jpeg",
-                "https://pp-vod-img-aws.akamaized.net/0068571/0068571_200.jpg",
-                // "https://i.imgur.com/eiBmJtU.jpeg" //MESMA DE CIMA IMGUR
-                // "https://i.imgur.com/mmMeNkp.jpeg",
-            ],
+                url: [
+                    "https://i.imgur.com/3FzZHWW.jpeg",
+                    "https://i.imgur.com/HFGzr9d.jpeg",
+                    "https://i.imgur.com/W56d1ie.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0068571/0068571_200.jpg",
+                    // "https://i.imgur.com/eiBmJtU.jpeg" //MESMA DE CIMA IMGUR
+                    // "https://i.imgur.com/mmMeNkp.jpeg",
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -263,15 +263,15 @@ export const biblicalData = [
           {
             name: "Os Dez Mandamentos",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/r1nTkeV.jpeg",
-                "https://pp-vod-img-aws.akamaized.net/0090405/0090405_200.jpg",
-                "https://i.imgur.com/m0rO0NY.jpeg", //https://i.imgur.com/YzVAFeq.jpeg
-                "https://i.imgur.com/CFnQGfS.jpeg",
-                "https://i.imgur.com/qUETt6r.jpeg",
-                "https://i.imgur.com/kZw3NcV.jpeg",
-                // "https://i.imgur.com/yU7qkUV.jpeg" //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://i.imgur.com/r1nTkeV.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0090405/0090405_200.jpg",
+                    "https://i.imgur.com/m0rO0NY.jpeg", //https://i.imgur.com/YzVAFeq.jpeg
+                    "https://i.imgur.com/CFnQGfS.jpeg",
+                    "https://i.imgur.com/qUETt6r.jpeg",
+                    "https://i.imgur.com/kZw3NcV.jpeg",
+                    // "https://i.imgur.com/yU7qkUV.jpeg" //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -622,14 +622,14 @@ export const biblicalData = [
           {
             name: "Jezabel",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/pgGkftW.jpeg",
-                "https://i.imgur.com/gxlYNza.jpeg",
-                "https://i.imgur.com/lmTWoCz.jpeg",
-                "https://i.imgur.com/Z3WUXd9.jpeg",
-                "https://pp-vod-img-aws.akamaized.net/0069716/0069716_200.jpg",
-                // "https://i.imgur.com/KK33zSJ.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://i.imgur.com/pgGkftW.jpeg",
+                    "https://i.imgur.com/gxlYNza.jpeg",
+                    "https://i.imgur.com/lmTWoCz.jpeg",
+                    "https://i.imgur.com/Z3WUXd9.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0069716/0069716_200.jpg",
+                    // "https://i.imgur.com/KK33zSJ.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -779,13 +779,13 @@ export const biblicalData = [
           {
             name: "Rei Davi",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/xvMBheq.jpeg",
-                "https://i.imgur.com/sSJVhSO.jpeg",
-                "https://i.imgur.com/L4TWRcP.png",
-                // "https://pp-vod-img-aws.akamaized.net/0088301/0088301_200.jpg",
-                // "https://i.imgur.com/C6y6k4S.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://i.imgur.com/xvMBheq.jpeg",
+                    "https://i.imgur.com/sSJVhSO.jpeg",
+                    "https://i.imgur.com/L4TWRcP.png",
+                    // "https://pp-vod-img-aws.akamaized.net/0088301/0088301_200.jpg",
+                    // "https://i.imgur.com/C6y6k4S.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -906,14 +906,14 @@ export const biblicalData = [
           {
             name: "José do Egito",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/Oxrdzg6.jpeg",
-                "https://i.imgur.com/Okgpw3g.png",
-                "https://i.imgur.com/Rv08WY2.jpeg",
-                "https://pp-vod-img-aws.akamaized.net/0068517/0068517_200.jpg",
-                "https://i.imgur.com/d6wuK0u.jpeg",
-                // "https://i.imgur.com/X2VwwBQ.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://i.imgur.com/Oxrdzg6.jpeg",
+                    "https://i.imgur.com/Okgpw3g.png",
+                    "https://i.imgur.com/Rv08WY2.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0068517/0068517_200.jpg",
+                    "https://i.imgur.com/d6wuK0u.jpeg",
+                    // "https://i.imgur.com/X2VwwBQ.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -1029,15 +1029,15 @@ export const biblicalData = [
           {
             name: "Jesus",
             thumb_buttons: {
-            url: [
-                "https://pp-vod-img-aws.akamaized.net/0347485/0347485_200.jpg",
-                "https://i.imgur.com/hbM64ht.jpeg",
-                "https://i.imgur.com/7zmHXhy.png",
-                "https://i.imgur.com/lVCtz63.jpeg",
-                "https://i.imgur.com/WjRXSvX.jpeg",
-                "https://i.imgur.com/JX2Coo5.png",
-                // "https://i.imgur.com/HWkdzd6.jpeg" //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://pp-vod-img-aws.akamaized.net/0347485/0347485_200.jpg",
+                    "https://i.imgur.com/hbM64ht.jpeg",
+                    "https://i.imgur.com/7zmHXhy.png",
+                    "https://i.imgur.com/lVCtz63.jpeg",
+                    "https://i.imgur.com/WjRXSvX.jpeg",
+                    "https://i.imgur.com/JX2Coo5.png",
+                    // "https://i.imgur.com/HWkdzd6.jpeg" //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -1302,14 +1302,14 @@ export const biblicalData = [
           {
             name: "Gênesis",
             thumb_buttons: {
-            url: [
-                "https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg",
-                "https://i.imgur.com/jkRZshy.jpeg",
-                "https://i.imgur.com/Ld0UYWx.jpeg",
-                // "https://imgur.com/a/NZ5fHnx", //MESMA DE CIMA IMGUR
-                "https://i.imgur.com/A68fp1F.jpeg",
-                "https://i.imgur.com/xHqjptH.jpeg",
-            ],
+                url: [
+                    "https://pp-vod-img-aws.akamaized.net/0191984/0191984_200.jpg",
+                    "https://i.imgur.com/jkRZshy.jpeg",
+                    "https://i.imgur.com/Ld0UYWx.jpeg",
+                    // "https://imgur.com/a/NZ5fHnx", //MESMA DE CIMA IMGUR
+                    "https://i.imgur.com/A68fp1F.jpeg",
+                    "https://i.imgur.com/xHqjptH.jpeg",
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -1602,13 +1602,13 @@ export const biblicalData = [
           {
             name: "O Rico e Lázaro",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/kDT7mQX.png",
-                "https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg",
-                "https://i.imgur.com/uFrpJHB.jpeg",
-                "https://i.imgur.com/io3Xbpv.jpeg",
-                // "https://i.imgur.com/6wEQHLg.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://i.imgur.com/kDT7mQX.png",
+                    "https://pp-vod-img-aws.akamaized.net/0068614/0068614_200.jpg",
+                    "https://i.imgur.com/uFrpJHB.jpeg",
+                    "https://i.imgur.com/io3Xbpv.jpeg",
+                    // "https://i.imgur.com/6wEQHLg.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -1862,12 +1862,12 @@ export const biblicalData = [
             name: "A Rainha da Pérsia",
             thumb_page: "",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/FvREJ6n.jpeg",
-                "https://i.imgur.com/tKjng2c.png", //MESMA DE CIMA IMGUR
-                "https://i.imgur.com/mVFwj6U.jpeg",
-                // "https://pp-vod-img-aws.akamaized.net/0433417/0433417_200.jpg",
-            ],
+                url: [
+                    "https://i.imgur.com/FvREJ6n.jpeg",
+                    "https://i.imgur.com/tKjng2c.png", //MESMA DE CIMA IMGUR
+                    "https://i.imgur.com/mVFwj6U.jpeg",
+                    // "https://pp-vod-img-aws.akamaized.net/0433417/0433417_200.jpg",
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -1967,15 +1967,15 @@ export const biblicalData = [
           {
             name: "A História de Ester",
             thumb_buttons: {
-            url: [
-                "https://pp-vod-img-aws.akamaized.net/0068508/0068508_200.jpg",
-                "https://i.imgur.com/jjT6cds.jpeg",
-                "https://i.imgur.com/YqgmJBA.jpeg",
-                "https://i.imgur.com/V8NXWLT.jpeg",
-                "https://i.imgur.com/jhQjNXM.jpeg",
-                "https://i.imgur.com/o389C2U.jpeg",
-                // "https://i.imgur.com/30c5JJ4.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://pp-vod-img-aws.akamaized.net/0068508/0068508_200.jpg",
+                    "https://i.imgur.com/jjT6cds.jpeg",
+                    "https://i.imgur.com/YqgmJBA.jpeg",
+                    "https://i.imgur.com/V8NXWLT.jpeg",
+                    "https://i.imgur.com/jhQjNXM.jpeg",
+                    "https://i.imgur.com/o389C2U.jpeg",
+                    // "https://i.imgur.com/30c5JJ4.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -2050,13 +2050,13 @@ export const biblicalData = [
             name: "Apocalipse",
             thumb_page: "",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/gEPrg5k.jpeg",
-                "https://i.imgur.com/KwwrJdX.jpeg",
-                "https://pp-vod-img-aws.akamaized.net/0070604/0070604_200.jpg",
-                "https://i.imgur.com/9vxK9Zf.jpeg",
-                // "https://i.imgur.com/r4GPwF5.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://i.imgur.com/gEPrg5k.jpeg",
+                    "https://i.imgur.com/KwwrJdX.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0070604/0070604_200.jpg",
+                    "https://i.imgur.com/9vxK9Zf.jpeg",
+                    // "https://i.imgur.com/r4GPwF5.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -2275,36 +2275,36 @@ export const biblicalData = [
           {
             name: "Reis",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/hhnDLbk.jpeg", //00 PADRÃO // "https://i.imgur.com/HxmEXcN.jpeg",
+                url: [
+                    "https://i.imgur.com/hhnDLbk.jpeg", //00 PADRÃO // "https://i.imgur.com/HxmEXcN.jpeg",
 
-                "https://i.imgur.com/8YEOWSo.jpeg", //01 A DECEPÇÃO
-                "https://i.imgur.com/9hNDiiK.jpeg", //02 A INGRATIDÃO
-                "https://i.imgur.com/epmdgai.jpeg", //03 A REJEIÇÃO
-                "https://i.imgur.com/DApw1J7.jpeg", //04 A ESCOLHA
-                "https://i.imgur.com/flscpX3.jpeg", //05 A PERSEGUIÇÃO
-                "https://i.imgur.com/XepJ91H.jpeg", //06 A CONQUISTA
-                "https://i.imgur.com/ZQg9S6K.jpeg", //07 O PECADO
-                "https://i.imgur.com/SdIiQCL.jpeg", //08 A CONSEQUÊNCIA
-                "https://i.imgur.com/YRiYUw6.jpeg", //09 A SUCESSÃO
-                "https://i.imgur.com/LV4TIWw.jpeg", //10 A DECADÊNCIA
-                "https://i.imgur.com/FeU4Ew9.jpeg", //11 A DIVISÃO
-                "https://i.imgur.com/e4ibeoV.jpeg", //12 A EMBOSCADA
-                "https://i.imgur.com/Z08Mkgy.jpeg", //13 A ESPERANÇA
+                    "https://i.imgur.com/8YEOWSo.jpeg", //01 A DECEPÇÃO
+                    "https://i.imgur.com/9hNDiiK.jpeg", //02 A INGRATIDÃO
+                    "https://i.imgur.com/epmdgai.jpeg", //03 A REJEIÇÃO
+                    "https://i.imgur.com/DApw1J7.jpeg", //04 A ESCOLHA
+                    "https://i.imgur.com/flscpX3.jpeg", //05 A PERSEGUIÇÃO
+                    "https://i.imgur.com/XepJ91H.jpeg", //06 A CONQUISTA
+                    "https://i.imgur.com/ZQg9S6K.jpeg", //07 O PECADO
+                    "https://i.imgur.com/SdIiQCL.jpeg", //08 A CONSEQUÊNCIA
+                    "https://i.imgur.com/YRiYUw6.jpeg", //09 A SUCESSÃO
+                    "https://i.imgur.com/LV4TIWw.jpeg", //10 A DECADÊNCIA
+                    "https://i.imgur.com/FeU4Ew9.jpeg", //11 A DIVISÃO
+                    "https://i.imgur.com/e4ibeoV.jpeg", //12 A EMBOSCADA
+                    "https://i.imgur.com/Z08Mkgy.jpeg", //13 A ESPERANÇA
 
-                // RECORD THUMBS
-                //"https://pp-vod-img-aws.akamaized.net/0256021/0256021_200.jpg", //01 A DECEPÇÃO
-                //"https://pp-vod-img-aws.akamaized.net/0260819/0260819_200.jpg", //02 A INGRATIDÃO
-                //"https://pp-vod-img-aws.akamaized.net/0276558/0276558_200.jpg", //03 A REJEIÇÃO
-                //"https://pp-vod-img-aws.akamaized.net/0283103/0283103_200.jpg", //04 A ESCOLHA
-                //"https://pp-vod-img-aws.akamaized.net/0337855/0337855_200.jpg", //05 A PERSEGUIÇÃO
-                //"https://pp-vod-img-aws.akamaized.net/0366700/0366700_200.jpg", //06 A CONQUISTA
-                //"https://pp-vod-img-aws.akamaized.net/0373820/0373820_200.jpg", //07 O PECADO
-                //"https://pp-vod-img-aws.akamaized.net/0384653/0384653_200.jpg", //08 A CONSEQUÊNCIA
-                //"https://pp-vod-img-aws.akamaized.net/0396070/0396070_200.jpg", //09 A SUCESSÃO
-                //"https://pp-vod-img-aws.akamaized.net/0424348/0424348_200.jpg", //10 A DECADÊNCIA
-                //"https://pp-vod-img-aws.akamaized.net/0429062/0429062_200.jpg", //11 A DIVISÃO
-            ],
+                    // RECORD THUMBS
+                    //"https://pp-vod-img-aws.akamaized.net/0256021/0256021_200.jpg", //01 A DECEPÇÃO
+                    //"https://pp-vod-img-aws.akamaized.net/0260819/0260819_200.jpg", //02 A INGRATIDÃO
+                    //"https://pp-vod-img-aws.akamaized.net/0276558/0276558_200.jpg", //03 A REJEIÇÃO
+                    //"https://pp-vod-img-aws.akamaized.net/0283103/0283103_200.jpg", //04 A ESCOLHA
+                    //"https://pp-vod-img-aws.akamaized.net/0337855/0337855_200.jpg", //05 A PERSEGUIÇÃO
+                    //"https://pp-vod-img-aws.akamaized.net/0366700/0366700_200.jpg", //06 A CONQUISTA
+                    //"https://pp-vod-img-aws.akamaized.net/0373820/0373820_200.jpg", //07 O PECADO
+                    //"https://pp-vod-img-aws.akamaized.net/0384653/0384653_200.jpg", //08 A CONSEQUÊNCIA
+                    //"https://pp-vod-img-aws.akamaized.net/0396070/0396070_200.jpg", //09 A SUCESSÃO
+                    //"https://pp-vod-img-aws.akamaized.net/0424348/0424348_200.jpg", //10 A DECADÊNCIA
+                    //"https://pp-vod-img-aws.akamaized.net/0429062/0429062_200.jpg", //11 A DIVISÃO
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -3030,12 +3030,12 @@ export const biblicalData = [
             name: "Sansão e Dalila",
             thumb_page: "",
             thumb_buttons: {
-            url: [
-                "https://pp-vod-img-aws.akamaized.net/0069029/0069029_200.jpg",
-                "https://i.imgur.com/ObzeTJc.jpeg",
-                "https://i.imgur.com/AUF8QiG.jpeg",
-                // "https://i.imgur.com/5IoZDhV.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://pp-vod-img-aws.akamaized.net/0069029/0069029_200.jpg",
+                    "https://i.imgur.com/ObzeTJc.jpeg",
+                    "https://i.imgur.com/AUF8QiG.jpeg",
+                    // "https://i.imgur.com/5IoZDhV.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -3124,13 +3124,13 @@ export const biblicalData = [
             name: "Lia",
             thumb_page: "",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/9vEih6n.jpeg",
-                "https://i.imgur.com/h8a6jYP.jpeg",
-                "https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg",
-                "https://i.imgur.com/89IFTki.jpeg",
-                // "https://i.imgur.com/3aJXqgl.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://i.imgur.com/9vEih6n.jpeg",
+                    "https://i.imgur.com/h8a6jYP.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0072028/0072028_200.jpg",
+                    "https://i.imgur.com/89IFTki.jpeg",
+                    // "https://i.imgur.com/3aJXqgl.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -3205,10 +3205,10 @@ export const biblicalData = [
             name: "Neemias",
             thumb_page: "",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/PIyJSbp.jpeg",
-                // "https://i.imgur.com/tzBW2PF.jpeg",
-            ],
+                url: [
+                    "https://i.imgur.com/PIyJSbp.jpeg",
+                    // "https://i.imgur.com/tzBW2PF.jpeg",
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -3277,13 +3277,13 @@ export const biblicalData = [
             name: "A Bíblia",
             thumb_page: "",
             thumb_buttons: {
-            url: [
-                // "https://i.imgur.com/clkVNbb.jpeg",
-                "https://pp-vod-img-aws.akamaized.net/0238038/0238038_200.jpg",
-                "https://i.imgur.com/nymmbbY.png",
-                "https://i.imgur.com/hG0IuOV.jpeg",
-                // "https://i.imgur.com/jgSVF31.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    // "https://i.imgur.com/clkVNbb.jpeg",
+                    "https://pp-vod-img-aws.akamaized.net/0238038/0238038_200.jpg",
+                    "https://i.imgur.com/nymmbbY.png",
+                    "https://i.imgur.com/hG0IuOV.jpeg",
+                    // "https://i.imgur.com/jgSVF31.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -3440,12 +3440,12 @@ export const biblicalData = [
             name: "Milagres de Jesus",
             thumb_page: "",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/u8ldcJl.png",
-                "https://pp-vod-img-aws.akamaized.net/0073274/0073274_200.jpg",
-                "https://i.imgur.com/E5Z4xtV.jpeg",
-                // "https://i.imgur.com/h6WWLOl.jpeg", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://i.imgur.com/u8ldcJl.png",
+                    "https://pp-vod-img-aws.akamaized.net/0073274/0073274_200.jpg",
+                    "https://i.imgur.com/E5Z4xtV.jpeg",
+                    // "https://i.imgur.com/h6WWLOl.jpeg", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "",
             type: "Temporadas",
@@ -3541,14 +3541,14 @@ export const biblicalData = [
           {
             name: "Paulo o Apóstolo",
             thumb_buttons: {
-            url: [
-                "https://i.imgur.com/okQVATu.jpeg",
-                "https://i.imgur.com/uWJmjyN.jpeg",
-                "https://i.imgur.com/mH6sHVr.jpeg",
-                "https://i.imgur.com/4g0vsCZ.jpeg",
-                // "https://pp-vod-img-aws.akamaized.net/0503079/0503079_200.jpg",
-                // "https://i.imgur.com/kcwpdNz.png", //MESMA DE CIMA IMGUR
-            ],
+                url: [
+                    "https://i.imgur.com/okQVATu.jpeg",
+                    "https://i.imgur.com/uWJmjyN.jpeg",
+                    "https://i.imgur.com/mH6sHVr.jpeg",
+                    "https://i.imgur.com/4g0vsCZ.jpeg",
+                    // "https://pp-vod-img-aws.akamaized.net/0503079/0503079_200.jpg",
+                    // "https://i.imgur.com/kcwpdNz.png", //MESMA DE CIMA IMGUR
+                ],
             },
             badge: "EM ALTA",
             type: "Temporadas",

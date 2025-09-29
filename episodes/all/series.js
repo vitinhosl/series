@@ -156,6 +156,284 @@ export const seriesData = [
               },
           ]
         },
+
+        //A RODA DO TEMPO
+        {
+            name: "A Roda do Tempo",
+            thumb_page: "",
+            thumb_buttons: {
+              url: [
+                "https://i.imgur.com/LLWJSeR.jpeg",
+              ],
+            },
+            badge: "",
+            type: "",
+            canais: false,
+            enabled: false,
+            youtube: false,
+            visible: true,
+            title: "", //TEXTO DO BOTÃO ENABLED OFF
+            carrousel: {
+                enabled: false,
+                title: "A RODA DO TEMPO",
+                logo: {
+                  enabled: false,
+                  url: "",
+                  minimalist: false,
+                },
+                thumb: [""],
+                text: "",
+                description: `
+                    
+                `
+            },
+            description: {
+                title: "A RODA DO TEMPO",
+                thumb: [
+                  "https://i.imgur.com/cOeTU5J.jpeg",
+                ],
+                video: [
+                  "https://www.youtube-nocookie.com/embed/8PbhGt8XxSM?autoplay=1",
+                  // "https://i.imgur.com/Tfae1ar.mp4",
+                ],
+                sinopse:  `
+                  Com os Amaldiçoados soltos pelo mundo, os heróis da Luz devem traçar seus próprios caminhos e reunir forças ocultas enquanto enfrentam as próprias Sombras.
+                `
+            },
+            season: [
+                {
+                  name: "Temporada 01",
+                  thumb_season: "https://i.imgur.com/9dpq8OK.png",
+                  movies: false,
+                  episodes: [
+                     { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                  ]
+                },
+            ]
+        },
+
+        //SOMBRA E OSSOS
+        {
+          name: "Sombra e Ossos",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/g4rzDUb.png",
+              "https://i.imgur.com/NwXQXGJ.jpeg",
+            ],
+          },
+          badge: "",
+          type: "",
+          canais: false,
+          enabled: false,
+          youtube: false,
+          visible: true,
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "SOMBRA E OSSOS",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "SOMBRA E OSSOS",
+              thumb: [
+                "https://i.imgur.com/ViRwaK6.jpeg",
+                // "https://i.imgur.com/FpKcbQv.jpeg",
+              ],
+              video: [
+              ],
+              sinopse:  `
+                Em um mundo atormentado por trevas e criaturas monstruosas, uma jovem cartógrafa embarca em uma perigosa jornada que pode mudar o destino de sua nação.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/FqbZZ3F.png",
+                movies: false,
+                episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                ]
+              },
+          ]
+        },
+
+        //O SENHOR DOS ANÉIS:OS ANÉIS DE PODER
+        {
+          name: "Os Anéis de Poder",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/SKEOHMc.jpeg",
+              "https://i.imgur.com/IYshKlx.png",
+              "https://i.imgur.com/aRUogCZ.png",
+              // "https://i.imgur.com/JbRssVI.jpeg",
+            ],
+          },
+          badge: "",
+          type: "",
+          canais: false,
+          enabled: false,
+          youtube: false,
+          visible: true,
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "SENHOR DOS ANÉIS: OS ANÉIS DE PODER",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "SENHOR DOS ANÉIS: OS ANÉIS DE PODER",
+              thumb: [
+                "https://i.imgur.com/hkM1IZa.jpeg",
+              ],
+              video: [
+              ],
+              sinopse:  `
+                Sauron retornou... Com planos de dominar toda a Terra-média.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/luiXZtB.jpeg",
+                movies: false,
+                episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                ]
+              },
+          ]
+        },
+
+        //GREYS ANATOMY
+        {
+          name: "Grey's Anatomy",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/ef7S2Nv.jpeg",
+              "https://i.imgur.com/gIQ8dU8.png",
+              "https://i.imgur.com/nzSQsLk.png",
+            ],
+          },
+          badge: "",
+          type: "",
+          canais: false,
+          enabled: false,
+          youtube: false,
+          visible: true,
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "GREY'S ANATOMY",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "GREY'S ANATOMY",
+              thumb: [
+                "https://i.imgur.com/6LzUpm9.jpeg",
+                "https://i.imgur.com/FxA9zwL.jpeg",
+                "https://i.imgur.com/ggt3VaZ.jpeg",
+              ],
+              video: [
+              ],
+              sinopse:  `
+                O drama médico de alta intensidade, agora em sua 15ª temporada, segue Meredith Grey e a equipe de médicos do Grey Sloan Memorial que se deparam com decisões de vida ou morte diariamente. Eles buscam conforto um do outro, e, às vezes, mais do que apenas amizade. Juntos, eles descobrem que nem a medicina nem as relações podem ser definidas em preto e branco.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/3eAqqCD.jpeg",
+                movies: false,
+                episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                ]
+              },
+          ]
+        },
+
+        //A CASA DO DRAGÃO
+        {
+          name: "A Casa do Dragão",
+          thumb_page: "",
+          thumb_buttons: {
+            url: [
+              "https://i.imgur.com/5fvFZ7s.png",
+              "https://i.imgur.com/2eWdHrM.png",
+            ],
+          },
+          badge: "",
+          type: "",
+          canais: false,
+          enabled: false,
+          youtube: false,
+          visible: true,
+          title: "", //TEXTO DO BOTÃO ENABLED OFF
+          carrousel: {
+              enabled: false,
+              title: "A CASA DO DRAGÃO",
+              logo: {
+                enabled: false,
+                url: "",
+                minimalist: false,
+              },
+              thumb: [""],
+              text: "",
+              description: `
+                  
+              `
+          },
+          description: {
+              title: "A CASA DO DRAGÃO",
+              thumb: [
+                "https://i.imgur.com/oLvUdri.png",
+                "https://i.imgur.com/r0bfoEv.png",
+              ],
+              video: [
+              ],
+              sinopse:  `
+                172 anos antes do nascimento de Daenerys, a protagonista da série original, a Casa do Dragão mostrará um dos eventos mais poderosos dentro do universo, a Dança dos Dragões. Momento esse que marca a guerra civil entre a família Targaryen.
+              `
+          },
+          season: [
+              {
+                name: "Temporada 01",
+                thumb_season: "https://i.imgur.com/EiKnrnl.jpeg",
+                movies: false,
+                episodes: [
+                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                ]
+              },
+          ]
+        },
     ]
   },
 ]
