@@ -3,310 +3,16 @@ const seriesData = seriesAll;
 
 const seriesData2 = [
     {
-      group_name: "Filmes",
-      visible: true,
-      group: [
-          //ANIMAIS FANTASTICOS
-          {
-            name: "Jo",
-            thumb_page: "",
-            thumb_buttons: {
-              url: [
-                "https://i.imgur.com/3RfyOs1.png",
-                "https://media.filmelier.com//images/tit/8407/poster/fantastic-beasts-and-where-to-find-them6048.webp",      //ANIMAIS FANTÁSTICOS 1: E ONDE HABITAM
-                "https://media.filmelier.com//images/tit/4956/poster/fantastic-beasts-the-crimes-of-grindelwald44820.webp",  //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
-                "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
-              ],
-            },
-            badge: "TESTE",
-            type: "",
-            canais: false,
-            enabled: false,
-            youtube: false,
-            visible: true,
-            title: "", //TEXTO DO BOTÃO ENABLED OFF
-            carrousel: {
-                enabled: false,
-                title: "ANIMAIS FANTASTICOS",
-                logo: {
-                  enabled: false,
-                  url: "",
-                  minimalist: false,
-                },
-                thumb: [""],
-                text: "",
-                description: `
-                    
-                `
-            },
-            description: {
-                title: "ANIMAIS FANTASTICOS",
-                thumb: [
-                  "https://i.imgur.com/XhVA7qP.jpeg",
-                ],
-                video: [
-                  "https://i.imgur.com/Tfae1ar.mp4",
-                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
-                ],
-                sinopse:  `
-                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
-                `
-            },
-            season: [
-                {
-                  name: "Filmes",
-                  thumb_season: "https://i.imgur.com/sWx8cad.png",
-                  movies: false,
-                  episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
-                    { title: "Episódio 002", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/56/42/20/56422092-b548-cc1a-b598-92d03717217a/a915cc2b-bf67-47f5-9a12-863395a298c7_FB_CRIMES_OF_GRINDELWALD_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"         , url: [""] },
-                    { title: "Episódio 003", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video211/v4/7c/ce/a8/7ccea8a2-9b01-5576-0fb0-2c94a8823269/39aae040-4990-44bf-b1c8-dc7fddc22189_FantasticBeasts_SecretsDumbledore_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp", url: [""] },
-                  ]
-                },
-            ]
-          },
-
-          {
-            name: "Animais Fantasticos",
-            thumb_page: "",
-            thumb_buttons: {
-              url: [
-                "https://media.filmelier.com//images/tit/8407/poster/fantastic-beasts-and-where-to-find-them6048.webp",      //ANIMAIS FANTÁSTICOS 1: E ONDE HABITAM
-                "https://media.filmelier.com//images/tit/4956/poster/fantastic-beasts-the-crimes-of-grindelwald44820.webp",  //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
-                "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
-              ],
-            },
-            badge: "TESTE",
-            type: "",
-            canais: false,
-            enabled: true,
-            youtube: false,
-            visible: true,
-            title: "", //TEXTO DO BOTÃO ENABLED OFF
-            carrousel: {
-                enabled: false,
-                title: "ANIMAIS FANTASTICOS",
-                logo: {
-                  enabled: false,
-                  url: "",
-                  minimalist: false,
-                },
-                thumb: [""],
-                text: "",
-                description: `
-                    
-                `
-            },
-            description: {
-                title: "ANIMAIS FANTASTICOS",
-                thumb: [
-                  "https://i.imgur.com/XhVA7qP.jpeg",
-                ],
-                video: [
-                  "https://i.imgur.com/Tfae1ar.mp4",
-                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
-                ],
-                sinopse:  `
-                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
-                `
-            },
-            season: [
-                {
-                  name: "Filmes",
-                  thumb_season: "https://i.imgur.com/sWx8cad.png",
-                  movies: false,
-                  episodes: [
-                    // { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
-                    // { title: "Episódio 002", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
-                    // { title: "Episódio 003", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
-                  ]
-                },
-            ]
-          },
-
-          {
-            name: "Animais Fantasticos2",
-            thumb_page: "",
-            thumb_buttons: {
-              url: [
-                "https://media.filmelier.com//images/tit/4956/poster/fantastic-beasts-the-crimes-of-grindelwald44820.webp",  //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
-              ],
-            },
-            badge: "",
-            type: "",
-            canais: false,
-            enabled: true,
-            youtube: false,
-            visible: true,
-            title: "", //TEXTO DO BOTÃO ENABLED OFF
-            carrousel: {
-                enabled: false,
-                title: "ANIMAIS FANTASTICOS",
-                logo: {
-                  enabled: false,
-                  url: "",
-                  minimalist: false,
-                },
-                thumb: [""],
-                text: "",
-                description: `
-                    
-                `
-            },
-            description: {
-                title: "ANIMAIS FANTASTICOS",
-                thumb: [
-                  "https://i.imgur.com/XhVA7qP.jpeg",
-                ],
-                video: [
-                  "https://i.imgur.com/Tfae1ar.mp4",
-                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
-                ],
-                sinopse:  `
-                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
-                `
-            },
-            season: [
-                {
-                  name: "Filmes",
-                  thumb_season: "https://i.imgur.com/sWx8cad.png",
-                  movies: false,
-                  episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
-                  ]
-                },
-            ]
-          },
-
-          {
-            name: "Animais Fantasticos 3",
-            thumb_page: "",
-            thumb_buttons: {
-              url: [
-                "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
-              ],
-            },
-            badge: "",
-            type: "",
-            canais: false,
-            enabled: true,
-            youtube: false,
-            visible: true,
-            title: "", //TEXTO DO BOTÃO ENABLED OFF
-            carrousel: {
-                enabled: false,
-                title: "ANIMAIS FANTASTICOS",
-                logo: {
-                  enabled: false,
-                  url: "",
-                  minimalist: false,
-                },
-                thumb: [""],
-                text: "",
-                description: `
-                    
-                `
-            },
-            description: {
-                title: "ANIMAIS FANTASTICOS",
-                thumb: [
-                  "https://i.imgur.com/XhVA7qP.jpeg",
-                ],
-                video: [
-                  "https://i.imgur.com/Tfae1ar.mp4",
-                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
-                ],
-                sinopse:  `
-                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
-                `
-            },
-            season: [
-                {
-                  name: "Filmes",
-                  thumb_season: "https://i.imgur.com/sWx8cad.png",
-                  movies: false,
-                  episodes: [
-                    // { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
-                  ]
-                },
-            ]
-          },
-      ]
-    },
-
-    {
       group_name: "Séries",
       visible: true,
       group: [
-                  {
-            name: "Animais Fantasticos 3",
-            thumb_page: "",
-            thumb_buttons: {
-              url: [
-                "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
-              ],
-            },
-            badge: "",
-            type: "",
-            canais: false,
-            enabled: true,
-            youtube: false,
-            visible: true,
-            title: "", //TEXTO DO BOTÃO ENABLED OFF
-            carrousel: {
-                enabled: false,
-                title: "ANIMAIS FANTASTICOS",
-                logo: {
-                  enabled: false,
-                  url: "",
-                  minimalist: false,
-                },
-                thumb: [""],
-                text: "",
-                description: `
-                    
-                `
-            },
-            description: {
-                title: "ANIMAIS FANTASTICOS",
-                thumb: [
-                  "https://i.imgur.com/XhVA7qP.jpeg",
-                ],
-                video: [
-                  "https://i.imgur.com/Tfae1ar.mp4",
-                  "https://drive.google.com/file/d/1SCtkaPtgTUqH25KvTfNGrd8rKaFUQUS9/preview?autoplay=1",
-                ],
-                sinopse:  `
-                  Quem se senta no trono de ferro controla os sete reinos. Game of Thrones segue a luta das famílias nobres que cobiçam esse poder. Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.
-                `
-            },
-            season: [
-                {
-                  name: "Filmes",
-                  thumb_season: "https://i.imgur.com/sWx8cad.png",
-                  movies: false,
-                  episodes: [
-                    // { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://is1-ssl.mzstatic.com/image/thumb/Video221/v4/3e/8b/6c/3e8b6c91-8646-adb8-31e2-1768e85a5d04/a149d996-07e0-4cf2-b855-5342f2258b11_FANTASTIC_BEASTS_AWTFT_2024_H_DD_KA_TT_3840x2160_300dpi_BR.jpg/290x163.webp"           , url: [""] },
-                  ]
-                },
-            ]
-          },
-      ]
-    },
-];
-
-const seriesData3 = [
-    {
-      group_name: "Séries",
-      visible: true,
-      group: [
-        //A RODA DO TEMPO
+        //GACHIAKUTA
         {
-            name: "A Roda do Tempo",
+            name: "Gachiakuta",
             thumb_page: "",
             thumb_buttons: {
               url: [
-                "https://i.imgur.com/LLWJSeR.jpeg",
+                "https://i.imgur.com/ooWl5H3.jpeg",
               ],
             },
             badge: "",
@@ -318,7 +24,7 @@ const seriesData3 = [
             title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
-                title: "A RODA DO TEMPO",
+                title: "GACHIAKUTA",
                 logo: {
                   enabled: false,
                   url: "",
@@ -331,342 +37,44 @@ const seriesData3 = [
                 `
             },
             description: {
-                title: "A RODA DO TEMPO",
+                title: "GACHIAKUTA",
                 thumb: [
-                  "https://i.imgur.com/cOeTU5J.jpeg",
+                  "https://i.imgur.com/zGt3n1a.jpeg",
+                  // "https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=1200,height=675/catalog/crunchyroll/21f44d6dc9e72efa86dc75f0860376c5.jpg",
                 ],
                 video: [
-                  "https://www.youtube-nocookie.com/embed/8PbhGt8XxSM?autoplay=1",
                   // "https://i.imgur.com/Tfae1ar.mp4",
                 ],
                 sinopse:  `
-                  Com os Amaldiçoados soltos pelo mundo, os heróis da Luz devem traçar seus próprios caminhos e reunir forças ocultas enquanto enfrentam as próprias Sombras.
+                  Em uma cidade flutuante onde os ricos descartam seu lixo (e pessoas), 
+                  Rudo é acusado falsamente de homicídio e jogado no Abismo, um lugar 
+                  infernal onde vivem monstros de lixo mutantes. Para sobreviver, 
+                  ele precisa conquistar um novo poder e se unir aos errantes Zeladores. 
+                  Rudo não quer apenas lutar com os monstros, mas também contra os 
+                  corruptos que o jogaram no Inferno.
                 `
             },
             season: [
                 {
                   name: "Temporada 01",
-                  thumb_season: "https://i.imgur.com/9dpq8OK.png",
+                  thumb_season: "https://i.imgur.com/52wI7Uz.jpeg",
                   movies: false,
                   episodes: [
-                     { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                     { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/1.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E01_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 002", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/2.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E02_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 003", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/3.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E03_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 004", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/4.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E04_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 005", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/5.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E05_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 006", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/6.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E06_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 007", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/7.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E07_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 008", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/8.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E08_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 009", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/9.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E09_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 010", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/10.webp?v=1", url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E10_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 011", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/11.webp?v=1", url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E11_LEGENDADO/jwplayer.html" ]},
+                     { title: "Episódio 012", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/12.webp?v=1", url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E12_LEGENDADO/jwplayer.html" ]},
                   ]
                 },
             ]
-        },
-
-        //SOMBRA E OSSOS
-        {
-          name: "Sombra e Ossos",
-          thumb_page: "",
-          thumb_buttons: {
-            url: [
-              "https://i.imgur.com/g4rzDUb.png",
-              "https://i.imgur.com/NwXQXGJ.jpeg",
-            ],
-          },
-          badge: "",
-          type: "",
-          canais: false,
-          enabled: true,
-          youtube: false,
-          visible: true,
-          title: "", //TEXTO DO BOTÃO ENABLED OFF
-          carrousel: {
-              enabled: false,
-              title: "SOMBRA E OSSOS",
-              logo: {
-                enabled: false,
-                url: "",
-                minimalist: false,
-              },
-              thumb: [""],
-              text: "",
-              description: `
-                  
-              `
-          },
-          description: {
-              title: "SOMBRA E OSSOS",
-              thumb: [
-                "https://i.imgur.com/ViRwaK6.jpeg",
-                // "https://i.imgur.com/FpKcbQv.jpeg",
-              ],
-              video: [
-              ],
-              sinopse:  `
-                Em um mundo atormentado por trevas e criaturas monstruosas, uma jovem cartógrafa embarca em uma perigosa jornada que pode mudar o destino de sua nação.
-              `
-          },
-          season: [
-              {
-                name: "Temporada 01",
-                thumb_season: "https://i.imgur.com/FqbZZ3F.png",
-                movies: false,
-                episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
-                ]
-              },
-          ]
-        },
-
-        //O SENHOR DOS ANÉIS:OS ANÉIS DE PODER
-        {
-          name: "Os Anéis de Poder",
-          thumb_page: "",
-          thumb_buttons: {
-            url: [
-              "https://i.imgur.com/SKEOHMc.jpeg",
-              "https://i.imgur.com/IYshKlx.png",
-              "https://i.imgur.com/aRUogCZ.png",
-              // "https://i.imgur.com/JbRssVI.jpeg",
-            ],
-          },
-          badge: "",
-          type: "",
-          canais: false,
-          enabled: true,
-          youtube: false,
-          visible: true,
-          title: "", //TEXTO DO BOTÃO ENABLED OFF
-          carrousel: {
-              enabled: false,
-              title: "SENHOR DOS ANÉIS: OS ANÉIS DE PODER",
-              logo: {
-                enabled: false,
-                url: "",
-                minimalist: false,
-              },
-              thumb: [""],
-              text: "",
-              description: `
-                  
-              `
-          },
-          description: {
-              title: "SENHOR DOS ANÉIS: OS ANÉIS DE PODER",
-              thumb: [
-                "https://i.imgur.com/hkM1IZa.jpeg",
-              ],
-              video: [
-              ],
-              sinopse:  `
-                Sauron retornou... Com planos de dominar toda a Terra-média.
-              `
-          },
-          season: [
-              {
-                name: "Temporada 01",
-                thumb_season: "https://i.imgur.com/luiXZtB.jpeg",
-                movies: false,
-                episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
-                ]
-              },
-          ]
-        },
-
-        //GREYS ANATOMY
-        {
-          name: "Grey's Anatomy",
-          thumb_page: "",
-          thumb_buttons: {
-            url: [
-              "https://i.imgur.com/ef7S2Nv.jpeg",
-              "https://i.imgur.com/gIQ8dU8.png",
-              "https://i.imgur.com/nzSQsLk.png",
-            ],
-          },
-          badge: "",
-          type: "",
-          canais: false,
-          enabled: true,
-          youtube: false,
-          visible: true,
-          title: "", //TEXTO DO BOTÃO ENABLED OFF
-          carrousel: {
-              enabled: false,
-              title: "GREY'S ANATOMY",
-              logo: {
-                enabled: false,
-                url: "",
-                minimalist: false,
-              },
-              thumb: [""],
-              text: "",
-              description: `
-                  
-              `
-          },
-          description: {
-              title: "GREY'S ANATOMY",
-              thumb: [
-                "https://i.imgur.com/6LzUpm9.jpeg",
-                "https://i.imgur.com/FxA9zwL.jpeg",
-                "https://i.imgur.com/ggt3VaZ.jpeg",
-              ],
-              video: [
-              ],
-              sinopse:  `
-                O drama médico de alta intensidade, agora em sua 15ª temporada, segue Meredith Grey e a equipe de médicos do Grey Sloan Memorial que se deparam com decisões de vida ou morte diariamente. Eles buscam conforto um do outro, e, às vezes, mais do que apenas amizade. Juntos, eles descobrem que nem a medicina nem as relações podem ser definidas em preto e branco.
-              `
-          },
-          season: [
-              {
-                name: "Temporada 01",
-                thumb_season: "https://i.imgur.com/3eAqqCD.jpeg",
-                movies: false,
-                episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
-                ]
-              },
-          ]
-        },
-
-        //A CASA DO DRAGÃO
-        {
-          name: "A Casa do Dragão",
-          thumb_page: "",
-          thumb_buttons: {
-            url: [
-              "https://i.imgur.com/5fvFZ7s.png",
-              "https://i.imgur.com/2eWdHrM.png",
-            ],
-          },
-          badge: "",
-          type: "",
-          canais: false,
-          enabled: true,
-          youtube: false,
-          visible: true,
-          title: "", //TEXTO DO BOTÃO ENABLED OFF
-          carrousel: {
-              enabled: false,
-              title: "A CASA DO DRAGÃO",
-              logo: {
-                enabled: false,
-                url: "",
-                minimalist: false,
-              },
-              thumb: [""],
-              text: "",
-              description: `
-                  
-              `
-          },
-          description: {
-              title: "A CASA DO DRAGÃO",
-              thumb: [
-                "https://i.imgur.com/oLvUdri.png",
-                "https://i.imgur.com/r0bfoEv.png",
-              ],
-              video: [
-              ],
-              sinopse:  `
-                172 anos antes do nascimento de Daenerys, a protagonista da série original, a Casa do Dragão mostrará um dos eventos mais poderosos dentro do universo, a Dança dos Dragões. Momento esse que marca a guerra civil entre a família Targaryen.
-              `
-          },
-          season: [
-              {
-                name: "Temporada 01",
-                thumb_season: "https://i.imgur.com/EiKnrnl.jpeg",
-                movies: false,
-                episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
-                ]
-              },
-          ]
-        },
-      ]
-    },
-
-    {
-      group_name: "Filmes",
-      visible: true,
-      group: [
-        //VELOZES E FURIOSOS
-        {
-          name: "Velozes e Furiosos",
-          thumb_page: "",
-          thumb_buttons: {
-            url: [
-              "https://i.imgur.com/y8FBSks.jpeg", //VELOZES E FURIOSOS 1
-              "https://i.imgur.com/bvJhA7q.jpeg", //VELOZES E FURIOSOS 2
-              "https://i.imgur.com/06E4fD1.jpeg", //VELOZES E FURIOSOS 3
-              "https://i.imgur.com/mUY6E2y.jpeg", //VELOZES E FURIOSOS 4
-              "https://i.imgur.com/fCXyIWf.jpeg", //VELOZES E FURIOSOS 5
-              "https://i.imgur.com/Z1W2iiO.jpeg", //VELOZES E FURIOSOS 6
-              "https://i.imgur.com/mB9Pvi7.jpeg", //VELOZES E FURIOSOS 7
-              "https://i.imgur.com/VEOSjQB.jpeg", //VELOZES E FURIOSOS 8
-              "https://i.imgur.com/iGgpSAl.jpeg", //VELOZES E FURIOSOS 9
-              "https://i.imgur.com/PjT4mwv.jpeg", //VELOZES E FURIOSOS 10
-
-              // "",  //VELOZES E FURIOSOS 1
-              // "https://i.imgur.com/mjTmEVq.png",  //VELOZES E FURIOSOS 2
-              // "https://i.imgur.com/mUY6E2y.jpeg", //VELOZES E FURIOSOS 4
-              // "https://i.imgur.com/ONRvfhk.jpeg", //VELOZES E FURIOSOS 4
-              // "https://i.imgur.com/8l1j8xn.png",  //VELOZES E FURIOSOS 3
-              // "https://i.imgur.com/mswA0Fu.jpeg", //VELOZES E FURIOSOS 3
-              // "https://i.imgur.com/lj7CR26.jpeg", //VELOZES E FURIOSOS 5
-              // "https://i.imgur.com/Z1W2iiO.jpeg", //VELOZES E FURIOSOS 6
-              // "https://i.imgur.com/mB9Pvi7.jpeg", //VELOZES E FURIOSOS 7
-              // "https://i.imgur.com/foMeLDd.png",  //VELOZES E FURIOSOS 8
-              // "https://i.imgur.com/6RQyGF9.jpeg", //VELOZES E FURIOSOS 9
-              "", //VELOZES E FURIOSOS 10
-            ],
-          },
-          badge: "",
-          type: "",
-          canais: false,
-          enabled: true,
-          youtube: false,
-          visible: true,
-          title: "", //TEXTO DO BOTÃO ENABLED OFF
-          carrousel: {
-              enabled: false,
-              title: "VELOZES FURIOSOS",
-              logo: {
-                enabled: false,
-                url: "",
-                minimalist: false,
-              },
-              thumb: [""],
-              text: "",
-              description: `
-                  
-              `
-          },
-          description: {
-              title: "A CASA DO DRAGÃO",
-              thumb: [
-                "https://i.imgur.com/Gc5hZql.jpeg",
-                "https://i.imgur.com/G6VpLVK.jpeg",
-              ],
-              video: [
-              ],
-              sinopse:  `
-                172 anos antes do nascimento de Daenerys, a protagonista da série original, a Casa do Dragão mostrará um dos eventos mais poderosos dentro do universo, a Dança dos Dragões. Momento esse que marca a guerra civil entre a família Targaryen.
-              `
-          },
-          season: [
-              {
-                name: "Temporada 01",
-                thumb_season: "https://i.imgur.com/Jeo4AaK.png",
-                movies: false,
-                episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
-                    { title: "Episódio 002", subtitle: "", duration: "", thumb: "" , url: [""] },
-                    { title: "Episódio 003", subtitle: "", duration: "", thumb: "" , url: [""] },
-                    { title: "Episódio 004", subtitle: "", duration: "", thumb: "" , url: [""] },
-                    { title: "Episódio 005", subtitle: "", duration: "", thumb: "" , url: [""] },
-                    { title: "Episódio 006", subtitle: "", duration: "", thumb: "" , url: [""] },
-                    { title: "Episódio 007", subtitle: "", duration: "", thumb: "" , url: [""] },
-                    { title: "Episódio 008", subtitle: "", duration: "", thumb: "" , url: [""] },
-                    { title: "Episódio 009", subtitle: "", duration: "", thumb: "" , url: [""] },
-                    { title: "Episódio 010", subtitle: "", duration: "", thumb: "" , url: [""] },
-                ]
-              },
-          ]
         },
       ]
     },
