@@ -823,30 +823,4 @@ let reverse = false;
 //#endregion
 
 
-1
-"https://i.imgur.com/eAoKElJ.jpeg",
-"https://i.imgur.com/i0tiRTS.jpeg",
-"https://i.imgur.com/33Cob8u.jpeg",
-"https://i.imgur.com/IP2mKwo.jpeg",
-"https://i.imgur.com/VuVbI6H.jpeg",
-"https://i.imgur.com/nVJPRiZ.jpeg",
-"https://i.imgur.com/KencPVO.jpeg",
-"https://i.imgur.com/hI499xz.jpeg",
-"https://i.imgur.com/K6m11oq.jpeg",
-"https://i.imgur.com/wHz5WRF.jpeg",
-"https://i.imgur.com/itydLqO.jpeg",
-"https://i.imgur.com/90jFaYj.jpeg",
-
-2
-"https://i.imgur.com/4hohkN9.jpeg",
-"https://i.imgur.com/Yapkrfa.jpeg",
-"https://i.imgur.com/OKO3dbv.jpeg",
-"https://i.imgur.com/iQplVay.jpeg",
-"https://i.imgur.com/XziM8ie.jpeg",
-"https://i.imgur.com/8nZ9v2e.jpeg",
-"https://i.imgur.com/GHjDYp3.jpeg",
-"https://i.imgur.com/dNlGyve.jpeg",
-"https://i.imgur.com/23vcHnq.jpeg",
-"https://i.imgur.com/rWmrxK1.jpeg",
-"https://i.imgur.com/FQxIvEM.jpeg",
 
