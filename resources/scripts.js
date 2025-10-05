@@ -84,7 +84,7 @@ const seriesData2 = [
 //CONFIGURAÇÕES
 //=======================================================================
 // localStorage.clear();                    //LIMPA TODO O CACHE (FAVORITOS, ASSISTIDOS, ETC...)
-let autoPlay                    = true;     //AUTOPLAY NOS EPISÓDIOS
+let autoPlay                    = false;    //AUTOPLAY NOS EPISÓDIOS
 let enableArrowButtons          = false;    //EPISÓDIOS EM LISTAS >>>
 let blockRequestTop             = false;    //PERMITE BLOQUEAR A REQUISIÇÃO DO SCROLL NO TOPO (APENAS PARA TESTE DE THUMBS)
 let randomImagesCards           = false;    //AS IMAGENS ALEATÓRIAS DOS BOTÕES
