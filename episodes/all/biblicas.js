@@ -2363,7 +2363,8 @@ export const biblicalData = [
                         enabled: true,
                         title: "REIS - A DECEPÇÃO",
                         thumb: [
-                            "https://pp-vod-img-aws.akamaized.net/0256021/playplus_thumb_1600.jpg"
+                            "https://pp-vod-img-aws.akamaized.net/0256021/playplus_thumb_1600.jpg",
+                            // "https://i.imgur.com/Hkb7zAE.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis - A Decepção retrata a história da nação de Israel, 
@@ -2410,6 +2411,7 @@ export const biblicalData = [
                         title: "REIS - A INGRATIDÃO",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0260819/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/ftQDTKW.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis - A Ingratidão retrata o início do reinado de Saul, o primeiro rei 
@@ -2463,6 +2465,7 @@ export const biblicalData = [
                         title: "REIS - A REJEIÇÃO",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0276558/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/tqEYJ8m.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis - A Rejeição retrata a história do primeiro rei de 
@@ -2515,6 +2518,7 @@ export const biblicalData = [
                         title: "REIS - A ESCOLHA",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0283103/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/h5zrtxK.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis – A Escolha retrata o início de uma história de fé, amor e 
@@ -2553,6 +2557,7 @@ export const biblicalData = [
                         title: "REIS - A PERSEGUIÇÃO",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0337855/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/hDKrPYo.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis - A Perseguição retrata à incrível trajetória do temente e 
@@ -2613,6 +2618,7 @@ export const biblicalData = [
                         title: "REIS - A CONQUISTA",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0366700/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/a5mkoEl.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis – A Conquista retrata os acontecimentos da vida de Davi após a 
@@ -2661,6 +2667,7 @@ export const biblicalData = [
                         title: "REIS - A CONQUISTA",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0373820/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/O0YTMEP.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis - O Pecado retrata o auge do reinado de Davi e mergulha nas suas 
@@ -2722,6 +2729,7 @@ export const biblicalData = [
                         title: "REIS - A CONSEQUÊNCIA",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0384653/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/MQItFXd.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis – A Consequência retrata à história de Davi anos depois do 
@@ -2800,6 +2808,7 @@ export const biblicalData = [
                         title: "REIS - A SUCESSÃO",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0396070/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/Dh1hRuS.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis – A Sucessão retrata o início da trajetória de Salomão, 
@@ -2857,6 +2866,7 @@ export const biblicalData = [
                         title: "REIS - A DECADÊNCIA",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0424348/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/BKIZS2F.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis - A Decadência retrata o apogeu e o declínio do reinado de Salomão 
@@ -2900,6 +2910,7 @@ export const biblicalData = [
                         title: "REIS - A DIVISÃO",
                         thumb: [
                             "https://pp-vod-img-aws.akamaized.net/0429062/playplus_thumb_1600.jpg"
+                            // "https://i.imgur.com/UG78RSf.jpeg" //MESMA DE CIMA IMGUR
                         ],
                         sinopse:  `
                             Reis - A Divisão retrata a deplorável situação do que se tornou o reino 
@@ -3489,27 +3500,27 @@ export const biblicalData = [
                     movies: false,
                     episodes: [
 
-                    { title: "Episódio 001", subtitle: "A Pesca Maravilhosa"                  , duration: "54:23", thumb: "https://pp-vod-img-aws.akamaized.net/0125435/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2725486791385" },
-                    { title: "Episódio 002", subtitle: "A Mulher Encurvada"                   , duration: "46:53", thumb: "https://pp-vod-img-aws.akamaized.net/0123488/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2725525129945" },
-                    { title: "Episódio 003", subtitle: "O Leproso de Genesaré"                , duration: "57:59", thumb: "https://pp-vod-img-aws.akamaized.net/0125842/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2725538630361" },
-                    { title: "Episódio 004", subtitle: "A Cura da Mão Ressequida"             , duration: "51:16", thumb: "https://pp-vod-img-aws.akamaized.net/0111766/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2725553834713" },
-                    { title: "Episódio 005", subtitle: "O Endemoniado de Gerasa"              , duration: "54:17", thumb: "https://pp-vod-img-aws.akamaized.net/0111807/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2725560126169" },
-                    { title: "Episódio 006", subtitle: "A Cura do Servo do Centurião"         , duration: "43:10", thumb: "https://pp-vod-img-aws.akamaized.net/0121700/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2725568842457" },
-                    { title: "Episódio 007", subtitle: "A Impura"                             , duration: "55:16", thumb: "https://pp-vod-img-aws.akamaized.net/0125457/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2726685379289" },
-                    { title: "Episódio 008", subtitle: "O Inválido do Tanque de Betesda"      , duration: "49:25", thumb: "https://pp-vod-img-aws.akamaized.net/0111711/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2726687148761" },
-                    { title: "Episódio 009", subtitle: "O Homem Hidrópico"                    , duration: "39:14", thumb: "https://pp-vod-img-aws.akamaized.net/0120610/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2726689704665" },
-                    { title: "Episódio 010", subtitle: "A Filha de Jairo"                     , duration: "42:39", thumb: "https://pp-vod-img-aws.akamaized.net/0120731/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2726691408601" },
-                    { title: "Episódio 011", subtitle: "O Surdo de Decápolis"                 , duration: "54:28", thumb: "https://pp-vod-img-aws.akamaized.net/0125479/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2728858159833" },
-                    { title: "Episódio 012", subtitle: "A Cura do Cego de Nascença"           , duration: "47:00", thumb: "https://pp-vod-img-aws.akamaized.net/0122858/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2728860125913" },
-                    { title: "Episódio 013", subtitle: "A Ressurreição do Filho da Viúva"     , duration: "53:48", thumb: "https://pp-vod-img-aws.akamaized.net/0125320/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2728863468249" },
-                    { title: "Episódio 014", subtitle: "O Cego de Jericó"                     , duration: "50:05", thumb: "https://pp-vod-img-aws.akamaized.net/0124220/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2728864778969" },
-                    { title: "Episódio 015", subtitle: "A Cura do Paralítico de Cafarnaum"    , duration: "49:20", thumb: "https://pp-vod-img-aws.akamaized.net/0124037/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2728868252377" },
-                    { title: "Episódio 016", subtitle: "A Cura de um Menino Pessesso"         , duration: "51:56", thumb: "https://pp-vod-img-aws.akamaized.net/0124837/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729815509721" },
-                    { title: "Episódio 017", subtitle: "Os Dez Leprosos"                      , duration: "51:10", thumb: "https://pp-vod-img-aws.akamaized.net/0124910/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729821211353" },
-                    { title: "Episódio 018", subtitle: "Milagres em Genesaré"                 , duration: "49:15", thumb: "https://pp-vod-img-aws.akamaized.net/0124293/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729830910681" },
-                    { title: "Episódio 019", subtitle: "A Cura do Filho do Oficial do Rei"    , duration: "41:38", thumb: "https://pp-vod-img-aws.akamaized.net/0121425/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729834973913" },
-                    { title: "Episódio 020", subtitle: "A Pecadora que Ungiu os Pés de Jesus" , duration: "52:22", thumb: "https://pp-vod-img-aws.akamaized.net/0125190/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729840413401" },
-                    { title: "Episódio 021", subtitle: "Milagres à Beira-Mar"                 , duration: "47:01", thumb: "https://pp-vod-img-aws.akamaized.net/0111654/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729902803673" },                         
+                    { title: "Episódio 001", subtitle: "A Pesca Maravilhosa"                  , duration: "54:23", thumb: "https://i.imgur.com/3hQQ9lk.jpeg", url: "https://ok.ru/videoembed/2725486791385" },
+                    { title: "Episódio 002", subtitle: "A Mulher Encurvada"                   , duration: "46:53", thumb: "https://i.imgur.com/ejreBcW.jpeg", url: "https://ok.ru/videoembed/2725525129945" },
+                    { title: "Episódio 003", subtitle: "O Leproso de Genesaré"                , duration: "57:59", thumb: "https://i.imgur.com/cm9ez4x.jpeg", url: "https://ok.ru/videoembed/2725538630361" },
+                    { title: "Episódio 004", subtitle: "A Cura da Mão Ressequida"             , duration: "51:16", thumb: "https://i.imgur.com/QyedArT.jpeg", url: "https://ok.ru/videoembed/2725553834713" },
+                    { title: "Episódio 005", subtitle: "O Endemoniado de Gerasa"              , duration: "54:17", thumb: "https://i.imgur.com/yEnycXt.jpeg", url: "https://ok.ru/videoembed/2725560126169" },
+                    { title: "Episódio 006", subtitle: "A Cura do Servo do Centurião"         , duration: "43:10", thumb: "https://i.imgur.com/xGcGa9q.jpeg", url: "https://ok.ru/videoembed/2725568842457" },
+                    { title: "Episódio 007", subtitle: "A Impura"                             , duration: "55:16", thumb: "https://i.imgur.com/1Y56Zuz.jpeg", url: "https://ok.ru/videoembed/2726685379289" },
+                    { title: "Episódio 008", subtitle: "O Inválido do Tanque de Betesda"      , duration: "49:25", thumb: "https://i.imgur.com/XeEWcoU.jpeg", url: "https://ok.ru/videoembed/2726687148761" },
+                    { title: "Episódio 009", subtitle: "O Homem Hidrópico"                    , duration: "39:14", thumb: "https://i.imgur.com/eQRJtyG.jpeg", url: "https://ok.ru/videoembed/2726689704665" },
+                    { title: "Episódio 010", subtitle: "A Filha de Jairo"                     , duration: "42:39", thumb: "https://i.imgur.com/EyqnT5D.jpeg", url: "https://ok.ru/videoembed/2726691408601" },
+                    { title: "Episódio 011", subtitle: "O Surdo de Decápolis"                 , duration: "54:28", thumb: "https://i.imgur.com/MsOhFdB.jpeg", url: "https://ok.ru/videoembed/2728858159833" },
+                    { title: "Episódio 012", subtitle: "A Cura do Cego de Nascença"           , duration: "47:00", thumb: "https://i.imgur.com/ZJRdnUF.jpeg", url: "https://ok.ru/videoembed/2728860125913" },
+                    { title: "Episódio 013", subtitle: "A Ressurreição do Filho da Viúva"     , duration: "53:48", thumb: "https://i.imgur.com/UGwD8iF.jpeg", url: "https://ok.ru/videoembed/2728863468249" },
+                    { title: "Episódio 014", subtitle: "O Cego de Jericó"                     , duration: "50:05", thumb: "https://i.imgur.com/cDNGDyt.jpeg", url: "https://ok.ru/videoembed/2728864778969" },
+                    { title: "Episódio 015", subtitle: "A Cura do Paralítico de Cafarnaum"    , duration: "49:20", thumb: "https://i.imgur.com/I7JgBS5.jpeg", url: "https://ok.ru/videoembed/2728868252377" },
+                    { title: "Episódio 016", subtitle: "A Cura de um Menino Pessesso"         , duration: "51:56", thumb: "https://i.imgur.com/rmETsVN.jpeg", url: "https://ok.ru/videoembed/2729815509721" },
+                    { title: "Episódio 017", subtitle: "Os Dez Leprosos"                      , duration: "51:10", thumb: "https://i.imgur.com/w4ElEZf.jpeg", url: "https://ok.ru/videoembed/2729821211353" },
+                    { title: "Episódio 018", subtitle: "Milagres em Genesaré"                 , duration: "49:15", thumb: "https://i.imgur.com/ASnxybY.jpeg", url: "https://ok.ru/videoembed/2729830910681" },
+                    { title: "Episódio 019", subtitle: "A Cura do Filho do Oficial do Rei"    , duration: "41:38", thumb: "https://i.imgur.com/qglHJaS.jpeg", url: "https://ok.ru/videoembed/2729834973913" },
+                    { title: "Episódio 020", subtitle: "A Pecadora que Ungiu os Pés de Jesus" , duration: "52:22", thumb: "https://i.imgur.com/UhJQB24.jpeg", url: "https://ok.ru/videoembed/2729840413401" },
+                    { title: "Episódio 021", subtitle: "Milagres à Beira-Mar"                 , duration: "47:01", thumb: "https://i.imgur.com/r6LivlO.jpeg", url: "https://ok.ru/videoembed/2729902803673" },                         
                     ]
                 },
 
@@ -3518,20 +3529,20 @@ export const biblicalData = [
                     thumb_season: "https://i.imgur.com/MITOsUo.jpeg",
                     movies: false,
                     episodes: [
-                    { title: "Episódio 001", subtitle: "O Endemoniado de Cafarnaum"           , duration: "57:08"  , thumb: "https://pp-vod-img-aws.akamaized.net/0125786/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729921415897" },
-                    { title: "Episódio 002", subtitle: "Um Cego em Betsaida"                  , duration: "52:54"  , thumb: "https://pp-vod-img-aws.akamaized.net/0125239/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729931836121" },
-                    { title: "Episódio 003", subtitle: "O Publicano e o Jovem Rico"           , duration: "40:07"  , thumb: "https://pp-vod-img-aws.akamaized.net/0120920/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729936947929" },
-                    { title: "Episódio 004", subtitle: "A Mulher Cananeia"                    , duration: "41:54"  , thumb: "https://pp-vod-img-aws.akamaized.net/0121495/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729941338841" },
-                    { title: "Episódio 005", subtitle: "O Endemoniado Cego e Mudo"            , duration: "47:26"  , thumb: "https://pp-vod-img-aws.akamaized.net/0123410/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2729944812249" },
-                    { title: "Episódio 006", subtitle: "A Multiplicação dos Pães e Peixes"    , duration: "53:27"  , thumb: "https://pp-vod-img-aws.akamaized.net/0125426/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2732190468825" },
-                    { title: "Episódio 007", subtitle: "A Mulher Samaritana"                  , duration: "54:17"  , thumb: "https://pp-vod-img-aws.akamaized.net/0125147/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2732195973849" },
-                    { title: "Episódio 008", subtitle: "Milagres em Samaria"                  , duration: "47:33"  , thumb: "https://pp-vod-img-aws.akamaized.net/0123292/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2732201741017" },
-                    { title: "Episódio 009", subtitle: "A Mulher Adúltera"                    , duration: "1:00:39", thumb: "https://pp-vod-img-aws.akamaized.net/0112111/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2732205673177" },
-                    { title: "Episódio 010", subtitle: "A Ressurreição de Lázaro"             , duration: "47:14"  , thumb: "https://pp-vod-img-aws.akamaized.net/0123446/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2732212554457" },
-                    { title: "Episódio 011", subtitle: "A Cura do Servo do Sumo Sacerdote"    , duration: "1:01:00", thumb: "https://pp-vod-img-aws.akamaized.net/0112041/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2732218911449" },
-                    { title: "Episódio 012", subtitle: "Barrabás"                             , duration: "54:18"  , thumb: "https://pp-vod-img-aws.akamaized.net/0125421/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2732230904537" },
-                    { title: "Episódio 013", subtitle: "Os Dois Ladrões"                      , duration: "45:24"  , thumb: "https://pp-vod-img-aws.akamaized.net/0122519/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2732235754201" },
-                    { title: "Episódio 014", subtitle: "A Crucificação - Final"               , duration: "54:14"  , thumb: "https://pp-vod-img-aws.akamaized.net/0125594/playplus_thumb_180.jpg", url: "https://ok.ru/videoembed/2732243225305" },                         
+                    { title: "Episódio 001", subtitle: "O Endemoniado de Cafarnaum"           , duration: "57:08"  , thumb: "https://i.imgur.com/lbof5sT.jpeg", url: "https://ok.ru/videoembed/2729921415897" },
+                    { title: "Episódio 002", subtitle: "Um Cego em Betsaida"                  , duration: "52:54"  , thumb: "https://i.imgur.com/rNBRd8g.jpeg", url: "https://ok.ru/videoembed/2729931836121" },
+                    { title: "Episódio 003", subtitle: "O Publicano e o Jovem Rico"           , duration: "40:07"  , thumb: "https://i.imgur.com/6IqRXbw.jpeg", url: "https://ok.ru/videoembed/2729936947929" },
+                    { title: "Episódio 004", subtitle: "A Mulher Cananeia"                    , duration: "41:54"  , thumb: "https://i.imgur.com/zjiGLKw.jpeg", url: "https://ok.ru/videoembed/2729941338841" },
+                    { title: "Episódio 005", subtitle: "O Endemoniado Cego e Mudo"            , duration: "47:26"  , thumb: "https://i.imgur.com/2wKJc1I.jpeg", url: "https://ok.ru/videoembed/2729944812249" },
+                    { title: "Episódio 006", subtitle: "A Multiplicação dos Pães e Peixes"    , duration: "53:27"  , thumb: "https://i.imgur.com/OPjRRW6.jpeg", url: "https://ok.ru/videoembed/2732190468825" },
+                    { title: "Episódio 007", subtitle: "A Mulher Samaritana"                  , duration: "54:17"  , thumb: "https://i.imgur.com/DSa0oL5.jpeg", url: "https://ok.ru/videoembed/2732195973849" },
+                    { title: "Episódio 008", subtitle: "Milagres em Samaria"                  , duration: "47:33"  , thumb: "https://i.imgur.com/9OxnEQR.jpeg", url: "https://ok.ru/videoembed/2732201741017" },
+                    { title: "Episódio 009", subtitle: "A Mulher Adúltera"                    , duration: "1:00:39", thumb: "https://i.imgur.com/jgn2GmI.jpeg", url: "https://ok.ru/videoembed/2732205673177" },
+                    { title: "Episódio 010", subtitle: "A Ressurreição de Lázaro"             , duration: "47:14"  , thumb: "https://i.imgur.com/Z3uHf21.jpeg", url: "https://ok.ru/videoembed/2732212554457" },
+                    { title: "Episódio 011", subtitle: "A Cura do Servo do Sumo Sacerdote"    , duration: "1:01:00", thumb: "https://i.imgur.com/MAAtcbV.jpeg", url: "https://ok.ru/videoembed/2732218911449" },
+                    { title: "Episódio 012", subtitle: "Barrabás"                             , duration: "54:18"  , thumb: "https://i.imgur.com/ZipsMHr.jpeg", url: "https://ok.ru/videoembed/2732230904537" },
+                    { title: "Episódio 013", subtitle: "Os Dois Ladrões"                      , duration: "45:24"  , thumb: "https://i.imgur.com/Jn1goo9.jpeg", url: "https://ok.ru/videoembed/2732235754201" },
+                    { title: "Episódio 014", subtitle: "A Crucificação - Final"               , duration: "54:14"  , thumb: "https://i.imgur.com/C6CKkdV.jpeg", url: "https://ok.ru/videoembed/2732243225305" },                         
                     ]
                 }
             ]
@@ -3611,56 +3622,56 @@ export const biblicalData = [
                     ], 
                     movies: false,
                     episodes: [
-                        { title: "Episódio 001", subtitle: "", duration: "46:38"  , thumb: "https://pp-vod-img-aws.akamaized.net/0503527/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9623516547801", "https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4", "https://ok.ru/videoembed/10029747407375"] },
-                        { title: "Episódio 002", subtitle: "", duration: "46:29"  , thumb: "https://pp-vod-img-aws.akamaized.net/0503850/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9623551412953", "https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4", "https://ok.ru/videoembed/10031960099343"] },
-                        { title: "Episódio 003", subtitle: "", duration: "45:06"  , thumb: "https://pp-vod-img-aws.akamaized.net/0504080/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9623569631961", "https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4", "https://ok.ru/videoembed/10034250451471"] },
-                        { title: "Episódio 004", subtitle: "", duration: "44:47"  , thumb: "https://pp-vod-img-aws.akamaized.net/0504387/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9633639762649", "https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4", "https://ok.ru/videoembed/10037068171791"] },
-                        { title: "Episódio 005", subtitle: "", duration: "52:14"  , thumb: "https://pp-vod-img-aws.akamaized.net/0504764/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9633664404185", "https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4", "https://ok.ru/videoembed/10039623092751"] },
-                        { title: "Episódio 006", subtitle: "", duration: "49:52"  , thumb: "https://pp-vod-img-aws.akamaized.net/0505241/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9633679346393", "https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4", "https://ok.ru/videoembed/10047314201103"] },
-                        { title: "Episódio 007", subtitle: "", duration: "36:31"  , thumb: "https://pp-vod-img-aws.akamaized.net/0505589/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9652631702233", "https://cdn-novflix.com/storage1/PAULO/PAULO-007.mp4", "https://ok.ru/videoembed/10049574078991"] },
-                        { title: "Episódio 008", subtitle: "", duration: "40:53"  , thumb: "https://pp-vod-img-aws.akamaized.net/0505879/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9654593981145", "https://cdn-novflix.com/storage1/PAULO/PAULO-008.mp4", "https://ok.ru/videoembed/10052712925711"] },
-                        { title: "Episódio 009", subtitle: "", duration: "43:28"  , thumb: "https://pp-vod-img-aws.akamaized.net/0506196/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9672930233049", "https://cdn-novflix.com/storage1/PAULO/PAULO-009.mp4", "https://ok.ru/videoembed/10055794035215"] },
-                        { title: "Episódio 010", subtitle: "", duration: "41:28"  , thumb: "https://pp-vod-img-aws.akamaized.net/0506481/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9715972967129", "https://cdn-novflix.com/storage1/PAULO/PAULO-010.mp4", "https://ok.ru/videoembed/10057143749135"] },
-                        { title: "Episódio 011", subtitle: "", duration: "44:58"  , thumb: "https://pp-vod-img-aws.akamaized.net/0506999/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9717906213593", "https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4", "https://ok.ru/videoembed/10067395414543"] },
-                        { title: "Episódio 012", subtitle: "", duration: "39:23"  , thumb: "https://pp-vod-img-aws.akamaized.net/0507305/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9718428797657", "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4", "https://ok.ru/videoembed/10069833157135"] },
-                        { title: "Episódio 013", subtitle: "", duration: "47:54"  , thumb: "https://pp-vod-img-aws.akamaized.net/0507591/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9725901212377", "https://cdn-novflix.com/storage1/PAULO/PAULO-013.mp4", "https://ok.ru/videoembed/10072933992975"] },
-                        { title: "Episódio 014", subtitle: "", duration: "44:35"  , thumb: "https://pp-vod-img-aws.akamaized.net/0507892/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9725904947929", "https://cdn-novflix.com/storage1/PAULO/PAULO-014.mp4", "https://ok.ru/videoembed/10074988612111"] },
-                        { title: "Episódio 015", subtitle: "", duration: "44:50"  , thumb: "https://pp-vod-img-aws.akamaized.net/0508273/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9728533662425", "https://cdn-novflix.com/storage1/PAULO/PAULO-015.mp4", "https://ok.ru/videoembed/10077264742927"] },
-                        { title: "Episódio 016", subtitle: "", duration: "48:47"  , thumb: "https://pp-vod-img-aws.akamaized.net/0508657/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9729519717081", "https://cdn-novflix.com/storage1/PAULO/PAULO-016.mp4", "https://ok.ru/videoembed/10086794791439"] },
-                        { title: "Episódio 017", subtitle: "", duration: "44:10"  , thumb: "https://pp-vod-img-aws.akamaized.net/0508959/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9729530923737", "https://cdn-novflix.com/storage1/PAULO/PAULO-017.mp4", "https://ok.ru/videoembed/10089492449807"] },
-                        { title: "Episódio 018", subtitle: "", duration: "47:53"  , thumb: "https://pp-vod-img-aws.akamaized.net/0509268/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9729541016281", "https://cdn-novflix.com/storage1/PAULO/PAULO-018.mp4", "https://ok.ru/videoembed/10091770481167"] },
-                        { title: "Episódio 019", subtitle: "", duration: "58:00"  , thumb: "https://pp-vod-img-aws.akamaized.net/0509579/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9736014727897", "https://cdn-novflix.com/storage1/PAULO/PAULO-019.mp4", "https://ok.ru/videoembed/10092807260687"] },
-                        { title: "Episódio 020", subtitle: "", duration: "50:59"  , thumb: "https://pp-vod-img-aws.akamaized.net/0509983/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9736016825049", "https://cdn-novflix.com/storage1/PAULO/PAULO-020.mp4", "https://ok.ru/videoembed/10095901346319"] },
-                        { title: "Episódio 021", subtitle: "", duration: "50:56"  , thumb: "https://pp-vod-img-aws.akamaized.net/0510430/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9736017939161", "https://cdn-novflix.com/storage1/PAULO/PAULO-021.mp4", "https://ok.ru/videoembed/10109504915983"] },
-                        { title: "Episódio 022", subtitle: "", duration: "55:50"  , thumb: "https://pp-vod-img-aws.akamaized.net/0510775/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9750802598617", "https://cdn-novflix.com/storage1/PAULO/PAULO-022.mp4", "https://ok.ru/videoembed/10110238853647"] },
-                        { title: "Episódio 023", subtitle: "", duration: "42:46"  , thumb: "https://pp-vod-img-aws.akamaized.net/0511126/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9750810069721", "https://cdn-novflix.com/storage1/PAULO/PAULO-023.mp4", "https://ok.ru/videoembed/10112684329487"] },
-                        { title: "Episódio 024", subtitle: "", duration: "55:03"  , thumb: "https://pp-vod-img-aws.akamaized.net/0511398/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9750819834585", "https://cdn-novflix.com/storage1/PAULO/PAULO-024.mp4", "https://ok.ru/videoembed/10116804315663"] },
-                        { title: "Episódio 025", subtitle: "", duration: "35:22"  , thumb: "https://pp-vod-img-aws.akamaized.net/0511756/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9792841452249", "https://cdn-novflix.com/storage1/PAULO/PAULO-025.mp4", "https://ok.ru/videoembed/10117939333647"] },
-                        { title: "Episódio 026", subtitle: "", duration: "40:42"  , thumb: "https://i.imgur.com/q4gmGql.png"                                    , url: ["https://ok.ru/videoembed/9792881429209", "https://cdn-novflix.com/storage1/PAULO/PAULO-026.mp4", "https://ok.ru/videoembed/10126912588303"] },
-                        { title: "Episódio 027", subtitle: "", duration: "46:47"  , thumb: "https://i.imgur.com/HYhodHB.png"                                    , url: ["https://ok.ru/videoembed/9792893618905", "https://cdn-novflix.com/storage1/PAULO/PAULO-027.mp4", "https://ok.ru/videoembed/10128104229391"] },
-                        { title: "Episódio 028", subtitle: "", duration: "40:52"  , thumb: "https://i.imgur.com/XqtWvM9.png"                                    , url: ["https://ok.ru/videoembed/9798894160601", "https://cdn-novflix.com/storage1/PAULO/PAULO-028.mp4", "https://ok.ru/videoembed/10132832061967"] },
-                        { title: "Episódio 029", subtitle: "", duration: "38:24"  , thumb: "https://i.imgur.com/0Ll5Cbq.png"                                    , url: ["https://ok.ru/videoembed/9798899337945", "https://cdn-novflix.com/storage1/PAULO/PAULO-029.mp4", "https://ok.ru/videoembed/10133296318991"] },
-                        { title: "Episódio 030", subtitle: "", duration: "31:39"  , thumb: "https://i.imgur.com/div4i9x.png"                                    , url: ["https://ok.ru/videoembed/9819050019545", "https://cdn-novflix.com/storage1/PAULO/PAULO-030.mp4", "https://ok.ru/videoembed/10137138891279"] },
-                        { title: "Episódio 031", subtitle: "", duration: "40:35"  , thumb: "https://i.imgur.com/0b6XIte.jpeg"                                   , url: ["https://ok.ru/videoembed/9831735560921", "https://cdn-novflix.com/storage1/PAULO/PAULO-031.mp4", "https://ok.ru/videoembed/10147058289167"] },
-                        { title: "Episódio 032", subtitle: "", duration: "43:40"  , thumb: "https://i.imgur.com/JDHRzYV.png"                                    , url: ["https://ok.ru/videoembed/9831739034329", "https://cdn-novflix.com/storage1/PAULO/PAULO-032.mp4", "https://ok.ru/videoembed/10152384006671"] },
-                        { title: "Episódio 033", subtitle: "", duration: "39:47"  , thumb: "https://i.imgur.com/in8McsP.png"                                    , url: ["https://ok.ru/videoembed/9834659842777", "https://cdn-novflix.com/storage1/PAULO/PAULO-033.mp4", "https://ok.ru/videoembed/10166469462543"] },
-                        { title: "Episódio 034", subtitle: "", duration: "47:34"  , thumb: "https://i.imgur.com/kYzDLxg.png"                                    , url: ["https://ok.ru/videoembed/9841379773145", "https://cdn-novflix.com/storage1/PAULO/PAULO-034.mp4", "https://ok.ru/videoembed/10166515665423"] },
-                        { title: "Episódio 035", subtitle: "", duration: "47:57"  , thumb: "https://i.imgur.com/2LVmeon.jpeg"                                   , url: ["https://ok.ru/videoembed/9841387834073", "https://cdn-novflix.com/storage1/PAULO/PAULO-035.mp4", "https://ok.ru/videoembed/10166521956879"] },
-                        { title: "Episódio 036", subtitle: "", duration: "47:33"  , thumb: "https://i.imgur.com/I61hzdg.png"                                    , url: ["https://ok.ru/videoembed/9841395305177", "https://cdn-novflix.com/storage1/PAULO/PAULO-036.mp4", "https://ok.ru/videoembed/10170474039823"] },
-                        { title: "Episódio 037", subtitle: "", duration: "46:16"  , thumb: "https://i.imgur.com/LdGxqqd.png"                                    , url: ["https://ok.ru/videoembed/9863058492121", "https://cdn-novflix.com/storage1/PAULO/PAULO-037.mp4", "https://ok.ru/videoembed/10173988866575"] },
-                        { title: "Episódio 038", subtitle: "", duration: "43:15"  , thumb: "https://pp-vod-img-aws.akamaized.net/0520178/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9863069502169", "https://cdn-novflix.com/storage1/PAULO/PAULO-038.mp4", "https://ok.ru/videoembed/10175316953615"] },
-                        { title: "Episódio 039", subtitle: "", duration: "42:30"  , thumb: "https://pp-vod-img-aws.akamaized.net/0519844/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9863072582361", "https://cdn-novflix.com/storage1/PAULO/PAULO-039.mp4", "https://ok.ru/videoembed/10178163968527"] },
-                        { title: "Episódio 040", subtitle: "", duration: "46:05"  , thumb: "https://pp-vod-img-aws.akamaized.net/0519500/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9863076645593", "https://cdn-novflix.com/storage1/PAULO/PAULO-040.mp4", "https://ok.ru/videoembed/10192562424335"] },
-                        { title: "Episódio 041", subtitle: "", duration: "55:56"  , thumb: "https://pp-vod-img-aws.akamaized.net/0519065/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9863080905433", "https://cdn-novflix.com/storage1/PAULO/PAULO-041.mp4", "https://ok.ru/videoembed/10195346524687"] },
-                        { title: "Episódio 042", subtitle: "", duration: "50:18"  , thumb: "https://pp-vod-img-aws.akamaized.net/0518847/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9863085624025", "https://cdn-novflix.com/storage1/PAULO/PAULO-042.mp4", "https://ok.ru/videoembed/10195885558287"] },
-                        { title: "Episódio 043", subtitle: "", duration: "55:49"  , thumb: "https://pp-vod-img-aws.akamaized.net/0518366/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9895370361561", "https://cdn-novflix.com/storage1/PAULO/PAULO-043.mp4", "https://ok.ru/videoembed/10200717855247"] },
-                        { title: "Episódio 044", subtitle: "", duration: "50:32"  , thumb: "https://pp-vod-img-aws.akamaized.net/0517958/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9895374555865", "https://cdn-novflix.com/storage1/PAULO/PAULO-044.mp4", "https://ok.ru/videoembed/10202284034575"] },
-                        { title: "Episódio 045", subtitle: "", duration: "39:47"  , thumb: "https://pp-vod-img-aws.akamaized.net/0517761/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9895379929817", "https://cdn-novflix.com/storage1/PAULO/PAULO-045.mp4", "                                       "] },
-                        { title: "Episódio 046", subtitle: "", duration: "35:55"  , thumb: "https://pp-vod-img-aws.akamaized.net/0517437/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9917144959705", "https://cdn-novflix.com/storage1/PAULO/PAULO-046.mp4", "https://ok.ru/videoembed/10213874141711"] },
-                        { title: "Episódio 047", subtitle: "", duration: "36:52"  , thumb: "https://pp-vod-img-aws.akamaized.net/0517142/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9931566156505", "https://cdn-novflix.com/storage1/PAULO/PAULO-047.mp4", "https://ok.ru/videoembed/10214656707087"] },
-                        { title: "Episódio 048", subtitle: "", duration: "46:11"  , thumb: "https://pp-vod-img-aws.akamaized.net/0516593/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9931608361689", "https://cdn-novflix.com/storage1/PAULO/PAULO-048.mp4", "https://ok.ru/videoembed/10215537052175"] },
-                        { title: "Episódio 049", subtitle: "", duration: "54:12"  , thumb: "https://pp-vod-img-aws.akamaized.net/0516310/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9942200290009", "https://cdn-novflix.com/storage1/PAULO/PAULO-049.mp4", "https://ok.ru/videoembed/10216662960655"] },
-                        { title: "Episódio 050", subtitle: "", duration: "1:09:57", thumb: "https://pp-vod-img-aws.akamaized.net/0516039/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9942204746457", "https://cdn-novflix.com/storage1/PAULO/PAULO-050.mp4", "https://ok.ru/videoembed/10218092825103"] },
+                        { title: "Episódio 001", subtitle: "", duration: "46:38"  , thumb: "https://i.imgur.com/LCQPxyN.jpeg" , url: ["https://ok.ru/videoembed/9623516547801", "https://cdn-novflix.com/storage1/PAULO/PAULO-001.mp4", "https://ok.ru/videoembed/10029747407375"] },
+                        { title: "Episódio 002", subtitle: "", duration: "46:29"  , thumb: "https://i.imgur.com/N8DcCC1.jpeg" , url: ["https://ok.ru/videoembed/9623551412953", "https://cdn-novflix.com/storage1/PAULO/PAULO-002.mp4", "https://ok.ru/videoembed/10031960099343"] },
+                        { title: "Episódio 003", subtitle: "", duration: "45:06"  , thumb: "https://i.imgur.com/wNAJ8Ka.jpeg" , url: ["https://ok.ru/videoembed/9623569631961", "https://cdn-novflix.com/storage1/PAULO/PAULO-003.mp4", "https://ok.ru/videoembed/10034250451471"] },
+                        { title: "Episódio 004", subtitle: "", duration: "44:47"  , thumb: "https://i.imgur.com/X95JsM7.jpeg" , url: ["https://ok.ru/videoembed/9633639762649", "https://cdn-novflix.com/storage1/PAULO/PAULO-004.mp4", "https://ok.ru/videoembed/10037068171791"] },
+                        { title: "Episódio 005", subtitle: "", duration: "52:14"  , thumb: "https://i.imgur.com/J5rzsx1.jpeg" , url: ["https://ok.ru/videoembed/9633664404185", "https://cdn-novflix.com/storage1/PAULO/PAULO-005.mp4", "https://ok.ru/videoembed/10039623092751"] },
+                        { title: "Episódio 006", subtitle: "", duration: "49:52"  , thumb: "https://i.imgur.com/FFvkuYu.jpeg" , url: ["https://ok.ru/videoembed/9633679346393", "https://cdn-novflix.com/storage1/PAULO/PAULO-006.mp4", "https://ok.ru/videoembed/10047314201103"] },
+                        { title: "Episódio 007", subtitle: "", duration: "36:31"  , thumb: "https://i.imgur.com/LgohLUQ.jpeg" , url: ["https://ok.ru/videoembed/9652631702233", "https://cdn-novflix.com/storage1/PAULO/PAULO-007.mp4", "https://ok.ru/videoembed/10049574078991"] },
+                        { title: "Episódio 008", subtitle: "", duration: "40:53"  , thumb: "https://i.imgur.com/ZYB8FA1.jpeg" , url: ["https://ok.ru/videoembed/9654593981145", "https://cdn-novflix.com/storage1/PAULO/PAULO-008.mp4", "https://ok.ru/videoembed/10052712925711"] },
+                        { title: "Episódio 009", subtitle: "", duration: "43:28"  , thumb: "https://i.imgur.com/ia1jsdx.jpeg" , url: ["https://ok.ru/videoembed/9672930233049", "https://cdn-novflix.com/storage1/PAULO/PAULO-009.mp4", "https://ok.ru/videoembed/10055794035215"] },
+                        { title: "Episódio 010", subtitle: "", duration: "41:28"  , thumb: "https://i.imgur.com/PrO5OU9.jpeg" , url: ["https://ok.ru/videoembed/9715972967129", "https://cdn-novflix.com/storage1/PAULO/PAULO-010.mp4", "https://ok.ru/videoembed/10057143749135"] },
+                        { title: "Episódio 011", subtitle: "", duration: "44:58"  , thumb: "https://i.imgur.com/p1zCBWe.jpeg" , url: ["https://ok.ru/videoembed/9717906213593", "https://cdn-novflix.com/storage1/PAULO/PAULO-011.mp4", "https://ok.ru/videoembed/10067395414543"] },
+                        { title: "Episódio 012", subtitle: "", duration: "39:23"  , thumb: "https://i.imgur.com/JsJkBeN.jpeg" , url: ["https://ok.ru/videoembed/9718428797657", "https://cdn-novflix.com/storage1/PAULO/PAULO-012.mp4", "https://ok.ru/videoembed/10069833157135"] },
+                        { title: "Episódio 013", subtitle: "", duration: "47:54"  , thumb: "https://i.imgur.com/sViGAXK.jpeg" , url: ["https://ok.ru/videoembed/9725901212377", "https://cdn-novflix.com/storage1/PAULO/PAULO-013.mp4", "https://ok.ru/videoembed/10072933992975"] },
+                        { title: "Episódio 014", subtitle: "", duration: "44:35"  , thumb: "https://i.imgur.com/HIMy28O.jpeg" , url: ["https://ok.ru/videoembed/9725904947929", "https://cdn-novflix.com/storage1/PAULO/PAULO-014.mp4", "https://ok.ru/videoembed/10074988612111"] },
+                        { title: "Episódio 015", subtitle: "", duration: "44:50"  , thumb: "https://i.imgur.com/u81YveA.jpeg" , url: ["https://ok.ru/videoembed/9728533662425", "https://cdn-novflix.com/storage1/PAULO/PAULO-015.mp4", "https://ok.ru/videoembed/10077264742927"] },
+                        { title: "Episódio 016", subtitle: "", duration: "48:47"  , thumb: "https://i.imgur.com/ztl04zo.jpeg" , url: ["https://ok.ru/videoembed/9729519717081", "https://cdn-novflix.com/storage1/PAULO/PAULO-016.mp4", "https://ok.ru/videoembed/10086794791439"] },
+                        { title: "Episódio 017", subtitle: "", duration: "44:10"  , thumb: "https://i.imgur.com/h95FWVf.jpeg" , url: ["https://ok.ru/videoembed/9729530923737", "https://cdn-novflix.com/storage1/PAULO/PAULO-017.mp4", "https://ok.ru/videoembed/10089492449807"] },
+                        { title: "Episódio 018", subtitle: "", duration: "47:53"  , thumb: "https://i.imgur.com/dm0ho7g.jpeg" , url: ["https://ok.ru/videoembed/9729541016281", "https://cdn-novflix.com/storage1/PAULO/PAULO-018.mp4", "https://ok.ru/videoembed/10091770481167"] },
+                        { title: "Episódio 019", subtitle: "", duration: "58:00"  , thumb: "https://i.imgur.com/dkaEXKy.jpeg" , url: ["https://ok.ru/videoembed/9736014727897", "https://cdn-novflix.com/storage1/PAULO/PAULO-019.mp4", "https://ok.ru/videoembed/10092807260687"] },
+                        { title: "Episódio 020", subtitle: "", duration: "50:59"  , thumb: "https://i.imgur.com/6p215J2.jpeg" , url: ["https://ok.ru/videoembed/9736016825049", "https://cdn-novflix.com/storage1/PAULO/PAULO-020.mp4", "https://ok.ru/videoembed/10095901346319"] },
+                        { title: "Episódio 021", subtitle: "", duration: "50:56"  , thumb: "https://i.imgur.com/SyuZWkA.jpeg" , url: ["https://ok.ru/videoembed/9736017939161", "https://cdn-novflix.com/storage1/PAULO/PAULO-021.mp4", "https://ok.ru/videoembed/10109504915983"] },
+                        { title: "Episódio 022", subtitle: "", duration: "55:50"  , thumb: "https://i.imgur.com/4YDZCt8.jpeg" , url: ["https://ok.ru/videoembed/9750802598617", "https://cdn-novflix.com/storage1/PAULO/PAULO-022.mp4", "https://ok.ru/videoembed/10110238853647"] },
+                        { title: "Episódio 023", subtitle: "", duration: "42:46"  , thumb: "https://i.imgur.com/VWqMjlo.jpeg" , url: ["https://ok.ru/videoembed/9750810069721", "https://cdn-novflix.com/storage1/PAULO/PAULO-023.mp4", "https://ok.ru/videoembed/10112684329487"] },
+                        { title: "Episódio 024", subtitle: "", duration: "55:03"  , thumb: "https://i.imgur.com/Zd5UoSv.jpeg" , url: ["https://ok.ru/videoembed/9750819834585", "https://cdn-novflix.com/storage1/PAULO/PAULO-024.mp4", "https://ok.ru/videoembed/10116804315663"] },
+                        { title: "Episódio 025", subtitle: "", duration: "35:22"  , thumb: "https://i.imgur.com/WzM34AE.jpeg" , url: ["https://ok.ru/videoembed/9792841452249", "https://cdn-novflix.com/storage1/PAULO/PAULO-025.mp4", "https://ok.ru/videoembed/10117939333647"] },
+                        { title: "Episódio 026", subtitle: "", duration: "40:42"  , thumb: "https://i.imgur.com/q4gmGql.png"  , url: ["https://ok.ru/videoembed/9792881429209", "https://cdn-novflix.com/storage1/PAULO/PAULO-026.mp4", "https://ok.ru/videoembed/10126912588303"] },
+                        { title: "Episódio 027", subtitle: "", duration: "46:47"  , thumb: "https://i.imgur.com/HYhodHB.png"  , url: ["https://ok.ru/videoembed/9792893618905", "https://cdn-novflix.com/storage1/PAULO/PAULO-027.mp4", "https://ok.ru/videoembed/10128104229391"] },
+                        { title: "Episódio 028", subtitle: "", duration: "40:52"  , thumb: "https://i.imgur.com/XqtWvM9.png"  , url: ["https://ok.ru/videoembed/9798894160601", "https://cdn-novflix.com/storage1/PAULO/PAULO-028.mp4", "https://ok.ru/videoembed/10132832061967"] },
+                        { title: "Episódio 029", subtitle: "", duration: "38:24"  , thumb: "https://i.imgur.com/0Ll5Cbq.png"  , url: ["https://ok.ru/videoembed/9798899337945", "https://cdn-novflix.com/storage1/PAULO/PAULO-029.mp4", "https://ok.ru/videoembed/10133296318991"] },
+                        { title: "Episódio 030", subtitle: "", duration: "31:39"  , thumb: "https://i.imgur.com/div4i9x.png"  , url: ["https://ok.ru/videoembed/9819050019545", "https://cdn-novflix.com/storage1/PAULO/PAULO-030.mp4", "https://ok.ru/videoembed/10137138891279"] },
+                        { title: "Episódio 031", subtitle: "", duration: "40:35"  , thumb: "https://i.imgur.com/0b6XIte.jpeg" , url: ["https://ok.ru/videoembed/9831735560921", "https://cdn-novflix.com/storage1/PAULO/PAULO-031.mp4", "https://ok.ru/videoembed/10147058289167"] },
+                        { title: "Episódio 032", subtitle: "", duration: "43:40"  , thumb: "https://i.imgur.com/JDHRzYV.png"  , url: ["https://ok.ru/videoembed/9831739034329", "https://cdn-novflix.com/storage1/PAULO/PAULO-032.mp4", "https://ok.ru/videoembed/10152384006671"] },
+                        { title: "Episódio 033", subtitle: "", duration: "39:47"  , thumb: "https://i.imgur.com/in8McsP.png"  , url: ["https://ok.ru/videoembed/9834659842777", "https://cdn-novflix.com/storage1/PAULO/PAULO-033.mp4", "https://ok.ru/videoembed/10166469462543"] },
+                        { title: "Episódio 034", subtitle: "", duration: "47:34"  , thumb: "https://i.imgur.com/kYzDLxg.png"  , url: ["https://ok.ru/videoembed/9841379773145", "https://cdn-novflix.com/storage1/PAULO/PAULO-034.mp4", "https://ok.ru/videoembed/10166515665423"] },
+                        { title: "Episódio 035", subtitle: "", duration: "47:57"  , thumb: "https://i.imgur.com/2LVmeon.jpeg" , url: ["https://ok.ru/videoembed/9841387834073", "https://cdn-novflix.com/storage1/PAULO/PAULO-035.mp4", "https://ok.ru/videoembed/10166521956879"] },
+                        { title: "Episódio 036", subtitle: "", duration: "47:33"  , thumb: "https://i.imgur.com/I61hzdg.png"  , url: ["https://ok.ru/videoembed/9841395305177", "https://cdn-novflix.com/storage1/PAULO/PAULO-036.mp4", "https://ok.ru/videoembed/10170474039823"] },
+                        { title: "Episódio 037", subtitle: "", duration: "46:16"  , thumb: "https://i.imgur.com/LdGxqqd.png"  , url: ["https://ok.ru/videoembed/9863058492121", "https://cdn-novflix.com/storage1/PAULO/PAULO-037.mp4", "https://ok.ru/videoembed/10173988866575"] },
+                        { title: "Episódio 038", subtitle: "", duration: "43:15"  , thumb: "https://i.imgur.com/GTLiMLO.jpeg" , url: ["https://ok.ru/videoembed/9863069502169", "https://cdn-novflix.com/storage1/PAULO/PAULO-038.mp4", "https://ok.ru/videoembed/10175316953615"] },
+                        { title: "Episódio 039", subtitle: "", duration: "42:30"  , thumb: "https://i.imgur.com/84ziwDC.jpeg" , url: ["https://ok.ru/videoembed/9863072582361", "https://cdn-novflix.com/storage1/PAULO/PAULO-039.mp4", "https://ok.ru/videoembed/10178163968527"] },
+                        { title: "Episódio 040", subtitle: "", duration: "46:05"  , thumb: "https://i.imgur.com/jGuEisB.jpeg" , url: ["https://ok.ru/videoembed/9863076645593", "https://cdn-novflix.com/storage1/PAULO/PAULO-040.mp4", "https://ok.ru/videoembed/10192562424335"] },
+                        { title: "Episódio 041", subtitle: "", duration: "55:56"  , thumb: "https://i.imgur.com/JE9ds07.jpeg" , url: ["https://ok.ru/videoembed/9863080905433", "https://cdn-novflix.com/storage1/PAULO/PAULO-041.mp4", "https://ok.ru/videoembed/10195346524687"] },
+                        { title: "Episódio 042", subtitle: "", duration: "50:18"  , thumb: "https://i.imgur.com/3AbHSFL.jpeg" , url: ["https://ok.ru/videoembed/9863085624025", "https://cdn-novflix.com/storage1/PAULO/PAULO-042.mp4", "https://ok.ru/videoembed/10195885558287"] },
+                        { title: "Episódio 043", subtitle: "", duration: "55:49"  , thumb: "https://i.imgur.com/JcqgRBt.jpeg" , url: ["https://ok.ru/videoembed/9895370361561", "https://cdn-novflix.com/storage1/PAULO/PAULO-043.mp4", "https://ok.ru/videoembed/10200717855247"] },
+                        { title: "Episódio 044", subtitle: "", duration: "50:32"  , thumb: "https://i.imgur.com/P96xTzn.jpeg" , url: ["https://ok.ru/videoembed/9895374555865", "https://cdn-novflix.com/storage1/PAULO/PAULO-044.mp4", "https://ok.ru/videoembed/10202284034575"] },
+                        { title: "Episódio 045", subtitle: "", duration: "39:47"  , thumb: "https://i.imgur.com/otqF4Sd.jpeg" , url: ["https://ok.ru/videoembed/9895379929817", "https://cdn-novflix.com/storage1/PAULO/PAULO-045.mp4", "                                       "] },
+                        { title: "Episódio 046", subtitle: "", duration: "35:55"  , thumb: "https://i.imgur.com/tXZnOY0.jpeg" , url: ["https://ok.ru/videoembed/9917144959705", "https://cdn-novflix.com/storage1/PAULO/PAULO-046.mp4", "https://ok.ru/videoembed/10213874141711"] },
+                        { title: "Episódio 047", subtitle: "", duration: "36:52"  , thumb: "https://i.imgur.com/Ymcs6hV.jpeg" , url: ["https://ok.ru/videoembed/9931566156505", "https://cdn-novflix.com/storage1/PAULO/PAULO-047.mp4", "https://ok.ru/videoembed/10214656707087"] },
+                        { title: "Episódio 048", subtitle: "", duration: "46:11"  , thumb: "https://i.imgur.com/wlDCTeu.jpeg" , url: ["https://ok.ru/videoembed/9931608361689", "https://cdn-novflix.com/storage1/PAULO/PAULO-048.mp4", "https://ok.ru/videoembed/10215537052175"] },
+                        { title: "Episódio 049", subtitle: "", duration: "54:12"  , thumb: "https://i.imgur.com/dU0fNmP.jpeg" , url: ["https://ok.ru/videoembed/9942200290009", "https://cdn-novflix.com/storage1/PAULO/PAULO-049.mp4", "https://ok.ru/videoembed/10216662960655"] },
+                        { title: "Episódio 050", subtitle: "", duration: "1:09:57", thumb: "https://i.imgur.com/rjj81nr.jpeg" , url: ["https://ok.ru/videoembed/9942204746457", "https://cdn-novflix.com/storage1/PAULO/PAULO-050.mp4", "https://ok.ru/videoembed/10218092825103"] },
                     ]
                 },
             ]
@@ -3714,26 +3725,26 @@ export const biblicalData = [
                     thumb_season: "https://i.imgur.com/9iL64j0.png", //https://i.imgur.com/3FY2Ns3.jpeg //https://i.imgur.com/9iL64j0.png
                     movies: false,
                     episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "51:26"  , thumb: "https://pp-vod-img-aws.akamaized.net/0520673/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9874852481753" , "https://cdn-novflix.com/storage1/JO/JO-001.mp4"] },
-                    { title: "Episódio 002", subtitle: "", duration: "1:04:18", thumb: "https://pp-vod-img-aws.akamaized.net/0521090/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9874856676057" , "https://cdn-novflix.com/storage1/JO/JO-002.mp4"] },
-                    { title: "Episódio 003", subtitle: "", duration: "55:22"  , thumb: "https://pp-vod-img-aws.akamaized.net/0521357/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9874862836441" , "https://cdn-novflix.com/storage1/JO/JO-003.mp4"] },
-                    { title: "Episódio 004", subtitle: "", duration: "46:24"  , thumb: "https://pp-vod-img-aws.akamaized.net/0521716/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9888696634073" , "https://cdn-novflix.com/storage1/JO/JO-004.mp4"] },
-                    { title: "Episódio 005", subtitle: "", duration: "1:02:19", thumb: "https://pp-vod-img-aws.akamaized.net/0522186/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9888705743577" , "https://cdn-novflix.com/storage1/JO/JO-005.mp4"] },
-                    { title: "Episódio 006", subtitle: "", duration: "49:23"  , thumb: "https://pp-vod-img-aws.akamaized.net/0522647/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9898503047897" , "https://cdn-novflix.com/storage1/JO/JO-006.mp4"] },
-                    { title: "Episódio 007", subtitle: "", duration: "50:02"  , thumb: "https://pp-vod-img-aws.akamaized.net/0523063/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9898513337049" , "https://cdn-novflix.com/storage1/JO/JO-007.mp4"] },
-                    { title: "Episódio 008", subtitle: "", duration: "47:45"  , thumb: "https://pp-vod-img-aws.akamaized.net/0523336/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9934955154137" , "https://cdn-novflix.com/storage1/JO/JO-008.mp4"] },
-                    { title: "Episódio 009", subtitle: "", duration: "49:32"  , thumb: "https://pp-vod-img-aws.akamaized.net/0523844/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9934996572889" , "https://cdn-novflix.com/storage1/JO/JO-009.mp4"] },
-                    { title: "Episódio 010", subtitle: "", duration: "55:41"  , thumb: "https://pp-vod-img-aws.akamaized.net/0524190/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9955556002521" , "https://cdn-novflix.com/storage1/JO/JO-010.mp4"] },
-                    { title: "Episódio 011", subtitle: "", duration: "46:20"  , thumb: "https://pp-vod-img-aws.akamaized.net/0524771/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9955613149913" , "https://cdn-novflix.com/storage1/JO/JO-011.mp4"] },
-                    { title: "Episódio 012", subtitle: "", duration: "44:32"  , thumb: "https://pp-vod-img-aws.akamaized.net/0525136/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9980685781721" , "https://cdn-novflix.com/storage1/JO/JO-012.mp4"] },
-                    { title: "Episódio 013", subtitle: "", duration: "44:12"  , thumb: "https://pp-vod-img-aws.akamaized.net/0525523/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9980688992985" , "https://cdn-novflix.com/storage1/JO/JO-013.mp4"] },
-                    { title: "Episódio 014", subtitle: "", duration: "1:00:45", thumb: "https://pp-vod-img-aws.akamaized.net/0525871/playplus_thumb_180.jpg", url: ["https://ok.ru/videoembed/9980708457177" , "https://cdn-novflix.com/storage1/JO/JO-014.mp4"] },
-                    { title: "Episódio 015", subtitle: "", duration: "56:31"  , thumb: "https://i.imgur.com/mvD6aa6.png"                                    , url: ["https://ok.ru/videoembed/10006509849305", "https://cdn-novflix.com/storage1/JO/JO-015.mp4"] },
-                    { title: "Episódio 016", subtitle: "", duration: "1:02:09", thumb: "https://i.imgur.com/1HouG7S.png"                                    , url: ["https://ok.ru/videoembed/10006526429913", "https://cdn-novflix.com/storage1/JO/JO-016.mp4"] },
-                    { title: "Episódio 017", subtitle: "", duration: "40:44"  , thumb: "https://i.imgur.com/n6w2IaB.png"                                    , url: ["                                       ", "https://cdn-novflix.com/storage1/JO/JO-017.mp4"] },
-                    { title: "Episódio 018", subtitle: "", duration: "44:02"  , thumb: "https://i.imgur.com/A5mPlln.png"                                    , url: ["                                       ", "https://cdn-novflix.com/storage1/JO/JO-018.mp4"] },
-                    { title: "Episódio 019", subtitle: "", duration: "42:35"  , thumb: "https://i.imgur.com/LXUwIaS.png"                                    , url: ["                                       ", "https://cdn-novflix.com/storage1/JO/JO-019.mp4"] },
-                    { title: "Episódio 020", subtitle: "", duration: "53:26"  , thumb: "https://i.imgur.com/2dWIqRx.png"                                    , url: ["                                       ", "https://cdn-novflix.com/storage1/JO/JO-020.mp4"] },
+                    { title: "Episódio 001", subtitle: "", duration: "51:26"  , thumb: "https://i.imgur.com/rwsV3K5.jpeg", url: [ "https://ok.ru/videoembed/9874852481753" , "https://cdn-novflix.com/storage1/JO/JO-001.mp4"] },
+                    { title: "Episódio 002", subtitle: "", duration: "1:04:18", thumb: "https://i.imgur.com/d2ZgVWW.jpeg", url: [ "https://ok.ru/videoembed/9874856676057" , "https://cdn-novflix.com/storage1/JO/JO-002.mp4"] },
+                    { title: "Episódio 003", subtitle: "", duration: "55:22"  , thumb: "https://i.imgur.com/IvJN7JH.jpeg", url: [ "https://ok.ru/videoembed/9874862836441" , "https://cdn-novflix.com/storage1/JO/JO-003.mp4"] },
+                    { title: "Episódio 004", subtitle: "", duration: "46:24"  , thumb: "https://i.imgur.com/1YboFIh.jpeg", url: [ "https://ok.ru/videoembed/9888696634073" , "https://cdn-novflix.com/storage1/JO/JO-004.mp4"] },
+                    { title: "Episódio 005", subtitle: "", duration: "1:02:19", thumb: "https://i.imgur.com/lrnbXWA.jpeg", url: [ "https://ok.ru/videoembed/9888705743577" , "https://cdn-novflix.com/storage1/JO/JO-005.mp4"] },
+                    { title: "Episódio 006", subtitle: "", duration: "49:23"  , thumb: "https://i.imgur.com/9MODokJ.jpeg", url: [ "https://ok.ru/videoembed/9898503047897" , "https://cdn-novflix.com/storage1/JO/JO-006.mp4"] },
+                    { title: "Episódio 007", subtitle: "", duration: "50:02"  , thumb: "https://i.imgur.com/v0s6uC9.jpeg", url: [ "https://ok.ru/videoembed/9898513337049" , "https://cdn-novflix.com/storage1/JO/JO-007.mp4"] },
+                    { title: "Episódio 008", subtitle: "", duration: "47:45"  , thumb: "https://i.imgur.com/jPdjIZn.jpeg", url: [ "https://ok.ru/videoembed/9934955154137" , "https://cdn-novflix.com/storage1/JO/JO-008.mp4"] },
+                    { title: "Episódio 009", subtitle: "", duration: "49:32"  , thumb: "https://i.imgur.com/8Qq1Quf.jpeg", url: [ "https://ok.ru/videoembed/9934996572889" , "https://cdn-novflix.com/storage1/JO/JO-009.mp4"] },
+                    { title: "Episódio 010", subtitle: "", duration: "55:41"  , thumb: "https://i.imgur.com/IyvHHc5.jpeg", url: [ "https://ok.ru/videoembed/9955556002521" , "https://cdn-novflix.com/storage1/JO/JO-010.mp4"] },
+                    { title: "Episódio 011", subtitle: "", duration: "46:20"  , thumb: "https://i.imgur.com/4Se94aF.jpeg", url: [ "https://ok.ru/videoembed/9955613149913" , "https://cdn-novflix.com/storage1/JO/JO-011.mp4"] },
+                    { title: "Episódio 012", subtitle: "", duration: "44:32"  , thumb: "https://i.imgur.com/b0eehAm.jpeg", url: [ "https://ok.ru/videoembed/9980685781721" , "https://cdn-novflix.com/storage1/JO/JO-012.mp4"] },
+                    { title: "Episódio 013", subtitle: "", duration: "44:12"  , thumb: "https://i.imgur.com/dG4gqco.jpeg", url: [ "https://ok.ru/videoembed/9980688992985" , "https://cdn-novflix.com/storage1/JO/JO-013.mp4"] },
+                    { title: "Episódio 014", subtitle: "", duration: "1:00:45", thumb: "https://i.imgur.com/sexC6g9.jpeg", url: [ "https://ok.ru/videoembed/9980708457177" , "https://cdn-novflix.com/storage1/JO/JO-014.mp4"] },
+                    { title: "Episódio 015", subtitle: "", duration: "56:31"  , thumb: "https://i.imgur.com/mvD6aa6.png" , url: [ "https://ok.ru/videoembed/10006509849305", "https://cdn-novflix.com/storage1/JO/JO-015.mp4"] },
+                    { title: "Episódio 016", subtitle: "", duration: "1:02:02", thumb: "https://i.imgur.com/1HouG7S.png" , url: [ "https://ok.ru/videoembed/10006526429913", "https://cdn-novflix.com/storage1/JO/JO-016.mp4"] },
+                    { title: "Episódio 017", subtitle: "", duration: "40:38"  , thumb: "https://i.imgur.com/n6w2IaB.png" , url: [ "https://ok.ru/videoembed/10037185088217", "https://cdn-novflix.com/storage1/JO/JO-017.mp4"] },
+                    { title: "Episódio 018", subtitle: "", duration: "43:56"  , thumb: "https://i.imgur.com/A5mPlln.png" , url: [ "https://ok.ru/videoembed/10040840686297", "https://cdn-novflix.com/storage1/JO/JO-018.mp4"] },
+                    { title: "Episódio 019", subtitle: "", duration: "42:30"  , thumb: "https://i.imgur.com/LXUwIaS.png" , url: [ "https://ok.ru/videoembed/10040888134361", "https://cdn-novflix.com/storage1/JO/JO-019.mp4"] },
+                    { title: "Episódio 020", subtitle: "", duration: "53:21"  , thumb: "https://i.imgur.com/2dWIqRx.png" , url: [ "https://ok.ru/videoembed/10040980736729", "https://cdn-novflix.com/storage1/JO/JO-020.mp4"] },
                     ]
                 },
             ]
