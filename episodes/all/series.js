@@ -282,7 +282,7 @@ export const seriesData = [
           badge: "",
           type: "",
           canais: false,
-          enabled: false,
+          enabled: true,
           youtube: false,
           visible: true,
           title: "", //TEXTO DO BOTÃO ENABLED OFF
@@ -317,7 +317,14 @@ export const seriesData = [
                 thumb_season: "https://i.imgur.com/luiXZtB.jpeg",
                 movies: false,
                 episodes: [
-                    { title: "Episódio 001", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    { title: "Episódio 001", subtitle: "", duration: "1:05:47", thumb: "https://i.imgur.com/BXVDrQE.png" , url: ["https://etv-embed.help/e/getembed.php?sv=filemoon&id=13924&site=pobreflix&token=0zxntusluzntg1p", "https://mdfx9dc8n.net/e/z1gwgmm6agowe9x", "//streamtape.com/get_video?id=dAmeQJ9gZwSPep&expires=1760139537&ip=FRuOExyNRxSNFt&token=XVH-sVSqVPtV&stream=1"] },
+                    { title: "Episódio 002", subtitle: "", duration: "1:07:02", thumb: "https://i.imgur.com/jtGPFim.png" , url: ["https://etv-embed.help/e/getembed.php?sv=filemoon&id=13925&site=pobreflix&token=0zxntusluzntg1p", "https://mxdrop.to/e/elxkxggvbon7dz",      "//streamtape.com/get_video?id=QP2PPXKAdwt0OeA&expires=1760139811&ip=FRuOExyNRxSNFt&token=JPzeI9Mw96WS&stream=1"] },
+                    { title: "Episódio 003", subtitle: "", duration: "1:09:22", thumb: "https://i.imgur.com/3kVo7gI.png" , url: ["https://etv-embed.help/e/getembed.php?sv=filemoon&id=13926&site=pobreflix&token=0zxntusluzntg1p", "https://mdfx9dc8n.net/e/9wkrkggmf33lzn3", "//streamtape.com/get_video?id=Ypr2bZQ6aDtv4LJ&expires=1760141286&ip=FRuOExyNRxSNFt&token=SygoFy3ImJPA&stream=1"] },
+                    { title: "Episódio 004", subtitle: "", duration: "1:11:43", thumb: "https://i.imgur.com/OXPfq1K.png" , url: ["https://etv-embed.help/e/getembed.php?sv=filemoon&id=13927&site=pobreflix&token=0zxntusluzntg1p", "https://mdfx9dc8n.net/e/pjpzg8w4fg17vrd", "//streamtape.com/get_video?id=ePQ88x9yk8sYVjw&expires=1760140780&ip=FRuOExyNRxSNFt&token=tY0Tt2J6SD1_&stream=1" ] },
+                    { title: "Episódio 005", subtitle: "", duration: "1:12:10", thumb: "https://i.imgur.com/bBGczK6.png" , url: ["https://etv-embed.help/e/getembed.php?sv=filemoon&id=13928&site=pobreflix&token=0zxntusluzntg1p", "https://mdfx9dc8n.net/e/pjpvpdr8s6xezx",  "//streamtape.com/get_video?id=XkqGxkwzwWIAR9&expires=1760140819&ip=FRuOExyNRxSNFt&token=mVg2w3wwKCAq&stream=1" ] },
+                    { title: "Episódio 006", subtitle: "", duration: "1:09:29", thumb: "https://i.imgur.com/bgvS71o.png" , url: ["https://etv-embed.help/e/getembed.php?sv=filemoon&id=13929&site=pobreflix&token=0zxntusluzntg1p", "https://mdfx9dc8n.net/e/q1mnm04paeekor",  "//streamtape.com/get_video?id=kZ8l60gX0kCOjox&expires=1760140740&ip=FRuOExyNRxSNFt&token=l-ba9thrKJue&stream=1" ] },
+                    { title: "Episódio 007", subtitle: "", duration: "1:12:13", thumb: "https://i.imgur.com/VIbxgAn.png" , url: ["https://etv-embed.help/e/getembed.php?sv=filemoon&id=13930&site=pobreflix&token=0zxntusluzntg1p", "https://mdfx9dc8n.net/e/8lonomp7a3lq4w",  "//streamtape.com/get_video?id=a0vYLW0lkbixXMM&expires=1760140644&ip=FRuOExyNRxSNFt&token=pJANWZyRINRD&stream=1" ] },
+                    { title: "Episódio 008", subtitle: "", duration: "1:12:26", thumb: "https://i.imgur.com/zzRlWy6.png" , url: ["https://etv-embed.help/e/getembed.php?sv=filemoon&id=13931&site=pobreflix&token=0zxntusluzntg1p", "https://mdfx9dc8n.net/e/dkj7jmndckn3g1",  "//streamtape.com/get_video?id=a4vAqblmBXfxxpX&expires=1760140452&ip=FRuOExyNRxSNFt&token=hE2Nj0TTU8tT&stream=1"] },
                 ]
               },
           ]

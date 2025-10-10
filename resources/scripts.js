@@ -2393,43 +2393,6 @@ function renderCarousel() {
   const initialPlay = pauseCheckbox ? pauseCheckbox.checked : true;
   toggleManualPause(initialPlay);
   restartTimer();
-
-  // ---- helpers locais ----
-  function injectPlayPause(sliderEl) {
-    const existing = sliderEl.querySelector('.dots-play-btn');
-    if (existing) return existing;
-    const controlsBottom = document.createElement('div');
-    controlsBottom.className = 'controls-bottom';
-    const dotsWrap = document.createElement('div');
-    dotsWrap.className = 'dots-container';
-    const label = document.createElement('div');
-    label.className = 'dots-toggle';
-    label.setAttribute('aria-label', 'Reproduzir/Pausar');
-    const input = document.createElement('input');
-    input.className = 'dots-play-btn';
-    input.type = 'checkbox';
-    input.checked = true;
-    label.appendChild(input);
-    dotsWrap.appendChild(label);
-    controlsBottom.appendChild(dotsWrap);
-    sliderEl.appendChild(controlsBottom);
-    return input;
-  }
-
-  function removeControlsBottom(sliderEl) {
-    const el = sliderEl.querySelector('.controls-bottom');
-    if (el) el.remove();
-  }
-
-  function getOrCreateStyleTag(id) {
-    let style = document.getElementById(id);
-    if (!style) {
-      style = document.createElement('style');
-      style.id = id;
-      document.head.appendChild(style);
-    }
-    return style;
-  }
 }
 
 //=======================================================================

@@ -1,0 +1,104 @@
+:root {
+    --color-text:            rgb(233, 244, 251);
+    --color-background:      rgb(14, 18, 24);
+    --color-header:          rgb(6, 9, 15);
+    --color-header_h1:       rgb(0, 255, 128);
+    --color-search:          rgb(20, 24, 31);
+    --color-keys:            rgb(2, 207, 105);
+    --color-keys_hover:      rgb(14, 18, 24);
+    --color-input:           rgb(18, 22, 29);
+    --color-input_hover:     rgb(32, 36, 43);
+    --color-input_border:    rgb(41, 46, 54);
+    --color-badge_start:     rgb(0, 255, 128);
+    --color-badge_end:       rgb(0, 163, 82);
+    --color-button_series:   rgb(0, 163, 82);
+    --color-button_series_h: rgb(0, 255, 128);
+    --color-favorite_title:  rgb(0, 255, 128);
+    --color-button_remove:   rgb(0, 163, 82);
+    --color-button_remove_b: rgb(0, 163, 82);
+    --color-button_remove_h: rgb(0, 255, 128);
+}
+
+body {
+    color: var(--color-text);
+    background: var(--color-background);
+}
+
+header {
+    background-color: color-mix(in srgb, var(--color-header) 100%, transparent);
+}
+
+header h1 {
+    color: var(--color-header_h1);
+    text-shadow: 2px 2px 5px color-mix(in srgb, var(--color-header_h1) 70%, transparent);;
+}
+
+header.scrolled {
+    background-color: color-mix(in srgb, var(--color-header) 50%, transparent);
+}
+
+#group-search {
+    background: var(--color-search)
+}
+
+#keys button.checked {
+    background: var(--color-keys)
+}
+
+#keys button:hover {
+    background: var(--color-keys_hover)
+}
+
+.container-input {
+    border: 1px solid var(--color-input_border);
+    background-color: var(--color-input);
+}
+
+.container-input:hover {
+    background-color: var(--color-input_hover);
+}
+
+.badge {
+    background: linear-gradient(to right, var(--color-badge_start) 0%, var(--color-badge_end) 80%);
+}
+
+#group-series-header {
+
+}
+
+#group-series-header h3 {
+    color: var(--color-favorite_title);
+    text-shadow: 2px 2px 5px color-mix(in srgb, var(--color-favorite_title) 70%, transparent);;
+}
+
+#group-series-button .info button {
+    background: var(--color-button_series)
+}
+
+#group-series-button .info button:hover {
+    background: var(--color-button_series_h)
+}
+
+#group-series-cards {
+    background: linear-gradient(to right, rgb(20, 24, 31) 0%, rgb(14, 18, 24) 80%);
+}
+
+.favorite-button:hover:not(.tooltip-text),
+.favorite-button.active,
+.favorite-button:hover {
+    color: var(--color-favorite_title);
+    text-shadow: 2px 2px 10px color-mix(in srgb, var(--color-favorite_title) 70%, transparent);;
+}
+
+.tooltip-text {
+    text-shadow: none;
+}
+
+#clear-all-logs-button {
+    border: 1px solid var(--color-button_remove_b);
+    background: var(--color-button_remove)
+}
+
+#clear-all-logs-button:hover {
+    background: var(--color-button_remove_h)
+}
