@@ -1084,6 +1084,174 @@ export const novelsData= [
                     }
 
                 ]
+            },
+
+            //A USURPADORA
+            {
+                name: "A Usurpadora",
+                thumb_page: "",
+                thumb_buttons: {
+                    url: [
+                        "https://i.imgur.com/AcQ1Pm2.png",
+                    ],
+                },
+                badge: "",
+                type: "",
+                canais: false,
+                enabled: true,
+                youtube: false,
+                visible: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "A USURPADORA",
+                    logo: {
+                    enabled: false,
+                    url: "",
+                    minimalist: false,
+                    },
+                    thumb: [
+                        "",
+                    ],
+                    text: "",
+                    description: `
+
+                    `
+                },
+                description: {
+                    enabled: true,
+                    title: "A USURPADORA",
+                    thumb: [
+                        "https://i.imgur.com/smoGCiU.png",
+                    ],
+                        effect: [
+                        {
+                            hover: true,
+                            fade: 2,
+                            duration: 60,
+                            opacity: 0.5,
+                            mixBlend: 'soft-light',
+                            links: [
+                                ""
+                            ],
+                        },
+                    ],
+                    sinopse:  `
+                        A Usurpadora é uma envolvente história sobre as irmãs gêmeas Paulina e Paola, separadas ao nascer.  Quando Paola, uma mulher rica e manipuladora, força Paulina a assumir sua identidade para escapar  de sua vida familiar, a trama se transforma em um intenso drama de mentiras, vingança e redenção.  Com reviravoltas emocionantes e personagens marcantes, A Usurpadora conquistou o público com sua  mistura de romance e intriga, sendo até hoje uma das novelas mais lembradas da televisão.
+                    `
+                },
+                season: [
+                    {
+                        name: "Temporada 01",
+                        thumb_season: "https://i.imgur.com/epqKqvA.png", //https://i.imgur.com/cuvk7RK.png //https://i.imgur.com/WvprO07.png //https://i.imgur.com/epqKqvA.png
+                        movies: false,
+                        episodes: [
+                            { title: "Episódio 001", subtitle: "", duration: "45:33", thumb: "", url: ["https://cdn-novflix.com/storage5/AUS/AUS-001.mp4"] },
+                            { title: "Episódio 002", subtitle: "", duration: "42:14", thumb: "https://s04.video.glbimg.com/x216/9907195.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-002.mp4"] },
+                            { title: "Episódio 003", subtitle: "", duration: "42:36", thumb: "https://s03.video.glbimg.com/x216/9907670.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-003.mp4"] },
+                            { title: "Episódio 004", subtitle: "", duration: "41:45", thumb: "https://s04.video.glbimg.com/x216/9907183.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-004.mp4"] },
+                            { title: "Episódio 005", subtitle: "", duration: "42:18", thumb: "https://s01.video.glbimg.com/x216/9907212.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-005.mp4"] },
+                            { title: "Episódio 006", subtitle: "", duration: "42:11", thumb: "https://s02.video.glbimg.com/x216/9911933.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-006.mp4"] },
+                            { title: "Episódio 007", subtitle: "", duration: "42:16", thumb: "https://s03.video.glbimg.com/x216/9907182.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-007.mp4"] },
+                            { title: "Episódio 008", subtitle: "", duration: "42:43", thumb: "https://s01.video.glbimg.com/x216/9907200.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-008.mp4"] },
+                            { title: "Episódio 009", subtitle: "", duration: "39:44", thumb: "https://s02.video.glbimg.com/x216/9907253.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-009.mp4"] },
+                            { title: "Episódio 010", subtitle: "", duration: "43:31", thumb: "https://s02.video.glbimg.com/x216/9914385.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-010.mp4"] },
+                            { title: "Episódio 011", subtitle: "", duration: "39:47", thumb: "https://s01.video.glbimg.com/x216/9907100.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-011.mp4"] },
+                            { title: "Episódio 012", subtitle: "", duration: "41:34", thumb: "https://s02.video.glbimg.com/x216/9925717.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-012.mp4"] },
+                            { title: "Episódio 013", subtitle: "", duration: "40:55", thumb: "https://s03.video.glbimg.com/x216/9907210.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-013.mp4"] },
+                            { title: "Episódio 014", subtitle: "", duration: "41:23", thumb: "https://s01.video.glbimg.com/x216/9907156.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-014.mp4"] },
+                            { title: "Episódio 015", subtitle: "", duration: "42:11", thumb: "https://s01.video.glbimg.com/x216/9918540.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-015.mp4"] },
+                            { title: "Episódio 016", subtitle: "", duration: "40:56", thumb: "https://s03.video.glbimg.com/x216/9907234.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-016.mp4"] },
+                            { title: "Episódio 017", subtitle: "", duration: "41:03", thumb: "https://s03.video.glbimg.com/x216/9907262.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-017.mp4"] },
+                            { title: "Episódio 018", subtitle: "", duration: "41:30", thumb: "https://s02.video.glbimg.com/x216/9907213.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-018.mp4"] },
+                            { title: "Episódio 019", subtitle: "", duration: "42:55", thumb: "https://s01.video.glbimg.com/x216/9907184.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-019.mp4"] },
+                            { title: "Episódio 020", subtitle: "", duration: "39:55", thumb: "https://s01.video.glbimg.com/x216/9907188.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-020.mp4"] },
+                            { title: "Episódio 021", subtitle: "", duration: "42:16", thumb: "https://s04.video.glbimg.com/x216/9914075.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-021.mp4"] },
+                            { title: "Episódio 022", subtitle: "", duration: "42:29", thumb: "https://s04.video.glbimg.com/x216/9914291.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-022.mp4"] },
+                            { title: "Episódio 023", subtitle: "", duration: "42:51", thumb: "https://s02.video.glbimg.com/x216/9914325.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-023.mp4"] },
+                            { title: "Episódio 024", subtitle: "", duration: "43:07", thumb: "https://s03.video.glbimg.com/x216/9914378.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-024.mp4"] },
+                            { title: "Episódio 025", subtitle: "", duration: "42:40", thumb: "https://s04.video.glbimg.com/x216/9918531.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-025.mp4"] },
+                            { title: "Episódio 026", subtitle: "", duration: "43:06", thumb: "https://s01.video.glbimg.com/x216/9920600.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-026.mp4"] },
+                            { title: "Episódio 027", subtitle: "", duration: "43:25", thumb: "https://s02.video.glbimg.com/x216/9921105.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-027.mp4"] },
+                            { title: "Episódio 028", subtitle: "", duration: "42:18", thumb: "https://s04.video.glbimg.com/x216/9920751.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-028.mp4"] },
+                            { title: "Episódio 029", subtitle: "", duration: "42:46", thumb: "https://s03.video.glbimg.com/x216/9921018.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-029.mp4"] },
+                            { title: "Episódio 030", subtitle: "", duration: "41:04", thumb: "https://s02.video.glbimg.com/x216/9923137.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-030.mp4"] },
+                            { title: "Episódio 031", subtitle: "", duration: "41:46", thumb: "https://s04.video.glbimg.com/x216/9921019.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-031.mp4"] },
+                            { title: "Episódio 032", subtitle: "", duration: "40:01", thumb: "https://s03.video.glbimg.com/x216/9920706.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-032.mp4"] },
+                            { title: "Episódio 033", subtitle: "", duration: "42:22", thumb: "https://s01.video.glbimg.com/x216/9923136.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-033.mp4"] },
+                            { title: "Episódio 034", subtitle: "", duration: "43:04", thumb: "https://s02.video.glbimg.com/x216/9929417.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-034.mp4"] },
+                            { title: "Episódio 035", subtitle: "", duration: "42:54", thumb: "https://s01.video.glbimg.com/x216/9920672.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-035.mp4"] },
+                            { title: "Episódio 036", subtitle: "", duration: "43:48", thumb: "https://s01.video.glbimg.com/x216/9921096.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-036.mp4"] },
+                            { title: "Episódio 037", subtitle: "", duration: "43:59", thumb: "https://s04.video.glbimg.com/x216/9921051.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-037.mp4"] },
+                            { title: "Episódio 038", subtitle: "", duration: "45:44", thumb: "https://s02.video.glbimg.com/x216/9920765.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-038.mp4"] },
+                            { title: "Episódio 039", subtitle: "", duration: "43:19", thumb: "https://s02.video.glbimg.com/x216/9920577.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-039.mp4"] },
+                            { title: "Episódio 040", subtitle: "", duration: "44:02", thumb: "https://s03.video.glbimg.com/x216/9921074.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-040.mp4"] },
+                            { title: "Episódio 041", subtitle: "", duration: "44:07", thumb: "https://s02.video.glbimg.com/x216/9925725.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-041.mp4"] },
+                            { title: "Episódio 042", subtitle: "", duration: "44:28", thumb: "https://s04.video.glbimg.com/x216/9926659.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-042.mp4"] },
+                            { title: "Episódio 043", subtitle: "", duration: "41:15", thumb: "https://s04.video.glbimg.com/x216/9925719.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-043.mp4"] },
+                            { title: "Episódio 044", subtitle: "", duration: "42:13", thumb: "https://s02.video.glbimg.com/x216/9949409.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-044.mp4"] },
+                            { title: "Episódio 045", subtitle: "", duration: "43:49", thumb: "https://s04.video.glbimg.com/x216/9925683.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-045.mp4"] },
+                            { title: "Episódio 046", subtitle: "", duration: "43:02", thumb: "https://s03.video.glbimg.com/x216/9925726.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-046.mp4"] },
+                            { title: "Episódio 047", subtitle: "", duration: "43:44", thumb: "https://s04.video.glbimg.com/x216/9926631.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-047.mp4"] },
+                            { title: "Episódio 048", subtitle: "", duration: "42:55", thumb: "https://s01.video.glbimg.com/x216/9925688.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-048.mp4"] },
+                            { title: "Episódio 049", subtitle: "", duration: "43:26", thumb: "https://s01.video.glbimg.com/x216/9926852.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-049.mp4"] },
+                            { title: "Episódio 050", subtitle: "", duration: "43:27", thumb: "https://s02.video.glbimg.com/x216/9926633.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-050.mp4"] },
+                            { title: "Episódio 051", subtitle: "", duration: "43:26", thumb: "https://s01.video.glbimg.com/x216/9926888.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-051.mp4"] },
+                            { title: "Episódio 052", subtitle: "", duration: "43:09", thumb: "https://s02.video.glbimg.com/x216/9925633.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-052.mp4"] },
+                            { title: "Episódio 053", subtitle: "", duration: "42:57", thumb: "https://s03.video.glbimg.com/x216/9926634.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-053.mp4"] },
+                            { title: "Episódio 054", subtitle: "", duration: "43:34", thumb: "https://s03.video.glbimg.com/x216/9926642.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-054.mp4"] },
+                            { title: "Episódio 055", subtitle: "", duration: "43:16", thumb: "https://s04.video.glbimg.com/x216/9926823.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-055.mp4"] },
+                            { title: "Episódio 056", subtitle: "", duration: "43:29", thumb: "https://s02.video.glbimg.com/x216/9953157.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-056.mp4"] },
+                            { title: "Episódio 057", subtitle: "", duration: "39:30", thumb: "https://s02.video.glbimg.com/x216/9925657.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-057.mp4"] },
+                            { title: "Episódio 058", subtitle: "", duration: "40:50", thumb: "https://s03.video.glbimg.com/x216/9925678.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-058.mp4"] },
+                            { title: "Episódio 059", subtitle: "", duration: "41:20", thumb: "https://s02.video.glbimg.com/x216/9925713.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-059.mp4"] },
+                            { title: "Episódio 060", subtitle: "", duration: "43:55", thumb: "https://s04.video.glbimg.com/x216/9925715.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-060.mp4"] },
+                            { title: "Episódio 061", subtitle: "", duration: "41:29", thumb: "https://s02.video.glbimg.com/x216/9925677.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-061.mp4"] },
+                            { title: "Episódio 062", subtitle: "", duration: "45:07", thumb: "https://s02.video.glbimg.com/x216/9925661.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-062.mp4"] },
+                            { title: "Episódio 063", subtitle: "", duration: "46:29", thumb: "https://s01.video.glbimg.com/x216/9949252.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-063.mp4"] },
+                            { title: "Episódio 064", subtitle: "", duration: "43:24", thumb: "https://s02.video.glbimg.com/x216/9925681.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-064.mp4"] },
+                            { title: "Episódio 065", subtitle: "", duration: "42:09", thumb: "https://s01.video.glbimg.com/x216/9926712.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-065.mp4"] },
+                            { title: "Episódio 066", subtitle: "", duration: "43:27", thumb: "https://s02.video.glbimg.com/x216/9925653.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-066.mp4"] },
+                            { title: "Episódio 067", subtitle: "", duration: "43:24", thumb: "https://s01.video.glbimg.com/x216/9925696.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-067.mp4"] },
+                            { title: "Episódio 068", subtitle: "", duration: "43:18", thumb: "https://s01.video.glbimg.com/x216/9925712.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-068.mp4"] },
+                            { title: "Episódio 069", subtitle: "", duration: "41:15", thumb: "https://s01.video.glbimg.com/x216/9925648.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-069.mp4"] },
+                            { title: "Episódio 070", subtitle: "", duration: "44:54", thumb: "https://s02.video.glbimg.com/x216/9926641.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-070.mp4"] },
+                            { title: "Episódio 071", subtitle: "", duration: "43:24", thumb: "https://s01.video.glbimg.com/x216/9939828.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-071.mp4"] },
+                            { title: "Episódio 072", subtitle: "", duration: "43:37", thumb: "https://s03.video.glbimg.com/x216/9939830.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-072.mp4"] },
+                            { title: "Episódio 073", subtitle: "", duration: "43:16", thumb: "https://s01.video.glbimg.com/x216/9939820.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-073.mp4"] },
+                            { title: "Episódio 074", subtitle: "", duration: "41:30", thumb: "https://s01.video.glbimg.com/x216/9941164.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-074.mp4"] },
+                            { title: "Episódio 075", subtitle: "", duration: "43:22", thumb: "https://s04.video.glbimg.com/x216/9939787.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-075.mp4"] },
+                            { title: "Episódio 076", subtitle: "", duration: "40:32", thumb: "https://s01.video.glbimg.com/x216/9939816.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-076.mp4"] },
+                            { title: "Episódio 077", subtitle: "", duration: "40:04", thumb: "https://s02.video.glbimg.com/x216/9939817.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-077.mp4"] },
+                            { title: "Episódio 078", subtitle: "", duration: "39:34", thumb: "https://s03.video.glbimg.com/x216/9949450.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-078.mp4"] },
+                            { title: "Episódio 079", subtitle: "", duration: "43:31", thumb: "https://s01.video.glbimg.com/x216/9939808.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-079.mp4"] },
+                            { title: "Episódio 080", subtitle: "", duration: "40:43", thumb: "https://s02.video.glbimg.com/x216/9939821.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-080.mp4"] },
+                            { title: "Episódio 081", subtitle: "", duration: "40:17", thumb: "https://s01.video.glbimg.com/x216/9956896.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-081.mp4"] },
+                            { title: "Episódio 082", subtitle: "", duration: "43:17", thumb: "https://s04.video.glbimg.com/x216/9956891.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-082.mp4"] },
+                            { title: "Episódio 083", subtitle: "", duration: "43:39", thumb: "https://s04.video.glbimg.com/x216/9956895.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-083.mp4"] },
+                            { title: "Episódio 084", subtitle: "", duration: "42:24", thumb: "https://s03.video.glbimg.com/x216/9956894.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-084.mp4"] },
+                            { title: "Episódio 085", subtitle: "", duration: "41:37", thumb: "https://s04.video.glbimg.com/x216/9959275.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-085.mp4"] },
+                            { title: "Episódio 086", subtitle: "", duration: "41:46", thumb: "https://s02.video.glbimg.com/x216/9956889.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-086.mp4"] },
+                            { title: "Episódio 087", subtitle: "", duration: "42:59", thumb: "https://s02.video.glbimg.com/x216/9959301.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-087.mp4"] },
+                            { title: "Episódio 088", subtitle: "", duration: "41:05", thumb: "https://s03.video.glbimg.com/x216/9956890.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-088.mp4"] },
+                            { title: "Episódio 089", subtitle: "", duration: "43:19", thumb: "https://s01.video.glbimg.com/x216/9956892.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-089.mp4"] },
+                            { title: "Episódio 090", subtitle: "", duration: "42:21", thumb: "https://s04.video.glbimg.com/x216/9953187.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-090.mp4"] },
+                            { title: "Episódio 091", subtitle: "", duration: "38:23", thumb: "https://s02.video.glbimg.com/x216/9953169.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-091.mp4"] },
+                            { title: "Episódio 092", subtitle: "", duration: "40:59", thumb: "https://s03.video.glbimg.com/x216/9953974.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-092.mp4"] },
+                            { title: "Episódio 093", subtitle: "", duration: "40:58", thumb: "https://s04.video.glbimg.com/x216/9953971.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-093.mp4"] },
+                            { title: "Episódio 094", subtitle: "", duration: "40:56", thumb: "https://s04.video.glbimg.com/x216/9954011.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-094.mp4"] },
+                            { title: "Episódio 095", subtitle: "", duration: "44:57", thumb: "https://s03.video.glbimg.com/x216/9954050.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-095.mp4"] },
+                            { title: "Episódio 096", subtitle: "", duration: "40:13", thumb: "https://s04.video.glbimg.com/x216/9960327.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-096.mp4"] },
+                            { title: "Episódio 097", subtitle: "", duration: "44:29", thumb: "https://s01.video.glbimg.com/x216/9960240.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-097.mp4"] },
+                            { title: "Episódio 098", subtitle: "", duration: "42:36", thumb: "https://s01.video.glbimg.com/x216/9960332.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-098.mp4"] },
+                            { title: "Episódio 099", subtitle: "", duration: "43:05", thumb: "https://s02.video.glbimg.com/x216/9961573.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-099.mp4"] },
+                            { title: "Episódio 100", subtitle: "", duration: "41:10", thumb: "https://s03.video.glbimg.com/x216/9961626.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-100.mp4"] },
+                            { title: "Episódio 101", subtitle: "", duration: "43:27", thumb: "https://s04.video.glbimg.com/x216/9961651.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-101.mp4"] },
+                            { title: "Episódio 102", subtitle: "", duration: "41:36", thumb: "https://s03.video.glbimg.com/x216/9961726.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-102.mp4"] },
+                        ]
+                    }
+
+                ]
             }
         ]
     },

@@ -15,7 +15,7 @@ export const minecraftData = [
                 type: "",
                 canais: false,
                 enabled: true,
-                youtube: true,
+                youtube: false,
                 visible: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {
@@ -476,7 +476,7 @@ export const minecraftData = [
                 type: "",
                 canais: false,
                 enabled: false,
-                youtube: true,
+                youtube: false,
                 visible: true,
                 title: "", //TEXTO DO BOTÃO ENABLED OFF
                 carrousel: {

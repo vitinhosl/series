@@ -9,14 +9,23 @@ export const moviesData = [
             thumb_page: "",
             thumb_buttons: {
                 url: [
-                "https://media.filmelier.com//images/tit/9548/poster/harry-potter-and-the-sorcerers-stone59098.webp",                       //HARRY POTTER 1: EA PEDRA FILOSOFAL
-                "https://media.filmelier.com//images/tit/9549/poster/harry-potter-and-the-chamber-of-secrets68393.webp",                    //HARRY POTTER 2: EA CÂMARA SECRETA
-                "https://img.elo7.com.br/product/zoom/2657A18/big-poster-harry-potter-e-o-prisioneiro-de-azkaban-lo3-90x60-poster.jpg",     //HARRY POTTER 3: EO CÁLICE DE FOGO
-                "https://media.filmelier.com//images/tit/9551/poster/harry-potter-and-the-goblet-of-fire23738.webp",                        //HARRY POTTER 4: EO PRISIONEIRO DE AZKABAN
-                "https://media.filmelier.com//images/tit/9552/poster/harry-potter-and-the-order-of-the-phoenix62526.webp",                  //HARRY POTTER 5: EA ORDEM DA FÊNIX
-                "https://media.filmelier.com//images/tit/9553/poster/harry-potter-and-the-half-blood-prince48956.webp",                     //HARRY POTTER 6: EO ENIGMA DO PRÍNCIPE
-                "https://media.filmelier.com//images/tit/9554/poster/harry-potter-and-the-deathly-hallows-part-172466.webp",                //HARRY POTTER 7: EAS RELIQUIAS DA MORTE PT 1
-                "https://media.filmelier.com//images/tit/9555/poster/harry-potter-and-the-deathly-hallows-part-279188.webp",                //HARRY POTTER 8: EAS RELIQUIAS DA MORTE PT 2
+                "https://i.imgur.com/wdXyskp.png", //HARRY POTTER 1: EA PEDRA FILOSOFAL
+                "https://i.imgur.com/SJYo00O.png", //HARRY POTTER 2: EA CÂMARA SECRETA
+                "https://i.imgur.com/zmMRzon.png", //HARRY POTTER 3: EO CÁLICE DE FOGO
+                "https://i.imgur.com/bqh8keV.png", //HARRY POTTER 4: EO PRISIONEIRO DE AZKABAN
+                "https://i.imgur.com/IdOkjj3.png", //HARRY POTTER 5: EA ORDEM DA FÊNIX
+                "https://i.imgur.com/RWt83mC.png", //HARRY POTTER 6: EO ENIGMA DO PRÍNCIPE
+                "https://i.imgur.com/csXAXhz.png", //HARRY POTTER 7: EAS RELIQUIAS DA MORTE PT 1
+                "https://i.imgur.com/N6aK9dg.png", //HARRY POTTER 8: EAS RELIQUIAS DA MORTE PT 2
+
+                "https://i.imgur.com/8xGK1SM.png", //HARRY POTTER 1: EA PEDRA FILOSOFAL
+                "https://i.imgur.com/C76mOFX.png", //HARRY POTTER 2: EA CÂMARA SECRETA
+                "https://i.imgur.com/SzZpgyk.png", //HARRY POTTER 3: EO CÁLICE DE FOGO
+                "https://i.imgur.com/E4sncKt.png", //HARRY POTTER 4: EO PRISIONEIRO DE AZKABAN
+                "https://i.imgur.com/ClbbCiS.png", //HARRY POTTER 5: EA ORDEM DA FÊNIX
+                "https://i.imgur.com/JVYBDl1.png", //HARRY POTTER 6: EO ENIGMA DO PRÍNCIPE
+                "https://i.imgur.com/df4o6Du.png", //HARRY POTTER 7: EAS RELIQUIAS DA MORTE PT 1
+                "https://i.imgur.com/4vclUJV.png", //HARRY POTTER 8: EAS RELIQUIAS DA MORTE PT 2
                 ],
             },
             badge: "",
@@ -74,9 +83,11 @@ export const moviesData = [
             thumb_page: "",
             thumb_buttons: {
                 url: [
-                "https://media.filmelier.com//images/tit/8407/poster/fantastic-beasts-and-where-to-find-them6048.webp",      //ANIMAIS FANTÁSTICOS 1: E ONDE HABITAM
-                "https://media.filmelier.com//images/tit/4956/poster/fantastic-beasts-the-crimes-of-grindelwald44820.webp",  //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
-                "https://media.filmelier.com//images/tit/18912/poster/fantastic-beasts-the-secrets-of-dumbledore93807.webp", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
+                "https://i.imgur.com/69wXwwB.png", //ANIMAIS FANTÁSTICOS 1: E ONDE HABITAM
+                "https://i.imgur.com/kTpeOQv.png", //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
+                "https://i.imgur.com/FimdmeZ.png", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
+                "https://i.imgur.com/vUWlvu6.png", //ANIMAIS FANTÁSTICOS 2: OS CRIMES DE GRINDELWALD
+                "https://i.imgur.com/mMDgW7V.png", //ANIMAIS FANTÁSTICOS 3: OS SEGREDOS DE DUMBLEDORE
                 ],
             },
             badge: "",
@@ -207,6 +218,61 @@ export const moviesData = [
                         { title: "Episódio 008", subtitle: "", duration: "", thumb: "" , url: [""] },
                         { title: "Episódio 009", subtitle: "", duration: "", thumb: "" , url: [""] },
                         { title: "Episódio 010", subtitle: "", duration: "", thumb: "" , url: [""] },
+                    ]
+                    },
+                ]
+            },
+
+            //TROPA DE ELITE
+            {
+                name: "Tropa de Elite",
+                thumb_page: "",
+                thumb_buttons: {
+                    url: [
+                        "https://i.imgur.com/l8BHSFw.jpeg", //TROPA DE ELITE 1
+                        "https://i.imgur.com/1vI9zgQ.jpeg", //TROPA DE ELITE 2
+                    ],
+                },
+                badge: "",
+                type: "",
+                canais: false,
+                enabled: true,
+                youtube: false,
+                visible: true,
+                title: "", //TEXTO DO BOTÃO ENABLED OFF
+                carrousel: {
+                    enabled: false,
+                    title: "TROPA DE ELITE",
+                    logo: {
+                    enabled: false,
+                    url: "",
+                    minimalist: false,
+                    },
+                    thumb: [""],
+                    text: "",
+                    description: `
+                        
+                    `
+                },
+                description: {
+                    title: "TROPA DE ELITE",
+                    thumb: [
+                        "https://i.imgur.com/lFYO9Pa.jpeg",
+                    ],
+                    video: [
+                    ],
+                    sinopse:  `
+                        Este drama policial brasileiro acompanha um batalhão de operações especiais que defende a lei em uma favela governada pelo narcotráfico. Pressionado pela esposa a sair do batalhão, Rodrigo Nascimento procura um substituto. Ao mesmo tempo, dois amigos se candidatam ao curso de formação da Tropa de Elite.
+                    `
+                },
+                season: [
+                    {
+                    name: "Filmes",
+                    thumb_season: "https://i.imgur.com/dzjvBC3.png", //https://i.imgur.com/dzjvBC3.png //https://i.imgur.com/3xYLerW.jpeg
+                    movies: true,
+                    episodes: [
+                        { title: "Tropa de Elite",   subtitle: "", duration: "", thumb: "https://i.imgur.com/EPCzkee.png" , url: [""] },
+                        { title: "Tropa de Elite 2", subtitle: "", duration: "", thumb: "https://i.imgur.com/W05J25R.png" , url: [""] },
                     ]
                     },
                 ]

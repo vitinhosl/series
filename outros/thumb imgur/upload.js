@@ -8,30 +8,28 @@ const axios = require('axios');
 const FormData = require('form-data');
 const clipboardy = require('clipboardy');
 
+// Seu Client ID do Imgur
 const IMGUR_CLIENT_ID = '445e47c8a170c34';
 
+// Defina seus grupos com nomes e listas de URLs
 const groups = [
   {
     name: "NOME DA TABELA DAS THUMBS",
     urls: [
       "LINK DAS THUMBS POR TABELAS"
     ]
-  },
+  }
+
 ];
 
 async function uploadImageFromUrl(imageUrl, attempt = 1) {
-  const MAX_ATTEMPTS = 3; // Aumentei pra 3
+  const MAX_ATTEMPTS = 2;
   try {
-    if (!imageUrl || imageUrl === 'undefined') {
-      console.log('URL inválida pulada.');
-      return null;
-    }
-
     // Baixa a imagem como array buffer
     const imageResponse = await axios.get(imageUrl, { responseType: 'arraybuffer' });
     const imageBuffer = imageResponse.data;
     
-    // Converte o buffer para base64
+    // Converte o buffer para base64 (Imgur aceita upload via base64)
     const base64Image = Buffer.from(imageBuffer).toString('base64');
 
     // Prepara os dados para o upload
@@ -50,14 +48,9 @@ async function uploadImageFromUrl(imageUrl, attempt = 1) {
     return response.data.data.link;
   } catch (error) {
     if (error.response && error.response.status === 429 && attempt < MAX_ATTEMPTS) {
-      // Tenta ler o tempo de reset do header (em segundos)
-      let waitTime = Math.pow(2, attempt) * 2000; // Backoff maior: 4s, 8s, 16s
-      if (error.response.headers['x-ratelimit-reset']) {
-        const resetTime = parseInt(error.response.headers['x-ratelimit-reset']) * 1000;
-        const now = Date.now();
-        waitTime = Math.max(waitTime, resetTime - now);
-      }
-      console.warn(`Erro 429 para ${imageUrl}. Tentativa ${attempt} de ${MAX_ATTEMPTS}. Aguardando ${Math.round(waitTime / 1000)}s...`);
+      // Calcula o tempo de espera: backoff exponencial (por exemplo, 2^attempt * 1000 ms)
+      const waitTime = Math.pow(2, attempt) * 1000;
+      console.warn(`Erro 429 recebido para ${imageUrl}. Tentativa ${attempt} de ${MAX_ATTEMPTS}. Aguardando ${waitTime}ms...`);
       await delay(waitTime);
       return uploadImageFromUrl(imageUrl, attempt + 1);
     } else {
@@ -73,39 +66,28 @@ function delay(ms) {
 
 async function processGroups() {
   let finalOutput = "";
-  let allUploadedLinks = [];
   
+  // Processa cada grupo individualmente
   for (const group of groups) {
     finalOutput += `${group.name}\n`;
-    const groupLinks = [];
+    const uploadedLinks = [];
     for (const url of group.urls) {
       console.log(`Processando: ${url}`);
       const imgLink = await uploadImageFromUrl(url);
       if (imgLink) {
         console.log(`Upload realizado: ${imgLink}`);
-        groupLinks.push(`"${imgLink}"`);
-        allUploadedLinks.push(`"${imgLink}"`);
-      }
-
-      if (imgLink) {
-        const waitTime = Math.pow(2, attempt) * 1000;
-        console.warn(`Erro 429 recebido para ${imageUrl}. Tentativa ${attempt} de ${MAX_ATTEMPTS}. Aguardando ${waitTime}ms...`);
-        await delay(waitTime);
+        // Adiciona as aspas para identificar cada link (opcional)
+        uploadedLinks.push(`"${imgLink}"`);
       }
     }
-
-    if (groupLinks.length > 0) {
-      const partialGroup = groupLinks.join(",\n");
-      finalOutput += partialGroup + "\n\n";
-      console.log(`\n--- PARCIAL ${group.name} ---\n${partialGroup}\n---\n`);
-      clipboardy.writeSync(finalOutput);
-      console.log('Output parcial copiado pro clipboard!');
-    }
+    // Junta os links do grupo separados por vírgula e quebra de linha
+    finalOutput += uploadedLinks.join(",\n") + "\n\n";
   }
   
-  const totalOutput = allUploadedLinks.join(",\n");
-  clipboardy.writeSync(totalOutput);
-  console.log("\n--- FINAL TOTAL ---\n" + totalOutput + "\n---\nCopiado pro clipboard!");
+  // Copia a string final para a área de transferência
+  clipboardy.writeSync(finalOutput);
+  console.log("\nTodos os links foram copiados para a área de transferência:");
+  console.log(finalOutput);
 }
 
 processGroups();

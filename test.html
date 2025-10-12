@@ -3,12 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Embed</title>
+    <title>Cartões de Séries - Harry Potter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        .card-title {
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <video width="640" height="360" controls>
-        <source src="https://lightspeedst.net/s5/mp4_temp/gachiakuta/2/720p.mp4" type="video/mp4">
-        Seu navegador não suporta o elemento de vídeo.
-    </video>
+    <div class="container">
+        <h1>Harry Potter - Primeira Série</h1>
+        
+        <div class="section">
+            <h2>Primeiros 8 Filmes</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://i.imgur.com/wdXyskp.png" alt="Harry Potter e a Pedra Filosofal">
+                    <div class="card-title">Harry Potter e a Pedra Filosofal</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/SJYo00O.png" alt="Harry Potter e a Câmara Secreta">
+                    <div class="card-title">Harry Potter e a Câmara Secreta</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/zmMRzon.png" alt="Harry Potter e o Cálice de Fogo">
+                    <div class="card-title">Harry Potter e o Cálice de Fogo</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/bqh8keV.png" alt="Harry Potter e o Prisioneiro de Azkaban">
+                    <div class="card-title">Harry Potter e o Prisioneiro de Azkaban</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/IdOkjj3.png" alt="Harry Potter e a Ordem da Fênix">
+                    <div class="card-title">Harry Potter e a Ordem da Fênix</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/RWt83mC.png" alt="Harry Potter e o Enigma do Príncipe">
+                    <div class="card-title">Harry Potter e o Enigma do Príncipe</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/csXAXhz.png" alt="Harry Potter e as Relíquias da Morte - Parte 1">
+                    <div class="card-title">Harry Potter e as Relíquias da Morte - Parte 1</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/N6aK9dg.png" alt="Harry Potter e as Relíquias da Morte - Parte 2">
+                    <div class="card-title">Harry Potter e as Relíquias da Morte - Parte 2</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Próximos 8 Filmes</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://i.imgur.com/8xGK1SM.png" alt="Harry Potter e a Pedra Filosofal">
+                    <div class="card-title">Harry Potter e a Pedra Filosofal</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/C76mOFX.png" alt="Harry Potter e a Câmara Secreta">
+                    <div class="card-title">Harry Potter e a Câmara Secreta</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/SzZpgyk.png" alt="Harry Potter e o Cálice de Fogo">
+                    <div class="card-title">Harry Potter e o Cálice de Fogo</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/E4sncKt.png" alt="Harry Potter e o Prisioneiro de Azkaban">
+                    <div class="card-title">Harry Potter e o Prisioneiro de Azkaban</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/ClbbCiS.png" alt="Harry Potter e a Ordem da Fênix">
+                    <div class="card-title">Harry Potter e a Ordem da Fênix</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/JVYBDl1.png" alt="Harry Potter e o Enigma do Príncipe">
+                    <div class="card-title">Harry Potter e o Enigma do Príncipe</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/df4o6Du.png" alt="Harry Potter e as Relíquias da Morte - Parte 1">
+                    <div class="card-title">Harry Potter e as Relíquias da Morte - Parte 1</div>
+                </div>
+                <div class="card">
+                    <img src="https://i.imgur.com/4vclUJV.png" alt="Harry Potter e as Relíquias da Morte - Parte 2">
+                    <div class="card-title">Harry Potter e as Relíquias da Morte - Parte 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

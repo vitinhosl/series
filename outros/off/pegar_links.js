@@ -400,7 +400,7 @@ let reverse = true;
 //#endregion
 
 //#region GLOBOPLAY
- let reverse = true;
+ let reverse = false;
 
 (function() {
     // Variável para controlar a ordem da lista
@@ -820,8 +820,6 @@ let reverse = false;
     });
 })();
 //#endregion
-
-
 
 
 
