@@ -271,8 +271,8 @@ export const moviesData = [
                     thumb_season: "https://i.imgur.com/dzjvBC3.png", //https://i.imgur.com/dzjvBC3.png //https://i.imgur.com/3xYLerW.jpeg
                     movies: true,
                     episodes: [
-                        { title: "Tropa de Elite",   subtitle: "", duration: "", thumb: "https://i.imgur.com/EPCzkee.png" , url: [""] },
-                        { title: "Tropa de Elite 2", subtitle: "", duration: "", thumb: "https://i.imgur.com/W05J25R.png" , url: [""] },
+                        { title: "Tropa de Elite",   subtitle: "", duration: "", thumb: "https://i.imgur.com/EPCzkee.png" , url: ["https://filemoon.in/e/lx4a8enmd48c", "https://mdfx9dc8n.net/e/9nlg7ojpswqklj", "//streamtape.com/get_video?id=3wppQowYKxudVZy&expires=1760320388&ip=FRuOExyNRxSNFt&token=jd9otMq0Q0La&stream=1"] },
+                        { title: "Tropa de Elite 2", subtitle: "", duration: "", thumb: "https://i.imgur.com/W05J25R.png" , url: ["https://filemoon.in/e/7e5t6qic53mt", "https://mdfx9dc8n.net/e/9n9m9k7rf9z33x", "//streamtape.com/get_video?id=X1Rx6xRg2xID6Ye&expires=1760320538&ip=FRuOExyNRxSNFt&token=P1KyN0wwe41R&stream=1"] },
                     ]
                     },
                 ]

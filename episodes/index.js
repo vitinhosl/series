@@ -5,8 +5,9 @@ import { minecraftData } from './all/minecraft.js';
 import { novelsData    } from './all/novelas.js';
 import { seriesData    } from './all/series.js';
 import { moviesData    } from './all/movies.js';
+import { streamsData    } from './all/streams.js';
 
-export { animesData, biblicalData, channelData, minecraftData, novelsData, seriesData, moviesData};
+export { animesData, biblicalData, channelData, minecraftData, novelsData, seriesData, moviesData, streamsData};
 
 export const seriesAll = [
   ...biblicalData,
@@ -16,4 +17,5 @@ export const seriesAll = [
   ...animesData,
   ...minecraftData,
   ...moviesData,
+  ...streamsData,
 ];

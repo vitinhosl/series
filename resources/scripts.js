@@ -3,28 +3,28 @@ const seriesData = seriesAll;
 
 const seriesData2 = [
     {
-      group_name: "Séries",
+      group_name: "Stream",
       visible: true,
       group: [
-        //GACHIAKUTA
+        //STREAM
         {
-            name: "Gachiakuta",
+            name: "Baiano",
             thumb_page: "",
             thumb_buttons: {
               url: [
-                "https://i.imgur.com/ooWl5H3.jpeg",
+                "",
               ],
             },
             badge: "",
             type: "",
             canais: false,
             enabled: true,
-            youtube: false,
+            stream: true,
             visible: true,
             title: "", //TEXTO DO BOTÃO ENABLED OFF
             carrousel: {
                 enabled: false,
-                title: "GACHIAKUTA",
+                title: "",
                 logo: {
                   enabled: false,
                   url: "",
@@ -37,41 +37,24 @@ const seriesData2 = [
                 `
             },
             description: {
-                title: "GACHIAKUTA",
+                title: "",
                 thumb: [
-                  "https://i.imgur.com/zGt3n1a.jpeg",
-                  // "https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=1200,height=675/catalog/crunchyroll/21f44d6dc9e72efa86dc75f0860376c5.jpg",
+                  "",
                 ],
                 video: [
-                  // "https://i.imgur.com/Tfae1ar.mp4",
+                  "",
                 ],
                 sinopse:  `
-                  Em uma cidade flutuante onde os ricos descartam seu lixo (e pessoas), 
-                  Rudo é acusado falsamente de homicídio e jogado no Abismo, um lugar 
-                  infernal onde vivem monstros de lixo mutantes. Para sobreviver, 
-                  ele precisa conquistar um novo poder e se unir aos errantes Zeladores. 
-                  Rudo não quer apenas lutar com os monstros, mas também contra os 
-                  corruptos que o jogaram no Inferno.
+
                 `
             },
             season: [
                 {
-                  name: "Temporada 01",
-                  thumb_season: "https://i.imgur.com/52wI7Uz.jpeg",
+                  name: "Stream",
+                  thumb_season: "",
                   movies: false,
                   episodes: [
-                     { title: "Episódio 001", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/1.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E01_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 002", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/2.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E02_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 003", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/3.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E03_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 004", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/4.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E04_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 005", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/5.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E05_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 006", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/6.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E06_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 007", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/7.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E07_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 008", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/8.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E08_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 009", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/9.webp?v=1" , url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E09_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 010", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/10.webp?v=1", url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E10_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 011", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/11.webp?v=1", url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E11_LEGENDADO/jwplayer.html" ]},
-                     { title: "Episódio 012", subtitle: "", duration: "", thumb: "https://animefire.plus/img/video/gachiakuta/12.webp?v=1", url: [ "https://type769hj.top/ANIMES/Gachiakuta/Gachiakuta_S01E12_LEGENDADO/jwplayer.html" ]},
+                    { title: "Stream", subtitle: "", duration: "", thumb: "" , url: [ "twitch.tv/baiano", "https://kick.com/djsmierc"]},
                   ]
                 },
             ]
@@ -83,25 +66,26 @@ const seriesData2 = [
 //=======================================================================
 //CONFIGURAÇÕES
 //=======================================================================
-// localStorage.clear();                    //LIMPA TODO O CACHE (FAVORITOS, ASSISTIDOS, ETC...)
-let autoPlay                    = false;    //AUTOPLAY NOS EPISÓDIOS
-let enableArrowButtons          = false;    //EPISÓDIOS EM LISTAS >>>
-let blockRequestTop             = false;    //PERMITE BLOQUEAR A REQUISIÇÃO DO SCROLL NO TOPO (APENAS PARA TESTE DE THUMBS)
-let randomImagesCards           = false;    //AS IMAGENS ALEATÓRIAS DOS BOTÕES
-let randomImagesDescription     = false;    //AS IMAGENS ALEATÓRIAS DAS DESCRIÇÕES
-let randomImagesCarrousel       = false;    //AS IMAGENS ALEATÓRIAS DO CARROUSEL
-let animationReverseEpisodes    = false;    //ANIMAÇÃO REVERSA NOS EPISÓDIOS
-let animationPauseCarrousel     = true;     //ANIMAÇÃO DO CARROUSEL COMEÇA PAUSADA
-let animationSpeedCarrouselDrag = 0.30;     //QUANTIDADE PRESSIONADO QUE TEM QUE ARRASTAR 0.30 = 30%
-let animationSpeedCarrouselBar  = 5;        //VELOCIDADE DAS ANIMAÇÕES DO CARROUSEL
-let animationSpeedEpisodes      = 3;        //VELOCIDADE DAS ANIMAÇÕES DOS EPISÓDIOS
-let animationSpeedButtons       = 30;       //VELOCIDADE DAS ANIMAÇÕES DOS BOTÕES
-let animationSpeedSearchsKeys   = 2;        //VELOCIDADE DAS ANIMAÇÕES DOS BOTÕES DE PESQUISA
-let animationSpeedLogs          = 20;       //VELOCIDADE DAS ANIMAÇÕES DOS CARDS DE HISTÓRICOS
-let descriptionVideoLoop        = true;     //LOOP DO VIDEO
-let descriptionVideoFadeSec     = 0.0;      //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
-let descriptionVideoHover       = false;    //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
-let disableButtonFirst          = false;    //SE AS SÉRIES DESATIVADAS DEVEM SER OS PRIMEIROS
+// localStorage.clear();                       //LIMPA TODO O CACHE (FAVORITOS, ASSISTIDOS, ETC...)
+const parentDomain              = '127.0.0.1'; //HOST: 127.0.0.1 ou vitinhos.github.io
+let autoPlay                    = false;       //AUTOPLAY NOS EPISÓDIOS
+let enableArrowButtons          = false;       //EPISÓDIOS EM LISTAS >>>
+let blockRequestTop             = false;       //PERMITE BLOQUEAR A REQUISIÇÃO DO SCROLL NO TOPO (APENAS PARA TESTE DE THUMBS)
+let randomImagesCards           = false;       //AS IMAGENS ALEATÓRIAS DOS BOTÕES
+let randomImagesDescription     = false;       //AS IMAGENS ALEATÓRIAS DAS DESCRIÇÕES
+let randomImagesCarrousel       = false;       //AS IMAGENS ALEATÓRIAS DO CARROUSEL
+let animationReverseEpisodes    = false;       //ANIMAÇÃO REVERSA NOS EPISÓDIOS
+let animationPauseCarrousel     = true;        //ANIMAÇÃO DO CARROUSEL COMEÇA PAUSADA
+let animationSpeedCarrouselDrag = 0.30;        //QUANTIDADE PRESSIONADO QUE TEM QUE ARRASTAR 0.30 = 30%
+let animationSpeedCarrouselBar  = 5;           //VELOCIDADE DAS ANIMAÇÕES DO CARROUSEL
+let animationSpeedEpisodes      = 3;           //VELOCIDADE DAS ANIMAÇÕES DOS EPISÓDIOS
+let animationSpeedButtons       = 30;          //VELOCIDADE DAS ANIMAÇÕES DOS BOTÕES
+let animationSpeedSearchsKeys   = 2;           //VELOCIDADE DAS ANIMAÇÕES DOS BOTÕES DE PESQUISA
+let animationSpeedLogs          = 20;          //VELOCIDADE DAS ANIMAÇÕES DOS CARDS DE HISTÓRICOS
+let descriptionVideoLoop        = true;        //LOOP DO VIDEO
+let descriptionVideoFadeSec     = 0.0;         //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
+let descriptionVideoHover       = false;       //DURAÇÃO DE ENTRADA/SAIDA PARA O VÍDEO APARECER
+let disableButtonFirst          = false;       //SE AS SÉRIES DESATIVADAS DEVEM SER OS PRIMEIROS
 
 //=======================================================================
 //FLAGS
@@ -166,8 +150,9 @@ function coerceUrlList(u) {
 }
 
 function primaryUrlOf(ep) {
-  const list = coerceUrlList(ep && ep.url);
-  return list[0] || '';
+    const list = coerceUrlList(ep && ep.url);
+    const url = list[0] || '';
+    return convertToEmbedUrl(url);
 }
 
 function requestTop() {
@@ -966,6 +951,60 @@ function renderEpisodes(serie, seasonValue) {
   }
 }
 
+function convertToEmbedUrl(url) {
+    if (!url) return url;
+    
+    console.log('Convertendo URL:', url); // ← Adicione isto para debug
+    
+    // Se já é um URL de embed, não converte
+    if (url.includes('player.twitch.tv') || 
+        url.includes('youtube.com/embed') || 
+        url.includes('youtu.be/embed') ||
+        url.includes('player.kick.com')) {
+        return url;
+    }
+    
+    // YouTube
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        const videoId = parseYouTubeId(url);
+        if (videoId) {
+            return `https://www.youtube.com/embed/${videoId}`;
+        }
+    }
+    
+    // Twitch - URLs com ou sem protocolo
+    if (url.includes('twitch.tv')) {
+        // Adiciona https:// se não tiver protocolo
+        let fullUrl = url;
+        if (!url.startsWith('http')) {
+            fullUrl = 'https://' + url;
+        }
+        
+        const channelRegex = /(?:https?:\/\/)?(?:www\.)?twitch\.tv\/([a-zA-Z0-9_]+)/;
+        const match = fullUrl.match(channelRegex);
+        
+        if (match && match[1]) {
+            return `https://player.twitch.tv/?channel=${match[1]}&parent=${parentDomain}&autoplay=true&muted=false`;
+        }
+    }
+    
+    // Kick - URLs com ou sem protocolo
+    if (url.includes('kick.com')) {
+        let fullUrl = url;
+        if (!url.startsWith('http')) {
+            fullUrl = 'https://' + url;
+        }
+        
+        const kickRegex = /(?:https?:\/\/)?(?:www\.)?kick\.com\/([a-zA-Z0-9_]+)/;
+        const match = fullUrl.match(kickRegex);
+        if (match && match[1]) {
+            return `https://player.kick.com/${match[1]}`;
+        }
+    }
+    
+    return url;
+}
+
 //=======================================================================
 //CONTINUE ASSISTINDO
 //=======================================================================
@@ -1305,7 +1344,9 @@ function openVideoOverlay(videoUrl, seasonIndex = currentSeasonIndex, episodeInd
   const savedUrl = (savedProgress && (savedProgress.activeUrl || savedProgress.url));
   const chosenUrl = (savedUrl && initialList.includes(savedUrl)) ? savedUrl : (initialList[0] || '');
 
-  videoIframe.src = appendAutoplay(chosenUrl);
+  const convertedUrl = convertToEmbedUrl(chosenUrl);
+    
+  videoIframe.src = appendAutoplay(convertedUrl);
   videoOverlay.classList.remove('hidden');
   videoOverlay.classList.add('show');
 
@@ -1547,16 +1588,18 @@ function renderToggleButtons(button) {
   const toggleButtonsContainer = document.getElementById('toggle-buttons-container');
   toggleButtonsContainer.innerHTML = '';
 
-  // lê os URLs do atributo data-urls (array) ou cai no data-url único
   let urlList = [];
   try { urlList = JSON.parse(button.getAttribute('data-urls') || '[]'); } catch {}
   if (!Array.isArray(urlList) || urlList.length === 0) {
-    const single = button.getAttribute('data-url');
-    if (single) urlList = [single];
+      const single = button.getAttribute('data-url');
+      if (single) urlList = [single];
   }
   if (urlList.length === 0) return;
 
   const videoIframe = document.getElementById('video-iframe');
+
+  // REMOVER: Não crie convertedUrlList para evitar duplicação
+  // const convertedUrlList = urlList.map(url => convertToEmbedUrl(url));
 
   // calcula URL inicial com base no progresso salvo (activeUrl)
   let initialUrl = urlList[0];
@@ -1575,7 +1618,10 @@ function renderToggleButtons(button) {
     document.querySelectorAll('.toggle-button').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-url') === activeUrl);
     });
-    if (activeUrl) videoIframe.src = appendAutoplay(activeUrl);
+    
+    // CONVERTE o URL para embed apenas quando for usar no iframe
+    const embedUrl = convertToEmbedUrl(activeUrl);
+    if (embedUrl) videoIframe.src = appendAutoplay(embedUrl);
 
     if (currentSerie && typeof currentSeasonIndex === 'number' && typeof currentEpisodeIndex === 'number') {
       const selectedSeason = currentSerie.season[currentSeasonIndex];
@@ -1587,7 +1633,7 @@ function renderToggleButtons(button) {
         episodeIndex: currentEpisodeIndex,
         seasonIndex: currentSeasonIndex,
         thumb: selectedItem.thumb || selectedSeason.thumb_season,
-        activeUrl: activeUrl,
+        activeUrl: activeUrl, // salva o URL original, não o convertido
         url: activeUrl, // compat
         movies: selectedSeason.movies,
         activeEpisodeIndex: currentEpisodeIndex
@@ -1597,7 +1643,7 @@ function renderToggleButtons(button) {
     }
   };
 
-  // cria os botões já marcando o que corresponde à initialUrl
+  // cria os botões apenas UMA VEZ com os URLs originais
   urlList.forEach((u, i) => {
     const b = document.createElement('button');
     b.innerText = (i === 0) ? 'PRINCIPAL' : `OPÇÃO ${i + 1}`;
@@ -1608,7 +1654,18 @@ function renderToggleButtons(button) {
     toggleButtonsContainer.appendChild(b);
   });
 
-  // garante que iframe/progresso estejam alinhados com a initialUrl
+  // REMOVER: Não crie botões duplicados com convertedUrlList
+  // convertedUrlList.forEach((u, i) => {
+  //     const b = document.createElement('button');
+  //     b.innerText = (i === 0) ? 'PRINCIPAL' : `OPÇÃO ${i + 1}`;
+  //     b.classList.add('toggle-button');
+  //     if (u === initialUrl) b.classList.add('active');
+  //     b.setAttribute('data-url', u);
+  //     b.addEventListener('click', () => updateActiveButton(u));
+  //     toggleButtonsContainer.appendChild(b);
+  // });
+
+  // Inicializa com o URL convertido
   updateActiveButton(initialUrl);
 }
 
@@ -2591,17 +2648,17 @@ function renderSeriesButtons(filteredGroups, mode = 'normal') {
           <div class="info">
             <h1>${serie.name}</h1>
             ${serie.enabled ? (
-              serie.season.length > 0 ? (
-                serie.canais
-                  ? `<p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>`
-                  : `
-                    ${serie.season.filter(s => !s.movies).length > 1 ? `<p>Temporadas: ${serie.season.filter(s => !s.movies).length}</p>` : ``}
-                    ${serie.season.some(s => s.movies) ? `<p>Filmes: ${serie.season.filter(s => s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
-                    ${serie.season.filter(s => !s.movies).reduce((t,s)=>t + (s.episodes?.length||0), 0) > 0
-                    ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t,s)=>t + (s.episodes?.length||0), 0)}</p>`
-                    : ``}
-
-                  `)
+             serie.season.length > 0 ? (
+                  serie.canais ? `<p>Canais disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>`
+                  : serie.stream ? `<p>Stream disponíveis: ${serie.season.reduce((total, season) => total + season.episodes.length, 0)}</p>`
+                    : `
+                      ${serie.season.filter(s => !s.movies).length > 1 ? `<p>Temporadas: ${serie.season.filter(s => !s.movies).length}</p>` : ``}
+                      ${serie.season.some(s => s.movies) ? `<p>Filmes: ${serie.season.filter(s => s.movies).reduce((t, s) => t + s.episodes.length, 0)}</p>` : ``}
+                      ${serie.season.filter(s => !s.movies).reduce((t,s)=>t + (s.episodes?.length||0), 0) > 0
+                      ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t,s)=>t + (s.episodes?.length||0), 0)}</p>`
+                      : ``}
+                    `
+              )
               : `<p>Nenhum conteúdo disponível</p>`
             ) : ``}
             ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>` : `<button class="watch-button">${serie.title || 'INDISPONÍVEL'}</button>`}
@@ -2941,9 +2998,9 @@ function updateFavorites(mode = 'normal') {
                 <h1>${serie.name}</h1>
                 ${
                   serie.enabled ? (
-                    seasons.length > 0
-                      ? (serie.canais
-                          ? `<p>Canais disponíveis: ${seasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>`
+                      seasons.length > 0
+                        ? (serie.canais ? `<p>Canais disponíveis: ${seasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>`
+                        : serie.stream ? `<p>Streams disponíveis: ${seasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>`
                           : `
                             ${epSeasons.length  > 1 ? `<p>Temporadas: ${epSeasons.length}</p>` : ``}
                             ${movieSeasons.length   ? `<p>Filmes: ${movieSeasons.reduce((t, s) => t + (s.episodes?.length || 0), 0)}</p>` : ``}
@@ -2951,7 +3008,7 @@ function updateFavorites(mode = 'normal') {
                             ? `<p>Episódios disponíveis: ${serie.season.filter(s => !s.movies).reduce((t,s)=>t + (s.episodes?.length||0), 0)}</p>`
                             : ``}
                           `)
-                      : `<p>Nenhum conteúdo disponível</p>`
+                        : `<p>Nenhum conteúdo disponível</p>`
                   ) : ``
                 }
                 ${serie.enabled ? `<button class="watch-button">ASSISTIR</button>`
@@ -3406,7 +3463,6 @@ function dedupeLogsCache() {
 //=======================================================================
 //MENU LATERAL
 //=======================================================================
-// ==== Menu Lateral (1 ativo por vez; sem "Todas") ======================
 const MenuSidebar = (() => {
   let els = {};
   let opts = { filterMode: 'dom', triggerSelector: 'label.menu', seriesData: [] };

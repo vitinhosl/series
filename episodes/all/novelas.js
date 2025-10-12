@@ -1146,7 +1146,7 @@ export const novelsData= [
                         thumb_season: "https://i.imgur.com/epqKqvA.png", //https://i.imgur.com/cuvk7RK.png //https://i.imgur.com/WvprO07.png //https://i.imgur.com/epqKqvA.png
                         movies: false,
                         episodes: [
-                            { title: "Episódio 001", subtitle: "", duration: "45:33", thumb: "", url: ["https://cdn-novflix.com/storage5/AUS/AUS-001.mp4"] },
+                            { title: "Episódio 001", subtitle: "", duration: "45:33", thumb: "https://s03.video.glbimg.com/x216/9907194.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-001.mp4"] },
                             { title: "Episódio 002", subtitle: "", duration: "42:14", thumb: "https://s04.video.glbimg.com/x216/9907195.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-002.mp4"] },
                             { title: "Episódio 003", subtitle: "", duration: "42:36", thumb: "https://s03.video.glbimg.com/x216/9907670.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-003.mp4"] },
                             { title: "Episódio 004", subtitle: "", duration: "41:45", thumb: "https://s04.video.glbimg.com/x216/9907183.jpg", url: ["https://cdn-novflix.com/storage5/AUS/AUS-004.mp4"] },

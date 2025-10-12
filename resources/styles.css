@@ -3113,18 +3113,6 @@ p {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 #main{ 
   max-width: 100% !important; 
 }
@@ -3160,8 +3148,6 @@ p {
 .brand{ display: flex; align-items: center; gap: 10px; }
 .brand-logo svg{ width: 28px; height: 28px; display:block; }
 .brand-title{ font-weight: 800; letter-spacing: .3px; }
-
-
 
 .close-btn {
     border: none;
@@ -3239,3 +3225,31 @@ p {
 .menu .menu-container { 
     display:none !important; 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.stream-container { text-align: center; }
+.stream-buttons { display: flex; justify-content: space-around; gap: 10px; margin: 10px 0; }
+.stream-button { 
+  padding: 10px 15px; border-radius: 5px; color: white; 
+  display: flex; align-items: center; gap: 5px; cursor: pointer; 
+  transition: opacity 0.3s;
+}
+.stream-button:hover { opacity: 0.8; }
+.stream-button.twitch { background: #9146ff; }
+.stream-button.kick { background: #00ff88; }
+.stream-button.youtube { background: #ff0000; }
+.icon-twitch, .icon-kick, .icon-youtube { 
+  width: 20px; height: 20px; /* Adicione SVGs ou imagens para ícones */
+  background: url('path/to/icons.svg') no-repeat; /* Exemplo */
+}
+.no-stream-message { color: #666; font-style: italic; }
